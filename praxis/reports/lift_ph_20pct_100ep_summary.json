@@ -1,0 +1,216 @@
+{
+  "rows": [
+    {
+      "training_seed": 1,
+      "condition": "nominal",
+      "episodes": 20,
+      "bc_successes": 15,
+      "extension_successes": 19,
+      "bc_only_successes": 0,
+      "extension_only_successes": 4,
+      "bc_mean_steps": 134.7,
+      "extension_mean_steps": 62.6
+    },
+    {
+      "training_seed": 1,
+      "condition": "offset_x_2cm",
+      "episodes": 20,
+      "bc_successes": 13,
+      "extension_successes": 16,
+      "bc_only_successes": 0,
+      "extension_only_successes": 3,
+      "bc_mean_steps": 171.2,
+      "extension_mean_steps": 115.5
+    },
+    {
+      "training_seed": 1,
+      "condition": "offset_x_minus_2cm",
+      "episodes": 20,
+      "bc_successes": 16,
+      "extension_successes": 20,
+      "bc_only_successes": 0,
+      "extension_only_successes": 4,
+      "bc_mean_steps": 117.55,
+      "extension_mean_steps": 42.4
+    },
+    {
+      "training_seed": 1,
+      "condition": "impulse_x_1",
+      "episodes": 20,
+      "bc_successes": 15,
+      "extension_successes": 20,
+      "bc_only_successes": 0,
+      "extension_only_successes": 5,
+      "bc_mean_steps": 138.9,
+      "extension_mean_steps": 44.0
+    },
+    {
+      "training_seed": 1,
+      "condition": "impulse_x_minus_1",
+      "episodes": 20,
+      "bc_successes": 14,
+      "extension_successes": 18,
+      "bc_only_successes": 1,
+      "extension_only_successes": 5,
+      "bc_mean_steps": 153.45,
+      "extension_mean_steps": 83.75
+    },
+    {
+      "training_seed": 2,
+      "condition": "nominal",
+      "episodes": 20,
+      "bc_successes": 16,
+      "extension_successes": 20,
+      "bc_only_successes": 0,
+      "extension_only_successes": 4,
+      "bc_mean_steps": 118.15,
+      "extension_mean_steps": 47.0
+    },
+    {
+      "training_seed": 2,
+      "condition": "offset_x_2cm",
+      "episodes": 20,
+      "bc_successes": 14,
+      "extension_successes": 20,
+      "bc_only_successes": 0,
+      "extension_only_successes": 6,
+      "bc_mean_steps": 156.65,
+      "extension_mean_steps": 49.45
+    },
+    {
+      "training_seed": 2,
+      "condition": "offset_x_minus_2cm",
+      "episodes": 20,
+      "bc_successes": 17,
+      "extension_successes": 20,
+      "bc_only_successes": 0,
+      "extension_only_successes": 3,
+      "bc_mean_steps": 101.5,
+      "extension_mean_steps": 44.9
+    },
+    {
+      "training_seed": 2,
+      "condition": "impulse_x_1",
+      "episodes": 20,
+      "bc_successes": 14,
+      "extension_successes": 20,
+      "bc_only_successes": 0,
+      "extension_only_successes": 6,
+      "bc_mean_steps": 157.1,
+      "extension_mean_steps": 44.5
+    },
+    {
+      "training_seed": 2,
+      "condition": "impulse_x_minus_1",
+      "episodes": 20,
+      "bc_successes": 16,
+      "extension_successes": 20,
+      "bc_only_successes": 0,
+      "extension_only_successes": 4,
+      "bc_mean_steps": 121.75,
+      "extension_mean_steps": 48.45
+    },
+    {
+      "training_seed": 3,
+      "condition": "nominal",
+      "episodes": 20,
+      "bc_successes": 18,
+      "extension_successes": 19,
+      "bc_only_successes": 0,
+      "extension_only_successes": 1,
+      "bc_mean_steps": 86.1,
+      "extension_mean_steps": 63.75
+    },
+    {
+      "training_seed": 3,
+      "condition": "offset_x_2cm",
+      "episodes": 20,
+      "bc_successes": 16,
+      "extension_successes": 18,
+      "bc_only_successes": 0,
+      "extension_only_successes": 2,
+      "bc_mean_steps": 118.8,
+      "extension_mean_steps": 82.4
+    },
+    {
+      "training_seed": 3,
+      "condition": "offset_x_minus_2cm",
+      "episodes": 20,
+      "bc_successes": 15,
+      "extension_successes": 19,
+      "bc_only_successes": 0,
+      "extension_only_successes": 4,
+      "bc_mean_steps": 135.0,
+      "extension_mean_steps": 61.15
+    },
+    {
+      "training_seed": 3,
+      "condition": "impulse_x_1",
+      "episodes": 20,
+      "bc_successes": 17,
+      "extension_successes": 20,
+      "bc_only_successes": 0,
+      "extension_only_successes": 3,
+      "bc_mean_steps": 102.65,
+      "extension_mean_steps": 43.1
+    },
+    {
+      "training_seed": 3,
+      "condition": "impulse_x_minus_1",
+      "episodes": 20,
+      "bc_successes": 17,
+      "extension_successes": 18,
+      "bc_only_successes": 1,
+      "extension_only_successes": 2,
+      "bc_mean_steps": 103.95,
+      "extension_mean_steps": 85.05
+    }
+  ],
+  "aggregate": {
+    "nominal": {
+      "episodes_per_method": 60,
+      "bc_successes": 49,
+      "extension_successes": 58,
+      "bc_success_rate": 0.8166666666666667,
+      "extension_success_rate": 0.9666666666666667,
+      "mean_paired_rate_difference_by_training_seed": 0.15000000000000002,
+      "sd_paired_rate_difference_by_training_seed": 0.08660254037844387
+    },
+    "offset_x_2cm": {
+      "episodes_per_method": 60,
+      "bc_successes": 43,
+      "extension_successes": 54,
+      "bc_success_rate": 0.7166666666666667,
+      "extension_success_rate": 0.9,
+      "mean_paired_rate_difference_by_training_seed": 0.18333333333333332,
+      "sd_paired_rate_difference_by_training_seed": 0.10408329997330663
+    },
+    "offset_x_minus_2cm": {
+      "episodes_per_method": 60,
+      "bc_successes": 48,
+      "extension_successes": 59,
+      "bc_success_rate": 0.8,
+      "extension_success_rate": 0.9833333333333333,
+      "mean_paired_rate_difference_by_training_seed": 0.18333333333333335,
+      "sd_paired_rate_difference_by_training_seed": 0.028867513459481298
+    },
+    "impulse_x_1": {
+      "episodes_per_method": 60,
+      "bc_successes": 46,
+      "extension_successes": 60,
+      "bc_success_rate": 0.7666666666666667,
+      "extension_success_rate": 1.0,
+      "mean_paired_rate_difference_by_training_seed": 0.23333333333333334,
+      "sd_paired_rate_difference_by_training_seed": 0.07637626158259733
+    },
+    "impulse_x_minus_1": {
+      "episodes_per_method": 60,
+      "bc_successes": 47,
+      "extension_successes": 56,
+      "bc_success_rate": 0.7833333333333333,
+      "extension_success_rate": 0.9333333333333333,
+      "mean_paired_rate_difference_by_training_seed": 0.15000000000000002,
+      "sd_paired_rate_difference_by_training_seed": 0.08660254037844387
+    }
+  }
+}
