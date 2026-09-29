@@ -136,3 +136,6 @@ Rollout-JSONs und Logs liegen aus Platzgründen im ignorierten
 [`praxis/reports/`](../../praxis/reports/). Der Gradiententest für den Zusatzverlust und der Test
 des konsistenten relativen Würfelmerkmals stehen in
 [`test_contraction.py`](../../praxis/tests/test_contraction.py).
+
+Die [Ergebnisgrafiken und ausdrücklich hypothetischen Trends](../../praxis/reports/GRAFIKEN.md)
+zeigen die Messwerte und drei mögliche weitere Entwicklungen bis 300 Epochen.
