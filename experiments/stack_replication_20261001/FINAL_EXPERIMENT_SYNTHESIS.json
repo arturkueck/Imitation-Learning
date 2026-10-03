@@ -1,0 +1,3023 @@
+{
+  "schema_version": "1.0",
+  "language": "de",
+  "created_date": "2026-10-02",
+  "scope": "Vorhandene Experimente; sechs finale unnormalisierte Hauptcheckpoints, separate Zusatzversuche getrennt",
+  "research_questions": [
+    {
+      "id": "RQ1",
+      "question": "Bleibt der Closed-loop-Erfolgsunterschied der beiden finalen Policy-Konfigurationen über unabhängige Trainingsinitialisierungen bestehen?",
+      "status": "belegt",
+      "answer": "Direct erreicht in allen drei Trainingsseeds stabile Stacks mit Erfolgsraten von 70,0–77,5%; Diffusion jeweils null. Der Abstand ist für diese Aufgabe, Starts und finalen Konfigurationen konsistent. Keine Signifikanz- oder allgemeine Policy-Rangfolge wird behauptet. [S2]",
+      "evidence": [
+        "S2"
+      ]
+    },
+    {
+      "id": "RQ2",
+      "question": "Ist die exakte Reproduktion des abrupten Expert-Lift→Transport-Wechsels einschließlich voller Lifthöhe für einen stabilen Stack notwendig?",
+      "status": "belegt",
+      "answer": "Die Notwendigkeit exakten Expert-Timings beziehungsweise voller Expert-Lifthöhe ist für diese Starts durch erfolgreiche Gegenbeispiele widerlegt. Direct bildet den lokalen Sprung schwach ab, startet offline früh und erzielt dennoch stabile Stacks; 68/89 Erfolge ohne Vollhöhe, 70/89 mit vorzeitigem Transport. Timing kann weiterhin Robustheit beeinflussen, ist aber nicht mit Aufgabenlösbarkeit gleichzusetzen. [S2/S3]",
+      "evidence": [
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "id": "RQ3",
+      "question": "Welche Unterschiede in Stärke, Zielrichtung und bedingter Streuung zeigen direkte Regression und Diffusionssampling auf identischen Expert-Transportbeobachtungen?",
+      "status": "belegt",
+      "answer": "Die untersuchten Direct-Outputs sind stärker und konsistenter zielgerichtet. Diffusion ist zustandsbedingt breit, erfüllt nur selten gemeinsam die Stärke-/Richtungsschwellen, enthält jedoch bei jeder Panel-Transportobservation brauchbare Einzelsamples. Diese Aussage beschreibt trainierte Implementierungen. Ein isolierter Nachteil von Stochastik, Diffusionslernziel oder Architektur ist **nicht belegt / offen**. [S5/S6]",
+      "evidence": [
+        "S5",
+        "S6"
+      ]
+    },
+    {
+      "id": "RQ4",
+      "question": "Welche beobachteten Defizite sind mit dem Diffusion-Scheitern vereinbar, und welche isolierte Ursache ist nachgewiesen?",
+      "status": "teilweise gestützt",
+      "answer": "Unzuverlässiger Zieltransport, häufige frühe Grasp-Verluste mit Öffnungskommandos und mögliche Unterbrechungen durch Neusampling sind mit dem Scheitern vereinbar. Die Defizite sind beobachtet; ihre isolierten kausalen Beiträge und Entstehungsursachen sind **nicht belegt / offen**. Keine allgemeine Zweimodalität oder alleinige Gripper-/Replanningursache wird behauptet. [S3/S7/S8]",
+      "evidence": [
+        "S3",
+        "S7",
+        "S8"
+      ]
+    },
+    {
+      "id": "RQ5",
+      "question": "Beheben Replanning-Horizonte 1/2/4 oder DDIM-Schrittzahlen 5/10/50 bei unveränderten finalen Diffusionsgewichten das Ausbleiben stabiler Stacks?",
+      "status": "belegt",
+      "answer": "Die konkret geprüften Horizonte und DDIM-Schrittzahlen beheben das Scheitern bei den finalen Gewichten nicht: jeder Seed bleibt bei 0/40 und ohne Release. Teilindikatoren ändern sich. DDIM-20 besitzt keinen Closed-loop-Test. Für ungetestete Konfigurationen oder neu trainierte Modelle bleibt die Wirkung **nicht belegt / offen**. [S5/S9/S10]",
+      "evidence": [
+        "S5",
+        "S9",
+        "S10"
+      ]
+    }
+  ],
+  "quantitative_results": {
+    "original_closed_loop": {
+      "direct": {
+        "training_seeds": [
+          1,
+          2,
+          3
+        ],
+        "starts_per_seed": 40,
+        "stable_stacks": [
+          28,
+          30,
+          31
+        ],
+        "mean_success_rate": 0.7416666666666667,
+        "sample_sd_success_rate": 0.0381881307912987,
+        "sd_ddof": 1,
+        "evidence": [
+          "S2",
+          "S7"
+        ]
+      },
+      "diffusion": {
+        "training_seeds": [
+          1,
+          2,
+          3
+        ],
+        "starts_per_seed": 40,
+        "stable_stacks": [
+          0,
+          0,
+          0
+        ],
+        "mean_success_rate": 0.0,
+        "sample_sd_success_rate": 0.0,
+        "sd_ddof": 1,
+        "evidence": [
+          "S2",
+          "S7"
+        ]
+      }
+    },
+    "offline_transport": [
+      {
+        "model": "direct",
+        "training_seed": 1,
+        "n_observations": 100,
+        "chunk_index": 1,
+        "draws": 1,
+        "xy_mean": 0.5289197564125061,
+        "goal_cosine_mean": 0.9982064303112148,
+        "original_xy_over_expert_median": 0.7600810825824738,
+        "original_boundary_response_median": 0.01653347909450531,
+        "original_early_fraction": 1.0,
+        "evidence": [
+          "S2",
+          "S6"
+        ]
+      },
+      {
+        "model": "direct",
+        "training_seed": 2,
+        "n_observations": 100,
+        "chunk_index": 1,
+        "draws": 1,
+        "xy_mean": 0.5494281053543091,
+        "goal_cosine_mean": 0.9939028721474804,
+        "original_xy_over_expert_median": 0.8145938813686371,
+        "original_boundary_response_median": 0.01967527624219656,
+        "original_early_fraction": 1.0,
+        "evidence": [
+          "S2",
+          "S6"
+        ]
+      },
+      {
+        "model": "direct",
+        "training_seed": 3,
+        "n_observations": 100,
+        "chunk_index": 1,
+        "draws": 1,
+        "xy_mean": 0.5456739068031311,
+        "goal_cosine_mean": 0.9970520815097494,
+        "original_xy_over_expert_median": 0.775894969701767,
+        "original_boundary_response_median": 0.017079263925552368,
+        "original_early_fraction": 1.0,
+        "evidence": [
+          "S2",
+          "S6"
+        ]
+      },
+      {
+        "model": "diffusion",
+        "training_seed": 1,
+        "n_observations": 100,
+        "chunk_index": 1,
+        "draws": 64,
+        "xy_mean": 0.3030978739261627,
+        "goal_cosine_mean": 0.49646753391831594,
+        "original_xy_over_expert_median": 0.28675101697444916,
+        "original_boundary_response_median": 0.006150002358481288,
+        "original_early_fraction": 0.45,
+        "evidence": [
+          "S2",
+          "S6"
+        ]
+      },
+      {
+        "model": "diffusion",
+        "training_seed": 2,
+        "n_observations": 100,
+        "chunk_index": 1,
+        "draws": 64,
+        "xy_mean": 0.29139330983161926,
+        "goal_cosine_mean": 0.4814337863362963,
+        "original_xy_over_expert_median": 0.2580120265483856,
+        "original_boundary_response_median": 0.004256628220900893,
+        "original_early_fraction": 0.4,
+        "evidence": [
+          "S2",
+          "S6"
+        ]
+      },
+      {
+        "model": "diffusion",
+        "training_seed": 3,
+        "n_observations": 100,
+        "chunk_index": 1,
+        "draws": 64,
+        "xy_mean": 0.2897007465362549,
+        "goal_cosine_mean": 0.47676232483575726,
+        "original_xy_over_expert_median": 0.2535507380962372,
+        "original_boundary_response_median": 0.005831805523484945,
+        "original_early_fraction": 0.48125,
+        "evidence": [
+          "S2",
+          "S6"
+        ]
+      }
+    ],
+    "diffusion_transport_samples_ddim10": [
+      {
+        "seed": 1,
+        "steps": 10,
+        "group": "transport_6_10",
+        "n_observations": 100,
+        "xy_mean": 0.3030978710949421,
+        "xy_q10": 0.04060107842087746,
+        "xy_q50": 0.1790008582174778,
+        "xy_q90": 0.7667102512717247,
+        "mean_action_xy": 0.22747681517153978,
+        "goal_cosine_mean": 0.4964675339183159,
+        "mean_action_goal_cosine": 0.8805564293415513,
+        "p_strong_targeted": 0.32125,
+        "p_strong_targeted_closed": 0.3196875,
+        "p_lift_mode": 0.2490625,
+        "p_transport_mode": 0.25421875,
+        "both_modes_15pct": 0.73,
+        "all_samples_weak": 0.0,
+        "mean_weak_with_usable_samples": 0.59,
+        "sample_var_x": 0.06484804547391831,
+        "sample_var_y": 0.06501701796427369,
+        "sample_var_z": 0.06373641280457377,
+        "sample_var_gripper": 0.01714040067337919,
+        "xy_sample_variance": 0.09269588848575949
+      },
+      {
+        "seed": 2,
+        "steps": 10,
+        "group": "transport_6_10",
+        "n_observations": 100,
+        "xy_mean": 0.2913932999968529,
+        "xy_q10": 0.04020219037309289,
+        "xy_q50": 0.1644933243095875,
+        "xy_q90": 0.7567958799004555,
+        "mean_action_xy": 0.20277477911673486,
+        "goal_cosine_mean": 0.4814337863362963,
+        "mean_action_goal_cosine": 0.9093313496163062,
+        "p_strong_targeted": 0.2928125,
+        "p_strong_targeted_closed": 0.29109375,
+        "p_lift_mode": 0.2340625,
+        "p_transport_mode": 0.22484375,
+        "both_modes_15pct": 0.69,
+        "all_samples_weak": 0.0,
+        "mean_weak_with_usable_samples": 0.73,
+        "sample_var_x": 0.06516498573124409,
+        "sample_var_y": 0.06669533796608448,
+        "sample_var_z": 0.08585592988878489,
+        "sample_var_gripper": 0.02313345971204399,
+        "xy_sample_variance": 0.09001269832253456
+      },
+      {
+        "seed": 3,
+        "steps": 10,
+        "group": "transport_6_10",
+        "n_observations": 100,
+        "xy_mean": 0.2897007393836975,
+        "xy_q10": 0.04130160765722394,
+        "xy_q50": 0.16321390494704247,
+        "xy_q90": 0.7542732685804368,
+        "mean_action_xy": 0.2068055735528469,
+        "goal_cosine_mean": 0.47676232483575726,
+        "mean_action_goal_cosine": 0.8931559214102428,
+        "p_strong_targeted": 0.28453125,
+        "p_strong_targeted_closed": 0.28328125,
+        "p_lift_mode": 0.27015625,
+        "p_transport_mode": 0.224375,
+        "both_modes_15pct": 0.66,
+        "all_samples_weak": 0.0,
+        "mean_weak_with_usable_samples": 0.69,
+        "sample_var_x": 0.061434672698378566,
+        "sample_var_y": 0.06709752945229411,
+        "sample_var_z": 0.0685964947193861,
+        "sample_var_gripper": 0.015323277061397675,
+        "xy_sample_variance": 0.09005283441394568
+      }
+    ],
+    "diffusion_transport_samples_all_ddim": [
+      {
+        "seed": 1,
+        "steps": 5,
+        "group": "transport_6_10",
+        "n_observations": 100,
+        "xy_mean": 0.30031157195568087,
+        "xy_q10": 0.04778605239465833,
+        "xy_q50": 0.19593648307025432,
+        "xy_q90": 0.7237557888031005,
+        "mean_action_xy": 0.22660941373556853,
+        "goal_cosine_mean": 0.5355350793015504,
+        "mean_action_goal_cosine": 0.8739900058838657,
+        "p_strong_targeted": 0.33546875,
+        "p_strong_targeted_closed": 0.33171875,
+        "p_lift_mode": 0.24078125,
+        "p_transport_mode": 0.2484375,
+        "both_modes_15pct": 0.7,
+        "all_samples_weak": 0.0,
+        "mean_weak_with_usable_samples": 0.62,
+        "sample_var_x": 0.056535680145025254,
+        "sample_var_y": 0.05910119201987982,
+        "sample_var_z": 0.051049122251570225,
+        "sample_var_gripper": 0.03390561720098049,
+        "xy_sample_variance": 0.07980428570881486
+      },
+      {
+        "seed": 1,
+        "steps": 10,
+        "group": "transport_6_10",
+        "n_observations": 100,
+        "xy_mean": 0.3030978710949421,
+        "xy_q10": 0.04060107842087746,
+        "xy_q50": 0.1790008582174778,
+        "xy_q90": 0.7667102512717247,
+        "mean_action_xy": 0.22747681517153978,
+        "goal_cosine_mean": 0.4964675339183159,
+        "mean_action_goal_cosine": 0.8805564293415513,
+        "p_strong_targeted": 0.32125,
+        "p_strong_targeted_closed": 0.3196875,
+        "p_lift_mode": 0.2490625,
+        "p_transport_mode": 0.25421875,
+        "both_modes_15pct": 0.73,
+        "all_samples_weak": 0.0,
+        "mean_weak_with_usable_samples": 0.59,
+        "sample_var_x": 0.06484804547391831,
+        "sample_var_y": 0.06501701796427369,
+        "sample_var_z": 0.06373641280457377,
+        "sample_var_gripper": 0.01714040067337919,
+        "xy_sample_variance": 0.09269588848575949
+      },
+      {
+        "seed": 1,
+        "steps": 20,
+        "group": "transport_6_10",
+        "n_observations": 100,
+        "xy_mean": 0.3162137433886528,
+        "xy_q10": 0.03910393672063947,
+        "xy_q50": 0.18462358079850674,
+        "xy_q90": 0.804517522752285,
+        "mean_action_xy": 0.2373097336292267,
+        "goal_cosine_mean": 0.49655466407691223,
+        "mean_action_goal_cosine": 0.8881977652913102,
+        "p_strong_targeted": 0.33,
+        "p_strong_targeted_closed": 0.32921875,
+        "p_lift_mode": 0.24953125,
+        "p_transport_mode": 0.26640625,
+        "both_modes_15pct": 0.75,
+        "all_samples_weak": 0.0,
+        "mean_weak_with_usable_samples": 0.58,
+        "sample_var_x": 0.07176606598310173,
+        "sample_var_y": 0.07086001314222813,
+        "sample_var_z": 0.0691032149270177,
+        "sample_var_gripper": 0.012972776458518638,
+        "xy_sample_variance": 0.10211915345862507
+      },
+      {
+        "seed": 1,
+        "steps": 50,
+        "group": "transport_6_10",
+        "n_observations": 100,
+        "xy_mean": 0.3281109231710434,
+        "xy_q10": 0.03918209876865149,
+        "xy_q50": 0.19230744428932667,
+        "xy_q90": 0.8330662998557091,
+        "mean_action_xy": 0.24583239259198308,
+        "goal_cosine_mean": 0.4983342247340478,
+        "mean_action_goal_cosine": 0.8888709468547195,
+        "p_strong_targeted": 0.33828125,
+        "p_strong_targeted_closed": 0.33640625,
+        "p_lift_mode": 0.2465625,
+        "p_transport_mode": 0.27421875,
+        "both_modes_15pct": 0.73,
+        "all_samples_weak": 0.0,
+        "mean_weak_with_usable_samples": 0.56,
+        "sample_var_x": 0.07491103827953338,
+        "sample_var_y": 0.07737026888877153,
+        "sample_var_z": 0.07110404297709465,
+        "sample_var_gripper": 0.026032193363789702,
+        "xy_sample_variance": 0.10837508957833052
+      },
+      {
+        "seed": 2,
+        "steps": 5,
+        "group": "transport_6_10",
+        "n_observations": 100,
+        "xy_mean": 0.28530536353588104,
+        "xy_q10": 0.047445597611367706,
+        "xy_q50": 0.18184502072632314,
+        "xy_q90": 0.6923859497904777,
+        "mean_action_xy": 0.2006415380910039,
+        "goal_cosine_mean": 0.5238916435490131,
+        "mean_action_goal_cosine": 0.898386536925406,
+        "p_strong_targeted": 0.3028125,
+        "p_strong_targeted_closed": 0.29875,
+        "p_lift_mode": 0.22953125,
+        "p_transport_mode": 0.224375,
+        "both_modes_15pct": 0.72,
+        "all_samples_weak": 0.0,
+        "mean_weak_with_usable_samples": 0.77,
+        "sample_var_x": 0.05442249912768602,
+        "sample_var_y": 0.05890892801806331,
+        "sample_var_z": 0.06526289708912372,
+        "sample_var_gripper": 0.04305699310723867,
+        "xy_sample_variance": 0.07424232950434088
+      },
+      {
+        "seed": 2,
+        "steps": 10,
+        "group": "transport_6_10",
+        "n_observations": 100,
+        "xy_mean": 0.2913932999968529,
+        "xy_q10": 0.04020219037309289,
+        "xy_q50": 0.1644933243095875,
+        "xy_q90": 0.7567958799004555,
+        "mean_action_xy": 0.20277477911673486,
+        "goal_cosine_mean": 0.4814337863362963,
+        "mean_action_goal_cosine": 0.9093313496163062,
+        "p_strong_targeted": 0.2928125,
+        "p_strong_targeted_closed": 0.29109375,
+        "p_lift_mode": 0.2340625,
+        "p_transport_mode": 0.22484375,
+        "both_modes_15pct": 0.69,
+        "all_samples_weak": 0.0,
+        "mean_weak_with_usable_samples": 0.73,
+        "sample_var_x": 0.06516498573124409,
+        "sample_var_y": 0.06669533796608448,
+        "sample_var_z": 0.08585592988878489,
+        "sample_var_gripper": 0.02313345971204399,
+        "xy_sample_variance": 0.09001269832253456
+      },
+      {
+        "seed": 2,
+        "steps": 20,
+        "group": "transport_6_10",
+        "n_observations": 100,
+        "xy_mean": 0.3014525413513184,
+        "xy_q10": 0.040058860778808596,
+        "xy_q50": 0.16294022478163242,
+        "xy_q90": 0.7953952872753143,
+        "mean_action_xy": 0.2085665407963097,
+        "goal_cosine_mean": 0.469518029791929,
+        "mean_action_goal_cosine": 0.9169264428629582,
+        "p_strong_targeted": 0.2934375,
+        "p_strong_targeted_closed": 0.2925,
+        "p_lift_mode": 0.235625,
+        "p_transport_mode": 0.231875,
+        "both_modes_15pct": 0.71,
+        "all_samples_weak": 0.0,
+        "mean_weak_with_usable_samples": 0.7,
+        "sample_var_x": 0.07036211967468262,
+        "sample_var_y": 0.07356249563395977,
+        "sample_var_z": 0.09378423482179642,
+        "sample_var_gripper": 0.01919660878196737,
+        "xy_sample_variance": 0.09848659597337246
+      },
+      {
+        "seed": 2,
+        "steps": 50,
+        "group": "transport_6_10",
+        "n_observations": 100,
+        "xy_mean": 0.3110153721272945,
+        "xy_q10": 0.04148814184591174,
+        "xy_q50": 0.1685589361190796,
+        "xy_q90": 0.8234490743279457,
+        "mean_action_xy": 0.21210411029402165,
+        "goal_cosine_mean": 0.4577618963108149,
+        "mean_action_goal_cosine": 0.9071138676745069,
+        "p_strong_targeted": 0.29671875,
+        "p_strong_targeted_closed": 0.29453125,
+        "p_lift_mode": 0.23234375,
+        "p_transport_mode": 0.23484375,
+        "both_modes_15pct": 0.68,
+        "all_samples_weak": 0.0,
+        "mean_weak_with_usable_samples": 0.67,
+        "sample_var_x": 0.07170525960624217,
+        "sample_var_y": 0.08160626456141472,
+        "sample_var_z": 0.0943495673686266,
+        "sample_var_gripper": 0.030851108357674094,
+        "xy_sample_variance": 0.1034886697307229
+      },
+      {
+        "seed": 3,
+        "steps": 5,
+        "group": "transport_6_10",
+        "n_observations": 100,
+        "xy_mean": 0.2764780846238136,
+        "xy_q10": 0.04717308055609465,
+        "xy_q50": 0.17381367467343808,
+        "xy_q90": 0.677507828772068,
+        "mean_action_xy": 0.1950447278469801,
+        "goal_cosine_mean": 0.4811682492385868,
+        "mean_action_goal_cosine": 0.873306944314995,
+        "p_strong_targeted": 0.28125,
+        "p_strong_targeted_closed": 0.27828125,
+        "p_lift_mode": 0.26515625,
+        "p_transport_mode": 0.1959375,
+        "both_modes_15pct": 0.57,
+        "all_samples_weak": 0.0,
+        "mean_weak_with_usable_samples": 0.75,
+        "sample_var_x": 0.04998620497062802,
+        "sample_var_y": 0.05780609037727118,
+        "sample_var_z": 0.05493864297866821,
+        "sample_var_gripper": 0.02689142828217882,
+        "xy_sample_variance": 0.07190335052087903
+      },
+      {
+        "seed": 3,
+        "steps": 10,
+        "group": "transport_6_10",
+        "n_observations": 100,
+        "xy_mean": 0.2897007393836975,
+        "xy_q10": 0.04130160765722394,
+        "xy_q50": 0.16321390494704247,
+        "xy_q90": 0.7542732685804368,
+        "mean_action_xy": 0.2068055735528469,
+        "goal_cosine_mean": 0.47676232483575726,
+        "mean_action_goal_cosine": 0.8931559214102428,
+        "p_strong_targeted": 0.28453125,
+        "p_strong_targeted_closed": 0.28328125,
+        "p_lift_mode": 0.27015625,
+        "p_transport_mode": 0.224375,
+        "both_modes_15pct": 0.66,
+        "all_samples_weak": 0.0,
+        "mean_weak_with_usable_samples": 0.69,
+        "sample_var_x": 0.061434672698378566,
+        "sample_var_y": 0.06709752945229411,
+        "sample_var_z": 0.0685964947193861,
+        "sample_var_gripper": 0.015323277061397675,
+        "xy_sample_variance": 0.09005283441394568
+      },
+      {
+        "seed": 3,
+        "steps": 20,
+        "group": "transport_6_10",
+        "n_observations": 100,
+        "xy_mean": 0.30293778017163275,
+        "xy_q10": 0.038924199305474756,
+        "xy_q50": 0.16778712689876557,
+        "xy_q90": 0.7985395297408104,
+        "mean_action_xy": 0.21746076352894306,
+        "goal_cosine_mean": 0.48254662432208023,
+        "mean_action_goal_cosine": 0.9060721334105593,
+        "p_strong_targeted": 0.29546875,
+        "p_strong_targeted_closed": 0.294375,
+        "p_lift_mode": 0.25609375,
+        "p_transport_mode": 0.241875,
+        "both_modes_15pct": 0.69,
+        "all_samples_weak": 0.0,
+        "mean_weak_with_usable_samples": 0.65,
+        "sample_var_x": 0.06809522004798055,
+        "sample_var_y": 0.0736199719645083,
+        "sample_var_z": 0.0730797241255641,
+        "sample_var_gripper": 0.01328551299040555,
+        "xy_sample_variance": 0.10019253183156251
+      },
+      {
+        "seed": 3,
+        "steps": 50,
+        "group": "transport_6_10",
+        "n_observations": 100,
+        "xy_mean": 0.3162493173778057,
+        "xy_q10": 0.03982394313439727,
+        "xy_q50": 0.17382857866585255,
+        "xy_q90": 0.8289155712723733,
+        "mean_action_xy": 0.2254631323926151,
+        "goal_cosine_mean": 0.48361439443009907,
+        "mean_action_goal_cosine": 0.9094653880629524,
+        "p_strong_targeted": 0.30515625,
+        "p_strong_targeted_closed": 0.30375,
+        "p_lift_mode": 0.2396875,
+        "p_transport_mode": 0.25328125,
+        "both_modes_15pct": 0.72,
+        "all_samples_weak": 0.0,
+        "mean_weak_with_usable_samples": 0.61,
+        "sample_var_x": 0.0715415158495307,
+        "sample_var_y": 0.08088195975869894,
+        "sample_var_z": 0.07416373521089553,
+        "sample_var_gripper": 0.017791629126659245,
+        "xy_sample_variance": 0.1063482466712594
+      }
+    ],
+    "sample_coverage": [
+      {
+        "training_seed": 1,
+        "observations": 100,
+        "observations_with_usable_sample": 100,
+        "draws_per_observation": 64,
+        "min_conditional_probability": 0.078125,
+        "max_conditional_probability": 0.640625,
+        "evidence": [
+          "S5",
+          "S6"
+        ]
+      },
+      {
+        "training_seed": 2,
+        "observations": 100,
+        "observations_with_usable_sample": 100,
+        "draws_per_observation": 64,
+        "min_conditional_probability": 0.109375,
+        "max_conditional_probability": 0.59375,
+        "evidence": [
+          "S5",
+          "S6"
+        ]
+      },
+      {
+        "training_seed": 3,
+        "observations": 100,
+        "observations_with_usable_sample": 100,
+        "draws_per_observation": 64,
+        "min_conditional_probability": 0.0625,
+        "max_conditional_probability": 0.625,
+        "evidence": [
+          "S5",
+          "S6"
+        ]
+      }
+    ],
+    "chunk_first_vs_next_three": [
+      {
+        "model": "direct",
+        "seed": 1,
+        "steps": 0,
+        "group": "transport_6_10",
+        "first_executed_index": 1,
+        "comparison_indices": [
+          2,
+          3,
+          4
+        ],
+        "first_xy_mean": 0.5289197564125061,
+        "later_xy_mean": 0.4117266535758972,
+        "paired_xy_delta_mean": 0.11719318479299545,
+        "paired_xy_delta_median": 0.12662333250045776,
+        "fraction_first_weaker": 0.09,
+        "first_xyz_mean": 0.5499476790428162,
+        "later_xyz_mean": 0.42861831188201904,
+        "expert_first_xy_mean": 0.7272409796714783,
+        "expert_later_xy_mean": 0.5930418968200684,
+        "expert_adjusted_xy_delta_mean": -0.017005952075123787
+      },
+      {
+        "model": "diffusion",
+        "seed": 1,
+        "steps": 10,
+        "group": "transport_6_10",
+        "first_executed_index": 1,
+        "comparison_indices": [
+          2,
+          3,
+          4
+        ],
+        "first_xy_mean": 0.3030979037284851,
+        "later_xy_mean": 0.2537756562232971,
+        "paired_xy_delta_mean": 0.0493222139775753,
+        "paired_xy_delta_median": 0.05410045385360718,
+        "fraction_first_weaker": 0.09,
+        "first_xyz_mean": 0.3969731032848358,
+        "later_xyz_mean": 0.3593136966228485,
+        "expert_first_xy_mean": 0.7272409796714783,
+        "expert_later_xy_mean": 0.5930418968200684,
+        "expert_adjusted_xy_delta_mean": -0.0848769024014473
+      },
+      {
+        "model": "direct",
+        "seed": 2,
+        "steps": 0,
+        "group": "transport_6_10",
+        "first_executed_index": 1,
+        "comparison_indices": [
+          2,
+          3,
+          4
+        ],
+        "first_xy_mean": 0.5494281053543091,
+        "later_xy_mean": 0.4340362548828125,
+        "paired_xy_delta_mean": 0.11539188027381897,
+        "paired_xy_delta_median": 0.12438376247882843,
+        "fraction_first_weaker": 0.06,
+        "first_xyz_mean": 0.5719132423400879,
+        "later_xyz_mean": 0.4518834352493286,
+        "expert_first_xy_mean": 0.7272409796714783,
+        "expert_later_xy_mean": 0.5930418968200684,
+        "expert_adjusted_xy_delta_mean": -0.01880723424255848
+      },
+      {
+        "model": "diffusion",
+        "seed": 2,
+        "steps": 10,
+        "group": "transport_6_10",
+        "first_executed_index": 1,
+        "comparison_indices": [
+          2,
+          3,
+          4
+        ],
+        "first_xy_mean": 0.29139330983161926,
+        "later_xy_mean": 0.2508251667022705,
+        "paired_xy_delta_mean": 0.04056813195347786,
+        "paired_xy_delta_median": 0.047213584184646606,
+        "fraction_first_weaker": 0.13,
+        "first_xyz_mean": 0.4054323434829712,
+        "later_xyz_mean": 0.38534656167030334,
+        "expert_first_xy_mean": 0.7272409796714783,
+        "expert_later_xy_mean": 0.5930418968200684,
+        "expert_adjusted_xy_delta_mean": -0.09363099187612534
+      },
+      {
+        "model": "direct",
+        "seed": 3,
+        "steps": 0,
+        "group": "transport_6_10",
+        "first_executed_index": 1,
+        "comparison_indices": [
+          2,
+          3,
+          4
+        ],
+        "first_xy_mean": 0.5456739068031311,
+        "later_xy_mean": 0.4240652024745941,
+        "paired_xy_delta_mean": 0.12160874158143997,
+        "paired_xy_delta_median": 0.13059791922569275,
+        "fraction_first_weaker": 0.04,
+        "first_xyz_mean": 0.5711736083030701,
+        "later_xyz_mean": 0.4410996437072754,
+        "expert_first_xy_mean": 0.7272409796714783,
+        "expert_later_xy_mean": 0.5930418968200684,
+        "expert_adjusted_xy_delta_mean": -0.012590364553034306
+      },
+      {
+        "model": "diffusion",
+        "seed": 3,
+        "steps": 10,
+        "group": "transport_6_10",
+        "first_executed_index": 1,
+        "comparison_indices": [
+          2,
+          3,
+          4
+        ],
+        "first_xy_mean": 0.2897007465362549,
+        "later_xy_mean": 0.24646501243114471,
+        "paired_xy_delta_mean": 0.043235696852207184,
+        "paired_xy_delta_median": 0.04872826486825943,
+        "fraction_first_weaker": 0.08,
+        "first_xyz_mean": 0.3923279643058777,
+        "later_xyz_mean": 0.3626147210597992,
+        "expert_first_xy_mean": 0.7272409796714783,
+        "expert_later_xy_mean": 0.5930418968200684,
+        "expert_adjusted_xy_delta_mean": -0.09096342325210571
+      }
+    ],
+    "closed_loop_inference_matrix": [
+      {
+        "model": "diffusion",
+        "training_seed": 1,
+        "executed_actions": 1,
+        "ddim_steps": 10,
+        "comparison_group": "replanning",
+        "n_starts": 40,
+        "stable_stacks": 0,
+        "stage_counts": {
+          "grasp": 31,
+          "lift": 24,
+          "transport_started": 5,
+          "near": 0,
+          "position": 0,
+          "lower": 0,
+          "release": 0,
+          "sustained_success": 0
+        },
+        "first_missing_counts": {
+          "transport_started": 19,
+          "grasp": 9,
+          "near": 5,
+          "lift": 7
+        },
+        "max_height_m_median": 0.8895316588779083,
+        "held_lifted_min_distance_m_median": 0.11461605978788997,
+        "n_starts_held_lifted_distance_available": 24,
+        "starts_with_accidental_loss": 28,
+        "gripper_switch_count_median": 174.0,
+        "opening_while_held_fraction_median": 0.27956989247311825,
+        "held_lifted_xy_mean_median": 0.04409887918589512,
+        "stable_start_seeds": []
+      },
+      {
+        "model": "diffusion",
+        "training_seed": 1,
+        "executed_actions": 2,
+        "ddim_steps": 10,
+        "comparison_group": "replanning",
+        "n_starts": 40,
+        "stable_stacks": 0,
+        "stage_counts": {
+          "grasp": 31,
+          "lift": 24,
+          "transport_started": 15,
+          "near": 4,
+          "position": 0,
+          "lower": 0,
+          "release": 0,
+          "sustained_success": 0
+        },
+        "first_missing_counts": {
+          "transport_started": 9,
+          "grasp": 9,
+          "near": 11,
+          "position": 4,
+          "lift": 7
+        },
+        "max_height_m_median": 0.9147602908126087,
+        "held_lifted_min_distance_m_median": 0.09043841882780207,
+        "n_starts_held_lifted_distance_available": 24,
+        "starts_with_accidental_loss": 29,
+        "gripper_switch_count_median": 87.5,
+        "opening_while_held_fraction_median": 0.16272189349112426,
+        "held_lifted_xy_mean_median": 0.10935328611037022,
+        "stable_start_seeds": []
+      },
+      {
+        "model": "diffusion",
+        "training_seed": 1,
+        "executed_actions": 2,
+        "ddim_steps": 10,
+        "comparison_group": "ddim",
+        "n_starts": 40,
+        "stable_stacks": 0,
+        "stage_counts": {
+          "grasp": 31,
+          "lift": 24,
+          "transport_started": 15,
+          "near": 4,
+          "position": 0,
+          "lower": 0,
+          "release": 0,
+          "sustained_success": 0
+        },
+        "first_missing_counts": {
+          "transport_started": 9,
+          "grasp": 9,
+          "near": 11,
+          "position": 4,
+          "lift": 7
+        },
+        "max_height_m_median": 0.9147602908126087,
+        "held_lifted_min_distance_m_median": 0.09043841882780207,
+        "n_starts_held_lifted_distance_available": 24,
+        "starts_with_accidental_loss": 29,
+        "gripper_switch_count_median": 87.5,
+        "opening_while_held_fraction_median": 0.16272189349112426,
+        "held_lifted_xy_mean_median": 0.10935328611037022,
+        "stable_start_seeds": []
+      },
+      {
+        "model": "diffusion",
+        "training_seed": 1,
+        "executed_actions": 2,
+        "ddim_steps": 50,
+        "comparison_group": "ddim",
+        "n_starts": 40,
+        "stable_stacks": 0,
+        "stage_counts": {
+          "grasp": 27,
+          "lift": 25,
+          "transport_started": 12,
+          "near": 5,
+          "position": 0,
+          "lower": 0,
+          "release": 0,
+          "sustained_success": 0
+        },
+        "first_missing_counts": {
+          "transport_started": 13,
+          "grasp": 13,
+          "lift": 2,
+          "position": 5,
+          "near": 7
+        },
+        "max_height_m_median": 0.9058399722797421,
+        "held_lifted_min_distance_m_median": 0.07922614932872374,
+        "n_starts_held_lifted_distance_available": 25,
+        "starts_with_accidental_loss": 24,
+        "gripper_switch_count_median": 83.5,
+        "opening_while_held_fraction_median": 0.1650485436893204,
+        "held_lifted_xy_mean_median": 0.06303805792248748,
+        "stable_start_seeds": []
+      },
+      {
+        "model": "diffusion",
+        "training_seed": 1,
+        "executed_actions": 2,
+        "ddim_steps": 5,
+        "comparison_group": "ddim",
+        "n_starts": 40,
+        "stable_stacks": 0,
+        "stage_counts": {
+          "grasp": 29,
+          "lift": 21,
+          "transport_started": 9,
+          "near": 5,
+          "position": 1,
+          "lower": 0,
+          "release": 0,
+          "sustained_success": 0
+        },
+        "first_missing_counts": {
+          "transport_started": 12,
+          "grasp": 11,
+          "lift": 8,
+          "lower": 1,
+          "near": 5,
+          "position": 3
+        },
+        "max_height_m_median": 0.8857902414176984,
+        "held_lifted_min_distance_m_median": 0.09217190153022478,
+        "n_starts_held_lifted_distance_available": 21,
+        "starts_with_accidental_loss": 28,
+        "gripper_switch_count_median": 103.0,
+        "opening_while_held_fraction_median": 0.21993127147766323,
+        "held_lifted_xy_mean_median": 0.04789267590971185,
+        "stable_start_seeds": []
+      },
+      {
+        "model": "diffusion",
+        "training_seed": 1,
+        "executed_actions": 4,
+        "ddim_steps": 10,
+        "comparison_group": "replanning",
+        "n_starts": 40,
+        "stable_stacks": 0,
+        "stage_counts": {
+          "grasp": 34,
+          "lift": 23,
+          "transport_started": 12,
+          "near": 1,
+          "position": 1,
+          "lower": 1,
+          "release": 0,
+          "sustained_success": 0
+        },
+        "first_missing_counts": {
+          "near": 11,
+          "grasp": 6,
+          "lift": 11,
+          "transport_started": 11,
+          "release": 1
+        },
+        "max_height_m_median": 0.92282927744104,
+        "held_lifted_min_distance_m_median": 0.0866226528515786,
+        "n_starts_held_lifted_distance_available": 23,
+        "starts_with_accidental_loss": 34,
+        "gripper_switch_count_median": 50.0,
+        "opening_while_held_fraction_median": 0.17855953279744194,
+        "held_lifted_xy_mean_median": 0.06133475910075386,
+        "stable_start_seeds": []
+      },
+      {
+        "model": "diffusion",
+        "training_seed": 2,
+        "executed_actions": 1,
+        "ddim_steps": 10,
+        "comparison_group": "replanning",
+        "n_starts": 40,
+        "stable_stacks": 0,
+        "stage_counts": {
+          "grasp": 29,
+          "lift": 14,
+          "transport_started": 2,
+          "near": 1,
+          "position": 0,
+          "lower": 0,
+          "release": 0,
+          "sustained_success": 0
+        },
+        "first_missing_counts": {
+          "transport_started": 12,
+          "grasp": 11,
+          "lift": 15,
+          "near": 1,
+          "position": 1
+        },
+        "max_height_m_median": 0.8677109898241739,
+        "held_lifted_min_distance_m_median": 0.09542480567495662,
+        "n_starts_held_lifted_distance_available": 14,
+        "starts_with_accidental_loss": 23,
+        "gripper_switch_count_median": 177.0,
+        "opening_while_held_fraction_median": 0.27530364372469635,
+        "held_lifted_xy_mean_median": 0.05181708006405829,
+        "stable_start_seeds": []
+      },
+      {
+        "model": "diffusion",
+        "training_seed": 2,
+        "executed_actions": 2,
+        "ddim_steps": 10,
+        "comparison_group": "replanning",
+        "n_starts": 40,
+        "stable_stacks": 0,
+        "stage_counts": {
+          "grasp": 27,
+          "lift": 18,
+          "transport_started": 10,
+          "near": 2,
+          "position": 0,
+          "lower": 0,
+          "release": 0,
+          "sustained_success": 0
+        },
+        "first_missing_counts": {
+          "grasp": 13,
+          "lift": 9,
+          "transport_started": 8,
+          "near": 8,
+          "position": 2
+        },
+        "max_height_m_median": 0.8698148626262401,
+        "held_lifted_min_distance_m_median": 0.07700693479184413,
+        "n_starts_held_lifted_distance_available": 18,
+        "starts_with_accidental_loss": 27,
+        "gripper_switch_count_median": 90.5,
+        "opening_while_held_fraction_median": 0.1955128205128205,
+        "held_lifted_xy_mean_median": 0.0754562847143144,
+        "stable_start_seeds": []
+      },
+      {
+        "model": "diffusion",
+        "training_seed": 2,
+        "executed_actions": 2,
+        "ddim_steps": 10,
+        "comparison_group": "ddim",
+        "n_starts": 40,
+        "stable_stacks": 0,
+        "stage_counts": {
+          "grasp": 27,
+          "lift": 18,
+          "transport_started": 10,
+          "near": 2,
+          "position": 0,
+          "lower": 0,
+          "release": 0,
+          "sustained_success": 0
+        },
+        "first_missing_counts": {
+          "grasp": 13,
+          "lift": 9,
+          "transport_started": 8,
+          "near": 8,
+          "position": 2
+        },
+        "max_height_m_median": 0.8698148626262401,
+        "held_lifted_min_distance_m_median": 0.07700693479184413,
+        "n_starts_held_lifted_distance_available": 18,
+        "starts_with_accidental_loss": 27,
+        "gripper_switch_count_median": 90.5,
+        "opening_while_held_fraction_median": 0.1955128205128205,
+        "held_lifted_xy_mean_median": 0.0754562847143144,
+        "stable_start_seeds": []
+      },
+      {
+        "model": "diffusion",
+        "training_seed": 2,
+        "executed_actions": 2,
+        "ddim_steps": 50,
+        "comparison_group": "ddim",
+        "n_starts": 40,
+        "stable_stacks": 0,
+        "stage_counts": {
+          "grasp": 30,
+          "lift": 22,
+          "transport_started": 13,
+          "near": 4,
+          "position": 1,
+          "lower": 0,
+          "release": 0,
+          "sustained_success": 0
+        },
+        "first_missing_counts": {
+          "grasp": 10,
+          "transport_started": 9,
+          "lift": 8,
+          "lower": 1,
+          "near": 9,
+          "position": 3
+        },
+        "max_height_m_median": 0.8921736368604392,
+        "held_lifted_min_distance_m_median": 0.0604768487188821,
+        "n_starts_held_lifted_distance_available": 22,
+        "starts_with_accidental_loss": 25,
+        "gripper_switch_count_median": 80.5,
+        "opening_while_held_fraction_median": 0.13948855739831373,
+        "held_lifted_xy_mean_median": 0.08731216272299118,
+        "stable_start_seeds": []
+      },
+      {
+        "model": "diffusion",
+        "training_seed": 2,
+        "executed_actions": 2,
+        "ddim_steps": 5,
+        "comparison_group": "ddim",
+        "n_starts": 40,
+        "stable_stacks": 0,
+        "stage_counts": {
+          "grasp": 27,
+          "lift": 14,
+          "transport_started": 5,
+          "near": 0,
+          "position": 0,
+          "lower": 0,
+          "release": 0,
+          "sustained_success": 0
+        },
+        "first_missing_counts": {
+          "lift": 13,
+          "grasp": 13,
+          "transport_started": 9,
+          "near": 5
+        },
+        "max_height_m_median": 0.873776597945373,
+        "held_lifted_min_distance_m_median": 0.1262582582327926,
+        "n_starts_held_lifted_distance_available": 14,
+        "starts_with_accidental_loss": 27,
+        "gripper_switch_count_median": 98.5,
+        "opening_while_held_fraction_median": 0.23497267759562843,
+        "held_lifted_xy_mean_median": 0.051320672399385696,
+        "stable_start_seeds": []
+      },
+      {
+        "model": "diffusion",
+        "training_seed": 2,
+        "executed_actions": 4,
+        "ddim_steps": 10,
+        "comparison_group": "replanning",
+        "n_starts": 40,
+        "stable_stacks": 0,
+        "stage_counts": {
+          "grasp": 27,
+          "lift": 20,
+          "transport_started": 12,
+          "near": 4,
+          "position": 0,
+          "lower": 0,
+          "release": 0,
+          "sustained_success": 0
+        },
+        "first_missing_counts": {
+          "grasp": 13,
+          "transport_started": 8,
+          "position": 4,
+          "near": 8,
+          "lift": 7
+        },
+        "max_height_m_median": 0.8798081255984372,
+        "held_lifted_min_distance_m_median": 0.09020737855737038,
+        "n_starts_held_lifted_distance_available": 20,
+        "starts_with_accidental_loss": 26,
+        "gripper_switch_count_median": 52.5,
+        "opening_while_held_fraction_median": 0.14006514657980457,
+        "held_lifted_xy_mean_median": 0.09042008821409575,
+        "stable_start_seeds": []
+      },
+      {
+        "model": "diffusion",
+        "training_seed": 3,
+        "executed_actions": 1,
+        "ddim_steps": 10,
+        "comparison_group": "replanning",
+        "n_starts": 40,
+        "stable_stacks": 0,
+        "stage_counts": {
+          "grasp": 24,
+          "lift": 19,
+          "transport_started": 3,
+          "near": 0,
+          "position": 0,
+          "lower": 0,
+          "release": 0,
+          "sustained_success": 0
+        },
+        "first_missing_counts": {
+          "near": 3,
+          "grasp": 16,
+          "lift": 5,
+          "transport_started": 16
+        },
+        "max_height_m_median": 0.8658972105267007,
+        "held_lifted_min_distance_m_median": 0.10019146463072584,
+        "n_starts_held_lifted_distance_available": 19,
+        "starts_with_accidental_loss": 21,
+        "gripper_switch_count_median": 151.0,
+        "opening_while_held_fraction_median": 0.16148470173893903,
+        "held_lifted_xy_mean_median": 0.05324231492937551,
+        "stable_start_seeds": []
+      },
+      {
+        "model": "diffusion",
+        "training_seed": 3,
+        "executed_actions": 2,
+        "ddim_steps": 10,
+        "comparison_group": "replanning",
+        "n_starts": 40,
+        "stable_stacks": 0,
+        "stage_counts": {
+          "grasp": 25,
+          "lift": 21,
+          "transport_started": 7,
+          "near": 2,
+          "position": 1,
+          "lower": 0,
+          "release": 0,
+          "sustained_success": 0
+        },
+        "first_missing_counts": {
+          "transport_started": 14,
+          "grasp": 15,
+          "lift": 4,
+          "position": 1,
+          "near": 5,
+          "lower": 1
+        },
+        "max_height_m_median": 0.8895177662799888,
+        "held_lifted_min_distance_m_median": 0.08428530435722645,
+        "n_starts_held_lifted_distance_available": 21,
+        "starts_with_accidental_loss": 22,
+        "gripper_switch_count_median": 87.0,
+        "opening_while_held_fraction_median": 0.15254237288135594,
+        "held_lifted_xy_mean_median": 0.05344853996690516,
+        "stable_start_seeds": []
+      },
+      {
+        "model": "diffusion",
+        "training_seed": 3,
+        "executed_actions": 2,
+        "ddim_steps": 10,
+        "comparison_group": "ddim",
+        "n_starts": 40,
+        "stable_stacks": 0,
+        "stage_counts": {
+          "grasp": 25,
+          "lift": 21,
+          "transport_started": 7,
+          "near": 2,
+          "position": 1,
+          "lower": 0,
+          "release": 0,
+          "sustained_success": 0
+        },
+        "first_missing_counts": {
+          "transport_started": 14,
+          "grasp": 15,
+          "lift": 4,
+          "position": 1,
+          "near": 5,
+          "lower": 1
+        },
+        "max_height_m_median": 0.8895177662799888,
+        "held_lifted_min_distance_m_median": 0.08428530435722645,
+        "n_starts_held_lifted_distance_available": 21,
+        "starts_with_accidental_loss": 22,
+        "gripper_switch_count_median": 87.0,
+        "opening_while_held_fraction_median": 0.15254237288135594,
+        "held_lifted_xy_mean_median": 0.05344853996690516,
+        "stable_start_seeds": []
+      },
+      {
+        "model": "diffusion",
+        "training_seed": 3,
+        "executed_actions": 2,
+        "ddim_steps": 50,
+        "comparison_group": "ddim",
+        "n_starts": 40,
+        "stable_stacks": 0,
+        "stage_counts": {
+          "grasp": 29,
+          "lift": 21,
+          "transport_started": 7,
+          "near": 1,
+          "position": 1,
+          "lower": 0,
+          "release": 0,
+          "sustained_success": 0
+        },
+        "first_missing_counts": {
+          "transport_started": 14,
+          "grasp": 11,
+          "near": 6,
+          "lift": 8,
+          "lower": 1
+        },
+        "max_height_m_median": 0.8855882157713479,
+        "held_lifted_min_distance_m_median": 0.1058421715370758,
+        "n_starts_held_lifted_distance_available": 21,
+        "starts_with_accidental_loss": 26,
+        "gripper_switch_count_median": 82.5,
+        "opening_while_held_fraction_median": 0.14600550964187328,
+        "held_lifted_xy_mean_median": 0.0658889679199694,
+        "stable_start_seeds": []
+      },
+      {
+        "model": "diffusion",
+        "training_seed": 3,
+        "executed_actions": 2,
+        "ddim_steps": 5,
+        "comparison_group": "ddim",
+        "n_starts": 40,
+        "stable_stacks": 0,
+        "stage_counts": {
+          "grasp": 33,
+          "lift": 24,
+          "transport_started": 4,
+          "near": 2,
+          "position": 1,
+          "lower": 0,
+          "release": 0,
+          "sustained_success": 0
+        },
+        "first_missing_counts": {
+          "transport_started": 20,
+          "grasp": 7,
+          "lift": 9,
+          "position": 1,
+          "near": 2,
+          "lower": 1
+        },
+        "max_height_m_median": 0.9083343113170141,
+        "held_lifted_min_distance_m_median": 0.11679302819611881,
+        "n_starts_held_lifted_distance_available": 24,
+        "starts_with_accidental_loss": 29,
+        "gripper_switch_count_median": 94.0,
+        "opening_while_held_fraction_median": 0.22448979591836735,
+        "held_lifted_xy_mean_median": 0.043913962179657706,
+        "stable_start_seeds": []
+      },
+      {
+        "model": "diffusion",
+        "training_seed": 3,
+        "executed_actions": 4,
+        "ddim_steps": 10,
+        "comparison_group": "replanning",
+        "n_starts": 40,
+        "stable_stacks": 0,
+        "stage_counts": {
+          "grasp": 26,
+          "lift": 22,
+          "transport_started": 11,
+          "near": 5,
+          "position": 1,
+          "lower": 0,
+          "release": 0,
+          "sustained_success": 0
+        },
+        "first_missing_counts": {
+          "grasp": 14,
+          "lift": 4,
+          "transport_started": 11,
+          "position": 4,
+          "near": 6,
+          "lower": 1
+        },
+        "max_height_m_median": 0.898719956129691,
+        "held_lifted_min_distance_m_median": 0.0894414153630305,
+        "n_starts_held_lifted_distance_available": 21,
+        "starts_with_accidental_loss": 24,
+        "gripper_switch_count_median": 46.0,
+        "opening_while_held_fraction_median": 0.14296439296439295,
+        "held_lifted_xy_mean_median": 0.08876414614255736,
+        "stable_start_seeds": []
+      },
+      {
+        "model": "direct",
+        "training_seed": 1,
+        "executed_actions": 1,
+        "ddim_steps": 0,
+        "comparison_group": "replanning",
+        "n_starts": 40,
+        "stable_stacks": 27,
+        "stage_counts": {
+          "grasp": 37,
+          "lift": 37,
+          "transport_started": 37,
+          "near": 37,
+          "position": 35,
+          "lower": 34,
+          "release": 28,
+          "sustained_success": 27
+        },
+        "first_missing_counts": {
+          "position": 2,
+          "success": 27,
+          "grasp": 3,
+          "release": 6,
+          "sustained_success": 1,
+          "lower": 1
+        },
+        "max_height_m_median": 1.036528677306356,
+        "held_lifted_min_distance_m_median": 0.003645522173496363,
+        "n_starts_held_lifted_distance_available": 37,
+        "starts_with_accidental_loss": 10,
+        "gripper_switch_count_median": 2.0,
+        "opening_while_held_fraction_median": 0.060240963855421686,
+        "held_lifted_xy_mean_median": 0.22521107185470074,
+        "stable_start_seeds": [
+          46001,
+          46002,
+          46003,
+          46004,
+          46006,
+          46007,
+          46008,
+          46009,
+          46010,
+          46011,
+          46013,
+          46014,
+          46015,
+          46016,
+          46017,
+          46018,
+          46019,
+          46021,
+          46022,
+          46023,
+          46026,
+          46028,
+          46032,
+          46033,
+          46034,
+          46035,
+          46038
+        ]
+      },
+      {
+        "model": "direct",
+        "training_seed": 1,
+        "executed_actions": 2,
+        "ddim_steps": 0,
+        "comparison_group": "replanning",
+        "n_starts": 40,
+        "stable_stacks": 28,
+        "stage_counts": {
+          "grasp": 37,
+          "lift": 37,
+          "transport_started": 37,
+          "near": 37,
+          "position": 37,
+          "lower": 36,
+          "release": 30,
+          "sustained_success": 28
+        },
+        "first_missing_counts": {
+          "sustained_success": 2,
+          "success": 28,
+          "grasp": 3,
+          "release": 6,
+          "lower": 1
+        },
+        "max_height_m_median": 1.0388713456880478,
+        "held_lifted_min_distance_m_median": 0.0033683399730537154,
+        "n_starts_held_lifted_distance_available": 37,
+        "starts_with_accidental_loss": 7,
+        "gripper_switch_count_median": 2.0,
+        "opening_while_held_fraction_median": 0.05952380952380952,
+        "held_lifted_xy_mean_median": 0.21316176780662835,
+        "stable_start_seeds": [
+          46001,
+          46002,
+          46003,
+          46004,
+          46006,
+          46007,
+          46008,
+          46009,
+          46010,
+          46011,
+          46013,
+          46014,
+          46015,
+          46016,
+          46017,
+          46018,
+          46019,
+          46021,
+          46022,
+          46023,
+          46026,
+          46028,
+          46031,
+          46032,
+          46033,
+          46034,
+          46035,
+          46038
+        ]
+      },
+      {
+        "model": "direct",
+        "training_seed": 1,
+        "executed_actions": 4,
+        "ddim_steps": 0,
+        "comparison_group": "replanning",
+        "n_starts": 40,
+        "stable_stacks": 31,
+        "stage_counts": {
+          "grasp": 39,
+          "lift": 39,
+          "transport_started": 39,
+          "near": 39,
+          "position": 37,
+          "lower": 36,
+          "release": 32,
+          "sustained_success": 31
+        },
+        "first_missing_counts": {
+          "position": 2,
+          "success": 31,
+          "grasp": 1,
+          "release": 4,
+          "lower": 1,
+          "sustained_success": 1
+        },
+        "max_height_m_median": 1.0422147463793223,
+        "held_lifted_min_distance_m_median": 0.0047132909438769004,
+        "n_starts_held_lifted_distance_available": 39,
+        "starts_with_accidental_loss": 8,
+        "gripper_switch_count_median": 2.0,
+        "opening_while_held_fraction_median": 0.05825242718446602,
+        "held_lifted_xy_mean_median": 0.19934394540689865,
+        "stable_start_seeds": [
+          46001,
+          46002,
+          46003,
+          46004,
+          46006,
+          46007,
+          46008,
+          46009,
+          46010,
+          46011,
+          46013,
+          46014,
+          46015,
+          46016,
+          46017,
+          46018,
+          46019,
+          46020,
+          46021,
+          46022,
+          46023,
+          46026,
+          46028,
+          46030,
+          46031,
+          46032,
+          46033,
+          46034,
+          46035,
+          46036,
+          46038
+        ]
+      },
+      {
+        "model": "direct",
+        "training_seed": 2,
+        "executed_actions": 1,
+        "ddim_steps": 0,
+        "comparison_group": "replanning",
+        "n_starts": 40,
+        "stable_stacks": 29,
+        "stage_counts": {
+          "grasp": 36,
+          "lift": 36,
+          "transport_started": 35,
+          "near": 35,
+          "position": 35,
+          "lower": 35,
+          "release": 31,
+          "sustained_success": 29
+        },
+        "first_missing_counts": {
+          "success": 29,
+          "grasp": 4,
+          "sustained_success": 2,
+          "transport_started": 1,
+          "release": 4
+        },
+        "max_height_m_median": 1.0378902654874222,
+        "held_lifted_min_distance_m_median": 0.0028326432187862774,
+        "n_starts_held_lifted_distance_available": 36,
+        "starts_with_accidental_loss": 2,
+        "gripper_switch_count_median": 2.0,
+        "opening_while_held_fraction_median": 0.05848153214774282,
+        "held_lifted_xy_mean_median": 0.22159379542974028,
+        "stable_start_seeds": [
+          46000,
+          46002,
+          46003,
+          46004,
+          46006,
+          46007,
+          46009,
+          46010,
+          46013,
+          46014,
+          46015,
+          46016,
+          46017,
+          46018,
+          46019,
+          46020,
+          46021,
+          46022,
+          46023,
+          46026,
+          46027,
+          46029,
+          46031,
+          46032,
+          46033,
+          46034,
+          46036,
+          46037,
+          46038
+        ]
+      },
+      {
+        "model": "direct",
+        "training_seed": 2,
+        "executed_actions": 2,
+        "ddim_steps": 0,
+        "comparison_group": "replanning",
+        "n_starts": 40,
+        "stable_stacks": 30,
+        "stage_counts": {
+          "grasp": 37,
+          "lift": 37,
+          "transport_started": 37,
+          "near": 37,
+          "position": 35,
+          "lower": 34,
+          "release": 30,
+          "sustained_success": 30
+        },
+        "first_missing_counts": {
+          "success": 30,
+          "grasp": 3,
+          "release": 4,
+          "position": 2,
+          "lower": 1
+        },
+        "max_height_m_median": 1.0396095442306472,
+        "held_lifted_min_distance_m_median": 0.0034332146287801087,
+        "n_starts_held_lifted_distance_available": 37,
+        "starts_with_accidental_loss": 4,
+        "gripper_switch_count_median": 2.0,
+        "opening_while_held_fraction_median": 0.05952380952380952,
+        "held_lifted_xy_mean_median": 0.2098045235870194,
+        "stable_start_seeds": [
+          46000,
+          46003,
+          46004,
+          46006,
+          46007,
+          46008,
+          46009,
+          46010,
+          46011,
+          46013,
+          46014,
+          46015,
+          46016,
+          46017,
+          46018,
+          46019,
+          46020,
+          46022,
+          46023,
+          46026,
+          46028,
+          46029,
+          46031,
+          46032,
+          46033,
+          46034,
+          46036,
+          46037,
+          46038,
+          46039
+        ]
+      },
+      {
+        "model": "direct",
+        "training_seed": 2,
+        "executed_actions": 4,
+        "ddim_steps": 0,
+        "comparison_group": "replanning",
+        "n_starts": 40,
+        "stable_stacks": 28,
+        "stage_counts": {
+          "grasp": 37,
+          "lift": 37,
+          "transport_started": 36,
+          "near": 36,
+          "position": 33,
+          "lower": 33,
+          "release": 29,
+          "sustained_success": 28
+        },
+        "first_missing_counts": {
+          "success": 28,
+          "grasp": 3,
+          "release": 4,
+          "position": 3,
+          "transport_started": 1,
+          "sustained_success": 1
+        },
+        "max_height_m_median": 1.0427624974562542,
+        "held_lifted_min_distance_m_median": 0.003467317156876671,
+        "n_starts_held_lifted_distance_available": 37,
+        "starts_with_accidental_loss": 6,
+        "gripper_switch_count_median": 2.0,
+        "opening_while_held_fraction_median": 0.05747126436781609,
+        "held_lifted_xy_mean_median": 0.2099676497956704,
+        "stable_start_seeds": [
+          46000,
+          46003,
+          46004,
+          46007,
+          46008,
+          46009,
+          46010,
+          46012,
+          46013,
+          46014,
+          46015,
+          46016,
+          46017,
+          46018,
+          46019,
+          46020,
+          46021,
+          46022,
+          46023,
+          46026,
+          46028,
+          46032,
+          46033,
+          46034,
+          46036,
+          46037,
+          46038,
+          46039
+        ]
+      },
+      {
+        "model": "direct",
+        "training_seed": 3,
+        "executed_actions": 1,
+        "ddim_steps": 0,
+        "comparison_group": "replanning",
+        "n_starts": 40,
+        "stable_stacks": 29,
+        "stage_counts": {
+          "grasp": 34,
+          "lift": 33,
+          "transport_started": 33,
+          "near": 32,
+          "position": 32,
+          "lower": 32,
+          "release": 29,
+          "sustained_success": 29
+        },
+        "first_missing_counts": {
+          "success": 29,
+          "grasp": 6,
+          "release": 3,
+          "near": 1,
+          "lift": 1
+        },
+        "max_height_m_median": 1.0338687557247461,
+        "held_lifted_min_distance_m_median": 0.0023451039256824156,
+        "n_starts_held_lifted_distance_available": 33,
+        "starts_with_accidental_loss": 3,
+        "gripper_switch_count_median": 2.0,
+        "opening_while_held_fraction_median": 0.06101190476190476,
+        "held_lifted_xy_mean_median": 0.23028071096081917,
+        "stable_start_seeds": [
+          46000,
+          46002,
+          46003,
+          46006,
+          46007,
+          46008,
+          46009,
+          46010,
+          46011,
+          46013,
+          46014,
+          46015,
+          46016,
+          46017,
+          46018,
+          46019,
+          46020,
+          46021,
+          46022,
+          46023,
+          46026,
+          46029,
+          46030,
+          46032,
+          46033,
+          46034,
+          46035,
+          46037,
+          46038
+        ]
+      },
+      {
+        "model": "direct",
+        "training_seed": 3,
+        "executed_actions": 2,
+        "ddim_steps": 0,
+        "comparison_group": "replanning",
+        "n_starts": 40,
+        "stable_stacks": 31,
+        "stage_counts": {
+          "grasp": 35,
+          "lift": 34,
+          "transport_started": 34,
+          "near": 34,
+          "position": 34,
+          "lower": 34,
+          "release": 31,
+          "sustained_success": 31
+        },
+        "first_missing_counts": {
+          "success": 31,
+          "grasp": 5,
+          "release": 3,
+          "lift": 1
+        },
+        "max_height_m_median": 1.0364010331481524,
+        "held_lifted_min_distance_m_median": 0.002369038480541417,
+        "n_starts_held_lifted_distance_available": 34,
+        "starts_with_accidental_loss": 3,
+        "gripper_switch_count_median": 2.0,
+        "opening_while_held_fraction_median": 0.058823529411764705,
+        "held_lifted_xy_mean_median": 0.21933198465748713,
+        "stable_start_seeds": [
+          46000,
+          46002,
+          46003,
+          46004,
+          46006,
+          46007,
+          46008,
+          46009,
+          46010,
+          46011,
+          46013,
+          46014,
+          46015,
+          46016,
+          46017,
+          46018,
+          46019,
+          46020,
+          46021,
+          46022,
+          46023,
+          46026,
+          46029,
+          46030,
+          46031,
+          46032,
+          46033,
+          46034,
+          46035,
+          46037,
+          46038
+        ]
+      },
+      {
+        "model": "direct",
+        "training_seed": 3,
+        "executed_actions": 4,
+        "ddim_steps": 0,
+        "comparison_group": "replanning",
+        "n_starts": 40,
+        "stable_stacks": 33,
+        "stage_counts": {
+          "grasp": 37,
+          "lift": 36,
+          "transport_started": 36,
+          "near": 36,
+          "position": 36,
+          "lower": 36,
+          "release": 33,
+          "sustained_success": 33
+        },
+        "first_missing_counts": {
+          "success": 33,
+          "lift": 1,
+          "grasp": 3,
+          "release": 3
+        },
+        "max_height_m_median": 1.0396090896823993,
+        "held_lifted_min_distance_m_median": 0.003443945418999313,
+        "n_starts_held_lifted_distance_available": 36,
+        "starts_with_accidental_loss": 3,
+        "gripper_switch_count_median": 2.0,
+        "opening_while_held_fraction_median": 0.06172839506172839,
+        "held_lifted_xy_mean_median": 0.2108023867024241,
+        "stable_start_seeds": [
+          46000,
+          46002,
+          46003,
+          46004,
+          46006,
+          46008,
+          46009,
+          46010,
+          46011,
+          46013,
+          46014,
+          46015,
+          46016,
+          46017,
+          46018,
+          46019,
+          46020,
+          46021,
+          46022,
+          46023,
+          46024,
+          46026,
+          46028,
+          46029,
+          46030,
+          46031,
+          46032,
+          46033,
+          46034,
+          46035,
+          46036,
+          46037,
+          46038
+        ]
+      }
+    ],
+    "historical_phase_counts": {
+      "direct": [
+        {
+          "grasp": 37,
+          "lift": 37,
+          "correct_lift": 10,
+          "transport_started": 37,
+          "premature_transport": 27,
+          "near": 37,
+          "position": 37,
+          "lower": 36,
+          "release": 30,
+          "stack": 28,
+          "sustained_success": 28,
+          "full_height_before_transport": 8
+        },
+        {
+          "grasp": 37,
+          "lift": 37,
+          "correct_lift": 10,
+          "transport_started": 37,
+          "premature_transport": 28,
+          "near": 37,
+          "position": 35,
+          "lower": 34,
+          "release": 30,
+          "stack": 30,
+          "sustained_success": 30,
+          "full_height_before_transport": 9
+        },
+        {
+          "grasp": 35,
+          "lift": 34,
+          "correct_lift": 5,
+          "transport_started": 34,
+          "premature_transport": 30,
+          "near": 34,
+          "position": 34,
+          "lower": 34,
+          "release": 31,
+          "stack": 31,
+          "sustained_success": 31,
+          "full_height_before_transport": 4
+        }
+      ],
+      "diffusion": [
+        {
+          "grasp": 31,
+          "lift": 24,
+          "correct_lift": 4,
+          "transport_started": 15,
+          "premature_transport": 17,
+          "near": 4,
+          "position": 0,
+          "lower": 0,
+          "release": 0,
+          "stack": 0,
+          "sustained_success": 0,
+          "full_height_before_transport": 1
+        },
+        {
+          "grasp": 26,
+          "lift": 18,
+          "correct_lift": 3,
+          "transport_started": 8,
+          "premature_transport": 13,
+          "near": 2,
+          "position": 0,
+          "lower": 0,
+          "release": 0,
+          "stack": 0,
+          "sustained_success": 0,
+          "full_height_before_transport": 1
+        },
+        {
+          "grasp": 27,
+          "lift": 19,
+          "correct_lift": 1,
+          "transport_started": 9,
+          "premature_transport": 14,
+          "near": 2,
+          "position": 2,
+          "lower": 0,
+          "release": 0,
+          "stack": 0,
+          "sustained_success": 0,
+          "full_height_before_transport": 0
+        }
+      ]
+    },
+    "historical_grasp_loss": {
+      "diffusion_event_counts": {
+        "events": 206,
+        "farther_than_3cm": 205,
+        "opening_at_event": 167,
+        "opening_in_last3_commands": 171,
+        "ungrasped_at_least3_frames": 182
+      },
+      "starts_with_loss_by_seed": {
+        "direct": [
+          7,
+          4,
+          3
+        ],
+        "diffusion": [
+          29,
+          26,
+          25
+        ]
+      },
+      "first_event_conditional_metrics": [
+        {
+          "model": "direct",
+          "seed": 1,
+          "first_events": 7,
+          "opening_at_event": 7,
+          "sustained3_frames": 7,
+          "xy_before_median": 0.050222598634816554,
+          "xyz_before_median": 0.050260825883959956,
+          "target_distance_cm_median": 1.6089779139675309
+        },
+        {
+          "model": "direct",
+          "seed": 2,
+          "first_events": 4,
+          "opening_at_event": 4,
+          "sustained3_frames": 4,
+          "xy_before_median": 0.024901311311149685,
+          "xyz_before_median": 0.03178439924724067,
+          "target_distance_cm_median": 1.400735020009808
+        },
+        {
+          "model": "direct",
+          "seed": 3,
+          "first_events": 3,
+          "opening_at_event": 2,
+          "sustained3_frames": 3,
+          "xy_before_median": 0.05112073941045362,
+          "xyz_before_median": 0.05113717952553137,
+          "target_distance_cm_median": 1.9849900058053613
+        },
+        {
+          "model": "diffusion",
+          "seed": 1,
+          "first_events": 29,
+          "opening_at_event": 27,
+          "sustained3_frames": 23,
+          "xy_before_median": 0.019883694782504114,
+          "xyz_before_median": 0.04335137740027709,
+          "target_distance_cm_median": 12.901837342271048
+        },
+        {
+          "model": "diffusion",
+          "seed": 2,
+          "first_events": 26,
+          "opening_at_event": 19,
+          "sustained3_frames": 23,
+          "xy_before_median": 0.024382150098457955,
+          "xyz_before_median": 0.06602901429120941,
+          "target_distance_cm_median": 13.19630341239441
+        },
+        {
+          "model": "diffusion",
+          "seed": 3,
+          "first_events": 25,
+          "opening_at_event": 17,
+          "sustained3_frames": 25,
+          "xy_before_median": 0.02207231900411748,
+          "xyz_before_median": 0.04348206416907157,
+          "target_distance_cm_median": 12.197527046859166
+        }
+      ],
+      "evidence": [
+        "S7"
+      ]
+    },
+    "expert_timing_counterexamples": {
+      "direct_successes": 89,
+      "without_full_height_by_seed": [
+        19,
+        23,
+        26
+      ],
+      "successful_early_by_seed": [
+        19,
+        24,
+        27
+      ],
+      "evidence": [
+        "S2"
+      ]
+    },
+    "modality_diagnostics": [
+      {
+        "training_seed": 1,
+        "n_observations": 100,
+        "projection_multiple_peaks_fraction": 0,
+        "joint_multiple_peaks_fraction": 0.12,
+        "formal_modality_test": false,
+        "evidence": [
+          "S8"
+        ]
+      },
+      {
+        "training_seed": 2,
+        "n_observations": 100,
+        "projection_multiple_peaks_fraction": 0,
+        "joint_multiple_peaks_fraction": 0.11,
+        "formal_modality_test": false,
+        "evidence": [
+          "S8"
+        ]
+      },
+      {
+        "training_seed": 3,
+        "n_observations": 100,
+        "projection_multiple_peaks_fraction": 0,
+        "joint_multiple_peaks_fraction": 0.11,
+        "formal_modality_test": false,
+        "evidence": [
+          "S8"
+        ]
+      }
+    ],
+    "workload": {
+      "no_training": true,
+      "final_checkpoints_unchanged": 6,
+      "data_unchanged": true,
+      "unique_new_rollouts": 960,
+      "table_rows_including_shared_controls": 1080,
+      "historical_rollouts": 240,
+      "configurations": 27,
+      "offline_chunks": 322560,
+      "offline_shape_each": [
+        420,
+        64,
+        16,
+        7
+      ],
+      "unique_closed_native_chunk_checks": 2640,
+      "maximum_native_action_error": 0,
+      "all_rng_checks_equal": true,
+      "all_initial_hashes_equal": true,
+      "all_new_traces_complete_and_finite": true,
+      "shared_ddim10_controls_bitwise_equal": true,
+      "records": [
+        {
+          "model": "direct",
+          "training_seed": 1,
+          "executed_actions": 1,
+          "ddim_steps": 0,
+          "group": "replanning",
+          "starts_verified": 40,
+          "shared_control": false,
+          "native_chunk_checks": 0,
+          "stable_stacks": 27
+        },
+        {
+          "model": "direct",
+          "training_seed": 1,
+          "executed_actions": 2,
+          "ddim_steps": 0,
+          "group": "replanning",
+          "starts_verified": 40,
+          "shared_control": false,
+          "native_chunk_checks": 0,
+          "stable_stacks": 28
+        },
+        {
+          "model": "direct",
+          "training_seed": 1,
+          "executed_actions": 4,
+          "ddim_steps": 0,
+          "group": "replanning",
+          "starts_verified": 40,
+          "shared_control": false,
+          "native_chunk_checks": 0,
+          "stable_stacks": 31
+        },
+        {
+          "model": "direct",
+          "training_seed": 2,
+          "executed_actions": 1,
+          "ddim_steps": 0,
+          "group": "replanning",
+          "starts_verified": 40,
+          "shared_control": false,
+          "native_chunk_checks": 0,
+          "stable_stacks": 29
+        },
+        {
+          "model": "direct",
+          "training_seed": 2,
+          "executed_actions": 2,
+          "ddim_steps": 0,
+          "group": "replanning",
+          "starts_verified": 40,
+          "shared_control": false,
+          "native_chunk_checks": 0,
+          "stable_stacks": 30
+        },
+        {
+          "model": "direct",
+          "training_seed": 2,
+          "executed_actions": 4,
+          "ddim_steps": 0,
+          "group": "replanning",
+          "starts_verified": 40,
+          "shared_control": false,
+          "native_chunk_checks": 0,
+          "stable_stacks": 28
+        },
+        {
+          "model": "direct",
+          "training_seed": 3,
+          "executed_actions": 1,
+          "ddim_steps": 0,
+          "group": "replanning",
+          "starts_verified": 40,
+          "shared_control": false,
+          "native_chunk_checks": 0,
+          "stable_stacks": 29
+        },
+        {
+          "model": "direct",
+          "training_seed": 3,
+          "executed_actions": 2,
+          "ddim_steps": 0,
+          "group": "replanning",
+          "starts_verified": 40,
+          "shared_control": false,
+          "native_chunk_checks": 0,
+          "stable_stacks": 31
+        },
+        {
+          "model": "direct",
+          "training_seed": 3,
+          "executed_actions": 4,
+          "ddim_steps": 0,
+          "group": "replanning",
+          "starts_verified": 40,
+          "shared_control": false,
+          "native_chunk_checks": 0,
+          "stable_stacks": 33
+        },
+        {
+          "model": "diffusion",
+          "training_seed": 1,
+          "executed_actions": 1,
+          "ddim_steps": 10,
+          "group": "replanning",
+          "starts_verified": 40,
+          "shared_control": false,
+          "native_chunk_checks": 280,
+          "stable_stacks": 0
+        },
+        {
+          "model": "diffusion",
+          "training_seed": 1,
+          "executed_actions": 2,
+          "ddim_steps": 10,
+          "group": "replanning",
+          "starts_verified": 40,
+          "shared_control": false,
+          "native_chunk_checks": 160,
+          "stable_stacks": 0
+        },
+        {
+          "model": "diffusion",
+          "training_seed": 1,
+          "executed_actions": 4,
+          "ddim_steps": 10,
+          "group": "replanning",
+          "starts_verified": 40,
+          "shared_control": false,
+          "native_chunk_checks": 120,
+          "stable_stacks": 0
+        },
+        {
+          "model": "diffusion",
+          "training_seed": 1,
+          "executed_actions": 2,
+          "ddim_steps": 5,
+          "group": "ddim",
+          "starts_verified": 40,
+          "shared_control": false,
+          "native_chunk_checks": 160,
+          "stable_stacks": 0
+        },
+        {
+          "model": "diffusion",
+          "training_seed": 1,
+          "executed_actions": 2,
+          "ddim_steps": 10,
+          "group": "ddim",
+          "starts_verified": 40,
+          "shared_control": true,
+          "native_chunk_checks": 160,
+          "stable_stacks": 0
+        },
+        {
+          "model": "diffusion",
+          "training_seed": 1,
+          "executed_actions": 2,
+          "ddim_steps": 50,
+          "group": "ddim",
+          "starts_verified": 40,
+          "shared_control": false,
+          "native_chunk_checks": 160,
+          "stable_stacks": 0
+        },
+        {
+          "model": "diffusion",
+          "training_seed": 2,
+          "executed_actions": 1,
+          "ddim_steps": 10,
+          "group": "replanning",
+          "starts_verified": 40,
+          "shared_control": false,
+          "native_chunk_checks": 280,
+          "stable_stacks": 0
+        },
+        {
+          "model": "diffusion",
+          "training_seed": 2,
+          "executed_actions": 2,
+          "ddim_steps": 10,
+          "group": "replanning",
+          "starts_verified": 40,
+          "shared_control": false,
+          "native_chunk_checks": 160,
+          "stable_stacks": 0
+        },
+        {
+          "model": "diffusion",
+          "training_seed": 2,
+          "executed_actions": 4,
+          "ddim_steps": 10,
+          "group": "replanning",
+          "starts_verified": 40,
+          "shared_control": false,
+          "native_chunk_checks": 120,
+          "stable_stacks": 0
+        },
+        {
+          "model": "diffusion",
+          "training_seed": 2,
+          "executed_actions": 2,
+          "ddim_steps": 5,
+          "group": "ddim",
+          "starts_verified": 40,
+          "shared_control": false,
+          "native_chunk_checks": 160,
+          "stable_stacks": 0
+        },
+        {
+          "model": "diffusion",
+          "training_seed": 2,
+          "executed_actions": 2,
+          "ddim_steps": 10,
+          "group": "ddim",
+          "starts_verified": 40,
+          "shared_control": true,
+          "native_chunk_checks": 160,
+          "stable_stacks": 0
+        },
+        {
+          "model": "diffusion",
+          "training_seed": 2,
+          "executed_actions": 2,
+          "ddim_steps": 50,
+          "group": "ddim",
+          "starts_verified": 40,
+          "shared_control": false,
+          "native_chunk_checks": 160,
+          "stable_stacks": 0
+        },
+        {
+          "model": "diffusion",
+          "training_seed": 3,
+          "executed_actions": 1,
+          "ddim_steps": 10,
+          "group": "replanning",
+          "starts_verified": 40,
+          "shared_control": false,
+          "native_chunk_checks": 280,
+          "stable_stacks": 0
+        },
+        {
+          "model": "diffusion",
+          "training_seed": 3,
+          "executed_actions": 2,
+          "ddim_steps": 10,
+          "group": "replanning",
+          "starts_verified": 40,
+          "shared_control": false,
+          "native_chunk_checks": 160,
+          "stable_stacks": 0
+        },
+        {
+          "model": "diffusion",
+          "training_seed": 3,
+          "executed_actions": 4,
+          "ddim_steps": 10,
+          "group": "replanning",
+          "starts_verified": 40,
+          "shared_control": false,
+          "native_chunk_checks": 120,
+          "stable_stacks": 0
+        },
+        {
+          "model": "diffusion",
+          "training_seed": 3,
+          "executed_actions": 2,
+          "ddim_steps": 5,
+          "group": "ddim",
+          "starts_verified": 40,
+          "shared_control": false,
+          "native_chunk_checks": 160,
+          "stable_stacks": 0
+        },
+        {
+          "model": "diffusion",
+          "training_seed": 3,
+          "executed_actions": 2,
+          "ddim_steps": 10,
+          "group": "ddim",
+          "starts_verified": 40,
+          "shared_control": true,
+          "native_chunk_checks": 160,
+          "stable_stacks": 0
+        },
+        {
+          "model": "diffusion",
+          "training_seed": 3,
+          "executed_actions": 2,
+          "ddim_steps": 50,
+          "group": "ddim",
+          "starts_verified": 40,
+          "shared_control": false,
+          "native_chunk_checks": 160,
+          "stable_stacks": 0
+        }
+      ]
+    },
+    "separate_normalization_context": [
+      {
+        "variant": "A",
+        "model": "direct",
+        "training_seed": 1,
+        "starts": 40,
+        "stable_stacks": 28
+      },
+      {
+        "variant": "A",
+        "model": "direct",
+        "training_seed": 2,
+        "starts": 40,
+        "stable_stacks": 30
+      },
+      {
+        "variant": "A",
+        "model": "direct",
+        "training_seed": 3,
+        "starts": 40,
+        "stable_stacks": 31
+      },
+      {
+        "variant": "A",
+        "model": "diffusion",
+        "training_seed": 1,
+        "starts": 40,
+        "stable_stacks": 0
+      },
+      {
+        "variant": "A",
+        "model": "diffusion",
+        "training_seed": 2,
+        "starts": 40,
+        "stable_stacks": 0
+      },
+      {
+        "variant": "A",
+        "model": "diffusion",
+        "training_seed": 3,
+        "starts": 40,
+        "stable_stacks": 0
+      },
+      {
+        "variant": "B",
+        "model": "direct",
+        "training_seed": 1,
+        "starts": 40,
+        "stable_stacks": 29
+      },
+      {
+        "variant": "B",
+        "model": "diffusion",
+        "training_seed": 1,
+        "starts": 40,
+        "stable_stacks": 0
+      },
+      {
+        "variant": "C",
+        "model": "direct",
+        "training_seed": 1,
+        "starts": 40,
+        "stable_stacks": 29
+      },
+      {
+        "variant": "C",
+        "model": "diffusion",
+        "training_seed": 1,
+        "starts": 40,
+        "stable_stacks": 2
+      },
+      {
+        "variant": "D",
+        "model": "direct",
+        "training_seed": 1,
+        "starts": 40,
+        "stable_stacks": 31
+      },
+      {
+        "variant": "D",
+        "model": "diffusion",
+        "training_seed": 1,
+        "starts": 40,
+        "stable_stacks": 0
+      }
+    ]
+  },
+  "supported_claims": [
+    {
+      "claim": "Direct erreicht in allen drei Trainingsseeds stabile Stacks mit Erfolgsraten von 70,0–77,5%; Diffusion jeweils null. Der Abstand ist für diese Aufgabe, Starts und finalen Konfigurationen konsistent. Keine Signifikanz- oder allgemeine Policy-Rangfolge wird behauptet. [S2]",
+      "status": "belegt",
+      "scope": "Geltungsbereich der konkreten Frage; stärkere mechanistische oder allgemeine Aussagen ggf. offen.",
+      "evidence": [
+        "S2"
+      ]
+    },
+    {
+      "claim": "Die Notwendigkeit exakten Expert-Timings beziehungsweise voller Expert-Lifthöhe ist für diese Starts durch erfolgreiche Gegenbeispiele widerlegt. Direct bildet den lokalen Sprung schwach ab, startet offline früh und erzielt dennoch stabile Stacks; 68/89 Erfolge ohne Vollhöhe, 70/89 mit vorzeitigem Transport. Timing kann weiterhin Robustheit beeinflussen, ist aber nicht mit Aufgabenlösbarkeit gleichzusetzen. [S2/S3]",
+      "status": "belegt",
+      "scope": "Geltungsbereich der konkreten Frage; stärkere mechanistische oder allgemeine Aussagen ggf. offen.",
+      "evidence": [
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "claim": "Die untersuchten Direct-Outputs sind stärker und konsistenter zielgerichtet. Diffusion ist zustandsbedingt breit, erfüllt nur selten gemeinsam die Stärke-/Richtungsschwellen, enthält jedoch bei jeder Panel-Transportobservation brauchbare Einzelsamples. Diese Aussage beschreibt trainierte Implementierungen. Ein isolierter Nachteil von Stochastik, Diffusionslernziel oder Architektur ist **nicht belegt / offen**. [S5/S6]",
+      "status": "belegt",
+      "scope": "Geltungsbereich der konkreten Frage; stärkere mechanistische oder allgemeine Aussagen ggf. offen.",
+      "evidence": [
+        "S5",
+        "S6"
+      ]
+    },
+    {
+      "claim": "Die konkret geprüften Horizonte und DDIM-Schrittzahlen beheben das Scheitern bei den finalen Gewichten nicht: jeder Seed bleibt bei 0/40 und ohne Release. Teilindikatoren ändern sich. DDIM-20 besitzt keinen Closed-loop-Test. Für ungetestete Konfigurationen oder neu trainierte Modelle bleibt die Wirkung **nicht belegt / offen**. [S5/S9/S10]",
+      "status": "belegt",
+      "scope": "Geltungsbereich der konkreten Frage; stärkere mechanistische oder allgemeine Aussagen ggf. offen.",
+      "evidence": [
+        "S5",
+        "S9",
+        "S10"
+      ]
+    },
+    {
+      "claim": "Der Erfolgsabstand der finalen unnormalisierten Konfigurationen besteht in allen drei Trainingsseeds. [S2]",
+      "status": "belegt",
+      "evidence": [
+        "S2"
+      ]
+    },
+    {
+      "claim": "Beide Klassen bilden den abrupten Expert-Sprung lokal nur schwach ab. Direct startet offline in allen Validierungsdemos früh und löst dennoch viele Starts; volle Expert-Lifthöhe fehlt dabei häufig. [S2/S3]",
+      "status": "belegt",
+      "evidence": [
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "claim": "Direct produziert stärkere, konsistenter zielgerichtete Expert-Transportaktionen. Diffusion enthält brauchbare Einzelsamples, aber eine breite bedingte Verteilung mit geringer gemeinsamer Stärke-/Richtungszuverlässigkeit. [S5/S6]",
+      "status": "belegt",
+      "evidence": [
+        "S5",
+        "S6"
+      ]
+    },
+    {
+      "claim": "Ein allgemein schwächerer erster ausgeführter Chunkbefehl wird im stabilen Transport nicht beobachtet. [S6]",
+      "status": "belegt",
+      "evidence": [
+        "S6"
+      ]
+    },
+    {
+      "claim": "Die geprüften Horizon-/DDIM-Änderungen verändern Teilmetriken, erzielen aber keine stabilen Stacks. [S9]",
+      "status": "belegt",
+      "evidence": [
+        "S9"
+      ]
+    },
+    {
+      "claim": "Grasp-Verluste und Öffnungskommandos treten häufig gemeinsam fern vom Ziel auf. [S7]",
+      "status": "belegt",
+      "evidence": [
+        "S7"
+      ]
+    },
+    {
+      "claim": "Eine allgemeine robuste Zweimodalität ist nicht nachgewiesen: eindimensionale Zielprojektion ohne über alle Bandbreiten stabile Mehrgipfligkeit; gemeinsame Zielprojektion/Z-Dichte mit stabil mehreren lokalen Gipfeln bei 12%/11%/11% der Transportobservations je Seed. Dies sind explorative Dichtekriterien. [S8]",
+      "status": "belegt",
+      "evidence": [
+        "S8"
+      ]
+    }
+  ],
+  "partially_supported_claims": [
+    {
+      "id": "H1",
+      "status": "teilweise gestützt",
+      "hypothesis": "H1 — unzuverlässiger bedingter Zieltransport, teilweise gestützt als Ursachenbeitrag.",
+      "evidence_and_limits": "Diffusion liefert auf eindeutigen Expert-Transportzuständen häufig zu schwache oder nicht ausreichend zielgerichtete Aktionen. Die gemeinsame Diagnoseschwelle erfüllt nur eine Minderheit der Samples. Bedingte Median-Normen liegen deutlich unter Q90; einzelne brauchbare Samples existieren bei jeder untersuchten Observation. Das Verteilungsdefizit ist belegt. Sein isolierter Beitrag zum Scheitern und seine Entstehung durch Architektur, Lernziel, Repräsentation oder Verteilungsverschiebung bleiben offen. [S3/S5/S6]",
+      "evidence": [
+        "S3",
+        "S5",
+        "S6"
+      ]
+    },
+    {
+      "id": "H2",
+      "status": "teilweise gestützt",
+      "hypothesis": "H2 — Unterbrechung durch Neusampling, teilweise gestützt.",
+      "evidence_and_limits": "Chunks besitzen intern hohe Richtungskohärenz; Richtungsumkehrungen sind in geeigneten gehaltenen/gelifteten Aktionspaaren häufiger an Replanning-Grenzen als innerhalb eines Chunks. h=1 reduziert den Transportindikator gegenüber h=2 in allen Seeds. h=4 verbessert jedoch nicht alle Seeds und erreicht keinen Release. Das spricht für einen Beitrag zu Teilproblemen, nicht für eine hinreichende oder alleinige Erklärung der Nullrate. Die Horizon-Intervention verändert Reaktionslatenz und Zahl der Noiseziehungen gemeinsam. [S3/S9]",
+      "evidence": [
+        "S3",
+        "S9"
+      ]
+    },
+    {
+      "id": "H3",
+      "status": "teilweise gestützt",
+      "hypothesis": "H3 — instabiler Griff und unpassende Gripperwechsel, teilweise gestützt.",
+      "evidence_and_limits": "Nicht regelgerechte Grasp-Verluste, Öffnungskommandos und große Zielabstände stimmen häufig zeitlich und räumlich überein. Ein isolierter Gripper-Eingriff fehlt. Armbewegung, Kontaktgeometrie und veränderte Rolloutzustände können ebenfalls beitragen. Ein nativer Grasp-Prädikatwechsel bedeutet nicht automatisch einen physischen Fall. [S3/S7]",
+      "evidence": [
+        "S3",
+        "S7"
+      ]
+    }
+  ],
+  "unsupported_claims": [
+    {
+      "claim": "Diffusion scheitert wegen Multimodalität.",
+      "status": "nicht belegt / offen",
+      "reason": "Koexistierende Aktionsregime sind keine allgemein robuste Zweimodalität; kein isolierter kausaler Test."
+    },
+    {
+      "claim": "Der Gripper verursacht das Scheitern.",
+      "status": "nicht belegt / offen",
+      "reason": "Zeitliche und räumliche Koinzidenz isolieren keinen Gripper-Effekt."
+    },
+    {
+      "claim": "Häufiges Replanning verursacht die 0%-Stackrate.",
+      "status": "nicht belegt / offen",
+      "reason": "h=4 bleibt erfolglos; die Intervention isoliert keinen Neusamplingmechanismus."
+    },
+    {
+      "claim": "Diffusion Policy ist generell schlechter als Direct BC.",
+      "status": "nicht belegt / offen",
+      "reason": "Untersucht sind konkrete Architekturen, Lernziele, ein Datensatz und eine Aufgabe."
+    },
+    {
+      "claim": "Mehr DDIM-Schritte können Diffusion grundsätzlich nicht verbessern.",
+      "status": "nicht belegt / offen",
+      "reason": "Null Stacks gelten für die getesteten Gewichte und Bedingungen; Teilmetriken verbessern sich teilweise."
+    },
+    {
+      "claim": "Alle Diffusionssamples sind schwach oder unbrauchbar.",
+      "status": "durch die Paneldaten widerlegt",
+      "reason": "Jede untersuchte Transportobservation enthält ein Sample oberhalb beider Diagnoseschwellen; das beweist noch keinen erfolgreichen vollständigen Chunk."
+    },
+    {
+      "claim": "Die native Policy scheitert, weil sie Samples mittelt.",
+      "status": "nicht belegt",
+      "reason": "Sie führt jeweils ein Sample aus; Mittelaktionen sind Diagnosen."
+    },
+    {
+      "claim": "Exaktes Expert-Timing oder volle Expert-Lifthöhe sind hier notwendig.",
+      "status": "durch erfolgreiche Gegenbeispiele widerlegt",
+      "reason": "Andere Aufgaben können andere Anforderungen besitzen."
+    },
+    {
+      "claim": "Fehlende State-Normalisierung erklärt allein das Scheitern.",
+      "status": "nicht belegt / offen",
+      "reason": "Der Zusatzversuch liefert bessere Teilmetriken, aber keine robuste replizierte Lösung."
+    },
+    {
+      "claim": "Längeres Training oder eine neue Architektur werden Diffusion retten.",
+      "status": "nicht belegt / offen",
+      "reason": "Die entsprechenden Verbesserungen sind nicht nachgewiesen."
+    },
+    {
+      "claim": "Die Eingaben enthalten prinzipiell keine ausreichende Wechselinformation.",
+      "status": "nicht belegt / offen",
+      "reason": "Trennbarkeitsproben finden nutzbare Hinweise; vollständige Markov-Beobachtbarkeit folgt daraus nicht."
+    }
+  ],
+  "limitations": [
+    "Nur drei unabhängige Trainingsreplikate je Hauptklasse. Starts und Inferenzsamples sind keine weiteren Trainingsreplikate.",
+    "Ein Datensatz eines programmierten Experts und eine simulierte State-Aufgabe; keine Generalisierung auf Vision, reale Robotik oder andere Aufgaben.",
+    "Wiederholt diagnostisch verwendetes Validierungspanel und feste Starts sind kein neuer unberührter Testdatensatz.",
+    "Architektur, Lernziel und native Implementierungsdetails unterscheiden sich gemeinsam. Historische uniforme Sampler liefern keine nachgewiesen identischen Indexfolgen.",
+    "Gleiches Update-/Batchbudget und vergleichbare Parameterzahlen bedeuten keine gleichen FLOPs, Walltimes oder optimalen Konfigurationen.",
+    "Offlinepanel umfasst den Expert-Lift→Transport-Bereich, keine vollständige Greif-/Release-Verteilung und keine systematische Stichprobe aller erreichten Rolloutzustände.",
+    "Phasenindikatoren sind nicht zwingend verschachtelt; Expert-Vollhöhe ist kein notwendiges Success-Kriterium.",
+    "Grasp-Verlust bedeutet nativen Prädikatwechsel; wiederholte Ereignisse einer Episode sind abhängig und nicht automatisch physische Fälle.",
+    "Numerische Replayabweichungen beeinflussen Diffusionstrajektorien. Bei 20 historischen Seed-1-Traces fehlen gespeicherte Tails; die Messphase ist vorhanden, neue Traces sind vollständig.",
+    "DDIM-20 nur offline; Horizonte bei DDIM-10 und Schrittzahlen bei h=2, kein vollständiger Kreuzvergleich.",
+    "Null beobachtete Erfolge und Null Seed-SD beweisen keine exakte Null-Erfolgswahrscheinlichkeit in einer Grundgesamtheit.",
+    "KDE-Diagnosen hängen von Koordinaten, Schwellen und Bandbreiten ab; kein formaler allgemeiner Multimodalitätsnachweis.",
+    "Normalisierungsvarianten und ältere Fortsetzungsversuche besitzen nur einen Trainingsseed und andere Bedingungen.",
+    "Laufzeitaufzeichnungen sind keine isolierten Geschwindigkeitsbenchmarks."
+  ],
+  "optional_followup_experiments": [
+    {
+      "experiment": "Weitere DDIM-Schrittzahlen",
+      "classification": "nicht mehr sinnvoll als ungerichteter Sweep",
+      "reason": "5/10/50 closed-loop, 20 offline beantworten die bestehende Frage. Nur eine neue begründete Samplerhypothese rechtfertigt Erweiterung.",
+      "executed": false
+    },
+    {
+      "experiment": "Weitere Replanning-Horizonte",
+      "classification": "nicht mehr sinnvoll als ungerichteter Sweep",
+      "reason": "1/2/4 sind geprüft. Neue Latenz-/Persistenzfragen müssten die Mechanismen getrennt kontrollieren.",
+      "executed": false
+    },
+    {
+      "experiment": "Isoliertes Erzwingen geschlossenen Grippers",
+      "classification": "wissenschaftlich interessant, aber optional",
+      "reason": "Prüft Beitrag frühen Öffnens zur Griffhaltung und zum Transport; nicht notwendig für aktuelle Synthese.",
+      "executed": false
+    },
+    {
+      "experiment": "Zusätzliche Trainingsseeds",
+      "classification": "wissenschaftlich interessant, aber optional",
+      "reason": "Erhöhen Präzision der Seedvariation; keine Voraussetzung für den deskriptiven Abstand der vorhandenen drei Seeds.",
+      "executed": false
+    },
+    {
+      "experiment": "Längeres Training",
+      "classification": "wissenschaftlich interessant, aber optional",
+      "reason": "Neue Frage zur Budgetabhängigkeit; nur vorab definierte gepaarte Budgetstudie beider Klassen, kein Rettungsversuch allein wegen null Erfolg.",
+      "executed": false
+    },
+    {
+      "experiment": "Neue Diffusionsarchitektur / neues Training",
+      "classification": "wissenschaftlich interessant, aber optional",
+      "reason": "Neue Methodenfrage. Nur bei präziser abgeleiteter Hypothese; für die jetzigen Antworten nicht erforderlich.",
+      "executed": false
+    }
+  ],
+  "further_experiments_strictly_required": [],
+  "recommended_next_step": "Ergebnis-/Diskussionsteil abschließen; Originalbaseline, frische Inferenztests und Zusatzversuche getrennt darstellen. Kein Training oder Best-Run-Ersatz.",
+  "sources": {
+    "S1": {
+      "paths": [
+        "ERGEBNISSE.md"
+      ],
+      "description": "[ERGEBNISSE.md](ERGEBNISSE.md) — Hauptbericht der Seed-Replikation.",
+      "sha256": {
+        "ERGEBNISSE.md": "c23c60ef0c1897ce2cd57c64f016a7010f36cf30b0673c2d3327958e9467bf47"
+      }
+    },
+    "S2": {
+      "paths": [
+        "analysis.json"
+      ],
+      "description": "[analysis.json](analysis.json) — Originalbaseline, Seedaggregate, Startvariation und Expert-Timing.",
+      "sha256": {
+        "analysis.json": "80d2e388ef3dea327fb4b437bbedf7fb36985266e8ccef69a4678fb0ac93bbab"
+      }
+    },
+    "S3": {
+      "paths": [
+        "diffusion_failure_analysis.md"
+      ],
+      "description": "[diffusion_failure_analysis.md](diffusion_failure_analysis.md) — maßgebliche Ursachenanalyse und Audits.",
+      "sha256": {
+        "diffusion_failure_analysis.md": "61b428e9a92b1aedc3e66575528da83a462d3f99c0e50fd69bcb02ff9bf9fa6b"
+      }
+    },
+    "S4": {
+      "paths": [
+        "../stack_direct_20261001/ERGEBNISSE.md"
+      ],
+      "description": "[Direct-Ergebnisbericht](../stack_direct_20261001/ERGEBNISSE.md) — Architektur und Ausgangsvergleich.",
+      "sha256": {
+        "../stack_direct_20261001/ERGEBNISSE.md": "4c0ed5fb66083b1a46ddd22e6d67a08c0e26f71a4ca49b24e11b4a9ae4a8d617"
+      }
+    },
+    "S5": {
+      "paths": [
+        "failure_analysis/sample_summary.json"
+      ],
+      "description": "[sample_summary.json](failure_analysis/sample_summary.json) — bedingte Samplemetriken, transport_6_10.",
+      "sha256": {
+        "failure_analysis/sample_summary.json": "70a033178e9b30c68d54273c0ef9bcf41bb5171bc93eddfad2a5f6fe9e06eae9"
+      }
+    },
+    "S6": {
+      "paths": [
+        "failure_analysis/chunk_position_metrics.json",
+        "failure_analysis/chunk_first_vs_later.json",
+        "failure_analysis/sample_observation_metrics.csv"
+      ],
+      "description": "[Chunkmetriken](failure_analysis/chunk_position_metrics.json), [erste Aktion](failure_analysis/chunk_first_vs_later.json), [Observationmetriken](failure_analysis/sample_observation_metrics.csv) — alle Positionen, Zielrichtung und Sampleabdeckung.",
+      "sha256": {
+        "failure_analysis/chunk_position_metrics.json": "1d43c2b554d8283eca2c6cd59e2248de53411b68aaa744a385871d5210479e58",
+        "failure_analysis/chunk_first_vs_later.json": "ba0c62da38b955e514077bcdb89d2eadb066be525df273060e7105115155b7a3",
+        "failure_analysis/sample_observation_metrics.csv": "0492c2ffc12581d28c669892d9b05d20e95320667c35e614775a224e71a84ba4"
+      }
+    },
+    "S7": {
+      "paths": [
+        "failure_analysis/baseline_events.json",
+        "failure_analysis/baseline_failures.csv",
+        "failure_analysis/loss_event_summary.json"
+      ],
+      "description": "[Verlustereignisse](failure_analysis/baseline_events.json), [historische Einzelstarts](failure_analysis/baseline_failures.csv), [Verlustzusammenfassung](failure_analysis/loss_event_summary.json).",
+      "sha256": {
+        "failure_analysis/baseline_events.json": "778e826ace9ce68abb28d2e59817513941a821f328336345fe1e762be54faed8",
+        "failure_analysis/baseline_failures.csv": "90654f1a1611570e42ea4d013e927c8cfded68ca28a31ed84e019a9bb6e1072b",
+        "failure_analysis/loss_event_summary.json": "4827b4f0fce98a47c1bb472a06c72b97d915be82214d0b8240da53d4277d5329"
+      }
+    },
+    "S8": {
+      "paths": [
+        "failure_analysis/conditional_joint_density_modes.json",
+        "failure_analysis/conditional_density_modes.json"
+      ],
+      "description": "[gemeinsame Dichte](failure_analysis/conditional_joint_density_modes.json), [Zielprojektionsdichte](failure_analysis/conditional_density_modes.json) — explorative KDE.",
+      "sha256": {
+        "failure_analysis/conditional_joint_density_modes.json": "de3593c6c54aa9106ab0b8c8668afcd0e059cb8e3ea6990e0cd1624136d5ec8c",
+        "failure_analysis/conditional_density_modes.json": "4b9fa9718eb7d6330004e773d4fe77abc6fd5535a4c8bb3c7b1e298315a055d8"
+      }
+    },
+    "S9": {
+      "paths": [
+        "failure_analysis/closed_loop_summary.json"
+      ],
+      "description": "[closed_loop_summary.json](failure_analysis/closed_loop_summary.json) — frische Horizon-/DDIM-Matrix.",
+      "sha256": {
+        "failure_analysis/closed_loop_summary.json": "2d141d972280f2c2c8141254a64b99b52ec74d1e87360230d30e4c4d02be5942"
+      }
+    },
+    "S10": {
+      "paths": [
+        "failure_analysis/final_evaluation_audit.json",
+        "failure_analysis/final_input_verification.json"
+      ],
+      "description": "[Evaluation-Audit](failure_analysis/final_evaluation_audit.json), [Input-Audit](failure_analysis/final_input_verification.json) — Mengen, Parität und unveränderte Quellen.",
+      "sha256": {
+        "failure_analysis/final_evaluation_audit.json": "a3626569c287c42d767759f907787354f5298ef7e2ed651003ec009c0b4c30be",
+        "failure_analysis/final_input_verification.json": "6c3786996deb1465a2eb076a67df3918d908aae798daf6e42d099983f5084198"
+      }
+    },
+    "S11": {
+      "paths": [
+        "../stack_switch_20261001/DIAGNOSE.md",
+        "../stack_switch_20261001/data_analysis.json"
+      ],
+      "description": "[Umschaltdiagnose](../stack_switch_20261001/DIAGNOSE.md), [Datenanalyse](../stack_switch_20261001/data_analysis.json).",
+      "sha256": {
+        "../stack_switch_20261001/DIAGNOSE.md": "ab56e3194f2755a27abf95976b7b2fbf2111f04db43a349bf61aea9d2e52e168",
+        "../stack_switch_20261001/data_analysis.json": "496226c0db857bbbde69d4c2d0224e36cc4026ddae8de1ed020645251d46c14c"
+      }
+    },
+    "S12": {
+      "paths": [
+        "../stack_balance_20261001/ERGEBNISSE.md"
+      ],
+      "description": "[Balancierungsversuch](../stack_balance_20261001/ERGEBNISSE.md) — separater früherer Fortsetzungsversuch.",
+      "sha256": {
+        "../stack_balance_20261001/ERGEBNISSE.md": "ca48cb41c4095ee8b9089e6587b8d8fe1e5152227c664bc205eeb0d56cf91bc8"
+      }
+    },
+    "S13": {
+      "paths": [
+        "../stack_dynamics_20261001/ERGEBNISSE.md"
+      ],
+      "description": "[Dynamikversuch](../stack_dynamics_20261001/ERGEBNISSE.md) — separater früherer Fortsetzungsversuch.",
+      "sha256": {
+        "../stack_dynamics_20261001/ERGEBNISSE.md": "7a696dafaede2c3abf1f5184d25fe6350b5e1b5b66e45408369f290d500f5a5f"
+      }
+    },
+    "S14": {
+      "paths": [
+        "../stack_followup_20261001/RESULTS.md"
+      ],
+      "description": "[Scheduler-Follow-up](../stack_followup_20261001/RESULTS.md) — historische andere Bedingungen.",
+      "sha256": {
+        "../stack_followup_20261001/RESULTS.md": "8b99d2c354daa3924d47384c0b52dcad2980e61d5ae0e37be4404f3fe0fdf807"
+      }
+    },
+    "S15": {
+      "paths": [
+        "../stack_normalization_20261001/results_normalization.md",
+        "../stack_normalization_20261001/results_normalization.json"
+      ],
+      "description": "[Normalisierungsbericht](../stack_normalization_20261001/results_normalization.md), [Normalisierungsdaten](../stack_normalization_20261001/results_normalization.json) — separater 2×2-Versuch und Samplerpräzisierung.",
+      "sha256": {
+        "../stack_normalization_20261001/results_normalization.md": "d772f0c920ff503c3d555a5bdb45c6dd849cc1e9a43472a89199fdb8b587716c",
+        "../stack_normalization_20261001/results_normalization.json": "819f2d04b0643614d07e72c21e63c2f8cc5509b860ae6034ce58dd664773f387"
+      }
+    },
+    "S16": {
+      "paths": [
+        "protocol.json",
+        "verification.json"
+      ],
+      "description": "[protocol.json](protocol.json), [verification.json](verification.json) — Daten, Budget und Checkpointidentitäten.",
+      "sha256": {
+        "protocol.json": "169d61e5efc68163707e85d661bb482912ecb039f86f869978ceeeb5243e5698",
+        "verification.json": "03212bb09370bee26f0d135ef2ad2426378d01163e75804386e48bb8924f21ae"
+      }
+    },
+    "S17": {
+      "paths": [
+        "failure_analysis/scripts/graph_sampler.py"
+      ],
+      "description": "[Graph-Sampler](failure_analysis/scripts/graph_sampler.py) — vorhandener DDIM-Loop, ein Denoiseraufruf je Schritt.",
+      "sha256": {
+        "failure_analysis/scripts/graph_sampler.py": "961ef03c4599b3ad5f6bd8902c27932df85ca0c8bb503629eea7da77ccd00c15"
+      }
+    }
+  },
+  "conflicts_and_scope_notes": [
+    "1. **Historische gegenüber frischer Diffusionsbaseline:** Historische Grasp/Lift/Transport-Zahlen sind 31/24/15, 26/18/8, 27/19/9 je Seed. Die frische h=2/DDIM-10-Baseline ergibt 31/24/15, 27/18/10, 25/21/7. Beide behalten 0/40 stabile Stacks. S3 dokumentiert numerische Replayabweichungen; Direct-Baseline-Replays sind bitgleich. Historische Zahlen dienen der historischen Failure-Analyse, frische Zahlen den Inferenzinterventionen. [S2/S3/S9]",
+    "2. **„Uniform mit Zurücklegen“:** S4 und das ursprüngliche Protokoll S16 beschreiben Diffusion pauschal so; S15 präzisiert anhand des Quellcodes das DataLoader-Verfahren. Eine Gleichheit exakter Ziehfolgen ist nicht nachgewiesen. Der ursprüngliche Bericht bleibt erhalten.",
+    "3. **Richtung und Ziehungsumfang:** Historischer Expert-Cosinus und späterer Zielcosinus, acht und 64 Draws sowie gepoolte gegenüber bedingten Quantilen sind unterschiedliche Größen. Ihre Abweichungen werden nicht stillschweigend als gleiche Metrik zusammengeführt.",
+    "4. **Ältere Stabilitätsdefinitionen:** S12 unterscheidet das damalige native Stackkriterium von der weiteren zweisekündigen Fortsetzung. Diese Zahlen werden nicht mit dem Hauptkriterium gepoolt.",
+    "5. **Normalisierung:** 2/40 aus S15 stammen von einem anderen trainierten Checkpoint. Das widerspricht keinem Befund der sechs unnormalisierten Modelle, begrenzt aber Aussagen über sämtliche vorhandenen Diffusionsversuche.",
+    "6. **Historische Ursacheformulierungen:** Ältere Berichte sprechen teils von „Mitursache“ oder „unzureichender Konditionierung“. Für das gesamte Scheitern folgt diese Synthese der vorsichtigeren maßgeblichen Analyse S3. Beobachtete Änderungen von Teilmetriken belegen keine isolierte Ursache der Stack-Nullrate."
+  ],
+  "metric_definitions": {
+    "rates": "fractions 0..1 unless expressly percent",
+    "norms": "dimensionless controller commands",
+    "offline_group": "100 observations at offsets +6..+10, 20 validation demos",
+    "sample_quantiles": "mean of observation-conditional quantiles",
+    "strong_targeted": "XY>0.25 and EEF→A goal cosine>0.5",
+    "training_replication_unit": "training_seed",
+    "shared_controls": "Three h2/DDIM10 rows repeated;960 unique new rollouts,1080 table rows",
+    "loss_events": "Historical only; dependent native transitions, not necessarily physical falls"
+  },
+  "verification": {
+    "central_numbers_checked_against_artifacts": true,
+    "loss_events_recomputed": true,
+    "sample_coverage_recomputed": true,
+    "sample_observation_rows_read": 80640,
+    "existing_source_files_sha256_unchanged": true,
+    "new_training": false,
+    "new_checkpoints": false,
+    "new_policy_inference": false,
+    "new_rollouts": 0,
+    "no_significance_tests": true,
+    "seed_sd_ddof": 1,
+    "markdown_sections": 10,
+    "markdown_links_resolve": true
+  }
+}

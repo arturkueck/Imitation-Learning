@@ -1,0 +1,35 @@
+{
+  "diffusion": {
+    "episodes": 40,
+    "median_gripper_switches": 18.0,
+    "loss_events": 32,
+    "premature_open_frames": 30,
+    "held_pre_release_frames": 3099,
+    "valid_geometry_loss_events": 3,
+    "non_release_geometry_loss_events": 29,
+    "non_release_losses_with_opening": 24,
+    "losses_further_than_3cm": 20,
+    "held_lift_geometry_frames_above_expert_valid_q95": 797,
+    "held_lift_geometry_frames": 3099
+  },
+  "direct": {
+    "episodes": 40,
+    "median_gripper_switches": 2.0,
+    "loss_events": 37,
+    "premature_open_frames": 0,
+    "held_pre_release_frames": 2827,
+    "valid_geometry_loss_events": 31,
+    "non_release_geometry_loss_events": 6,
+    "non_release_losses_with_opening": 6,
+    "losses_further_than_3cm": 1,
+    "held_lift_geometry_frames_above_expert_valid_q95": 135,
+    "held_lift_geometry_frames": 2827
+  },
+  "quaternion_sign_flips": 0,
+  "temporal_checks": 58,
+  "caveats": [
+    "Global min/max is a weak OOD screen, not a density estimate.",
+    "Late phase success cannot be inferred from offline or event correlations.",
+    "No new rollouts or training in this audit."
+  ]
+}

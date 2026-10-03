@@ -1,0 +1,491 @@
+{
+  "status": "ok",
+  "message-type": "work",
+  "message-version": "1.0.0",
+  "message": {
+    "indexed": {
+      "date-parts": [
+        [
+          2026,
+          9,
+          23
+        ]
+      ],
+      "date-time": "2026-09-23T17:35:43Z",
+      "timestamp": 1790184943923,
+      "version": "4.1.0"
+    },
+    "reference-count": 26,
+    "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+    "issue": "2",
+    "license": [
+      {
+        "start": {
+          "date-parts": [
+            [
+              2025,
+              2,
+              1
+            ]
+          ],
+          "date-time": "2025-02-01T00:00:00Z",
+          "timestamp": 1738368000000
+        },
+        "content-version": "vor",
+        "delay-in-days": 0,
+        "URL": "https://ieeexplore.ieee.org/Xplorehelp/downloads/license-information/IEEE.html"
+      },
+      {
+        "start": {
+          "date-parts": [
+            [
+              2025,
+              2,
+              1
+            ]
+          ],
+          "date-time": "2025-02-01T00:00:00Z",
+          "timestamp": 1738368000000
+        },
+        "content-version": "am",
+        "delay-in-days": 0,
+        "URL": "https://ieeexplore.ieee.org/Xplorehelp/downloads/license-information/IEEE.html"
+      },
+      {
+        "start": {
+          "date-parts": [
+            [
+              2025,
+              2,
+              1
+            ]
+          ],
+          "date-time": "2025-02-01T00:00:00Z",
+          "timestamp": 1738368000000
+        },
+        "content-version": "stm-asf",
+        "delay-in-days": 0,
+        "URL": "https://doi.org/10.15223/policy-029"
+      },
+      {
+        "start": {
+          "date-parts": [
+            [
+              2025,
+              2,
+              1
+            ]
+          ],
+          "date-time": "2025-02-01T00:00:00Z",
+          "timestamp": 1738368000000
+        },
+        "content-version": "stm-asf",
+        "delay-in-days": 0,
+        "URL": "https://doi.org/10.15223/policy-037"
+      }
+    ],
+    "funder": [
+      {
+        "name": "NSF",
+        "award": [
+          "2246446"
+        ],
+        "award-info": [
+          {
+            "award-number": [
+              "2246446"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "NSF",
+        "award": [
+          "2240163"
+        ],
+        "award-info": [
+          {
+            "award-number": [
+              "2240163"
+            ]
+          }
+        ]
+      }
+    ],
+    "content-domain": {
+      "domain": [],
+      "crossmark-restriction": false
+    },
+    "short-container-title": [
+      "IEEE Robot. Autom. Lett."
+    ],
+    "published-print": {
+      "date-parts": [
+        [
+          2025,
+          2
+        ]
+      ]
+    },
+    "DOI": "10.1109/lra.2025.3526439",
+    "type": "journal-article",
+    "created": {
+      "date-parts": [
+        [
+          2025,
+          1,
+          6
+        ]
+      ],
+      "date-time": "2025-01-06T19:50:28Z",
+      "timestamp": 1736193028000
+    },
+    "page": "1952-1959",
+    "source": "Crossref",
+    "is-referenced-by-count": 8,
+    "title": [
+      "Stable-BC: Controlling Covariate Shift With Stable Behavior Cloning"
+    ],
+    "prefix": "10.1109",
+    "volume": "10",
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-3160-6879",
+        "authenticated-orcid": false,
+        "given": "Shaunak A.",
+        "family": "Mehta",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Collaborative Robotics Laboratory, Department of Mechanical Engineering, Virginia Tech, Blacksburg, VA, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Yusuf Umut",
+        "family": "Ciftci",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Safe and Intelligent Autonomy Laboratory, USC Viterbi School of Engineering, Los Angeles, CA, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Balamurugan",
+        "family": "Ramachandran",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Collaborative Robotics Laboratory, Department of Mechanical Engineering, Virginia Tech, Blacksburg, VA, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-5826-7686",
+        "authenticated-orcid": false,
+        "given": "Somil",
+        "family": "Bansal",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Safe and Intelligent Autonomy Laboratory, USC Viterbi School of Engineering, Los Angeles, CA, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-8787-5293",
+        "authenticated-orcid": false,
+        "given": "Dylan P.",
+        "family": "Losey",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Collaborative Robotics Laboratory, Department of Mechanical Engineering, Virginia Tech, Blacksburg, VA, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "member": "263",
+    "reference": [
+      {
+        "key": "ref1",
+        "first-page": "661",
+        "article-title": "Efficient reductions for imitation learning",
+        "volume-title": "Proc. Int. Conf. Artif. Intell. Statist.",
+        "author": "Ross",
+        "year": "2010"
+      },
+      {
+        "key": "ref2",
+        "first-page": "11698",
+        "article-title": "Causal confusion in imitation learning",
+        "volume-title": "Proc. Neural Inf. Process. Syst.",
+        "author": "Haan",
+        "year": "2019"
+      },
+      {
+        "key": "ref3",
+        "article-title": "Feedback in imitation learning: The three regimes of covariate shift",
+        "author": "Spencer",
+        "year": "2021"
+      },
+      {
+        "key": "ref4",
+        "first-page": "143",
+        "article-title": "DART: Noise injection for robust imitation learning",
+        "volume-title": "Proc. Conf. Robot Learn.",
+        "author": "Laskey",
+        "year": "2017"
+      },
+      {
+        "key": "ref5",
+        "article-title": "SAFE-GIL: SAFEty guided imitation learning",
+        "author": "Ciftci",
+        "year": "2024"
+      },
+      {
+        "key": "ref6",
+        "article-title": "CCIL: Continuity-based data augmentation for corrective imitation learning",
+        "volume-title": "Proc. Int. Conf. Learn. Representations",
+        "author": "Ke",
+        "year": "2024"
+      },
+      {
+        "key": "ref7",
+        "first-page": "965",
+        "article-title": "Mitigating covariate shift in imitation learning via offline data without great coverage",
+        "volume-title": "Proc. Neural Inf. Process. Syst.",
+        "author": "Chang",
+        "year": "2021"
+      },
+      {
+        "key": "ref8",
+        "article-title": "Interventional data generation for robust and data-efficient robot imitation learning",
+        "volume-title": "Proc. 1st Workshop Out-of-Distrib. Generalization Robot.",
+        "author": "Hoque",
+        "year": "2023"
+      },
+      {
+        "key": "ref9",
+        "first-page": "627",
+        "article-title": "A reduction of imitation learning and structured prediction to no-regret online learning",
+        "volume-title": "Proc. Int. Conf. Artif. Intell. Statist.",
+        "author": "Ross",
+        "year": "2011"
+      },
+      {
+        "key": "ref10",
+        "first-page": "598",
+        "article-title": "ThriftyDAgger: Budget-aware novelty and risk gating for interactive imitation learning",
+        "volume-title": "Proc. Conf. Robot Learn.",
+        "author": "Hoque",
+        "year": "2021"
+      },
+      {
+        "key": "ref11",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/IROS40897.2019.8968287"
+      },
+      {
+        "key": "ref12",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1145/3623384"
+      },
+      {
+        "key": "ref13",
+        "article-title": "OLLIE: Imitation learning from offline pretraining to online finetuning",
+        "volume-title": "Proc. 41st Int. Conf. Mach. Learn.",
+        "author": "Yue",
+        "year": "2024"
+      },
+      {
+        "key": "ref14",
+        "first-page": "1426",
+        "article-title": "Generalization guarantees for imitation learning",
+        "volume-title": "Proc. Conf. Robot Learn.",
+        "author": "Ren",
+        "year": "2021"
+      },
+      {
+        "key": "ref15",
+        "first-page": "305",
+        "article-title": "ALVINN: An autonomous land vehicle in a neural network",
+        "volume-title": "Proc. Neural Inf. Process. Syst.",
+        "author": "Pomerleau",
+        "year": "1988"
+      },
+      {
+        "key": "ref16",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/TNNLS.2023.3250269"
+      },
+      {
+        "key": "ref17",
+        "first-page": "1179",
+        "article-title": "Conservative Q-learning for offline reinforcement learning",
+        "volume-title": "Proc. Adv. Neural Inf. Process. Syst.",
+        "volume": "33",
+        "author": "Kumar",
+        "year": "2020"
+      },
+      {
+        "key": "ref18",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/MCS.2023.3291885"
+      },
+      {
+        "key": "ref19",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1146/annurev-control-071723-102940"
+      },
+      {
+        "key": "ref20",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/IROS47612.2022.9981315"
+      },
+      {
+        "key": "ref21",
+        "article-title": "End-to-end stable imitation learning via autonomous neural dynamic policies",
+        "volume-title": "Proc. IEEE Int. Conf. Robot. Automat.",
+        "author": "Totsila",
+        "year": "2023"
+      },
+      {
+        "key": "ref22",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/TRO.2011.2159412"
+      },
+      {
+        "key": "ref23",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/LRA.2024.3354626"
+      },
+      {
+        "key": "ref24",
+        "first-page": "20162",
+        "article-title": "TaSIL: Taylor series imitation learning",
+        "volume-title": "Proc. Neural Inf. Process. Syst.",
+        "author": "Pfrommer",
+        "year": "2022"
+      },
+      {
+        "key": "ref25",
+        "first-page": "10708",
+        "article-title": "Lyapunov density models: Constraining distribution shift in learning-based control",
+        "volume-title": "Proc. Int. Conf. Mach. Learn.",
+        "author": "Kang",
+        "year": "2022"
+      },
+      {
+        "key": "ref26",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1090/gsm/140"
+      }
+    ],
+    "container-title": [
+      "IEEE Robotics and Automation Letters"
+    ],
+    "original-title": [],
+    "link": [
+      {
+        "URL": "https://ieeexplore.ieee.org/ielam/7083369/10805214/10829660-aam.pdf",
+        "content-type": "application/pdf",
+        "content-version": "am",
+        "intended-application": "syndication"
+      },
+      {
+        "URL": "http://xplorestaging.ieee.org/ielx8/7083369/10805214/10829660.pdf?arnumber=10829660",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "deposited": {
+      "date-parts": [
+        [
+          2025,
+          1,
+          20
+        ]
+      ],
+      "date-time": "2025-01-20T19:04:16Z",
+      "timestamp": 1737399856000
+    },
+    "score": 1,
+    "resource": {
+      "primary": {
+        "URL": "https://ieeexplore.ieee.org/document/10829660/"
+      }
+    },
+    "subtitle": [],
+    "short-title": [],
+    "issued": {
+      "date-parts": [
+        [
+          2025,
+          2
+        ]
+      ]
+    },
+    "references-count": 26,
+    "journal-issue": {
+      "issue": "2"
+    },
+    "URL": "https://doi.org/10.1109/lra.2025.3526439",
+    "relation": {},
+    "ISSN": [
+      "2377-3766",
+      "2377-3774"
+    ],
+    "issn-type": [
+      {
+        "value": "2377-3766",
+        "type": "electronic"
+      },
+      {
+        "value": "2377-3774",
+        "type": "electronic"
+      }
+    ],
+    "subject": [],
+    "published": {
+      "date-parts": [
+        [
+          2025,
+          2
+        ]
+      ]
+    }
+  }
+}

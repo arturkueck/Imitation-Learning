@@ -1,0 +1,284 @@
+[
+  {
+    "demo": "demo_44",
+    "split": "train",
+    "length": 141,
+    "action_replay_success": true,
+    "state_error_first": 0.07879699271882568,
+    "state_error_max": 0.35709396778163466,
+    "initial_obs_errors": {
+      "robot0_eef_pos": 1.734723475976807e-18,
+      "robot0_eef_quat": 1.0879749168246633e-07,
+      "robot0_gripper_qpos": 0.0,
+      "object": 0.0
+    },
+    "initial_image_mae": 0.0003255208333333333,
+    "restored_state_observation_max_error": 0.0005579128085496654,
+    "expert_label_max_error": 0.006179332733154297,
+    "image_checks": [
+      {
+        "step": 0,
+        "mae": 0.0003255208333333333,
+        "flipped_mae": 58.310546875
+      },
+      {
+        "step": 70,
+        "mae": 0.6885579427083334,
+        "flipped_mae": 69.744384765625
+      },
+      {
+        "step": 140,
+        "mae": 0.00439453125,
+        "flipped_mae": 70.82161458333333
+      }
+    ],
+    "gripper_switch_steps": [
+      42,
+      125
+    ],
+    "phase_counts": {
+      "0": 21,
+      "1": 20,
+      "2": 20,
+      "3": 28,
+      "4": 15,
+      "5": 20,
+      "6": 17
+    }
+  },
+  {
+    "demo": "demo_9",
+    "split": "train",
+    "length": 160,
+    "action_replay_success": true,
+    "state_error_first": 0.19587616460323604,
+    "state_error_max": 0.7293182469940807,
+    "initial_obs_errors": {
+      "robot0_eef_pos": 1.1102230246251565e-16,
+      "robot0_eef_quat": 1.0878654310708669e-07,
+      "robot0_gripper_qpos": 0.0,
+      "object": 0.0
+    },
+    "initial_image_mae": 0.001220703125,
+    "restored_state_observation_max_error": 0.0005579128085496654,
+    "expert_label_max_error": 2.0,
+    "image_checks": [
+      {
+        "step": 0,
+        "mae": 0.001220703125,
+        "flipped_mae": 55.482177734375
+      },
+      {
+        "step": 80,
+        "mae": 1.0121256510416667,
+        "flipped_mae": 87.45499674479167
+      },
+      {
+        "step": 159,
+        "mae": 0.0037434895833333335,
+        "flipped_mae": 64.8583984375
+      }
+    ],
+    "gripper_switch_steps": [
+      48,
+      144
+    ],
+    "phase_counts": {
+      "0": 26,
+      "1": 21,
+      "2": 20,
+      "3": 29,
+      "4": 25,
+      "5": 21,
+      "6": 18
+    }
+  },
+  {
+    "demo": "demo_181",
+    "split": "train",
+    "length": 136,
+    "action_replay_success": true,
+    "state_error_first": 0.17040866615265068,
+    "state_error_max": 0.3251037171884669,
+    "initial_obs_errors": {
+      "robot0_eef_pos": 2.220446049250313e-16,
+      "robot0_eef_quat": 1.0876964073869289e-07,
+      "robot0_gripper_qpos": 0.0,
+      "object": 0.0
+    },
+    "initial_image_mae": 0.0,
+    "restored_state_observation_max_error": 0.0005579128085496654,
+    "expert_label_max_error": 0.006208062171936035,
+    "image_checks": [
+      {
+        "step": 0,
+        "mae": 0.0,
+        "flipped_mae": 55.36376953125
+      },
+      {
+        "step": 68,
+        "mae": 0.7298177083333334,
+        "flipped_mae": 70.77864583333333
+      },
+      {
+        "step": 135,
+        "mae": 0.008463541666666666,
+        "flipped_mae": 66.08186848958333
+      }
+    ],
+    "gripper_switch_steps": [
+      39,
+      121
+    ],
+    "phase_counts": {
+      "0": 18,
+      "1": 20,
+      "2": 20,
+      "3": 28,
+      "4": 14,
+      "5": 20,
+      "6": 16
+    }
+  },
+  {
+    "demo": "demo_81",
+    "split": "valid",
+    "length": 136,
+    "action_replay_success": true,
+    "state_error_first": 0.14485309304696514,
+    "state_error_max": 0.2185382089995643,
+    "initial_obs_errors": {
+      "robot0_eef_pos": 0.0,
+      "robot0_eef_quat": 1.0891176649430179e-07,
+      "robot0_gripper_qpos": 0.0,
+      "object": 0.0
+    },
+    "initial_image_mae": 0.001708984375,
+    "restored_state_observation_max_error": 0.0005579128085496654,
+    "expert_label_max_error": 0.006127476692199707,
+    "image_checks": [
+      {
+        "step": 0,
+        "mae": 0.001708984375,
+        "flipped_mae": 55.543538411458336
+      },
+      {
+        "step": 68,
+        "mae": 0.654296875,
+        "flipped_mae": 59.569498697916664
+      },
+      {
+        "step": 135,
+        "mae": 0.015380859375,
+        "flipped_mae": 64.26765950520833
+      }
+    ],
+    "gripper_switch_steps": [
+      36,
+      120
+    ],
+    "phase_counts": {
+      "0": 15,
+      "1": 20,
+      "2": 20,
+      "3": 27,
+      "4": 15,
+      "5": 22,
+      "6": 17
+    }
+  },
+  {
+    "demo": "demo_121",
+    "split": "valid",
+    "length": 154,
+    "action_replay_success": true,
+    "state_error_first": 0.0762744086987118,
+    "state_error_max": 0.11851702900164762,
+    "initial_obs_errors": {
+      "robot0_eef_pos": 2.220446049250313e-16,
+      "robot0_eef_quat": 1.0871672203455196e-07,
+      "robot0_gripper_qpos": 0.0,
+      "object": 0.0
+    },
+    "initial_image_mae": 0.0,
+    "restored_state_observation_max_error": 0.0005579128085496654,
+    "expert_label_max_error": 0.006117880344390869,
+    "image_checks": [
+      {
+        "step": 0,
+        "mae": 0.0,
+        "flipped_mae": 56.711263020833336
+      },
+      {
+        "step": 77,
+        "mae": 0.8555501302083334,
+        "flipped_mae": 70.20157877604167
+      },
+      {
+        "step": 153,
+        "mae": 0.011800130208333334,
+        "flipped_mae": 64.883056640625
+      }
+    ],
+    "gripper_switch_steps": [
+      42,
+      138
+    ],
+    "phase_counts": {
+      "0": 21,
+      "1": 20,
+      "2": 20,
+      "3": 28,
+      "4": 20,
+      "5": 28,
+      "6": 17
+    }
+  },
+  {
+    "demo": "demo_63",
+    "split": "valid",
+    "length": 149,
+    "action_replay_success": true,
+    "state_error_first": 0.09013160533693698,
+    "state_error_max": 0.09013160533693698,
+    "initial_obs_errors": {
+      "robot0_eef_pos": 1.951563910473908e-18,
+      "robot0_eef_quat": 1.0874886391398775e-07,
+      "robot0_gripper_qpos": 0.0,
+      "object": 0.0
+    },
+    "initial_image_mae": 0.0,
+    "restored_state_observation_max_error": 0.0005579128085496654,
+    "expert_label_max_error": 0.006160616874694824,
+    "image_checks": [
+      {
+        "step": 0,
+        "mae": 0.0,
+        "flipped_mae": 57.120930989583336
+      },
+      {
+        "step": 74,
+        "mae": 0.8929036458333334,
+        "flipped_mae": 79.23225911458333
+      },
+      {
+        "step": 148,
+        "mae": 0.0027669270833333335,
+        "flipped_mae": 76.48665364583333
+      }
+    ],
+    "gripper_switch_steps": [
+      42,
+      133
+    ],
+    "phase_counts": {
+      "0": 21,
+      "1": 20,
+      "2": 20,
+      "3": 28,
+      "4": 24,
+      "5": 19,
+      "6": 17
+    }
+  }
+]

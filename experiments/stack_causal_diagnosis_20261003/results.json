@@ -1,0 +1,169 @@
+{
+  "baseline_n": 40,
+  "baseline_stable_stacks": 2,
+  "phase_summary": [
+    {
+      "phase": "A_after_grasp",
+      "model": "expert",
+      "n": 5,
+      "stable_stacks": 5,
+      "position_held": 5,
+      "lower_held": 5,
+      "release": 5
+    },
+    {
+      "phase": "A_after_grasp",
+      "model": "direct",
+      "n": 5,
+      "stable_stacks": 1,
+      "position_held": 4,
+      "lower_held": 4,
+      "release": 2
+    },
+    {
+      "phase": "A_after_grasp",
+      "model": "diffusion",
+      "n": 5,
+      "stable_stacks": 0,
+      "position_held": 1,
+      "lower_held": 1,
+      "release": 1
+    },
+    {
+      "phase": "B_after_lift",
+      "model": "expert",
+      "n": 5,
+      "stable_stacks": 5,
+      "position_held": 5,
+      "lower_held": 5,
+      "release": 5
+    },
+    {
+      "phase": "B_after_lift",
+      "model": "direct",
+      "n": 5,
+      "stable_stacks": 2,
+      "position_held": 5,
+      "lower_held": 5,
+      "release": 3
+    },
+    {
+      "phase": "B_after_lift",
+      "model": "diffusion",
+      "n": 5,
+      "stable_stacks": 0,
+      "position_held": 0,
+      "lower_held": 0,
+      "release": 0
+    },
+    {
+      "phase": "C_mid_transport",
+      "model": "expert",
+      "n": 5,
+      "stable_stacks": 5,
+      "position_held": 5,
+      "lower_held": 5,
+      "release": 5
+    },
+    {
+      "phase": "C_mid_transport",
+      "model": "direct",
+      "n": 5,
+      "stable_stacks": 4,
+      "position_held": 5,
+      "lower_held": 5,
+      "release": 5
+    },
+    {
+      "phase": "C_mid_transport",
+      "model": "diffusion",
+      "n": 5,
+      "stable_stacks": 1,
+      "position_held": 1,
+      "lower_held": 1,
+      "release": 1
+    },
+    {
+      "phase": "D_end_transport",
+      "model": "expert",
+      "n": 5,
+      "stable_stacks": 5,
+      "position_held": 5,
+      "lower_held": 5,
+      "release": 5
+    },
+    {
+      "phase": "D_end_transport",
+      "model": "direct",
+      "n": 5,
+      "stable_stacks": 5,
+      "position_held": 5,
+      "lower_held": 5,
+      "release": 5
+    },
+    {
+      "phase": "D_end_transport",
+      "model": "diffusion",
+      "n": 5,
+      "stable_stacks": 2,
+      "position_held": 5,
+      "lower_held": 5,
+      "release": 3
+    },
+    {
+      "phase": "E_before_lowering",
+      "model": "expert",
+      "n": 5,
+      "stable_stacks": 5,
+      "position_held": 5,
+      "lower_held": 5,
+      "release": 5
+    },
+    {
+      "phase": "E_before_lowering",
+      "model": "direct",
+      "n": 5,
+      "stable_stacks": 5,
+      "position_held": 5,
+      "lower_held": 5,
+      "release": 5
+    },
+    {
+      "phase": "E_before_lowering",
+      "model": "diffusion",
+      "n": 5,
+      "stable_stacks": 2,
+      "position_held": 5,
+      "lower_held": 5,
+      "release": 3
+    },
+    {
+      "phase": "F_before_release",
+      "model": "expert",
+      "n": 5,
+      "stable_stacks": 5,
+      "position_held": 5,
+      "lower_held": 5,
+      "release": 5
+    },
+    {
+      "phase": "F_before_release",
+      "model": "direct",
+      "n": 5,
+      "stable_stacks": 5,
+      "position_held": 5,
+      "lower_held": 5,
+      "release": 5
+    },
+    {
+      "phase": "F_before_release",
+      "model": "diffusion",
+      "n": 5,
+      "stable_stacks": 2,
+      "position_held": 5,
+      "lower_held": 5,
+      "release": 4
+    }
+  ],
+  "training": false
+}

@@ -1,0 +1,22 @@
+{
+  "pipeline_pid": 23616,
+  "state": "COMPLETED",
+  "models": {
+    "bc": {
+      "state": "COMPLETED",
+      "checkpoint": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\square\\bc\\final.pth",
+      "video_generation": "GENERATING_VIDEO (during evaluation)"
+    },
+    "bc_rnn": {
+      "state": "COMPLETED",
+      "checkpoint": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\square\\bc_rnn\\final.pth",
+      "video_generation": "GENERATING_VIDEO (during evaluation)"
+    },
+    "bc_transformer": {
+      "state": "COMPLETED",
+      "checkpoint": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\square\\bc_transformer\\final.pth",
+      "video_generation": "GENERATING_VIDEO (during evaluation)"
+    }
+  },
+  "updated_at": "2026-09-30T18:32:28.356752+00:00"
+}

@@ -1,0 +1,57 @@
+{
+  "verified_date": "2026-10-01",
+  "required_markdown_files": 11,
+  "canonical_claims": 50,
+  "claims_by_paper": {
+    "DAG": 10,
+    "DART": 10,
+    "SBC": 10,
+    "ACT": 10,
+    "DP": 10
+  },
+  "topics": [
+    "Action Chunking",
+    "Behavioural Cloning",
+    "Covariate Shift",
+    "Error Accumulation",
+    "Evaluation",
+    "Generative Policies",
+    "Interactive Imitation Learning",
+    "Robustness"
+  ],
+  "quotation_checks": [
+    {
+      "id": "DAG-10",
+      "page": 5,
+      "quote": "a stronger (albeit common) assumption",
+      "verified_in_page_text": true
+    },
+    {
+      "id": "DART-09",
+      "page": 8,
+      "quote": "potentially too high",
+      "verified_in_page_text": true
+    },
+    {
+      "id": "SBC-10",
+      "page": 4,
+      "quote": "Stability vs. Performance",
+      "verified_in_page_text": true
+    },
+    {
+      "id": "ACT-10",
+      "page": 17,
+      "quote": "difficulty of perception and lack of data",
+      "verified_in_page_text": true
+    },
+    {
+      "id": "DP-10",
+      "page": 11,
+      "quote": "higher computational costs",
+      "verified_in_page_text": true
+    }
+  ],
+  "stable_bc_local_equals_arxiv_v1": true,
+  "scope": "Structural checks, quotation/page lookup and frozen-file hashes; scientific paraphrases manually checked against source pages.",
+  "errors": []
+}

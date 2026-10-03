@@ -1,0 +1,26 @@
+{
+  "checked_at": "2026-10-01T22:17:40.846Z",
+  "runtime": "Chromium via installed Chrome, headless",
+  "desktop": [
+    1200,
+    1000
+  ],
+  "mobile": [
+    390,
+    844
+  ],
+  "tabs": 6,
+  "external_network_requests": [],
+  "page_errors": [],
+  "checks": [
+    "all six lab panels render",
+    "controls change computed results",
+    "DAgger round/reset",
+    "linear eigenvalue outcome",
+    "product mode disables d",
+    "ensemble disables execution horizon",
+    "sampler next/reset/seed",
+    "no mobile horizontal overflow",
+    "light/dark screenshots"
+  ]
+}

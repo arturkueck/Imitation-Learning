@@ -1,0 +1,778 @@
+{
+  "status": "ok",
+  "message-type": "work",
+  "message-version": "1.0.0",
+  "message": {
+    "indexed": {
+      "date-parts": [
+        [
+          2026,
+          10,
+          1
+        ]
+      ],
+      "date-time": "2026-10-01T20:21:12Z",
+      "timestamp": 1790886072579,
+      "version": "4.1.0"
+    },
+    "reference-count": 70,
+    "publisher": "SAGE Publications",
+    "issue": "10-11",
+    "license": [
+      {
+        "start": {
+          "date-parts": [
+            [
+              2024,
+              10,
+              11
+            ]
+          ],
+          "date-time": "2024-10-11T00:00:00Z",
+          "timestamp": 1728604800000
+        },
+        "content-version": "tdm",
+        "delay-in-days": 0,
+        "URL": "https://journals.sagepub.com/page/policies/text-and-data-mining-license"
+      }
+    ],
+    "funder": [
+      {
+        "DOI": "10.13039/100000147",
+        "name": "Division of Civil, Mechanical and Manufacturing Innovation",
+        "doi-asserted-by": "publisher",
+        "award": [
+          "2037101"
+        ],
+        "award-info": [
+          {
+            "award-number": [
+              "2037101"
+            ]
+          }
+        ],
+        "id": [
+          {
+            "id": "10.13039/100000147",
+            "id-type": "DOI",
+            "asserted-by": "publisher"
+          }
+        ]
+      },
+      {
+        "DOI": "10.13039/100015599",
+        "name": "Toyota Research Institute",
+        "doi-asserted-by": "publisher",
+        "id": [
+          {
+            "id": "10.13039/100015599",
+            "id-type": "DOI",
+            "asserted-by": "publisher"
+          }
+        ]
+      },
+      {
+        "DOI": "10.13039/100000145",
+        "name": "Division of Information and Intelligent Systems",
+        "doi-asserted-by": "publisher",
+        "award": [
+          "2132519"
+        ],
+        "award-info": [
+          {
+            "award-number": [
+              "2132519"
+            ]
+          }
+        ],
+        "id": [
+          {
+            "id": "10.13039/100000145",
+            "id-type": "DOI",
+            "asserted-by": "publisher"
+          }
+        ]
+      }
+    ],
+    "content-domain": {
+      "domain": [
+        "journals.sagepub.com"
+      ],
+      "crossmark-restriction": true
+    },
+    "short-container-title": [
+      "The International Journal of Robotics Research"
+    ],
+    "published-print": {
+      "date-parts": [
+        [
+          2025,
+          9
+        ]
+      ]
+    },
+    "abstract": "<jats:p>This paper introduces Diffusion Policy, a new way of generating robot behavior by representing a robot\u2019s visuomotor policy as a conditional denoising diffusion process. We benchmark Diffusion Policy across 15 different tasks from 4 different robot manipulation benchmarks and find that it consistently outperforms existing state-of-the-art robot learning methods with an average improvement of 46.9%. Diffusion Policy learns the gradient of the action-distribution score function and iteratively optimizes with respect to this gradient field during inference via a series of stochastic Langevin dynamics steps. We find that the diffusion formulation yields powerful advantages when used for robot policies, including gracefully handling multimodal action distributions, being suitable for high-dimensional action spaces, and exhibiting impressive training stability. To fully unlock the potential of diffusion models for visuomotor policy learning on physical robots, this paper presents a set of key technical contributions including the incorporation of receding horizon control, visual conditioning, and the time-series diffusion transformer. We hope this work will help motivate a new generation of policy learning techniques that are able to leverage the powerful generative modeling capabilities of diffusion models. Code, data, and training details are available (diffusion-policy.cs.columbia.edu).</jats:p>",
+    "DOI": "10.1177/02783649241273668",
+    "type": "journal-article",
+    "created": {
+      "date-parts": [
+        [
+          2024,
+          10,
+          11
+        ]
+      ],
+      "date-time": "2024-10-11T08:17:02Z",
+      "timestamp": 1728634622000
+    },
+    "page": "1684-1704",
+    "update-policy": "https://doi.org/10.1177/sage-journals-update-policy",
+    "source": "Crossref",
+    "is-referenced-by-count": 611,
+    "title": [
+      "Diffusion policy: Visuomotor policy learning via action diffusion"
+    ],
+    "prefix": "10.1177",
+    "volume": "44",
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0003-0319-0228",
+        "authenticated-orcid": false,
+        "given": "Cheng",
+        "family": "Chi",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": ", Columbia University"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-8217-4818",
+        "authenticated-orcid": false,
+        "given": "Zhenjia",
+        "family": "Xu",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": ", Columbia University"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Siyuan",
+        "family": "Feng",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Toyota Research Institute"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-5056-8046",
+        "authenticated-orcid": false,
+        "given": "Eric",
+        "family": "Cousineau",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Toyota Research Institute"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Yilun",
+        "family": "Du",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": ", MIT"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-7332-6712",
+        "authenticated-orcid": false,
+        "given": "Benjamin",
+        "family": "Burchfiel",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Toyota Research Institute"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Russ",
+        "family": "Tedrake",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Toyota Research Institute"
+          },
+          {
+            "name": ", MIT"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Shuran",
+        "family": "Song",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": ", Columbia University"
+          },
+          {
+            "name": ", Stanford University"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "member": "179",
+    "published-online": {
+      "date-parts": [
+        [
+          2024,
+          10,
+          11
+        ]
+      ]
+    },
+    "reference": [
+      {
+        "key": "e_1_3_5_2_1",
+        "unstructured": "Ajay A Du Y Gupta A et al. (2022) Is conditional generative modeling all you need for decision-making? ArXiv preprint arXiv:2211.15657."
+      },
+      {
+        "key": "e_1_3_5_3_1",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.robot.2008.10.024"
+      },
+      {
+        "key": "e_1_3_5_4_1",
+        "first-page": "12",
+        "article-title": "Robot learning from demonstration",
+        "volume": "97",
+        "author": "Atkeson CG",
+        "year": "1997",
+        "unstructured": "Atkeson CG, Schaal S (1997) Robot learning from demonstration. ICML 97: 12\u201320.",
+        "journal-title": "ICML"
+      },
+      {
+        "key": "e_1_3_5_5_1",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Avigal Y Berscheid L Asfour T et al. (2022) Speedfolding: learning efficient bimanual folding of garments. In: 2022 IEEE/RSJ international conference on intelligent robots and systems (IROS) Kyoto Japan 23\u201327 October 2022 1\u20138. IEEE.",
+        "DOI": "10.1109/IROS47612.2022.9981402"
+      },
+      {
+        "key": "e_1_3_5_6_1",
+        "volume-title": "Mixture Density Networks",
+        "author": "Bishop CM",
+        "year": "1994",
+        "unstructured": "Bishop CM (1994) Mixture Density Networks. Birmingham, UK: Aston University."
+      },
+      {
+        "key": "e_1_3_5_7_1",
+        "unstructured": "Bojarski M Del Testa D Dworakowski D et al. (2016) End to end learning for self-driving cars. ArXiv preprint arXiv:1604.07316."
+      },
+      {
+        "key": "e_1_3_5_8_1",
+        "unstructured": "Chen T (2023) On the importance of noise scheduling for diffusion models. ArXiv preprint arXiv:2301.10972."
+      },
+      {
+        "key": "e_1_3_5_9_1",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Chi C Feng S Du Y et al. (2023) Diffusion policy: visuomotor policy learning via action diffusion. In: Proceedings of robotics: science and systems (RSS) Daegu Republic of Korea 10\u201314 July 2023.",
+        "DOI": "10.15607/RSS.2023.XIX.026"
+      },
+      {
+        "key": "e_1_3_5_10_1",
+        "article-title": "Exponential family estimation via adversarial dynamics embedding",
+        "volume": "32",
+        "author": "Dai B",
+        "year": "2019",
+        "unstructured": "Dai B, Liu Z, Dai H, et al. (2019) Exponential family estimation via adversarial dynamics embedding. Advances in Neural Information Processing Systems 32.",
+        "journal-title": "Advances in Neural Information Processing Systems"
+      },
+      {
+        "key": "e_1_3_5_11_1",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Deng J Dong W Socher R et al. (2009) Imagenet: a large-scale hierarchical image database. In: 2009 IEEE conference on computer vision and pattern recognition Miami FL 20\u201325 June 2009 248\u2013255. IEEE.",
+        "DOI": "10.1109/CVPR.2009.5206848"
+      },
+      {
+        "key": "e_1_3_5_12_1",
+        "unstructured": "Dosovitskiy A Beyer L Kolesnikov A et al. (2020) An image is worth 16 \u00d7 16 words: transformers for image recognition at scale. ArXiv preprint arXiv:2010.11929."
+      },
+      {
+        "key": "e_1_3_5_13_1",
+        "unstructured": "Du Y Mordatch I (2019) Implicit generation and generalization in energy-based models. ArXiv preprint arXiv:1903.08689."
+      },
+      {
+        "key": "e_1_3_5_14_1",
+        "unstructured": "Du Y Li S Tenenbaum J et al. (2020) Improved contrastive divergence training of energy based models. ArXiv preprint arXiv:2012.01316."
+      },
+      {
+        "key": "e_1_3_5_15_1",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/LRA.2019.2956365"
+      },
+      {
+        "key": "e_1_3_5_16_1",
+        "unstructured": "Florence P Lynch C Zeng A et al. (2021) Implicit behavioral cloning. In: 5th annual conference on robot learning London UK 8\u201311 November 2021."
+      },
+      {
+        "key": "e_1_3_5_17_1",
+        "unstructured": "Grathwohl W Wang KC Jacobsen JH et al. (2020) Learning the stein discrepancy for training and evaluating energy-based models without sampling. In: International conference on machine learning Virtual Conference 12\u201318 July 2020."
+      },
+      {
+        "key": "e_1_3_5_18_1",
+        "unstructured": "Gupta A Kumar V Lynch C et al. (2019) Relay policy learning: solving long-horizon tasks via imitation and reinforcement learning. ArXiv preprint arXiv:1910.11956."
+      },
+      {
+        "key": "e_1_3_5_19_1",
+        "unstructured": "Hansen-Estruch P Kostrikov I Janner M et al. (2023) Idql: implicit q-learning as an actor-critic method with diffusion policies. ArXiv preprint arXiv:2304.10573."
+      },
+      {
+        "key": "e_1_3_5_20_1",
+        "doi-asserted-by": "crossref",
+        "unstructured": "He K Zhang X Ren S et al. (2016) Deep residual learning for image recognition. In: Proceedings of the IEEE conference on computer vision and pattern recognition Las Vegas NV 27\u201330 June 2016 pp. 770\u2013778.",
+        "DOI": "10.1109/CVPR.2016.90"
+      },
+      {
+        "key": "e_1_3_5_21_1",
+        "doi-asserted-by": "crossref",
+        "unstructured": "He K Fan H Wu Y et al. (2020) Momentum contrast for unsupervised visual representation learning. In: Proceedings of the IEEE/CVF conference on computer vision and pattern recognition Seattle WA 13\u201319 June 2020 pp. 9729\u20139738.",
+        "DOI": "10.1109/CVPR42600.2020.00975"
+      },
+      {
+        "key": "e_1_3_5_22_1",
+        "unstructured": "Ho J Jain A Abbeel P (2020) Denoising diffusion probabilistic models. ArXiv preprint arXiv:2006.11239."
+      },
+      {
+        "key": "e_1_3_5_23_1",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Huang S Wang Z Li P et al. (2023) Diffusion-based generation optimization and planning in 3d scenes. ArXiv preprint arXiv:2301.06015.",
+        "DOI": "10.1109/CVPR52729.2023.01607"
+      },
+      {
+        "key": "e_1_3_5_24_1",
+        "unstructured": "Janner M Du Y Tenenbaum J et al. (2022) Planning with diffusion for flexible behavior synthesis. In: International conference on machine learning Baltimore MD 17\u201323 July 2022."
+      },
+      {
+        "key": "e_1_3_5_25_1",
+        "unstructured": "Janner M Du Y Tenenbaum J et al. (2022b) Planning with diffusion for flexible behavior synthesis. In: Chaudhuri K Jegelka S Song L et al. (eds) In: Proceedings of the 39th international conference on machine learning proceedings of machine learning research Baltimore MD 17\u201323 July 2022. PMLR."
+      },
+      {
+        "key": "e_1_3_5_26_1",
+        "first-page": "7354",
+        "article-title": "Strictly batch imitation learning by energy-based distribution matching",
+        "volume": "33",
+        "author": "Jarrett D",
+        "year": "2020",
+        "unstructured": "Jarrett D, Bica I, van der Schaar M (2020) Strictly batch imitation learning by energy-based distribution matching. Advances in Neural Information Processing Systems 33: 7354\u20137365.",
+        "journal-title": "Advances in Neural Information Processing Systems"
+      },
+      {
+        "key": "e_1_3_5_27_1",
+        "unstructured": "Karras T Aittala M Aila T et al. (2022) Elucidating the design space of diffusion-based generative models. ArXiv preprint arXiv:2206.00364."
+      },
+      {
+        "key": "e_1_3_5_28_1",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/JRA.1987.1087068"
+      },
+      {
+        "key": "e_1_3_5_29_1",
+        "volume-title": "Predicting Structured Data",
+        "author": "LeCun Y",
+        "year": "2006",
+        "unstructured": "LeCun Y, Chopra S, Hadsell R, et al. (2006) A tutorial on energy-based learning. In: Predicting Structured Data. Cambridge, MA: MIT Press."
+      },
+      {
+        "key": "e_1_3_5_30_1",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Liu L Liu X Gao J et al. (2020) Understanding the difficulty of training transformers. ArXiv preprint arXiv:2004.08249.",
+        "DOI": "10.18653/v1/2020.emnlp-main.463"
+      },
+      {
+        "key": "e_1_3_5_31_1",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Liu N Li S Du Y et al. (2022) Compositional visual generation with composable diffusion models. ArXiv preprint arXiv:2206.01714.",
+        "DOI": "10.1007/978-3-031-19790-1_26"
+      },
+      {
+        "key": "e_1_3_5_32_1",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Mandlekar A Ramos F Boots B et al. (2020a) Iris: implicit reinforcement without interaction at scale for learning control from offline robot manipulation data. In: 2020 IEEE international conference on robotics and automation (ICRA) Virtual Conference 31 May\u201331 August 2020. IEEE.",
+        "DOI": "10.1109/ICRA40945.2020.9196935"
+      },
+      {
+        "key": "e_1_3_5_33_1",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Mandlekar A Xu D Mart\u00edn-Mart\u00edn R et al. (2020b) Learning to generalize across long-horizon tasks from human demonstrations. ArXiv preprint arXiv:2003.06085.",
+        "DOI": "10.15607/RSS.2020.XVI.061"
+      },
+      {
+        "key": "e_1_3_5_34_1",
+        "unstructured": "Mandlekar A Xu D Wong J et al. (2021) What matters in learning from offline human demonstrations for robot manipulation. In: 5th annual conference on robot learning London UK 8\u201311 November 2021."
+      },
+      {
+        "key": "e_1_3_5_35_1",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Mayne DQ Michalska H (1988) Receding horizon control of nonlinear systems. In: In: Proceedings of the 27th IEEE conference on decision and control Austin TX 7\u20139 December 1988 464\u2013465. IEEE.",
+        "DOI": "10.1109/CDC.1988.194354"
+      },
+      {
+        "key": "e_1_3_5_36_1",
+        "unstructured": "Nair S Rajeswaran A Kumar V et al. (2022) R3m: a universal visual representation for robot manipulation. In: 6th Annual conference on robot learning Auckland New Zealand 14\u201318 December 2022."
+      },
+      {
+        "key": "e_1_3_5_37_1",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1201/b10905-6"
+      },
+      {
+        "key": "e_1_3_5_38_1",
+        "unstructured": "Nichol AQ Dhariwal P (2021) Improved denoising diffusion probabilistic models. In: International conference on machine learning Virtual Conference 18\u201324 July 2021 8162\u20138171. PMLR."
+      },
+      {
+        "key": "e_1_3_5_39_1",
+        "unstructured": "Pearce T Rashid T Kanervisto A et al. (2023) Imitating human behaviour with diffusion models. ArXiv preprint arXiv:2301.10677."
+      },
+      {
+        "key": "e_1_3_5_40_1",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Perez E Strub F De Vries H et al. (2018) Film: visual reasoning with a general conditioning layer. In: Proceedings of the AAAI conference on artificial intelligence New Orleans LA 2\u20137 February 2018.",
+        "DOI": "10.1609/aaai.v32i1.11671"
+      },
+      {
+        "key": "e_1_3_5_41_1",
+        "article-title": "Alvinn: an autonomous land vehicle in a neural network",
+        "volume": "1",
+        "author": "Pomerleau DA",
+        "year": "1988",
+        "unstructured": "Pomerleau DA (1988) Alvinn: an autonomous land vehicle in a neural network. Advances in Neural Information Processing Systems 1.",
+        "journal-title": "Advances in Neural Information Processing Systems"
+      },
+      {
+        "key": "e_1_3_5_42_1",
+        "unstructured": "Radford A Kim JW Hallacy C et al. (2021) Learning transferable visual models from natural language supervision. In: International conference on machine learning Virtual Conference 18\u201324 July 2021 8748\u20138763. PMLR."
+      },
+      {
+        "key": "e_1_3_5_43_1",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Rahmatizadeh R Abolghasemi P B\u00f6l\u00f6ni L et al. (2018) Vision-based multi-task manipulation for inexpensive robots using end-to-end learning from demonstration. In: 2018 IEEE international conference on robotics and automation (ICRA) Brisbane QLD 21\u201325 May 2018 3758\u20133765. IEEE.",
+        "DOI": "10.1109/ICRA.2018.8461076"
+      },
+      {
+        "key": "e_1_3_5_44_1",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1146/annurev-control-100819-063206"
+      },
+      {
+        "key": "e_1_3_5_45_1",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Reuss M Li M Jia X et al. (2023) Goal-conditioned imitation learning using score-based diffusion policies. In: Proceedings of robotics: science and systems (RSS) Center Daegu Republic of Korea 10\u201314 July 2023.",
+        "DOI": "10.15607/RSS.2023.XIX.028"
+      },
+      {
+        "key": "e_1_3_5_46_1",
+        "article-title": "Imagenet-21k pretraining for the masses",
+        "author": "Ridnik T",
+        "year": "2021",
+        "unstructured": "Ridnik T, Ben-Baruch E, Noy A, et al. (2021) Imagenet-21k pretraining for the masses. arXiv preprint arXiv:2104.10972.",
+        "journal-title": "arXiv preprint arXiv:2104.10972"
+      },
+      {
+        "key": "e_1_3_5_47_1",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Ronneberger O Fischer P Brox T (2015) U-net: convolutional networks for biomedical image segmentation. In: Medical image computing and computer-assisted intervention\u2013MICCAI 2015: 18th international conference Munich Germany 5\u20139 October 2015 234\u2013241. Springer.",
+        "DOI": "10.1007/978-3-319-24574-4_28"
+      },
+      {
+        "key": "e_1_3_5_48_1",
+        "unstructured": "Ross S Gordon G Bagnell D (2011) A reduction of imitation learning and structured prediction to no-regret online learning. In: Proceedings of the fourteenth international conference on artificial intelligence and statistics. JMLR workshop and conference proceedings Fort Lauderdale FL 11\u201313 April 2011 pp. 627\u2013635."
+      },
+      {
+        "key": "e_1_3_5_49_1",
+        "unstructured": "Shafiullah NMM Cui ZJ Altanzaya A et al. (2022) Behavior transformers: cloning $k$ modes with one stone. In: Oh AH Agarwal A Belgrave D et al. (eds) Advances in Neural Information Processing Systems Orleans LA 28 November 2022."
+      },
+      {
+        "key": "e_1_3_5_50_1",
+        "unstructured": "Sharma P Mohan L Pinto L et al. (2018) Multiple interactions made easy (mime): large scale demonstrations data for imitation. In: Conference on robot learning Zurich Switzerland 29\u201331 October 2018. PMLR."
+      },
+      {
+        "key": "e_1_3_5_51_1",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1007/978-3-540-30301-5"
+      },
+      {
+        "key": "e_1_3_5_52_1",
+        "unstructured": "Sohl-Dickstein J Weiss E Maheswaranathan N et al. (2015) Deep unsupervised learning using nonequilibrium thermodynamics. In: International conference on machine learning Lille France 6\u201311 July 2015."
+      },
+      {
+        "key": "e_1_3_5_53_1",
+        "article-title": "Generative modeling by estimating gradients of the data distribution",
+        "volume": "32",
+        "author": "Song Y",
+        "year": "2019",
+        "unstructured": "Song Y, Ermon S (2019) Generative modeling by estimating gradients of the data distribution. Advances in Neural Information Processing Systems 32.",
+        "journal-title": "Advances in Neural Information Processing Systems"
+      },
+      {
+        "key": "e_1_3_5_54_1",
+        "unstructured": "Song J Meng C Ermon S (2021) Denoising diffusion implicit models. In: International conference on learning representations Vienna Austria 3\u20137 May 2021."
+      },
+      {
+        "key": "e_1_3_5_55_1",
+        "unstructured": "Song Y Dhariwal P Chen M et al. (2023) Consistency models. ArXiv preprint arXiv:2303.01469."
+      },
+      {
+        "key": "e_1_3_5_56_1",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Subramanian J Mahajan A (2019) Approximate information state for partially observed systems. In: 2019 IEEE 58th conference on decision and control (CDC) Nice France 11\u201313 December 2019 1629\u20131636. IEEE.",
+        "DOI": "10.1109/CDC40024.2019.9029898"
+      },
+      {
+        "key": "e_1_3_5_57_1",
+        "unstructured": "Ta DN Cousineau E Zhao H et al. (2022) Conditional energy-based models for implicit policies: the gap between theory and practice. ArXiv preprint arXiv:2207.05824."
+      },
+      {
+        "key": "e_1_3_5_58_1",
+        "first-page": "7537",
+        "article-title": "Fourier features let networks learn high frequency functions in low dimensional domains",
+        "volume": "33",
+        "author": "Tancik M",
+        "year": "2020",
+        "unstructured": "Tancik M, Srinivasan P, Mildenhall B, et al. (2020) Fourier features let networks learn high frequency functions in low dimensional domains. Advances in Neural Information Processing Systems 33: 7537\u20137547.",
+        "journal-title": "Advances in Neural Information Processing Systems"
+      },
+      {
+        "key": "e_1_3_5_59_1",
+        "first-page": "18284",
+        "article-title": "The magical benchmark for robust imitation",
+        "volume": "33",
+        "author": "Toyer S",
+        "year": "2020",
+        "unstructured": "Toyer S, Shah R, Critch A, et al. (2020) The magical benchmark for robust imitation. Advances in Neural Information Processing Systems 33: 18284\u201318295.",
+        "journal-title": "Advances in Neural Information Processing Systems"
+      },
+      {
+        "key": "e_1_3_5_60_1",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Urain J Funk N Chalvatzaki G et al. (2022) Se (3)-diffusionfields: learning cost functions for joint grasp and motion optimization through diffusion. ArXiv preprint arXiv:2209.03855.",
+        "DOI": "10.1109/ICRA48891.2023.10161569"
+      },
+      {
+        "key": "e_1_3_5_61_1",
+        "article-title": "Attention is all you need",
+        "volume": "30",
+        "author": "Vaswani A",
+        "year": "2017",
+        "unstructured": "Vaswani A, Shazeer N, Parmar N, et al. (2017) Attention is all you need. Advances in Neural Information Processing Systems 30.",
+        "journal-title": "Advances in Neural Information Processing Systems"
+      },
+      {
+        "key": "e_1_3_5_62_1",
+        "unstructured": "Wang Z Hunt JJ Zhou M (2022) Diffusion policies as an expressive policy class for offline reinforcement learning. ArXiv preprint arXiv:2208.06193."
+      },
+      {
+        "key": "e_1_3_5_63_1",
+        "unstructured": "Wang Z Hunt JJ Zhou M (2023) Diffusion policies as an expressive policy class for offline reinforcement learning. In: The eleventh international conference on learning representations Vienna Austria 1 May 2023. URL: https://openreview.net/forum?id=AHvFDPi-FA."
+      },
+      {
+        "key": "e_1_3_5_64_1",
+        "unstructured": "Welling M Teh YW (2011) Bayesian learning via stochastic gradient Langevin dynamics. In: Proceedings of the 28th international conference on machine learning (ICML-11) Bellevue WA 28 June\u20132 July 2011 pp. 681\u2013688."
+      },
+      {
+        "key": "e_1_3_5_65_1",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Wu Y He K (2018) Group normalization. In: Proceedings of the European conference on computer vision (ECCV) Munich Germany 8\u201314 September 2018 pp. 3\u201319.",
+        "DOI": "10.1007/978-3-030-01261-8_1"
+      },
+      {
+        "key": "e_1_3_5_66_1",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Wu J Sun X Zeng A et al. (2020) Spatial action maps for mobile manipulation. In: Proceedings of robotics: science and systems (RSS) Corvalis OR 12\u201316 July 2020.",
+        "DOI": "10.15607/RSS.2020.XVI.035"
+      },
+      {
+        "key": "e_1_3_5_67_1",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Yang J Zhang J Settle C et al. (2022) Learning periodic tasks from human demonstrations. In: 2022 international conference on robotics and automation (ICRA) Philadelphia PA 23\u201327 May 2022 8658\u20138665. IEEE.",
+        "DOI": "10.1109/ICRA46639.2022.9812402"
+      },
+      {
+        "key": "e_1_3_5_68_1",
+        "unstructured": "Zeng A Florence P Tompson J et al. (2021) Transporter networks: rearranging the visual world for robotic manipulation. In: Conference on robot learning London UK 8\u201311 November 2021 726\u2013747. PMLR."
+      },
+      {
+        "key": "e_1_3_5_69_1",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Zhang T McCarthy Z Jow O et al. (2018) Deep imitation learning for complex manipulation tasks from virtual reality teleoperation. In: 2018 IEEE international conference on robotics and automation (ICRA) Brisbane QLD 21\u201325 May 2018 pp. 5628\u20135635. IEEE.",
+        "DOI": "10.1109/ICRA.2018.8461249"
+      },
+      {
+        "key": "e_1_3_5_70_1",
+        "unstructured": "Zhang A McAllister RT Calandra R et al. (2020) Learning invariant representations for reinforcement learning without reconstruction. In: International conference on learning representations Addis Ababa Ethiopia 30 April 2020."
+      },
+      {
+        "key": "e_1_3_5_71_1",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Zhou Y Barnes C Lu J et al. (2019) On the continuity of rotation representations in neural networks. In: Proceedings of the IEEE/CVF conference on computer vision and pattern recognition Long Beach CA 15\u201320 June 2019 pp. 5745\u20135753.",
+        "DOI": "10.1109/CVPR.2019.00589"
+      }
+    ],
+    "container-title": [
+      "The International Journal of Robotics Research"
+    ],
+    "original-title": [],
+    "language": "en",
+    "link": [
+      {
+        "URL": "https://journals.sagepub.com/doi/pdf/10.1177/02783649241273668",
+        "content-type": "application/pdf",
+        "content-version": "vor",
+        "intended-application": "text-mining"
+      },
+      {
+        "URL": "https://journals.sagepub.com/doi/full-xml/10.1177/02783649241273668",
+        "content-type": "application/xml",
+        "content-version": "vor",
+        "intended-application": "text-mining"
+      },
+      {
+        "URL": "https://journals.sagepub.com/doi/pdf/10.1177/02783649241273668",
+        "content-type": "application/pdf",
+        "content-version": "vor",
+        "intended-application": "syndication"
+      },
+      {
+        "URL": "https://journals.sagepub.com/doi/pdf/10.1177/02783649241273668",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "deposited": {
+      "date-parts": [
+        [
+          2026,
+          4,
+          29
+        ]
+      ],
+      "date-time": "2026-04-29T10:17:23Z",
+      "timestamp": 1777457843000
+    },
+    "score": 1,
+    "resource": {
+      "primary": {
+        "URL": "https://journals.sagepub.com/doi/10.1177/02783649241273668"
+      }
+    },
+    "subtitle": [],
+    "short-title": [],
+    "issued": {
+      "date-parts": [
+        [
+          2024,
+          10,
+          11
+        ]
+      ]
+    },
+    "references-count": 70,
+    "journal-issue": {
+      "issue": "10-11",
+      "published-print": {
+        "date-parts": [
+          [
+            2025,
+            9
+          ]
+        ]
+      }
+    },
+    "alternative-id": [
+      "10.1177/02783649241273668"
+    ],
+    "URL": "https://doi.org/10.1177/02783649241273668",
+    "relation": {},
+    "ISSN": [
+      "0278-3649",
+      "1741-3176"
+    ],
+    "issn-type": [
+      {
+        "value": "0278-3649",
+        "type": "print"
+      },
+      {
+        "value": "1741-3176",
+        "type": "electronic"
+      }
+    ],
+    "subject": [],
+    "published": {
+      "date-parts": [
+        [
+          2024,
+          10,
+          11
+        ]
+      ]
+    }
+  }
+}

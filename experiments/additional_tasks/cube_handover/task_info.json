@@ -1,0 +1,140 @@
+{
+  "task": "cube_handover",
+  "environment": {
+    "env_name": "CubeHandover",
+    "env_version": "1.5.1",
+    "type": 1,
+    "env_kwargs": {
+      "robots": [
+        "Panda",
+        "Panda"
+      ],
+      "controller_configs": [
+        {
+          "type": "BASIC",
+          "body_parts": {
+            "right": {
+              "type": "OSC_POSE",
+              "input_max": 1,
+              "input_min": -1,
+              "output_max": [
+                0.05,
+                0.05,
+                0.05,
+                0.5,
+                0.5,
+                0.5
+              ],
+              "output_min": [
+                -0.05,
+                -0.05,
+                -0.05,
+                -0.5,
+                -0.5,
+                -0.5
+              ],
+              "kp": 150,
+              "damping": 1,
+              "impedance_mode": "fixed",
+              "kp_limits": [
+                0,
+                300
+              ],
+              "damping_limits": [
+                0,
+                10
+              ],
+              "position_limits": null,
+              "orientation_limits": null,
+              "uncouple_pos_ori": true,
+              "control_delta": true,
+              "interpolation": null,
+              "ramp_ratio": 0.2,
+              "input_ref_frame": "world",
+              "gripper": {
+                "type": "GRIP"
+              }
+            }
+          }
+        },
+        {
+          "type": "BASIC",
+          "body_parts": {
+            "right": {
+              "type": "OSC_POSE",
+              "input_max": 1,
+              "input_min": -1,
+              "output_max": [
+                0.05,
+                0.05,
+                0.05,
+                0.5,
+                0.5,
+                0.5
+              ],
+              "output_min": [
+                -0.05,
+                -0.05,
+                -0.05,
+                -0.5,
+                -0.5,
+                -0.5
+              ],
+              "kp": 150,
+              "damping": 1,
+              "impedance_mode": "fixed",
+              "kp_limits": [
+                0,
+                300
+              ],
+              "damping_limits": [
+                0,
+                10
+              ],
+              "position_limits": null,
+              "orientation_limits": null,
+              "uncouple_pos_ori": true,
+              "control_delta": true,
+              "interpolation": null,
+              "ramp_ratio": 0.2,
+              "input_ref_frame": "world",
+              "gripper": {
+                "type": "GRIP"
+              }
+            }
+          }
+        }
+      ],
+      "camera_names": [
+        "agentview"
+      ],
+      "camera_heights": 64,
+      "camera_widths": 64,
+      "control_freq": 20,
+      "horizon": 1000,
+      "ignore_done": true,
+      "reward_shaping": false,
+      "env_configuration": "opposed",
+      "has_renderer": false,
+      "has_offscreen_renderer": true,
+      "use_object_obs": true,
+      "use_camera_obs": true,
+      "camera_depths": false
+    }
+  },
+  "action_dimension": 14,
+  "camera_keys": [
+    "agentview_image"
+  ],
+  "proprioception_keys": [
+    "robot0_eef_pos",
+    "robot0_eef_quat",
+    "robot0_gripper_qpos",
+    "robot1_eef_pos",
+    "robot1_eef_quat",
+    "robot1_gripper_qpos"
+  ],
+  "dataset": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\additional_tasks\\cube_handover\\data\\image_demonstrations.hdf5",
+  "status": "NEEDS_DEMONSTRATIONS",
+  "preview_is": "untrained environment; open grippers and zero arm actions"
+}

@@ -1,0 +1,44 @@
+{
+  "original_dataset": {
+    "path": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\additional_tasks\\stack_two\\data\\image_demonstrations.hdf5",
+    "sha256": "5222cbf96dc6218389d491fe7b99449295dcfc9bceb3bab8f8776ffff19fe6f8"
+  },
+  "prefix_dataset_sha256": "8fc252b3e599b216f0ea7dd763e49d7ad40b61113a6de3a90148e9b5cb8126e6",
+  "source_config_sha256": "9fc36929b4b13a940e6fc4cb70bc91f40985cde22adf1038f662b896e4d4827b",
+  "config_sha256": "dc71b0773278355d70b13a05f4dd9a7062d2ca1cdf288f372851c1140ffe2960",
+  "original_source_hashes": {
+    "experiments\\stack_normalization_20261001\\C\\diffusion\\seed_1\\config.json": "9fc36929b4b13a940e6fc4cb70bc91f40985cde22adf1038f662b896e4d4827b",
+    "experiments\\stack_normalization_20261001\\normalization_stats.json": "7ed66a527d7eda1f93afffaa6af2a5e279791585a69b63dee7582cde6097bcf4",
+    "experiments\\stack_normalization_20261001\\C\\diffusion\\seed_1\\initialization.json": "22a6ef6d15f5b43634bcc1992560838279b2b95fac8e1bb561d9ae1d19935ae5",
+    "experiments\\stack_followup_20261001\\scripts\\direct_common.py": "1c36863b7ff6a1024e50faff4182ee9a6efb50fd3dc63b73d5fd840d955bdf94",
+    "experiments\\stack_followup_20261001\\scripts\\transport_data.py": "7519d94c3d6b8cc6fe99b4a527db418a3d3fb44ae6921811c2a3af8170963811",
+    "experiments\\stack_followup_20261001\\scripts\\balance_common.py": "e70b1f4660675cc1961b910e78ea9080c211bccf3566ec0ca52b9650fe77c74d",
+    "experiments\\stack_followup_20261001\\scripts\\dynamics_common.py": "44be775834f940120b836c451ab120c787d2f579c204d29d3ecc8d04025e2a48",
+    "experiments\\stack_followup_20261001\\scripts\\replication_common.py": "cff3b5ea2a8d836eb726ede8b5ae616fe97448a1cc96739e91c5c22f5e4c072f",
+    "experiments\\square\\scripts\\runtime.py": "d3184690872f98ceccd5ce58fb098da9d6747516d197df7e33948607a6b761a2",
+    "experiments\\square\\scripts\\scheduler_fix.py": "18dce47f69d7d03584823b468c34ae00a367cd39a25409f7c8f5a88491007773",
+    "experiments\\square\\scripts\\robustness.py": "4205d915c57c61e299038e9414e1cab621d647f51d8ab38f90c7000fb83d5a7c",
+    "experiments\\square\\scripts\\video_views.py": "de6a86e3b71cc4dfbdef25b5784b1e719d40ece8984c1fe9b3d061b58f02ea4d",
+    "experiments\\stack_normalization_20261001\\source_snapshot\\praxis\\src\\task_extensions\\environments.py": "7abe764c76f9ef1374bcceff7e01ae5fad249f36544b626673cb9371e69063c7",
+    "experiments\\stack_normalization_20261001\\source_snapshot\\praxis\\src\\task_extensions\\stack_expert.py": "2347562d806fb40c1a62f268222a2a9b5833b79d9613f85e5b0fef07504cf4b4",
+    "experiments\\stack_normalization_20261001\\source_snapshot\\praxis\\src\\task_extensions\\__init__.py": "d5ed8d26c9920368b78eadfa5bf3e876b117b2a177be5094229f19dfbc136352",
+    "experiments\\stack_normalization_20261001\\source_snapshot\\praxis\\upstream\\robomimic\\robomimic\\algo\\algo.py": "9c058ac36d1b068895daf4156f36115b110c1035ec16b8167ab4ef97a46c2c39",
+    "experiments\\stack_normalization_20261001\\source_snapshot\\praxis\\upstream\\robomimic\\robomimic\\algo\\diffusion_policy.py": "0d9a3d08f59e1f742bdbace6c9d2209835c54c3d5836e2c84eca434711e94c19",
+    "experiments\\stack_normalization_20261001\\source_snapshot\\praxis\\upstream\\robomimic\\robomimic\\models\\diffusion_policy_nets.py": "f4bc4a36e44a12def5481b3fdd56fcfc0551df786f76980fd716e70623be30dc",
+    "experiments\\stack_normalization_20261001\\source_snapshot\\praxis\\upstream\\robomimic\\robomimic\\scripts\\train.py": "8e0ac68209ccb16c7f380d66690c1a718ba98ae4600d0315c0502912997d9539",
+    "experiments\\stack_normalization_20261001\\source_snapshot\\praxis\\upstream\\robomimic\\robomimic\\utils\\dataset.py": "89b1c3293225982dd097a47495b4b3675d3480aac82337a684cc837b64d8aaf3",
+    "experiments\\stack_normalization_20261001\\source_snapshot\\praxis\\upstream\\robomimic\\robomimic\\utils\\obs_utils.py": "a7e14c05f46d751fd8c0f0a93801191548e90a19e3909b91322f61bbadf9b4a7",
+    "experiments\\stack_normalization_20261001\\source_snapshot\\praxis\\upstream\\robomimic\\robomimic\\utils\\torch_utils.py": "ff0d943d404e2fd66c59e431bca1b56c414790a2f511dc4582be338bbcc8954d",
+    "experiments\\stack_normalization_20261001\\source_snapshot\\praxis\\upstream\\robomimic\\robomimic\\utils\\train_utils.py": "5405bb38b339f5c6b8ab88db0040ed4c0d045a9ba166a5486517b17b4e06b8b0"
+  },
+  "live_upstream_source_hashes": {
+    "praxis\\upstream\\robomimic\\robomimic\\scripts\\train.py": "8e0ac68209ccb16c7f380d66690c1a718ba98ae4600d0315c0502912997d9539",
+    "praxis\\upstream\\robomimic\\robomimic\\algo\\algo.py": "9c058ac36d1b068895daf4156f36115b110c1035ec16b8167ab4ef97a46c2c39",
+    "praxis\\upstream\\robomimic\\robomimic\\algo\\diffusion_policy.py": "0d9a3d08f59e1f742bdbace6c9d2209835c54c3d5836e2c84eca434711e94c19",
+    "praxis\\upstream\\robomimic\\robomimic\\utils\\dataset.py": "89b1c3293225982dd097a47495b4b3675d3480aac82337a684cc837b64d8aaf3",
+    "praxis\\upstream\\robomimic\\robomimic\\utils\\obs_utils.py": "a7e14c05f46d751fd8c0f0a93801191548e90a19e3909b91322f61bbadf9b4a7",
+    "praxis\\upstream\\robomimic\\robomimic\\utils\\torch_utils.py": "ff0d943d404e2fd66c59e431bca1b56c414790a2f511dc4582be338bbcc8954d",
+    "praxis\\upstream\\robomimic\\robomimic\\utils\\train_utils.py": "5405bb38b339f5c6b8ab88db0040ed4c0d045a9ba166a5486517b17b4e06b8b0",
+    "praxis\\upstream\\robomimic\\robomimic\\models\\diffusion_policy_nets.py": "f4bc4a36e44a12def5481b3fdd56fcfc0551df786f76980fd716e70623be30dc"
+  }
+}

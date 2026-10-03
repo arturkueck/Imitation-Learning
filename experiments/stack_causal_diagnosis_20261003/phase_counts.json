@@ -1,0 +1,114 @@
+[
+  {
+    "split": "train",
+    "phase": 0,
+    "name": "approach",
+    "frames": 3489,
+    "fraction": 0.12769928994949126
+  },
+  {
+    "split": "train",
+    "phase": 1,
+    "name": "descent_to_grasp",
+    "frames": 4366,
+    "fraction": 0.15979796500988214
+  },
+  {
+    "split": "train",
+    "phase": 2,
+    "name": "grasp",
+    "frames": 3600,
+    "fraction": 0.13176195007686115
+  },
+  {
+    "split": "train",
+    "phase": 3,
+    "name": "lift",
+    "frames": 5120,
+    "fraction": 0.18739477344264696
+  },
+  {
+    "split": "train",
+    "phase": 4,
+    "name": "transport_and_alignment",
+    "frames": 3693,
+    "fraction": 0.1351658004538467
+  },
+  {
+    "split": "train",
+    "phase": 5,
+    "name": "lowering",
+    "frames": 4203,
+    "fraction": 0.15383207671473537
+  },
+  {
+    "split": "train",
+    "phase": 6,
+    "name": "release",
+    "frames": 2851,
+    "fraction": 0.10434814435253642
+  },
+  {
+    "split": "train",
+    "phase": 7,
+    "name": "retreat",
+    "frames": 0,
+    "fraction": 0.0
+  },
+  {
+    "split": "valid",
+    "phase": 0,
+    "name": "approach",
+    "frames": 381,
+    "fraction": 0.1281102891728312
+  },
+  {
+    "split": "valid",
+    "phase": 1,
+    "name": "descent_to_grasp",
+    "frames": 423,
+    "fraction": 0.1422326832548756
+  },
+  {
+    "split": "valid",
+    "phase": 2,
+    "name": "grasp",
+    "frames": 400,
+    "fraction": 0.13449899125756556
+  },
+  {
+    "split": "valid",
+    "phase": 3,
+    "name": "lift",
+    "frames": 554,
+    "fraction": 0.1862811028917283
+  },
+  {
+    "split": "valid",
+    "phase": 4,
+    "name": "transport_and_alignment",
+    "frames": 399,
+    "fraction": 0.13416274377942167
+  },
+  {
+    "split": "valid",
+    "phase": 5,
+    "name": "lowering",
+    "frames": 500,
+    "fraction": 0.16812373907195696
+  },
+  {
+    "split": "valid",
+    "phase": 6,
+    "name": "release",
+    "frames": 317,
+    "fraction": 0.10659045057162071
+  },
+  {
+    "split": "valid",
+    "phase": 7,
+    "name": "retreat",
+    "frames": 0,
+    "fraction": 0.0
+  }
+]

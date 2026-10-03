@@ -1,0 +1,110 @@
+[
+  {
+    "algorithm": "bc_rnn",
+    "epoch": 50,
+    "success_rate": 0.05,
+    "avg_return": 0.05,
+    "avg_episode_length": 399.1,
+    "successes": 1,
+    "episodes": 20
+  },
+  {
+    "algorithm": "bc_rnn",
+    "epoch": 100,
+    "success_rate": 0.0,
+    "avg_return": 0.0,
+    "avg_episode_length": 400.0,
+    "successes": 0,
+    "episodes": 20
+  },
+  {
+    "algorithm": "bc_rnn",
+    "epoch": 150,
+    "success_rate": 0.0,
+    "avg_return": 0.0,
+    "avg_episode_length": 400.0,
+    "successes": 0,
+    "episodes": 20
+  },
+  {
+    "algorithm": "bc_rnn",
+    "epoch": 200,
+    "success_rate": 0.0,
+    "avg_return": 0.0,
+    "avg_episode_length": 400.0,
+    "successes": 0,
+    "episodes": 20
+  },
+  {
+    "algorithm": "bc_rnn",
+    "epoch": 250,
+    "success_rate": 0.0,
+    "avg_return": 0.0,
+    "avg_episode_length": 400.0,
+    "successes": 0,
+    "episodes": 20
+  },
+  {
+    "algorithm": "bc_rnn",
+    "epoch": 300,
+    "success_rate": 0.4,
+    "avg_return": 0.4,
+    "avg_episode_length": 309.45,
+    "successes": 8,
+    "episodes": 20
+  },
+  {
+    "algorithm": "bc_transformer",
+    "epoch": 50,
+    "success_rate": 0.05,
+    "avg_return": 0.05,
+    "avg_episode_length": 387.7,
+    "successes": 1,
+    "episodes": 20
+  },
+  {
+    "algorithm": "bc_transformer",
+    "epoch": 100,
+    "success_rate": 0.0,
+    "avg_return": 0.0,
+    "avg_episode_length": 400.0,
+    "successes": 0,
+    "episodes": 20
+  },
+  {
+    "algorithm": "bc_transformer",
+    "epoch": 150,
+    "success_rate": 0.1,
+    "avg_return": 0.1,
+    "avg_episode_length": 386.3,
+    "successes": 2,
+    "episodes": 20
+  },
+  {
+    "algorithm": "bc_transformer",
+    "epoch": 200,
+    "success_rate": 0.2,
+    "avg_return": 0.2,
+    "avg_episode_length": 356.15,
+    "successes": 4,
+    "episodes": 20
+  },
+  {
+    "algorithm": "bc_transformer",
+    "epoch": 250,
+    "success_rate": 0.05,
+    "avg_return": 0.05,
+    "avg_episode_length": 386.6,
+    "successes": 1,
+    "episodes": 20
+  },
+  {
+    "algorithm": "bc_transformer",
+    "epoch": 300,
+    "success_rate": 0.1,
+    "avg_return": 0.1,
+    "avg_episode_length": 377.15,
+    "successes": 2,
+    "episodes": 20
+  }
+]

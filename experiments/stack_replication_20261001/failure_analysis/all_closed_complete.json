@@ -1,0 +1,1 @@
+{"training_seeds": [1, 2, 3], "ddim_steps_closed": [5, 10, 50], "execution_horizons": [1, 2, 4], "starts_each": 40, "no_training": true, "workers": 1, "native_sampling_batch_size": 1, "shared_ddim10_replanning_baseline": true, "unique_new_diffusion_rollouts": 600, "unique_new_direct_rollouts": 360}

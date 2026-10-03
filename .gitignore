@@ -18,9 +18,53 @@ praxis/upstream/
 praxis/.cache/
 praxis/configs/lift_ph_bc*.json
 
+# Large local datasets and model artifacts
+*.npz
+*.npy
+*.h5
+*.hdf5
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.mp4
+*.avi
+*.mov
+*.webm
+
 # Python artifacts
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
 .venv/
 venv/
+
+# Local environments and secrets
+.env
+.env.*
+!.env.example
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Editor and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+
+# Unattended visuomotor experiments (retain configs, scripts and documentation)
+experiments/**/runs/
+experiments/**/logs/
+experiments/**/smoke/
+experiments/**/videos/
+experiments/**/evaluation/
+experiments/**/*.pth
+experiments/**/render_smoke.png
+experiments/**/status.tmp

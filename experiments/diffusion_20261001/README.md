@@ -1,0 +1,11 @@
+# Diffusion Policy – Vergleichslauf und Reparatur
+
+Implementierung: robomimic 0.5, bereits installierte diffusers 0.11.1; keine neue Abhängigkeit erforderlich. Grundlage: https://diffusion-policy.cs.columbia.edu/ .
+
+Drei neue UNet-Diffusion-Policies: StackTwo mit RGB64 und Propriozeption, StackTwo mit Objektpositionen und Propriozeption als Diagnosebenchmark, Square mit RGB64 und Propriozeption. 300 Epochen à 100 Batches, Batchgröße 8, AdamW / Cosine-Scheduler, EMA und GroupNorm. Beobachtungshorizont 2, Vorhersagehorizont 16, Ausführungshorizont 8; DDIM mit 10 Inferenzschritten. Die Originalarchitektur wird verwendet; vorhandene BC-Modelle werden nicht überschrieben.
+
+Die Datensätze und Train/Valid-Aufteilung bleiben erhalten. Aktionen wurden vollständig auf endliche Werte und [-1,1] geprüft. Neue Checkpoints alle 100 Epochen. Bester gespeicherter Validierungsstand und letzter Stand werden auf 15 Entwicklungsrollouts verglichen; Auswahl anhand von Erfolg und Stabilität. Danach 50 Tests auf den bisherigen Vergleichs-Seeds, inklusive Prüfung identischer Anfangszustände. Je visuellem Modell zusätzlich 12 Robustheitsbedingungen à 10 Episoden. Alle neuen Videos bleiben in Vierer-Ansicht mit zwei Sekunden Nachlauf.
+
+Der bisherige technische Abbruch betraf ausschließlich Square-GMM-Robustheit: Windows verweigerte `os.replace` der Statusdatei (WinError 5). `atomic_json.py` verwendet eindeutige temporäre Dateien und bis zu zehn kurze Wiederholungsversuche; dauerhafte Fehler bleiben sichtbar. Ein Test mit einer echten exklusiven Windows-Dateisperre hat die Reparatur bestätigt. Die vollständige Prüfung wird parallel neu ausgeführt, mit getrennten Ausgaben unter `repair/`. Bei Abschluss verweist `workday_20261001/recovery.json` auf die neue Zusammenfassung; der alte Abbruch bleibt nachvollziehbar.
+
+`smoke/` enthält kurze technische Trainings-/Checkpoint-/Simulationsprüfungen aller drei Diffusion-Konfigurationen und ist kein Leistungsbenchmark. `status.json` und `RESULTS.md` werden laufend aktualisiert. Logs, Checkpoints, Evaluationen und Videos liegen in diesem Experimentordner. Der produktive Hintergrundlauf ist auf 6,5 Stunden begrenzt und verhindert automatischen Standby bis zum Abschluss.

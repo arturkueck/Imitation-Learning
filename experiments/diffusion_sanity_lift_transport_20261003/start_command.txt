@@ -1,0 +1,4 @@
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File experiments/diffusion_sanity_lift_transport_20261003/start.ps1
+
+Working directory: C:\Users\artur\Desktop\Programmieren\IT\Imitation Learning
+Worker: praxis\.venv\Scripts\python.exe -u experiments/diffusion_sanity_lift_transport_20261003/scripts/run.py

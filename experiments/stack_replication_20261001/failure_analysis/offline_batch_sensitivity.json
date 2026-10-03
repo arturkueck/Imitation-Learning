@@ -1,0 +1,67 @@
+[
+  {
+    "seed": 1,
+    "steps": 10,
+    "paired_draws": 8,
+    "transport_observations": 100,
+    "max_abs_all_chunk_error": 0.005270160734653473,
+    "transport_first_xy_paired_mean_delta": -3.900690899172332e-06,
+    "transport_first_xy_mean_absolute_sample_delta": 5.533935473067686e-05,
+    "transport_first_cosine_paired_mean_delta": -4.26853813300824e-05,
+    "strong_targeted_probability_delta": 0.0,
+    "strong_targeted_classification_flip_fraction": 0.0,
+    "scope": "same existing initial noises; old batch64 artifacts vs new batch128 execution; backend and execution details not independently isolated"
+  },
+  {
+    "seed": 1,
+    "steps": 20,
+    "paired_draws": 8,
+    "transport_observations": 100,
+    "max_abs_all_chunk_error": 0.01601395010948181,
+    "transport_first_xy_paired_mean_delta": -4.622037579338212e-07,
+    "transport_first_xy_mean_absolute_sample_delta": 6.441326695494354e-05,
+    "transport_first_cosine_paired_mean_delta": -1.4104549569750169e-05,
+    "strong_targeted_probability_delta": 0.0,
+    "strong_targeted_classification_flip_fraction": 0.0,
+    "scope": "same existing initial noises; old batch64 artifacts vs new batch128 execution; backend and execution details not independently isolated"
+  },
+  {
+    "seed": 1,
+    "steps": 50,
+    "paired_draws": 8,
+    "transport_observations": 100,
+    "max_abs_all_chunk_error": 0.06274692714214325,
+    "transport_first_xy_paired_mean_delta": 2.0689542452601017e-06,
+    "transport_first_xy_mean_absolute_sample_delta": 8.53282690513879e-05,
+    "transport_first_cosine_paired_mean_delta": 3.822362740137739e-06,
+    "strong_targeted_probability_delta": 0.0012500000000000289,
+    "strong_targeted_classification_flip_fraction": 0.00125,
+    "scope": "same existing initial noises; old batch64 artifacts vs new batch128 execution; backend and execution details not independently isolated"
+  },
+  {
+    "seed": 2,
+    "steps": 10,
+    "paired_draws": 8,
+    "transport_observations": 100,
+    "max_abs_all_chunk_error": 0.009738415479660034,
+    "transport_first_xy_paired_mean_delta": 1.931293581947102e-06,
+    "transport_first_xy_mean_absolute_sample_delta": 5.905842408537865e-05,
+    "transport_first_cosine_paired_mean_delta": -1.0589220197371142e-05,
+    "strong_targeted_probability_delta": 0.0,
+    "strong_targeted_classification_flip_fraction": 0.0,
+    "scope": "same existing initial noises; old batch64 artifacts vs new batch128 execution; backend and execution details not independently isolated"
+  },
+  {
+    "seed": 3,
+    "steps": 10,
+    "paired_draws": 8,
+    "transport_observations": 100,
+    "max_abs_all_chunk_error": 0.004338487982749939,
+    "transport_first_xy_paired_mean_delta": 3.1146266792347888e-06,
+    "transport_first_xy_mean_absolute_sample_delta": 6.001619476592168e-05,
+    "transport_first_cosine_paired_mean_delta": -3.182978206856832e-06,
+    "strong_targeted_probability_delta": 0.0,
+    "strong_targeted_classification_flip_fraction": 0.0,
+    "scope": "same existing initial noises; old batch64 artifacts vs new batch128 execution; backend and execution details not independently isolated"
+  }
+]
