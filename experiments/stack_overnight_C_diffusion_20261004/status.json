@@ -1,0 +1,17 @@
+{
+  "state": "INTERRUPTED_TRAINING",
+  "seed": 2,
+  "launch_unix": 1791065536.7503512,
+  "deadline_unix": 1791119536.7503512,
+  "finished_unix": 1791066589.4191883,
+  "elapsed_since_launch_seconds": 1052.668837070465,
+  "awake_request_released": true,
+  "worker_job_closed": true,
+  "watchdog_exiting": true,
+  "automatic_retry": false,
+  "training_process": {
+    "returncode": 2,
+    "timed_out": false,
+    "worker_pid": 42228
+  }
+}

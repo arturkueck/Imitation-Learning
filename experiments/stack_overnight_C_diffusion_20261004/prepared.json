@@ -1,0 +1,75 @@
+{
+  "seed": 2,
+  "optimizer_updates": 30000,
+  "config_changes": {
+    "experiment.name": {
+      "original": "stack_normalization_C_diffusion_seed_1",
+      "effective": "stack_overnight_C_diffusion_20261004_seed_2"
+    },
+    "train.output_dir": {
+      "original": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_normalization_20261001\\C\\diffusion\\seed_1\\runs",
+      "effective": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_overnight_C_diffusion_20261004\\C\\diffusion\\seed_2\\runs"
+    },
+    "train.seed": {
+      "original": 1,
+      "effective": 2
+    }
+  },
+  "source_files": 174,
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8",
+  "gpu": "NVIDIA GeForce RTX 5070",
+  "maximum_wall_clock_seconds": 54000,
+  "evaluation": {
+    "fixed_start_seeds": [
+      46000,
+      46001,
+      46002,
+      46003,
+      46004,
+      46005,
+      46006,
+      46007,
+      46008,
+      46009,
+      46010,
+      46011,
+      46012,
+      46013,
+      46014,
+      46015,
+      46016,
+      46017,
+      46018,
+      46019,
+      46020,
+      46021,
+      46022,
+      46023,
+      46024,
+      46025,
+      46026,
+      46027,
+      46028,
+      46029,
+      46030,
+      46031,
+      46032,
+      46033,
+      46034,
+      46035,
+      46036,
+      46037,
+      46038,
+      46039
+    ],
+    "ddim_steps": 10,
+    "execute_actions": 2,
+    "checkpoint_config_action_horizon": 8,
+    "main_steps": 500,
+    "stability_tail_steps": 40
+  },
+  "final_checkpoint_selection": "Final trained weights only; no evaluation-based selection",
+  "interpretation": "One fresh training seed, no method change; research conclusion frozen before launch"
+}

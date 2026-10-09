@@ -1,0 +1,92 @@
+{
+  "state": "FAILED",
+  "policy_training_updates": 0,
+  "fit_updates": 0,
+  "selection": {
+    "seed": 4100404,
+    "selected_demos": [
+      "demo_179",
+      "demo_188",
+      "demo_95",
+      "demo_12"
+    ],
+    "excluded_prior_demos": [
+      "demo_1",
+      "demo_104",
+      "demo_116",
+      "demo_13",
+      "demo_132",
+      "demo_141",
+      "demo_148",
+      "demo_149",
+      "demo_152",
+      "demo_164",
+      "demo_181",
+      "demo_183",
+      "demo_187",
+      "demo_197",
+      "demo_34",
+      "demo_52",
+      "demo_59",
+      "demo_68",
+      "demo_82",
+      "demo_99"
+    ],
+    "heldout_demos": [
+      "demo_179",
+      "demo_188",
+      "demo_95",
+      "demo_12"
+    ],
+    "fit_demos": [],
+    "anchor_fractions": [
+      0.05,
+      0.1,
+      0.15
+    ],
+    "dataset_sha256": "2067777cb8b532e9263dd09fd6448c41cc31224bb27be4a3b734010ae13eb540",
+    "checkpoint_sha256": "27a38fc65415d419a060cd0fc529f8f30d82bc36cdf77d54cc79d7a3e52117fa",
+    "physical_eef_delta_m": 0.005,
+    "arms": [
+      "C0",
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "design_target_ratio": 0.98,
+    "evaluation_ratio_threshold": 0.99,
+    "correction_norm_limit": 0.1,
+    "correction_coordinates": [
+      0,
+      1,
+      2
+    ]
+  },
+  "source_sha256": "5ed181fa4c63b5f1a3d6e50ed27dfa499322053bab376930a55fba7a32f02fcb",
+  "protocol_sha256": "3f195bd3dc5943f436ece5557d3b02056a60ecb0a27c477005460f32bfc2afd0",
+  "calibration_sha256": "72dbc908801cf169ea70d30a8eea8bfcfcc60b3cdc12a80baba3418bce222029",
+  "counts": {
+    "resets": 312,
+    "prefix_actions": 1326,
+    "probe_actions": 312,
+    "physics_steps": 40950,
+    "ik_iterations": 576,
+    "policy_calls": 300
+  },
+  "environment": {
+    "lite_physics": false,
+    "control_timestep": 0.05,
+    "model_timestep": 0.002
+  },
+  "elapsed_seconds": 167.60899999999674,
+  "error": "Traceback (most recent call last):\n  File \"C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\lift_contraction_validity_20261004\\supervised_6h_20261004_0904\\mechanism_correction_001\\run.py\", line 165, in run\n    rec = dict(arm=arm, axis=axis, sign=sign, observed_ratio=ratio, predicted_ratio=info['predicted_ratio'],\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: dict() got multiple values for keyword argument 'predicted_ratio'\n",
+  "raw_artifact": {
+    "path": "experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/mechanism_correction_001/result.json",
+    "bytes": 18839001,
+    "sha256": "9415a85808ecda188e7aa80aba41cc8f2436e3e387c18e7f1bca97664af6550b",
+    "omitted_fields": [
+      "rows"
+    ],
+    "rows_count": 12
+  }
+}

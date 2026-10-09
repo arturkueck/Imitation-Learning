@@ -1,0 +1,22 @@
+{
+  "state": "PREFLIGHT_PASSED",
+  "checks": {
+    "undefined_zero_weight_cache_excluded_before_math": true,
+    "cache_annotations_have_no_gradients": true,
+    "independent_numpy_formula_full_batch_denominator": true,
+    "full_7D_action_directional_derivative": {
+      "analytic": 0.28230650175292515,
+      "central_difference": 0.2823065017587556,
+      "absolute_error": 5.830447236121472e-12
+    },
+    "rotational_and_gripper_columns_reach_gradient": true,
+    "all_masked_batch_finite_zero_gradient": true,
+    "reject_zero_delta": true,
+    "reject_nonfinite_active_B": true,
+    "reject_negative_epsilon": true,
+    "action_support_gate_covers_all_7_axes": true
+  },
+  "optimizer_updates": 0,
+  "physics_steps": 0,
+  "elapsed_seconds": 0.031000000002677552
+}

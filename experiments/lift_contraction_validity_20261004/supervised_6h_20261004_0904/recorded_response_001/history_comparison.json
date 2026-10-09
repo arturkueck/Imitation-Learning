@@ -1,0 +1,439 @@
+{
+  "state": "PAIRED_HISTORY_COMPARISON_VERIFIED",
+  "planned_unique_pairs": 12,
+  "eligible_pairs": 8,
+  "histories": [
+    "H_prefix",
+    "H_reset"
+  ],
+  "pairs": [
+    {
+      "demo": "demo_61",
+      "t": 5,
+      "fraction": 0.1,
+      "same_full_physical_state_error": 0.0,
+      "same_env_clock_error": 0.0,
+      "controller_fields_differ": [
+        "/right/action_input_transform",
+        "/right/action_output_transform",
+        "/right/action_scale",
+        "/right/goal_ori",
+        "/right/goal_pos",
+        "/right/initial_joint",
+        "/right/initial_ref_ori_mat",
+        "/right/initial_ref_pos",
+        "/right/torques",
+        "/right_gripper/action_input_transform",
+        "/right_gripper/action_output_transform",
+        "/right_gripper/action_scale",
+        "/right_gripper/goal_qvel",
+        "/right_gripper/vels"
+      ],
+      "gripper_fields_differ": [
+        "/current_action"
+      ],
+      "both_domain_eligible": true,
+      "reference_next_eef_difference_m": 1.4618378078960835e-07,
+      "B7_median_relative_error_by_history": [
+        0.143012459616443,
+        0.14304784826908762
+      ],
+      "policy_median_absolute_ratio_error_by_history": [
+        0.0008687000863688565,
+        0.0008829961552440091
+      ],
+      "B7_relative_error_prefix_minus_reset": -3.538865264463009e-05,
+      "policy_ratio_error_prefix_minus_reset": -1.4296068875152557e-05
+    },
+    {
+      "demo": "demo_61",
+      "t": 26,
+      "fraction": 0.5,
+      "same_full_physical_state_error": 0.0,
+      "same_env_clock_error": 0.0,
+      "controller_fields_differ": [
+        "/right/action_input_transform",
+        "/right/action_output_transform",
+        "/right/action_scale",
+        "/right/goal_ori",
+        "/right/goal_pos",
+        "/right/initial_joint",
+        "/right/initial_ref_ori_mat",
+        "/right/initial_ref_pos",
+        "/right/torques",
+        "/right_gripper/action_input_transform",
+        "/right_gripper/action_output_transform",
+        "/right_gripper/action_scale",
+        "/right_gripper/goal_qvel",
+        "/right_gripper/vels"
+      ],
+      "gripper_fields_differ": [
+        "/current_action"
+      ],
+      "both_domain_eligible": true,
+      "reference_next_eef_difference_m": 3.5738613126535846e-06,
+      "B7_median_relative_error_by_history": [
+        0.19068742050044193,
+        0.19354397744124546
+      ],
+      "policy_median_absolute_ratio_error_by_history": [
+        0.0009800198038774077,
+        0.0009261322078917278
+      ],
+      "B7_relative_error_prefix_minus_reset": -0.0028565569408035285,
+      "policy_ratio_error_prefix_minus_reset": 5.388759598567994e-05
+    },
+    {
+      "demo": "demo_61",
+      "t": 45,
+      "fraction": 0.85,
+      "same_full_physical_state_error": 0.0,
+      "same_env_clock_error": 0.0,
+      "controller_fields_differ": [
+        "/right/action_input_transform",
+        "/right/action_output_transform",
+        "/right/action_scale",
+        "/right/goal_ori",
+        "/right/goal_pos",
+        "/right/initial_joint",
+        "/right/initial_ref_ori_mat",
+        "/right/initial_ref_pos",
+        "/right/torques",
+        "/right_gripper/action_input_transform",
+        "/right_gripper/action_output_transform",
+        "/right_gripper/action_scale",
+        "/right_gripper/goal_qvel",
+        "/right_gripper/vels"
+      ],
+      "gripper_fields_differ": [
+        "/current_action"
+      ],
+      "both_domain_eligible": false,
+      "reference_next_eef_difference_m": 1.303971944416701e-06
+    },
+    {
+      "demo": "demo_182",
+      "t": 5,
+      "fraction": 0.1,
+      "same_full_physical_state_error": 0.0,
+      "same_env_clock_error": 0.0,
+      "controller_fields_differ": [
+        "/right/action_input_transform",
+        "/right/action_output_transform",
+        "/right/action_scale",
+        "/right/goal_ori",
+        "/right/goal_pos",
+        "/right/initial_joint",
+        "/right/initial_ref_ori_mat",
+        "/right/initial_ref_pos",
+        "/right/torques",
+        "/right_gripper/action_input_transform",
+        "/right_gripper/action_output_transform",
+        "/right_gripper/action_scale",
+        "/right_gripper/goal_qvel",
+        "/right_gripper/vels"
+      ],
+      "gripper_fields_differ": [
+        "/current_action"
+      ],
+      "both_domain_eligible": true,
+      "reference_next_eef_difference_m": 5.072269128896504e-08,
+      "B7_median_relative_error_by_history": [
+        0.14332214964702455,
+        0.14332225909647414
+      ],
+      "policy_median_absolute_ratio_error_by_history": [
+        0.0011882984360797044,
+        0.001215035944745757
+      ],
+      "B7_relative_error_prefix_minus_reset": -1.0944944958679592e-07,
+      "policy_ratio_error_prefix_minus_reset": -2.6737508666052623e-05
+    },
+    {
+      "demo": "demo_182",
+      "t": 27,
+      "fraction": 0.5,
+      "same_full_physical_state_error": 0.0,
+      "same_env_clock_error": 0.0,
+      "controller_fields_differ": [
+        "/right/action_input_transform",
+        "/right/action_output_transform",
+        "/right/action_scale",
+        "/right/goal_ori",
+        "/right/goal_pos",
+        "/right/initial_joint",
+        "/right/initial_ref_ori_mat",
+        "/right/initial_ref_pos",
+        "/right/torques",
+        "/right_gripper/action_input_transform",
+        "/right_gripper/action_output_transform",
+        "/right_gripper/action_scale",
+        "/right_gripper/goal_qvel",
+        "/right_gripper/vels"
+      ],
+      "gripper_fields_differ": [
+        "/current_action"
+      ],
+      "both_domain_eligible": true,
+      "reference_next_eef_difference_m": 2.2370428700411675e-07,
+      "B7_median_relative_error_by_history": [
+        0.1645872707586345,
+        0.1645875765464958
+      ],
+      "policy_median_absolute_ratio_error_by_history": [
+        0.0011460190890952848,
+        0.0011452960630511932
+      ],
+      "B7_relative_error_prefix_minus_reset": -3.057878613099696e-07,
+      "policy_ratio_error_prefix_minus_reset": 7.230260440915792e-07
+    },
+    {
+      "demo": "demo_182",
+      "t": 45,
+      "fraction": 0.85,
+      "same_full_physical_state_error": 0.0,
+      "same_env_clock_error": 0.0,
+      "controller_fields_differ": [
+        "/right/action_input_transform",
+        "/right/action_output_transform",
+        "/right/action_scale",
+        "/right/goal_ori",
+        "/right/goal_pos",
+        "/right/initial_joint",
+        "/right/initial_ref_ori_mat",
+        "/right/initial_ref_pos",
+        "/right/torques",
+        "/right_gripper/action_input_transform",
+        "/right_gripper/action_output_transform",
+        "/right_gripper/action_scale",
+        "/right_gripper/goal_qvel",
+        "/right_gripper/vels"
+      ],
+      "gripper_fields_differ": [
+        "/current_action"
+      ],
+      "both_domain_eligible": false,
+      "reference_next_eef_difference_m": 3.715803461193221e-07
+    },
+    {
+      "demo": "demo_4",
+      "t": 5,
+      "fraction": 0.1,
+      "same_full_physical_state_error": 0.0,
+      "same_env_clock_error": 0.0,
+      "controller_fields_differ": [
+        "/right/action_input_transform",
+        "/right/action_output_transform",
+        "/right/action_scale",
+        "/right/goal_ori",
+        "/right/goal_pos",
+        "/right/initial_joint",
+        "/right/initial_ref_ori_mat",
+        "/right/initial_ref_pos",
+        "/right/torques",
+        "/right_gripper/action_input_transform",
+        "/right_gripper/action_output_transform",
+        "/right_gripper/action_scale",
+        "/right_gripper/goal_qvel",
+        "/right_gripper/vels"
+      ],
+      "gripper_fields_differ": [
+        "/current_action"
+      ],
+      "both_domain_eligible": true,
+      "reference_next_eef_difference_m": 1.3055446959163306e-07,
+      "B7_median_relative_error_by_history": [
+        0.15948267109660214,
+        0.15948269439535562
+      ],
+      "policy_median_absolute_ratio_error_by_history": [
+        0.0014327726768310622,
+        0.0014327499154034862
+      ],
+      "B7_relative_error_prefix_minus_reset": -2.3298753482059453e-08,
+      "policy_ratio_error_prefix_minus_reset": 2.2761427576067916e-08
+    },
+    {
+      "demo": "demo_4",
+      "t": 25,
+      "fraction": 0.5,
+      "same_full_physical_state_error": 0.0,
+      "same_env_clock_error": 0.0,
+      "controller_fields_differ": [
+        "/right/action_input_transform",
+        "/right/action_output_transform",
+        "/right/action_scale",
+        "/right/goal_ori",
+        "/right/goal_pos",
+        "/right/initial_joint",
+        "/right/initial_ref_ori_mat",
+        "/right/initial_ref_pos",
+        "/right/torques",
+        "/right_gripper/action_input_transform",
+        "/right_gripper/action_output_transform",
+        "/right_gripper/action_scale",
+        "/right_gripper/goal_qvel",
+        "/right_gripper/vels"
+      ],
+      "gripper_fields_differ": [
+        "/current_action"
+      ],
+      "both_domain_eligible": true,
+      "reference_next_eef_difference_m": 2.037522607426708e-06,
+      "B7_median_relative_error_by_history": [
+        0.185226487059094,
+        0.1857065984606306
+      ],
+      "policy_median_absolute_ratio_error_by_history": [
+        0.0016243768411012272,
+        0.0016242900799170457
+      ],
+      "B7_relative_error_prefix_minus_reset": -0.00048011140153658705,
+      "policy_ratio_error_prefix_minus_reset": 8.676118418149414e-08
+    },
+    {
+      "demo": "demo_4",
+      "t": 42,
+      "fraction": 0.85,
+      "same_full_physical_state_error": 0.0,
+      "same_env_clock_error": 0.0,
+      "controller_fields_differ": [
+        "/right/action_input_transform",
+        "/right/action_output_transform",
+        "/right/action_scale",
+        "/right/goal_ori",
+        "/right/goal_pos",
+        "/right/initial_joint",
+        "/right/initial_ref_ori_mat",
+        "/right/initial_ref_pos",
+        "/right/torques",
+        "/right_gripper/action_input_transform",
+        "/right_gripper/action_output_transform",
+        "/right_gripper/action_scale",
+        "/right_gripper/goal_qvel",
+        "/right_gripper/vels"
+      ],
+      "gripper_fields_differ": [
+        "/current_action"
+      ],
+      "both_domain_eligible": false,
+      "reference_next_eef_difference_m": 0.00017297379461155165
+    },
+    {
+      "demo": "demo_128",
+      "t": 5,
+      "fraction": 0.1,
+      "same_full_physical_state_error": 0.0,
+      "same_env_clock_error": 0.0,
+      "controller_fields_differ": [
+        "/right/action_input_transform",
+        "/right/action_output_transform",
+        "/right/action_scale",
+        "/right/goal_ori",
+        "/right/goal_pos",
+        "/right/initial_joint",
+        "/right/initial_ref_ori_mat",
+        "/right/initial_ref_pos",
+        "/right/torques",
+        "/right_gripper/action_input_transform",
+        "/right_gripper/action_output_transform",
+        "/right_gripper/action_scale",
+        "/right_gripper/goal_qvel",
+        "/right_gripper/vels"
+      ],
+      "gripper_fields_differ": [
+        "/current_action"
+      ],
+      "both_domain_eligible": true,
+      "reference_next_eef_difference_m": 9.379294661511534e-08,
+      "B7_median_relative_error_by_history": [
+        0.1554084021418764,
+        0.15540832408247485
+      ],
+      "policy_median_absolute_ratio_error_by_history": [
+        0.00046217290852074155,
+        0.0004621097933223406
+      ],
+      "B7_relative_error_prefix_minus_reset": 7.805940155369839e-08,
+      "policy_ratio_error_prefix_minus_reset": 6.31151984009648e-08
+    },
+    {
+      "demo": "demo_128",
+      "t": 27,
+      "fraction": 0.5,
+      "same_full_physical_state_error": 0.0,
+      "same_env_clock_error": 0.0,
+      "controller_fields_differ": [
+        "/right/action_input_transform",
+        "/right/action_output_transform",
+        "/right/action_scale",
+        "/right/goal_ori",
+        "/right/goal_pos",
+        "/right/initial_joint",
+        "/right/initial_ref_ori_mat",
+        "/right/initial_ref_pos",
+        "/right/torques",
+        "/right_gripper/action_input_transform",
+        "/right_gripper/action_output_transform",
+        "/right_gripper/action_scale",
+        "/right_gripper/goal_qvel",
+        "/right_gripper/vels"
+      ],
+      "gripper_fields_differ": [
+        "/current_action"
+      ],
+      "both_domain_eligible": true,
+      "reference_next_eef_difference_m": 1.0457731561891806e-06,
+      "B7_median_relative_error_by_history": [
+        0.203571013402223,
+        0.20360877970480618
+      ],
+      "policy_median_absolute_ratio_error_by_history": [
+        0.0014272510491800672,
+        0.0014211695144191738
+      ],
+      "B7_relative_error_prefix_minus_reset": -3.776630258317537e-05,
+      "policy_ratio_error_prefix_minus_reset": 6.081534760893348e-06
+    },
+    {
+      "demo": "demo_128",
+      "t": 45,
+      "fraction": 0.85,
+      "same_full_physical_state_error": 0.0,
+      "same_env_clock_error": 0.0,
+      "controller_fields_differ": [
+        "/right/action_input_transform",
+        "/right/action_output_transform",
+        "/right/action_scale",
+        "/right/goal_ori",
+        "/right/goal_pos",
+        "/right/initial_joint",
+        "/right/initial_ref_ori_mat",
+        "/right/initial_ref_pos",
+        "/right/torques",
+        "/right_gripper/action_input_transform",
+        "/right_gripper/action_output_transform",
+        "/right_gripper/action_scale",
+        "/right_gripper/goal_qvel",
+        "/right_gripper/vels"
+      ],
+      "gripper_fields_differ": [
+        "/current_action"
+      ],
+      "both_domain_eligible": false,
+      "reference_next_eef_difference_m": 2.153452359826794e-06
+    }
+  ],
+  "median_reference_next_eef_difference_m": 1.8494403389686255e-07,
+  "max_reference_next_eef_difference_m": 3.5738613126535846e-06,
+  "median_absolute_B7_error_history_difference": 1.784722025297003e-05,
+  "median_absolute_policy_ratio_error_history_difference": 3.4022804024924636e-06,
+  "source_sha256": "baedc908678aef77027c0271bb4bd411998e9176490fad959c520d1072439f64",
+  "history_audit_source_sha256": "f12b19e82bfce3c8ae87966999e02bd088678895555c73756d4c256177844df5",
+  "analysis_sha256": "cc669eb2bea021b2e0a82d83f1bf413e748b18201f6db247c48e6363eb214491",
+  "raw_sha256": "37eecaa10e8f6eb8f86a6ebec7a9f87eeacaaa68e5a0c48962e49cc0dbbf73ad",
+  "new_physics_steps": 0,
+  "optimizer_updates": 0,
+  "fit_updates": 0,
+  "limitation": "Two controlled replacement histories only; excluded late-contact pairs unscored; no original history or independent training-seed claim."
+}

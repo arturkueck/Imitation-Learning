@@ -1,0 +1,5255 @@
+{
+  "state": "LOCAL_IDENTIFICATION_AND_HELD_RESPONSE_VERIFIED",
+  "domain_state": "AUDIT_VERIFIED_DOMAIN_GATE_FAILED",
+  "planned_anchors": 12,
+  "eligible_anchors": 8,
+  "local_identification_fits": 8,
+  "coefficients_per_fit": 21,
+  "optimizer_updates": 0,
+  "policy_training_updates": 0,
+  "primary_better": 8,
+  "primary_equal": 0,
+  "primary_worse": 0,
+  "policy": {
+    "A_B7_fixed": {
+      "cases": 48,
+      "median_absolute_ratio_error": 0.0010626212636208887,
+      "p90_absolute_ratio_error": 0.0026392873563375495,
+      "observed_below_threshold": 10,
+      "predicted_below_threshold": 16,
+      "false_pass": 6,
+      "false_penalty": 0
+    },
+    "A_B7_local": {
+      "cases": 48,
+      "median_absolute_ratio_error": 0.0004662876996109344,
+      "p90_absolute_ratio_error": 0.0009729106905551844,
+      "observed_below_threshold": 10,
+      "predicted_below_threshold": 11,
+      "false_pass": 1,
+      "false_penalty": 0
+    },
+    "I_B7_local": {
+      "cases": 48,
+      "median_absolute_ratio_error": 0.00026885410628496587,
+      "p90_absolute_ratio_error": 0.0007559162485287098,
+      "observed_below_threshold": 10,
+      "predicted_below_threshold": 8,
+      "false_pass": 0,
+      "false_penalty": 2
+    }
+  },
+  "strata": {
+    "0.1": {
+      "planned_anchors": 4,
+      "eligible_anchors": 4,
+      "planned_policy_probes": 24,
+      "conditional_policy_probes": 24,
+      "better": 4,
+      "equal": 0,
+      "worse": 0,
+      "policy": {
+        "A_B7_fixed": {
+          "cases": 24,
+          "median_absolute_ratio_error": 0.0007536167913338443,
+          "p90_absolute_ratio_error": 0.0014200858681159723,
+          "observed_below_threshold": 2,
+          "predicted_below_threshold": 8,
+          "false_pass": 6,
+          "false_penalty": 0
+        },
+        "A_B7_local": {
+          "cases": 24,
+          "median_absolute_ratio_error": 0.00019255921161487333,
+          "p90_absolute_ratio_error": 0.0008334907213734753,
+          "observed_below_threshold": 2,
+          "predicted_below_threshold": 3,
+          "false_pass": 1,
+          "false_penalty": 0
+        },
+        "I_B7_local": {
+          "cases": 24,
+          "median_absolute_ratio_error": 0.0005479763994771236,
+          "p90_absolute_ratio_error": 0.0009085807844693926,
+          "observed_below_threshold": 2,
+          "predicted_below_threshold": 0,
+          "false_pass": 0,
+          "false_penalty": 2
+        }
+      }
+    },
+    "0.5": {
+      "planned_anchors": 4,
+      "eligible_anchors": 4,
+      "planned_policy_probes": 24,
+      "conditional_policy_probes": 24,
+      "better": 4,
+      "equal": 0,
+      "worse": 0,
+      "policy": {
+        "A_B7_fixed": {
+          "cases": 24,
+          "median_absolute_ratio_error": 0.001095364774904295,
+          "p90_absolute_ratio_error": 0.004183733590410332,
+          "observed_below_threshold": 8,
+          "predicted_below_threshold": 8,
+          "false_pass": 0,
+          "false_penalty": 0
+        },
+        "A_B7_local": {
+          "cases": 24,
+          "median_absolute_ratio_error": 0.0007376880679987874,
+          "p90_absolute_ratio_error": 0.0009843950385754808,
+          "observed_below_threshold": 8,
+          "predicted_below_threshold": 8,
+          "false_pass": 0,
+          "false_penalty": 0
+        },
+        "I_B7_local": {
+          "cases": 24,
+          "median_absolute_ratio_error": 9.358868347020266e-05,
+          "p90_absolute_ratio_error": 0.0002273051278186111,
+          "observed_below_threshold": 8,
+          "predicted_below_threshold": 8,
+          "false_pass": 0,
+          "false_penalty": 0
+        }
+      }
+    },
+    "0.85": {
+      "planned_anchors": 4,
+      "eligible_anchors": 0,
+      "planned_policy_probes": 24,
+      "conditional_policy_probes": 0,
+      "better": 0,
+      "equal": 0,
+      "worse": 0,
+      "policy": {
+        "A_B7_fixed": {
+          "cases": 0,
+          "median_absolute_ratio_error": null,
+          "p90_absolute_ratio_error": null,
+          "observed_below_threshold": 0,
+          "predicted_below_threshold": 0,
+          "false_pass": 0,
+          "false_penalty": 0
+        },
+        "A_B7_local": {
+          "cases": 0,
+          "median_absolute_ratio_error": null,
+          "p90_absolute_ratio_error": null,
+          "observed_below_threshold": 0,
+          "predicted_below_threshold": 0,
+          "false_pass": 0,
+          "false_penalty": 0
+        },
+        "I_B7_local": {
+          "cases": 0,
+          "median_absolute_ratio_error": null,
+          "p90_absolute_ratio_error": null,
+          "observed_below_threshold": 0,
+          "predicted_below_threshold": 0,
+          "false_pass": 0,
+          "false_penalty": 0
+        }
+      }
+    }
+  },
+  "rows": [
+    {
+      "demo": "demo_69",
+      "t": 4,
+      "fraction": 0.1,
+      "history": "H_reset",
+      "domain_eligible": true,
+      "identification_performed": true,
+      "identification_action_difference_matrix": [
+        [
+          0.19999999999999996,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.2,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.19999999999999996,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.1006476044654846
+        ]
+      ],
+      "identification_response_matrix_m": [
+        [
+          0.0008125609980719484,
+          4.065987743873817e-07,
+          -7.424535793854048e-05
+        ],
+        [
+          9.601107849865897e-07,
+          0.0007912429157234148,
+          -2.246493978397268e-06
+        ],
+        [
+          -6.151646194929583e-05,
+          -1.975844569840693e-06,
+          0.0008891103736391459
+        ],
+        [
+          -0.00010914848891446782,
+          0.004773953865636955,
+          3.071968578838291e-05
+        ],
+        [
+          -0.001804905322986508,
+          0.00010145397648841231,
+          -0.0011294367240842762
+        ],
+        [
+          -3.300026046194893e-05,
+          0.0009562722396392297,
+          -7.388740578262443e-07
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "B_local": [
+        [
+          0.004062804990359743,
+          2.032993871936909e-06,
+          -0.00037122678969270245
+        ],
+        [
+          4.800553924932949e-06,
+          0.003956214578617074,
+          -1.123246989198634e-05
+        ],
+        [
+          -0.0003075823097464792,
+          -9.879222849203466e-06,
+          0.00444555186819573
+        ],
+        [
+          -0.0005457424445723391,
+          0.023869769328184777,
+          0.00015359842894191456
+        ],
+        [
+          -0.00902452661493254,
+          0.0005072698824420616,
+          -0.005647183620421381
+        ],
+        [
+          -0.00016500130230974464,
+          0.004781361198196148,
+          -3.6943702891312213e-06
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "rank": 7,
+      "singular_values": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.19999999999999996,
+        0.19999999999999996,
+        0.1006476044654846
+      ],
+      "condition_number": 1.9871312492945288,
+      "nominal_identification_residual_not_validation_m": 0.0,
+      "clipped_identification_branches": 1,
+      "training_updates": 0,
+      "policy": {
+        "A_B7_fixed": {
+          "cases": 6,
+          "median_absolute_ratio_error": 0.0010568366279478658,
+          "p90_absolute_ratio_error": 0.0013448664516091946,
+          "observed_below_threshold": 0,
+          "predicted_below_threshold": 2,
+          "false_pass": 2,
+          "false_penalty": 0
+        },
+        "A_B7_local": {
+          "cases": 6,
+          "median_absolute_ratio_error": 4.239400407579641e-05,
+          "p90_absolute_ratio_error": 0.0008304858188342146,
+          "observed_below_threshold": 0,
+          "predicted_below_threshold": 0,
+          "false_pass": 0,
+          "false_penalty": 0
+        },
+        "I_B7_local": {
+          "cases": 6,
+          "median_absolute_ratio_error": 0.0007192928226953943,
+          "p90_absolute_ratio_error": 0.0015874661702405812,
+          "observed_below_threshold": 0,
+          "predicted_below_threshold": 0,
+          "false_pass": 0,
+          "false_penalty": 0
+        }
+      },
+      "primary_local_minus_fixed_median_ratio_error": -0.0010144426238720694,
+      "primary_local_better": true,
+      "primary_local_equal": false
+    },
+    {
+      "demo": "demo_69",
+      "t": 20,
+      "fraction": 0.5,
+      "history": "H_reset",
+      "domain_eligible": true,
+      "identification_performed": true,
+      "identification_action_difference_matrix": [
+        [
+          0.2,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.2,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.19999999999999996,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.19999999999999996
+        ]
+      ],
+      "identification_response_matrix_m": [
+        [
+          0.0007922071388786877,
+          8.096575969514241e-06,
+          -7.993032172448622e-05
+        ],
+        [
+          9.823319117530094e-06,
+          0.0007676467094541659,
+          3.7125917573543887e-06
+        ],
+        [
+          -2.7990653179245373e-05,
+          6.314480330397304e-06,
+          0.0009049694847806933
+        ],
+        [
+          -0.0006201024105873098,
+          0.004291617759100898,
+          -0.0003194209841348439
+        ],
+        [
+          -0.001981433183647484,
+          0.00044139267356333584,
+          -0.0012020619917089137
+        ],
+        [
+          -4.3161933290450025e-05,
+          0.0008904682011478468,
+          -1.2583406823751808e-05
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "B_local": [
+        [
+          0.0039610356943934385,
+          4.048287984757121e-05,
+          -0.0003996516086224311
+        ],
+        [
+          4.911659558765047e-05,
+          0.0038382335472708293,
+          1.8562958786771944e-05
+        ],
+        [
+          -0.0001399532658962269,
+          3.157240165198653e-05,
+          0.004524847423903467
+        ],
+        [
+          -0.003100512052936549,
+          0.02145808879550449,
+          -0.0015971049206742194
+        ],
+        [
+          -0.00990716591823742,
+          0.002206963367816679,
+          -0.0060103099585445685
+        ],
+        [
+          -0.00021580966645225012,
+          0.004452341005739234,
+          -6.291703411875904e-05
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "rank": 7,
+      "singular_values": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.19999999999999996,
+        0.19999999999999996
+      ],
+      "condition_number": 1.0000000000000002,
+      "nominal_identification_residual_not_validation_m": 0.0,
+      "clipped_identification_branches": 0,
+      "training_updates": 0,
+      "policy": {
+        "A_B7_fixed": {
+          "cases": 6,
+          "median_absolute_ratio_error": 0.000958072038671931,
+          "p90_absolute_ratio_error": 0.004123227303020727,
+          "observed_below_threshold": 2,
+          "predicted_below_threshold": 2,
+          "false_pass": 0,
+          "false_penalty": 0
+        },
+        "A_B7_local": {
+          "cases": 6,
+          "median_absolute_ratio_error": 0.0006942001267705167,
+          "p90_absolute_ratio_error": 0.0011102191699782216,
+          "observed_below_threshold": 2,
+          "predicted_below_threshold": 2,
+          "false_pass": 0,
+          "false_penalty": 0
+        },
+        "I_B7_local": {
+          "cases": 6,
+          "median_absolute_ratio_error": 0.00014620973517515123,
+          "p90_absolute_ratio_error": 0.00035253323212025567,
+          "observed_below_threshold": 2,
+          "predicted_below_threshold": 2,
+          "false_pass": 0,
+          "false_penalty": 0
+        }
+      },
+      "primary_local_minus_fixed_median_ratio_error": -0.00026387191190141435,
+      "primary_local_better": true,
+      "primary_local_equal": false
+    },
+    {
+      "demo": "demo_69",
+      "t": 34,
+      "fraction": 0.85,
+      "history": "H_reset",
+      "domain_eligible": false,
+      "identification_performed": false,
+      "reason": "Contact or physical gate failed; no response-fit score assigned."
+    },
+    {
+      "demo": "demo_16",
+      "t": 4,
+      "fraction": 0.1,
+      "history": "H_reset",
+      "domain_eligible": true,
+      "identification_performed": true,
+      "identification_action_difference_matrix": [
+        [
+          0.19999999999999996,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.2,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.19999999999999996,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.10116068124771116
+        ]
+      ],
+      "identification_response_matrix_m": [
+        [
+          0.0008148014865331787,
+          -1.984619719938574e-06,
+          -7.72732624808592e-05
+        ],
+        [
+          1.9738067082025745e-06,
+          0.0007775785300628175,
+          1.3735166926043263e-07
+        ],
+        [
+          -6.232795266505886e-05,
+          5.04416243974834e-06,
+          0.0008861788656914227
+        ],
+        [
+          -0.0001778665224924647,
+          0.0050328596854619465,
+          -9.079266367806316e-05
+        ],
+        [
+          -0.0017842498489906017,
+          0.00013661431926078813,
+          -0.0011824956013112287
+        ],
+        [
+          -4.9204269398611666e-05,
+          0.0011074792697124917,
+          -1.778821720865853e-05
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "B_local": [
+        [
+          0.004074007432665895,
+          -9.923098599692872e-06,
+          -0.00038636631240429603
+        ],
+        [
+          9.869033541012873e-06,
+          0.0038878926503140877,
+          6.867583463021631e-07
+        ],
+        [
+          -0.00031163976332529436,
+          2.5220812198741702e-05,
+          0.004430894328457114
+        ],
+        [
+          -0.0008893326124623235,
+          0.02516429842730973,
+          -0.0004539633183903158
+        ],
+        [
+          -0.008921249244953008,
+          0.0006830715963039406,
+          -0.005912478006556143
+        ],
+        [
+          -0.00024602134699305833,
+          0.005537396348562458,
+          -8.894108604329265e-05
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "rank": 7,
+      "singular_values": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.19999999999999996,
+        0.19999999999999996,
+        0.10116068124771116
+      ],
+      "condition_number": 1.9770527198236436,
+      "nominal_identification_residual_not_validation_m": 8.470329472543003e-22,
+      "clipped_identification_branches": 1,
+      "training_updates": 0,
+      "policy": {
+        "A_B7_fixed": {
+          "cases": 6,
+          "median_absolute_ratio_error": 0.0006258754654940302,
+          "p90_absolute_ratio_error": 0.0014995646742436142,
+          "observed_below_threshold": 1,
+          "predicted_below_threshold": 2,
+          "false_pass": 1,
+          "false_penalty": 0
+        },
+        "A_B7_local": {
+          "cases": 6,
+          "median_absolute_ratio_error": 0.00026058291521846577,
+          "p90_absolute_ratio_error": 0.0006045814515379666,
+          "observed_below_threshold": 1,
+          "predicted_below_threshold": 1,
+          "false_pass": 0,
+          "false_penalty": 0
+        },
+        "I_B7_local": {
+          "cases": 6,
+          "median_absolute_ratio_error": 0.0004511055699211175,
+          "p90_absolute_ratio_error": 0.0007926652582997407,
+          "observed_below_threshold": 1,
+          "predicted_below_threshold": 0,
+          "false_pass": 0,
+          "false_penalty": 1
+        }
+      },
+      "primary_local_minus_fixed_median_ratio_error": -0.0003652925502755644,
+      "primary_local_better": true,
+      "primary_local_equal": false
+    },
+    {
+      "demo": "demo_16",
+      "t": 24,
+      "fraction": 0.5,
+      "history": "H_reset",
+      "domain_eligible": true,
+      "identification_performed": true,
+      "identification_action_difference_matrix": [
+        [
+          0.2,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.2,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.19999999999999998,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.19999999999999996
+        ]
+      ],
+      "identification_response_matrix_m": [
+        [
+          0.000792856287513112,
+          6.0306418236321865e-06,
+          -8.040390878705228e-05
+        ],
+        [
+          6.1286179597087875e-06,
+          0.0007481348171326915,
+          8.11717453796934e-06
+        ],
+        [
+          -2.3841058173029034e-05,
+          2.997440667659723e-06,
+          0.0009078489298111059
+        ],
+        [
+          -0.00035905084521449873,
+          0.004308905018953484,
+          -0.00032592198310077425
+        ],
+        [
+          -0.0019014423972776306,
+          0.00023684811684237563,
+          -0.0011819829739827536
+        ],
+        [
+          4.114665811854462e-05,
+          0.0009375295306781354,
+          -2.383459672072874e-06
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "B_local": [
+        [
+          0.00396428143756556,
+          3.0153209118160933e-05,
+          -0.0004020195439352614
+        ],
+        [
+          3.064308979854394e-05,
+          0.0037406740856634575,
+          4.05858726898467e-05
+        ],
+        [
+          -0.0001192052908651452,
+          1.498720333829862e-05,
+          0.00453924464905553
+        ],
+        [
+          -0.0017952542260724937,
+          0.021544525094767418,
+          -0.0016296099155038712
+        ],
+        [
+          -0.009507211986388153,
+          0.0011842405842118781,
+          -0.005909914869913768
+        ],
+        [
+          0.0002057332905927231,
+          0.004687647653390677,
+          -1.191729836036437e-05
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "rank": 7,
+      "singular_values": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.19999999999999998,
+        0.19999999999999996
+      ],
+      "condition_number": 1.0000000000000002,
+      "nominal_identification_residual_not_validation_m": 1.0847397066322436e-19,
+      "clipped_identification_branches": 0,
+      "training_updates": 0,
+      "policy": {
+        "A_B7_fixed": {
+          "cases": 6,
+          "median_absolute_ratio_error": 0.0011367373806636105,
+          "p90_absolute_ratio_error": 0.005785924748836713,
+          "observed_below_threshold": 2,
+          "predicted_below_threshold": 2,
+          "false_pass": 0,
+          "false_penalty": 0
+        },
+        "A_B7_local": {
+          "cases": 6,
+          "median_absolute_ratio_error": 0.0007718665906388256,
+          "p90_absolute_ratio_error": 0.0008348478032383921,
+          "observed_below_threshold": 2,
+          "predicted_below_threshold": 2,
+          "false_pass": 0,
+          "false_penalty": 0
+        },
+        "I_B7_local": {
+          "cases": 6,
+          "median_absolute_ratio_error": 5.709906946527177e-05,
+          "p90_absolute_ratio_error": 0.0001006179818692221,
+          "observed_below_threshold": 2,
+          "predicted_below_threshold": 2,
+          "false_pass": 0,
+          "false_penalty": 0
+        }
+      },
+      "primary_local_minus_fixed_median_ratio_error": -0.00036487079002478495,
+      "primary_local_better": true,
+      "primary_local_equal": false
+    },
+    {
+      "demo": "demo_16",
+      "t": 41,
+      "fraction": 0.85,
+      "history": "H_reset",
+      "domain_eligible": false,
+      "identification_performed": false,
+      "reason": "Contact or physical gate failed; no response-fit score assigned."
+    },
+    {
+      "demo": "demo_157",
+      "t": 4,
+      "fraction": 0.1,
+      "history": "H_reset",
+      "domain_eligible": true,
+      "identification_performed": true,
+      "identification_action_difference_matrix": [
+        [
+          0.19999999999999996,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.2,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.19999999999999996,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.10047546625137327
+        ]
+      ],
+      "identification_response_matrix_m": [
+        [
+          0.0008166431614458486,
+          3.5603166457561647e-06,
+          -8.200232330146662e-05
+        ],
+        [
+          2.173685651557511e-06,
+          0.0007916606277004511,
+          -2.8557701283737913e-06
+        ],
+        [
+          -6.544976008403258e-05,
+          -6.509171647971906e-06,
+          0.0008807648542019653
+        ],
+        [
+          -0.00012042767489958695,
+          0.004802123333608602,
+          5.12331114332909e-05
+        ],
+        [
+          -0.0017169215802759763,
+          7.473406295105921e-05,
+          -0.0012253319513790828
+        ],
+        [
+          -2.6015431587977922e-05,
+          0.0012629614247314496,
+          8.295560413040803e-06
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "B_local": [
+        [
+          0.004083215807229244,
+          1.7801583228780827e-05,
+          -0.00041001161650733314
+        ],
+        [
+          1.0868428257787555e-05,
+          0.0039583031385022555,
+          -1.4278850641868956e-05
+        ],
+        [
+          -0.00032724880042016297,
+          -3.254585823985954e-05,
+          0.004403824271009827
+        ],
+        [
+          -0.0006021383744979347,
+          0.02401061666804301,
+          0.0002561655571664545
+        ],
+        [
+          -0.008584607901379882,
+          0.00037367031475529604,
+          -0.006126659756895414
+        ],
+        [
+          -0.0001300771579398896,
+          0.006314807123657248,
+          4.147780206520402e-05
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "rank": 7,
+      "singular_values": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.19999999999999996,
+        0.19999999999999996,
+        0.10047546625137327
+      ],
+      "condition_number": 1.9905356746455154,
+      "nominal_identification_residual_not_validation_m": 1.3552527156068805e-20,
+      "clipped_identification_branches": 1,
+      "training_updates": 0,
+      "policy": {
+        "A_B7_fixed": {
+          "cases": 6,
+          "median_absolute_ratio_error": 0.0012685490183048653,
+          "p90_absolute_ratio_error": 0.001412766280166844,
+          "observed_below_threshold": 1,
+          "predicted_below_threshold": 2,
+          "false_pass": 1,
+          "false_penalty": 0
+        },
+        "A_B7_local": {
+          "cases": 6,
+          "median_absolute_ratio_error": 0.0002219024611957443,
+          "p90_absolute_ratio_error": 0.001015629816695618,
+          "observed_below_threshold": 1,
+          "predicted_below_threshold": 2,
+          "false_pass": 1,
+          "false_penalty": 0
+        },
+        "I_B7_local": {
+          "cases": 6,
+          "median_absolute_ratio_error": 0.0004080867357468265,
+          "p90_absolute_ratio_error": 0.0004872954478135072,
+          "observed_below_threshold": 1,
+          "predicted_below_threshold": 0,
+          "false_pass": 0,
+          "false_penalty": 1
+        }
+      },
+      "primary_local_minus_fixed_median_ratio_error": -0.001046646557109121,
+      "primary_local_better": true,
+      "primary_local_equal": false
+    },
+    {
+      "demo": "demo_157",
+      "t": 20,
+      "fraction": 0.5,
+      "history": "H_reset",
+      "domain_eligible": true,
+      "identification_performed": true,
+      "identification_action_difference_matrix": [
+        [
+          0.2,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.2,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.19999999999999996,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.17305741310119627
+        ]
+      ],
+      "identification_response_matrix_m": [
+        [
+          0.0007871234696878995,
+          -3.52871488839418e-06,
+          -8.039812800508805e-05
+        ],
+        [
+          6.382227299176965e-07,
+          0.0007719774264540475,
+          1.0430051707865928e-06
+        ],
+        [
+          -2.131325910485586e-05,
+          1.6125779014556502e-06,
+          0.0009088825229917052
+        ],
+        [
+          7.755326256135477e-05,
+          0.004324531724507875,
+          1.3206436205059902e-05
+        ],
+        [
+          -0.0018691236828102323,
+          -6.609235029261633e-05,
+          -0.001098478395378133
+        ],
+        [
+          -1.2320115678034552e-06,
+          0.0008026166884066346,
+          -3.6448871995053977e-06
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "B_local": [
+        [
+          0.0039356173484394975,
+          -1.76435744419709e-05,
+          -0.00040199064002544027
+        ],
+        [
+          3.1911136495884826e-06,
+          0.0038598871322702375,
+          5.215025853932964e-06
+        ],
+        [
+          -0.00010656629552427932,
+          8.062889507278253e-06,
+          0.004544412614958527
+        ],
+        [
+          0.00038776631280677386,
+          0.021622658622539377,
+          6.603218102529951e-05
+        ],
+        [
+          -0.009345618414051161,
+          -0.00033046175146308164,
+          -0.005492391976890665
+        ],
+        [
+          -6.160057839017276e-06,
+          0.004013083442033173,
+          -1.822443599752699e-05
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "rank": 7,
+      "singular_values": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.19999999999999996,
+        0.17305741310119627
+      ],
+      "condition_number": 1.155685829436552,
+      "nominal_identification_residual_not_validation_m": 8.673683554080606e-19,
+      "clipped_identification_branches": 1,
+      "training_updates": 0,
+      "policy": {
+        "A_B7_fixed": {
+          "cases": 6,
+          "median_absolute_ratio_error": 0.0010626212636208887,
+          "p90_absolute_ratio_error": 0.0023479481324064633,
+          "observed_below_threshold": 2,
+          "predicted_below_threshold": 2,
+          "false_pass": 0,
+          "false_penalty": 0
+        },
+        "A_B7_local": {
+          "cases": 6,
+          "median_absolute_ratio_error": 0.0007675928055929648,
+          "p90_absolute_ratio_error": 0.0009786528645653325,
+          "observed_below_threshold": 2,
+          "predicted_below_threshold": 2,
+          "false_pass": 0,
+          "false_penalty": 0
+        },
+        "I_B7_local": {
+          "cases": 6,
+          "median_absolute_ratio_error": 0.00015955108411752628,
+          "p90_absolute_ratio_error": 0.00022154633673754365,
+          "observed_below_threshold": 2,
+          "predicted_below_threshold": 2,
+          "false_pass": 0,
+          "false_penalty": 0
+        }
+      },
+      "primary_local_minus_fixed_median_ratio_error": -0.0002950284580279239,
+      "primary_local_better": true,
+      "primary_local_equal": false
+    },
+    {
+      "demo": "demo_157",
+      "t": 34,
+      "fraction": 0.85,
+      "history": "H_reset",
+      "domain_eligible": false,
+      "identification_performed": false,
+      "reason": "Contact or physical gate failed; no response-fit score assigned."
+    },
+    {
+      "demo": "demo_23",
+      "t": 4,
+      "fraction": 0.1,
+      "history": "H_reset",
+      "domain_eligible": true,
+      "identification_performed": true,
+      "identification_action_difference_matrix": [
+        [
+          0.19999999999999996,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.2,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.19999999999999996,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.10042980909347532
+        ]
+      ],
+      "identification_response_matrix_m": [
+        [
+          0.0008111249604715043,
+          1.063633369115767e-06,
+          -7.799893321147611e-05
+        ],
+        [
+          1.0223814557314137e-06,
+          0.0007933681229087633,
+          -1.111969522238354e-06
+        ],
+        [
+          -6.0810266838601246e-05,
+          -2.6960299459258957e-06,
+          0.0008888270355487116
+        ],
+        [
+          -5.107802255360783e-05,
+          0.004637152381502721,
+          1.7070653154149795e-05
+        ],
+        [
+          -0.0017744409987466847,
+          2.608172918473631e-05,
+          -0.0011550904108426074
+        ],
+        [
+          -4.967244809639393e-06,
+          0.0010198195666559983,
+          3.4668840613871765e-06
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "B_local": [
+        [
+          0.004055624802357522,
+          5.318166845578836e-06,
+          -0.0003899946660573806
+        ],
+        [
+          5.1119072786570685e-06,
+          0.003966840614543816,
+          -5.5598476111917705e-06
+        ],
+        [
+          -0.0003040513341930063,
+          -1.348014972962948e-05,
+          0.004444135177743559
+        ],
+        [
+          -0.00025539011276803913,
+          0.023185761907513605,
+          8.535326577074898e-05
+        ],
+        [
+          -0.008872204993733424,
+          0.00013040864592368155,
+          -0.005775452054213037
+        ],
+        [
+          -2.4836224048196964e-05,
+          0.005099097833279991,
+          1.7334420306935883e-05
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "rank": 7,
+      "singular_values": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.19999999999999996,
+        0.19999999999999996,
+        0.10042980909347532
+      ],
+      "condition_number": 1.991440607179184,
+      "nominal_identification_residual_not_validation_m": 4.235164736271502e-22,
+      "clipped_identification_branches": 1,
+      "training_updates": 0,
+      "policy": {
+        "A_B7_fixed": {
+          "cases": 6,
+          "median_absolute_ratio_error": 0.0003051254696616601,
+          "p90_absolute_ratio_error": 0.001348724143109159,
+          "observed_below_threshold": 0,
+          "predicted_below_threshold": 2,
+          "false_pass": 2,
+          "false_penalty": 0
+        },
+        "A_B7_local": {
+          "cases": 6,
+          "median_absolute_ratio_error": 0.00012771297209812627,
+          "p90_absolute_ratio_error": 0.000263808600317994,
+          "observed_below_threshold": 0,
+          "predicted_below_threshold": 0,
+          "false_pass": 0,
+          "false_penalty": 0
+        },
+        "I_B7_local": {
+          "cases": 6,
+          "median_absolute_ratio_error": 0.0006814593854035933,
+          "p90_absolute_ratio_error": 0.0008486863451715454,
+          "observed_below_threshold": 0,
+          "predicted_below_threshold": 0,
+          "false_pass": 0,
+          "false_penalty": 0
+        }
+      },
+      "primary_local_minus_fixed_median_ratio_error": -0.00017741249756353383,
+      "primary_local_better": true,
+      "primary_local_equal": false
+    },
+    {
+      "demo": "demo_23",
+      "t": 23,
+      "fraction": 0.5,
+      "history": "H_reset",
+      "domain_eligible": true,
+      "identification_performed": true,
+      "identification_action_difference_matrix": [
+        [
+          0.2,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.2,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.19999999999999996,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.18523321151733396
+        ]
+      ],
+      "identification_response_matrix_m": [
+        [
+          0.0007833715470012999,
+          -5.761789182998425e-07,
+          -7.780274435886803e-05
+        ],
+        [
+          -3.05365695547552e-07,
+          0.0007742065759509618,
+          1.0786019376540779e-06
+        ],
+        [
+          -1.627079247296971e-05,
+          5.643406904296336e-07,
+          0.0009121465559261965
+        ],
+        [
+          2.744299795620804e-05,
+          0.004274513456715311,
+          -1.2163272429144278e-05
+        ],
+        [
+          -0.001893853793627484,
+          -3.256413796483455e-05,
+          -0.0010483772623014476
+        ],
+        [
+          4.556108192169811e-06,
+          0.0007040943626790436,
+          -1.2117292834679105e-06
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "B_local": [
+        [
+          0.003916857735006499,
+          -2.8808945914992126e-06,
+          -0.00038901372179434013
+        ],
+        [
+          -1.52682847773776e-06,
+          0.003871032879754809,
+          5.393009688270389e-06
+        ],
+        [
+          -8.135396236484857e-05,
+          2.8217034521481683e-06,
+          0.0045607327796309835
+        ],
+        [
+          0.0001372149897810402,
+          0.021372567283576557,
+          -6.081636214572139e-05
+        ],
+        [
+          -0.00946926896813742,
+          -0.00016282068982417276,
+          -0.005241886311507238
+        ],
+        [
+          2.2780540960849055e-05,
+          0.003520471813395218,
+          -6.058646417339553e-06
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "rank": 7,
+      "singular_values": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.19999999999999996,
+        0.18523321151733396
+      ],
+      "condition_number": 1.0797199830511182,
+      "nominal_identification_residual_not_validation_m": 0.0,
+      "clipped_identification_branches": 1,
+      "training_updates": 0,
+      "policy": {
+        "A_B7_fixed": {
+          "cases": 6,
+          "median_absolute_ratio_error": 0.001118372150704261,
+          "p90_absolute_ratio_error": 0.0026402026545552792,
+          "observed_below_threshold": 2,
+          "predicted_below_threshold": 2,
+          "false_pass": 0,
+          "false_penalty": 0
+        },
+        "A_B7_local": {
+          "cases": 6,
+          "median_absolute_ratio_error": 0.000719716593272246,
+          "p90_absolute_ratio_error": 0.0008404512239964523,
+          "observed_below_threshold": 2,
+          "predicted_below_threshold": 2,
+          "false_pass": 0,
+          "false_penalty": 0
+        },
+        "I_B7_local": {
+          "cases": 6,
+          "median_absolute_ratio_error": 8.336437289280241e-05,
+          "p90_absolute_ratio_error": 0.00012281785227219455,
+          "observed_below_threshold": 2,
+          "predicted_below_threshold": 2,
+          "false_pass": 0,
+          "false_penalty": 0
+        }
+      },
+      "primary_local_minus_fixed_median_ratio_error": -0.000398655557432015,
+      "primary_local_better": true,
+      "primary_local_equal": false
+    },
+    {
+      "demo": "demo_23",
+      "t": 39,
+      "fraction": 0.85,
+      "history": "H_reset",
+      "domain_eligible": false,
+      "identification_performed": false,
+      "reason": "Contact or physical gate failed; no response-fit score assigned."
+    }
+  ],
+  "conditional_policy_raw": [
+    {
+      "demo": "demo_69",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 0,
+      "sign": "minus",
+      "delta_m": [
+        -0.005000000227790485,
+        -2.3551291125634144e-11,
+        5.245248679841552e-11
+      ],
+      "action_difference_7d": [
+        0.005105793476104736,
+        0.0009313039481639862,
+        0.005757838487625122,
+        0.0001109810546040535,
+        0.0021680593490600586,
+        -0.0009220263455063105,
+        -2.580881118774414e-05
+      ],
+      "observed_vector_m": [
+        -0.004999181687085075,
+        4.909273326919247e-06,
+        1.3356754879123578e-05
+      ],
+      "observed_ratio": 0.9998403425982504,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            -0.004998738568245855,
+            6.349007407752548e-06,
+            1.498631104342096e-05
+          ],
+          "predicted_ratio": 0.9997529674135056,
+          "absolute_ratio_error": 8.737518474477568e-05,
+          "vector_error_m": 2.2191534020396293e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            -0.004998926505583304,
+            7.571007768587484e-06,
+            1.30908272667545e-05
+          ],
+          "predicted_ratio": 0.9997898303382156,
+          "absolute_ratio_error": 5.051226003482956e-05,
+          "vector_error_m": 2.687129571090506e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            -0.005000497063884982,
+            2.978254175062279e-06,
+            1.1467977511644324e-05
+          ],
+          "predicted_ratio": 1.000102174621334,
+          "absolute_ratio_error": 0.000261832023083719,
+          "vector_error_m": 3.0044185850967053e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        -0.004998573817106972,
+        1.8029499786742509e-06,
+        1.8536365827825918e-06
+      ],
+      "local_joint_linearity_residual_m": 1.7309756941623316e-07,
+      "fixed_joint_linearity_residual_m": 2.3179061322205615e-06,
+      "frozen_A_open_state_error_m": 2.803014393603875e-06
+    },
+    {
+      "demo": "demo_69",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 0,
+      "sign": "plus",
+      "delta_m": [
+        0.004999999759207105,
+        -1.9808231443985136e-11,
+        5.317590812126127e-11
+      ],
+      "action_difference_7d": [
+        -0.005103349685668945,
+        -0.0009455829858779907,
+        -0.005645334720611572,
+        -5.872407928109169e-05,
+        -0.0021500512957572937,
+        0.0009041177108883858,
+        2.676248550415039e-05
+      ],
+      "observed_vector_m": [
+        0.004998873793063546,
+        -3.5467736019360874e-06,
+        -1.2870347970928009e-05
+      ],
+      "observed_ratio": 0.9997783720665113,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            0.004998530065767306,
+            -5.0952473154731955e-06,
+            -1.4510336292551718e-05
+          ],
+          "predicted_ratio": 0.9997107929060394,
+          "absolute_ratio_error": 6.757916047195334e-05,
+          "vector_error_m": 2.2815523204078253e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            0.004998713215054843,
+            -6.457778993030362e-06,
+            -1.2684929071303698e-05
+          ],
+          "predicted_ratio": 0.9997467443989682,
+          "absolute_ratio_error": 3.162766754316593e-05,
+          "vector_error_m": 2.9213212511117194e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            0.005000283773172038,
+            -1.8650257141775091e-06,
+            -1.1062079396448746e-05
+          ],
+          "predicted_ratio": 1.0000593196082652,
+          "absolute_ratio_error": 0.00028094754175389536,
+          "vector_error_m": 2.8436165532244375e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        0.004998593969974152,
+        -1.6982093409521892e-06,
+        -1.8527476254304176e-06
+      ],
+      "local_joint_linearity_residual_m": 4.7655118884449725e-08,
+      "fixed_joint_linearity_residual_m": 2.310986375698554e-06,
+      "frozen_A_open_state_error_m": 2.9083544464538454e-06
+    },
+    {
+      "demo": "demo_69",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 1,
+      "sign": "minus",
+      "delta_m": [
+        -8.210248592099845e-10,
+        -0.005000000042152173,
+        7.729561435354526e-11
+      ],
+      "action_difference_7d": [
+        2.980232238769531e-07,
+        0.0007073991000652313,
+        -0.003034532070159912,
+        -0.00020318711176514626,
+        -0.0002944245934486389,
+        0.0014070873148739338,
+        -1.3232231140136719e-05
+      ],
+      "observed_vector_m": [
+        6.175535286534473e-06,
+        -0.005002404980482508,
+        -1.1463145607626402e-05
+      ],
+      "observed_ratio": 1.0004843768449085,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            8.446211807210971e-06,
+            -0.004998086363561266,
+            -1.3423383437574269e-05
+          ],
+          "predicted_ratio": 0.9996222967127099,
+          "absolute_ratio_error": 0.0008620801321986837,
+          "vector_error_m": 5.258227488797781e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            7.70514242941288e-06,
+            -0.004999224050558657,
+            -1.1512698679174904e-05
+          ],
+          "predicted_ratio": 0.9998486404999511,
+          "absolute_ratio_error": 0.0006357363449573938,
+          "vector_error_m": 3.529938908663144e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            3.4729132473783816e-06,
+            -0.00499544302962254,
+            -1.1871886672428932e-05
+          ],
+          "predicted_ratio": 0.9990916603448756,
+          "absolute_ratio_error": 0.00139271650003292,
+          "vector_error_m": 7.479304441002146e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        2.6675619693300456e-06,
+        -0.005006956261919892,
+        4.0084181662791707e-07
+      ],
+      "local_joint_linearity_residual_m": 3.5619978515254764e-08,
+      "fixed_joint_linearity_residual_m": 2.342706818968707e-06,
+      "frozen_A_open_state_error_m": 3.539665397619201e-06
+    },
+    {
+      "demo": "demo_69",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 1,
+      "sign": "plus",
+      "delta_m": [
+        -8.216366892410676e-10,
+        0.004999999942607499,
+        7.673317536927016e-11
+      ],
+      "action_difference_7d": [
+        -2.980232238769531e-07,
+        -0.0007074382156133652,
+        0.0030437707901000977,
+        0.00020318757742643356,
+        0.00029440224170684814,
+        -0.0014071097830310464,
+        1.3470649719238281e-05
+      ],
+      "observed_vector_m": [
+        -6.520131086443226e-06,
+        0.0050043517688667175,
+        1.1430729070394108e-05
+      ],
+      "observed_ratio": 1.0008738257175815,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            -8.4511129090395e-06,
+            0.004998085805834064,
+            1.3471455727835198e-05
+          ],
+          "predicted_ratio": 0.9996222325938845,
+          "absolute_ratio_error": 0.001251593123697048,
+          "vector_error_m": 6.8669897929275255e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            -7.70942117741819e-06,
+            0.004999223598654219,
+            1.1554051165959173e-05
+          ],
+          "predicted_ratio": 0.9998485904248705,
+          "absolute_ratio_error": 0.0010252352927110353,
+          "vector_error_m": 5.2657144803060316e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            -3.477192596488698e-06,
+            0.004995442576405478,
+            1.1913238728193366e-05
+          ],
+          "predicted_ratio": 0.9990916098771333,
+          "absolute_ratio_error": 0.0017822158404482424,
+          "vector_error_m": 9.426876499398919e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        -3.0676707714338836e-06,
+        0.005008991216596474,
+        -4.891203201351502e-07
+      ],
+      "local_joint_linearity_residual_m": 8.57544015692767e-08,
+      "fixed_joint_linearity_residual_m": 2.313333832707361e-06,
+      "frozen_A_open_state_error_m": 5.340574399629712e-06
+    },
+    {
+      "demo": "demo_69",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 2,
+      "sign": "minus",
+      "delta_m": [
+        -1.1273949968026997e-09,
+        -3.377009089033933e-11,
+        -0.004999999416384848
+      ],
+      "action_difference_7d": [
+        -0.008297920227050781,
+        -0.0010369643568992615,
+        0.005437880754470825,
+        -0.00018666964024305344,
+        -0.0025931671261787415,
+        -0.0005663298070430756,
+        0.00012165307998657227
+      ],
+      "observed_vector_m": [
+        -1.28815295991902e-05,
+        -1.1046501748887896e-05,
+        -0.004954649348578588
+      ],
+      "observed_ratio": 0.9909357972584346,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            -1.471374819066894e-05,
+            -8.926508200442458e-06,
+            -0.004947753621633666
+          ],
+          "predicted_ratio": 0.9895568259016571,
+          "absolute_ratio_error": 0.0013789713567775586,
+          "vector_error_m": 7.443282052383915e-06,
+          "false_pass": true,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            -1.182224316739863e-05,
+            -8.725290256042471e-06,
+            -0.004954567760427149
+          ],
+          "predicted_ratio": 0.990918025255599,
+          "absolute_ratio_error": 1.7772002835592104e-05,
+          "vector_error_m": 2.5527959506295478e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            -1.1794108580304564e-05,
+            -1.265210313433816e-05,
+            -0.00495811546649134
+          ],
+          "predicted_ratio": 0.9916292431070076,
+          "absolute_ratio_error": 0.0006934458485730044,
+          "vector_error_m": 3.971701608426253e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        -1.1795824628318963e-06,
+        1.2299012394946518e-06,
+        -0.00499640889967512
+      ],
+      "local_joint_linearity_residual_m": 4.060633998682652e-07,
+      "fixed_joint_linearity_residual_m": 7.574406823673228e-06,
+      "frozen_A_open_state_error_m": 2.932272190387886e-06
+    },
+    {
+      "demo": "demo_69",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 2,
+      "sign": "plus",
+      "delta_m": [
+        -1.1343270905905811e-09,
+        -3.400897098659872e-11,
+        0.005000000513024294
+      ],
+      "action_difference_7d": [
+        0.00810229778289795,
+        0.0009921174496412277,
+        -0.00546380877494812,
+        0.00011989939957857132,
+        0.002481229603290558,
+        0.0004818206652998924,
+        -0.00010210275650024414
+      ],
+      "observed_vector_m": [
+        1.3229165484657246e-05,
+        9.114957225539455e-06,
+        0.004954970494069566
+      ],
+      "observed_ratio": 0.990999205893871,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            1.4925574517873774e-05,
+            6.440063221638536e-06,
+            0.004948416029364377
+          ],
+          "predicted_ratio": 0.9896884443474302,
+          "absolute_ratio_error": 0.0013107615464408306,
+          "vector_error_m": 7.279688805962267e-06,
+          "false_pass": true,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            1.2093532714708618e-05,
+            6.493016595186104e-06,
+            0.0049551489048508
+          ],
+          "predicted_ratio": 0.9910334816419878,
+          "absolute_ratio_error": 3.427574811676326e-05,
+          "vector_error_m": 2.8628770256752785e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            1.2065397353639228e-05,
+            1.041982830848969e-05,
+            0.004958696610954146
+          ],
+          "predicted_ratio": 0.9917443456906888,
+          "absolute_ratio_error": 0.0007451397968177842,
+          "vector_error_m": 4.115943615192678e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        1.1818949113978627e-06,
+        -1.3401688938475403e-06,
+        0.004996406765978567
+      ],
+      "local_joint_linearity_residual_m": 1.3833401687677236e-07,
+      "fixed_joint_linearity_residual_m": 7.190576149506138e-06,
+      "frozen_A_open_state_error_m": 2.8331601880579703e-06
+    },
+    {
+      "demo": "demo_69",
+      "t": 20,
+      "fraction": 0.5,
+      "axis": 0,
+      "sign": "minus",
+      "delta_m": [
+        -0.005000000988306247,
+        5.5982531110831957e-11,
+        1.1308975977897262e-10
+      ],
+      "action_difference_7d": [
+        0.007937643676996231,
+        0.0013481825590133667,
+        0.003090500831604004,
+        -0.0005882703699171543,
+        0.001726340502500534,
+        -0.0012191850692033768,
+        -0.008421659469604492
+      ],
+      "observed_vector_m": [
+        -0.004984637306252121,
+        -1.1222420347140744e-05,
+        7.296621924446356e-07
+      ],
+      "observed_ratio": 0.99692980149126,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            -0.004980086042160825,
+            -1.2340946327493954e-05,
+            2.529507120434145e-06
+          ],
+          "predicted_ratio": 0.9960201981914398,
+          "absolute_ratio_error": 0.0009096032998201498,
+          "vector_error_m": 5.020413027058063e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            -0.004982371537940016,
+            -4.055052239438292e-06,
+            3.100137459583935e-06
+          ],
+          "predicted_ratio": 0.9964746335531524,
+          "absolute_ratio_error": 0.0004551679381076257,
+          "vector_error_m": 7.88187951110457e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            -0.004983942096413601,
+            -8.647806544057353e-06,
+            1.4772875063713621e-06
+          ],
+          "predicted_ratio": 0.9967897665531797,
+          "absolute_ratio_error": 0.0001400349380802357,
+          "vector_error_m": 2.7696383454571477e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        -0.005000692489111447,
+        -2.5461918089428326e-06,
+        -8.061157891203763e-07
+      ],
+      "local_joint_linearity_residual_m": 6.521323000777784e-08,
+      "fixed_joint_linearity_residual_m": 8.592040730408135e-06,
+      "frozen_A_open_state_error_m": 7.8729084258157e-06
+    },
+    {
+      "demo": "demo_69",
+      "t": 20,
+      "fraction": 0.5,
+      "axis": 0,
+      "sign": "plus",
+      "delta_m": [
+        0.004999998946590284,
+        8.364674577987508e-11,
+        1.0982625919808697e-10
+      ],
+      "action_difference_7d": [
+        -0.007943138480186462,
+        -0.0012518726289272308,
+        -0.0029529035091400146,
+        0.0005576899275183678,
+        -0.0016334690153598785,
+        0.0011678598821163177,
+        0.008911490440368652
+      ],
+      "observed_vector_m": [
+        0.004983846770048076,
+        1.0872933832534182e-05,
+        -4.4965529999441145e-07
+      ],
+      "observed_ratio": 0.9967719401426802,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            0.0049790548823536625,
+            1.1644057619483346e-05,
+            -2.423869704695278e-06
+          ],
+          "predicted_ratio": 0.9958140273525329,
+          "absolute_ratio_error": 0.0009579127901473417,
+          "vector_error_m": 5.23968912115945e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            0.004981519003127675,
+            3.749224398258983e-06,
+            -2.979440375247594e-06
+          ],
+          "predicted_ratio": 0.9963044709054049,
+          "absolute_ratio_error": 0.00046746923727536416,
+          "vector_error_m": 7.90983864985028e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            0.0049830895610768694,
+            8.341976896940054e-06,
+            -1.356590916515925e-06
+          ],
+          "predicted_ratio": 0.9966195556104102,
+          "absolute_ratio_error": 0.00015238453227006676,
+          "vector_error_m": 2.7931417164946386e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        0.005000732785580062,
+        2.4328427360754967e-06,
+        8.290145512290792e-07
+      ],
+      "local_joint_linearity_residual_m": 1.275844546928528e-07,
+      "fixed_joint_linearity_residual_m": 8.197754428440197e-06,
+      "frozen_A_open_state_error_m": 7.789682721582143e-06
+    },
+    {
+      "demo": "demo_69",
+      "t": 20,
+      "fraction": 0.5,
+      "axis": 1,
+      "sign": "minus",
+      "delta_m": [
+        -8.236524118993005e-10,
+        -0.005000000130973681,
+        5.059592744771635e-10
+      ],
+      "action_difference_7d": [
+        -0.0008672811090946198,
+        0.0009830594062805176,
+        -0.00503087043762207,
+        -0.0006717061623930931,
+        -0.0009010769426822662,
+        0.00138862244784832,
+        -0.003915190696716309
+      ],
+      "observed_vector_m": [
+        8.714787996917661e-06,
+        -0.005004819072137134,
+        -1.6538639999175153e-05
+      ],
+      "observed_ratio": 1.000970770935666,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            1.1228198419977441e-05,
+            -0.005009594473020109,
+            -1.9534472727759498e-05
+          ],
+          "predicted_ratio": 1.0019290022228626,
+          "absolute_ratio_error": 0.0009582312871965204,
+          "vector_error_m": 6.17225236729073e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            1.2258519138673215e-05,
+            -0.005010421441033269,
+            -1.56381997691436e-05
+          ],
+          "predicted_ratio": 1.0020921419934514,
+          "absolute_ratio_error": 0.0011213710577853142,
+          "vector_error_m": 6.689944712872636e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            8.026289878218694e-06,
+            -0.005006640419695741,
+            -1.5997387465476637e-05
+          ],
+          "predicted_ratio": 1.001334455946272,
+          "absolute_ratio_error": 0.0003636850106059075,
+          "vector_error_m": 2.0209628630762413e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        7.393192617277666e-07,
+        -0.004998166504525187,
+        -5.749363382046013e-07
+      ],
+      "local_joint_linearity_residual_m": 6.314187184673185e-08,
+      "fixed_joint_linearity_residual_m": 4.136505667732009e-06,
+      "frozen_A_open_state_error_m": 6.677759357488408e-06
+    },
+    {
+      "demo": "demo_69",
+      "t": 20,
+      "fraction": 0.5,
+      "axis": 1,
+      "sign": "plus",
+      "delta_m": [
+        -8.235094151737288e-10,
+        0.0049999998471075835,
+        5.037443795430363e-10
+      ],
+      "action_difference_7d": [
+        0.0008671991527080536,
+        -0.000983014702796936,
+        0.005051553249359131,
+        0.0006717215292155743,
+        0.000901196151971817,
+        -0.0013885702937841415,
+        0.0040021538734436035
+      ],
+      "observed_vector_m": [
+        -8.781486022201024e-06,
+        0.005004931588396672,
+        1.670692559618825e-05
+      ],
+      "observed_ratio": 1.0009934659597546,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            -1.1239234782240824e-05,
+            0.005009594708304766,
+            1.9641710573696655e-05
+          ],
+          "predicted_ratio": 1.0019291949732967,
+          "absolute_ratio_error": 0.0009357290135421081,
+          "vector_error_m": 6.033090344835703e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            -1.2264622527268978e-05,
+            0.005010422803984003,
+            1.5732085154033918e-05
+          ],
+          "predicted_ratio": 1.0020925332419257,
+          "absolute_ratio_error": 0.001099067282171129,
+          "vector_error_m": 6.575408917104808e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            -8.032394030166021e-06,
+            0.005006641782141118,
+            1.609127301178185e-05
+          ],
+          "predicted_ratio": 1.0013348474133892,
+          "absolute_ratio_error": 0.0003413814536346038,
+          "vector_error_m": 1.965942410336522e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        -6.885949883298631e-07,
+        0.004998203601152659,
+        5.790915400538665e-07
+      ],
+      "local_joint_linearity_residual_m": 1.1197761750182495e-07,
+      "fixed_joint_linearity_residual_m": 4.124721450332559e-06,
+      "frozen_A_open_state_error_m": 6.674467380879163e-06
+    },
+    {
+      "demo": "demo_69",
+      "t": 20,
+      "fraction": 0.5,
+      "axis": 2,
+      "sign": "minus",
+      "delta_m": [
+        -1.1068741721798059e-09,
+        -3.6336482434062845e-11,
+        -0.004999998850455878
+      ],
+      "action_difference_7d": [
+        -0.008601397275924683,
+        -0.0018429048359394073,
+        0.023388057947158813,
+        0.001715147402137518,
+        0.0018396005034446716,
+        -0.00010537728667259216,
+        0.041661739349365234
+      ],
+      "observed_vector_m": [
+        -6.0423259803129084e-05,
+        3.228461384994358e-05,
+        -0.004904448893728097
+      ],
+      "observed_ratio": 0.9809856936825659,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            -6.764286351603095e-05,
+            4.0914733509699996e-05,
+            -0.0048829149796789885
+          ],
+          "predicted_ratio": 0.9767112006610712,
+          "absolute_ratio_error": 0.004274493021494741,
+          "vector_error_m": 2.4296318597422626e-05,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            -6.0983756564861055e-05,
+            3.763802529819792e-05,
+            -0.0049010096081110914
+          ],
+          "predicted_ratio": 0.9803069287819232,
+          "absolute_ratio_error": 0.0006787649006427809,
+          "vector_error_m": 6.387633075682693e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            -6.095562197667795e-05,
+            3.371121288515174e-05,
+            -0.0049045573137672565
+          ],
+          "predicted_ratio": 0.9810106123942565,
+          "absolute_ratio_error": 2.491871169052473e-05,
+          "vector_error_m": 1.526548130906396e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        5.312228856177437e-07,
+        -1.590855316740275e-06,
+        -0.004999982400698433
+      ],
+      "local_joint_linearity_residual_m": 1.882198823752513e-07,
+      "fixed_joint_linearity_residual_m": 1.944549872772899e-05,
+      "frozen_A_open_state_error_m": 6.5748113813224585e-06
+    },
+    {
+      "demo": "demo_69",
+      "t": 20,
+      "fraction": 0.5,
+      "axis": 2,
+      "sign": "plus",
+      "delta_m": [
+        -1.115184380603984e-09,
+        -1.2027379092671708e-11,
+        0.005000001116028163
+      ],
+      "action_difference_7d": [
+        0.009708601981401443,
+        0.0028020739555358887,
+        -0.019409745931625366,
+        -0.0018504513427615166,
+        -0.000650361180305481,
+        -0.00023695454001426697,
+        -0.032524168491363525
+      ],
+      "observed_vector_m": [
+        5.304604161160409e-05,
+        -3.01978492160751e-05,
+        0.004915268603944756
+      ],
+      "observed_ratio": 0.9831292988138648,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            5.920692542608137e-05,
+            -4.236550993171079e-05,
+            0.004895246437076717
+          ],
+          "predicted_ratio": 0.9791573372293181,
+          "absolute_ratio_error": 0.003971961584546713,
+          "vector_error_m": 2.4225928728490776e-05,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            5.3568944704997064e-05,
+            -3.5589065024686815e-05,
+            0.004911678372696357
+          ],
+          "predicted_ratio": 0.9824196634609665,
+          "absolute_ratio_error": 0.0007096353528982524,
+          "vector_error_m": 6.498337938048553e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            5.354080936515375e-05,
+            -3.166225283684565e-05,
+            0.004915226079235352
+          ],
+          "predicted_ratio": 0.983123710216435,
+          "absolute_ratio_error": 5.588597429828646e-06,
+          "vector_error_m": 1.5463122082517335e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        -5.333556338700529e-07,
+        1.6199081170446827e-06,
+        0.004999992777329765
+      ],
+      "local_joint_linearity_residual_m": 1.6785910259338633e-07,
+      "fixed_joint_linearity_residual_m": 1.8624850243062693e-05,
+      "frozen_A_open_state_error_m": 6.603588819884883e-06
+    },
+    {
+      "demo": "demo_16",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 0,
+      "sign": "minus",
+      "delta_m": [
+        -0.005000000247847941,
+        -1.869326915482361e-11,
+        5.1378457044393144e-11
+      ],
+      "action_difference_7d": [
+        0.006007730960845947,
+        0.0007484573870897293,
+        0.005782037973403931,
+        0.00015799840912222862,
+        0.0024890899658203125,
+        -0.0008221949683502316,
+        -4.83393669128418e-05
+      ],
+      "observed_vector_m": [
+        -0.0050010074539172805,
+        1.2509757355873286e-06,
+        7.5437379311038555e-06
+      ],
+      "observed_ratio": 1.000202610425999,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            -0.004997766202624808,
+            7.325270377090986e-06,
+            1.2631131624211606e-05
+          ],
+          "predicted_ratio": 0.9995574569755299,
+          "absolute_ratio_error": 0.0006451534504690049,
+          "vector_error_m": 8.560627308873201e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            -0.00499789270295319,
+            8.712195643644694e-06,
+            1.0206541307934457e-05
+          ],
+          "predicted_ratio": 0.9995820940705727,
+          "absolute_ratio_error": 0.0006205163554261484,
+          "vector_error_m": 8.512461330799426e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            -0.00499946326125705,
+            4.119442027178541e-06,
+            8.583691545901155e-06
+          ],
+          "predicted_ratio": 0.9998944158713164,
+          "absolute_ratio_error": 0.0003081945546824505,
+          "vector_error_m": 3.419668603656691e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        -0.005001419191293169,
+        -2.994252233066985e-06,
+        -1.0827248115852228e-06
+      ],
+      "local_joint_linearity_residual_m": 1.8258844303768292e-07,
+      "fixed_joint_linearity_residual_m": 2.8327432020971803e-06,
+      "frozen_A_open_state_error_m": 8.591851174785207e-06
+    },
+    {
+      "demo": "demo_16",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 0,
+      "sign": "plus",
+      "delta_m": [
+        0.004999999737838337,
+        -1.52040290080091e-11,
+        5.1464055239591744e-11
+      ],
+      "action_difference_7d": [
+        -0.006138533353805542,
+        -0.0008458970114588737,
+        -0.0055265724658966064,
+        -4.9089547246694565e-05,
+        -0.002521902322769165,
+        0.0007539272191934288,
+        5.1856040954589844e-05
+      ],
+      "observed_vector_m": [
+        0.005000443204302998,
+        7.967246104002845e-07,
+        -6.1536836142295215e-06
+      ],
+      "observed_ratio": 1.000089463280917,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            0.004997399237434818,
+            -5.187714415420112e-06,
+            -1.1013905467616758e-05
+          ],
+          "predicted_ratio": 0.9994828658003979,
+          "absolute_ratio_error": 0.0006065974805190555,
+          "vector_error_m": 8.28860671117199e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            0.004997491394702316,
+            -6.743146638009179e-06,
+            -8.873393463131542e-06
+          ],
+          "predicted_ratio": 0.9995008167332672,
+          "absolute_ratio_error": 0.0005886465476497849,
+          "vector_error_m": 8.541642700528319e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            0.004999061952816706,
+            -2.1503933836107654e-06,
+            -7.250543796096125e-06
+          ],
+          "predicted_ratio": 0.9998135870914308,
+          "absolute_ratio_error": 0.00027587618948621273,
+          "vector_error_m": 3.43459785092431e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        0.005001372216058883,
+        2.881817359245975e-06,
+        1.0483184187393135e-06
+      ],
+      "local_joint_linearity_residual_m": 8.185633381888615e-08,
+      "fixed_joint_linearity_residual_m": 2.650076630802569e-06,
+      "frozen_A_open_state_error_m": 8.465563183943746e-06
+    },
+    {
+      "demo": "demo_16",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 1,
+      "sign": "minus",
+      "delta_m": [
+        -8.238930648829523e-10,
+        -0.005000000020215594,
+        9.495670916237486e-11
+      ],
+      "action_difference_7d": [
+        2.8312206268310547e-05,
+        0.0007463376969099045,
+        -0.003048032522201538,
+        -0.000196150504052639,
+        -0.00031894445419311523,
+        0.0014945185976102948,
+        -2.4378299713134766e-05
+      ],
+      "observed_vector_m": [
+        5.862563539113519e-06,
+        -0.004997957801300221,
+        -1.1268772430184093e-05
+      ],
+      "observed_ratio": 0.9995947846296167,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            8.839311502905872e-06,
+            -0.004997221757350529,
+            -1.3343023763944023e-05
+          ],
+          "predicted_ratio": 0.999449473658662,
+          "absolute_ratio_error": 0.00014531097095471512,
+          "vector_error_m": 3.7020680344133864e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            7.95614570863144e-06,
+            -0.004997834624993363,
+            -1.1314780310607896e-05
+          ],
+          "predicted_ratio": 0.9995707490979804,
+          "absolute_ratio_error": 2.403553163632388e-05,
+          "vector_error_m": 2.097707183606832e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            3.7239165441647504e-06,
+            -0.004994053604062598,
+            -1.1673968290685712e-05
+          ],
+          "predicted_ratio": 0.9988137233270958,
+          "absolute_ratio_error": 0.000781061302520869,
+          "vector_error_m": 4.4699833025011955e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        2.0973903743920497e-06,
+        -0.005004108335116121,
+        3.9683207708751667e-07
+      ],
+      "local_joint_linearity_residual_m": 2.0825555465797043e-07,
+      "fixed_joint_linearity_residual_m": 2.2417473971847594e-06,
+      "frozen_A_open_state_error_m": 2.1592940654850625e-06
+    },
+    {
+      "demo": "demo_16",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 1,
+      "sign": "plus",
+      "delta_m": [
+        -8.255315320226941e-10,
+        0.004999999975752586,
+        9.37475652662556e-11
+      ],
+      "action_difference_7d": [
+        -1.7940998077392578e-05,
+        -0.0007472429424524307,
+        0.003077954053878784,
+        0.00020923418924212456,
+        0.00032113492488861084,
+        -0.0014967400347813964,
+        2.485513687133789e-05
+      ],
+      "observed_vector_m": [
+        -5.9521095370912436e-06,
+        0.0049983892602830475,
+        1.1382620039190883e-05
+      ],
+      "observed_ratio": 0.9996811577953975,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            -8.82422316143079e-06,
+            0.004997560888687564,
+            1.3481859312954117e-05
+          ],
+          "predicted_ratio": 0.9995173776543163,
+          "absolute_ratio_error": 0.00016378014108120453,
+          "vector_error_m": 3.6526759642528006e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            -7.955506832124224e-06,
+            0.0049981501511258,
+            1.1424847811473308e-05
+          ],
+          "predicted_ratio": 0.9996339128447228,
+          "absolute_ratio_error": 4.724495067465195e-05,
+          "vector_error_m": 2.0180577532808572e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            -3.7232782244583666e-06,
+            0.00499436912886178,
+            1.1784035386896824e-05
+          ],
+          "predicted_ratio": 0.9988768885813188,
+          "absolute_ratio_error": 0.0008042692140786123,
+          "vector_error_m": 4.614139133772302e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        -2.257380495571115e-06,
+        0.005004109434313408,
+        -4.0652420985054505e-07
+      ],
+      "local_joint_linearity_residual_m": 9.36750012330596e-08,
+      "fixed_joint_linearity_residual_m": 2.2942231082086208e-06,
+      "frozen_A_open_state_error_m": 2.003348793474101e-06
+    },
+    {
+      "demo": "demo_16",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 2,
+      "sign": "minus",
+      "delta_m": [
+        -1.1200447375125933e-09,
+        8.376893276262898e-11,
+        -0.0049999994316040075
+      ],
+      "action_difference_7d": [
+        -0.010644584894180298,
+        -0.00082363560795784,
+        0.005222439765930176,
+        -0.0002816272899508476,
+        -0.003599993884563446,
+        -0.0009452517842873931,
+        0.00022619962692260742
+      ],
+      "observed_vector_m": [
+        -1.3701666124854572e-05,
+        -2.3638093393667237e-05,
+        -0.004949088618325215
+      ],
+      "observed_ratio": 0.9898329195600121,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            -1.5448617811537764e-05,
+            -1.2562808846104385e-05,
+            -0.004941305478262426
+          ],
+          "predicted_ratio": 0.9882692318361587,
+          "absolute_ratio_error": 0.001563687723853402,
+          "vector_error_m": 1.3648847469368021e-05,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            -1.2431565915097925e-05,
+            -1.3818209165185757e-05,
+            -0.004947702698580675
+          ],
+          "predicted_ratio": 0.9895476349531808,
+          "absolute_ratio_error": 0.0002852846068313042,
+          "vector_error_m": 9.998202555555077e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            -1.240343122611901e-05,
+            -1.7745022137565934e-05,
+            -0.004951250404644836
+          ],
+          "predicted_ratio": 0.9902596603756558,
+          "absolute_ratio_error": 0.00042674081564375577,
+          "vector_error_m": 6.409915972419845e-06,
+          "false_pass": false,
+          "false_penalty": true
+        }
+      },
+      "measured_open_state_response_m": [
+        -1.5015153892461441e-06,
+        -5.519973405438555e-06,
+        -0.004997672895748928
+      ],
+      "local_joint_linearity_residual_m": 4.55138177302009e-07,
+      "fixed_joint_linearity_residual_m": 7.488291522502927e-06,
+      "frozen_A_open_state_error_m": 9.638576849667844e-06
+    },
+    {
+      "demo": "demo_16",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 2,
+      "sign": "plus",
+      "delta_m": [
+        -1.126562107489626e-09,
+        8.090352172918092e-11,
+        0.005000000503037838
+      ],
+      "action_difference_7d": [
+        0.009609341621398926,
+        0.0008144108578562737,
+        -0.005105495452880859,
+        0.00017149094492197037,
+        0.003009319305419922,
+        0.0007578387740068138,
+        -0.00018453598022460938
+      ],
+      "observed_vector_m": [
+        1.5146907894933448e-05,
+        1.8800538006936984e-05,
+        0.004953329415981811
+      ],
+      "observed_ratio": 0.9906775510781026,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            1.6519532121090435e-05,
+            8.528689815656208e-06,
+            0.0049461761055523265
+          ],
+          "predicted_ratio": 0.9892421094534688,
+          "absolute_ratio_error": 0.0014354416246338264,
+          "vector_error_m": 1.2592252087355997e-05,
+          "false_pass": true,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            1.3588806143125106e-05,
+            9.58297559735904e-06,
+            0.0049521809316911925
+          ],
+          "predicted_ratio": 0.990441669854497,
+          "absolute_ratio_error": 0.00023588122360562735,
+          "vector_error_m": 9.418606797677118e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            1.3560670881818176e-05,
+            1.3509787223054846e-05,
+            0.004955728637798229
+          ],
+          "predicted_ratio": 0.9911530214023011,
+          "absolute_ratio_error": 0.00047547032419847923,
+          "vector_error_m": 6.021997761814722e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        1.579825600214746e-06,
+        5.333884324776328e-06,
+        0.0049977407343279046
+      ],
+      "local_joint_linearity_residual_m": 1.4604324065411606e-07,
+      "fixed_joint_linearity_residual_m": 6.631998120456199e-06,
+      "frozen_A_open_state_error_m": 9.477816948788289e-06
+    },
+    {
+      "demo": "demo_16",
+      "t": 24,
+      "fraction": 0.5,
+      "axis": 0,
+      "sign": "minus",
+      "delta_m": [
+        -0.005000001340033866,
+        1.8666835265024329e-10,
+        6.063916035969896e-11
+      ],
+      "action_difference_7d": [
+        0.006803808268159628,
+        -0.000489313155412674,
+        -0.0009936094284057617,
+        -0.00014731008559465408,
+        0.0010795556008815765,
+        -0.0010864166542887688,
+        -0.026092529296875
+      ],
+      "observed_vector_m": [
+        -0.004982833509161681,
+        -8.323711868523515e-06,
+        -1.3489439598890485e-05
+      ],
+      "observed_ratio": 0.9965714770265746,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            -0.004977222824713495,
+            -7.812760301411942e-06,
+            -1.3767594669399654e-05
+          ],
+          "predicted_ratio": 0.9954493327955669,
+          "absolute_ratio_error": 0.001122144231007649,
+          "vector_error_m": 5.640764285475133e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            -0.0049815777382727425,
+            -4.035165137600265e-06,
+            -1.1769525216197782e-05
+          ],
+          "predicted_ratio": 0.9963183881648207,
+          "absolute_ratio_error": 0.0002530888617539029,
+          "vector_error_m": 4.7881832747515125e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            -0.004983148296745896,
+            -8.627919905316889e-06,
+            -1.339237531139828e-05
+          ],
+          "predicted_ratio": 0.9966344853312212,
+          "absolute_ratio_error": 6.300830464667229e-05,
+          "vector_error_m": 4.483918250058995e-07,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        -0.004999714869812438,
+        2.825898550787298e-07,
+        -1.663610051938491e-07
+      ],
+      "local_joint_linearity_residual_m": 7.802414672751546e-08,
+      "fixed_joint_linearity_residual_m": 6.117935005184113e-06,
+      "frozen_A_open_state_error_m": 4.840403572837239e-06
+    },
+    {
+      "demo": "demo_16",
+      "t": 24,
+      "fraction": 0.5,
+      "axis": 0,
+      "sign": "plus",
+      "delta_m": [
+        0.004999998584684345,
+        2.098747182988081e-10,
+        7.00250968321825e-11
+      ],
+      "action_difference_7d": [
+        -0.006793954875320196,
+        0.0005161724984645844,
+        0.0010506659746170044,
+        0.00013816077262163162,
+        -0.001053057610988617,
+        0.001083608716726303,
+        0.026875853538513184
+      ],
+      "observed_vector_m": [
+        0.004982729925604033,
+        8.411285214432636e-06,
+        1.3762826459373656e-05
+      ],
+      "observed_ratio": 0.9965514885309091,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            0.0049769741088325735,
+            7.66623658374414e-06,
+            1.3884857485644606e-05
+          ],
+          "predicted_ratio": 0.9954001580005896,
+          "absolute_ratio_error": 0.001151330530319572,
+          "vector_error_m": 5.805119786884152e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            0.004981371992336616,
+            3.958288456993636e-06,
+            1.1884121538704705e-05
+          ],
+          "predicted_ratio": 0.996277830214396,
+          "absolute_ratio_error": 0.00027365831651315897,
+          "vector_error_m": 5.0202285863758784e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            0.0049829425502791996,
+            8.55104049653328e-06,
+            1.3506970860799927e-05
+          ],
+          "predicted_ratio": 0.9965939208091439,
+          "absolute_ratio_error": 4.243227823474971e-05,
+          "vector_error_m": 3.6083635998384986e-07,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        0.004999731027972909,
+        -2.589571328637935e-07,
+        1.745046425138952e-07
+      ],
+      "local_joint_linearity_residual_m": 1.5461586258723306e-07,
+      "fixed_joint_linearity_residual_m": 6.032323737760339e-06,
+      "frozen_A_open_state_error_m": 4.8690862589205745e-06
+    },
+    {
+      "demo": "demo_16",
+      "t": 24,
+      "fraction": 0.5,
+      "axis": 1,
+      "sign": "minus",
+      "delta_m": [
+        -8.390997688345614e-10,
+        -0.005000000008279596,
+        5.558742355304958e-10
+      ],
+      "action_difference_7d": [
+        -0.0018118566367775202,
+        -0.00037475302815437317,
+        -0.008830741047859192,
+        -0.00043185800313949585,
+        -0.0013564229011535645,
+        0.0015090620145201683,
+        -0.01404482126235962
+      ],
+      "observed_vector_m": [
+        7.444239981627132e-06,
+        -0.005004908428380728,
+        -3.0720180981602674e-05
+      ],
+      "observed_ratio": 1.0010016471463365,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            1.289888321146493e-05,
+            -0.005008455709089484,
+            -3.573486033613541e-05
+          ],
+          "predicted_ratio": 1.0017199582370386,
+          "absolute_ratio_error": 0.000718311090702084,
+          "vector_error_m": 8.214824539836856e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            1.2071427157342282e-05,
+            -0.005009206395517797,
+            -3.0309838402082233e-05
+          ],
+          "predicted_ratio": 1.0018625262070298,
+          "absolute_ratio_error": 0.0008608790606932093,
+          "vector_error_m": 6.328646277284941e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            7.839197995608585e-06,
+            -0.005005425374248039,
+            -3.066902605919825e-05
+          ],
+          "predicted_ratio": 1.0011050921131244,
+          "absolute_ratio_error": 0.00010344496678782455,
+          "vector_error_m": 6.525654669256254e-07,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        -3.8241866438110117e-07,
+        -0.004999540353793156,
+        -6.951870124005666e-08
+      ],
+      "local_joint_linearity_residual_m": 6.179998787931781e-08,
+      "fixed_joint_linearity_residual_m": 5.551963558787252e-06,
+      "frozen_A_open_state_error_m": 6.281307817393149e-06
+    },
+    {
+      "demo": "demo_16",
+      "t": 24,
+      "fraction": 0.5,
+      "axis": 1,
+      "sign": "plus",
+      "delta_m": [
+        -8.387258595976554e-10,
+        0.004999999970754716,
+        5.544171788329777e-10
+      ],
+      "action_difference_7d": [
+        0.0018708903808146715,
+        0.0005355179309844971,
+        0.009206146001815796,
+        0.0003769146278500557,
+        0.0015146322548389435,
+        -0.0015257447957992554,
+        0.014408588409423828
+      ],
+      "observed_vector_m": [
+        -8.707380594323577e-06,
+        0.0050047038247081,
+        3.157149381682878e-05
+      ],
+      "observed_ratio": 1.0009622019589233,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            -1.4381288894286159e-05,
+            0.0050075714715657514,
+            3.6614805037141494e-05
+          ],
+          "predicted_ratio": 1.0015452022073426,
+          "absolute_ratio_error": 0.0005830002484192853,
+          "vector_error_m": 8.114901229313676e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            -1.328782670615612e-05,
+            0.005008740560076043,
+            3.115252671740788e-05
+          ],
+          "predicted_ratio": 1.0017710185047068,
+          "absolute_ratio_error": 0.000808816545783575,
+          "vector_error_m": 6.119742841378574e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            -9.055598109457366e-06,
+            0.005004959538165475,
+            3.151171461505396e-05
+          ],
+          "predicted_ratio": 1.0010133917932071,
+          "absolute_ratio_error": 5.118983428387125e-05,
+          "vector_error_m": 4.3614030207429773e-07,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        3.8376089603331387e-07,
+        0.004999543524512245,
+        6.686461018201584e-08
+      ],
+      "local_joint_linearity_residual_m": 2.0410772290906235e-07,
+      "fixed_joint_linearity_residual_m": 5.736000693810408e-06,
+      "frozen_A_open_state_error_m": 6.281105617099206e-06
+    },
+    {
+      "demo": "demo_16",
+      "t": 24,
+      "fraction": 0.5,
+      "axis": 2,
+      "sign": "minus",
+      "delta_m": [
+        -1.1609593529582352e-09,
+        3.659337676625851e-11,
+        -0.004999998809372186
+      ],
+      "action_difference_7d": [
+        -0.002143637277185917,
+        0.006573520600795746,
+        0.04582512378692627,
+        -0.00023181643337011337,
+        0.004940055310726166,
+        -0.00034326594322919846,
+        0.12292873859405518
+      ],
+      "observed_vector_m": [
+        -6.044481682208544e-05,
+        2.5531340334237866e-05,
+        -0.004819845529664413
+      ],
+      "observed_ratio": 0.9640586583988878,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            -7.760106289584919e-05,
+            2.416641022317515e-05,
+            -0.00479043210399621
+          ],
+          "predicted_ratio": 0.9582245376865896,
+          "absolute_ratio_error": 0.005834120712298274,
+          "vector_error_m": 3.407857718700283e-05,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            -6.0409046150682516e-05,
+            2.838512937488781e-05,
+            -0.004816124524817976
+          ],
+          "predicted_ratio": 0.9633176310184567,
+          "absolute_ratio_error": 0.0007410273804311363,
+          "vector_error_m": 4.689484886069115e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            -6.03809115179882e-05,
+            2.445831688927736e-05,
+            -0.0048196722304573066
+          ],
+          "predicted_ratio": 0.964022728731184,
+          "absolute_ratio_error": 3.592966770382677e-05,
+          "vector_error_m": 1.0888047651026766e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        -1.824553926346728e-08,
+        2.3224400801016148e-07,
+        -0.005000278330404617
+      ],
+      "local_joint_linearity_residual_m": 8.487914073810041e-07,
+      "fixed_joint_linearity_residual_m": 3.121234085969211e-05,
+      "frozen_A_open_state_error_m": 5.319576367644357e-06
+    },
+    {
+      "demo": "demo_16",
+      "t": 24,
+      "fraction": 0.5,
+      "axis": 2,
+      "sign": "plus",
+      "delta_m": [
+        -1.1608972359800074e-09,
+        4.571515735407594e-11,
+        0.005000001157878797
+      ],
+      "action_difference_7d": [
+        0.0026994850486516953,
+        -0.005685850977897644,
+        -0.04318307340145111,
+        9.960494935512543e-06,
+        -0.004281338304281235,
+        0.00021240394562482834,
+        -0.10779693722724915
+      ],
+      "observed_vector_m": [
+        5.6455607373662176e-05,
+        -2.665933726737988e-05,
+        0.004828433346051653
+      ],
+      "observed_ratio": 0.9657671713932058,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            7.247710410830045e-05,
+            -2.702596031891914e-05,
+            0.004799525039560111
+          ],
+          "predicted_ratio": 0.9600294426078306,
+          "absolute_ratio_error": 0.005737728785375151,
+          "vector_error_m": 3.305318372394481e-05,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            5.6431319447142365e-05,
+            -2.9621342776816923e-05,
+            0.004824402487386546
+          ],
+          "predicted_ratio": 0.9649644655923593,
+          "absolute_ratio_error": 0.0008027058008465149,
+          "vector_error_m": 5.002188333057169e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            5.6403184141580546e-05,
+            -2.569453064176257e-05,
+            0.004827950193944546
+          ],
+          "predicted_ratio": 0.9656693803962552,
+          "absolute_ratio_error": 9.779099695061966e-05,
+          "vector_error_m": 1.0802943944583954e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        1.0159278619747969e-08,
+        -2.3685272378549255e-07,
+        0.0050002837461180505
+      ],
+      "local_joint_linearity_residual_m": 7.561518726730909e-07,
+      "fixed_joint_linearity_residual_m": 2.9934942200084803e-05,
+      "frozen_A_open_state_error_m": 5.318543415936704e-06
+    },
+    {
+      "demo": "demo_157",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 0,
+      "sign": "minus",
+      "delta_m": [
+        -0.005000000262706555,
+        -2.602250324945654e-10,
+        1.042188557676127e-10
+      ],
+      "action_difference_7d": [
+        0.005055785179138184,
+        0.0006825719028711319,
+        0.006467223167419434,
+        -1.4721881598234177e-05,
+        0.0022146403789520264,
+        -0.0013613738119602203,
+        -1.3470649719238281e-05
+      ],
+      "observed_vector_m": [
+        -0.004998309420850597,
+        -3.083450166892557e-06,
+        1.3808079529331607e-05
+      ],
+      "observed_ratio": 0.9996658364069224,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            -0.004999764392973748,
+            -7.007991085111656e-07,
+            1.8330853442558956e-05
+          ],
+          "predicted_ratio": 0.9999595565762099,
+          "absolute_ratio_error": 0.00029372016928752576,
+          "vector_error_m": 5.315021525386482e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            -0.004998720685821362,
+            -9.489097953765726e-07,
+            1.439220520179102e-05
+          ],
+          "predicted_ratio": 0.9997482464123784,
+          "absolute_ratio_error": 8.241000545594623e-05,
+          "vector_error_m": 2.250911876337336e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            -0.005000291244334631,
+            -5.541663201344888e-06,
+            1.2769355455076447e-05
+          ],
+          "predicted_ratio": 1.0000620714185195,
+          "absolute_ratio_error": 0.0003962350115971347,
+          "vector_error_m": 3.32406127306017e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        -0.00499796761384165,
+        2.5424829830852924e-06,
+        1.009415459884977e-06
+      ],
+      "local_joint_linearity_residual_m": 1.0292562537566207e-07,
+      "fixed_joint_linearity_residual_m": 4.047046531222502e-06,
+      "frozen_A_open_state_error_m": 2.189177654354549e-06
+    },
+    {
+      "demo": "demo_157",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 0,
+      "sign": "plus",
+      "delta_m": [
+        0.004999999724787985,
+        -2.385968384671644e-10,
+        1.092299584115608e-10
+      ],
+      "action_difference_7d": [
+        -0.0051267147064208984,
+        -0.0006457548588514328,
+        -0.006415307521820068,
+        -4.470348358154297e-07,
+        -0.0022306814789772034,
+        0.001340080052614212,
+        1.4066696166992188e-05
+      ],
+      "observed_vector_m": [
+        0.004998033015349429,
+        3.868387073396526e-06,
+        -1.341602606541592e-05
+      ],
+      "observed_ratio": 0.9996105587012113,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            0.004999571002795857,
+            3.3552578154663254e-07,
+            -1.7929825416070797e-05
+          ],
+          "predicted_ratio": 0.9999206879527525,
+          "absolute_ratio_error": 0.0003101292515411691,
+          "vector_error_m": 5.934719780309197e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            0.004998563548911246,
+            5.865165426626969e-07,
+            -1.4041298699083676e-05
+          ],
+          "predicted_ratio": 0.9997167159778008,
+          "absolute_ratio_error": 0.00010615727658946916,
+          "vector_error_m": 3.38276601424437e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            0.005000134106832121,
+            5.179269999371479e-06,
+            -1.2418449011344716e-05
+          ],
+          "predicted_ratio": 1.0000304971611078,
+          "absolute_ratio_error": 0.00041993845989651835,
+          "vector_error_m": 2.669861315323944e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        0.004997938975219149,
+        -1.3841419044501035e-06,
+        -1.0348989680775134e-06
+      ],
+      "local_joint_linearity_residual_m": 9.143597041902538e-08,
+      "fixed_joint_linearity_residual_m": 4.076273344843775e-06,
+      "frozen_A_open_state_error_m": 3.2988732543259383e-06
+    },
+    {
+      "demo": "demo_157",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 1,
+      "sign": "minus",
+      "delta_m": [
+        -8.555366554086064e-10,
+        -0.004999999870491794,
+        -3.2523761461789036e-11
+      ],
+      "action_difference_7d": [
+        0.0004406571388244629,
+        0.000895058736205101,
+        -0.0033046305179595947,
+        -0.00024169031530618668,
+        9.992718696594238e-05,
+        0.00154920294880867,
+        -1.4424324035644531e-05
+      ],
+      "observed_vector_m": [
+        6.7086580090996994e-06,
+        -0.004990543212786318,
+        -1.3776762288530975e-05
+      ],
+      "observed_ratio": 0.9981133734032077,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            6.612092819639947e-06,
+            -0.004997521218950599,
+            -1.7575167621954088e-05
+          ],
+          "predicted_ratio": 0.9995113252778232,
+          "absolute_ratio_error": 0.001397951874615444,
+          "vector_error_m": 7.945424969222211e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            6.208015337758777e-06,
+            -0.004996105456817044,
+            -1.4997186567267988e-05
+          ],
+          "predicted_ratio": 0.9992263904396186,
+          "absolute_ratio_error": 0.0011130170364108682,
+          "vector_error_m": 5.7165231707607425e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            1.9757862908028786e-06,
+            -0.0049923244361286855,
+            -1.535637463731322e-05
+          ],
+          "predicted_ratio": 0.998469714886971,
+          "absolute_ratio_error": 0.00035634148376328945,
+          "vector_error_m": 5.297924732352619e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        4.6719406786022155e-06,
+        -0.004997953136556993,
+        1.5607524748162405e-06
+      ],
+      "local_joint_linearity_residual_m": 2.7287251579402764e-07,
+      "fixed_joint_linearity_residual_m": 2.860914165264309e-06,
+      "frozen_A_open_state_error_m": 5.9666287429507e-06
+    },
+    {
+      "demo": "demo_157",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 1,
+      "sign": "plus",
+      "delta_m": [
+        -8.612324464696286e-10,
+        0.005000000137015768,
+        -3.380207225234244e-11
+      ],
+      "action_difference_7d": [
+        -0.0004106760025024414,
+        -0.0008924994617700577,
+        0.0033387839794158936,
+        0.00024417927488684654,
+        -8.448958396911621e-05,
+        -0.001565888524055481,
+        1.4781951904296875e-05
+      ],
+      "observed_vector_m": [
+        -6.636647653865402e-06,
+        0.004991487175944314,
+        1.3831914304596182e-05
+      ],
+      "observed_ratio": 0.9983021231882118,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            -6.643842495900398e-06,
+            0.004997504868790518,
+            1.763784371255821e-05
+          ],
+          "predicted_ratio": 0.9995080545738126,
+          "absolute_ratio_error": 0.001205931385600878,
+          "vector_error_m": 7.1202371881414865e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            -6.23031526236152e-06,
+            0.004996075441552534,
+            1.5040562075101858e-05
+          ],
+          "predicted_ratio": 0.9992203657851921,
+          "absolute_ratio_error": 0.0009182425969803676,
+          "vector_error_m": 4.762154631793179e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            -1.998086528691477e-06,
+            0.004992294419033601,
+            1.5399749560020958e-05
+          ],
+          "predicted_ratio": 0.9984636867708038,
+          "absolute_ratio_error": 0.00016156358259200587,
+          "vector_error_m": 4.962458876940839e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        -4.703211468379265e-06,
+        0.004999358484135933,
+        -1.5853967452184037e-06
+      ],
+      "local_joint_linearity_residual_m": 1.7831541704168013e-07,
+      "fixed_joint_linearity_residual_m": 3.0703488387041626e-06,
+      "frozen_A_open_state_error_m": 4.61352123265013e-06
+    },
+    {
+      "demo": "demo_157",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 2,
+      "sign": "minus",
+      "delta_m": [
+        -1.116463560490999e-09,
+        1.2928436966819223e-10,
+        -0.004999999829354396
+      ],
+      "action_difference_7d": [
+        -0.009733140468597412,
+        -0.0011493097990751266,
+        0.005490541458129883,
+        0.0005084527656435966,
+        -0.0033351927995681763,
+        -0.0011010654270648956,
+        9.542703628540039e-05
+      ],
+      "observed_vector_m": [
+        -1.2024749157152348e-05,
+        -8.818331525533435e-07,
+        -0.004949026777965937
+      ],
+      "observed_ratio": 0.9898083267601793,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            -1.3868720021892188e-05,
+            6.575316028936536e-06,
+            -0.004941879727093944
+          ],
+          "predicted_ratio": 0.988380746074461,
+          "absolute_ratio_error": 0.0014275806857182438,
+          "vector_error_m": 1.0492360965572161e-05,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            -1.3112641507272675e-05,
+            3.0346524254299163e-06,
+            -0.004947747461979203
+          ],
+          "predicted_ratio": 0.9895531874334244,
+          "absolute_ratio_error": 0.00025513932675491624,
+          "vector_error_m": 4.261339981967465e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            -1.3084506776404382e-05,
+            -8.921608904579637e-07,
+            -0.004951295168321152
+          ],
+          "predicted_ratio": 0.9902625412988719,
+          "absolute_ratio_error": 0.0004542145386926544,
+          "vector_error_m": 2.5037547158946813e-06,
+          "false_pass": false,
+          "false_penalty": true
+        }
+      },
+      "measured_open_state_response_m": [
+        9.836299304927243e-07,
+        -1.7129128656277748e-07,
+        -0.0049975789920515545
+      ],
+      "local_joint_linearity_residual_m": 2.487955054086146e-07,
+      "fixed_joint_linearity_residual_m": 6.9437462088846065e-06,
+      "frozen_A_open_state_error_m": 4.369357274886589e-06
+    },
+    {
+      "demo": "demo_157",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 2,
+      "sign": "plus",
+      "delta_m": [
+        -1.1154903667431881e-09,
+        1.4206185533494065e-10,
+        0.005000000101783586
+      ],
+      "action_difference_7d": [
+        0.00897902250289917,
+        0.0012218449264764786,
+        -0.005437105894088745,
+        -0.0005160793662071228,
+        0.0031449049711227417,
+        0.0007848925888538361,
+        -7.832050323486328e-05
+      ],
+      "observed_vector_m": [
+        1.0715677258674172e-05,
+        -1.2443341816659181e-07,
+        0.00495039005986464
+      ],
+      "observed_ratio": 0.9900803116572995,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            1.2218870663358683e-05,
+            -8.214067366992379e-06,
+            0.0049437239017896895
+          ],
+          "predicted_ratio": 0.9887491450062906,
+          "absolute_ratio_error": 0.0013311666510088527,
+          "vector_error_m": 1.0589590705882325e-05,
+          "false_pass": true,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            1.1693750775510356e-05,
+            -5.013221401785625e-06,
+            0.004949441978115767
+          ],
+          "predicted_ratio": 0.9898916460616629,
+          "absolute_ratio_error": 0.00018866559563657237,
+          "vector_error_m": 5.075010813354029e-06,
+          "false_pass": true,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            1.1665615571706258e-05,
+            -1.0864101272980892e-06,
+            0.0049529896839460835
+          ],
+          "predicted_ratio": 0.9906006880142338,
+          "absolute_ratio_error": 0.00052037635693436,
+          "vector_error_m": 2.9301582469720858e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        -1.0004073094094235e-06,
+        5.715789619907541e-07,
+        0.004997556330733399
+      ],
+      "local_joint_linearity_residual_m": 4.233760483519699e-07,
+      "fixed_joint_linearity_residual_m": 6.637976605162157e-06,
+      "frozen_A_open_state_error_m": 4.7443139574183565e-06
+    },
+    {
+      "demo": "demo_157",
+      "t": 20,
+      "fraction": 0.5,
+      "axis": 0,
+      "sign": "minus",
+      "delta_m": [
+        -0.005000001024596339,
+        -1.170240206821438e-11,
+        -8.98489060929819e-11
+      ],
+      "action_difference_7d": [
+        0.008461475372314453,
+        0.0002807341516017914,
+        0.005764514207839966,
+        -0.00017162412405014038,
+        0.0023984313011169434,
+        -0.001058034598827362,
+        -0.0031293630599975586
+      ],
+      "observed_vector_m": [
+        -0.00499061919708326,
+        -1.3281434816301424e-05,
+        9.231439737966696e-06
+      ],
+      "observed_ratio": 0.9981288770219802,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            -0.004985397690092476,
+            -5.079693507236412e-06,
+            1.1882639963698448e-05
+          ],
+          "predicted_ratio": 0.9970826834827254,
+          "absolute_ratio_error": 0.001046193539254725,
+          "vector_error_m": 1.0077775468452896e-05,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            -0.0049882176000885774,
+            -3.1760079303065873e-06,
+            1.1253946018762695e-05
+          ],
+          "predicted_ratio": 0.9976460568032417,
+          "absolute_ratio_error": 0.0004828202187384667,
+          "vector_error_m": 1.0581958813419949e-05,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            -0.004989788158629711,
+            -7.76876237645671e-06,
+            9.631095904915779e-06
+          ],
+          "predicted_ratio": 0.9979604957204424,
+          "absolute_ratio_error": 0.00016838130153773445,
+          "vector_error_m": 5.589267160557027e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        -0.005000775638654723,
+        -5.4489893686511526e-06,
+        -4.690244753691175e-07
+      ],
+      "local_joint_linearity_residual_m": 1.097280342749348e-07,
+      "fixed_joint_linearity_residual_m": 3.4600305449619374e-06,
+      "frozen_A_open_state_error_m": 1.0521966628844094e-05
+    },
+    {
+      "demo": "demo_157",
+      "t": 20,
+      "fraction": 0.5,
+      "axis": 0,
+      "sign": "plus",
+      "delta_m": [
+        0.004999998927056579,
+        -1.3738570177335152e-11,
+        -8.298661757777381e-11
+      ],
+      "action_difference_7d": [
+        -0.008724905550479889,
+        -0.00029252469539642334,
+        -0.0055904388427734375,
+        0.00015604496002197266,
+        -0.002390943467617035,
+        0.001004248857498169,
+        0.00349271297454834
+      ],
+      "observed_vector_m": [
+        0.004989398839166571,
+        1.2600535614852582e-05,
+        -8.210330228575202e-06
+      ],
+      "observed_ratio": 0.997884515229736,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            0.004984012467045985,
+            4.292169352548615e-06,
+            -1.0912509186524154e-05
+          ],
+          "predicted_ratio": 0.9968054662417489,
+          "absolute_ratio_error": 0.0010790489879870524,
+          "vector_error_m": 1.026370915852572e-05,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            0.004987084466470834,
+            2.5813417087243956e-06,
+            -1.0398387414150686e-05
+          ],
+          "predicted_ratio": 0.9974194090677895,
+          "absolute_ratio_error": 0.00046510616194650467,
+          "vector_error_m": 1.0513237453359322e-05,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            0.004988655024332545,
+            7.174094111677968e-06,
+            -8.775538105563678e-06
+          ],
+          "predicted_ratio": 0.9977337943630387,
+          "absolute_ratio_error": 0.0001507208666973181,
+          "vector_error_m": 5.506268050041036e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        0.005000777011559821,
+        5.45550793203467e-06,
+        4.826615307429449e-07
+      ],
+      "local_joint_linearity_residual_m": 9.391630341469003e-08,
+      "fixed_joint_linearity_residual_m": 3.5511962885273975e-06,
+      "frozen_A_open_state_error_m": 1.053173576271579e-05
+    },
+    {
+      "demo": "demo_157",
+      "t": 20,
+      "fraction": 0.5,
+      "axis": 1,
+      "sign": "minus",
+      "delta_m": [
+        -8.148011284778156e-10,
+        -0.004999999949566357,
+        4.5281967064880746e-10
+      ],
+      "action_difference_7d": [
+        0.0003314092755317688,
+        0.0005124062299728394,
+        -0.0035362541675567627,
+        -0.0004527084529399872,
+        -0.00029179826378822327,
+        0.0017595067620277405,
+        -0.002185821533203125
+      ],
+      "observed_vector_m": [
+        1.8161512299894392e-06,
+        -0.00499951354220151,
+        -1.320741376586998e-05
+      ],
+      "observed_ratio": 0.999906273549296,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            1.0152877711962112e-05,
+            -0.00500378111796454,
+            -1.6232575972031872e-05
+          ],
+          "predicted_ratio": 1.000763559669376,
+          "absolute_ratio_error": 0.0008572861200800697,
+          "vector_error_m": 9.841992567667073e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            8.454846526347434e-06,
+            -0.005004468784905674,
+            -1.4300397627972215e-05
+          ],
+          "predicted_ratio": 1.0008992818488867,
+          "absolute_ratio_error": 0.000993008299590703,
+          "vector_error_m": 8.355915223233985e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            4.222617422523683e-06,
+            -0.005000687763738931,
+            -1.4659585346105272e-05
+          ],
+          "predicted_ratio": 1.0001422168637362,
+          "absolute_ratio_error": 0.00023594331444021233,
+          "vector_error_m": 3.04609225946889e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        -2.419080787339524e-06,
+        -0.0049988123022801124,
+        1.4264673948716222e-06
+      ],
+      "local_joint_linearity_residual_m": 3.1680826609334606e-08,
+      "fixed_joint_linearity_residual_m": 2.6776826934086163e-06,
+      "frozen_A_open_state_error_m": 8.36987877339046e-06
+    },
+    {
+      "demo": "demo_157",
+      "t": 20,
+      "fraction": 0.5,
+      "axis": 1,
+      "sign": "plus",
+      "delta_m": [
+        -8.148385872291941e-10,
+        0.005000000027960014,
+        4.530893438214889e-10
+      ],
+      "action_difference_7d": [
+        -0.0004627890884876251,
+        -0.0005182251334190369,
+        0.003626525402069092,
+        0.00044558290392160416,
+        0.00029180943965911865,
+        -0.0017889216542243958,
+        0.0023709535598754883
+      ],
+      "observed_vector_m": [
+        -2.3068924952934777e-06,
+        0.0049993663358120655,
+        1.3718144365015839e-05
+      ],
+      "observed_ratio": 0.9998771322388859,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            -1.0807892420489452e-05,
+            0.00500339212758303,
+            1.675931757982696e-05
+          ],
+          "predicted_ratio": 1.0006863682021294,
+          "absolute_ratio_error": 0.0008092359632435597,
+          "vector_error_m": 9.885480951063043e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            -8.985861122230322e-06,
+            0.005004177328266072,
+            1.4764320435771583e-05
+          ],
+          "predicted_ratio": 1.0008414296684258,
+          "absolute_ratio_error": 0.000964297429539962,
+          "vector_error_m": 8.297514970347029e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            -4.753632469036945e-06,
+            0.0050003963062546074,
+            1.5123508273383967e-05
+          ],
+          "predicted_ratio": 1.0000842815979207,
+          "absolute_ratio_error": 0.00020714935903487497,
+          "vector_error_m": 3.003734896186396e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        2.441516093816716e-06,
+        0.004998905097287488,
+        -1.4252997302399706e-06
+      ],
+      "local_joint_linearity_residual_m": 6.822740523935409e-08,
+      "fixed_joint_linearity_residual_m": 2.820945863597706e-06,
+      "frozen_A_open_state_error_m": 8.334399864355557e-06
+    },
+    {
+      "demo": "demo_157",
+      "t": 20,
+      "fraction": 0.5,
+      "axis": 2,
+      "sign": "minus",
+      "delta_m": [
+        -1.0988941770428973e-09,
+        -1.9431348891041367e-12,
+        -0.004999998947410433
+      ],
+      "action_difference_7d": [
+        -0.014726594090461731,
+        0.0013874024152755737,
+        0.007955461740493774,
+        0.0006259595975279808,
+        -0.0022488832473754883,
+        -0.002072669565677643,
+        0.0171586275100708
+      ],
+      "observed_vector_m": [
+        -3.7518766142120505e-05,
+        1.0725775604701615e-05,
+        -0.004945857724002023
+      ],
+      "observed_ratio": 0.9892025399474126,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            -4.930185629299258e-05,
+            1.565038909037064e-05,
+            -0.0049338077565666254
+          ],
+          "predicted_ratio": 0.9868159876419828,
+          "absolute_ratio_error": 0.0023865523054298343,
+          "vector_error_m": 1.7558324142154114e-05,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            -3.7558130931228176e-05,
+            1.5566285733628022e-05,
+            -0.004941940297659779
+          ],
+          "predicted_ratio": 0.9884217138781407,
+          "absolute_ratio_error": 0.0007808260692718783,
+          "vector_error_m": 6.227223863148392e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            -3.7529996310880794e-05,
+            1.1639473225759e-05,
+            -0.004945488003379677
+          ],
+          "predicted_ratio": 0.9891290283439523,
+          "absolute_ratio_error": 7.351160346025232e-05,
+          "vector_error_m": 9.857295765086955e-07,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        -5.880052372005812e-08,
+        -1.063356610254279e-06,
+        -0.005000300919945966
+      ],
+      "local_joint_linearity_residual_m": 1.781533820060451e-07,
+      "fixed_joint_linearity_residual_m": 1.438012201278449e-05,
+      "frozen_A_open_state_error_m": 6.302591951943082e-06
+    },
+    {
+      "demo": "demo_157",
+      "t": 20,
+      "fraction": 0.5,
+      "axis": 2,
+      "sign": "plus",
+      "delta_m": [
+        -1.1035361496131157e-09,
+        7.335512405837186e-13,
+        0.0050000010209538814
+      ],
+      "action_difference_7d": [
+        0.014706231653690338,
+        -0.0009102672338485718,
+        -0.0070226192474365234,
+        -0.0007615233771502972,
+        0.002549394965171814,
+        0.001943439245223999,
+        -0.013541877269744873
+      ],
+      "observed_vector_m": [
+        3.4613747355295016e-05,
+        -1.20650218500655e-05,
+        0.004948321796918953
+      ],
+      "observed_ratio": 0.9896913111064352,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            4.5771507420106075e-05,
+            -1.7950503609873146e-05,
+            0.004936666023565513
+          ],
+          "predicted_ratio": 0.9873819671470521,
+          "absolute_ratio_error": 0.0023093439593830922,
+          "vector_error_m": 1.7175318269996455e-05,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            3.451766462558436e-05,
+            -1.726588694647776e-05,
+            0.00494453514085129
+          ],
+          "predicted_ratio": 0.9889369515645211,
+          "absolute_ratio_error": 0.0007543595419140514,
+          "vector_error_m": 6.4340495659265124e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            3.448952930073631e-05,
+            -1.3339074832254748e-05,
+            0.004948082847327523
+          ],
+          "predicted_ratio": 0.9896440031322282,
+          "absolute_ratio_error": 4.730797420693378e-05,
+          "vector_error_m": 1.3022050659356108e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        5.8185755884461454e-08,
+        1.2390642339273061e-06,
+        0.005000321164640664
+      ],
+      "local_joint_linearity_residual_m": 1.0969270331542646e-07,
+      "fixed_joint_linearity_residual_m": 1.365142402240823e-05,
+      "frozen_A_open_state_error_m": 6.453487918848388e-06
+    },
+    {
+      "demo": "demo_23",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 0,
+      "sign": "minus",
+      "delta_m": [
+        -0.005000000239115385,
+        -9.480217869409224e-11,
+        7.222233922021815e-11
+      ],
+      "action_difference_7d": [
+        0.005110979080200195,
+        0.0009877216070890427,
+        0.005810737609863281,
+        -0.00013682222925126553,
+        0.0022190064191818237,
+        -0.0012385472655296326,
+        -1.519918441772461e-05
+      ],
+      "observed_vector_m": [
+        -0.0049977708134100185,
+        -6.7106097751826535e-06,
+        1.3112731743425421e-05
+      ],
+      "observed_ratio": 0.9995584563265438,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            -0.0049993097157547345,
+            -1.933315013870897e-06,
+            1.4857564670586636e-05
+          ],
+          "predicted_ratio": 0.9998663856427935,
+          "absolute_ratio_error": 0.0003079293162496777,
+          "vector_error_m": 5.31368117285326e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            -0.004999084956560841,
+            -7.387793410528336e-07,
+            1.259896632667748e-05
+          ],
+          "predicted_ratio": 0.9998201296706626,
+          "absolute_ratio_error": 0.0002616733441187513,
+          "vector_error_m": 6.136259924277889e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            -0.005000655514926499,
+            -5.3315328755738035e-06,
+            1.0976116576800618e-05
+          ],
+          "predicted_ratio": 1.0001340327685637,
+          "absolute_ratio_error": 0.0005755764420198872,
+          "vector_error_m": 3.84557931974742e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        -0.004997062902910604,
+        -1.2909995573363517e-06,
+        2.1001133804210426e-06
+      ],
+      "local_joint_linearity_residual_m": 1.090064015116618e-07,
+      "fixed_joint_linearity_residual_m": 2.4881839259358454e-06,
+      "frozen_A_open_state_error_m": 6.059144178123379e-06
+    },
+    {
+      "demo": "demo_23",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 0,
+      "sign": "plus",
+      "delta_m": [
+        0.004999999747530015,
+        -8.782165923301721e-11,
+        7.405887014755308e-11
+      ],
+      "action_difference_7d": [
+        -0.005264401435852051,
+        -0.0010749120265245438,
+        -0.0057947635650634766,
+        0.0001768989022821188,
+        -0.002246364951133728,
+        0.001215534284710884,
+        1.6033649444580078e-05
+      ],
+      "observed_vector_m": [
+        0.004997355728292727,
+        6.0575239554561296e-06,
+        -1.2716764502873623e-05
+      ],
+      "observed_ratio": 0.9994751664117801,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            0.004998865482811304,
+            2.499791441746789e-06,
+            -1.4517291626491161e-05
+          ],
+          "predicted_ratio": 0.9997774880348538,
+          "absolute_ratio_error": 0.0003023216230736425,
+          "vector_error_m": 4.263650697272383e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            0.0049986900060088055,
+            1.1999901297616694e-06,
+            -1.2306480848554249e-05
+          ],
+          "predicted_ratio": 0.9997411102682974,
+          "absolute_ratio_error": 0.00026594385651723673,
+          "vector_error_m": 5.054133414186063e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            0.005000260564064646,
+            5.7927434657212655e-06,
+            -1.0683631167557925e-05
+          ],
+          "predicted_ratio": 1.0000551170684537,
+          "absolute_ratio_error": 0.0005799506566736001,
+          "vector_error_m": 3.5555324114312626e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        0.004997132897465895,
+        2.843220540341834e-07,
+        -2.0778769841411915e-06
+      ],
+      "local_joint_linearity_residual_m": 6.194234184450035e-08,
+      "fixed_joint_linearity_residual_m": 2.621893109029335e-06,
+      "frozen_A_open_state_error_m": 5.066972588591735e-06
+    },
+    {
+      "demo": "demo_23",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 1,
+      "sign": "minus",
+      "delta_m": [
+        -8.268143253387095e-10,
+        -0.004999999946961226,
+        3.025635297859708e-11
+      ],
+      "action_difference_7d": [
+        -3.0517578125e-05,
+        0.000789424404501915,
+        -0.002955824136734009,
+        -0.0001853775465860963,
+        -0.00020446628332138062,
+        0.0013891533017158508,
+        -8.761882781982422e-06
+      ],
+      "observed_vector_m": [
+        4.2422741364234184e-06,
+        -0.004997790708245812,
+        -1.1388712692794734e-05
+      ],
+      "observed_ratio": 0.9995611075470355,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            7.35934855657164e-06,
+            -0.004997340904216313,
+            -1.3579091529162745e-05
+          ],
+          "predicted_ratio": 0.99947296500745,
+          "absolute_ratio_error": 8.814253958555618e-05,
+          "vector_error_m": 3.836174663972513e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            6.837301228533232e-06,
+            -0.00499785111957726,
+            -1.1580208329732049e-05
+          ],
+          "predicted_ratio": 0.9995738530655516,
+          "absolute_ratio_error": 1.2745518516044108e-05,
+          "vector_error_m": 2.602784224002679e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            2.6050721255188613e-06,
+            -0.0049940700987553864,
+            -1.1939396351403174e-05
+          ],
+          "predicted_ratio": 0.9988170205999007,
+          "absolute_ratio_error": 0.0007440869471347922,
+          "vector_error_m": 4.102026072151829e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        1.5951690325310963e-06,
+        -0.0050039170959752625,
+        5.409934866751342e-07
+      ],
+      "local_joint_linearity_residual_m": 2.0104780282998293e-07,
+      "fixed_joint_linearity_residual_m": 2.0890402794569712e-06,
+      "frozen_A_open_state_error_m": 2.645996767204142e-06
+    },
+    {
+      "demo": "demo_23",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 1,
+      "sign": "plus",
+      "delta_m": [
+        -8.284648661538441e-10,
+        0.005000000041188647,
+        2.9955704583528586e-11
+      ],
+      "action_difference_7d": [
+        3.0517578125e-05,
+        -0.000789412297308445,
+        0.002965778112411499,
+        0.00018548197112977505,
+        0.00020447373390197754,
+        -0.0013892818242311478,
+        9.000301361083984e-06
+      ],
+      "observed_vector_m": [
+        -4.393374821831664e-06,
+        0.00499883850862308,
+        1.1366577432170288e-05
+      ],
+      "observed_ratio": 0.9997706641909353,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            -7.364828432423854e-06,
+            0.004997342993626944,
+            1.363059583539746e-05
+          ],
+          "predicted_ratio": 0.9994733937096976,
+          "absolute_ratio_error": 0.0002972704812377325,
+          "vector_error_m": 4.02391364143414e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            -6.842072104956645e-06,
+            0.004997852895980677,
+            1.1624469430345584e-05
+          ],
+          "predicted_ratio": 0.9995742113633421,
+          "absolute_ratio_error": 0.00019645282759317428,
+          "vector_error_m": 2.652180036869626e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            -2.609843442465148e-06,
+            0.00499407187361438,
+            1.198365696425484e-05
+          ],
+          "predicted_ratio": 0.998817378447727,
+          "absolute_ratio_error": 0.0009532857432082986,
+          "vector_error_m": 5.126653941535994e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        -1.824168518141378e-06,
+        0.005004891650626508,
+        -6.266419732003925e-07
+      ],
+      "local_joint_linearity_residual_m": 1.3151179619835303e-07,
+      "fixed_joint_linearity_residual_m": 2.109691193969704e-06,
+      "frozen_A_open_state_error_m": 2.6660262333109764e-06
+    },
+    {
+      "demo": "demo_23",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 2,
+      "sign": "minus",
+      "delta_m": [
+        -1.1184665693608764e-09,
+        2.9377725078993944e-11,
+        -0.004999999583559012
+      ],
+      "action_difference_7d": [
+        -0.009711802005767822,
+        -0.0015144888311624527,
+        0.005234807729721069,
+        0.0002338510239496827,
+        -0.0031255334615707397,
+        -0.0006163120269775391,
+        8.654594421386719e-05
+      ],
+      "observed_vector_m": [
+        -1.3111245385902248e-05,
+        -9.431746739233231e-06,
+        -0.004951617547092946
+      ],
+      "observed_ratio": 0.9903288601172784,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            -1.580440271302377e-05,
+            1.308667033257205e-07,
+            -0.0049446056395461195
+          ],
+          "predicted_ratio": 0.988926262156901,
+          "absolute_ratio_error": 0.0014025979603773386,
+          "vector_error_m": 1.2159914460458845e-05,
+          "false_pass": true,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            -1.333011319194536e-05,
+            -3.3132609907661373e-07,
+            -0.004951331067708073
+          ],
+          "predicted_ratio": 0.9902698870006753,
+          "absolute_ratio_error": 5.8973116603078246e-05,
+          "vector_error_m": 9.107558914564739e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            -1.3301978547654882e-05,
+            -4.258139148216054e-06,
+            -0.004954878773883447
+          ],
+          "predicted_ratio": 0.9909797743220092,
+          "absolute_ratio_error": 0.0006509142047308458,
+          "vector_error_m": 6.118675904467125e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        1.1980944099321267e-07,
+        -5.183374161395193e-06,
+        -0.004996590685029667
+      ],
+      "local_joint_linearity_residual_m": 1.636327490594372e-07,
+      "fixed_joint_linearity_residual_m": 7.342791253036091e-06,
+      "frozen_A_open_state_error_m": 9.112493264302783e-06
+    },
+    {
+      "demo": "demo_23",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 2,
+      "sign": "plus",
+      "delta_m": [
+        -1.1220529089195352e-09,
+        3.430868306467105e-11,
+        0.00500000034780812
+      ],
+      "action_difference_7d": [
+        0.008700370788574219,
+        0.0010567530989646912,
+        -0.005445539951324463,
+        -0.0002559343120083213,
+        0.002661004662513733,
+        0.0002287309616804123,
+        -7.027387619018555e-05
+      ],
+      "observed_vector_m": [
+        1.3303378281676048e-05,
+        4.12693680778382e-06,
+        0.004953452769767996
+      ],
+      "observed_ratio": 0.9906944017233744,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            1.5825762003671477e-05,
+            -4.946567352512858e-06,
+            0.004946970314152328
+          ],
+          "predicted_ratio": 0.9893995513975334,
+          "absolute_ratio_error": 0.0012948503258409794,
+          "vector_error_m": 1.1432984220973317e-05,
+          "false_pass": true,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            1.3424281941148182e-05,
+            -4.035821860830124e-06,
+            0.004953466567812051
+          ],
+          "predicted_ratio": 0.9906972115427312,
+          "absolute_ratio_error": 2.8098193567416274e-06,
+          "vector_error_m": 8.163665669472606e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            1.3396146642691117e-05,
+            -1.0901031766876639e-07,
+            0.004957014273807061
+          ],
+          "predicted_ratio": 0.9914064062894508,
+          "absolute_ratio_error": 0.0007120045660763408,
+          "vector_error_m": 5.534994583440045e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        -1.3005454137238193e-07,
+        3.870638717137342e-06,
+        0.004996580409089901
+      ],
+      "local_joint_linearity_residual_m": 3.934766639129453e-07,
+      "fixed_joint_linearity_residual_m": 6.899651039966961e-06,
+      "frozen_A_open_state_error_m": 7.800044249183256e-06
+    },
+    {
+      "demo": "demo_23",
+      "t": 23,
+      "fraction": 0.5,
+      "axis": 0,
+      "sign": "minus",
+      "delta_m": [
+        -0.005000001128402692,
+        -5.238051312139724e-12,
+        -8.710077104012726e-11
+      ],
+      "action_difference_7d": [
+        0.008596017956733704,
+        0.0010657012462615967,
+        0.005293726921081543,
+        -0.0003648633137345314,
+        0.0023461580276489258,
+        -0.0010628476738929749,
+        -0.003969669342041016
+      ],
+      "observed_vector_m": [
+        -0.004989711434708541,
+        -7.482004557530196e-06,
+        8.255516329547241e-06
+      ],
+      "observed_ratio": 0.9979445495199597,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            -0.0049840845605370705,
+            -6.775569621038081e-06,
+            9.67358376183564e-06
+          ],
+          "predicted_ratio": 0.9968194857803727,
+          "absolute_ratio_error": 0.0011250637395869845,
+          "vector_error_m": 5.845654668518638e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            -0.004987484161580437,
+            -3.213507092128609e-06,
+            1.0158150766839175e-05
+          ],
+          "predicted_ratio": 0.9974988831876878,
+          "absolute_ratio_error": 0.0004456663322719434,
+          "vector_error_m": 5.176952192292575e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            -0.004989054720148722,
+            -7.806261636360217e-06,
+            8.535300621714136e-06
+          ],
+          "predicted_ratio": 0.9978134004909098,
+          "absolute_ratio_error": 0.0001311490290498707,
+          "vector_error_m": 7.840254564701727e-07,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        -0.005000612000164328,
+        4.2474258544773075e-07,
+        -3.553911893661166e-07
+      ],
+      "local_joint_linearity_residual_m": 1.3380280849777955e-07,
+      "fixed_joint_linearity_residual_m": 4.916020718818743e-06,
+      "frozen_A_open_state_error_m": 5.103333467524699e-06
+    },
+    {
+      "demo": "demo_23",
+      "t": 23,
+      "fraction": 0.5,
+      "axis": 0,
+      "sign": "plus",
+      "delta_m": [
+        0.0049999988216831714,
+        -5.016051810025068e-12,
+        -7.868561358037596e-11
+      ],
+      "action_difference_7d": [
+        -0.008604146540164948,
+        -0.001065630465745926,
+        -0.005261272192001343,
+        0.00036483071744441986,
+        -0.002345521003007889,
+        0.001062735915184021,
+        0.004154622554779053
+      ],
+      "observed_vector_m": [
+        0.004989585843592086,
+        7.278902940629703e-06,
+        -7.949283343022806e-06
+      ],
+      "observed_ratio": 0.9979197322089955,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            0.0049840254150542,
+            6.773607633336249e-06,
+            -9.506207703082882e-06
+          ],
+          "predicted_ratio": 0.996808051647174,
+          "absolute_ratio_error": 0.0011116805618215375,
+          "vector_error_m": 5.796352502692043e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            0.004987441337483177,
+            3.2126942376491694e-06,
+            -1.0010472378431107e-05
+          ],
+          "predicted_ratio": 0.9974907187518891,
+          "absolute_ratio_error": 0.0004290134571064419,
+          "vector_error_m": 5.038001578704624e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            0.004989011895319148,
+            7.805446540593766e-06,
+            -8.387623100366796e-06
+          ],
+          "predicted_ratio": 0.997805245533501,
+          "absolute_ratio_error": 0.00011448667549451841,
+          "vector_error_m": 8.937597694799386e-07,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        0.005000605722518988,
+        -4.780295453279265e-07,
+        3.5557197852753575e-07
+      ],
+      "local_joint_linearity_residual_m": 1.0137779715187472e-07,
+      "fixed_joint_linearity_residual_m": 4.964898167709003e-06,
+      "frozen_A_open_state_error_m": 5.058336973753968e-06
+    },
+    {
+      "demo": "demo_23",
+      "t": 23,
+      "fraction": 0.5,
+      "axis": 1,
+      "sign": "minus",
+      "delta_m": [
+        -8.057780657988456e-10,
+        -0.004999999952271924,
+        5.095843746971696e-10
+      ],
+      "action_difference_7d": [
+        -4.9833208322525024e-05,
+        0.0008699167519807816,
+        -0.00319710373878479,
+        -0.00045495061203837395,
+        -0.0004338398575782776,
+        0.001540258526802063,
+        -0.0019864439964294434
+      ],
+      "observed_vector_m": [
+        5.390828669911418e-06,
+        -0.00500042258233554,
+        -1.2679689260108873e-05
+      ],
+      "observed_ratio": 1.0000883223965547,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            9.664075506807157e-06,
+            -0.0050034364010574225,
+            -1.3394068270014993e-05
+          ],
+          "predicted_ratio": 1.0006927419100833,
+          "absolute_ratio_error": 0.0006044195135286312,
+          "vector_error_m": 5.277696390206911e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            8.37581076101192e-06,
+            -0.005004652762591114,
+            -1.1904885520349266e-05
+          ],
+          "predicted_ratio": 1.0009347957342396,
+          "absolute_ratio_error": 0.0008464733376849498,
+          "vector_error_m": 5.234965512205429e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            4.143581657412888e-06,
+            -0.005000871741369456,
+            -1.226407319547117e-05
+          ],
+          "predicted_ratio": 1.0001777087665444,
+          "absolute_ratio_error": 8.938636998978566e-05,
+          "vector_error_m": 1.389282426693595e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        1.2407514978253487e-06,
+        -0.004999539179343381,
+        -4.4585762637439075e-07
+      ],
+      "local_joint_linearity_residual_m": 3.33599855851006e-08,
+      "fixed_joint_linearity_residual_m": 2.337332101837262e-06,
+      "frozen_A_open_state_error_m": 5.2522237450316e-06
+    },
+    {
+      "demo": "demo_23",
+      "t": 23,
+      "fraction": 0.5,
+      "axis": 1,
+      "sign": "plus",
+      "delta_m": [
+        -8.058873117444687e-10,
+        0.005000000024535366,
+        5.097098298989522e-10
+      ],
+      "action_difference_7d": [
+        4.9836933612823486e-05,
+        -0.0008698869496583939,
+        0.003209143877029419,
+        0.00045496970415115356,
+        0.000433851033449173,
+        -0.0015404969453811646,
+        0.002031683921813965
+      ],
+      "observed_vector_m": [
+        -5.381721099442793e-06,
+        0.005000482449802751,
+        1.2793766827279285e-05
+      ],
+      "observed_ratio": 1.0001003375416517,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            -9.670338964316157e-06,
+            0.005003435566350215,
+            1.345726836773607e-05
+          ],
+          "predicted_ratio": 1.000692596843833,
+          "absolute_ratio_error": 0.0005922593021812084,
+          "vector_error_m": 5.2491308640576165e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            -8.37849558151027e-06,
+            0.005004652551799734,
+            1.1960756874664614e-05
+          ],
+          "predicted_ratio": 1.0009347666519597,
+          "absolute_ratio_error": 0.0008344291103079549,
+          "vector_error_m": 5.20233731535766e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            -4.146266928722575e-06,
+            0.005000871529843549,
+            1.2319944755110864e-05
+          ],
+          "predicted_ratio": 1.0001776799174475,
+          "absolute_ratio_error": 7.734237579581915e-05,
+          "vector_error_m": 1.3792163144957044e-06,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        -1.2312327003147217e-06,
+        0.004999518841633959,
+        4.4977829194436936e-07
+      ],
+      "local_joint_linearity_residual_m": 9.545200433631413e-08,
+      "fixed_joint_linearity_residual_m": 2.3529275485628516e-06,
+      "frozen_A_open_state_error_m": 5.275491103704721e-06
+    },
+    {
+      "demo": "demo_23",
+      "t": 23,
+      "fraction": 0.5,
+      "axis": 2,
+      "sign": "minus",
+      "delta_m": [
+        -1.0972098750394732e-09,
+        1.0041690569340123e-11,
+        -0.004999998857168397
+      ],
+      "action_difference_7d": [
+        -0.014647908508777618,
+        -0.0014827679842710495,
+        0.008617758750915527,
+        0.0007132850587368011,
+        -0.002470318228006363,
+        -0.0012640990316867828,
+        0.020210981369018555
+      ],
+      "observed_vector_m": [
+        -3.463502367598466e-05,
+        5.044089819496514e-06,
+        -0.004942222549606634
+      ],
+      "observed_ratio": 0.9884695225212066,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            -4.6863825449493414e-05,
+            9.502573649616502e-06,
+            -0.004928924970520366
+          ],
+          "predicted_ratio": 0.9858316081121956,
+          "absolute_ratio_error": 0.002637914409010955,
+          "vector_error_m": 1.8607720989814218e-05,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            -3.4640646193207884e-05,
+            9.450221523856553e-06,
+            -0.00493854420923721
+          ],
+          "predicted_ratio": 0.9877351737656401,
+          "absolute_ratio_error": 0.0007343487555664385,
+          "vector_error_m": 5.739705226072554e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            -3.461251156269473e-05,
+            5.5234090793443815e-06,
+            -0.004942091914891669
+          ],
+          "predicted_ratio": 0.9884434671732842,
+          "absolute_ratio_error": 2.6055347922326888e-05,
+          "vector_error_m": 4.973119512537348e-07,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        -9.834957713332482e-08,
+        -6.310054095470113e-07,
+        -0.005000061256375532
+      ],
+      "local_joint_linearity_residual_m": 1.8235658631982593e-07,
+      "fixed_joint_linearity_residual_m": 1.5655537371095855e-05,
+      "frozen_A_open_state_error_m": 5.814759625342692e-06
+    },
+    {
+      "demo": "demo_23",
+      "t": 23,
+      "fraction": 0.5,
+      "axis": 2,
+      "sign": "plus",
+      "delta_m": [
+        -1.1015097532013352e-09,
+        1.1003109881557727e-11,
+        0.005000001111939545
+      ],
+      "action_difference_7d": [
+        0.015589505434036255,
+        0.0012540984898805618,
+        -0.0076104700565338135,
+        -0.0006917174905538559,
+        0.003056161105632782,
+        0.001216541975736618,
+        -0.016209542751312256
+      ],
+      "observed_vector_m": [
+        3.28443943634002e-05,
+        -5.606727369654972e-06,
+        0.004943232725316049
+      ],
+      "observed_ratio": 0.9886687837174883,
+      "models": {
+        "A_B7_fixed": {
+          "predicted_vector_m": [
+            4.494433685487873e-05,
+            -1.0308914400195414e-05,
+            0.004929916915817074
+          ],
+          "predicted_ratio": 0.9860262928173887,
+          "absolute_ratio_error": 0.0026424909000996033,
+          "vector_error_m": 1.8596503805292382e-05,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "A_B7_local": {
+          "predicted_vector_m": [
+            3.269932380849236e-05,
+            -1.0137114031535924e-05,
+            0.004939700965055951
+          ],
+          "predicted_ratio": 0.9879636992865103,
+          "absolute_ratio_error": 0.0007050844309780535,
+          "vector_error_m": 5.746196942923074e-06,
+          "false_pass": false,
+          "false_penalty": false
+        },
+        "I_B7_local": {
+          "predicted_vector_m": [
+            3.267118849246147e-05,
+            -6.2103018517607225e-06,
+            0.004943248671598137
+          ],
+          "predicted_ratio": 0.9886718876303122,
+          "absolute_ratio_error": 3.1039128238763425e-06,
+          "vector_error_m": 6.281374953696866e-07,
+          "false_pass": false,
+          "false_penalty": false
+        }
+      },
+      "measured_open_state_response_m": [
+        9.72221785959515e-08,
+        5.973016712007909e-07,
+        0.005000075796205206
+      ],
+      "local_joint_linearity_residual_m": 1.1773157509018581e-07,
+      "fixed_joint_linearity_residual_m": 1.5559761088768704e-05,
+      "frozen_A_open_state_error_m": 5.796045906517092e-06
+    }
+  ],
+  "median_local_joint_linearity_residual_m": 1.2954812544560293e-07,
+  "median_fixed_joint_linearity_residual_m": 4.526263193275376e-06,
+  "median_frozen_A_open_state_error_m": 5.568310153073402e-06,
+  "raw_sha256": "dc534493affadcae038990d630a5bf11a6e9da2dd27e41427d0911293bd3c2e3",
+  "physical_audit_sha256": "43e56daf85362b5ea532ef185daf61c0ab8edbf16ede9bfc6c7035320e0c9470",
+  "source_sha256": "8bc4968080a410d277ce78234ab50dd5b18cd59c9bc88a2c6bb25cda05aae641",
+  "elapsed_seconds": 0.15229969999927562,
+  "new_physics_steps": 0,
+  "limitation": "Privileged per-anchor simulator identification; no original expert history, policy improvement, independent training seed, or universal stability claim."
+}

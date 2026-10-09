@@ -1,0 +1,18 @@
+{
+  "actor": "agent",
+  "event": "clearance_preflight_repair",
+  "unix": 1791112497.2517996,
+  "utc": "2026-10-04T11:14:57.251800+00:00",
+  "berlin": "2026-10-04T13:14:57.251800+02:00",
+  "reason": "Synthetic preflight exact-state hash failed because disabled native constraint-island arrays expose uninitialized arena storage. Fresh diagnosis shows hashes change even without a query; model arrays remain exact. Version 3.2.3 headers identify these as computed by mj_island. Exclude only inactive island arrays when island discovery disabled AND nisland=0; all physical/auxiliary/defined array and model checks retained.",
+  "primary_response_started": false,
+  "prior_preflight": "clearance_filter_001/preflight_001",
+  "fresh_preflight": "clearance_filter_001/preflight_002",
+  "repair_source": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\lift_contraction_validity_20261004\\supervised_6h_20261004_0904\\clearance_filter_001\\clearance_valid_arrays.py",
+  "repair_source_sha256": "2b1f63cdb1192129da19cf160e7a6a2bd6df9cf0f5ba2f89465d0e302af57b55",
+  "source_original_retained": true,
+  "new_policy_updates": 0,
+  "response_probes_repeated": 0,
+  "coordinator_training_repair_not_requested": true,
+  "primary_reference": "https://mujoco.readthedocs.io/en/3.2.3/APIreference/APItypes.html#mjdata"
+}

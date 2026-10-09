@@ -1,0 +1,33 @@
+{
+  "state": "SESSION_CLOSED_AUTOMATION_PAUSED",
+  "verified_utc": "2026-10-04 13:14:50 UTC",
+  "automation_id": "bc-forschung-fortschritt-und-trainings-pr-fen",
+  "persisted_status": "PAUSED",
+  "other_fields_verified_unchanged": [
+    "id",
+    "kind",
+    "name",
+    "prompt",
+    "rrule",
+    "target_thread_id",
+    "created_at"
+  ],
+  "app_tool_response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Updated automation in the app."
+      },
+      {
+        "type": "text",
+        "text": "{\"automationId\":\"bc-forschung-fortschritt-und-trainings-pr-fen\",\"mode\":\"update\",\"status\":\"PAUSED\"}"
+      }
+    ],
+    "isError": false
+  },
+  "shutdown_verification": "final_verification_1791119630.json",
+  "no_additional_run_launched": true,
+  "documentation_verified_berlin": "2026-10-04T15:15:45.459954+02:00",
+  "shutdown_verification_sha256": "222f34683b52609914ffead31110adf60bcc733fabea9cd263781a21e88eaf8e",
+  "final_report_sha256": "2fb51a0c902d16f1f8c0fe9564b4c0afcc760d837ab11245ee9159b189cf3f3c"
+}

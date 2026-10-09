@@ -1,0 +1,19 @@
+{
+  "state": "VERIFIED",
+  "frames": 60,
+  "perturbations_per_loss": 360,
+  "train_demos": 8,
+  "valid_demos": 4,
+  "worker_exited": true,
+  "supervisor_exited": true,
+  "optimizer_constructions": 0,
+  "policy_training_updates": 0,
+  "source_hashes_verified": true,
+  "selection_reproduced": true,
+  "statistics_recomputed": true,
+  "checkpoint_and_parameter_hashes_unchanged": true,
+  "finite_difference": "VERIFIED_ON_ONE_FIXED_TRAIN_PROBE",
+  "result_sha256": "6a3562467a0184a945c7676cd01e36bca68f2740c0d23c311235d2abf1a07447",
+  "source_sha256": "62b5b15128212623ee97bf9f59cc05a9d339429ac33f73431709d01b345a74ae",
+  "limitations": "Recorded observations, one policy seed. No physical-model domain or BC task improvement established."
+}

@@ -1,0 +1,40 @@
+{
+  "state": "COMPLETED",
+  "processes": {
+    "prepare": {
+      "returncode": 0,
+      "timed_out": false,
+      "stalled": false,
+      "elapsed_seconds": 5.007889747619629,
+      "worker": {
+        "pid": 51552,
+        "create_time": 1791098312.952875
+      }
+    },
+    "preflight": {
+      "returncode": 0,
+      "timed_out": false,
+      "stalled": false,
+      "elapsed_seconds": 10.01170301437378,
+      "worker": {
+        "pid": 49636,
+        "create_time": 1791098317.9632764
+      }
+    },
+    "worker": {
+      "returncode": 0,
+      "timed_out": false,
+      "stalled": false,
+      "elapsed_seconds": 210.27734446525574,
+      "worker": {
+        "pid": 31292,
+        "create_time": 1791098327.97736
+      }
+    }
+  },
+  "finished_unix": 1791098538.2553227,
+  "attempt_deadline_unix": 1791105512.9513707,
+  "fresh_attempt": true,
+  "automatic_repair_authorized": true,
+  "worker_job_closed": true
+}

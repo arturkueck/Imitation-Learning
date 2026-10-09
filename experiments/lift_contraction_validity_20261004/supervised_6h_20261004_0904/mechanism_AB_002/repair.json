@@ -1,0 +1,7 @@
+{
+  "unix": 1791100298.3257642,
+  "reason": "Independent physical audit found qacc_warmstart changed by sim.forward/controller.update(force=True). Preserve original solver warmstart after IK, add explicit internal warmstart gate and verify unchanged auxiliary simulator fields. No gate relaxation; same predefined anchors. Previous responses have been inspected, so this is a technical repeated diagnosis rather than new independent confirmation.",
+  "prior_attempt": "mechanism_AB_001",
+  "fresh_directory": true,
+  "policy_training_updates": 0
+}

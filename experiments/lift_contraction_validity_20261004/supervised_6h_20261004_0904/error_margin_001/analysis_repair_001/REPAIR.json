@@ -1,0 +1,15 @@
+{
+  "reason": "Per-phase planned_cases metadata incorrectly repeated global72; corrected to24 in each of three phases only. Primary/secondary global72, formulas, threshold, epsilon, decisions, selection and all simulator data unchanged.",
+  "original_hashes": {
+    "analyze_margin.py": "7a2257224584d1ca3926159353ed5f4c5133e083bd5f183de53c8995f4265403",
+    "margin_analysis.json": "4e962c7842bce2216b670eb9ee2e5a692411a2060e86012dea80fdc09afb9aa1",
+    "verify_margin.py": "78cb5a2a825e69e223dcdf3ae40f5c34720637d6eed7f0c20811b78f4cccd4ee",
+    "margin_verification.json": "556cbd7676abc1fec01b7cda0bb08d68a3c85cd86b4678d42e5863b19da40b69"
+  },
+  "replacement_source_hashes": {
+    "analyze_margin.py": "34836a3f5b6f773dab282038e340db25e3381b3b4771faab7709ff0e4a2680ce",
+    "verify_margin.py": "57cc350bd1b198062bd26cdce5f0272a8c7c07b5bd511ba4909cf1e90b406f0a"
+  },
+  "new_physics_steps": 0,
+  "new_policy_updates": 0
+}

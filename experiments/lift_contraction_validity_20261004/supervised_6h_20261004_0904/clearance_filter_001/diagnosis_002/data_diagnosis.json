@@ -1,0 +1,114 @@
+{
+  "repeated_unmutated_data_hashes_equal": false,
+  "error": null,
+  "data_changed_fields": {
+    "dof_island": {
+      "dtype": "int32",
+      "shape": [
+        12
+      ],
+      "exact_value_equal": false,
+      "old_values": [
+        -1663903936,
+        32763,
+        6881396,
+        -1073741823,
+        0,
+        0,
+        -508799017,
+        1163079403,
+        217612473,
+        -136271511,
+        -1663900240,
+        32763
+      ],
+      "new_values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "dof_islandind": {
+      "dtype": "int32",
+      "shape": [
+        12
+      ],
+      "exact_value_equal": false,
+      "old_values": [
+        -1663903936,
+        32763,
+        6881396,
+        -1073741823,
+        0,
+        0,
+        -508799017,
+        1163079403,
+        217612473,
+        -136271511,
+        -1663900240,
+        32763
+      ],
+      "new_values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "island_dofind": {
+      "dtype": "int32",
+      "shape": [
+        12
+      ],
+      "exact_value_equal": false,
+      "old_values": [
+        0,
+        0,
+        1167128593,
+        1310721,
+        17174304,
+        442,
+        1167128593,
+        298851642,
+        -1442832503,
+        607013632,
+        0,
+        7340149
+      ],
+      "new_values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "native_version": "3.2.3",
+  "physics_integration_steps": 0,
+  "policy_training_updates": 0
+}

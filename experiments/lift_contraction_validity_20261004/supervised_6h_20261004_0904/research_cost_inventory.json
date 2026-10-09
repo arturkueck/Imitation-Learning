@@ -1,0 +1,466 @@
+{
+  "primary_diagnoses": [
+    {
+      "name": "mechanism_AB_001",
+      "raw_state": "COMPLETE",
+      "worker_seconds": 165.45299999999406,
+      "supervisor_seconds": 168.14280915260315,
+      "counts": {
+        "resets": 312,
+        "prefix_actions": 1508,
+        "probe_actions": 312,
+        "physics_steps": 45500,
+        "ik_iterations": 432,
+        "policy_calls": 156
+      },
+      "result_sha256": "ae894360131200ad8ef5aae7b618277b9e69e744e909d32f9a0e3204220624c5"
+    },
+    {
+      "name": "mechanism_AB_002",
+      "raw_state": "COMPLETE",
+      "worker_seconds": 165.48500000000058,
+      "supervisor_seconds": 168.14420104026794,
+      "counts": {
+        "resets": 312,
+        "prefix_actions": 1508,
+        "probe_actions": 312,
+        "physics_steps": 45500,
+        "ik_iterations": 432,
+        "policy_calls": 156
+      },
+      "result_sha256": "5aa8278db2b6de963d3d5c2b774394f04fb1b04ab92e6893b101d2239e4b3e06"
+    },
+    {
+      "name": "mechanism_action7_001",
+      "raw_state": "COMPLETE",
+      "worker_seconds": 235.53100000000268,
+      "supervisor_seconds": 238.2078948020935,
+      "counts": {
+        "resets": 408,
+        "prefix_actions": 1666,
+        "probe_actions": 408,
+        "physics_steps": 51850,
+        "ik_iterations": 432,
+        "policy_calls": 156
+      },
+      "result_sha256": "85222d32123f156f47674fafda81de835825996a8231c8611a3d281990210eca"
+    },
+    {
+      "name": "mechanism_correction_001",
+      "raw_state": "FAILED",
+      "worker_seconds": 167.60899999999674,
+      "supervisor_seconds": 170.14540147781372,
+      "counts": {
+        "resets": 312,
+        "prefix_actions": 1326,
+        "probe_actions": 312,
+        "physics_steps": 40950,
+        "ik_iterations": 576,
+        "policy_calls": 300
+      },
+      "result_sha256": "9415a85808ecda188e7aa80aba41cc8f2436e3e387c18e7f1bca97664af6550b"
+    },
+    {
+      "name": "gradient_audit_001",
+      "raw_state": "COMPLETE",
+      "worker_seconds": 2.827999999994063,
+      "supervisor_seconds": 6.012193918228149,
+      "counts": null,
+      "result_sha256": "6a3562467a0184a945c7676cd01e36bca68f2740c0d23c311235d2abf1a07447"
+    },
+    {
+      "name": "mechanism_domain_001",
+      "raw_state": "DOMAIN_GATE_FAILED",
+      "worker_seconds": 208.67199999999139,
+      "supervisor_seconds": 210.1873345375061,
+      "counts": {
+        "resets": 336,
+        "prefix_actions": 7644,
+        "probe_actions": 336,
+        "physics_steps": 199500,
+        "ik_iterations": 288,
+        "policy_calls": 84
+      },
+      "result_sha256": "5580d7b1f5a917b75057d6be389d889cb0831e5115d027d618804b711621e8b8"
+    },
+    {
+      "name": "recorded_domain_001",
+      "raw_state": "COMPLETE_STATIC_AUDIT",
+      "worker_seconds": 24.139999999999418,
+      "supervisor_seconds": 26.030155420303345,
+      "counts": null,
+      "result_sha256": "5affa636ee974fcf47cb113644e40aaf9dd438c91c1163adf3beb8cb3d1905b4"
+    },
+    {
+      "name": "recorded_response_001",
+      "raw_state": "DOMAIN_GATE_FAILED",
+      "worker_seconds": 567.5160000000033,
+      "supervisor_seconds": 570.4834086894989,
+      "counts": {
+        "resets": 672,
+        "prefix_actions": 8456,
+        "probe_actions": 672,
+        "physics_steps": 228200,
+        "ik_iterations": 576,
+        "policy_calls": 168
+      },
+      "result_sha256": "37eecaa10e8f6eb8f86a6ebec7a9f87eeacaaa68e5a0c48962e49cc0dbbf73ad"
+    },
+    {
+      "name": "local_response_001",
+      "raw_state": "DOMAIN_GATE_FAILED",
+      "worker_seconds": 191.40599999998813,
+      "supervisor_seconds": 194.18743634223938,
+      "counts": {
+        "resets": 336,
+        "prefix_actions": 0,
+        "probe_actions": 336,
+        "physics_steps": 8400,
+        "ik_iterations": 288,
+        "policy_calls": 84
+      },
+      "result_sha256": "dc534493affadcae038990d630a5bf11a6e9da2dd27e41427d0911293bd3c2e3"
+    },
+    {
+      "name": "clearance_filter_001",
+      "raw_state": "DOMAIN_GATE_FAILED",
+      "worker_seconds": 195.57799999999406,
+      "supervisor_seconds": 198.16960787773132,
+      "counts": {
+        "resets": 336,
+        "prefix_actions": 0,
+        "probe_actions": 336,
+        "physics_steps": 8400,
+        "ik_iterations": 288,
+        "policy_calls": 84
+      },
+      "result_sha256": "f42b1ec73f80bb38959e111b2c0355fe7d3752ec78fb3ab434b2e3c88e18f1e8"
+    },
+    {
+      "name": "external_proxy_001",
+      "raw_state": "DOMAIN_GATE_FAILED",
+      "worker_seconds": 195.71800000000803,
+      "supervisor_seconds": 198.16871237754822,
+      "counts": {
+        "resets": 336,
+        "prefix_actions": 0,
+        "probe_actions": 336,
+        "physics_steps": 8400,
+        "ik_iterations": 288,
+        "policy_calls": 84
+      },
+      "result_sha256": "2832be6e74008da0305c31ebb0ffa9fdc41191608266bed1e66a07a194f033b1"
+    },
+    {
+      "name": "error_margin_001",
+      "raw_state": "DOMAIN_GATE_FAILED",
+      "worker_seconds": 197.34400000001187,
+      "supervisor_seconds": 200.1745686531067,
+      "counts": {
+        "resets": 336,
+        "prefix_actions": 0,
+        "probe_actions": 336,
+        "physics_steps": 8400,
+        "ik_iterations": 288,
+        "policy_calls": 84
+      },
+      "result_sha256": "1f6908fb63f6a10baac22ecc9bde47809bccd7ad8b96760c5b083bac3610be9c"
+    },
+    {
+      "name": "method_reference_001",
+      "raw_state": "REFERENCE_IMPLEMENTATION_AND_EXPLORATORY_AUDIT_COMPLETE",
+      "worker_seconds": 2.639999999999418,
+      "supervisor_seconds": 6.012880802154541,
+      "counts": {
+        "main_forward_batches": 48,
+        "main_policy_input_samples": 168,
+        "clone_forward_batches": 24,
+        "clone_policy_input_samples": 84,
+        "physics_steps": 0,
+        "optimizer_constructions": 0,
+        "optimizer_updates": 0
+      },
+      "result_sha256": "b09df728b7b1b2aceeb0caaba681f46dbc572a34dedbbf7cfb9c6937b28c2e07"
+    }
+  ],
+  "recorded_diagnostic_supervisor_jobs": [
+    {
+      "path": "clearance_filter_001\\supervisor_result.json",
+      "returncode": 0,
+      "elapsed_seconds": 198.16960787773132,
+      "worker_identity": {
+        "pid": 43056,
+        "create_time": 1791112738.5566006
+      },
+      "job_closed": true
+    },
+    {
+      "path": "error_margin_001\\supervisor_result.json",
+      "returncode": 0,
+      "elapsed_seconds": 200.1745686531067,
+      "worker_identity": {
+        "pid": 27664,
+        "create_time": 1791116003.5243657
+      },
+      "job_closed": true
+    },
+    {
+      "path": "external_proxy_001\\supervisor_result.json",
+      "returncode": 0,
+      "elapsed_seconds": 198.16871237754822,
+      "worker_identity": {
+        "pid": 25904,
+        "create_time": 1791114036.12082
+      },
+      "job_closed": true
+    },
+    {
+      "path": "gradient_audit_001\\supervisor_result.json",
+      "returncode": 0,
+      "elapsed_seconds": 6.012193918228149,
+      "worker_identity": {
+        "pid": 28152,
+        "create_time": 1791105165.2635312
+      },
+      "job_closed": true
+    },
+    {
+      "path": "local_response_001\\supervisor_result.json",
+      "returncode": 0,
+      "elapsed_seconds": 194.18743634223938,
+      "worker_identity": {
+        "pid": 37648,
+        "create_time": 1791110474.067161
+      },
+      "job_closed": true
+    },
+    {
+      "path": "mechanism_AB_001\\supervisor_result.json",
+      "returncode": 0,
+      "elapsed_seconds": 168.14280915260315,
+      "worker_identity": {
+        "pid": 43864,
+        "create_time": 1791099990.979614
+      },
+      "job_closed": true
+    },
+    {
+      "path": "mechanism_AB_002\\supervisor_result.json",
+      "returncode": 0,
+      "elapsed_seconds": 168.14420104026794,
+      "worker_identity": {
+        "pid": 7556,
+        "create_time": 1791100300.9939175
+      },
+      "job_closed": true
+    },
+    {
+      "path": "mechanism_action7_001\\supervisor_result.json",
+      "returncode": 0,
+      "elapsed_seconds": 238.2078948020935,
+      "worker_identity": {
+        "pid": 9040,
+        "create_time": 1791101499.850971
+      },
+      "job_closed": true
+    },
+    {
+      "path": "mechanism_correction_001\\supervisor_result.json",
+      "returncode": 2,
+      "elapsed_seconds": 170.14540147781372,
+      "worker_identity": {
+        "pid": 37532,
+        "create_time": 1791103286.3103487
+      },
+      "job_closed": true
+    },
+    {
+      "path": "mechanism_domain_001\\supervisor_result.json",
+      "returncode": 0,
+      "elapsed_seconds": 210.1873345375061,
+      "worker_identity": {
+        "pid": 40244,
+        "create_time": 1791106819.4715867
+      },
+      "job_closed": true
+    },
+    {
+      "path": "method_reference_001\\supervisor_result.json",
+      "returncode": 0,
+      "elapsed_seconds": 6.012880802154541,
+      "worker_identity": {
+        "pid": 40880,
+        "create_time": 1791118052.9771311
+      },
+      "job_closed": true
+    },
+    {
+      "path": "recorded_domain_001\\supervisor_result.json",
+      "returncode": 0,
+      "elapsed_seconds": 26.030155420303345,
+      "worker_identity": {
+        "pid": 45016,
+        "create_time": 1791107616.9396632
+      },
+      "job_closed": true
+    },
+    {
+      "path": "recorded_response_001\\supervisor_result.json",
+      "returncode": 0,
+      "elapsed_seconds": 570.4834086894989,
+      "worker_identity": {
+        "pid": 25152,
+        "create_time": 1791109063.113855
+      },
+      "job_closed": true
+    },
+    {
+      "path": "clearance_filter_001\\diagnosis_003\\supervisor_result.json",
+      "returncode": 2,
+      "elapsed_seconds": 6.011646270751953,
+      "worker_identity": {
+        "pid": 42968,
+        "create_time": 1791112574.277838
+      },
+      "job_closed": true
+    },
+    {
+      "path": "clearance_filter_001\\preflight_001\\supervisor_result.json",
+      "returncode": 2,
+      "elapsed_seconds": 6.012686729431152,
+      "worker_identity": {
+        "pid": 46992,
+        "create_time": 1791112286.1899
+      },
+      "job_closed": true
+    },
+    {
+      "path": "clearance_filter_001\\preflight_002\\supervisor_result.json",
+      "returncode": 2,
+      "elapsed_seconds": 6.011422634124756,
+      "worker_identity": {
+        "pid": 19208,
+        "create_time": 1791112497.3304229
+      },
+      "job_closed": true
+    },
+    {
+      "path": "clearance_filter_001\\preflight_003\\supervisor_result.json",
+      "returncode": 0,
+      "elapsed_seconds": 6.013236045837402,
+      "worker_identity": {
+        "pid": 8980,
+        "create_time": 1791112639.926371
+      },
+      "job_closed": true
+    },
+    {
+      "path": "clearance_filter_001\\query_verification_001\\supervisor_result.json",
+      "returncode": 0,
+      "elapsed_seconds": 12.017932653427124,
+      "worker_identity": {
+        "pid": 43228,
+        "create_time": 1791112984.7431571
+      },
+      "job_closed": true
+    },
+    {
+      "path": "error_margin_001\\preflight_001\\supervisor_result.json",
+      "returncode": 0,
+      "elapsed_seconds": 6.012238264083862,
+      "worker_identity": {
+        "pid": 29192,
+        "create_time": 1791115966.6754196
+      },
+      "job_closed": true
+    },
+    {
+      "path": "error_margin_001\\query_verification_001\\supervisor_result.json",
+      "returncode": 0,
+      "elapsed_seconds": 12.018151998519897,
+      "worker_identity": {
+        "pid": 9952,
+        "create_time": 1791116341.0352826
+      },
+      "job_closed": true
+    },
+    {
+      "path": "external_proxy_001\\preflight_001\\supervisor_result.json",
+      "returncode": 0,
+      "elapsed_seconds": 6.011481046676636,
+      "worker_identity": {
+        "pid": 40172,
+        "create_time": 1791113964.85213
+      },
+      "job_closed": true
+    },
+    {
+      "path": "external_proxy_001\\query_verification_001\\supervisor_result.json",
+      "returncode": 0,
+      "elapsed_seconds": 12.017146348953247,
+      "worker_identity": {
+        "pid": 37544,
+        "create_time": 1791114472.41774
+      },
+      "job_closed": true
+    },
+    {
+      "path": "local_response_001\\preflight_001\\supervisor_result.json",
+      "returncode": 0,
+      "elapsed_seconds": 6.011293172836304,
+      "worker_identity": {
+        "pid": 33260,
+        "create_time": 1791110357.2349415
+      },
+      "job_closed": true
+    },
+    {
+      "path": "method_reference_001\\preflight_001\\supervisor_result.json",
+      "returncode": 0,
+      "elapsed_seconds": 2.0091137886047363,
+      "worker_identity": {
+        "pid": 27804,
+        "create_time": 1791118041.01117
+      },
+      "job_closed": true
+    },
+    {
+      "path": "method_reference_001\\verification_001\\supervisor_result.json",
+      "returncode": 0,
+      "elapsed_seconds": 6.011608839035034,
+      "worker_identity": {
+        "pid": 47360,
+        "create_time": 1791118186.6756494
+      },
+      "job_closed": true
+    },
+    {
+      "path": "recorded_response_001\\preflight_001\\supervisor_result.json",
+      "returncode": 2,
+      "elapsed_seconds": 6.012324333190918,
+      "worker_identity": {
+        "pid": 29056,
+        "create_time": 1791108912.3778284
+      },
+      "job_closed": true
+    },
+    {
+      "path": "recorded_response_001\\preflight_002\\supervisor_result.json",
+      "returncode": 0,
+      "elapsed_seconds": 6.01213812828064,
+      "worker_identity": {
+        "pid": 41404,
+        "create_time": 1791108985.7302077
+      },
+      "job_closed": true
+    }
+  ],
+  "total_recorded_diagnostic_supervisor_seconds": 2452.2490253448486,
+  "includes_recorded_preflights_failures_and_independent_verifiers": true,
+  "excludes_pilot_and_uninstrumented_foreground_preparation_analysis": true,
+  "pilot_training_seconds": {
+    "B0": 8.85899999999674,
+    "B1": 11.39100000000326
+  },
+  "pilot_evaluation_seconds": 182.09500000001572
+}

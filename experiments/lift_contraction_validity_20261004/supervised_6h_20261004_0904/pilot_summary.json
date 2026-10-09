@@ -1,0 +1,125 @@
+{
+  "state": "COMPLETED",
+  "attempt": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\lift_contraction_validity_20261004\\supervised_6h_20261004_0904\\attempts\\attempt_002",
+  "seed": 41004,
+  "training_updates_per_arm": 2000,
+  "rows": [
+    {
+      "updates": 500,
+      "condition": "nominal",
+      "episodes": 6,
+      "B0_successes": 0,
+      "B1_successes": 0,
+      "B0_impulses_applied": 0,
+      "B1_impulses_applied": 0
+    },
+    {
+      "updates": 1000,
+      "condition": "nominal",
+      "episodes": 6,
+      "B0_successes": 0,
+      "B1_successes": 0,
+      "B0_impulses_applied": 0,
+      "B1_impulses_applied": 0
+    },
+    {
+      "updates": 2000,
+      "condition": "nominal",
+      "episodes": 10,
+      "B0_successes": 4,
+      "B1_successes": 3,
+      "B0_impulses_applied": 0,
+      "B1_impulses_applied": 0
+    },
+    {
+      "updates": 2000,
+      "condition": "sensor_y_plus5mm",
+      "episodes": 10,
+      "B0_successes": 3,
+      "B1_successes": 4,
+      "B0_impulses_applied": 0,
+      "B1_impulses_applied": 0
+    },
+    {
+      "updates": 2000,
+      "condition": "sensor_y_minus5mm",
+      "episodes": 10,
+      "B0_successes": 3,
+      "B1_successes": 4,
+      "B0_impulses_applied": 0,
+      "B1_impulses_applied": 0
+    },
+    {
+      "updates": 2000,
+      "condition": "action_impulse_x_plus0.5",
+      "episodes": 10,
+      "B0_successes": 3,
+      "B1_successes": 3,
+      "B0_impulses_applied": 10,
+      "B1_impulses_applied": 10
+    }
+  ],
+  "sensor_successes_out_of_20": {
+    "B0": 6,
+    "B1": 8
+  },
+  "nominal_successes_out_of_10": {
+    "B0": 4,
+    "B1": 3
+  },
+  "pilot_rule_passed": true,
+  "learning_and_costs": {
+    "B0": {
+      "curve": [
+        {
+          "updates": 500,
+          "successes_first6": 0,
+          "training_elapsed_seconds": 2.561999999990803
+        },
+        {
+          "updates": 1000,
+          "successes_first6": 0,
+          "training_elapsed_seconds": 4.639999999999418
+        },
+        {
+          "updates": 2000,
+          "successes_first6": 1,
+          "training_elapsed_seconds": 8.764999999999418
+        }
+      ],
+      "sustained_threshold_4of6_confirmed_at": null,
+      "censored": true,
+      "total_training_seconds": 8.85899999999674,
+      "loss_last": 0.040734272450208664,
+      "loss_last100": 0.04026041451841593
+    },
+    "B1": {
+      "curve": [
+        {
+          "updates": 500,
+          "successes_first6": 0,
+          "training_elapsed_seconds": 3.0
+        },
+        {
+          "updates": 1000,
+          "successes_first6": 0,
+          "training_elapsed_seconds": 5.76600000000326
+        },
+        {
+          "updates": 2000,
+          "successes_first6": 1,
+          "training_elapsed_seconds": 11.297000000005937
+        }
+      ],
+      "sustained_threshold_4of6_confirmed_at": null,
+      "censored": true,
+      "total_training_seconds": 11.39100000000326,
+      "loss_last": 0.04005974531173706,
+      "loss_last100": 0.040327588450163605
+    }
+  },
+  "evaluation_seconds": 182.09500000001572,
+  "preflight_seconds": 5.35899999999674,
+  "paired_initial_parameters_batches_starts_verified": true,
+  "robust_algorithmic_improvement_established": false
+}

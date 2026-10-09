@@ -1,0 +1,9 @@
+{
+  "state": "FAILED",
+  "policy_training_updates": 0,
+  "response_probe_steps": 0,
+  "physics_integration_steps": 0,
+  "synthetic_cases": [],
+  "error": "Traceback (most recent call last):\n  File \"C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\lift_contraction_validity_20261004\\supervised_6h_20261004_0904\\clearance_filter_001\\diagnosis_003\\run.py\", line 37, in <module>\n    result['known_frame']=dict(demo=demo,t=t,preparation=prep,query=clearance.filter_anchor(env,ctrl,.015))\n                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\lift_contraction_validity_20261004\\supervised_6h_20261004_0904\\clearance_filter_001\\diagnosis_003\\clearance_debug.py\", line 82, in filter_anchor\n    info=query(sim.model._model,sim.data._data,names,margin)\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\lift_contraction_validity_20261004\\supervised_6h_20261004_0904\\clearance_filter_001\\diagnosis_003\\clearance_debug.py\", line 75, in query\n    assert result['copied_model_restored'] and result['original_model_unchanged'] and result['original_data_unchanged']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "elapsed_seconds": 4.5310000000026776
+}

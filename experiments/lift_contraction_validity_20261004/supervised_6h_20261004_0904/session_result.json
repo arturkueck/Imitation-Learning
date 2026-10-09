@@ -1,0 +1,33 @@
+{
+  "state": "WINDOW_FINISHED",
+  "coordinator_pid": 44908,
+  "deadline_unix": 1791119479.6970713,
+  "deadline_berlin": "2026-10-04T15:11:19.697071+02:00",
+  "attempt": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\lift_contraction_validity_20261004\\supervised_6h_20261004_0904\\attempts\\attempt_002",
+  "progress": {
+    "B0": {
+      "state": "COMPLETED",
+      "optimizer_updates": 2000,
+      "loss": null,
+      "loss_last": 0.040734272450208664,
+      "elapsed_seconds": 8.85899999999674
+    },
+    "B1": {
+      "state": "COMPLETED",
+      "optimizer_updates": 2000,
+      "loss": null,
+      "loss_last": 0.04005974531173706,
+      "elapsed_seconds": 11.39100000000326
+    },
+    "evaluation": {
+      "state": "COMPLETED",
+      "optimizer_updates_per_arm": 2000,
+      "episodes_completed": 104,
+      "worker_result": "worker_result.json",
+      "updated_unix": 1791098953.8981483
+    }
+  },
+  "updated_unix": 1791119479.698383,
+  "awake_request_released": true,
+  "coordinator_exiting": true
+}

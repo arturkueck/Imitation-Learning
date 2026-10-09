@@ -1,0 +1,15 @@
+{
+  "actor": "agent",
+  "event": "local_analysis_preexecution_repair",
+  "unix": 1791110516.3508835,
+  "utc": "2026-10-04T10:41:56.350883+00:00",
+  "berlin": "2026-10-04T12:41:56.350883+02:00",
+  "reason": "Inspection caught wrong metadata key before analysis execution: independent physical audit exposes eligible, not passed. Frozen original analysis retained; new analysis uses verified eligible field. No physical or numerical gate changed.",
+  "original_source_sha256": "13aaaf3a9d0fff19f1d502d9e93fc4f5f0aefdc737457bd600616f5a3028d747",
+  "repair_source": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\lift_contraction_validity_20261004\\supervised_6h_20261004_0904\\local_response_001\\analysis_repair_001\\analyze_local.py",
+  "repair_source_sha256": "8bc4968080a410d277ce78234ab50dd5b18cd59c9bc88a2c6bb25cda05aae641",
+  "original_analysis_executed": false,
+  "primary_simulator_rerun": false,
+  "new_policy_updates": 0,
+  "coordinator_training_repair_not_requested": true
+}

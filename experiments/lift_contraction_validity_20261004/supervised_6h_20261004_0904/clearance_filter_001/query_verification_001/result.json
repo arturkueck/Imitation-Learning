@@ -1,0 +1,1428 @@
+{
+  "state": "NATIVE_FILTER_QUERIES_INDEPENDENTLY_REPRODUCED",
+  "physics_integration_steps": 0,
+  "response_probe_actions": 0,
+  "policy_training_updates": 0,
+  "rows": [
+    {
+      "demo": "demo_106",
+      "t": 4,
+      "nominal_state_and_controller_error": 0.0,
+      "contact_lists_exactly_reproduced": true,
+      "masks_exactly_reproduced": true,
+      "original_state_unchanged": true,
+      "nearby_contacts": [
+        {
+          "geom_ids": [
+            25,
+            27
+          ],
+          "names": [
+            "robot0_link0_collision",
+            "robot0_link1_collision"
+          ],
+          "types": [
+            7,
+            7
+          ],
+          "distance_m": 0.0009977482499198241,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        }
+      ]
+    },
+    {
+      "demo": "demo_106",
+      "t": 24,
+      "nominal_state_and_controller_error": 0.0,
+      "contact_lists_exactly_reproduced": true,
+      "masks_exactly_reproduced": true,
+      "original_state_unchanged": true,
+      "nearby_contacts": [
+        {
+          "geom_ids": [
+            25,
+            27
+          ],
+          "names": [
+            "robot0_link0_collision",
+            "robot0_link1_collision"
+          ],
+          "types": [
+            7,
+            7
+          ],
+          "distance_m": 0.000997512551921714,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        }
+      ]
+    },
+    {
+      "demo": "demo_106",
+      "t": 40,
+      "nominal_state_and_controller_error": 0.0,
+      "contact_lists_exactly_reproduced": true,
+      "masks_exactly_reproduced": true,
+      "original_state_unchanged": true,
+      "nearby_contacts": [
+        {
+          "geom_ids": [
+            7,
+            74
+          ],
+          "names": [
+            "table_collision",
+            "gripper0_right_finger1_collision"
+          ],
+          "types": [
+            6,
+            7
+          ],
+          "distance_m": 0.0022323162678659306,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            7,
+            75
+          ],
+          "names": [
+            "table_collision",
+            "gripper0_right_finger1_pad_collision"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.004144013240095049,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            7,
+            75
+          ],
+          "names": [
+            "table_collision",
+            "gripper0_right_finger1_pad_collision"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.003468343757622618,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            7,
+            75
+          ],
+          "names": [
+            "table_collision",
+            "gripper0_right_finger1_pad_collision"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.004282895021579245,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            7,
+            75
+          ],
+          "names": [
+            "table_collision",
+            "gripper0_right_finger1_pad_collision"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.0033294619761384224,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            7,
+            77
+          ],
+          "names": [
+            "table_collision",
+            "gripper0_right_finger2_collision"
+          ],
+          "types": [
+            6,
+            7
+          ],
+          "distance_m": -0.0007417616195498876,
+          "includemargin_m": 0.0,
+          "efc_address": 9
+        },
+        {
+          "geom_ids": [
+            7,
+            78
+          ],
+          "names": [
+            "table_collision",
+            "gripper0_right_finger2_pad_collision"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.0028390668209651785,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            7,
+            78
+          ],
+          "names": [
+            "table_collision",
+            "gripper0_right_finger2_pad_collision"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.002163397338492747,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            7,
+            78
+          ],
+          "names": [
+            "table_collision",
+            "gripper0_right_finger2_pad_collision"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.002977948602449374,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            7,
+            78
+          ],
+          "names": [
+            "table_collision",
+            "gripper0_right_finger2_pad_collision"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.0020245155570085514,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            25,
+            27
+          ],
+          "names": [
+            "robot0_link0_collision",
+            "robot0_link1_collision"
+          ],
+          "types": [
+            7,
+            7
+          ],
+          "distance_m": 0.0009975207108999292,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            84,
+            72
+          ],
+          "names": [
+            "cube_g0",
+            "gripper0_right_hand_collision"
+          ],
+          "types": [
+            6,
+            7
+          ],
+          "distance_m": -0.0019964396605047403,
+          "includemargin_m": 0.0,
+          "efc_address": 25
+        },
+        {
+          "geom_ids": [
+            84,
+            74
+          ],
+          "names": [
+            "cube_g0",
+            "gripper0_right_finger1_collision"
+          ],
+          "types": [
+            6,
+            7
+          ],
+          "distance_m": 0.014837468153574535,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            75,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger1_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.007464795618545238,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            75,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger1_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.007360750254295596,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            84,
+            77
+          ],
+          "names": [
+            "cube_g0",
+            "gripper0_right_finger2_collision"
+          ],
+          "types": [
+            6,
+            7
+          ],
+          "distance_m": 0.002150437346718853,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            78,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger2_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.003891145416055652,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            78,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger2_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.001421626567966607,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            78,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger2_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.003995190780305294,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            78,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger2_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.0013175812037169645,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        }
+      ]
+    },
+    {
+      "demo": "demo_139",
+      "t": 4,
+      "nominal_state_and_controller_error": 0.0,
+      "contact_lists_exactly_reproduced": true,
+      "masks_exactly_reproduced": true,
+      "original_state_unchanged": true,
+      "nearby_contacts": [
+        {
+          "geom_ids": [
+            25,
+            27
+          ],
+          "names": [
+            "robot0_link0_collision",
+            "robot0_link1_collision"
+          ],
+          "types": [
+            7,
+            7
+          ],
+          "distance_m": 0.0009977480711912887,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        }
+      ]
+    },
+    {
+      "demo": "demo_139",
+      "t": 23,
+      "nominal_state_and_controller_error": 0.0,
+      "contact_lists_exactly_reproduced": true,
+      "masks_exactly_reproduced": true,
+      "original_state_unchanged": true,
+      "nearby_contacts": [
+        {
+          "geom_ids": [
+            25,
+            27
+          ],
+          "names": [
+            "robot0_link0_collision",
+            "robot0_link1_collision"
+          ],
+          "types": [
+            7,
+            7
+          ],
+          "distance_m": 0.000997422000891552,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        }
+      ]
+    },
+    {
+      "demo": "demo_139",
+      "t": 39,
+      "nominal_state_and_controller_error": 0.0,
+      "contact_lists_exactly_reproduced": true,
+      "masks_exactly_reproduced": true,
+      "original_state_unchanged": true,
+      "nearby_contacts": [
+        {
+          "geom_ids": [
+            7,
+            74
+          ],
+          "names": [
+            "table_collision",
+            "gripper0_right_finger1_collision"
+          ],
+          "types": [
+            6,
+            7
+          ],
+          "distance_m": 0.00876097973100225,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            7,
+            75
+          ],
+          "names": [
+            "table_collision",
+            "gripper0_right_finger1_pad_collision"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.007453590381499531,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            7,
+            75
+          ],
+          "names": [
+            "table_collision",
+            "gripper0_right_finger1_pad_collision"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.0074855084979169794,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            7,
+            75
+          ],
+          "names": [
+            "table_collision",
+            "gripper0_right_finger1_pad_collision"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.0070741372925375925,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            25,
+            27
+          ],
+          "names": [
+            "robot0_link0_collision",
+            "robot0_link1_collision"
+          ],
+          "types": [
+            7,
+            7
+          ],
+          "distance_m": 0.0009974229914121967,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            84,
+            72
+          ],
+          "names": [
+            "cube_g0",
+            "gripper0_right_hand_collision"
+          ],
+          "types": [
+            6,
+            7
+          ],
+          "distance_m": 0.010867722022046583,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            84,
+            74
+          ],
+          "names": [
+            "cube_g0",
+            "gripper0_right_finger1_collision"
+          ],
+          "types": [
+            6,
+            7
+          ],
+          "distance_m": 0.006191634939771637,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            75,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger1_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.004202629328503465,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            75,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger1_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.003774955045359723,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            75,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger1_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.00496114651518216,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            75,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger1_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.003016437858681027,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            84,
+            77
+          ],
+          "names": [
+            "cube_g0",
+            "gripper0_right_finger2_collision"
+          ],
+          "types": [
+            6,
+            7
+          ],
+          "distance_m": 0.0066820898489134695,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            78,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger2_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.004319422503253118,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            78,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger2_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.0038917482201093756,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            78,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger2_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.005077939689931813,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            78,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger2_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.00313323103343068,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        }
+      ]
+    },
+    {
+      "demo": "demo_39",
+      "t": 4,
+      "nominal_state_and_controller_error": 0.0,
+      "contact_lists_exactly_reproduced": true,
+      "masks_exactly_reproduced": true,
+      "original_state_unchanged": true,
+      "nearby_contacts": [
+        {
+          "geom_ids": [
+            25,
+            27
+          ],
+          "names": [
+            "robot0_link0_collision",
+            "robot0_link1_collision"
+          ],
+          "types": [
+            7,
+            7
+          ],
+          "distance_m": 0.0009977482265094012,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        }
+      ]
+    },
+    {
+      "demo": "demo_39",
+      "t": 20,
+      "nominal_state_and_controller_error": 0.0,
+      "contact_lists_exactly_reproduced": true,
+      "masks_exactly_reproduced": true,
+      "original_state_unchanged": true,
+      "nearby_contacts": [
+        {
+          "geom_ids": [
+            25,
+            27
+          ],
+          "names": [
+            "robot0_link0_collision",
+            "robot0_link1_collision"
+          ],
+          "types": [
+            7,
+            7
+          ],
+          "distance_m": 0.0009977481120439138,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        }
+      ]
+    },
+    {
+      "demo": "demo_39",
+      "t": 34,
+      "nominal_state_and_controller_error": 0.0,
+      "contact_lists_exactly_reproduced": true,
+      "masks_exactly_reproduced": true,
+      "original_state_unchanged": true,
+      "nearby_contacts": [
+        {
+          "geom_ids": [
+            7,
+            74
+          ],
+          "names": [
+            "table_collision",
+            "gripper0_right_finger1_collision"
+          ],
+          "types": [
+            6,
+            7
+          ],
+          "distance_m": 0.006089418712633023,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            7,
+            75
+          ],
+          "names": [
+            "table_collision",
+            "gripper0_right_finger1_pad_collision"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.006298900004689085,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            7,
+            75
+          ],
+          "names": [
+            "table_collision",
+            "gripper0_right_finger1_pad_collision"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.0053487122535368515,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            7,
+            75
+          ],
+          "names": [
+            "table_collision",
+            "gripper0_right_finger1_pad_collision"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.006334465298127834,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            7,
+            75
+          ],
+          "names": [
+            "table_collision",
+            "gripper0_right_finger1_pad_collision"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.005313146960098102,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            7,
+            77
+          ],
+          "names": [
+            "table_collision",
+            "gripper0_right_finger2_collision"
+          ],
+          "types": [
+            6,
+            7
+          ],
+          "distance_m": 0.00669119501167958,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            7,
+            78
+          ],
+          "names": [
+            "table_collision",
+            "gripper0_right_finger2_pad_collision"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.006515906217173024,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            7,
+            78
+          ],
+          "names": [
+            "table_collision",
+            "gripper0_right_finger2_pad_collision"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.00556571846602079,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            7,
+            78
+          ],
+          "names": [
+            "table_collision",
+            "gripper0_right_finger2_pad_collision"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.006551471510611773,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            7,
+            78
+          ],
+          "names": [
+            "table_collision",
+            "gripper0_right_finger2_pad_collision"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.005530153172582041,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            25,
+            27
+          ],
+          "names": [
+            "robot0_link0_collision",
+            "robot0_link1_collision"
+          ],
+          "types": [
+            7,
+            7
+          ],
+          "distance_m": 0.0009974319596296882,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            84,
+            72
+          ],
+          "names": [
+            "cube_g0",
+            "gripper0_right_hand_collision"
+          ],
+          "types": [
+            6,
+            7
+          ],
+          "distance_m": 0.0022291538619341,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            84,
+            74
+          ],
+          "names": [
+            "cube_g0",
+            "gripper0_right_finger1_collision"
+          ],
+          "types": [
+            6,
+            7
+          ],
+          "distance_m": -0.0011004718377713926,
+          "includemargin_m": 0.0,
+          "efc_address": 9
+        },
+        {
+          "geom_ids": [
+            75,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger1_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": -8.365767490671363e-06,
+          "includemargin_m": 0.0,
+          "efc_address": 13
+        },
+        {
+          "geom_ids": [
+            75,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger1_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": -0.0005185851112993909,
+          "includemargin_m": 0.0,
+          "efc_address": 16
+        },
+        {
+          "geom_ids": [
+            75,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger1_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.00016093149370121062,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            75,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger1_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": -0.000687882372491273,
+          "includemargin_m": 0.0,
+          "efc_address": 19
+        },
+        {
+          "geom_ids": [
+            84,
+            77
+          ],
+          "names": [
+            "cube_g0",
+            "gripper0_right_finger2_collision"
+          ],
+          "types": [
+            6,
+            7
+          ],
+          "distance_m": -0.000753322239276235,
+          "includemargin_m": 0.0,
+          "efc_address": 22
+        },
+        {
+          "geom_ids": [
+            78,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger2_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": -3.233389511961965e-05,
+          "includemargin_m": 0.0,
+          "efc_address": 26
+        },
+        {
+          "geom_ids": [
+            78,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger2_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": -0.0005425532389283392,
+          "includemargin_m": 0.0,
+          "efc_address": 29
+        },
+        {
+          "geom_ids": [
+            78,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger2_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.00013696336607226233,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            78,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger2_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": -0.0007118505001202213,
+          "includemargin_m": 0.0,
+          "efc_address": 32
+        }
+      ]
+    },
+    {
+      "demo": "demo_41",
+      "t": 4,
+      "nominal_state_and_controller_error": 0.0,
+      "contact_lists_exactly_reproduced": true,
+      "masks_exactly_reproduced": true,
+      "original_state_unchanged": true,
+      "nearby_contacts": [
+        {
+          "geom_ids": [
+            25,
+            27
+          ],
+          "names": [
+            "robot0_link0_collision",
+            "robot0_link1_collision"
+          ],
+          "types": [
+            7,
+            7
+          ],
+          "distance_m": 0.00099740631187957,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        }
+      ]
+    },
+    {
+      "demo": "demo_41",
+      "t": 24,
+      "nominal_state_and_controller_error": 0.0,
+      "contact_lists_exactly_reproduced": true,
+      "masks_exactly_reproduced": true,
+      "original_state_unchanged": true,
+      "nearby_contacts": [
+        {
+          "geom_ids": [
+            25,
+            27
+          ],
+          "names": [
+            "robot0_link0_collision",
+            "robot0_link1_collision"
+          ],
+          "types": [
+            7,
+            7
+          ],
+          "distance_m": 0.0009975808207364732,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        }
+      ]
+    },
+    {
+      "demo": "demo_41",
+      "t": 40,
+      "nominal_state_and_controller_error": 0.0,
+      "contact_lists_exactly_reproduced": true,
+      "masks_exactly_reproduced": true,
+      "original_state_unchanged": true,
+      "nearby_contacts": [
+        {
+          "geom_ids": [
+            25,
+            27
+          ],
+          "names": [
+            "robot0_link0_collision",
+            "robot0_link1_collision"
+          ],
+          "types": [
+            7,
+            7
+          ],
+          "distance_m": 0.000997406760734178,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            84,
+            74
+          ],
+          "names": [
+            "cube_g0",
+            "gripper0_right_finger1_collision"
+          ],
+          "types": [
+            6,
+            7
+          ],
+          "distance_m": -0.005859057848265719,
+          "includemargin_m": 0.0,
+          "efc_address": 12
+        },
+        {
+          "geom_ids": [
+            75,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger1_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": -0.0007434759520505883,
+          "includemargin_m": 0.0,
+          "efc_address": 16
+        },
+        {
+          "geom_ids": [
+            75,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger1_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.0004429080248234254,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            75,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger1_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": -0.0008016073130627843,
+          "includemargin_m": 0.0,
+          "efc_address": 19
+        },
+        {
+          "geom_ids": [
+            75,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger1_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.00045386212747294526,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            84,
+            77
+          ],
+          "names": [
+            "cube_g0",
+            "gripper0_right_finger2_collision"
+          ],
+          "types": [
+            6,
+            7
+          ],
+          "distance_m": -0.007201617669792184,
+          "includemargin_m": 0.0,
+          "efc_address": 22
+        },
+        {
+          "geom_ids": [
+            78,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger2_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": -0.0012386342363218427,
+          "includemargin_m": 0.0,
+          "efc_address": 26
+        },
+        {
+          "geom_ids": [
+            78,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger2_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.002781510914861372,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        },
+        {
+          "geom_ids": [
+            78,
+            84
+          ],
+          "names": [
+            "gripper0_right_finger2_pad_collision",
+            "cube_g0"
+          ],
+          "types": [
+            6,
+            6
+          ],
+          "distance_m": 0.0027609079132092968,
+          "includemargin_m": 0.0,
+          "efc_address": -1
+        }
+      ]
+    }
+  ],
+  "reconstructed_anchors": 12,
+  "query_forward_calls": 12,
+  "raw_sha256": "f42b1ec73f80bb38959e111b2c0355fe7d3752ec78fb3ab434b2e3c88e18f1e8",
+  "filter_analysis_sha256": "1aafca167d47838eb5abc8f5a5ff66952bb87534794aac32e3458d3a6a40e36e",
+  "source_sha256": "8eb553e2af0788df80e0402456211c0583391f1c671439e08fbe9f7079323548",
+  "native_version": "3.2.3",
+  "other_setup_forward_calls_not_instrumented": true,
+  "elapsed_seconds": 10.28200000000652
+}

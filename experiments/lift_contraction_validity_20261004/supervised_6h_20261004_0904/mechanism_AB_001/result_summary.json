@@ -1,0 +1,204 @@
+{
+  "state": "COMPLETE",
+  "policy_training_updates": 0,
+  "seed": 4100402,
+  "selection": {
+    "seed": 4100402,
+    "excluded_prior_demos": [
+      "demo_1",
+      "demo_116",
+      "demo_132",
+      "demo_148",
+      "demo_164",
+      "demo_181",
+      "demo_197",
+      "demo_34",
+      "demo_52",
+      "demo_68",
+      "demo_82",
+      "demo_99"
+    ],
+    "selected_demos": [
+      "demo_183",
+      "demo_141",
+      "demo_13",
+      "demo_149"
+    ],
+    "identification_demos": [
+      "demo_183",
+      "demo_141"
+    ],
+    "heldout_demos": [
+      "demo_13",
+      "demo_149"
+    ],
+    "anchor_fractions": [
+      0.05,
+      0.1,
+      0.15
+    ],
+    "dataset_sha256": "2067777cb8b532e9263dd09fd6448c41cc31224bb27be4a3b734010ae13eb540",
+    "checkpoint_sha256": "27a38fc65415d419a060cd0fc529f8f30d82bc36cdf77d54cc79d7a3e52117fa"
+  },
+  "source_sha256": "876fa671f65694bb33b78c805ab2950b49b0397875fb04f9282fc8094f8fa423",
+  "protocol_sha256": "5394afa99ed7888f45f147005a0fa681c4a23a2bd8109aee6bc016e83cef0528",
+  "counts": {
+    "resets": 312,
+    "prefix_actions": 1508,
+    "probe_actions": 312,
+    "physics_steps": 45500,
+    "ik_iterations": 432,
+    "policy_calls": 156
+  },
+  "elapsed_seconds": 165.45299999999406,
+  "identification": {
+    "A": [
+      [
+        0.9998352919233987,
+        0.0015562015736319832,
+        -0.0002926968380944416
+      ],
+      [
+        0.0002983996308499998,
+        1.0016401792017953,
+        -8.128434098632979e-05
+      ],
+      [
+        0.00011725650797982577,
+        0.0022688918800158695,
+        0.9992369530722157
+      ]
+    ],
+    "B": [
+      [
+        0.0046797912660199925,
+        -8.348256927372503e-06,
+        -0.00046026193029384115
+      ],
+      [
+        -2.808970557775327e-07,
+        0.004561035718667811,
+        5.795038274525323e-06
+      ],
+      [
+        -0.00036043304088040145,
+        2.3591152390449704e-05,
+        0.0051887246069330225
+      ]
+    ],
+    "rows_each": 18,
+    "fit_seconds": 0.0
+  },
+  "heldout": {
+    "B": {
+      "expert_OLS": {
+        "count": 18,
+        "passed": 0,
+        "degenerate": 0,
+        "median_error_m": 0.0011357230610765088,
+        "median_relative_error": 1.1597911872816669,
+        "p90_relative_error": 1.21780269209379
+      },
+      "previous_partial": {
+        "count": 18,
+        "passed": 18,
+        "degenerate": 0,
+        "median_error_m": 6.550930019916744e-05,
+        "median_relative_error": 0.06905554081982282,
+        "p90_relative_error": 0.09526796064715275
+      },
+      "new_B": {
+        "count": 18,
+        "passed": 18,
+        "degenerate": 0,
+        "median_error_m": 1.549294745447732e-05,
+        "median_relative_error": 0.015539345954122142,
+        "p90_relative_error": 0.02456285027140885
+      }
+    },
+    "A": {
+      "identity": {
+        "count": 18,
+        "passed": 18,
+        "degenerate": 0,
+        "median_error_m": 1.75429715264057e-05,
+        "median_relative_error": 0.001753155827154114,
+        "p90_relative_error": 0.0029876782996245722
+      },
+      "new_A": {
+        "count": 18,
+        "passed": 18,
+        "degenerate": 0,
+        "median_error_m": 1.2008343066588583e-05,
+        "median_relative_error": 0.0012018595938327785,
+        "p90_relative_error": 0.0024562919285188345
+      }
+    },
+    "policy": {
+      "Pxyz": {
+        "I_OLS": {
+          "count": 36,
+          "passed": 36,
+          "degenerate": 0,
+          "median_error_m": 2.9000978275503824e-05,
+          "median_relative_error": 0.005804462769244525,
+          "p90_relative_error": 0.01411608763094543
+        },
+        "I_previous_partial": {
+          "count": 36,
+          "passed": 36,
+          "degenerate": 0,
+          "median_error_m": 9.074412545520584e-06,
+          "median_relative_error": 0.0018270881494800047,
+          "p90_relative_error": 0.002765654392798908
+        },
+        "new_AB": {
+          "count": 36,
+          "passed": 36,
+          "degenerate": 0,
+          "median_error_m": 5.753041026546315e-06,
+          "median_relative_error": 0.001155638278560694,
+          "p90_relative_error": 0.002288957972731452
+        }
+      },
+      "Pfull": {
+        "I_OLS": {
+          "count": 36,
+          "passed": 36,
+          "degenerate": 0,
+          "median_error_m": 5.086801148886901e-05,
+          "median_relative_error": 0.010180094907853543,
+          "p90_relative_error": 0.018319034169939977
+        },
+        "I_previous_partial": {
+          "count": 36,
+          "passed": 36,
+          "degenerate": 0,
+          "median_error_m": 1.9788573526635432e-05,
+          "median_relative_error": 0.003952221749503411,
+          "p90_relative_error": 0.0076993036992872126
+        },
+        "new_AB": {
+          "count": 36,
+          "passed": 36,
+          "degenerate": 0,
+          "median_error_m": 2.0353403141107973e-05,
+          "median_relative_error": 0.004119076252691571,
+          "p90_relative_error": 0.007845508272612158
+        }
+      }
+    }
+  },
+  "identity_A_compatible_in_this_probe": true,
+  "AB_local_prediction_gate": true,
+  "decision": "Local model diagnosis only; no automatic policy training or robust improvement claim.",
+  "raw_artifact": {
+    "path": "experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/mechanism_AB_001/result.json",
+    "bytes": 18492798,
+    "sha256": "ae894360131200ad8ef5aae7b618277b9e69e744e909d32f9a0e3204220624c5",
+    "omitted_fields": [
+      "rows"
+    ],
+    "rows_count": 12
+  }
+}

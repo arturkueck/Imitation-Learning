@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "training_launched": false,
+  "records": [
+    {
+      "child_seconds": 0.2,
+      "limit": 5,
+      "elapsed": 0.5051546096801758,
+      "returncode": 0,
+      "timed_out": false,
+      "worker_pid": 40520
+    },
+    {
+      "child_seconds": 10,
+      "limit": 1,
+      "elapsed": 1.0015969276428223,
+      "returncode": 124,
+      "timed_out": true,
+      "worker_pid": 30404
+    }
+  ]
+}

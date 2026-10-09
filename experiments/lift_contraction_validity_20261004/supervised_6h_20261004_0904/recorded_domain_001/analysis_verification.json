@@ -1,0 +1,260 @@
+{
+  "state": "STATIC_AUDIT_VERIFIED",
+  "frames": 60,
+  "geometry_passed": 60,
+  "static_annotation_eligible": 49,
+  "policy_training_updates": 0,
+  "source_sha256": "03b1727f67801a17d850268b2868238f5cf2f96f203b467dc1e566ff71f0ecc7",
+  "raw_sha256": "5affa636ee974fcf47cb113644e40aaf9dd438c91c1163adf3beb8cb3d1905b4",
+  "source_hashes_verified": true,
+  "indices_reproduced": true,
+  "worker_exited": true,
+  "supervisor_exited": true,
+  "checkpoint_hash_unchanged": true,
+  "summaries": {
+    "train_early": {
+      "planned_frames": 24,
+      "geometry_passed": 24,
+      "contact_free": 24,
+      "static_annotation_eligible": 24,
+      "gradient_linkage": {
+        "statically_eligible": {
+          "frames": 24,
+          "demos": 8,
+          "regularizers": {
+            "OLS": {
+              "active_perturbations": 96,
+              "total_perturbations": 144,
+              "median_gradient_norm_ratio_to_BC": 0.39976028286150306
+            },
+            "B3": {
+              "active_perturbations": 144,
+              "total_perturbations": 144,
+              "median_gradient_norm_ratio_to_BC": 0.30032326773670603
+            },
+            "B7": {
+              "active_perturbations": 97,
+              "total_perturbations": 144,
+              "median_gradient_norm_ratio_to_BC": 0.3086865774186499
+            }
+          }
+        },
+        "not_statically_eligible": {
+          "frames": 0,
+          "demos": 0,
+          "regularizers": {
+            "OLS": {
+              "active_perturbations": 0,
+              "total_perturbations": 0,
+              "median_gradient_norm_ratio_to_BC": null
+            },
+            "B3": {
+              "active_perturbations": 0,
+              "total_perturbations": 0,
+              "median_gradient_norm_ratio_to_BC": null
+            },
+            "B7": {
+              "active_perturbations": 0,
+              "total_perturbations": 0,
+              "median_gradient_norm_ratio_to_BC": null
+            }
+          }
+        }
+      }
+    },
+    "train_later": {
+      "planned_frames": 16,
+      "geometry_passed": 16,
+      "contact_free": 9,
+      "static_annotation_eligible": 9,
+      "gradient_linkage": {
+        "statically_eligible": {
+          "frames": 9,
+          "demos": 8,
+          "regularizers": {
+            "OLS": {
+              "active_perturbations": 18,
+              "total_perturbations": 54,
+              "median_gradient_norm_ratio_to_BC": 0.0884277391928653
+            },
+            "B3": {
+              "active_perturbations": 49,
+              "total_perturbations": 54,
+              "median_gradient_norm_ratio_to_BC": 0.24698203162156218
+            },
+            "B7": {
+              "active_perturbations": 36,
+              "total_perturbations": 54,
+              "median_gradient_norm_ratio_to_BC": 0.5110771115995197
+            }
+          }
+        },
+        "not_statically_eligible": {
+          "frames": 7,
+          "demos": 7,
+          "regularizers": {
+            "OLS": {
+              "active_perturbations": 14,
+              "total_perturbations": 42,
+              "median_gradient_norm_ratio_to_BC": 0.09041685015807686
+            },
+            "B3": {
+              "active_perturbations": 28,
+              "total_perturbations": 42,
+              "median_gradient_norm_ratio_to_BC": 0.09236684165228745
+            },
+            "B7": {
+              "active_perturbations": 28,
+              "total_perturbations": 42,
+              "median_gradient_norm_ratio_to_BC": 0.21985384152293674
+            }
+          }
+        }
+      }
+    },
+    "valid_early": {
+      "planned_frames": 12,
+      "geometry_passed": 12,
+      "contact_free": 12,
+      "static_annotation_eligible": 12,
+      "gradient_linkage": {
+        "statically_eligible": {
+          "frames": 12,
+          "demos": 4,
+          "regularizers": {
+            "OLS": {
+              "active_perturbations": 46,
+              "total_perturbations": 72,
+              "median_gradient_norm_ratio_to_BC": 0.4602210156550941
+            },
+            "B3": {
+              "active_perturbations": 72,
+              "total_perturbations": 72,
+              "median_gradient_norm_ratio_to_BC": 0.33506925547740385
+            },
+            "B7": {
+              "active_perturbations": 48,
+              "total_perturbations": 72,
+              "median_gradient_norm_ratio_to_BC": 0.450326259510319
+            }
+          }
+        },
+        "not_statically_eligible": {
+          "frames": 0,
+          "demos": 0,
+          "regularizers": {
+            "OLS": {
+              "active_perturbations": 0,
+              "total_perturbations": 0,
+              "median_gradient_norm_ratio_to_BC": null
+            },
+            "B3": {
+              "active_perturbations": 0,
+              "total_perturbations": 0,
+              "median_gradient_norm_ratio_to_BC": null
+            },
+            "B7": {
+              "active_perturbations": 0,
+              "total_perturbations": 0,
+              "median_gradient_norm_ratio_to_BC": null
+            }
+          }
+        }
+      }
+    },
+    "valid_later": {
+      "planned_frames": 8,
+      "geometry_passed": 8,
+      "contact_free": 4,
+      "static_annotation_eligible": 4,
+      "gradient_linkage": {
+        "statically_eligible": {
+          "frames": 4,
+          "demos": 4,
+          "regularizers": {
+            "OLS": {
+              "active_perturbations": 8,
+              "total_perturbations": 24,
+              "median_gradient_norm_ratio_to_BC": 0.39661038001778937
+            },
+            "B3": {
+              "active_perturbations": 18,
+              "total_perturbations": 24,
+              "median_gradient_norm_ratio_to_BC": 0.39241469273115015
+            },
+            "B7": {
+              "active_perturbations": 16,
+              "total_perturbations": 24,
+              "median_gradient_norm_ratio_to_BC": 0.5939203229513729
+            }
+          }
+        },
+        "not_statically_eligible": {
+          "frames": 4,
+          "demos": 4,
+          "regularizers": {
+            "OLS": {
+              "active_perturbations": 8,
+              "total_perturbations": 24,
+              "median_gradient_norm_ratio_to_BC": 0.16959204911974218
+            },
+            "B3": {
+              "active_perturbations": 16,
+              "total_perturbations": 24,
+              "median_gradient_norm_ratio_to_BC": 0.31301803259637406
+            },
+            "B7": {
+              "active_perturbations": 16,
+              "total_perturbations": 24,
+              "median_gradient_norm_ratio_to_BC": 0.5512369227544359
+            }
+          }
+        }
+      }
+    }
+  },
+  "max_geometry_errors": {
+    "eef_position_error_m": 5.594745429521665e-16,
+    "object_position_error_m": 0.0,
+    "object_relative_error_m": 5.594745429521665e-16,
+    "eef_orientation_error_rad": 0.0,
+    "object_orientation_error_rad": 0.0,
+    "gripper_qpos_error": 0.0
+  },
+  "unique_robot_contact_pairs": [
+    [
+      "cube_g0",
+      "gripper0_right_finger1_collision"
+    ],
+    [
+      "cube_g0",
+      "gripper0_right_finger2_collision"
+    ],
+    [
+      "cube_g0",
+      "gripper0_right_hand_collision"
+    ],
+    [
+      "gripper0_right_finger1_pad_collision",
+      "cube_g0"
+    ],
+    [
+      "gripper0_right_finger2_pad_collision",
+      "cube_g0"
+    ],
+    [
+      "table_collision",
+      "gripper0_right_finger1_collision"
+    ]
+  ],
+  "initial_contact_counterexample": {
+    "source_sha256": "d317296b6d4af178b6cd650171fb222892921b906fac0ee11f4d876e46fbf4ad",
+    "anchors": 12,
+    "initial_contact_free": 9,
+    "full_domain_eligible": 8,
+    "false_accepts": 1,
+    "interpretation": "Descriptive previously seen live anchors, not a classifier validation or mask fit."
+  },
+  "analysis_elapsed_seconds": 0.05640950000088196,
+  "decision": "Static annotations are available at these recorded BC indices; dynamic validity, original history and recovery-label semantics remain unproved."
+}

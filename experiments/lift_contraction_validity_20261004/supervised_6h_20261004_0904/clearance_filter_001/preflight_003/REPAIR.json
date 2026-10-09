@@ -1,0 +1,16 @@
+{
+  "actor": "agent",
+  "event": "clearance_dual_array_preflight_repair",
+  "unix": 1791112639.8503425,
+  "utc": "2026-10-04T11:17:19.850343+00:00",
+  "berlin": "2026-10-04T13:17:19.850343+02:00",
+  "reason": "All six synthetic query/filter cases passed after inactive-island repair. Recorded preflight still hashes uninitialized efc_AR_colind, shown to change under repeated reads with no operation. Native model uses Newton, and 3.2.3 mjData defines efc_AR arrays as computed by mj_projectConstraint for dual solvers. New utility excludes only that inactive group when native mj_isDual is false, preserving all model, physical/core/auxiliary and defined array checks.",
+  "prior_preflight": "clearance_filter_001/preflight_002",
+  "fresh_preflight": "clearance_filter_001/preflight_003",
+  "primary_response_started": false,
+  "repair_source_sha256": "0eb8c8a30df364f425ae299eb72cb0940d4d33141927318c4377478d5dc02c14",
+  "original_sources_and_failures_retained": true,
+  "new_policy_updates": 0,
+  "response_probes_repeated": 0,
+  "coordinator_training_repair_not_requested": true
+}

@@ -1,0 +1,13 @@
+{
+  "state": "INTERRUPTED",
+  "seed": 2,
+  "optimizer_updates": 16800,
+  "configured_optimizer_updates": 30000,
+  "elapsed_seconds": 1047.4370000000054,
+  "result": null,
+  "error": "Traceback (most recent call last):\n  File \"C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_overnight_C_diffusion_20261004\\runner.py\", line 189, in train_worker\n    result=historical.train_diffusion(DEST,n,SEED)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_overnight_C_diffusion_20261004\\scripts\\train.py\", line 119, in train_diffusion\n    train(cfg,device=get_torch_device(try_to_use_cuda=True),resume=False)\n  File \"C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\praxis\\upstream\\robomimic\\robomimic\\scripts\\train.py\", line 304, in train\n    step_log = TrainUtils.run_epoch(\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_overnight_C_diffusion_20261004\\scripts\\train.py\", line 111, in epoch\n    try:result=old_epoch(model,*a,**kw)\n               ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\praxis\\upstream\\robomimic\\robomimic\\utils\\train_utils.py\", line 698, in run_epoch\n    info = model.train_on_batch(input_batch, epoch, validate=validate)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_overnight_C_diffusion_20261004\\scripts\\train.py\", line 98, in audited_batch\n    info=old_train(model,batch,epoch,validate=validate);loss=float(info['losses']['l2_loss'])\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_overnight_C_diffusion_20261004\\runner.py\", line 170, in audited_batch\n    if (OUT/'STOP_REQUESTED').exists():raise InterruptedError('Safe stop requested by 15-hour watchdog')\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nInterruptedError: Safe stop requested by 15-hour watchdog\n",
+  "checkpoint_error": null,
+  "final_checkpoint": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_overnight_C_diffusion_20261004\\C\\diffusion\\seed_2\\model_final.pth",
+  "loss_last": 0.006626686081290245,
+  "loss_last500": 0.018363396840170024
+}

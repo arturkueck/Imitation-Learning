@@ -1,0 +1,35 @@
+{
+  "seed": 4100413,
+  "planned_frames": 12,
+  "planned_perturbations": 72,
+  "dataset_sha256": "2067777cb8b532e9263dd09fd6448c41cc31224bb27be4a3b734010ae13eb540",
+  "checkpoint_sha256": "27a38fc65415d419a060cd0fc529f8f30d82bc36cdf77d54cc79d7a3e52117fa",
+  "input_hashes": {
+    "error_margin_001/result.json": "1f6908fb63f6a10baac22ecc9bde47809bccd7ad8b96760c5b083bac3610be9c",
+    "error_margin_001/analysis_verification.json": "f7b790573487f0dda998780b4782ef43edef493c3bfef5e4908a610c752827c5",
+    "error_margin_001/local_identification.json": "0719f9619276c5e761e93368532329fd966a20e015fcddd93699e9ca89f5cd5f",
+    "error_margin_001/filter_analysis.json": "34bfa60c0047fcf1b59f9cbb84168759bff4d8abc888976b3fb485377eb0d184",
+    "error_margin_001/margin_spec.json": "12c9bf697eb12927485e1c243bc570c9fba72dac44480437a3b740145c15917e",
+    "error_margin_001/calibration.json": "72dbc908801cf169ea70d30a8eea8bfcfcc60b3cdc12a80baba3418bce222029",
+    "error_margin_001/analysis_repair_001/margin_analysis.json": "4597f5d457d41d9b0370d9448695236e15fd489e1a4a25967a59569d602c31b4",
+    "error_margin_001/source_hashes.json": "c27631279c6db52d4e4561dd15a2d270814c0f85e123168daebe8ec636b7c031"
+  },
+  "first_fd_anchor": {
+    "demo": "demo_38",
+    "t": 4
+  },
+  "feature_absolute_tolerance": 1e-06,
+  "action_region": "All7 components within actual nominal minus/plus0.1 endpoints, including clipping; no relaxed tolerance.",
+  "fixed_session_deadline_unix": 1791119479.6970713,
+  "reuse_is_exploratory_not_fresh_confirmation": true,
+  "cache_is_privileged": true,
+  "gradient_lambda": 1.0,
+  "not_selected_for_training": true,
+  "policy_updates": 0,
+  "variants": [
+    "M0_raw",
+    "M0_margin",
+    "M2_raw",
+    "M2_margin"
+  ]
+}

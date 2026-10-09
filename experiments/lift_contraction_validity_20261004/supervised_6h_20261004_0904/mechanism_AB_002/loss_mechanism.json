@@ -1,0 +1,78 @@
+{
+  "exploratory_posthoc_threshold_analysis": true,
+  "threshold": 0.99,
+  "training_updates": 0,
+  "source_result_sha256": "5aa8278db2b6de963d3d5c2b774394f04fb1b04ab92e6893b101d2239e4b3e06",
+  "groups": {
+    "Pxyz": {
+      "n": 36,
+      "observed_ratio_median": 0.9955708586669905,
+      "observed_ratio_min": 0.9897522613454857,
+      "observed_ratio_max": 1.0031992497262938,
+      "models": {
+        "I_OLS": {
+          "observed_below_0_99": 1,
+          "predicted_below_0_99": 12,
+          "false_pass": 11,
+          "false_penalty": 0,
+          "median_absolute_ratio_error": 0.002260970901826309,
+          "median_actual_hinge": 0.011061334645583676,
+          "median_predicted_hinge": 0.0077466421601365965
+        },
+        "I_previous_partial": {
+          "observed_below_0_99": 1,
+          "predicted_below_0_99": 0,
+          "false_pass": 0,
+          "false_penalty": 1,
+          "median_absolute_ratio_error": 0.001245084414000952,
+          "median_actual_hinge": 0.011061334645583676,
+          "median_predicted_hinge": 0.013235195271246059
+        },
+        "new_AB": {
+          "observed_below_0_99": 1,
+          "predicted_below_0_99": 0,
+          "false_pass": 0,
+          "false_penalty": 1,
+          "median_absolute_ratio_error": 0.000489205867968856,
+          "median_actual_hinge": 0.011061334645583676,
+          "median_predicted_hinge": 0.0124029289414897
+        }
+      }
+    },
+    "Pfull": {
+      "n": 36,
+      "observed_ratio_median": 0.999498663799967,
+      "observed_ratio_min": 0.9878799621193167,
+      "observed_ratio_max": 1.0031047084716427,
+      "models": {
+        "I_OLS": {
+          "observed_below_0_99": 12,
+          "predicted_below_0_99": 12,
+          "false_pass": 0,
+          "false_penalty": 0,
+          "median_absolute_ratio_error": 0.003010922494735835,
+          "median_actual_hinge": 0.018897579142333476,
+          "median_predicted_hinge": 0.0077466421601365965
+        },
+        "I_previous_partial": {
+          "observed_below_0_99": 12,
+          "predicted_below_0_99": 0,
+          "false_pass": 0,
+          "false_penalty": 12,
+          "median_absolute_ratio_error": 0.002887928806364737,
+          "median_actual_hinge": 0.018897579142333476,
+          "median_predicted_hinge": 0.013235195271246059
+        },
+        "new_AB": {
+          "observed_below_0_99": 12,
+          "predicted_below_0_99": 0,
+          "false_pass": 0,
+          "false_penalty": 12,
+          "median_absolute_ratio_error": 0.0028069084401509126,
+          "median_actual_hinge": 0.018897579142333476,
+          "median_predicted_hinge": 0.0124029289414897
+        }
+      }
+    }
+  }
+}

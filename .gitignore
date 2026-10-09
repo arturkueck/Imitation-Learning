@@ -68,3 +68,22 @@ experiments/**/evaluation/
 experiments/**/*.pth
 experiments/**/render_smoke.png
 experiments/**/status.tmp
+
+# Local process identities and atomic-write staging files (keep audit results)
+experiments/**/*_pid.json
+experiments/**/*_process.json
+experiments/**/*.pid
+experiments/**/*.tmp
+
+# Detailed simulator trajectories remain local; result_summary.json retains
+# metadata and SHA256. Keep protocols, analyses and frozen source snapshots.
+experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/clearance_filter_001/result.json
+experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/error_margin_001/result.json
+experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/external_proxy_001/result.json
+experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/local_response_001/result.json
+experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/mechanism_AB_001/result.json
+experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/mechanism_AB_002/result.json
+experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/mechanism_action7_001/result.json
+experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/mechanism_correction_001/result.json
+experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/mechanism_domain_001/result.json
+experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/recorded_response_001/result.json

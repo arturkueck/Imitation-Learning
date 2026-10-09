@@ -1,0 +1,7 @@
+# Technisch abgeschlossene, physisch ungültige Diagnose
+
+Worker und Watchdog abgeschlossen; keine Trainingsupdates. Die Laufzeitprüfung meldete zwölf gültige Anker, doch die unabhängige Prüfung in verification.json verfehlte die Kontrolle zusätzlicher Simulatorfelder bei 216/312 Zweigen: qacc_warmstart änderte sich durch sim.forward / controller.update(force=True), maximal 0,16614 in den numerischen Solverwerten. Objekt, Gripper, Orientierung, Beobachtungsgeometrie und andere Hilfsfelder waren kontrolliert. Der Warmstart ist Solverhistorie; seine Größenordnung ist keine EEF-Distanz.
+
+Die A/B-Fits und Gegenprüfungszahlen in result.json wurden berechnet, werden wegen dieses Fehlers jedoch **nicht als gültige Mechanismusevidenz** gewertet. Source, Protokoll, Rohdaten und Hashes bleiben unverändert. Kosten dieses ungültigen Versuchs: 165,45 s, 312 rekonstruierte Präfixzweige, 1.508 Präfixaktionen, 312 Prüfaktionen, 45.500 Physiksteps, 432 IK-Iterationen, 156 Policyaufrufe.
+
+Gezielte technische Korrektur in einem neuen Ordner mechanism_AB_002: Solver-Warmstart nach dem letzten Kinematikrefresh erhalten, zusätzlich explizit im Laufzeitgate prüfen. Derselbe vorab gewählte Plan und dieselben Kriterien, keine Lockerung. Die Antworten des ersten Versuchs wurden bereits angesehen; die Wiederholung ist daher kein zusätzlicher unberührter Bestätigungssatz. Kein Policytraining aus dem fehlerhaften Befund.

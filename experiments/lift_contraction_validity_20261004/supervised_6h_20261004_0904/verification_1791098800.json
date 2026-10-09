@@ -1,0 +1,71 @@
+{
+  "state": "VERIFIED",
+  "actor": "agent",
+  "scheduled": false,
+  "reason": "Immediate user-triggered setup, recovery and completed-pilot verification",
+  "unix": 1791098800.9702425,
+  "utc": "2026-10-04T07:26:40.970243+00:00",
+  "berlin": "2026-10-04T09:26:40.970243+02:00",
+  "coordinator_identity": {
+    "pid": 44908,
+    "create_time": 1791098167.7097228
+  },
+  "heartbeat_status": "ACTIVE",
+  "optimizer_updates_per_arm": 2000,
+  "evaluation_episodes_completed": 104,
+  "source_files_verified": 302,
+  "runtime_assets_verified": 916,
+  "dataset_sha256": "2067777cb8b532e9263dd09fd6448c41cc31224bb27be4a3b734010ae13eb540",
+  "paired_outcomes": [
+    {
+      "updates": 500,
+      "condition": "nominal",
+      "both_success": 0,
+      "only_B0": 0,
+      "only_B1": 0,
+      "both_failure": 6
+    },
+    {
+      "updates": 1000,
+      "condition": "nominal",
+      "both_success": 0,
+      "only_B0": 0,
+      "only_B1": 0,
+      "both_failure": 6
+    },
+    {
+      "updates": 2000,
+      "condition": "nominal",
+      "both_success": 3,
+      "only_B0": 1,
+      "only_B1": 0,
+      "both_failure": 6
+    },
+    {
+      "updates": 2000,
+      "condition": "sensor_y_plus5mm",
+      "both_success": 3,
+      "only_B0": 0,
+      "only_B1": 1,
+      "both_failure": 6
+    },
+    {
+      "updates": 2000,
+      "condition": "sensor_y_minus5mm",
+      "both_success": 3,
+      "only_B0": 0,
+      "only_B1": 1,
+      "both_failure": 6
+    },
+    {
+      "updates": 2000,
+      "condition": "action_impulse_x_plus0.5",
+      "both_success": 3,
+      "only_B0": 0,
+      "only_B1": 0,
+      "both_failure": 7
+    }
+  ],
+  "active_pilot_workers": [],
+  "decision": "Keep supervision ACTIVE to the original deadline; continue state/action diagnosis; do not repeat a completed pilot."
+}

@@ -1,0 +1,1178 @@
+{
+  "state": "EMPIRICAL_MARGIN_DEVELOPMENT_GATE_FAILED",
+  "epsilon_train": 0.0021163913289946276,
+  "threshold": 0.99,
+  "calibration_cases": 48,
+  "planned_policy_cases": 72,
+  "conditional_policy_cases": 48,
+  "unscored_due_domain": 24,
+  "planned_anchors": 12,
+  "eligible_anchors": 8,
+  "local_identification_fits": 8,
+  "coefficients_per_fit": 21,
+  "policy_training_updates": 0,
+  "primary": {
+    "conditional_cases": 48,
+    "planned_cases": 72,
+    "bound_violations": 10,
+    "raw": {
+      "true_safe": 10,
+      "false_safe": 2,
+      "false_reject": 0,
+      "true_reject": 36
+    },
+    "upper": {
+      "true_safe": 4,
+      "false_safe": 0,
+      "false_reject": 6,
+      "true_reject": 38
+    },
+    "maximum_normalized_vector_error": 0.01014000876830819,
+    "median_absolute_ratio_error": 0.0006285531002146461
+  },
+  "strata": {
+    "0.1": {
+      "conditional_cases": 24,
+      "planned_cases": 24,
+      "bound_violations": 6,
+      "raw": {
+        "true_safe": 4,
+        "false_safe": 0,
+        "false_reject": 0,
+        "true_reject": 20
+      },
+      "upper": {
+        "true_safe": 0,
+        "false_safe": 0,
+        "false_reject": 4,
+        "true_reject": 20
+      },
+      "maximum_normalized_vector_error": 0.01014000876830819,
+      "median_absolute_ratio_error": 0.0003225055601194793
+    },
+    "0.5": {
+      "conditional_cases": 24,
+      "planned_cases": 24,
+      "bound_violations": 4,
+      "raw": {
+        "true_safe": 6,
+        "false_safe": 2,
+        "false_reject": 0,
+        "true_reject": 16
+      },
+      "upper": {
+        "true_safe": 4,
+        "false_safe": 0,
+        "false_reject": 2,
+        "true_reject": 18
+      },
+      "maximum_normalized_vector_error": 0.002286485680217465,
+      "median_absolute_ratio_error": 0.0008480494462473342
+    },
+    "0.85": {
+      "conditional_cases": 0,
+      "planned_cases": 24,
+      "bound_violations": 0,
+      "raw": {
+        "true_safe": 0,
+        "false_safe": 0,
+        "false_reject": 0,
+        "true_reject": 0
+      },
+      "upper": {
+        "true_safe": 0,
+        "false_safe": 0,
+        "false_reject": 0,
+        "true_reject": 0
+      },
+      "maximum_normalized_vector_error": null,
+      "median_absolute_ratio_error": null
+    }
+  },
+  "secondary_masks": {
+    "M0": {
+      "domain_anchors": {
+        "planned_anchors": 12,
+        "technical_failed": 0,
+        "accepted": 9,
+        "rejected": 3,
+        "true_accept": 8,
+        "false_accept": 1,
+        "false_reject": 0,
+        "true_reject": 3
+      },
+      "policy_conditional": {
+        "conditional_cases": 48,
+        "planned_cases": 72,
+        "bound_violations": 10,
+        "raw": {
+          "true_safe": 10,
+          "false_safe": 2,
+          "false_reject": 0,
+          "true_reject": 36
+        },
+        "upper": {
+          "true_safe": 4,
+          "false_safe": 0,
+          "false_reject": 6,
+          "true_reject": 38
+        },
+        "maximum_normalized_vector_error": 0.01014000876830819,
+        "median_absolute_ratio_error": 0.0006285531002146461
+      },
+      "nominally_accepted_but_dynamic_invalid_anchors": 1
+    },
+    "M2": {
+      "domain_anchors": {
+        "planned_anchors": 12,
+        "technical_failed": 0,
+        "accepted": 7,
+        "rejected": 5,
+        "true_accept": 7,
+        "false_accept": 0,
+        "false_reject": 1,
+        "true_reject": 4
+      },
+      "policy_conditional": {
+        "conditional_cases": 42,
+        "planned_cases": 72,
+        "bound_violations": 10,
+        "raw": {
+          "true_safe": 8,
+          "false_safe": 2,
+          "false_reject": 0,
+          "true_reject": 32
+        },
+        "upper": {
+          "true_safe": 2,
+          "false_safe": 0,
+          "false_reject": 6,
+          "true_reject": 34
+        },
+        "maximum_normalized_vector_error": 0.01014000876830819,
+        "median_absolute_ratio_error": 0.0006807645850628874
+      },
+      "nominally_accepted_but_dynamic_invalid_anchors": 0
+    }
+  },
+  "cases": [
+    {
+      "demo": "demo_38",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 0,
+      "sign": "minus",
+      "raw_ratio": 1.0000789358944115,
+      "upper_ratio": 1.002195327223406,
+      "observed_ratio": 1.000115131004082,
+      "normalized_vector_error": 0.0004171460324369069,
+      "absolute_ratio_error": 3.6195109670345005e-05,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_38",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 0,
+      "sign": "plus",
+      "raw_ratio": 1.0001738186104336,
+      "upper_ratio": 1.0022902099394282,
+      "observed_ratio": 1.0001867580809158,
+      "normalized_vector_error": 0.0004009131819767111,
+      "absolute_ratio_error": 1.2939470482198345e-05,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_38",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 1,
+      "sign": "minus",
+      "raw_ratio": 1.000039941677897,
+      "upper_ratio": 1.0021563330068914,
+      "observed_ratio": 1.0017185570850946,
+      "normalized_vector_error": 0.0017347510102785574,
+      "absolute_ratio_error": 0.0016786154071977144,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_38",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 1,
+      "sign": "plus",
+      "raw_ratio": 0.9999861301237313,
+      "upper_ratio": 1.002102521452726,
+      "observed_ratio": 1.0007894543622637,
+      "normalized_vector_error": 0.0008765578790271701,
+      "absolute_ratio_error": 0.0008033242385324657,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_38",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 2,
+      "sign": "minus",
+      "raw_ratio": 0.9901986857752786,
+      "upper_ratio": 0.9923150771042732,
+      "observed_ratio": 0.990277301944935,
+      "normalized_vector_error": 0.0012829351900743016,
+      "absolute_ratio_error": 7.861616965643137e-05,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_38",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 2,
+      "sign": "plus",
+      "raw_ratio": 0.9901836158537709,
+      "upper_ratio": 0.9923000071827656,
+      "observed_ratio": 0.990205692226762,
+      "normalized_vector_error": 0.0011085307302687952,
+      "absolute_ratio_error": 2.2076372991119975e-05,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_38",
+      "t": 24,
+      "fraction": 0.5,
+      "axis": 0,
+      "sign": "minus",
+      "raw_ratio": 0.9976629000036051,
+      "upper_ratio": 0.9997792913325998,
+      "observed_ratio": 0.9972089366601414,
+      "normalized_vector_error": 0.0018941370399596228,
+      "absolute_ratio_error": 0.0004539633434637036,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_38",
+      "t": 24,
+      "fraction": 0.5,
+      "axis": 0,
+      "sign": "plus",
+      "raw_ratio": 0.9976545944623854,
+      "upper_ratio": 0.99977098579138,
+      "observed_ratio": 0.9972002438157554,
+      "normalized_vector_error": 0.0019104717185383622,
+      "absolute_ratio_error": 0.00045435064662990854,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_38",
+      "t": 24,
+      "fraction": 0.5,
+      "axis": 1,
+      "sign": "minus",
+      "raw_ratio": 1.001197750049509,
+      "upper_ratio": 1.0033141413785036,
+      "observed_ratio": 0.9995813524139503,
+      "normalized_vector_error": 0.0021885908825750406,
+      "absolute_ratio_error": 0.001616397635558764,
+      "bound_violated": true,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_38",
+      "t": 24,
+      "fraction": 0.5,
+      "axis": 1,
+      "sign": "plus",
+      "raw_ratio": 1.001197625398118,
+      "upper_ratio": 1.0033140167271126,
+      "observed_ratio": 0.9996098750559047,
+      "normalized_vector_error": 0.0021714665221549035,
+      "absolute_ratio_error": 0.0015877503422133676,
+      "bound_violated": true,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_38",
+      "t": 24,
+      "fraction": 0.5,
+      "axis": 2,
+      "sign": "minus",
+      "raw_ratio": 0.9897241973430734,
+      "upper_ratio": 0.991840588672068,
+      "observed_ratio": 0.9907673343464309,
+      "normalized_vector_error": 0.0013402587664723957,
+      "absolute_ratio_error": 0.0010431370033575638,
+      "bound_violated": false,
+      "raw_safe": true,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_38",
+      "t": 24,
+      "fraction": 0.5,
+      "axis": 2,
+      "sign": "plus",
+      "raw_ratio": 0.9898851055748655,
+      "upper_ratio": 0.9920014969038602,
+      "observed_ratio": 0.9909044834558931,
+      "normalized_vector_error": 0.0013536152701589766,
+      "absolute_ratio_error": 0.0010193778810275722,
+      "bound_violated": false,
+      "raw_safe": true,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_76",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 0,
+      "sign": "minus",
+      "raw_ratio": 0.9996464653513109,
+      "upper_ratio": 1.0017628566803054,
+      "observed_ratio": 1.0006459729678197,
+      "normalized_vector_error": 0.00598444314360943,
+      "absolute_ratio_error": 0.000999507616508799,
+      "bound_violated": true,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_76",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 0,
+      "sign": "plus",
+      "raw_ratio": 0.9996907410529438,
+      "upper_ratio": 1.0018071323819384,
+      "observed_ratio": 1.000553517519276,
+      "normalized_vector_error": 0.005816085538923649,
+      "absolute_ratio_error": 0.0008627764663321491,
+      "bound_violated": true,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_76",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 1,
+      "sign": "minus",
+      "raw_ratio": 0.999462506527805,
+      "upper_ratio": 1.0015788978567997,
+      "observed_ratio": 0.9972193249883065,
+      "normalized_vector_error": 0.0048212726564151286,
+      "absolute_ratio_error": 0.00224318153949854,
+      "bound_violated": true,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_76",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 1,
+      "sign": "plus",
+      "raw_ratio": 0.9994624302437015,
+      "upper_ratio": 1.0015788215726962,
+      "observed_ratio": 0.997597812972742,
+      "normalized_vector_error": 0.0047433157301517,
+      "absolute_ratio_error": 0.0018646172709595454,
+      "bound_violated": true,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_76",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 2,
+      "sign": "minus",
+      "raw_ratio": 0.9905564494086171,
+      "upper_ratio": 0.9926728407376118,
+      "observed_ratio": 0.9913985450810764,
+      "normalized_vector_error": 0.00969559832769863,
+      "absolute_ratio_error": 0.0008420956724592976,
+      "bound_violated": true,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_76",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 2,
+      "sign": "plus",
+      "raw_ratio": 0.9907832369032186,
+      "upper_ratio": 0.9928996282322132,
+      "observed_ratio": 0.9916494380728857,
+      "normalized_vector_error": 0.01014000876830819,
+      "absolute_ratio_error": 0.0008662011696671801,
+      "bound_violated": true,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_76",
+      "t": 23,
+      "fraction": 0.5,
+      "axis": 0,
+      "sign": "minus",
+      "raw_ratio": 0.997041210738379,
+      "upper_ratio": 0.9991576020673737,
+      "observed_ratio": 0.9965871074070034,
+      "normalized_vector_error": 0.001487515269452282,
+      "absolute_ratio_error": 0.00045410333137563264,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": false
+      }
+    },
+    {
+      "demo": "demo_76",
+      "t": 23,
+      "fraction": 0.5,
+      "axis": 0,
+      "sign": "plus",
+      "raw_ratio": 0.9970648888121958,
+      "upper_ratio": 0.9991812801411905,
+      "observed_ratio": 0.9966075227545281,
+      "normalized_vector_error": 0.0016079437021661645,
+      "absolute_ratio_error": 0.00045736605766766303,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": false
+      }
+    },
+    {
+      "demo": "demo_76",
+      "t": 23,
+      "fraction": 0.5,
+      "axis": 1,
+      "sign": "minus",
+      "raw_ratio": 1.001520931175733,
+      "upper_ratio": 1.0036373225047275,
+      "observed_ratio": 1.0009323441721985,
+      "normalized_vector_error": 0.0012849264203750976,
+      "absolute_ratio_error": 0.0005885870035344798,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": false
+      }
+    },
+    {
+      "demo": "demo_76",
+      "t": 23,
+      "fraction": 0.5,
+      "axis": 1,
+      "sign": "plus",
+      "raw_ratio": 1.0015753362130964,
+      "upper_ratio": 1.003691727542091,
+      "observed_ratio": 1.000975158169455,
+      "normalized_vector_error": 0.0013069067539365196,
+      "absolute_ratio_error": 0.0006001780436413195,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": false
+      }
+    },
+    {
+      "demo": "demo_76",
+      "t": 23,
+      "fraction": 0.5,
+      "axis": 2,
+      "sign": "minus",
+      "raw_ratio": 0.9778497291026137,
+      "upper_ratio": 0.9799661204316084,
+      "observed_ratio": 0.9789088088835941,
+      "normalized_vector_error": 0.0014369649738920332,
+      "absolute_ratio_error": 0.0010590797809804098,
+      "bound_violated": false,
+      "raw_safe": true,
+      "upper_safe": true,
+      "observed_safe": true,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": false
+      }
+    },
+    {
+      "demo": "demo_76",
+      "t": 23,
+      "fraction": 0.5,
+      "axis": 2,
+      "sign": "plus",
+      "raw_ratio": 0.9806413441645946,
+      "upper_ratio": 0.9827577354935892,
+      "observed_ratio": 0.9817017804862124,
+      "normalized_vector_error": 0.0014058253981189528,
+      "absolute_ratio_error": 0.001060436321617786,
+      "bound_violated": false,
+      "raw_safe": true,
+      "upper_safe": true,
+      "observed_safe": true,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": false
+      }
+    },
+    {
+      "demo": "demo_50",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 0,
+      "sign": "minus",
+      "raw_ratio": 0.999980984798849,
+      "upper_ratio": 1.0020973761278436,
+      "observed_ratio": 1.0006855858121868,
+      "normalized_vector_error": 0.0011675104729496476,
+      "absolute_ratio_error": 0.0007046010133378022,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_50",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 0,
+      "sign": "plus",
+      "raw_ratio": 0.9999430799383456,
+      "upper_ratio": 1.0020594712673403,
+      "observed_ratio": 1.0006000080951336,
+      "normalized_vector_error": 0.0010512423847430375,
+      "absolute_ratio_error": 0.0006569281567879726,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_50",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 1,
+      "sign": "minus",
+      "raw_ratio": 0.9994858181746665,
+      "upper_ratio": 1.0016022095036612,
+      "observed_ratio": 0.9996835177229643,
+      "normalized_vector_error": 0.000919414224307795,
+      "absolute_ratio_error": 0.00019769954829773617,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_50",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 1,
+      "sign": "plus",
+      "raw_ratio": 0.9995654302923255,
+      "upper_ratio": 1.0016818216213201,
+      "observed_ratio": 0.9997112101811509,
+      "normalized_vector_error": 0.0009330987940728083,
+      "absolute_ratio_error": 0.00014577988882547022,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_50",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 2,
+      "sign": "minus",
+      "raw_ratio": 0.9889462105698693,
+      "upper_ratio": 0.991062601898864,
+      "observed_ratio": 0.9891231084135517,
+      "normalized_vector_error": 0.0005284353736071595,
+      "absolute_ratio_error": 0.0001768978436823554,
+      "bound_violated": false,
+      "raw_safe": true,
+      "upper_safe": false,
+      "observed_safe": true,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_50",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 2,
+      "sign": "plus",
+      "raw_ratio": 0.9886348212330199,
+      "upper_ratio": 0.9907512125620146,
+      "observed_ratio": 0.9887438787705843,
+      "normalized_vector_error": 0.0007740535080595452,
+      "absolute_ratio_error": 0.0001090575375644054,
+      "bound_violated": false,
+      "raw_safe": true,
+      "upper_safe": false,
+      "observed_safe": true,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_50",
+      "t": 22,
+      "fraction": 0.5,
+      "axis": 0,
+      "sign": "minus",
+      "raw_ratio": 0.9977198319753555,
+      "upper_ratio": 0.9998362233043502,
+      "observed_ratio": 0.9978417202378095,
+      "normalized_vector_error": 0.0012910145874778164,
+      "absolute_ratio_error": 0.00012188826245396189,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_50",
+      "t": 22,
+      "fraction": 0.5,
+      "axis": 0,
+      "sign": "plus",
+      "raw_ratio": 0.9977066033810492,
+      "upper_ratio": 0.9998229947100439,
+      "observed_ratio": 0.9977994189883191,
+      "normalized_vector_error": 0.0013346785522768032,
+      "absolute_ratio_error": 9.281560726992488e-05,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_50",
+      "t": 22,
+      "fraction": 0.5,
+      "axis": 1,
+      "sign": "minus",
+      "raw_ratio": 1.0003576270032655,
+      "upper_ratio": 1.00247401833226,
+      "observed_ratio": 0.9988297246256814,
+      "normalized_vector_error": 0.0017410641723897907,
+      "absolute_ratio_error": 0.001527902377584045,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_50",
+      "t": 22,
+      "fraction": 0.5,
+      "axis": 1,
+      "sign": "plus",
+      "raw_ratio": 1.00033005848277,
+      "upper_ratio": 1.0024464498117645,
+      "observed_ratio": 0.9988071991933037,
+      "normalized_vector_error": 0.001742991714425612,
+      "absolute_ratio_error": 0.0015228592894661608,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_50",
+      "t": 22,
+      "fraction": 0.5,
+      "axis": 2,
+      "sign": "minus",
+      "raw_ratio": 0.9876803162183049,
+      "upper_ratio": 0.9897967075472995,
+      "observed_ratio": 0.9885310577205573,
+      "normalized_vector_error": 0.0013183346519054107,
+      "absolute_ratio_error": 0.0008507415022523945,
+      "bound_violated": false,
+      "raw_safe": true,
+      "upper_safe": true,
+      "observed_safe": true,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_50",
+      "t": 22,
+      "fraction": 0.5,
+      "axis": 2,
+      "sign": "plus",
+      "raw_ratio": 0.987809415563538,
+      "upper_ratio": 0.9899258068925326,
+      "observed_ratio": 0.9886207700740769,
+      "normalized_vector_error": 0.0012872917285357784,
+      "absolute_ratio_error": 0.0008113545105389308,
+      "bound_violated": false,
+      "raw_safe": true,
+      "upper_safe": true,
+      "observed_safe": true,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_150",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 0,
+      "sign": "minus",
+      "raw_ratio": 1.0002038505626694,
+      "upper_ratio": 1.002320241891664,
+      "observed_ratio": 0.9997565389907281,
+      "normalized_vector_error": 0.001478584268397005,
+      "absolute_ratio_error": 0.0004473115719412224,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_150",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 0,
+      "sign": "plus",
+      "raw_ratio": 1.0002691130119072,
+      "upper_ratio": 1.0023855043409018,
+      "observed_ratio": 0.9998029917921396,
+      "normalized_vector_error": 0.0013206398160452715,
+      "absolute_ratio_error": 0.00046612121976763454,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_150",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 1,
+      "sign": "minus",
+      "raw_ratio": 0.9995469528684643,
+      "upper_ratio": 1.001663344197459,
+      "observed_ratio": 0.9995069738497816,
+      "normalized_vector_error": 0.0016245618466173358,
+      "absolute_ratio_error": 3.9979018682689826e-05,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_150",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 1,
+      "sign": "plus",
+      "raw_ratio": 0.9994278173150338,
+      "upper_ratio": 1.0015442086440285,
+      "observed_ratio": 0.9992354887938459,
+      "normalized_vector_error": 0.0016300939368201735,
+      "absolute_ratio_error": 0.00019232852118789,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_150",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 2,
+      "sign": "minus",
+      "raw_ratio": 0.9888575027259225,
+      "upper_ratio": 0.9909738940549172,
+      "observed_ratio": 0.9889929724272224,
+      "normalized_vector_error": 0.0014855746025472778,
+      "absolute_ratio_error": 0.0001354697012998507,
+      "bound_violated": false,
+      "raw_safe": true,
+      "upper_safe": false,
+      "observed_safe": true,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_150",
+      "t": 4,
+      "fraction": 0.1,
+      "axis": 2,
+      "sign": "plus",
+      "raw_ratio": 0.9881361018493098,
+      "upper_ratio": 0.9902524931783044,
+      "observed_ratio": 0.9882123672611266,
+      "normalized_vector_error": 0.0016714115418371399,
+      "absolute_ratio_error": 7.626541181682267e-05,
+      "bound_violated": false,
+      "raw_safe": true,
+      "upper_safe": false,
+      "observed_safe": true,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_150",
+      "t": 22,
+      "fraction": 0.5,
+      "axis": 0,
+      "sign": "minus",
+      "raw_ratio": 0.9979446603320671,
+      "upper_ratio": 1.0000610516610617,
+      "observed_ratio": 0.9985259978946666,
+      "normalized_vector_error": 0.0021138058351684638,
+      "absolute_ratio_error": 0.0005813375625994821,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_150",
+      "t": 22,
+      "fraction": 0.5,
+      "axis": 0,
+      "sign": "plus",
+      "raw_ratio": 0.9978896575312532,
+      "upper_ratio": 1.0000060488602478,
+      "observed_ratio": 0.9984366548965408,
+      "normalized_vector_error": 0.002087049660807392,
+      "absolute_ratio_error": 0.000546997365287516,
+      "bound_violated": false,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_150",
+      "t": 22,
+      "fraction": 0.5,
+      "axis": 1,
+      "sign": "minus",
+      "raw_ratio": 1.0008552811394351,
+      "upper_ratio": 1.0029716724684297,
+      "observed_ratio": 0.9992574895077868,
+      "normalized_vector_error": 0.002286485680217465,
+      "absolute_ratio_error": 0.0015977916316483043,
+      "bound_violated": true,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_150",
+      "t": 22,
+      "fraction": 0.5,
+      "axis": 1,
+      "sign": "plus",
+      "raw_ratio": 1.0008388467157967,
+      "upper_ratio": 1.0029552380447913,
+      "observed_ratio": 0.9992661050833619,
+      "normalized_vector_error": 0.002282014005657284,
+      "absolute_ratio_error": 0.0015727416324348154,
+      "bound_violated": true,
+      "raw_safe": false,
+      "upper_safe": false,
+      "observed_safe": false,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_150",
+      "t": 22,
+      "fraction": 0.5,
+      "axis": 2,
+      "sign": "minus",
+      "raw_ratio": 0.9882745423495465,
+      "upper_ratio": 0.9903909336785411,
+      "observed_ratio": 0.9891421167308004,
+      "normalized_vector_error": 0.001179822306019419,
+      "absolute_ratio_error": 0.0008675743812539549,
+      "bound_violated": false,
+      "raw_safe": true,
+      "upper_safe": false,
+      "observed_safe": true,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    },
+    {
+      "demo": "demo_150",
+      "t": 22,
+      "fraction": 0.5,
+      "axis": 2,
+      "sign": "plus",
+      "raw_ratio": 0.9889675426681334,
+      "upper_ratio": 0.991083933997128,
+      "observed_ratio": 0.9898129000583756,
+      "normalized_vector_error": 0.0012177837714170928,
+      "absolute_ratio_error": 0.000845357390242274,
+      "bound_violated": false,
+      "raw_safe": true,
+      "upper_safe": false,
+      "observed_safe": true,
+      "masks": {
+        "M0": true,
+        "M1": false,
+        "M2": true
+      }
+    }
+  ],
+  "raw_sha256": "1f6908fb63f6a10baac22ecc9bde47809bccd7ad8b96760c5b083bac3610be9c",
+  "physical_audit_sha256": "f7b790573487f0dda998780b4782ef43edef493c3bfef5e4908a610c752827c5",
+  "local_analysis_sha256": "0719f9619276c5e761e93368532329fd966a20e015fcddd93699e9ca89f5cd5f",
+  "filter_analysis_sha256": "34bfa60c0047fcf1b59f9cbb84168759bff4d8abc888976b3fb485377eb0d184",
+  "frozen_margin_spec_sha256": "12c9bf697eb12927485e1c243bc570c9fba72dac44480437a3b740145c15917e",
+  "old_calibration_sha256": "c65222271e11d45f90b746da76fdbb05047f56e665368a4047347d65e8291716",
+  "source_sha256": "34836a3f5b6f773dab282038e340db25e3381b3b4771faab7709ff0e4a2680ce",
+  "elapsed_seconds": 0.05735779998940416,
+  "new_physics_steps": 0,
+  "decision": "Finite empirical error envelope only; no general guarantee or training approval. No enlargement from new outcomes, no new seed or threshold sweep."
+}

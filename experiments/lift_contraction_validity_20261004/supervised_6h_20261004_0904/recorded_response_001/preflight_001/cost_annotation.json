@@ -1,0 +1,9 @@
+{
+  "prefix_actions_performed": 5,
+  "response_probe_steps": 0,
+  "policy_training_updates": 0,
+  "original_physics_counter_instrumented": false,
+  "original_zero_physics_counter_not_a_total_cost_claim": true,
+  "note": "Five expert-prefix actions in each technical preflight. No primary response actions. Setup/forward calls and prefix physics not instrumented in preflight; primary worker instruments sim.step/step2.",
+  "result_sha256": "2554d4251e8b6967d958bdab03ff5f7ec6c0dfb07912cdfadceb20067ec3b1c1"
+}

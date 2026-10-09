@@ -1,0 +1,22 @@
+{
+  "copied_model_restored": true,
+  "original_model_unchanged": true,
+  "original_data_unchanged": false,
+  "unmutated_repeated_data_hashes_equal": false,
+  "changed_original_arrays": {
+    "efc_AR_colind": {
+      "dtype": "int32",
+      "shape": [
+        21,
+        21
+      ]
+    }
+  },
+  "solver": 2,
+  "jacobian": 2,
+  "nisland": 0,
+  "nefc": 21,
+  "explicit_query_forward_calls": 1,
+  "physics_steps": 0,
+  "policy_updates": 0
+}

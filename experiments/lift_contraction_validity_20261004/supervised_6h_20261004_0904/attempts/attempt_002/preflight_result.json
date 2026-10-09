@@ -1,0 +1,23 @@
+{
+  "state": "COMPLETE",
+  "test_optimizer_updates": {
+    "B0": 1,
+    "B1": 1
+  },
+  "pilot_optimizer_updates": 0,
+  "gpu": "NVIDIA GeForce RTX 5070",
+  "torch": "2.11.0+cu128",
+  "dataset_sha256": "2067777cb8b532e9263dd09fd6448c41cc31224bb27be4a3b734010ae13eb540",
+  "initial_parameters_equal": true,
+  "losses": {
+    "B0": 0.19952820241451263,
+    "B1": 0.19952915608882904
+  },
+  "simulator_step": true,
+  "checkpoint_roundtrip": true,
+  "test_checkpoint_hashes": {
+    "B0_test_one_update.pth": "a1e81ec08856db08405cb2101e72307d62c368b524cc6c414c8fa924233e6a2d",
+    "B1_test_one_update.pth": "f130d1d966937a509280dea10dee6512623c585936ff2b7423c1af502a087070"
+  },
+  "elapsed_seconds": 5.35899999999674
+}

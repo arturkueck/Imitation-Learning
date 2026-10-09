@@ -1,0 +1,38 @@
+{
+  "seed": 4100402,
+  "excluded_prior_demos": [
+    "demo_1",
+    "demo_116",
+    "demo_132",
+    "demo_148",
+    "demo_164",
+    "demo_181",
+    "demo_197",
+    "demo_34",
+    "demo_52",
+    "demo_68",
+    "demo_82",
+    "demo_99"
+  ],
+  "selected_demos": [
+    "demo_183",
+    "demo_141",
+    "demo_13",
+    "demo_149"
+  ],
+  "identification_demos": [
+    "demo_183",
+    "demo_141"
+  ],
+  "heldout_demos": [
+    "demo_13",
+    "demo_149"
+  ],
+  "anchor_fractions": [
+    0.05,
+    0.1,
+    0.15
+  ],
+  "dataset_sha256": "2067777cb8b532e9263dd09fd6448c41cc31224bb27be4a3b734010ae13eb540",
+  "checkpoint_sha256": "27a38fc65415d419a060cd0fc529f8f30d82bc36cdf77d54cc79d7a3e52117fa"
+}
