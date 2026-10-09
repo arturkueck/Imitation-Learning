@@ -1,5 +1,11 @@
 # Nächste Forschungsrichtung: Behavioural Cloning für Stack mit State-Input
 
+**Aktualisierung vom 4. Oktober 2026:** Aktuelles Ziel, priorisierte
+Algorithmusvorschläge und Bedingungen für neue Experimente stehen in
+[FORSCHUNGSPLAN.md](FORSCHUNGSPLAN.md). Der nachfolgende Stand vom 1. Oktober
+bleibt als Literatur- und Planungshistorie erhalten; er ist kein Auftrag,
+die vorgeschlagenen Trainingsläufe automatisch auszuführen.
+
 **Recherche- und Projektstand: 1. Oktober 2026.** Diese Ausarbeitung verbindet die lokale Replikation mit einer aktuellen, gezielten Literaturrecherche. Sie enthält Experimentpläne, keine neu erzielten Trainingsergebnisse. Laufzeit- und Implementierungsangaben für neue Ansätze sind Planungsschätzungen.
 
 ## 1. Wissenschaftlicher Ausgangspunkt

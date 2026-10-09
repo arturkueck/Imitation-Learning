@@ -1,5 +1,10 @@
 # Forschungsskizze: Robustheit von Behavioral Cloning in robomimic
 
+Aktueller übergreifender Forschungsplan und priorisierte Weiterentwicklung:
+[FORSCHUNGSPLAN.md](../../FORSCHUNGSPLAN.md), Stand 4. Oktober 2026.
+Diese Skizze dokumentiert den vorhandenen Lift-Ansatz und bleibt als Grundlage
+und Historie erhalten.
+
 *Arbeitsstand: 30. September 2026. Die Implementierung und die geplanten
 Lift-Versuche sind durchgeführt; Messwerte und Grenzen stehen in
 [`RESULTS.md`](RESULTS.md).*

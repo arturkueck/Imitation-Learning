@@ -1,0 +1,78 @@
+{
+  "state": "COMPLETE",
+  "exploratory": true,
+  "policy_training_updates": 0,
+  "additional_rollouts": 0,
+  "fit_demos": [
+    "demo_1",
+    "demo_116"
+  ],
+  "heldout_demos": [
+    "demo_132",
+    "demo_148"
+  ],
+  "dynamics_matrix": [
+    [
+      0.004431385716171261,
+      0.00015974697412501955,
+      -0.000477352972569715
+    ],
+    [
+      -6.56209907528201e-06,
+      0.004332798332751892,
+      -5.9567687554866e-05
+    ],
+    [
+      -0.0004039406379279732,
+      -0.00031376233787452066,
+      0.004793974847830488
+    ]
+  ],
+  "expert_ols_matrix": [
+    [
+      0.010344800763772814,
+      -0.0002144090257366463,
+      -0.0008884827518044244
+    ],
+    [
+      0.0009391922017729106,
+      0.00843914239602374,
+      -3.511343792099068e-05
+    ],
+    [
+      -0.0025484085919003593,
+      -0.00022960443728986543,
+      0.01077754386920112
+    ]
+  ],
+  "fit": {
+    "axis_probes": 18,
+    "passes": 17,
+    "degenerate": 0,
+    "relative_error_median": 0.0664533467986788,
+    "cosine_median": 0.9992112386981993,
+    "mean_absolute_vector_error_m": 0.00011933690224535286
+  },
+  "heldout": {
+    "axis_probes": 18,
+    "passes": 15,
+    "degenerate": 0,
+    "relative_error_median": 0.11191596698929213,
+    "cosine_median": 0.9977966003730825,
+    "mean_absolute_vector_error_m": 0.00018824909378228427
+  },
+  "expert_ols_heldout": {
+    "axis_probes": 18,
+    "passes": 0,
+    "degenerate": 0,
+    "relative_error_median": 1.252829631551974,
+    "cosine_median": 0.9934493266952674,
+    "mean_absolute_vector_error_m": 0.00117922873733669
+  },
+  "source_sha256": "873e2f241196fa0c017845369e412ce8e9582f76929cd0d39b3b35b601de9309",
+  "input_sha256": "105e2e79dbdcb67b0f0e11228ee0348c59729a2b7eb84485b4e595e72fac9acb",
+  "protocol_sha256": "eb92854e7d291465ae372218eb6619aa83dab8d2c7bce22da50bfe5174d466f9",
+  "already_collected_live_probe_seconds": 37.98399999999674,
+  "elapsed_seconds": 0.01600000000325963,
+  "interpretation": "Heldout-demo response check only; no proof of state contraction or task improvement; extra simulator access required"
+}

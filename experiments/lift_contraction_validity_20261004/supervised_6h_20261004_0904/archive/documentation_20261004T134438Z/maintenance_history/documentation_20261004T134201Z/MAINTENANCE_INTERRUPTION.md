@@ -1,0 +1,1 @@
+Documentation maintenance stopped at the UTF-16 root README decode before editing that file or the research plan. Helpers and the two navigation edits were restored from exact originals before a corrected fresh maintenance pass. No experiment was launched or altered. Date: 2026-10-04. Original snapshots retained.

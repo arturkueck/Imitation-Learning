@@ -1,0 +1,1 @@
+Documentation-only pass stopped at its verification because newly generated navigation was included in the immutable baseline. Helpers and all four navigation edits restored from exact originals before the corrected fresh pass. No experimental artifacts changed. Date: 2026-10-04.

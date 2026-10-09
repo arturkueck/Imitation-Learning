@@ -1,0 +1,80 @@
+{
+  "state": "REVERSIBLE_DOCUMENTATION_ARCHIVE_VERIFIED",
+  "utc": "2026-10-04T13:44:38.849592+00:00",
+  "berlin": "2026-10-04T15:44:38.849592+02:00",
+  "files_deleted": 0,
+  "training_or_simulator_started": false,
+  "moved_helpers": [
+    {
+      "original_path": "experiments\\lift_contraction_validity_20261004\\supervised_6h_20261004_0904\\debug_clearance_arrays.py",
+      "archived_path": "experiments\\lift_contraction_validity_20261004\\supervised_6h_20261004_0904\\archive\\documentation_20261004T134438Z\\helpers\\debug_clearance_arrays.py",
+      "sha256": "a2e2404b76a50d642ddf8db3f4e1523df4d902642fe9aa6910b793fe6e9d761b",
+      "bytes": 1775,
+      "reason": "Unreferenced one-time debugging/documentation helper; retain for history."
+    },
+    {
+      "original_path": "experiments\\lift_contraction_validity_20261004\\supervised_6h_20261004_0904\\debug_clearance_data.py",
+      "archived_path": "experiments\\lift_contraction_validity_20261004\\supervised_6h_20261004_0904\\archive\\documentation_20261004T134438Z\\helpers\\debug_clearance_data.py",
+      "sha256": "eeadc1dd77c24e0796ff002939bfdc52ca5c3ca1d5a3b8f5930d7cdbfa0efc66",
+      "bytes": 1606,
+      "reason": "Unreferenced one-time debugging/documentation helper; retain for history."
+    },
+    {
+      "original_path": "experiments\\lift_contraction_validity_20261004\\supervised_6h_20261004_0904\\debug_clearance_recorded.py",
+      "archived_path": "experiments\\lift_contraction_validity_20261004\\supervised_6h_20261004_0904\\archive\\documentation_20261004T134438Z\\helpers\\debug_clearance_recorded.py",
+      "sha256": "0263fdca7a35df990497599331cd471f7434ff8df93d88cb1805f3a02943ecfc",
+      "bytes": 1952,
+      "reason": "Unreferenced one-time debugging/documentation helper; retain for history."
+    },
+    {
+      "original_path": "experiments\\lift_contraction_validity_20261004\\supervised_6h_20261004_0904\\write_verified_closeout.py",
+      "archived_path": "experiments\\lift_contraction_validity_20261004\\supervised_6h_20261004_0904\\archive\\documentation_20261004T134438Z\\helpers\\write_verified_closeout.py",
+      "sha256": "7eafc9ce9de635a1a7cc8ff8f37e0bd60eb7e4bf7fbd8abc31a48875090b3b01",
+      "bytes": 4157,
+      "reason": "Unreferenced one-time debugging/documentation helper; retain for history."
+    }
+  ],
+  "navigation_originals": [
+    {
+      "original_path": "README.md",
+      "archived_original": "archive\\documentation_20261004T134438Z\\edit_history\\README.md",
+      "sha256": "954bfbd9f49693c913474bfa1bc0f3098384cca97fe476235621db4fcd9d9f0d"
+    },
+    {
+      "original_path": "FORSCHUNGSPLAN.md",
+      "archived_original": "archive\\documentation_20261004T134438Z\\edit_history\\FORSCHUNGSPLAN.md",
+      "sha256": "820680dac0519495defe9d147cdd16924a471dddc824a97f207b045413f1017c"
+    },
+    {
+      "original_path": "experiments\\lift_contraction_validity_20261004\\RESEARCH_STATUS.md",
+      "archived_original": "archive\\documentation_20261004T134438Z\\edit_history\\experiments\\lift_contraction_validity_20261004\\RESEARCH_STATUS.md",
+      "sha256": "278a5a0b96f8f15a4bb249dbe64a1bb5144b5f6eb16c37a509029ff46b8c288e"
+    },
+    {
+      "original_path": "experiments\\lift_contraction_validity_20261004\\supervised_6h_20261004_0904\\PILOT_INTERPRETATION.md",
+      "archived_original": "archive\\documentation_20261004T134438Z\\edit_history\\experiments\\lift_contraction_validity_20261004\\supervised_6h_20261004_0904\\PILOT_INTERPRETATION.md",
+      "sha256": "3910f7a3d1f5b39243995d0293bf552b574e9c4fb5dbd2babdacca5e86fc98a0"
+    }
+  ],
+  "historical_session_files_unchanged_in_place": 1261,
+  "moved_helper_hashes_verified": 4,
+  "original_final_report_hash_still_valid": true,
+  "new_document_hashes": {
+    "README.md": "d750b4cfa71f63fb8c887bf1568de91b893cef644acb4093b93c7747f4fa7c80",
+    "REVIEW_20261004.md": "f05a805da632ac623cf8d9470fc6c039aebf1089599cc114faaedc2aa730c255"
+  },
+  "restore": "For each moved_helpers entry, move archived_path back to original_path only if original_path does not exist. All paths are project-relative; verify sha256 first. edit_history stores exact pre-edit bytes for optional navigation rollback.",
+  "scope": "No experimental reports, raw data, checkpoints, configs, source pins or logs removed/rewritten.",
+  "documentation_preparation_history": [
+    {
+      "path": "archive\\documentation_20261004T134438Z\\maintenance_history\\documentation_20261004T134201Z",
+      "files_verified": 5,
+      "reason": "Interrupted documentation preparation; originals restored before successful pass."
+    },
+    {
+      "path": "archive\\documentation_20261004T134438Z\\maintenance_history\\documentation_20261004T134344Z",
+      "files_verified": 5,
+      "reason": "Interrupted documentation preparation; originals restored before successful pass."
+    }
+  ]
+}

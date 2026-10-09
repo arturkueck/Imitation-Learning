@@ -1,0 +1,1099 @@
+{
+  "state": "COMPLETE",
+  "seed": 41004,
+  "dataset_sha256": "2067777cb8b532e9263dd09fd6448c41cc31224bb27be4a3b734010ae13eb540",
+  "teacher_forced_prefix": false,
+  "live_prefix": true,
+  "refresh_controller_at_restored_states": false,
+  "source_sha256": "4193cc8460c9f0d0192d8a63d45d44765df015412aa6148437647334ef6bced6",
+  "protocol_sha256": "300c4747b4121d575ed617ad11c7cc68c98140fd4e0477070b42e5aad016ee65",
+  "rows": [
+    {
+      "demo": "demo_1",
+      "t": 11,
+      "length": 58,
+      "oof_prediction_error_m": 0.001227428808275475,
+      "branch_start_state_difference_max": 0.0,
+      "restore_error_m_max": 0.009902812531533587,
+      "reference_repeat_error_m": 0.0,
+      "reference_next_obs_error_m": 0.009913071591009306,
+      "eef_m": [
+        -0.022366124872439004,
+        0.013368198904318012,
+        0.9557913289142964
+      ],
+      "cube_relative_m": [
+        0.032804022847899024,
+        -0.009925210578416622,
+        -0.1356755578935691
+      ],
+      "axes": [
+        {
+          "axis": 0,
+          "action_difference_xyz": [
+            0.19999999999999996,
+            0.0,
+            0.0
+          ],
+          "predicted_response_m": [
+            0.0020689601527545624,
+            -4.288180514732925e-05,
+            -0.00017769655036088485
+          ],
+          "observed_response_m": [
+            0.0009200340422527153,
+            -2.9901474455154564e-06,
+            -0.00010710790267998149
+          ],
+          "cosine": 0.9993918324597667,
+          "relative_error": 1.2434876465164768,
+          "degenerate": false,
+          "passes_response_gate": false
+        },
+        {
+          "axis": 1,
+          "action_difference_xyz": [
+            0.0,
+            0.2,
+            0.0
+          ],
+          "predicted_response_m": [
+            0.00018783844035458213,
+            0.001687828479204748,
+            -7.022687584198137e-06
+          ],
+          "observed_response_m": [
+            -1.5989911923176836e-06,
+            0.0009042371762179261,
+            -3.0105111632483528e-06
+          ],
+          "cosine": 0.9936668256845248,
+          "relative_error": 0.891546147427539,
+          "degenerate": false,
+          "passes_response_gate": false
+        },
+        {
+          "axis": 2,
+          "action_difference_xyz": [
+            0.0,
+            0.0,
+            0.19999999999999998
+          ],
+          "predicted_response_m": [
+            -0.0005096817183800718,
+            -4.592088745797308e-05,
+            0.0021555087738402237
+          ],
+          "observed_response_m": [
+            -4.0211260737279056e-05,
+            2.074048946023796e-06,
+            0.001054740086527839
+          ],
+          "cosine": 0.9809711443063218,
+          "relative_error": 1.1346792605153762,
+          "degenerate": false,
+          "passes_response_gate": false
+        }
+      ]
+    },
+    {
+      "demo": "demo_1",
+      "t": 28,
+      "length": 58,
+      "oof_prediction_error_m": 0.0008688522275784816,
+      "branch_start_state_difference_max": 0.0,
+      "restore_error_m_max": 0.010306321965416344,
+      "reference_repeat_error_m": 0.0,
+      "reference_next_obs_error_m": 0.010560026119689432,
+      "eef_m": [
+        0.03063588150404738,
+        -0.005106879019262349,
+        0.8812554560059106
+      ],
+      "cube_relative_m": [
+        -0.02019798352858736,
+        0.008549867345163739,
+        -0.06113586687494077
+      ],
+      "axes": [
+        {
+          "axis": 0,
+          "action_difference_xyz": [
+            0.2,
+            0.0,
+            0.0
+          ],
+          "predicted_response_m": [
+            0.002068960152754563,
+            -4.2881805147329266e-05,
+            -0.00017769655036088488
+          ],
+          "observed_response_m": [
+            0.0009120759377509446,
+            3.186804666236928e-06,
+            -0.00011053178309083922
+          ],
+          "cosine": 0.9990996368033919,
+          "relative_error": 1.2623040502278369,
+          "degenerate": false,
+          "passes_response_gate": false
+        },
+        {
+          "axis": 1,
+          "action_difference_xyz": [
+            0.0,
+            0.2,
+            0.0
+          ],
+          "predicted_response_m": [
+            0.00018783844035458213,
+            0.001687828479204748,
+            -7.022687584198137e-06
+          ],
+          "observed_response_m": [
+            3.013080719087291e-06,
+            0.0008884371805257529,
+            5.186141054380755e-06
+          ],
+          "cosine": 0.994184027122678,
+          "relative_error": 0.9235900996369066,
+          "degenerate": false,
+          "passes_response_gate": false
+        },
+        {
+          "axis": 2,
+          "action_difference_xyz": [
+            0.0,
+            0.0,
+            0.19999999999999998
+          ],
+          "predicted_response_m": [
+            -0.0005096817183800718,
+            -4.592088745797308e-05,
+            0.0021555087738402237
+          ],
+          "observed_response_m": [
+            -2.4704143972854864e-05,
+            4.237199807861913e-06,
+            0.0010589841379707865
+          ],
+          "cosine": 0.9779655938788198,
+          "relative_error": 1.1328777517313313,
+          "degenerate": false,
+          "passes_response_gate": false
+        }
+      ]
+    },
+    {
+      "demo": "demo_1",
+      "t": 45,
+      "length": 58,
+      "oof_prediction_error_m": 0.0010212889704508178,
+      "branch_start_state_difference_max": 0.0,
+      "restore_error_m_max": 0.010238417012117251,
+      "reference_repeat_error_m": 0.0,
+      "reference_next_obs_error_m": 0.010440868070043765,
+      "eef_m": [
+        0.015548717730494838,
+        0.004956338947526605,
+        0.813265101281874
+      ],
+      "cube_relative_m": [
+        -0.0051108197550348185,
+        -0.001513350621625215,
+        0.006854487877691939
+      ],
+      "axes": [
+        {
+          "axis": 0,
+          "action_difference_xyz": [
+            0.2,
+            0.0,
+            0.0
+          ],
+          "predicted_response_m": [
+            0.002068960152754563,
+            -4.2881805147329266e-05,
+            -0.00017769655036088488
+          ],
+          "observed_response_m": [
+            0.0009297193209996529,
+            3.893537498404981e-06,
+            -9.610063002063463e-05
+          ],
+          "cosine": 0.9995421722800111,
+          "relative_error": 1.223001875213459,
+          "degenerate": false,
+          "passes_response_gate": false
+        },
+        {
+          "axis": 1,
+          "action_difference_xyz": [
+            0.0,
+            0.2,
+            0.0
+          ],
+          "predicted_response_m": [
+            0.00018783844035458213,
+            0.001687828479204748,
+            -7.022687584198137e-06
+          ],
+          "observed_response_m": [
+            3.6874929851167526e-06,
+            0.0008624020405722807,
+            2.7188798177313345e-06
+          ],
+          "cosine": 0.994301574116574,
+          "relative_error": 0.9807061915689148,
+          "degenerate": false,
+          "passes_response_gate": false
+        },
+        {
+          "axis": 2,
+          "action_difference_xyz": [
+            0.0,
+            0.0,
+            0.20000000000000004
+          ],
+          "predicted_response_m": [
+            -0.000509681718380072,
+            -4.59208874579731e-05,
+            0.0021555087738402245
+          ],
+          "observed_response_m": [
+            -4.052923267530706e-05,
+            1.7727184496978826e-07,
+            0.001049836531650028
+          ],
+          "cosine": 0.9811027469203814,
+          "relative_error": 1.14406263931229,
+          "degenerate": false,
+          "passes_response_gate": false
+        }
+      ]
+    },
+    {
+      "demo": "demo_116",
+      "t": 11,
+      "length": 59,
+      "oof_prediction_error_m": 0.0014355131898391691,
+      "branch_start_state_difference_max": 0.0,
+      "restore_error_m_max": 0.006964354024843721,
+      "reference_repeat_error_m": 0.0,
+      "reference_next_obs_error_m": 0.006916893583816386,
+      "eef_m": [
+        -0.053220925121466776,
+        0.011358379062941461,
+        0.9634047897236184
+      ],
+      "cube_relative_m": [
+        0.06480540140383115,
+        -0.041145157010200745,
+        -0.1425544187344333
+      ],
+      "axes": [
+        {
+          "axis": 0,
+          "action_difference_xyz": [
+            0.19999999999999996,
+            0.0,
+            0.0
+          ],
+          "predicted_response_m": [
+            0.0020689601527545624,
+            -4.288180514732925e-05,
+            -0.00017769655036088485
+          ],
+          "observed_response_m": [
+            0.0009162693720267054,
+            -3.021738480855213e-06,
+            -0.00010235294967009256
+          ],
+          "cosine": 0.9995223671281191,
+          "relative_error": 1.253656672715962,
+          "degenerate": false,
+          "passes_response_gate": false
+        },
+        {
+          "axis": 1,
+          "action_difference_xyz": [
+            0.0,
+            0.2,
+            0.0
+          ],
+          "predicted_response_m": [
+            0.00018783844035458213,
+            0.001687828479204748,
+            -7.022687584198137e-06
+          ],
+          "observed_response_m": [
+            6.819540993505124e-07,
+            0.0009281730059598897,
+            -4.933473906953978e-06
+          ],
+          "cosine": 0.9939446438580414,
+          "relative_error": 0.8429056548951017,
+          "degenerate": false,
+          "passes_response_gate": false
+        },
+        {
+          "axis": 2,
+          "action_difference_xyz": [
+            0.0,
+            0.0,
+            0.20000000000000004
+          ],
+          "predicted_response_m": [
+            -0.000509681718380072,
+            -4.59208874579731e-05,
+            0.0021555087738402245
+          ],
+          "observed_response_m": [
+            -4.264886287728281e-05,
+            -1.2951792113021637e-06,
+            0.0010568816181201202
+          ],
+          "cosine": 0.9814651642333047,
+          "relative_error": 1.1293956661847961,
+          "degenerate": false,
+          "passes_response_gate": false
+        }
+      ]
+    },
+    {
+      "demo": "demo_116",
+      "t": 29,
+      "length": 59,
+      "oof_prediction_error_m": 0.002426152496166041,
+      "branch_start_state_difference_max": 0.0,
+      "restore_error_m_max": 0.007012492289268176,
+      "reference_repeat_error_m": 0.0,
+      "reference_next_obs_error_m": 0.007155497255523067,
+      "eef_m": [
+        0.03925143448839186,
+        -0.02643244101825329,
+        0.8940379075246813
+      ],
+      "cube_relative_m": [
+        -0.0276669582060275,
+        -0.003354336929005993,
+        -0.07318371837939763
+      ],
+      "axes": [
+        {
+          "axis": 0,
+          "action_difference_xyz": [
+            0.2,
+            0.0,
+            0.0
+          ],
+          "predicted_response_m": [
+            0.002068960152754563,
+            -4.2881805147329266e-05,
+            -0.00017769655036088488
+          ],
+          "observed_response_m": [
+            0.0008764363647849396,
+            -4.0340347558232015e-07,
+            -0.00010817294453568937
+          ],
+          "cosine": 0.9991072378690379,
+          "relative_error": 1.3535518068027053,
+          "degenerate": false,
+          "passes_response_gate": false
+        },
+        {
+          "axis": 1,
+          "action_difference_xyz": [
+            0.0,
+            0.2,
+            0.0
+          ],
+          "predicted_response_m": [
+            0.00018783844035458213,
+            0.001687828479204748,
+            -7.022687584198137e-06
+          ],
+          "observed_response_m": [
+            1.8163843589977247e-06,
+            0.0009254225558294749,
+            4.321419133868076e-06
+          ],
+          "cosine": 0.9940407382875766,
+          "relative_error": 0.8480924231175554,
+          "degenerate": false,
+          "passes_response_gate": false
+        },
+        {
+          "axis": 2,
+          "action_difference_xyz": [
+            0.0,
+            0.0,
+            0.2
+          ],
+          "predicted_response_m": [
+            -0.0005096817183800719,
+            -4.592088745797309e-05,
+            0.002155508773840224
+          ],
+          "observed_response_m": [
+            1.799615310858066e-05,
+            -1.0632912740039802e-06,
+            0.0010806288294643585
+          ],
+          "cosine": 0.9690098084351854,
+          "relative_error": 1.1086985613387548,
+          "degenerate": false,
+          "passes_response_gate": false
+        }
+      ]
+    },
+    {
+      "demo": "demo_116",
+      "t": 46,
+      "length": 59,
+      "oof_prediction_error_m": 0.002244750003731772,
+      "branch_start_state_difference_max": 0.0,
+      "restore_error_m_max": 0.00714492736938093,
+      "reference_repeat_error_m": 0.0,
+      "reference_next_obs_error_m": 0.005699727531434094,
+      "eef_m": [
+        0.020046995817481195,
+        -0.031915715508835464,
+        0.8133506001833429
+      ],
+      "cube_relative_m": [
+        -0.008462519535116831,
+        0.0021289375615761823,
+        0.007503588976222941
+      ],
+      "axes": [
+        {
+          "axis": 0,
+          "action_difference_xyz": [
+            0.2,
+            0.0,
+            0.0
+          ],
+          "predicted_response_m": [
+            0.002068960152754563,
+            -4.2881805147329266e-05,
+            -0.00017769655036088488
+          ],
+          "observed_response_m": [
+            0.0007631278215905549,
+            0.0001910313161873345,
+            -4.8557357086420616e-05
+          ],
+          "cosine": 0.9647348756395177,
+          "relative_error": 1.6911134155577336,
+          "degenerate": false,
+          "passes_response_gate": false
+        },
+        {
+          "axis": 1,
+          "action_difference_xyz": [
+            0.0,
+            0.2,
+            0.0
+          ],
+          "predicted_response_m": [
+            0.00018783844035458213,
+            0.001687828479204748,
+            -7.022687584198137e-06
+          ],
+          "observed_response_m": [
+            -1.5474439860573008e-05,
+            0.0006906860401969458,
+            -7.576368000161704e-05
+          ],
+          "cosine": 0.9856729742230345,
+          "relative_error": 1.4675910694892818,
+          "degenerate": false,
+          "passes_response_gate": false
+        },
+        {
+          "axis": 2,
+          "action_difference_xyz": [
+            0.0,
+            0.0,
+            0.20000000000000004
+          ],
+          "predicted_response_m": [
+            -0.000509681718380072,
+            -4.59208874579731e-05,
+            0.0021555087738402245
+          ],
+          "observed_response_m": [
+            -0.0003546314183594246,
+            -0.00038064485556297406,
+            0.00045169861366345376
+          ],
+          "cosine": 0.7677489860240668,
+          "relative_error": 2.5302642848780956,
+          "degenerate": false,
+          "passes_response_gate": false
+        }
+      ]
+    },
+    {
+      "demo": "demo_132",
+      "t": 9,
+      "length": 46,
+      "oof_prediction_error_m": 0.001465984646316018,
+      "branch_start_state_difference_max": 0.0,
+      "restore_error_m_max": 0.007086674259300643,
+      "reference_repeat_error_m": 0.0,
+      "reference_next_obs_error_m": 0.006830559813353994,
+      "eef_m": [
+        -0.0664499586075207,
+        0.017970339487055446,
+        0.9757337026986661
+      ],
+      "cube_relative_m": [
+        0.05568535788126576,
+        0.007315618249541259,
+        -0.15402513714009558
+      ],
+      "axes": [
+        {
+          "axis": 0,
+          "action_difference_xyz": [
+            0.19999999999999996,
+            0.0,
+            0.0
+          ],
+          "predicted_response_m": [
+            0.0020689601527545624,
+            -4.288180514732925e-05,
+            -0.00017769655036088485
+          ],
+          "observed_response_m": [
+            0.0009181107318485954,
+            -6.373580662924483e-06,
+            -0.00010418808775147781
+          ],
+          "cosine": 0.9995323706892622,
+          "relative_error": 1.2486369824009147,
+          "degenerate": false,
+          "passes_response_gate": false
+        },
+        {
+          "axis": 1,
+          "action_difference_xyz": [
+            0.0,
+            0.19999999999999998,
+            0.0
+          ],
+          "predicted_response_m": [
+            0.0001878384403545821,
+            0.0016878284792047479,
+            -7.022687584198136e-06
+          ],
+          "observed_response_m": [
+            4.025561266371436e-06,
+            0.0009371734338139391,
+            6.130217432009921e-06
+          ],
+          "cosine": 0.994273316114387,
+          "relative_error": 0.8247361560379954,
+          "degenerate": false,
+          "passes_response_gate": false
+        },
+        {
+          "axis": 2,
+          "action_difference_xyz": [
+            0.0,
+            0.0,
+            0.19999999999999996
+          ],
+          "predicted_response_m": [
+            -0.0005096817183800718,
+            -4.5920887457973076e-05,
+            0.0021555087738402232
+          ],
+          "observed_response_m": [
+            -5.202210255697559e-05,
+            2.1207119764065502e-05,
+            0.0010513440611688019
+          ],
+          "cosine": 0.9825194775405899,
+          "relative_error": 1.1370512304750966,
+          "degenerate": false,
+          "passes_response_gate": false
+        }
+      ]
+    },
+    {
+      "demo": "demo_132",
+      "t": 22,
+      "length": 46,
+      "oof_prediction_error_m": 0.0008886864534749135,
+      "branch_start_state_difference_max": 0.0,
+      "restore_error_m_max": 0.007160537822936756,
+      "reference_repeat_error_m": 0.0,
+      "reference_next_obs_error_m": 0.007141058622956831,
+      "eef_m": [
+        -0.022756043293394097,
+        0.03146568097930009,
+        0.8702317052654228
+      ],
+      "cube_relative_m": [
+        0.01199144256713915,
+        -0.006179723242703383,
+        -0.04850781794782599
+      ],
+      "axes": [
+        {
+          "axis": 0,
+          "action_difference_xyz": [
+            0.2,
+            0.0,
+            0.0
+          ],
+          "predicted_response_m": [
+            0.002068960152754563,
+            -4.2881805147329266e-05,
+            -0.00017769655036088488
+          ],
+          "observed_response_m": [
+            0.0009043957498545314,
+            1.4510814119045312e-07,
+            -9.474636168271822e-05
+          ],
+          "cosine": 0.9996086548040525,
+          "relative_error": 1.2847789147132773,
+          "degenerate": false,
+          "passes_response_gate": false
+        },
+        {
+          "axis": 1,
+          "action_difference_xyz": [
+            0.0,
+            0.2,
+            0.0
+          ],
+          "predicted_response_m": [
+            0.00018783844035458213,
+            0.001687828479204748,
+            -7.022687584198137e-06
+          ],
+          "observed_response_m": [
+            1.1561759868817384e-05,
+            0.0008873229968855353,
+            3.619272413879493e-06
+          ],
+          "cosine": 0.9951872766072716,
+          "relative_error": 0.9237640327342944,
+          "degenerate": false,
+          "passes_response_gate": false
+        },
+        {
+          "axis": 2,
+          "action_difference_xyz": [
+            0.0,
+            0.0,
+            0.19999999999999996
+          ],
+          "predicted_response_m": [
+            -0.0005096817183800718,
+            -4.5920887457973076e-05,
+            0.0021555087738402232
+          ],
+          "observed_response_m": [
+            -2.3875936001369752e-05,
+            1.9093165178139804e-05,
+            0.0010620667550975682
+          ],
+          "cosine": 0.9773499988001766,
+          "relative_error": 1.1277758876319963,
+          "degenerate": false,
+          "passes_response_gate": false
+        }
+      ]
+    },
+    {
+      "demo": "demo_132",
+      "t": 36,
+      "length": 46,
+      "oof_prediction_error_m": 0.0011440050757088502,
+      "branch_start_state_difference_max": 0.0,
+      "restore_error_m_max": 0.006980392612297657,
+      "reference_repeat_error_m": 0.0,
+      "reference_next_obs_error_m": 0.006942866364127676,
+      "eef_m": [
+        -0.018437441440170003,
+        0.02476149225076819,
+        0.8109987395009199
+      ],
+      "cube_relative_m": [
+        0.007353346747939702,
+        0.0014155076336238616,
+        0.009697387800342683
+      ],
+      "axes": [
+        {
+          "axis": 0,
+          "action_difference_xyz": [
+            0.2,
+            0.0,
+            0.0
+          ],
+          "predicted_response_m": [
+            0.002068960152754563,
+            -4.2881805147329266e-05,
+            -0.00017769655036088488
+          ],
+          "observed_response_m": [
+            0.0008191765081694766,
+            -2.492852810795365e-05,
+            -0.0001324962667921259
+          ],
+          "cosine": 0.9971707184172481,
+          "relative_error": 1.5065457955346289,
+          "degenerate": false,
+          "passes_response_gate": false
+        },
+        {
+          "axis": 1,
+          "action_difference_xyz": [
+            0.0,
+            0.2,
+            0.0
+          ],
+          "predicted_response_m": [
+            0.00018783844035458213,
+            0.001687828479204748,
+            -7.022687584198137e-06
+          ],
+          "observed_response_m": [
+            2.864303677924812e-05,
+            0.0007337234609796697,
+            2.88538384745074e-05
+          ],
+          "cosine": 0.9964822819117375,
+          "relative_error": 1.317223043614182,
+          "degenerate": false,
+          "passes_response_gate": false
+        },
+        {
+          "axis": 2,
+          "action_difference_xyz": [
+            0.0,
+            0.0,
+            0.2
+          ],
+          "predicted_response_m": [
+            -0.0005096817183800719,
+            -4.592088745797309e-05,
+            0.002155508773840224
+          ],
+          "observed_response_m": [
+            -0.00011375184102740271,
+            0.00012313097514879412,
+            0.0009776879019858242
+          ],
+          "cosine": 0.9827710149422249,
+          "relative_error": 1.2642046557671098,
+          "degenerate": false,
+          "passes_response_gate": false
+        }
+      ]
+    },
+    {
+      "demo": "demo_148",
+      "t": 9,
+      "length": 50,
+      "oof_prediction_error_m": 0.0015319509120681584,
+      "branch_start_state_difference_max": 0.0,
+      "restore_error_m_max": 0.005112830197802493,
+      "reference_repeat_error_m": 0.0,
+      "reference_next_obs_error_m": 0.0053909339669453065,
+      "eef_m": [
+        -0.06079318005424583,
+        -0.011755639237877607,
+        0.9795508928409852
+      ],
+      "cube_relative_m": [
+        0.05914480145103566,
+        0.02921117396190505,
+        -0.15956362714602357
+      ],
+      "axes": [
+        {
+          "axis": 0,
+          "action_difference_xyz": [
+            0.19999999999999996,
+            0.0,
+            0.0
+          ],
+          "predicted_response_m": [
+            0.0020689601527545624,
+            -4.288180514732925e-05,
+            -0.00017769655036088485
+          ],
+          "observed_response_m": [
+            0.0009147372928408407,
+            7.709042971322522e-06,
+            -0.00010587118450411381
+          ],
+          "cosine": 0.9991425187810039,
+          "relative_error": 1.2570222807030333,
+          "degenerate": false,
+          "passes_response_gate": false
+        },
+        {
+          "axis": 1,
+          "action_difference_xyz": [
+            0.0,
+            0.2,
+            0.0
+          ],
+          "predicted_response_m": [
+            0.00018783844035458213,
+            0.001687828479204748,
+            -7.022687584198137e-06
+          ],
+          "observed_response_m": [
+            -3.5151734889618536e-06,
+            0.0009391035282903058,
+            -2.6552081923147952e-06
+          ],
+          "cosine": 0.9934424570008231,
+          "relative_error": 0.8229065068293351,
+          "degenerate": false,
+          "passes_response_gate": false
+        },
+        {
+          "axis": 2,
+          "action_difference_xyz": [
+            0.0,
+            0.0,
+            0.19999999999999996
+          ],
+          "predicted_response_m": [
+            -0.0005096817183800718,
+            -4.5920887457973076e-05,
+            0.0021555087738402232
+          ],
+          "observed_response_m": [
+            -4.561736655202958e-05,
+            -1.4025900430994498e-05,
+            0.0010570855424771874
+          ],
+          "cosine": 0.9821581133084646,
+          "relative_error": 1.127290641972012,
+          "degenerate": false,
+          "passes_response_gate": false
+        }
+      ]
+    },
+    {
+      "demo": "demo_148",
+      "t": 24,
+      "length": 50,
+      "oof_prediction_error_m": 0.0008458346972865786,
+      "branch_start_state_difference_max": 0.0,
+      "restore_error_m_max": 0.00475358981997787,
+      "reference_repeat_error_m": 0.0,
+      "reference_next_obs_error_m": 0.004586340845892778,
+      "eef_m": [
+        0.01962342177922765,
+        0.019046670502902194,
+        0.8861997776184717
+      ],
+      "cube_relative_m": [
+        -0.021271800382437825,
+        -0.0015911357788747499,
+        -0.06619718891841608
+      ],
+      "axes": [
+        {
+          "axis": 0,
+          "action_difference_xyz": [
+            0.2,
+            0.0,
+            0.0
+          ],
+          "predicted_response_m": [
+            0.002068960152754563,
+            -4.2881805147329266e-05,
+            -0.00017769655036088488
+          ],
+          "observed_response_m": [
+            0.0008962279449324199,
+            1.6479497768479012e-07,
+            -0.00010571769965239675
+          ],
+          "cosine": 0.9992795238503537,
+          "relative_error": 1.3028293308597307,
+          "degenerate": false,
+          "passes_response_gate": false
+        },
+        {
+          "axis": 1,
+          "action_difference_xyz": [
+            0.0,
+            0.20000000000000004,
+            0.0
+          ],
+          "predicted_response_m": [
+            0.00018783844035458216,
+            0.0016878284792047483,
+            -7.022687584198138e-06
+          ],
+          "observed_response_m": [
+            -3.299194415409129e-06,
+            0.0009114943254461723,
+            -5.249063860568448e-06
+          ],
+          "cosine": 0.9934561963897115,
+          "relative_error": 0.877132201054309,
+          "degenerate": false,
+          "passes_response_gate": false
+        },
+        {
+          "axis": 2,
+          "action_difference_xyz": [
+            0.0,
+            0.0,
+            0.19999999999999996
+          ],
+          "predicted_response_m": [
+            -0.0005096817183800718,
+            -4.5920887457973076e-05,
+            0.0021555087738402232
+          ],
+          "observed_response_m": [
+            -2.3518953990407654e-06,
+            -3.0589298478239657e-06,
+            0.001072579588856537
+          ],
+          "cosine": 0.9735128163380141,
+          "relative_error": 1.1156617568798723,
+          "degenerate": false,
+          "passes_response_gate": false
+        }
+      ]
+    },
+    {
+      "demo": "demo_148",
+      "t": 39,
+      "length": 50,
+      "oof_prediction_error_m": 0.0008194404131006271,
+      "branch_start_state_difference_max": 0.0,
+      "restore_error_m_max": 0.00442591441489188,
+      "reference_repeat_error_m": 0.0,
+      "reference_next_obs_error_m": 0.004567479878170838,
+      "eef_m": [
+        0.0048803157248790835,
+        0.01994825267458239,
+        0.8122451319082662
+      ],
+      "cube_relative_m": [
+        -0.006528694328089259,
+        -0.0024927179505549457,
+        0.007757457251287736
+      ],
+      "axes": [
+        {
+          "axis": 0,
+          "action_difference_xyz": [
+            0.2,
+            0.0,
+            0.0
+          ],
+          "predicted_response_m": [
+            0.002068960152754563,
+            -4.2881805147329266e-05,
+            -0.00017769655036088488
+          ],
+          "observed_response_m": [
+            0.00012347801109784985,
+            -0.00034884795025913115,
+            -0.00011585810589787027
+          ],
+          "cosine": 0.36133162084815323,
+          "relative_error": 5.081286436240973,
+          "degenerate": false,
+          "passes_response_gate": false
+        },
+        {
+          "axis": 1,
+          "action_difference_xyz": [
+            0.0,
+            0.2,
+            0.0
+          ],
+          "predicted_response_m": [
+            0.00018783844035458213,
+            0.001687828479204748,
+            -7.022687584198137e-06
+          ],
+          "observed_response_m": [
+            -0.0001341170271309481,
+            0.000579834256484564,
+            1.6890527571700176e-05
+          ],
+          "cosine": 0.9428686195670671,
+          "relative_error": 1.9383676301457708,
+          "degenerate": false,
+          "passes_response_gate": false
+        },
+        {
+          "axis": 2,
+          "action_difference_xyz": [
+            0.0,
+            0.0,
+            0.2
+          ],
+          "predicted_response_m": [
+            -0.0005096817183800719,
+            -4.592088745797309e-05,
+            0.002155508773840224
+          ],
+          "observed_response_m": [
+            -0.00012601169649607315,
+            0.00039544198522802575,
+            0.00021819037933401564
+          ],
+          "cosine": 0.4970928811320726,
+          "relative_error": 4.315831087113315,
+          "degenerate": false,
+          "passes_response_gate": false
+        }
+      ]
+    }
+  ],
+  "followup_protocol_sha256": "6d01bddb0b02d32d7c84877b40945ce37c137443dae4e721e90f2e6f878cb928",
+  "selected_train_demos": [
+    "demo_1",
+    "demo_116",
+    "demo_132",
+    "demo_148"
+  ],
+  "elapsed_seconds": 37.98399999999674,
+  "overall": {
+    "axis_probes": 36,
+    "degenerate": 0,
+    "pass_fraction_all": 0.0,
+    "pass_fraction_nondegenerate": 0.0,
+    "relative_error_median": 1.1835322572628746,
+    "cosine_median": 0.9935615110371181
+  },
+  "low_oof_error_half": {
+    "axis_probes": 21,
+    "degenerate": 0,
+    "pass_fraction_all": 0.0,
+    "pass_fraction_nondegenerate": 0.0,
+    "relative_error_median": 1.223001875213459,
+    "cosine_median": 0.9936668256845248
+  },
+  "reconstruction_gate": false,
+  "reference_next_obs_error_m_median": 0.006929879973972031,
+  "overall_response_gate": false,
+  "weighted_candidate_gate": false,
+  "matched_live_start_gate": true,
+  "live_anchor_demo_distance_m_median": 0.007049583274284409,
+  "interpretation": "Paired counterfactuals in the current live simulator, not reconstruction of the recorded anchor or proof of a data-only validity weight"
+}
