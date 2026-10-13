@@ -1,0 +1,76 @@
+[
+  {
+    "source_video": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_replication_20261001\\representative\\direct_seed_3_start_46003.mp4",
+    "copied_video": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\output\\meeting_2026-10-12\\media\\04_stack_erfolg.mp4",
+    "sha256": "540ce875bbd3f598dce6c57def3acdb65f4dfbe2dec35e1b852b4439a3cc0b6a",
+    "byte_identical_copy": true,
+    "file_bytes": 112301,
+    "source_manifest": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_replication_20261001\\representative\\manifest.json",
+    "source_manifest_entry": {
+      "model_class": "direct",
+      "training_seed": 3,
+      "start_seed": 46003,
+      "video": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_replication_20261001\\representative\\direct_seed_3_start_46003.mp4",
+      "saved_states_replayed": true
+    },
+    "source_results": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_replication_20261001\\direct\\seed_3\\rollouts\\results.json",
+    "model_class": "direct",
+    "training_seed": 3,
+    "start_seed": 46003,
+    "saved_states_replayed": true,
+    "video_duration_seconds": 8.25,
+    "fps": 4.0,
+    "frame_count": 33,
+    "dimensions": [
+      512,
+      512
+    ],
+    "outcome": {
+      "measured_steps": 123,
+      "grasp": true,
+      "lift": true,
+      "stack": true,
+      "sustained_success": true,
+      "correct_lift": false,
+      "premature_transport": true
+    },
+    "purpose": "Selected qualitative replay; not evidence for a benchmark score or a mechanism."
+  },
+  {
+    "source_video": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_replication_20261001\\representative\\direct_seed_3_start_46005.mp4",
+    "copied_video": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\output\\meeting_2026-10-12\\media\\05_stack_misserfolg.mp4",
+    "sha256": "aae29ca8c637e3d39060f14c4f33bc4cbe6b07b304da72baa339d61cbafad8c9",
+    "byte_identical_copy": true,
+    "file_bytes": 368966,
+    "source_manifest": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_replication_20261001\\representative\\manifest.json",
+    "source_manifest_entry": {
+      "model_class": "direct",
+      "training_seed": 3,
+      "start_seed": 46005,
+      "video": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_replication_20261001\\representative\\direct_seed_3_start_46005.mp4",
+      "saved_states_replayed": true
+    },
+    "source_results": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_replication_20261001\\direct\\seed_3\\rollouts\\results.json",
+    "model_class": "direct",
+    "training_seed": 3,
+    "start_seed": 46005,
+    "saved_states_replayed": true,
+    "video_duration_seconds": 27.0,
+    "fps": 4.0,
+    "frame_count": 108,
+    "dimensions": [
+      512,
+      512
+    ],
+    "outcome": {
+      "measured_steps": 500,
+      "grasp": false,
+      "lift": false,
+      "stack": false,
+      "sustained_success": false,
+      "correct_lift": false,
+      "premature_transport": false
+    },
+    "purpose": "Selected qualitative replay; not evidence for a benchmark score or a mechanism."
+  }
+]
