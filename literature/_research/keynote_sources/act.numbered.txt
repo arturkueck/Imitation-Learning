@@ -1,0 +1,848 @@
+act: PDF-Seiten ab 1; Z = nichtleere Layout-Textzeile je Seite; keine Original-Zeilennummern.
+
+===== PDF S. 1 =====
+S01:Z001 |  Robotics: ScienceandSystems2023
+S01:Z002 |  Daegu,RepublicofKorea,July10-July14,2023
+S01:Z003 | Learning Fine-Grained Bimanual Manipulation with
+S01:Z004 |                                                Low-Cost Hardware
+S01:Z005 |                                Tony Z. Zhao1    Vikash Kumar3    Sergey Levine2    Chelsea Finn1
+S01:Z006 |                                               1 Stanford University 2 UC Berkeley 3 Meta
+S01:Z007 | Fig. 1: ALOHA        : A Low-cost Open-source Hardware System for Bimanual Teleoperation. The whole system costs <$20k with off-the-shelf
+S01:Z008 | robots and 3D printed components. Left: The user teleoperates by backdriving the leader robots, with the follower robots mirroring the motion.
+S01:Z009 | Right: ALOHA is capable of precise, contact-rich, and dynamic tasks. We show examples of both teleoperated and learned skills.
+S01:Z010 |    Abstract—Fine manipulation tasks, such as threading cable ties             cup from below and pries the lid open. Each of these steps
+S01:Z011 | or slotting a battery, are notoriously difficult for robots because           requires high precision, delicate hand-eye coordination, and
+S01:Z012 | they require precision, careful coordination of contact forces,               rich contact. Millimeters of error would lead to task failure.
+S01:Z013 | and closed-loop visual feedback. Performing these tasks typically                Existing systems for fine manipulation use expensive robots
+S01:Z014 | requires high-end robots, accurate sensors, or careful calibration,           and high-end sensors for precise state estimation [30, 64, 33,
+S01:Z015 | which can be expensive and difficult to set up. Can learning
+S01:Z016 | enable  low-cost  and  imprecise  hardware  to  perform  these  fine          43]. In this work, we seek to develop a low-cost system for fine
+S01:Z017 | manipulation tasks? We present a low-cost system that performs                manipulation that is, in contrast, accessible and reproducible.
+S01:Z018 | end-to-end imitation learning directly from real demonstrations,              However, low-cost hardware is inevitably less precise than
+S01:Z019 | collected with a custom teleoperation interface. Imitation learning,          high-end platforms, making the sensing and planning challenge
+S01:Z020 | however, presents its own challenges, particularly in high-precision          more pronounced. One promising direction to resolve this is
+S01:Z021 | domains: errors in the policy can compound over time, and human
+S01:Z022 | demonstrations can be non-stationary. To address these challenges,            to incorporate learning into the system. Humans also do not
+S01:Z023 | we develop a simple yet novel algorithm, Action Chunking with                 have industrial-grade proprioception [75], and yet we are able
+S01:Z024 | Transformers (ACT), which learns a generative model over action               to perform delicate tasks by learning from closed-loop visual
+S01:Z025 | sequences. ACT allows the robot to learn 6 difficult tasks in the             feedback and actively compensating for errors. In our system,
+S01:Z026 | real world, such as opening a translucent condiment cup and                   we therefore train an end-to-end policy that directly maps
+S01:Z027 | slotting a battery with 80-90% success, with only 10 minutes worth
+S01:Z028 | of demonstrations. Project website: tonyzhaozh.github.io/aloha                RGB images from commodity web cameras to the actions.
+S01:Z029 |                          I.  INTRODUCTION                                     This pixel-to-action formulation is particularly suitable for
+S01:Z030 |                                                                               fine manipulation, because fine manipulation often involves
+S01:Z031 |    Fine manipulation tasks involve precise, closed-loop feed-                 objects with complex physical properties, such that learning the
+S01:Z032 | back and require high degrees of hand-eye coordination to                     manipulation policy is much simpler than modeling the whole
+S01:Z033 | adjust and re-plan in response to changes in the environment.                 environment. Take the condiment cup example: modeling the
+S01:Z034 | Examples of such manipulation tasks include opening the lid                   contact when nudging the cup, and also the deformation when
+S01:Z035 | of a condiment cup or slotting a battery, which involve delicate              prying open the lid involves complex physics on a large number
+S01:Z036 | operations such as pinching, prying, and tearing rather than                  of degrees of freedom. Designing a model accurate enough for
+S01:Z037 | broad-strokemotionssuchaspickingandplacing.Takeopening                        planning would require significant research and task specific
+S01:Z038 | the lid of a condiment cup in Figure 1 as an example, where                   engineering efforts. In contrast, the policy of nudging and
+S01:Z039 | the cup is initialized upright on the table: the right gripper                opening the cup is much simpler, since a closed-loop policy
+S01:Z040 | needs to first tip it over, and nudge it into the opened left                 can react to different positions of the cup and lid rather than
+S01:Z041 | gripper. Then the left gripper closes gently and lifts the cup                precisely anticipating how it will move in advance.
+S01:Z042 | off the table. Next, one of the right fingers approaches the                     Training an end-to-end policy, however, presents its own
+S01:Z043 |                                                                             1
+
+===== PDF S. 2 =====
+S02:Z001 | challenges. The performance of the policy depends heavily                                               II.  RELATED WORK
+S02:Z002 | on  the  training  data  distribution,  and  in  the  case  of  fine
+S02:Z003 | manipulation, high-quality human demonstrations can provide                    Imitation  learning  for  robotic  manipulation.  Imitation
+S02:Z004 | tremendous value by allowing the system to learn from human                    learning allows a robot to directly learn from experts. Be-
+S02:Z005 | dexterity. We thus build a low-cost yet dexterous teleoperation                havioral cloning (BC) [47] is one of the simplest imitation
+S02:Z006 | system  for  data  collection,  and  a  novel  imitation  learning             learning algorithms, casting imitation as supervised learning
+S02:Z007 | algorithm that learns effectively from the demonstrations. We                  from observations to actions. Many works have then sought
+S02:Z008 | overview each component in the following two paragraphs.                       to improve BC, for example by incorporating history with
+S02:Z009 | Teleoperation system. We devise a teleoperation setup with                     various architectures [41, 53, 27, 8], using a different training
+S02:Z010 | two  sets  of  low-cost,  off-the-shelf  robot  arms.  They  are               objective [18, 44], and including regularization [49]. Other
+S02:Z011 | approximately scaled versions of each other, and we use joint-                 works emphasize the multi-task or few-shot aspect of imitation
+S02:Z012 | space mapping for teleoperation. We augment this setup with                    learning [15, 26, 12], leveraging language [55, 56, 27, 8], or
+S02:Z013 | 3D printed components for easier backdriving, leading to a                     exploiting the specific task structure [45, 72, 29, 56]. Scaling
+S02:Z014 | highly capable teleoperation system within a $20k budget. We                   these imitation learning algorithms with more data has led
+S02:Z015 | showcase its capabilities in Figure 1, including teleoperation                 to  impressive  systems  that  can  generalize  to  new  objects,
+S02:Z016 | of precise tasks such as threading a zip tie, dynamic tasks such               instructions, or scenes [16, 27, 8, 33]. In this work, we focus
+S02:Z017 | as juggling a ping pong ball, and contact-rich tasks such as                   on building an imitation learning system that is low-cost yet
+S02:Z018 | assembling the chain in the NIST board #2 [4].                                 capable of performing delicate, fine manipulation tasks. We
+S02:Z019 |                                                                                tackle this from both hardware and software, by building a
+S02:Z020 | Imitation learning algorithm. Tasks that require precision and                 high-performance teleoperation system, and a novel imitation
+S02:Z021 | visual feedback present a significant challenge for imitation                  learning algorithm that drastically improves previous methods
+S02:Z022 | learning, even with high-quality demonstrations. Small errors                  on fine manipulation tasks.
+S02:Z023 | in the predicted action can incur large differences in the state,              Addressing compounding errors. A major shortcoming of BC
+S02:Z024 | exacerbating the “compounding error” problem of imitation                      is compounding errors, where errors from previous timesteps
+S02:Z025 | learning [51, 68, 30]. To tackle this, we take inspiration from                accumulate and cause the robot to drift off of its training
+S02:Z026 | action chunking, a concept in psychology that describes how                    distribution, leading to hard-to-recover states [51, 68]. This
+S02:Z027 | sequences of actions are grouped together as a chunk, and                      problem is particularly prominent in the fine manipulation
+S02:Z028 | executed as one unit [36]. In our case, the policy predicts the                setting [30]. One way to mitigate compounding errors is to
+S02:Z029 | target joint positions for the next k timesteps, rather than just              allow additional on-policy interactions and expert corrections,
+S02:Z030 | one step at a time. This reduces the effective horizon of the task             such as DAgger [51] and its variants [31, 42, 25]. However,
+S02:Z031 | by k-fold, mitigating compounding errors. Predicting action                    expert annotation can be time-consuming and unnatural with
+S02:Z032 | sequences also helps tackle temporally correlated confounders                  a teleoperation interface [30]. One could also inject noise at
+S02:Z033 | [65], such as pauses in demonstrations that are hard to model                  demonstration collection time to obtain datasets with corrective
+S02:Z034 | with Markovian single-step policies. To further improve the                    behavior [37], but for fine manipulation, such noise injection
+S02:Z035 | smoothness of the policy, we propose temporal ensembling,                      can directly lead to task failure, reducing the dexterity of
+S02:Z036 | which queries the policy more frequently and averages across                   teleoperation system. To circumvent these issues, previous
+S02:Z037 | the overlapping action chunks. We implement action chunking                    works generate synthetic correction data in an offline manner
+S02:Z038 | policy with Transformers [69], an architecture designed for                    [17, 30, 74]. While they are limited to settings where low-
+S02:Z039 | sequence modeling, and train it as a conditional VAE (CVAE)                    dimensional states are available, or a specific type of task like
+S02:Z040 | [59, 34] to capture the variability in human data. We name our                 grasping. Due to these limitations, we need to address the
+S02:Z041 | method Action Chunking with Transformers (ACT), and find                       compounding error problem from a different angle, compatible
+S02:Z042 | that it significantly outperforms previous imitation learning                  with  high-dimensional  visual  observations.  We  propose  to
+S02:Z043 | algorithms  on  a  range  of  simulated  and  real-world  fine                 reduce the effective horizon of tasks through action chunking,
+S02:Z044 | manipulation tasks.                                                            i.e., predicting an action sequence instead of a single action,
+S02:Z045 |    The key contribution of this paper is a low-cost system for                 and then ensemble across overlapping action chunks to produce
+S02:Z046 | learning fine manipulation, comprising a teleoperation system                  trajectories that are both accurate and smooth.
+S02:Z047 | and a novel imitation learning algorithm. The teleoperation                    Bimanual manipulation. Bimanual manipulation has a long
+S02:Z048 | system, despite its low cost, enables tasks with high precision                history in robotics, and has gained popularity with the lowering
+S02:Z049 | and rich contacts. The imitation learning algorithm, Action                    of hardware costs. Early works tackle bimanual manipulation
+S02:Z050 | Chunking with Transformers (ACT), is capable of learning pre-                  from a classical control perspective, with known environment
+S02:Z051 | cise, close-loop behavior and drastically outperforms previous                 dynamics [58, 52], but designing such models can be time-
+S02:Z052 | methods. The synergy between these two parts allows learning                   consuming, and they may not be accurate for objects with
+S02:Z053 | of 6 fine manipulation skills directly in the real-world, such as              complex physical properties. More recently, learning has been
+S02:Z054 | opening a translucent condiment cup and slotting a battery with                incorporated into bimanual systems, such as reinforcement
+S02:Z055 | 80-90% success, from only 10 minutes or 50 demonstration                       learning [10, 11], imitating human demonstrations [35, 38, 63,
+S02:Z056 | trajectories.                                                                  71, 33], or learning to predict key points that chain together
+
+===== PDF S. 3 =====
+S03:Z001 | Fig. 3: Left: Camera viewpoints of the front, top, and two wrist cameras, together with an illustration of the bimanual workspace of ALOHA.
+S03:Z002 | Middle: Detailed view of the “handle and scissor” mechanism and custom grippers.Right: Technical spec of the ViperX 6dof robot [1].
+S03:Z003 | motor primitives [21, 20, 54]. Some of the works also focus                   when performing delicate operations, and robust grip even with
+S03:Z004 | on fine-grained manipulation tasks such as knot untying, cloth                thin plastic films.
+S03:Z005 | flattening, or even threading a needle [20, 19, 32], while using                 We  then  seek  to  design  a  teleoperation  system  that  is
+S03:Z006 | robots that are considerably more expensive, e.g. the da Vinci                maximally  user-friendly  around  the  ViperX  robot.  Instead
+S03:Z007 | surgical robot or ABB YuMi. Our work turns to low-cost                        of mapping the hand pose captured by a VR controller or
+S03:Z008 | hardware, e.g. arms that cost around $5k each, and seeks to                   camera to the end-effector pose of the robot, i.e. task-space
+S03:Z009 | enable them to perform high-precision, closed-loop tasks. Our                 mapping, we use direct joint-space mapping from a smaller
+S03:Z010 | teleoperation setup is most similar to Kim et al. [33], which                 robot, WidowX, manufactured by the same company and costs
+S03:Z011 | also uses joint-space mapping between the leader and follower                 $3300 [2]. The user teleoperates by backdriving the smaller
+S03:Z012 | robots. Unlike this previous system, we do not make use of                    WidowX (“the leader”), whose joints are synchronized with the
+S03:Z013 | special encoders, sensors, or machined components. We build                   larger ViperX (“the follower”). When developing the setup, we
+S03:Z014 | our system with only off-the-shelf robots and a handful of 3D                 noticed a few benefits of using joint-space mapping compared
+S03:Z015 | printed parts, allowing non-experts to assemble it in less than               to task-space. (1) Fine manipulation often requires operating
+S03:Z016 | 2 hours.                                                                      near singularities of the robot, which in our case has 6 degrees
+S03:Z017 |   III.  ALOHA: A        LOW-COST OPEN-SOURCE HARDWARE                         of freedom and no redundancy. Off-the-shelf inverse kinematics
+S03:Z018 |           SYSTEM FOR BIMANUAL TELEOPERATION                                   (IK) fails frequently in this setting. Joint space mapping, on
+S03:Z019 |    We seek to develop an accessible and high-performance                      the other hand, guarantees high-bandwidth control within the
+S03:Z020 | teleoperation system for fine manipulation. We summarize our                  joint limits, while also requiring less computation and reducing
+S03:Z021 | design considerations into the following 5 principles.                        latency. (2) The weight of the leader robot prevents the user
+S03:Z022 |                                                                               from moving too fast, and also dampens small vibrations.
+S03:Z023 |   1) Low-cost: The entire system should be within budget for                  We  notice  better  performance  on  precise  tasks  with  joint-
+S03:Z024 |       most robotic labs, comparable to a single industrial arm.               space mapping rather than holding a VR controller. To further
+S03:Z025 |   2) Versatile:  It  can  be  applied  to  a  wide  range  of  fine           improve the teleoperation experience, we design a 3D-printed
+S03:Z026 |       manipulation tasks with real-world objects.                             “handle and scissor” mechanism that can be retrofitted to the
+S03:Z027 |   3) User-friendly: The system should be intuitive, reliable,                 leader robot (Fig 3). It reduces the force required from the
+S03:Z028 |       and easy to use.                                                        operator to backdrive the motor, and allows for continuous
+S03:Z029 |   4) Repairable:  The  setup  can  be  easily  repaired  by  re-              control of the gripper, instead of binary opening or closing.
+S03:Z030 |       searchers, when it inevitably breaks.                                   We also design a rubber band load balancing mechanism that
+S03:Z031 |   5) Easy-to-build: It can be quickly assembled by researchers,               partiallycounteractsthegravityontheleaderside.Itreducesthe
+S03:Z032 |      with easy-to-source materials.                                           effort needed from the operator and makes longer teleoperation
+S03:Z033 |    When choosing the robot to use, principles 1, 4, and 5 lead                sessions (e.g. >30 minutes) possible. We include more details
+S03:Z034 | us to build a bimanual parallel-jaw grippers setup with two                   about the setup in the project website.
+S03:Z035 | ViperX 6-DoF robot arms [1, 70]. We do not employ dexterous                      The rest of the setup includes a robot cage with 20×20mm
+S03:Z036 | hands due to price and maintenance considerations. The ViperX                 aluminum extrusions, reinforced by crossing steel cables. There
+S03:Z037 | arm used has a working payload of 750g and 1.5m span, with                    is a total of four Logitech C922x webcams, each streaming
+S03:Z038 | an accuracy of 5-8mm. The robot is modular and simple to                      480×640 RGB images. Two of the webcams are mounted on
+S03:Z039 | repair: in the case of motor failure, the low-cost Dynamixel                  the wrist of the follower robots, allowing for a close-up view
+S03:Z040 | motors can be easily replaced. The robot can be purchased                     of the grippers. The remaining two cameras are mounted on
+S03:Z041 | off-the-shelf for around $5600. The OEM fingers, however,                     the front and at the top respectively (Fig 3). All robots and
+S03:Z042 | are not versatile enough to handle fine manipulation tasks. We                webcams are connected to a Linux workstation through USB
+S03:Z043 | thus design our own 3D printed “see-through” fingers and fit                  ports.
+S03:Z044 | it with gripping tape (Fig 3). This allows for good visibility                   Specifically, the robot is composed of a chain of Dynamixel
+
+===== PDF S. 4 =====
+S04:Z001 |                    Precise tasks                                                   Contact-rich tasks                                                           Dynamic tasks
+S04:Z002 |   Thread zip tie   Pick credit card   Open ziploc   RAM insertion   Turn pages   NIST board belt   Juggle ping pong   Balance ping pong   Swing open bags
+S04:Z003 |       (in 5s)                (in 5s)               (in 5s)             (in 30s)           (in 30s)            (in 30s)              (for 5 times)               (for 20s)                    (in 5s)
+S04:Z004 |       10/10                  10/10                10/10                 9/10                10/10                 8/10                       4/10                         9/10                        10/10
+S04:Z005 | TABLE I: Teleoperation success. We report the number of successes out of 10 trials. The task is only successful if completed within the
+S04:Z006 | time limit specified in the table, excepting the two ping pong tasks where success is measured in duration. All objects used are off-the-shelf.
+S04:Z007 | Fig. 4: Teleoperation accuracy. We plot the position tracking error of the ALOHA teleoperation system for three representative tasks. (a) A
+S04:Z008 | relatively smooth task of sliding open a ziploc bag. The tracking error is consistently below 2cm with an average of 0.68cm, comparable to
+S04:Z009 | the accuracy of the robot arm. (b) The tracking error can spike when the follower arms are exerting high-amount of force, e.g. inserting a
+S04:Z010 | RAM stick into a tight-fitting slot. This is due to the non-bilateral nature of the system. (c) High tracking error can also occur during sudden
+S04:Z011 | acceleration, as in the case of swinging open a plastic bag. This is due to a combination of teleoperation delay and motor torque limitations.
+S04:Z012 | actuators, with an integrated controller and driver. We set                          amount of force is needed to secure the RAM in the slot. This
+S04:Z013 | all actuators to position control mode, where the underlying                         is expected as our setup is not bilateral, and the tracking error
+S04:Z014 | proprietary PID controller tracks the position target at >1kHz.                      defines how much force is applied through the low-level PID
+S04:Z015 | Thejointtargetsarereadfromleaderrobotsandsenttofollower                              controller. Lastly for swinging open a plastic bag (dynamic
+S04:Z016 | robots at 50Hz. It is worth noting that this is not a bilateral                      task), both hands grasp the opening and fling twice to let air fill
+S04:Z017 | system, in which case a much higher frequency is needed to e.g.                      in the bag. We measure a peak velocity of 3m/s, and the rapid
+S04:Z018 | enable force reflection [46]. A teleoperation frequency of 50Hz                      change in speed results in spikes of tracking error at around
+S04:Z019 | is common among other non-bilateral systems [7, 50, 39] and                          25cm. We attribute this to a combination of teleoperation
+S04:Z020 | in practice demonstrates sufficient performance. We include a                        delay and motor torque limitations. While despite these large
+S04:Z021 | quantitative evaluation later in this section.                                       spikes in tracking error for forceful and dynamic motions, the
+S04:Z022 |    With the design considerations above, we build the bimanual                       teleoperation success rate remains high. As shown in table I,
+S04:Z023 | teleoperation setup ALOHA within a 20k USD budget, compa-                            our operator is able to insert RAM in 30 seconds for 9 out of
+S04:Z024 | rable to a single research arm such as Franka Emika Panda.                          10 times, and swing open the plastic bag in 5 seconds 10 out
+S04:Z025 | ALOHA enables the teleoperation of:                                                  of 10 times. We include a more detailed price & capability
+S04:Z026 | •  Precise tasks such as threading zip cable ties, picking credit                    comparison in Appendix A, as well as more skills that ALOHA
+S04:Z027 |    cards out of wallets, and opening or closing ziploc bags.                         is capable of in Figure 10. To make ALOHA more accessible,
+S04:Z028 | •  Contact-rich tasks such as inserting 288-pin RAM into                             we open-source all software and hardware with a detailed
+S04:Z029 |    a  computer  motherboard,  turning  pages  of  a  book,  and                      tutorial covering 3D printing, assembling the frame to software
+S04:Z030 |    assembling the chains and belts in the NIST board #2 [4]                          installations. You can find the tutorial on the project website.
+S04:Z031 | •  Dynamic tasks such as juggling a ping pong ball with a
+S04:Z032 |    real ping pong paddle, balancing the ball without it falling                              IV.  ACTION CHUNKING WITH TRANSFORMERS
+S04:Z033 |    off, and swinging open plastic bags in the air.                                      As we will see in Section V, existing imitation learning
+S04:Z034 | Skills such as threading a zip tie, inserting RAM, and juggling                      algorithms perform poorly on fine-grained tasks that require
+S04:Z035 | ping pong ball, to our knowledge, are not available for existing                     high-frequency control and closed-loop feedback. We therefore
+S04:Z036 | teleoperation systems with 5-10x the budget [22, 5]. We include                      develop a novel algorithm, Action Chunking with Transformers
+S04:Z037 | quantitative human teleoperation success rates for each of the                      (ACT), to leverage the data collected by ALOHA. We first
+S04:Z038 | tasks in Table I. We also plot the tracking performance for one                      summarize the pipeline of training ACT, then dive into each
+S04:Z039 | representative task in each of the three categories in Figure 4.                     of the design choices.
+S04:Z040 | For opening ziploc bags (precise task), the tracking error is                           To  train  ACT  on  a  new  task,  we  first  collect  human
+S04:Z041 | consistently under 2cm, with an average of 0.68cm. The error is                      demonstrations using ALOHA. We record the joint positions of
+S04:Z042 | comparable to the robotic arm’s accuracy of 5-8mm. For RAM                           the leader robots (i.e. input from the human operator) and use
+S04:Z043 | insertion (contact-rich task), the tracking error is generally                       them as actions. It is important to use the leader joint positions
+S04:Z044 | under 2cm with the exception of insertion-time, where high-                          instead of the follower’s, because the amount of force applied
+
+===== PDF S. 5 =====
+S05:Z001 | Fig. 5: Architecture of Action Chunking with Transformers (ACT). We train ACT as a Conditional VAE (CVAE), which has an encoder and a
+S05:Z002 | decoder. Left: The encoder of the CVAE compresses action sequence and joint observation into z, the style variable. The encoder is discarded
+S05:Z003 | at test time. Right: The decoder or policy of ACT synthesizes images from multiple viewpoints, joint positions, and z with a transformer
+S05:Z004 | encoder, and predicts a sequence of actions with a transformer decoder. z is simply set to the mean of the prior (i.e. zero) at test time.
+S05:Z005 |                                                                                 actions in sequence (Figure 6). This implies a k-fold reduction
+S05:Z006 |                                                                                 in the effective horizon of the task. Concretely, the policy
+S05:Z007 |                                                                                 models πθ(at:t+k|st) instead of πθ(at|st). Chunking can also
+S05:Z008 |                                                                                 help model non-Markovian behavior in human demonstrations.
+S05:Z009 |                                                                                 Specifically,asingle-steppolicywouldstrugglewithtemporally
+S05:Z010 |                                                                                 correlated confounders, such as pauses in the middle of a
+S05:Z011 |                                                                                 demonstration [65], since the behavior not only depends on
+S05:Z012 |                                                                                 the state, but also the timestep. Action chunking can mitigate
+S05:Z013 |                                                                                 this issue when the confounder is within a chunk, without
+S05:Z014 |                                                                                 introducing the causal confusion issue for history-conditioned
+S05:Z015 |                                                                                 policies [13].
+S05:Z016 | Fig. 6: We employ both Action Chunking and Temporal Ensembling                     A naïve implementation of action chunking can be sub-
+S05:Z017 | whenapplyingactions,insteadofinterleavingobservingandexecuting.                 optimal:  a  new  environment  observation  is  incorporated
+S05:Z018 | is implicitly defined by the difference between them, through                   abruptly every k steps and can result in jerky robot motion.
+S05:Z019 | the low-level PID controller. The observations are composed of                  To improve smoothness and avoid discrete switching between
+S05:Z020 | the current joint positions of follower robots and the image feed               executing and observing, we query the policy at every timestep.
+S05:Z021 | from 4 cameras. Next, we train ACT to predict the sequence of                   This makes different action chunks overlap with each other,
+S05:Z022 | future actions given the current observations. An action here                   and at a given timestep there will be more than one predicted
+S05:Z023 | corresponds to the target joint positions for both arms in the                  action. We illustrate this in Figure 6 and propose a temporal
+S05:Z024 | next time step. Intuitively, ACT tries to imitate what a human                  ensemble to combine these predictions. Our temporal ensemble
+S05:Z025 | operator would do in the following time steps given current                     performs a weighted average over these predictions with an
+S05:Z026 | observations. These target joint positions are then tracked by                  exponential weighting scheme wi = exp(−m∗i), where w0
+S05:Z027 | the low-level, high-frequency PID controller inside Dynamixel                   is the weight for the oldest action. The speed for incorporating
+S05:Z028 | motors. At test time, we load the policy that achieves the                      new observation is governed by m, where a smaller m means
+S05:Z029 | lowest validation loss and roll it out in the environment. The                  faster incorporation. We note that unlike typical smoothing,
+S05:Z030 | main challenge that arises is compounding errors, where errors                  where the current action is aggregated with actions in adjacent
+S05:Z031 | from previous actions lead to states that are outside of training               timesteps, which leads to bias, we aggregate actions predicted
+S05:Z032 | distribution.                                                                   for the same timestep. This procedure also incurs no additional
+S05:Z033 |                                                                                 trainingcost,onlyextrainference-timecomputation.Inpractice,
+S05:Z034 | A. Action Chunking and Temporal Ensemble                                        we find both action chunking and temporal ensembling to be
+S05:Z035 |    To combat the compounding errors of imitation learning in a                  important for the success of ACT, which produces precise and
+S05:Z036 | way that is compatible with pixel-to-action policies (Figure II),               smooth motion. We discuss these components in more detail
+S05:Z037 | we seek to reduce the effective horizon of long trajectories                    in the ablation studies in Subsection VI-A.
+S05:Z038 | collected at high frequency. We are inspired by action chunking,                B. Modeling human data
+S05:Z039 | a neuroscience concept where individual actions are grouped
+S05:Z040 | together and executed as one unit, making them more efficient                      Another challenge that arises is learning from noisy human
+S05:Z041 | to store and execute [36]. Intuitively, a chunk of actions could                demonstrations. Given the same observation, a human can use
+S05:Z042 | correspond  to  grasping  a  corner  of  the  candy  wrapper  or                different trajectories to solve the task. Humans will also be
+S05:Z043 | inserting a battery into the slot. In our implementation, we                    more stochastic in regions where precision matters less [40].
+S05:Z044 | fix the chunk size to be k: every k steps, the agent receives                   Thus, it is important for the policy to focus on regions where
+S05:Z045 | an observation, generates the next k actions, and executes the                  high precision matters. We tackle this problem by training our
+
+===== PDF S. 6 =====
+S06:Z001 | Algorithm 1 ACT Training                                                       positions and the target action sequence of length k from the
+S06:Z002 |  1: Given: Demo datasetD, chunk size k, weight β.                              demonstration dataset, prepended by a learned “[CLS]” token
+S06:Z003 |  2: Let at, ot  represent action and observation at timestep t, ¯ot            similar to BERT. This forms ak+2 length input (Figure 5 left).
+S06:Z004 |     represent ot without image observations.                                  Afterpassingthroughthetransformer,thefeaturecorresponding
+S06:Z005 |  3: Initialize encoder qϕ(z|at:t+k,¯ot)                                        to“[CLS]”isusedtopredictthemeanandvarianceofthe“style
+S06:Z006 |  4: Initialize decoder πθ(ˆat:t+k|ot,z)                                       variable” z, which is then used as input to the decoder. The
+S06:Z007 |  5: for iteration n = 1,2,... do
+S06:Z008 |  6:      Sample ot, at:t+k fromD                                               CVAE decoder (i.e. the policy) takes the current observations
+S06:Z009 |  7:      Sample z from qϕ(z|at:t+k,¯ot)                                        and z as the input, and predicts the next k actions (Figure 5
+S06:Z010 |  8:      Predict ˆat:t+k from πθ(ˆat:t+k|ot,z)                                 right). We use ResNet image encoders, a transformer encoder,
+S06:Z011 |  9:    Lreconst =MSE(ˆat:t+k,at:t+k)                                           and a transformer decoder to implement the CVAE decoder.
+S06:Z012 | 10:    Lreg =DKL(qϕ(z|at:t+k,¯ot)∥N(0,I))
+S06:Z013 | 11:      Update θ, ϕ with ADAM andL =Lreconst +βLreg                           Intuitively, the transformer encoder synthesizes information
+S06:Z014 |                                                                                from different camera viewpoints, the joint positions, and the
+S06:Z015 | Algorithm 2 ACT Inference                                                      style variable, and the transformer decoder generates a coherent
+S06:Z016 |                                                                                action sequence. The observation includes 4 RGB images, each
+S06:Z017 |  1: Given: trained πθ, episode length T, weight m.                             at 480×640 resolution, and joint positions for two robot arms
+S06:Z018 |  2: Initialize  FIFO  buffers B[0  :  T],  where B[t]  stores  actions        (7+7=14 DoF in total). The action space is the absolute joint
+S06:Z019 |     predicted for timestep t.                                                  positions for two robots, a 14-dimensional vector. Thus with
+S06:Z020 |  3: for timestep t = 1,2,...T do
+S06:Z021 |  4:      Predict ˆat:t+k with πθ(ˆat:t+k|ot,z) where z = 0                     action chunking, the policy outputs a k× 14 tensor given
+S06:Z022 |  5:      Add ˆat:t+k to buffersB[t :t+k] respectively                          the current observation. The policy first process the images
+S06:Z023 |  6:      Obtain current step actions At =B[t]                                 with ResNet18 backbones [23], which convert 480×640×3
+S06:Z024 |  7:      Apply at =PiwiAt[i]/Piwi, with wi = exp(−m∗i)                         RGB images into 15×20×512 feature maps. We then flatten
+S06:Z025 |                                                                                along the spatial dimension to obtain a sequence of 300×512.
+S06:Z026 |                                                                               To preserve the spatial information, we add a 2D sinusoidal
+S06:Z027 | action chunking policy as a generative model. Specifically, we                 position embedding to the feature sequence [9]. Repeating this
+S06:Z028 | train the policy as a conditional variational autoencoder (CVAE)               for all 4 images gives a feature sequence of 1200×512 in
+S06:Z029 | [59], to generate an action sequence conditioned on current                    dimension. We then append two more features: the current
+S06:Z030 | observations. The CVAE has two components: a CVAE encoder                      joint positions and the “style variable”z. They are projected
+S06:Z031 | and a CVAE decoder, illustrated on the left and right side of                  from their original dimensions to 512 through linear layers
+S06:Z032 | Figure 5 respectively. The CVAE encoder only serves to train                   respectively. Thus, the input to the transformer encoder is
+S06:Z033 | the CVAE decoder (the policy) and is discarded at test time.                  1202×512. The transformer decoder conditions on the encoder
+S06:Z034 | Specifically, the CVAE encoder predicts the mean and variance                  output through cross-attention, where the input sequence is a
+S06:Z035 | of the style variable z’s distribution, which is parameterized as              fixed position embedding, with dimensions k×512, and the
+S06:Z036 | a diagonal Gaussian, given the current observation and action                  keys and values are coming from the encoder. This gives the
+S06:Z037 | sequence as inputs. For faster training in practice, we leave out              transformer decoder an output dimension of k×512, which is
+S06:Z038 | theimageobservationsandonlyconditionontheproprioceptive                        then down-projected with an MLP into k×14, corresponding
+S06:Z039 | observation and the action sequence. The CVAE decoder, i.e.                    to the predicted target joint positions for the next k steps. We
+S06:Z040 | the policy, conditions on both z and the current observations                  use L1 loss for reconstruction instead of the more common
+S06:Z041 | (images + joint positions) to predict the action sequence. At                  L2 loss: we noted that L1 loss leads to more precise modeling
+S06:Z042 | test time, we set z to be the mean of the prior distribution i.e.              of the action sequence. We also noted degraded performance
+S06:Z043 | zero to deterministically decode. The whole model is trained to               when using delta joint positions as actions instead of target
+S06:Z044 | maximizethelog-likelihoodofdemonstrationactionchunks,i.e.                      joint positions. We include a detailed architecture diagram in
+S06:Z045 | minθ−Pst,at:t+k∈Dlogπθ(at:t+k|st), with the standard VAE                      Appendix C.
+S06:Z046 | objective which has two terms: a reconstruction loss and a term                   We  summarize  the  training  and  inference  of  ACT  in
+S06:Z047 | that regularizes the encoder to a Gaussian prior. Following [24],             Algorithms 1 and 2. The model has around 80M parameters,
+S06:Z048 | we weight the second term with a hyperparameterβ. Intuitively,                 and we train from scratch for each task. The training takes
+S06:Z049 | higher β will result in less information transmitted in z [66].                around 5 hours on a single 11G RTX 2080 Ti GPU, and the
+S06:Z050 | Overall,  we  found  the  CVAE  objective  to  be  essential  in               inference time is around 0.01 seconds on the same machine.
+S06:Z051 | learning precise tasks from human demonstrations. We include
+S06:Z052 | a more detailed discussion in Subsection VI-B.
+S06:Z053 | C. Implementing ACT                                                                                      V.  EXPERIMENTS
+S06:Z054 |    We implement the CVAE encoder and decoder with trans-                          We present experiments to evaluate ACT’s performance on
+S06:Z055 | formers, as transformers are designed for both synthesizing in-                fine manipulation tasks. For ease of reproducibility, we build
+S06:Z056 | formationacrossasequenceandgeneratingnewsequences.The                          two simulated fine manipulation tasks in MuJoCo [67], in
+S06:Z057 | CVAE encoder is implemented with a BERT-like transformer                       addition to 6 real-world tasks with ALOHA. We provide videos
+S06:Z058 | encoder [14]. The inputs to the encoder are the current joint                  for each task on the project website.
+
+===== PDF S. 7 =====
+S07:Z001 | Fig. 7: Real-World Task Definitions. For each of the 6 real-world tasks, we illustrate the initializations and the subtasks.
+
+===== PDF S. 8 =====
+S08:Z001 |              Fig. 8: Simulated Task Definitions. For each of the 2 simulated tasks, we illustrate the initializations and the subtasks.
+S08:Z002 |                                 Cube Transfer (sim)                      Bimanual Insertion (sim)                  Slide Ziploc (real)                    Slot Battery (real)
+S08:Z003 |                          Touched       Lifted          Transfer       Grasp          Contact       Insert          Grasp       Pinch       Open       Grasp       Place       Insert
+S08:Z004 |    BC-ConvMLP       34 | 3            17 | 1            1 | 0             5 | 0            1 | 0            1 | 0              0               0              0               0               0              0
+S08:Z005 |    BeT                        60 | 16          51 | 13        27 | 1           21 | 0            4 | 0            3 | 0              8               0              0               4               0              0
+S08:Z006 |    RT-1                       44 | 4            33 | 2            2 | 0             2 | 0            0 | 0            1 | 0              4               0              0               4               0              0
+S08:Z007 |    VINN                     13 | 17            9 | 11          3 | 0             6 | 0            1 | 0            1 | 0             28              0              0              20              0              0
+S08:Z008 |    ACT (Ours)           97 | 82         90 | 60       86 | 50         93 | 76       90 | 66        32 | 20          92             96            88            100           100           96
+S08:Z009 | TABLE II: Success rate (%) for 2 simulated and 2 real-world tasks, comparing our method with 4 baselines. For the two simulated tasks,
+S08:Z010 | we report [training with scripted data | training with human data], with 3 seeds and 50 policy evaluations each. For the real-world tasks, we
+S08:Z011 | report training with human data, with 1 seed and 25 evaluations. Overall, ACT significantly outperforms previous methods.
+S08:Z012 |                               Open Cup (real)                   Thread Velcro (real)                      Prep Tape (real)                                 Put On Shoe (real)
+S08:Z013 |                      Tip Over      Grasp      Open Lid      Lift      Grasp      Insert      Grasp      Cut      Handover      Hang      Lift      Insert      Support      Secure
+S08:Z014 |        BeT                 12               0                0              24          0             0             8           0              0                0          12          0               0               0
+S08:Z015 |    ACT (Ours)          100             96              84             92         40           20           96         92            72              64        100        92             92             92
+S08:Z016 |         TABLE III: Success rate (%) for the remaining 3 real-world tasks. We only compare with the best performing baseline BeT.
+S08:Z017 | A. Tasks                                                                                     3mm x 25mm, while the velcro tie measures 2mm x 10-25mm
+S08:Z018 |    All 8 tasks require fine-grained, bimanual manipulation, and                              depending on the position. For this task to be successful, the
+S08:Z019 | are illustrated in Figure 7. For Slide Ziploc, the right gripper                             robot must use visual feedback to correct for perturbations
+S08:Z020 | needs to accurately grasp the slider of the ziploc bag and open                              with each grasp, as even a few millimeters of error during the
+S08:Z021 | it, with the left gripper securing the body of the bag. For Slot                             first grasp will compound in the second grasp mid-air, giving
+S08:Z022 | Battery, the right gripper needs to first place the battery into                             more than a 10mm deviation in the insertion phase. For Prep
+S08:Z023 | the slot of the remote controller, then using the tip of fingers                             Tape, the goal is to hang a small segment of the tape on the
+S08:Z024 | to delicately push in the edge of the battery, until it is fully                             edge of a cardboard box. The right gripper first grasps the tape
+S08:Z025 | inserted. Because the spring inside the battery slot causes the                              and cuts it with the tape dispenser’s blade, and then hands
+S08:Z026 | remote controller to move in the opposite direction during                                   the tape segment to the left gripper mid-air. Next, both arms
+S08:Z027 | insertion, the left gripper pushes down on the remote to keep                                approach the box, the left arm gently lays the tape segment
+S08:Z028 | it in place. For Open Cup, the goal is to open the lid of a                                  on the box surface, and the right fingers push down on the
+S08:Z029 | small condiment cup. Because of the cup’s small size, the                                    tape to prevent slipping, followed by the left arm opening its
+S08:Z030 | grippers cannot grasp the body of the cup by just approaching                                gripper to release the tape. Similar to Thread Velcro, this task
+S08:Z031 | it from the side. Therefore we leverage both grippers: the right                             requires multiple steps of delicate coordination between the
+S08:Z032 | fingers first lightly tap near the edge of the cup to tip it over,                           two arms. For Put On Shoe, the goal is to put the shoe on a
+S08:Z033 | and then nudge it into the open left gripper. This nudging                                   fixed manniquin foot, and secure it with the shoe’s velcro strap.
+S08:Z034 | step requires high precision and closing the loop on visual                                  The arms would first need to grasp the tongue and collar of
+S08:Z035 | perception. The left gripper then closes gently and lifts the cup                            the shoe respectively, lift it up and approach the foot. Putting
+S08:Z036 | off the table, followed by the right finger prying open the lid,                             the shoe on is challenging because of the tight fitting: the arms
+S08:Z037 | which also requires precision to not miss the lid or damage                                  would need to coordinate carefully to nudge the foot in, and
+S08:Z038 | the cup. The goal of Thread Velcro is to insert one end of                                   both grasps need to be robust enough to counteract the friction
+S08:Z039 | a velcro cable tie into the small loop attached to other end.                                between the sock and shoe. Then, the left arm goes around to
+S08:Z040 | The left gripper needs to first pick up the velcro tie from the                              the bottom of the shoe to support it from dropping, followed by
+S08:Z041 | table, followed by the right gripper pinching the tail of the                                the right arm flipping the velcro strap and pressing it against
+S08:Z042 | tie in mid-air. Then, both arms coordinate to insert one end                                 the shoe to secure. The task is only considered successful if
+S08:Z043 | of the velcro tie into the other in mid-air. The loop measures                               the shoe clings to the foot after both arms releases. For the
+
+===== PDF S. 9 =====
+S09:Z001 | simulated task Transfer Cube, the right arm needs to first pick                where exactly the handover happens, which can vary across
+S09:Z002 | up the red cube lying on the table, then place it inside the                   demonstrations.
+S09:Z003 | gripper of the other arm. Due to the small clearance between                   C. Experiment Results
+S09:Z004 | the cube and the left gripper (around 1cm), small errors could
+S09:Z005 | result in collisions and task failure. For the simulated task                     We compare ACT with four prior imitation learning methods.
+S09:Z006 | Bimanual Insertion, the left and right arms need to pick up                    BC-ConvMLP  is  the  simplest  yet  most  widely  used  base-
+S09:Z007 | the socket and peg respectively, and then insert in mid-air so                 line [73, 27], which processes the current image observations
+S09:Z008 | the peg touches the “pins” inside the socket. The clearance is                 with  a  convolutional  network,  whose  output  features  are
+S09:Z009 | around 5mm in the insertion phase. For all 8 tasks, the initial                concatenated with the joint positions to predict the action.
+S09:Z010 | placement of the objects is either varied randomly along the                   BeT [53] also leverages Transformers as the architecture, but
+S09:Z011 | 15cm white reference line (real-world tasks), or uniformly in                  with key differences: (1) no action chunking: the model predicts
+S09:Z012 | 2D regions (simulated tasks). We provide illustrations of both                 one action given the history of observations; and (2) the image
+S09:Z013 | the initial positions and the subtasks in Figure 7 and 8. Our                  observations are pre-processed by a separately trained frozen
+S09:Z014 | evaluation will additionally report the performance for each of                visual encoder. That is, the perception and control networks
+S09:Z015 | these subtasks.                                                                are not jointly optimized. RT-1 [8] is another Transformer-
+S09:Z016 |    In addition to the delicate bimanual control required to                    based architecture that predicts one action from a fixed-length
+S09:Z017 | solve these tasks, the objects we use also present a significant               history of past observations. Both BeT  and RT-1 discretize
+S09:Z018 | perception challenge. For example, the ziploc bag is largely                   the action space: the output is a categorical distribution over
+S09:Z019 | transparent, with a thin blue sealing line. Both the wrinkles                  discrete bins, but with an added continuous offset from the bin-
+S09:Z020 | on the bag and the reflective candy wrappers inside can vary                   center in the case of BeT. Our method, ACT, instead directly
+S09:Z021 | during the randomization, and distract the perception system.                  predicts continuous actions, motivated by the precision required
+S09:Z022 | Other transparent or translucent objects include the tape and                  in fine manipulation. Lastly, VINN [44] is a non-parametric
+S09:Z023 | both the lid and body of the condiment cup, making them                        method that assumes access to the demonstrations at test time.
+S09:Z024 | hard to perceive precisely and ill-suited for depth cameras. The               Given a new observation, it retrieves the k observations with
+S09:Z025 | black table top also creates a low-contrast against many objects               the most similar visual features, and returns an action using
+S09:Z026 | of interest, such as the black velcro cable tie and the black                  weighted k-nearest-neighbors. The visual feature extractor is
+S09:Z027 | tape dispenser. Especially from the top view, it is challenging                a pretrained ResNet finetuned on demonstration data with
+S09:Z028 | to localize the velcro tie because of the small projected area.                unsupervised learning. We carefully tune the hyperparameters
+S09:Z029 |                                                                                of these four prior methods using cube transfer. Details of the
+S09:Z030 | B. Data Collection                                                             hyperparameters are provided in Appendix D.
+S09:Z031 |                                                                                   As a detailed comparison with prior methods, we report the
+S09:Z032 |    For all 6 real-world tasks, we collect demonstrations using                 average success rate in Table II for two simulated and two real
+S09:Z033 | ALOHA teleoperation. Each episode takes 8-14 seconds for the                   tasks. For simulated tasks, we average performance across 3
+S09:Z034 | human operator to perform depending on the complexity of the                   random seeds with 50 trials each. We report the success rate
+S09:Z035 | task, which translates to 400-700 time steps given the control                 on both scripted data (left of separation bar) and human data
+S09:Z036 | frequency of 50Hz. We record 50 demonstrations for each task,                  (right of separation bar). For real-world tasks, we run one seed
+S09:Z037 | except for Thread Velcro which has 100. The total amount for                   and evaluate with 25 trials. ACT achieves the highest success
+S09:Z038 | demonstrations is thus around 10-20 minutes of data for each                   rate compared to all prior methods, outperforming the second
+S09:Z039 | task, and 30-60 minutes in wall-clock time because of resets                   best algorithm by a large margin on each task. For the two
+S09:Z040 | and teleoperator mistakes. For the two simulated tasks, we                     simulated tasks with scripted or human data, ACT outperforms
+S09:Z041 | collect two types of demonstrations: one type with a scripted                  the best previous method in success rate by 59%, 49%, 29%,
+S09:Z042 | policy and one with human demonstrations. To teleoperate in                    and 20%. While previous methods are able to make progress
+S09:Z043 | simulation, we use the “leader robots” ofALOHA to control                      in the first two subtasks, the final success rate remains low,
+S09:Z044 | the simulated robot, with the operator looking at the real-time                below 30%. For the two real-world tasks Slide Ziploc and
+S09:Z045 | renderings of the environment on the monitor. In both cases,                   Slot Battery, ACT achieves 88% and 96% final success rates
+S09:Z046 | we record 50 successful demonstrations.                                        respectively, with other methods making no progress past the
+S09:Z047 |    We emphasize that all human demonstrations are inherently                   first stage. We attribute the poor performance of prior methods
+S09:Z048 | stochastic, even though a single person collects all of the                    to compounding errors and non-Markovian behavior in the
+S09:Z049 | demonstrations. Take the mid-air hand handover of the tape                     data: the behavior degrades significantly towards the end of
+S09:Z050 | segment as an example: the exact position of the handover                      an episode, and the robot can pause indefinitely for certain
+S09:Z051 | is different across each episode. The human has no visual or                   states. ACT mitigates both issues with action chunking. Our
+S09:Z052 | haptic reference to perform it in the same position. Thus to                   ablations in Subsection VI-A also shows that chunking can
+S09:Z053 | successfully perform the task, the policy will need to learn that              significantlyimprovethesepriormethodswhenincorporated.In
+S09:Z054 | the two grippers should never collide with each other during                   addition, we notice a drop in performance for all methods when
+S09:Z055 | the handover, and the left gripper should always move to a                     switching from scripted data to human data in simulated tasks:
+S09:Z056 | position that can grasp the tape, instead of trying to memorize                the stochasticity and multi-modality of human demonstrations
+
+===== PDF S. 10 =====
+S10:Z001 | make imitation learning a lot harder.                                         (a) with differentk, showing trends consistent with ACT, where
+S10:Z002 |    We report the success rate of the 3 remaining real-world                    more action chunking improves performance. While ACT still
+S10:Z003 | tasks in Table III. For these tasks, we only compare with BeT,                 outperforms both augmented baselines with sizable gains, these
+S10:Z004 | which has the highest task success rate so far. Our method                     results suggest that action chunking is generally beneficial for
+S10:Z005 | ACT reaches 84% success for Cup Open, 20% for Thread                           imitation learning in these settings.
+S10:Z006 | Velcro, 64% for Prep Tape and 92% for Put On Shoe, again                          We then ablate the temporal ensemble by comparing the
+S10:Z007 | outperforming BeT, which achieve zero final success on these                   highest success rate with or without it, again across the 4
+S10:Z008 | challenging tasks. We observe relatively low success of ACT                    aforementioned tasks and differentk. We note that experiments
+S10:Z009 | in Thread Velcro, where the success rate decreased by roughly                 with and without the temporal ensemble are separately tuned:
+S10:Z010 | half at every stage, from 92% success at the first stage to                    hyperparameters that work best for no temporal ensemble may
+S10:Z011 | 20% final success. The failure modes we observe are 1) at                      not be optimal with a temporal ensemble. In Figure 9 (b), we
+S10:Z012 | stage 2, the right arm closes its gripper too early and fails to               show that BC-ConvMLP benefits from temporal ensembling the
+S10:Z013 | grasp the tail of the cable tie mid-air, and 2) in stage 3, the                most with a 4% gain, followed by a 3.3% gain for our method.
+S10:Z014 | insertion is not precise enough and misses the loop. In both                  We notice a performance drop for VINN, a non-parametric
+S10:Z015 | cases, it is hard to determine the exact position of the cable tie             method. We hypothesize that a temporal ensemble mostly
+S10:Z016 | from image observations: the contrast is low between the black                 benefits parametric methods by smoothing out the modeling
+S10:Z017 | cable tie and the background, and the cable tie only occupies                  errors. In contrast, VINN retrieves ground-truth actions from
+S10:Z018 | a small fraction of the image. We include examples of image                    the dataset and does not suffer from this issue.
+S10:Z019 | observations in Appendix B.                                                    B. Training with CVAE
+S10:Z020 |                            VI.  ABLATIONS                                         We  train  ACT  with  CVAE  objective  to  model  human
+S10:Z021 |    ACT employs action chunking and temporal ensembling to                      demonstrations, which can be noisy and contain multi-modal
+S10:Z022 | mitigate compounding errors and better handle non-Markovian                    behavior. In this section, we compare with ACT without the
+S10:Z023 | demonstrations. It also trains the policy as a conditional VAE                 CVAE objective, which simply predicts a sequence of actions
+S10:Z024 | to model the noisy human demonstrations. In this section, we                   given current observation, and trained with L1 loss. In Figure 9
+S10:Z025 | ablate each of these components, together with a user study that              (c), we visualize the success rate aggregated across 2 simulated
+S10:Z026 | highlights the necessity of high-frequency control in ALOHA.                   tasks, and separately plot training with scripted data and with
+S10:Z027 | We report results across a total of four settings: two simulated               human data. We can see that when training on scripted data,
+S10:Z028 | tasks with scripted or human demonstration.                                    the removal of CVAE objective makes almost no difference in
+S10:Z029 | A. Action Chunking and Temporal Ensembling                                     performance, because dataset is fully deterministic. While for
+S10:Z030 |                                                                                human data, there is a significant drop from 35.3% to 2%. This
+S10:Z031 |    In  Subsection  V-C,  we  observed  that  ACT  significantly                illustrates that the CVAE objective is crucial when learning
+S10:Z032 | outperforms previous methods that only predict single-step                     from human demonstrations.
+S10:Z033 | actions, with the hypothesis that action chunking is the key                   C. Is High-Frequency Necessary?
+S10:Z034 | design choice. Since k dictates how long the sequence in each
+S10:Z035 | “chunk” is, we can analyze this hypothesis by varyingk. k = 1                     Lastly, we conduct a user study to illustrate the necessity
+S10:Z036 | corresponds to no action chunking, and k =episode_length                       of high-frequency teleoperation for fine manipulation. With
+S10:Z037 | corresponds  to  fully  open-loop  control,  where  the  robot                 the same hardware setup, we lower the frequency from 50Hz
+S10:Z038 | outputs  the  entire  episode’s  action  sequence  based  on  the              to 5Hz, a control frequency that is similar to recent works
+S10:Z039 | first observation. We disable temporal ensembling in these                     that use high-capacity deep networks for imitation learning
+S10:Z040 | experiments to only measure the effect of chunking, and trained                [8, 74]. We pick two fine-grained tasks: threading a zip cable
+S10:Z041 | separate policies for eachk. In Figure 9 (a), we plot the success              tie and un-stacking two plastic cups. Both require millimeter-
+S10:Z042 | rate averaged across 4 settings, corresponding to 2 simulated                  level precision and closed-loop visual feedback. We perform
+S10:Z043 | tasks with either human or scripted data, with the blue line                   the  study  with  6  participants  who  have  varying  levels  of
+S10:Z044 | representing ACT without the temporal ensemble. We observe                     experience with teleoperation, though none had used ALOHA
+S10:Z045 | that performance improves drastically from 1% at k = 1 to                      before. The participants were recruited from among computer
+S10:Z046 | 44% at k = 100, then slightly tapers down with higher k. This                  science graduate students, with 4 men and 2 women aged 22-25
+S10:Z047 | illustrates that more chunking and a lower effective horizon                  The order of tasks and frequencies are randomized for each
+S10:Z048 | generally improve performance. We attribute the slight dip at                  participant, and each participant was provided with a 2 minutes
+S10:Z049 | k = 200,400 (i.e., close to open-loop control) to the lack of                  practice period before each trial. We recorded the time it took to
+S10:Z050 | reactive behavior and the difficulty in modeling long action                   perform the task for 3 trials, and visualize the data in Figure 9
+S10:Z051 | sequences. To further evaluate the effectiveness and generality               (d). On average, it took 33s for participants to thread the zip
+S10:Z052 | of action chunking, we augment two baseline methods with                       tie at 5Hz, which is lowered to 20s at 50Hz. For separating
+S10:Z053 | action chunking. For BC-ConvMLP, we simply increase the                        plastic cups, increasing the control frequency lowered the task
+S10:Z054 | output dimension tok∗action_dim, and for VINN, we retrieve                     duration from 16s to 10s. Overall, our setup (i.e. 50Hz) allows
+S10:Z055 | the next k actions. We visualize their performance in Figure 9                 the participants to perform highly dexterous and precise tasks in
+
+===== PDF S. 11 =====
+S11:Z001 | Fig. 9: (a) We augment two baselines with action chunking, with different values of chunk size k on the x-axis, and success rate on the
+S11:Z002 | y-axis. Both methods significantly benefit from action chunking, suggesting that it is a generally useful technique.(b) Temporal Ensemble
+S11:Z003 | (TE) improves our method and BC-ConvMLP, while hurting VINN. (c) We compare with and without the CVAE training, showing that it is
+S11:Z004 | crucial when learning from human data. (d) We plot the distribution of task completion time in our user study, where we task participants to
+S11:Z005 | perform two tasks, at 5Hz or 50Hz teleoperation frequency. Lowering the frequency results in a 62% slowdown in completion time.
+S11:Z006 | a short amount of time. However, reducing the frequency from                   [7]  Pierre Berthet-Rayne, Konrad Leibrandt, Gauthier Gras,
+S11:Z007 | 50Hz to 5Hz results in a 62% increase in teleoperation time. We                     Philippe  Fraisse,  André  Crosnier,  and  Guang-Zhong
+S11:Z008 | then use “Repeated Measures Designs”, a statistical procedure,                      Yang. Inverse kinematics control methods for redundant
+S11:Z009 | to formally verify that 50Hz teleoperation outperforms 5Hz                          snakelike robot teleoperation during minimally invasive
+S11:Z010 | with p-value <0.001. We include more details about the study                        surgery. IEEE Robotics and Automation Letters, 3:2501–
+S11:Z011 | in Appendix E.                                                                      2508, 2018.
+S11:Z012 |                                                                                [8]  Anthony Brohan, Noah Brown, Justice Carbajal, Yev-
+S11:Z013 |              VII.  LIMITATIONS AND CONCLUSION                                       gen Chebotar, Joseph Dabis, Chelsea Finn, Keerthana
+S11:Z014 |    We present a low-cost system for fine manipulation, com-                         Gopalakrishnan,  Karol  Hausman,  Alexander  Herzog,
+S11:Z015 | prising a teleoperation system ALOHA and a novel imitation                          Jasmine Hsu, Julian Ibarz, Brian Ichter, Alex Irpan, Tomas
+S11:Z016 | learning algorithm ACT. The synergy between these two parts                         Jackson, Sally Jesmonth, Nikhil J. Joshi, Ryan C. Julian,
+S11:Z017 | allows us to learn fine manipulation skills directly in the real-                   Dmitry Kalashnikov, Yuheng Kuang, Isabel Leal, Kuang-
+S11:Z018 | world, such as opening a translucent condiment cup and slotting                     Huei Lee, Sergey Levine, Yao Lu, Utsav Malla, Deek-
+S11:Z019 | a battery with a 80-90% success rate and around 10 min of                           sha Manjunath, Igor Mordatch, Ofir Nachum, Carolina
+S11:Z020 | demonstrations. While the system is quite capable, there exist                      Parada, Jodilyn Peralta, Emily Perez, Karl Pertsch, Jornell
+S11:Z021 | tasks that are beyond the capability of either the robots or                        Quiambao,  Kanishka  Rao,  Michael  S.  Ryoo,  Grecia
+S11:Z022 | the learning algorithm, such as buttoning up a dress shirt.                         Salazar, Pannag R. Sanketi, Kevin Sayed, Jaspiar Singh,
+S11:Z023 | We include a more detailed discussion about limitations in                          Sumedh Anand Sontakke, Austin Stone, Clayton Tan,
+S11:Z024 | Appendix F. Overall, we hope that this low-cost open-source                         Huong Tran, Vincent Vanhoucke, Steve Vega, Quan Ho
+S11:Z025 | system represents an important step and accessible resource                         Vuong, F. Xia, Ted Xiao, Peng Xu, Sichun Xu, Tianhe
+S11:Z026 | towards advancing fine-grained robotic manipulation.                                Yu, and Brianna Zitkovich.  Rt-1: Robotics transformer
+S11:Z027 |                                                                                     for real-world control at scale.  ArXiv, abs/2212.06817,
+S11:Z028 |                              REFERENCES                                             2022.
+S11:Z029 |  [1] Viperx   300   robot   arm   6dof.       URL   https://www.               [9]  Nicolas Carion, Francisco Massa, Gabriel Synnaeve, Nico-
+S11:Z030 |       trossenrobotics.com/viperx-300-robot-arm-6dof.aspx.                           las Usunier, Alexander Kirillov, and Sergey Zagoruyko.
+S11:Z031 |  [2] Widowx  250  robot  arm  6dof.      URL  https://www.                          End-to-end object detection with transformers.  ArXiv,
+S11:Z032 |       trossenrobotics.com/widowx-250-robot-arm-6dof.aspx.                           abs/2005.12872, 2020.
+S11:Z033 |  [3] Highly dexterous manipulation system - capabilities - part               [10] Yuanpei Chen, Yaodong Yang, Tianhao Wu, Shengjie
+S11:Z034 |       1, Nov 2014. URL https://www.youtube.com/watch?v=                             Wang, Xidong Feng, Jiechuan Jiang, Stephen McAleer,
+S11:Z035 |       TearcKVj0iY.                                                                  Hao Dong, Zongqing Lu, and Song-Chun Zhu. Towards
+S11:Z036 |  [4] Assembly       performance       metrics       and       test                  human-level bimanual dexterous manipulation with rein-
+S11:Z037 |       methods,     Apr     2022.               URL     https://www.                 forcement learning. ArXiv, abs/2206.08686, 2022.
+S11:Z038 |       nist.gov/el/intelligent-systems-division-73500/                         [11] Rohan Chitnis, Shubham Tulsiani, Saurabh Gupta, and
+S11:Z039 |       robotic-grasping-and-manipulation-assembly/assembly.                          Abhinav Kumar Gupta. Efficient bimanual manipulation
+S11:Z040 |  [5]Teleoperated robots - shadow teleoperation system, Nov                          using learned task schemas.  2020 IEEE International
+S11:Z041 |       2022. URL https://www.shadowrobot.com/teleoperation/.                         Conference on Robotics and Automation (ICRA), pages
+S11:Z042 |  [6] Sridhar Pandian Arunachalam, Irmak Güzey, Soumith                              1149–1155, 2019.
+S11:Z043 |       Chintala,  and  Lerrel  Pinto.   Holo-dex:  Teaching  dex-              [12] Sudeep Dasari and Abhinav Kumar Gupta. Transformers
+S11:Z044 |       terity  with  immersive  mixed  reality.    arXiv  preprint                   for one-shot visual imitation.  In Conference on Robot
+S11:Z045 |       arXiv:2210.06463, 2022.                                                       Learning, 2020.
+
+===== PDF S. 12 =====
+S12:Z001 | [13] Pim de Haan, Dinesh Jayaraman, and Sergey Levine.                      [25] Ryan Hoque, Ashwin Balakrishna, Ellen R. Novoseller,
+S12:Z002 |       Causal  confusion  in  imitation  learning.     In  Neural                  Albert  Wilcox,  Daniel  S.  Brown,  and  Ken  Goldberg.
+S12:Z003 |       Information Processing Systems, 2019.                                       Thriftydagger: Budget-aware novelty and risk gating for
+S12:Z004 | [14] Jacob  Devlin,  Ming-Wei  Chang,  Kenton  Lee,  and                          interactive imitation learning.  In Conference on Robot
+S12:Z005 |       Kristina Toutanova.  Bert: Pre-training of deep bidirec-                    Learning, 2021.
+S12:Z006 |       tional transformers for language understanding.  ArXiv,               [26] Stephen James, Michael Bloesch, and Andrew J. Davison.
+S12:Z007 |       abs/1810.04805, 2019.                                                       Task-embedded control networks for few-shot imitation
+S12:Z008 | [15] Yan  Duan,  Marcin  Andrychowicz,  Bradly  C.  Stadie,                       learning. ArXiv, abs/1810.03237, 2018.
+S12:Z009 |       Jonathan Ho, Jonas Schneider, Ilya Sutskever, P. Abbeel,              [27] Eric Jang, Alex Irpan, Mohi Khansari, Daniel Kappler,
+S12:Z010 |       and  Wojciech  Zaremba.   One-shot  imitation  learning.                    Frederik Ebert, Corey Lynch, Sergey Levine, and Chelsea
+S12:Z011 |       ArXiv, abs/1703.07326, 2017.                                                Finn.  Bc-z: Zero-shot task generalization with robotic
+S12:Z012 | [16] Frederik   Ebert,   Yanlai   Yang,   Karl   Schmeckpeper,                    imitation learning.  In Conference on Robot Learning,
+S12:Z013 |       Bernadette Bucher, Georgios Georgakis, Kostas Daniilidis,                   2022.
+S12:Z014 |       Chelsea Finn, and Sergey Levine. Bridge data: Boosting                [28] R G Jenness and C D Wicker. Master–slave manipulators
+S12:Z015 |       generalization of robotic skills with cross-domain datasets.                and remote maintenance at the oak ridge national labora-
+S12:Z016 |       ArXiv, abs/2109.13396, 2021.                                                tory, Jan 1975. URL https://www.osti.gov/biblio/4179544.
+S12:Z017 | [17] PeterR.Florence,LucasManuelli,andRussTedrake. Self-                    [29] Edward Johns. Coarse-to-fine imitation learning: Robot
+S12:Z018 |       supervised correspondence in visuomotor policy learning.                    manipulation from a single demonstration.  2021 IEEE
+S12:Z019 |       IEEE Robotics and Automation Letters, 5:492–499, 2019.                      International Conference on Robotics and Automation
+S12:Z020 | [18] Peter  R.  Florence,  Corey  Lynch,  Andy  Zeng,  Oscar                      (ICRA), pages 4613–4619, 2021.
+S12:Z021 |       Ramirez, Ayzaan Wahid, Laura Downs, Adrian S. Wong,                   [30] Liyiming Ke, Jingqiang Wang, Tapomayukh Bhattachar-
+S12:Z022 |       Johnny  Lee,  Igor  Mordatch,  and  Jonathan  Tompson.                      jee, Byron Boots, and Siddhartha Srinivasa.  Grasping
+S12:Z023 |       Implicit behavioral cloning. ArXiv, abs/2109.00137, 2021.                   with chopsticks: Combating covariate shift in model-free
+S12:Z024 | [19] Aditya Ganapathi, Priya Sundaresan, Brijen Thananjeyan,                      imitation learning for fine manipulation. In International
+S12:Z025 |       Ashwin  Balakrishna,  Daniel  Seita,  Jennifer  Grannen,                    Conference on Robotics and Automation (ICRA), 2021.
+S12:Z026 |       Minho Hwang, Ryan Hoque, Joseph Gonzalez, Nawid                       [31] Michael Kelly, Chelsea Sidrane, K. Driggs-Campbell,
+S12:Z027 |       Jamali, Katsu Yamane, Soshi Iba, and Ken Goldberg.                          and  Mykel  J.  Kochenderfer.    Hg-dagger:  Interactive
+S12:Z028 |       Learning dense visual correspondences in simulation to                      imitation learning with human experts. 2019 International
+S12:Z029 |       smooth and fold real fabrics.  2021 IEEE International                      Conference on Robotics and Automation (ICRA), pages
+S12:Z030 |       Conference on Robotics and Automation (ICRA), pages                         8077–8083, 2018.
+S12:Z031 |       11515–11522, 2020.                                                    [32] Heecheol Kim, Yoshiyuki Ohmura, and Yasuo Kuniyoshi.
+S12:Z032 | [20] Jennifer Grannen, Priya Sundaresan, Brijen Thananjeyan,                      Gaze-based dual resolution deep imitation learning for
+S12:Z033 |       Jeffrey Ichnowski, Ashwin Balakrishna, Minho Hwang,                         high-precision  dexterous  robot  manipulation.     IEEE
+S12:Z034 |       Vainavi Viswanath, Michael Laskey, Joseph Gonzalez,                         Robotics and Automation Letters, 6:1630–1637, 2021.
+S12:Z035 |       and Ken Goldberg. Untangling dense knots by learning                  [33] Heecheol Kim, Yoshiyuki Ohmura, and Yasuo Kuniyoshi.
+S12:Z036 |       task-relevant keypoints. In Conference on Robot Learning,                   Robot peels banana with goal-conditioned dual-action
+S12:Z037 |       2020.                                                                       deep imitation learning. ArXiv, abs/2203.09749, 2022.
+S12:Z038 | [21] Huy Ha and Shuran Song. Flingbot: The unreasonable                     [34] Diederik P. Kingma and Max Welling.  Auto-encoding
+S12:Z039 |       effectiveness of dynamic manipulation for cloth unfolding.                  variational bayes. CoRR, abs/1312.6114, 2013.
+S12:Z040 |       ArXiv, abs/2105.03655, 2021.                                          [35] Oliver Kroemer, Christian Daniel, Gerhard Neumann,
+S12:Z041 | [22] Ankur Handa, Karl Van Wyk, Wei Yang, Jacky Liang, Yu-                        Herke  van  Hoof,  and  Jan  Peters.    Towards  learning
+S12:Z042 |       Wei Chao, Qian Wan, Stan Birchfield, Nathan D. Ratliff,                     hierarchical  skills  for  multi-phase  manipulation  tasks.
+S12:Z043 |       and Dieter Fox.   Dexpilot: Vision-based teleoperation                      2015 IEEE International Conference on Robotics and
+S12:Z044 |       of  dexterous  robotic  hand-arm  system.    2020  IEEE                     Automation (ICRA), pages 1503–1510, 2015.
+S12:Z045 |       International Conference on Robotics and Automation                   [36] Lucy Lai, Ann Z Huang, and Samuel J Gershman. Action
+S12:Z046 |       (ICRA), pages 9164–9170, 2019.                                              chunking as policy compression, Sep 2022. URL psyarxiv.
+S12:Z047 | [23] Kaiming He, X. Zhang, Shaoqing Ren, and Jian Sun.                            com/z8yrv.
+S12:Z048 |       Deep residual learning for image recognition. 2016 IEEE               [37] Michael Laskey, Jonathan Lee, Roy Fox, Anca D. Dragan,
+S12:Z049 |       Conference on Computer Vision and Pattern Recognition                       and  Ken  Goldberg.   Dart:  Noise  injection  for  robust
+S12:Z050 |       (CVPR), pages 770–778, 2015.                                                imitation learning.  In Conference on Robot Learning,
+S12:Z051 | [24] Irina Higgins, Loïc Matthey, Arka Pal, Christopher P.                        2017.
+S12:Z052 |       Burgess, Xavier Glorot, Matthew M. Botvinick, Shakir                  [38] Alex X. Lee, Henry Lu, Abhishek Gupta, Sergey Levine,
+S12:Z053 |       Mohamed, and Alexander Lerchner. beta-vae: Learning                         and  P.  Abbeel.     Learning  force-based  manipulation
+S12:Z054 |       basic  visual  concepts  with  a  constrained  variational                  of  deformable  objects  from  multiple  demonstrations.
+S12:Z055 |       framework.   In International Conference on Learning                        2015 IEEE International Conference on Robotics and
+S12:Z056 |       Representations, 2016.                                                      Automation (ICRA), pages 177–184, 2015.
+
+===== PDF S. 13 =====
+S13:Z001 | [39] Shuang  Li,  Qiang  Li,  and  Jianwei  Zhang.     Chap-                      Intelligent Robots and Systems (IROS), pages 6871–6877,
+S13:Z002 |       ter   12   -   a   hand-arm   teleoperation   system   for                  2019.
+S13:Z003 |       robotic  dexterous  manipulation.    In  Qiang  Li,  Shan             [51] Stéphane  Ross,  Geoffrey  J.  Gordon,  and  J.  Andrew
+S13:Z004 |       Luo,  Zhaopeng  Chen,  Chenguang  Yang,  and  Jian-                         Bagnell. A reduction of imitation learning and structured
+S13:Z005 |       wei  Zhang,  editors,  Tactile  Sensing,  Skill  Learning,                  prediction to no-regret online learning. In International
+S13:Z006 |       and Robotic Dexterous Manipulation, pages 227–245.                          Conference on Artificial Intelligence and Statistics, 2010.
+S13:Z007 |       Academic   Press,   2022.        ISBN   978-0-323-90445-              [52] Seyed Sina Mirrazavi Salehian, Nadia Figueroa, and Aude
+S13:Z008 |       2.     doi:  https://doi.org/10.1016/B978-0-32-390445-2.                    Billard. A unified framework for coordinated multi-arm
+S13:Z009 |       00021-0.   URL https://www.sciencedirect.com/science/                       motion planning. The International Journal of Robotics
+S13:Z010 |       article/pii/B9780323904452000210.                                           Research, 37:1205 – 1232, 2018.
+S13:Z011 | [40] Weiwei Li.   Optimal control for biological movement                   [53] Nur  Muhammad  (Mahi)  Shafiullah,  Zichen  Jeff  Cui,
+S13:Z012 |       systems. 2006.                                                              Ariuntuya Altanzaya, and Lerrel Pinto. Behavior trans-
+S13:Z013 | [41] Ajay Mandlekar, Danfei Xu, J. Wong, Soroush Nasiriany,                       formers:  Cloning  k  modes  with  one  stone.     ArXiv,
+S13:Z014 |       Chen Wang, Rohun Kulkarni, Li Fei-Fei, Silvio Savarese,                     abs/2206.11251, 2022.
+S13:Z015 |       Yuke Zhu, and Roberto Mart’in-Mart’in. What matters                   [54] Kaushik  Shivakumar,  Vainavi  Viswanath,  Anrui  Gu,
+S13:Z016 |       in learning from offline human demonstrations for robot                     Yahav Avigal, Justin Kerr, Jeffrey Ichnowski, Richard
+S13:Z017 |       manipulation. In Conference on Robot Learning, 2021.                        Cheng, Thomas Kollar, and Ken Goldberg.  Sgtm 2.0:
+S13:Z018 | [42] Kunal Menda, K. Driggs-Campbell, and Mykel J. Kochen-                        Autonomously untangling long cables using interactive
+S13:Z019 |       derfer.  Ensembledagger: A bayesian approach to safe                        perception. ArXiv, abs/2209.13706, 2022.
+S13:Z020 |       imitation learning. 2019 IEEE/RSJ International Confer-               [55] Mohit Shridhar, Lucas Manuelli, and Dieter Fox. Cliport:
+S13:Z021 |       ence on Intelligent Robots and Systems (IROS), pages                        Whatandwherepathwaysforroboticmanipulation. ArXiv,
+S13:Z022 |       5041–5048, 2018.                                                            abs/2109.12098, 2021.
+S13:Z023 | [43] Samuel  Paradis,  Minho  Hwang,  Brijen  Thananjeyan,                  [56] Mohit   Shridhar,   Lucas   Manuelli,   and   Dieter   Fox.
+S13:Z024 |       Jeffrey Ichnowski, Daniel Seita, Danyal Fer, Thomas                         Perceiver-actor:  A  multi-task  transformer  for  robotic
+S13:Z025 |       Low, Joseph Gonzalez, and Ken Goldberg. Intermittent                        manipulation. ArXiv, abs/2209.05451, 2022.
+S13:Z026 |       visual servoing: Efficiently learning policies robust to              [57] Aravind Sivakumar, Kenneth Shaw, and Deepak Pathak.
+S13:Z027 |       instrument changes for high-precision surgical manipula-                    Robotic telekinesis: Learning a robotic hand imitator by
+S13:Z028 |       tion. 2021 IEEE International Conference on Robotics                        watching humans on youtube. RSS, 2022.
+S13:Z029 |       and Automation (ICRA), pages 7166–7173, 2020.                         [58] Christian  Smith,  Yiannis  Karayiannidis,  Lazaros  Nal-
+S13:Z030 | [44] JyothishPari,NurMuhammad,SridharPandianArunacha-                             pantidis, Xavi Gratal, Peng Qi, Dimos V. Dimarogonas,
+S13:Z031 |       lam, and Lerrel Pinto.  The surprising effectiveness of                     and Danica Kragic.  Dual arm manipulation - a survey.
+S13:Z032 |       representation learning for visual imitation. arXiv preprint                Robotics Auton. Syst., 60:1340–1353, 2012.
+S13:Z033 |       arXiv:2112.01511, 2021.                                               [59] Kihyuk Sohn, Honglak Lee, and Xinchen Yan. Learning
+S13:Z034 | [45] Peter Pastor, Heiko Hoffmann, Tamim Asfour, and Stefan                       structured output representation using deep conditional
+S13:Z035 |       Schaal.  Learning and generalization of motor skills by                     generative models. In NIPS, 2015.
+S13:Z036 |       learning from demonstration.  2009 IEEE International                 [60] srcteam.     Shadow  teleoperation  system  plays  jenga,
+S13:Z037 |       Conference on Robotics and Automation, pages 763–768,                       Mar  2021.    URL  https://www.youtube.com/watch?v=
+S13:Z038 |       2009.                                                                       7K9brH27jvM.
+S13:Z039 | [46] Luis F. Peñín, Kotaro Matsumoto, and  . Teleoperation                  [61] srcteam.    How  researchers  are  using  shadow  robot’s
+S13:Z040 |       with time delay: A survey and its use in space robotics.                    technology, Jun 2022.  URL https://www.youtube.com/
+S13:Z041 |       2002.                                                                       watch?v=p36fYIoTD8M.
+S13:Z042 | [47] Dean A. Pomerleau. Alvinn: An autonomous land vehicle                  [62] srcteam. Shadow teleoperation system, Jun 2022. URL
+S13:Z043 |       in a neural network. In NIPS, 1988.                                         https://www.youtube.com/watch?v=cx8eznfDUJA.
+S13:Z044 | [48] Yuzhe Qin, Hao Su, and Xiaolong Wang.   From one                       [63] Simon Stepputtis, Maryam Bandari, Stefan Schaal, and
+S13:Z045 |       hand to multiple hands: Imitation learning for dexterous                    Heni  Ben  Amor.     A  system  for  imitation  learning
+S13:Z046 |       manipulation from single-camera teleoperation.   IEEE                       of contact-rich bimanual manipulation policies.   2022
+S13:Z047 |       Robotics and Automation Letters, 7:10873–10881, 2022.                       IEEE/RSJ International Conference on Intelligent Robots
+S13:Z048 | [49] Rouhollah Rahmatizadeh, Pooya Abolghasemi, Ladislau                          and Systems (IROS), pages 11810–11817, 2022.
+S13:Z049 |       Bölöni,  and  Sergey  Levine.    Vision-based  multi-task             [64] Priya  Sundaresan,  Jennifer  Grannen,  Brijen  Thanan-
+S13:Z050 |       manipulation for inexpensive robots using end-to-end                        jeyan, Ashwin Balakrishna, Jeffrey Ichnowski, Ellen R.
+S13:Z051 |       learning from demonstration.  2018 IEEE International                       Novoseller, Minho Hwang, Michael Laskey, Joseph Gon-
+S13:Z052 |       Conference on Robotics and Automation (ICRA), pages                         zalez, and Ken Goldberg. Untangling dense non-planar
+S13:Z053 |       3758–3765, 2017.                                                            knots by learning manipulation features and recovery
+S13:Z054 | [50] S. Rezaei-Shoshtari, David Meger, and Inna Sharf. Cas-                       policies. ArXiv, abs/2107.08942, 2021.
+S13:Z055 |       caded gaussian processes for data-efficient robot dynamics            [65]Gokul Swamy, Sanjiban Choudhury, J. Andrew Bagnell,
+S13:Z056 |       learning.  2019 IEEE/RSJ International Conference on                        and Zhiwei Steven Wu. Causal imitation learning under
+
+===== PDF S. 14 =====
+S14:Z001 |       temporally correlated noise. In International Conference
+S14:Z002 |       on Machine Learning, 2022.
+S14:Z003 | [66] Naftali Tishby and Noga Zaslavsky. Deep learning and the
+S14:Z004 |       information bottleneck principle. 2015 IEEE Information
+S14:Z005 |       Theory Workshop (ITW), pages 1–5, 2015.
+S14:Z006 | [67] Emanuel Todorov, Tom Erez, and Yuval Tassa. Mujoco: A
+S14:Z007 |       physics engine for model-based control. 2012 IEEE/RSJ
+S14:Z008 |       International Conference on Intelligent Robots and Sys-
+S14:Z009 |       tems, pages 5026–5033, 2012.
+S14:Z010 | [68] Stephen  Tu,  Alexander  Robey,  Tingnan  Zhang,  and
+S14:Z011 |       N. Matni.  On the sample complexity of stability con-
+S14:Z012 |       strained imitation learning. In Conference on Learning
+S14:Z013 |       for Dynamics & Control, 2021.
+S14:Z014 | [69] Ashish Vaswani, Noam M. Shazeer, Niki Parmar, Jakob
+S14:Z015 |       Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser,
+S14:Z016 |       and Illia Polosukhin.  Attention is all you need.  ArXiv,
+S14:Z017 |       abs/1706.03762, 2017.
+S14:Z018 | [70] Solomon Wiznitzer, Luke Schmitt, and Matt Trossen.
+S14:Z019 |       interbotix_ros_manipulators.    URL  https://github.com/
+S14:Z020 |       Interbotix/interbotix_ros_manipulators.
+S14:Z021 | [71] Fan Xie, A. M. Masum Bulbul Chowdhury, M. Clara
+S14:Z022 |       De Paolis Kaluza, Linfeng Zhao, Lawson L. S. Wong,
+S14:Z023 |       andRoseYu. Deepimitationlearningforbimanualrobotic
+S14:Z024 |       manipulation. ArXiv, abs/2010.05134, 2020.
+S14:Z025 | [72] Andy Zeng, Peter R. Florence, Jonathan Tompson, Stefan
+S14:Z026 |       Welker,JonathanChien,MariaAttarian,TravisArmstrong,
+S14:Z027 |       Ivan Krasin, Dan Duong, Vikas Sindhwani, and Johnny
+S14:Z028 |       Lee. Transporter networks: Rearranging the visual world
+S14:Z029 |       for  robotic  manipulation.     In  Conference  on  Robot
+S14:Z030 |       Learning, 2020.
+S14:Z031 | [73] Tianhao Zhang, Zoe McCarthy, Owen Jow, Dennis Lee,
+S14:Z032 |       Ken Goldberg, and P. Abbeel.  Deep imitation learning
+S14:Z033 |       for  complex  manipulation  tasks  from  virtual  reality
+S14:Z034 |       teleoperation.  2018 IEEE International Conference on
+S14:Z035 |       Robotics and Automation (ICRA), pages 1–8, 2017.
+S14:Z036 | [74] Allan Zhou, Moo Jin Kim, Lirui Wang, Peter R. Florence,
+S14:Z037 |       and  Chelsea  Finn.    Nerf  in  the  palm  of  your  hand:
+S14:Z038 |       Corrective  augmentation  for  robotics  via  novel-view
+S14:Z039 |       synthesis. ArXiv, abs/2301.08556, 2023.
+S14:Z040 | [75] Áron Horváth, Eszter Ferentzi, Kristóf Schwartz, Nina
+S14:Z041 |       Jacobs, Pieter Meyns, and Ferenc Köteles. The measure-
+S14:Z042 |       ment of proprioceptive accuracy: A systematic literature
+S14:Z043 |       review. Journal of Sport and Health Science, 2022. ISSN
+S14:Z044 |       2095-2546.   doi: https://doi.org/10.1016/j.jshs.2022.04.
+S14:Z045 |       001. URL https://www.sciencedirect.com/science/article/
+S14:Z046 |       pii/S2095254622000473.
+
+===== PDF S. 15 =====
+S15:Z001 |                               APPENDIX                                        and a light bulb, inserting and unplugging USB, RJ45, using a
+S15:Z002 | A. Comparing ALOHA with Prior Teleoperation Setups                            pipette, writing, twisting open an aluminum case, and in-hand
+S15:Z003 |                                                                               rotation of Baoding balls. We are able to recreate 14 out of the
+S15:Z004 |    InFigure10,weincludemoreteleoperatedtasksthatALOHA                         15 tasks with similar objects and comparable amount of time.
+S15:Z005 | is capable of. We stress that all objects are taken directly                  We cannot recreate the Baoding ball in-hand rotation task, as
+S15:Z006 | from the real world without any modification, to demonstrate                  our setup does not have a hand.
+S15:Z007 | ALOHA’s generality in real life settings.
+S15:Z008 |    ALOHAexploitsthekinestheticsimilaritybetweenleaderand                      B. Example Image Observations
+S15:Z009 | follower robots by using joint-space mapping for teleoperation.                  We include example image observations taken during policy
+S15:Z010 | A leader-follower design choice dates back to at least as far as              execution time in Figure 11, for each of the 6 real tasks. From
+S15:Z011 | 1953, when Central Research Laboratories built teleoperation                  lefttoright,the4imagesarefromtopcamera,frontcamera,left
+S15:Z012 | systems for handling hazardous material [28]. More recently,                  wrist, and right wrist respectively. The top and front cameras
+S15:Z013 | companies like Sarcos and RE2 [3] also built highly dexterous                 are static, while the wrist cameras move with the robots and
+S15:Z014 | teleoperation systems with joint-space mapping. ALOHA is                      give detailed views of the gripper. We also rotate the front
+S15:Z015 | similar to these previous systems, while benefiting significantly             camera by 90 degrees to capture more vertical space. For all
+S15:Z016 | from recent advances of low-cost actuators and robot arms.                    cameras, the focal length is fixed with auto-exposure on to
+S15:Z017 | It allows us to achieve similar levels of dexterity with much                 adjust for changing lighting conditions. All cameras steam at
+S15:Z018 | lower cost, and also without specialized hardware or expert                   480×640 and 30fps.
+S15:Z019 | assembly.
+S15:Z020 |    Next, we compare the cost of ALOHA to recent teleoperation                 C. Detailed Architecture Diagram
+S15:Z021 | systems. DexPilot [22] controls a dexterous hand using image
+S15:Z022 | streams of a human hand. It has 4 calibrated Intel Realsense to                  We include a more detailed architecture diagram in Figure 12.
+S15:Z023 | capture the point cloud of a human hand, and retarget the pose                At training time, we first sample tuples of RGB images and
+S15:Z024 | to an Allegro hand. The Allegro hand is then mounted to a                     joint positions, together with the corresponding action sequence
+S15:Z025 | KUKA LBR iiwa7 R800. DexPilot allows for impressive tasks                     as prediction target (Step 1: sample data). We then infer style
+S15:Z026 | such as extracting money from a wallet, opening a penut jar,                  variable z using CVAE encoder shown in yellow (Step 2: infer
+S15:Z027 | and insertion tasks in NIST board #1. We estimate the system                  z). The input to the encoder are 1) the [CLS] token, which
+S15:Z028 | costtobearound$100kwithonearm+hand.Morerecentworks                            consists of learned weights that are randomly initialized, 2)
+S15:Z029 | such as Robotic Telekinesis [57, 6, 48] seek to reduce the cost               embedded joint positions, which are joint positions projected
+S15:Z030 | of DexPilot by using a single RGB camera to detect hand                       to the embedding dimension using a linear layer, 3) embedded
+S15:Z031 | pose, and retarget using learning techniques. While sensing                   action sequence, which is the action sequence projected to the
+S15:Z032 | cost is greatly reduced, the cost for robot hand and arm remains              embedding dimension using another linear layer. These inputs
+S15:Z033 | high: a dexterous hand has more degrees of freedom and is                     form a sequence of (k +2)×embedding_dimension, and
+S15:Z034 | naturally pricier. Moving the hand around would also require                  is processed with the transformer encoder. We only take the
+S15:Z035 | an industrial arm with at least 2kg payload, increasing the price             first output, which corresponds to the [CLS] token, and use
+S15:Z036 | further. We estimate the cost of these systems to be around                   another linear network to predict the mean and variance of
+S15:Z037 | $18k with one arm+hand. Lastly, the Shadow Teleoperation                      z’s distribution, parameterizing it as a diagonal Gaussian. A
+S15:Z038 | System is a bimanual system for teleoperating two dexterous                   sample of z is obtained using reparameterization, a standard
+S15:Z039 | hands. Both hands are mounted to a UR10 robot, and the hand                   way to allow back-propagating through the sampling process
+S15:Z040 | pose is obtained by either a tracking glove or a haptic glove.                so the encoder and decoder can be jointly optimized [34].
+S15:Z041 | This system is the most capable among all aforementioned                         Next, we try to obtain the predicted action from CVAE
+S15:Z042 | works, benefitted from its bimanual design. However, it also                  decoder i.e. the policy (Step 3: predict action sequence). For
+S15:Z043 | costs the most, at at least $400k. ALOHA, on the other hand,                  each  of  the  image  observations,  it  is  first  processed  by  a
+S15:Z044 | is a bimanual setup that costs $18k ($20k after adding optional               ResNet18  to  obtain  a  feature  map,  and  then  flattened  to
+S15:Z045 | add-ons such as cameras). Reducing dexterous hands to parallel                get a sequence of features. These features are projected to
+S15:Z046 | jaw grippers allows us to use light-weight and low-cost robots,               the embedding dimension with a linear layer, and we add
+S15:Z047 | which can be more nimble and require less service.                            a 2D sinusoidal position embedding to perserve the spatial
+S15:Z048 |    Finally,wecomparethecapabilitiesofALOHAwithprevious                        information. The feature sequence from each camera is then
+S15:Z049 | systems. We choose the most capable system as reference: the                  concatenated to be used as input to the transformer encoder.
+S15:Z050 | Shadow Teleoperation System [5], which costs more than 10x                    Two additional inputs are joint positions and z, which are also
+S15:Z051 | of ALOHA. Specifically, we found three demonstration videos                   projected to the embedding dimension with two linear layers
+S15:Z052 | [60, 61, 62] that contain 15 example use cases of the Shadow                  respectively. The output of the transformer encoder are then
+S15:Z053 | Teleoperation System, and seek to recreate them using ALOHA.                  used as both “keys” and “values” in cross attention layers of
+S15:Z054 | The tasks include playing “beer pong”, “jenga,” and a rubik’s                 the transformer decoder, which predicts action sequence given
+S15:Z055 | cube, using a dustpan and brush, twisting open a water bottle,                encoder output. The “queries” are fixed sinusoidal embeddings
+S15:Z056 | pouring liquid out, untying velcro cable tie, picking up an egg               for the first layer.
+
+===== PDF S. 16 =====
+S16:Z001 |                         Fig. 10: Teleoperation task examples with ALOHA. We include videos on the project website.
+S16:Z002 |    At  test  time,  the  CVAE  encoder  (shown  in  yellow)  is                E. User Study Details
+S16:Z003 | discarded and the CVAE decoder is used as the policy. The                         We conduct the user study with 6 participants, recruited
+S16:Z004 | incoming observations (images and joints) are fed into the                     from computer science graduate students, with 4 men and
+S16:Z005 | model in the same way as during training. The only difference                  2 women aged 22-25. 3 of the participants had experience
+S16:Z006 | is in z, which represents the “style” of the action sequence                   teleoperating robots with a VR controller, and the other 3 has
+S16:Z007 | we want to elicit from the policy. We simply set z to a zero                   no prior experience teleoperating. None of the participants used
+S16:Z008 | vector, which is the mean of the unit Gaussian prior used                      ALOHA before. To implement the 5Hz version of ALOHA, we
+S16:Z009 | during training. Thus given an observation, the output of the                  read from the leader robot at 5Hz, interpolate in the joint space,
+S16:Z010 | policy is always deterministic, benefiting policy evaluation.                  and send the interpolated positions to the robot at 50Hz. We
+S16:Z011 |                                                                                choose tasks that emphasizes high-precision and close-loop
+S16:Z012 |                                                                                visual feedback. We include images of the objects used in
+S16:Z013 | D. Experiment Details and Hyperparameters                                      Figure 13. For threading zip cable tie, the hole measures 4mm
+S16:Z014 |                                                                                x 1.5mm, and the cable tie measures 0.8mm x 3.5mm with a
+S16:Z015 |    We carefully tune the baselines and include the hyperparam-                 pointy tip. It is initially lying flat on the table, and the operator
+S16:Z016 | eters used in Table IV, V, VI, VII, VIII. For BeT, we found                    needs to pick it up with one gripper, grasp the other end mid-
+S16:Z017 | that increasing history length from 10 (as in original paper) to               air, then coordinate both hands to insert one end of the cable
+S16:Z018 | 100 greatly improves the performance. Large hidden dimension                   tie into the hole on the other end. For unstacking cup, we use
+S16:Z019 | also generally helps. For VINN, the k used when retrieving                     two single-use plastic cups that has 2.5mm clearance between
+S16:Z020 | nearest neighbor is adaptively chosen with the lowest validation               them when stacked. The teleoperator need to grasp the edge
+S16:Z021 | loss, same as the original paper. We also found that using joint               of upper cup, then either shake to separate or use the help
+S16:Z022 | position differences in addition to visual feature similarity                  from the other gripper. During the user study, we randomize
+S16:Z023 | improves performance when there is no action chunking, in                      the order in which operators attempt each task, and whether
+S16:Z024 | which case we have state weight = 10 when retrieving actions.                  they use 50Hz or 5Hz controller first. We also randomize the
+S16:Z025 | However,  we  found  this  to  hurt  performance  with  action                 initial position of the object randomly around the table center.
+S16:Z026 | chunking and thus set state weight to 0 for action chunking                    For each setting, the operator has 2 minutes to adapt, followed
+S16:Z027 | experiments.                                                                   by 3 consecutive attempts of the task with duration recorded.
+
+===== PDF S. 17 =====
+S17:Z001 | Fig. 11: Image observation examples for 5 real-world tasks. The 4 columns are [top camera, front camera, left wrist camera, right wrist
+S17:Z002 | camera] respectively. We rotate the front camera by 90 degree to capture more vertical space.
+S17:Z003 | F. Limitations                                                                 while unwraps the candy 0/10. We attribute the failure to the
+S17:Z004 |    We now discuss limitations of the ALOHA hardware and                        difficulty of perception and lack of data. Specifically, after
+S17:Z005 | the policy learning with ACT.                                                  pulling the candy on both sides, the seam for prying open
+S17:Z006 | Hardware  Limitations.  On  the  hardware  front,  ALOHA                       the candy wrapper could appear anywhere around the candy.
+S17:Z007 | struggles with tasks that require multiple fingers from both                   During demonstration collection, it is difficult even for human
+S17:Z008 | hands, for example opening child-proof pill bottles with a push                to discern. The operator needs to judge by looking at the
+S17:Z009 | tab. To open the bottle, one hand needs to hold the bottle and                 graphics printed on the wrapper and find the discontinuity. We
+S17:Z010 | pushes down on the push tab, with the other hand twisting the                  constantly observe the policy trying to peel at places where
+S17:Z011 | lid open. ALOHA also struggles with tasks that require high                    the seam does not exist. To better track the progress, we
+S17:Z012 | amount of forces, for example lifting heavy objects, twisting                  attempted another evaluation where we give 10 trials for each
+S17:Z013 |                                                                                candy, and repeat this for 5 candies. For this protocol, our
+S17:Z014 | open a sealed bottle of water, or opening markers caps that are                policy successfully unwraps 3/5 candies. Another task that
+S17:Z015 | tightly pressed together. This is because the low-cost motors                  ACT struggles with is opening a small ziploc bag laying flat
+S17:Z016 | cannot generate enough torque to support these manipulations.                  on the table. The right gripper needs to first pick it up, adjust
+S17:Z017 | Tasks that requires finger nails are also difficult forALOHA,                  it so that the left gripper can grasp firmly on the pulling region,
+S17:Z018 | even though we design the grippers to be thin on the edge.                     followed by the right hand grasping the other side of the
+S17:Z019 | For example, we are not able to lift the edge of packing tape                  pulling region, and pull it open. Our policy trained with 50
+S17:Z020 | when it is taped onto itself, or opening aluminum soda cans.                   demonstrations can consistently pick up the bag, while having
+S17:Z021 | Policy Learning Limitations. On the software front, we report                  difficulties performing the 3 mid-air steps. We hypothesize that
+S17:Z022 | all 2 tasks that we attempted where ACT failed to learn the                    the bag is hard to perceive, and small differences in the pick
+S17:Z023 | behavior. The first one is unwrapping candies. The steps involve               up position can affect how the bag deforms and result in large
+S17:Z024 | picking up the candy from the table, pull on both ends, and                    differences in where the pulling region ends up. We believe
+S17:Z025 | pry open the wrapper. We collected 50 demonstrations to train                  that pretraining, more data, and better perception are promising
+S17:Z026 | the ACT policy. In our preliminary evaluation with 10 trials,                  directions to tackle these difficult tasks.
+S17:Z027 | the policy picks up the candy 10/10, pulls on both ends 8/10,
+
+===== PDF S. 18 =====
+S18:Z001 | Fig. 12: Detail architecture of Action Chunking with Transformers (ACT).
+
+===== PDF S. 19 =====
+S19:Z001 |                                Fig. 13: The cable tie and cups for user study.
+S19:Z002 |                                     learning rate                                                 1e-5
+S19:Z003 |                                     batch size                                                     8
+S19:Z004 |                                     # encoder layers                                          4
+S19:Z005 |                                     # decoder layers                                          7
+S19:Z006 |                                     feedforward dimension                               3200
+S19:Z007 |                                     hidden dimension                                        512
+S19:Z008 |                                     # heads                                                         8
+S19:Z009 |                                     chunk size                                                    100
+S19:Z010 |                                     beta                                                              10
+S19:Z011 |                                     dropout                                                         0.1
+S19:Z012 |                                       TABLE IV: Hyperparameters of ACT.
+S19:Z013 |                                            learning rate                                 3e-4
+S19:Z014 |                                            batch size                                     128
+S19:Z015 |                                            epochs                                          100
+S19:Z016 |                                            momentum                                   0.9
+S19:Z017 |                                            weight decay                               1.5e-6
+S19:Z018 | TABLE V: Hyperparameters of BYOL, the feature extractor for VINN and BeT.
+S19:Z019 |                                         learning rate                                        1e-4
+S19:Z020 |                                         batch size                                            64
+S19:Z021 |                                         # layers                                               6
+S19:Z022 |                                         # heads                                                6
+S19:Z023 |                                         hidden dimension                               768
+S19:Z024 |                                         history length                                      100
+S19:Z025 |                                         weight decay                                       0.1
+S19:Z026 |                                         offset loss scale                                  1000
+S19:Z027 |                                         focal loss gamma                                2
+S19:Z028 |                                         dropout                                                0.1
+S19:Z029 |                                         discretizer #bins                                  64
+S19:Z030 |                                        TABLE VI: Hyperparameters of BeT.
+S19:Z031 |                                    k (nearest neighbour)                               adaptive
+S19:Z032 |                                    state weight                                               0 or 10
+S19:Z033 |                                     TABLE VII: Hyperparameters of VINN.
+S19:Z034 |                         learning rate                                                                          1e-5
+S19:Z035 |                         batch size                                                                              2
+S19:Z036 |                         ViT dim head                                                                       32
+S19:Z037 |                         ViT window size                                                                  7
+S19:Z038 |                         ViT mbconv expansion rate                                                 4
+S19:Z039 |                         ViT mbconv shrinkage rate                                                 0.25
+S19:Z040 |                         ViT dropout                                                                          0.1
+S19:Z041 |                         RT-1 depth                                                                            6
+S19:Z042 |                         RT-1 heads                                                                            8
+S19:Z043 |                         RT-1 dim head                                                                      64
+S19:Z044 |                         RT-1 action bins                                                                   256
+S19:Z045 |                         RT-1 cond drop prob                                                            0.2
+S19:Z046 |                         RT-1 token learner num output tokens                               8
+S19:Z047 |                         weight decay                                                                        0
+S19:Z048 |                         history length                                                                       6
+S19:Z049 |                                     TABLE VIII: Hyperparameters of RT-1.
+

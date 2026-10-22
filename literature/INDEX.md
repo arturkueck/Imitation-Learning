@@ -6,6 +6,7 @@ Stand: **1. Oktober 2026**. Diese Basis dokumentiert fünf Primärarbeiten für 
 
 | Datei | Zweck |
 |---|---|
+| [Paper-Keynotes](PAPER_KEYNOTES.md) | Ergänzung vom 21.10.2026: sechs Stichpunkte je Paper für acht Arbeiten, mit PDF-Seiten, eigenen Zeilenreferenzen und eingefrorenen Lesefassungen |
 | [CLAIMS.md](CLAIMS.md) | Thematisch geordnete, einzeln belegte Aussagen; stabile Claim-IDs |
 | [BIBLIOGRAPHY.md](BIBLIOGRAPHY.md) | Verifizierte Publikationsdaten, Versionsunterscheidung, BibTeX |
 | [GAPS_AND_QUESTIONS.md](GAPS_AND_QUESTIONS.md) | Ungeklärte Quellenpunkte und Grenzen der Projektaussagen |

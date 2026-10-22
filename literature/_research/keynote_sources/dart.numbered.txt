@@ -1,0 +1,650 @@
+dart: PDF-Seiten ab 1; Z = nichtleere Layout-Textzeile je Seite; keine Original-Zeilennummern.
+
+===== PDF S. 1 =====
+S01:Z001 |                                                  DART:
+S01:Z002 |         NoiseInjectionforRobustImitationLearning
+S01:Z003 |                                                MichaelLaskey
+S01:Z004 |                                               EECS Department
+S01:Z005 |                                                  UC Berkeley
+S01:Z006 |     JonathanLee                 RoyFox                AncaDragan                     KenGoldberg
+S01:Z007 |   EECS Department          EECS Department          EECS Department          IEOR and EECS Department
+S01:Z008 |      UC Berkeley              UC Berkeley              UC Berkeley                    UC Berkeley
+S01:Z009 |           Abstract: One approach to Imitation Learning is Behavior Cloning, in which a
+S01:Z010 |           robotobservesasupervisorandinfersacontrolpolicy. Aknownproblemwiththis
+S01:Z011 |           “off-policy”approachisthattherobot’serrorscompoundwhendriftingawayfrom
+S01:Z012 |           the supervisor’s demonstrations. On-policy, techniques alleviatethis by iteratively
+S01:Z013 |           collectingcorrectiveactionsforthecurrentrobotpolicy. However,thesetechniques
+S01:Z014 |           can be tedious for human supervisors, add signiﬁcant computation burden, and
+S01:Z015 |           may visit dangerous states during training. We propose an off-policy approach
+S01:Z016 |           that injects noise into the supervisor’s policy while demonstrating. This forces
+S01:Z017 |           the supervisor to demonstrate how to recover from errors.  We propose a new
+S01:Z018 |           algorithm,DART(DisturbancesforAugmentingRobotTrajectories),thatcollects
+S01:Z019 |           demonstrationswithinjectednoise,andoptimizesthenoiseleveltoapproximatethe
+S01:Z020 |           error of the robot’s trained policy during data collection. We compare DART with
+S01:Z021 |           DAgger andBehavior Cloning intwo domains: in simulation withan algorithmic
+S01:Z022 |           supervisor on the MuJoCo tasks (Walker, Humanoid, Hopper, Half-Cheetah) and
+S01:Z023 |           in physical experiments with human supervisors training a Toyota HSR robot to
+S01:Z024 |           perform grasping in clutter. For high dimensional tasks like Humanoid, DART
+S01:Z025 |           can be up to 3x faster in computation time and only decreases the supervisor’s
+S01:Z026 |           cumulative reward by 5% during training, whereas DAgger executes policies
+S01:Z027 |           that have 80% less cumulative reward than the supervisor.  On the grasping in
+S01:Z028 |           clutter task, DART obtains on average a62% performance increase over Behavior
+S01:Z029 |           Cloning.
+S01:Z030 |           Keywords: Imitation Learning, Robotics
+S01:Z031 | 1   Introduction
+S01:Z032 | Roboticmanipulationtasksarechallengingtolearnduetononcontinuousdynamicsthataredifﬁcult
+S01:Z033 | tomodel,highdimensionalstaterepresentations,andpotentiallydelayedreward. Deepreinforcement
+S01:Z034 | learning has the potential to train such control policies, however in practice it may require a very
+S01:Z035 | large number of samples [18].
+S01:Z036 | Ratherthanpureabinitiolearning,analternativeistoleveragesupervisiontoguidetherobot’spolicy.
+S01:Z037 | A common approach to this problem is Behavior Cloning, in which a robot observes a supervisor’s
+S01:Z038 | policyandlearnsamappingfromstatetocontrolviaregression [11,1]. Thisisanoff-policymethod,
+S01:Z039 | thatsuffersfromcompoundingerrorwhentherobotexecutesitspolicy, leadingittodrifttonewand
+S01:Z040 | possiblydangerousstates[14]. Theoretically,thedriftingoccursbecauseofcovariateshift,where
+S01:Z041 | executionoftherobot’spolicycausesittomovetoadifferentdistributionfromtheoneonwhichit
+S01:Z042 | was trained.
+S01:Z043 | Ross and Bagnell proposed DAgger [13, 14] to correct for covariate shift by sampling states from
+S01:Z044 | the robot’s policy. DAgger is an on-policy method, in which the robot iteratively rolls out its current
+S01:Z045 | policy andasks forsupervisor labels(or corrections)at thestatesit visits. Empirically,DAgger has
+S01:Z046 | 1st Conference on Robot Learning (CoRL 2017), Mountain View, United States.
+
+===== PDF S. 2 =====
+S02:Z001 | beenshowntoreducecovariateshiftandleadtorobustcontrolpolicies[5]. However,DAggersuffers
+S02:Z002 | fromthreekeylimitations: 1)itcanbetediousforhumansupervisorstoprovidethesecorrections[7]
+S02:Z003 | 2) it can be potentially dangerous for a physical robot to visit highly sub-optimal states  [24], and 3)
+S02:Z004 | repeatedly updating the robot’s policy is computationally expensive. In this paper, we introduce an
+S02:Z005 | alternative approach to address covariate shift and enable robust policies.
+S02:Z006 | One way to expose the robot to corrective examples and reduce drift is to inject noise into the
+S02:Z007 | supervisor’sdemonstrations andlet thesupervisorprovide correctionsas needed. Ourinsight isthat
+S02:Z008 | byinjectingsmalllevelsofnoise,wewillfocusonthestatesthattherobotneedstorecoverfrom–the
+S02:Z009 | states at theboundary of theideal policy. This hasthe potentialto obtainthe advantagesof on-policy
+S02:Z010 | methods by recovering from errors as the robot starts making them, without the disadvantage of
+S02:Z011 | aggregatingthese errorsattrainingtime, andgettingtherobot todangerousstateswith lowreward.
+S02:Z012 | We propose to still perform off-policy learning, but to inject an optimized level of noise into the
+S02:Z013 | supervisor’s control stream as we acquire demonstrations.
+S02:Z014 | Injecting noise requires selecting the magnitude and direction of the noise appropriately. Intuitively,
+S02:Z015 | the noise should approximate the error of the trained robot’s policy, so that the demonstrations have
+S02:Z016 | state distributions that are close to the one that the robot will encounter at test time. This may be
+S02:Z017 | challenging inrobotic controltasks wherethe controlsignals arehigh-dimensional. Wethus propose
+S02:Z018 | toapproximatetheoptimalnoisedistributionbyﬁrstselectingaparameterizednoisemodel,andthen
+S02:Z019 | iteratively optimizing the likelihood of the supervisor’s noise-injected policy applying the robot’s
+S02:Z020 | control. We propose DART( Disturbances for Augmenting Robot Trajectories): a noise injection
+S02:Z021 | variant of Behavior Cloning.
+S02:Z022 | We evaluate DART on the MuJoCo locomotion environments and a grasping in clutter task on a
+S02:Z023 | Toyota HSRrobot. In thelocomotion environments, where acontinuous controlrobot is trainedto
+S02:Z024 | walkforward,DARTachievesparitywithstateofthearton-policymethods,suchasDAgger. For
+S02:Z025 | high dimensional tasks like Humanoid, DART is3x faster in computation time and during training
+S02:Z026 | only decreases the supervisor’s cumulative reward by5%, whereas DAgger executes policies that
+S02:Z027 | have80%lesscumulativerewardthanthesupervisor,thussuggestingonlyasmallamountofnoiseis
+S02:Z028 | sufﬁcienttoreducecovariateshift. WethenevaluateDARTwithfourhumansupervisors,whotrained
+S02:Z029 | a robot to perform a grasping in clutter task. In the task, a robot must reason from an eye-in-hand
+S02:Z030 | camera perspectivehowto pushoccluding objectsawayto reacha goalobject. We observe that on
+S02:Z031 | average DART leads to a62% performance increase over traditional Behavior Cloning.
+S02:Z032 | This paper contributes: 1) a new algorithm, DART, that sets theappropriate levelof noise to inject
+S02:Z033 | intothesupervisor’scontrolstream2)atheoreticalanalysisofnoiseinjection,whichillustrateswhen
+S02:Z034 | DART can improve performance over Behavior Cloning 3) experimentation with algorithmic and
+S02:Z035 | human supervisors characterizing noise injection can reduce covariate shift.
+S02:Z036 | 2   RelatedWork
+S02:Z037 | 2.1   ImitationLearning
+S02:Z038 | Imitation Learning schemes are either off-policy or on-policy.  In off-policy Imitation Learning,
+S02:Z039 | the robot passively observes the supervisor, and learns a policy mapping states to controls by
+S02:Z040 | approximatingthesupervisor’spolicy. Thistechniquehasbeensuccessful,forinstance,inlearning
+S02:Z041 | visuomotor control policies for self-driving cars [11, 1]. However, Pomerleau et al. observed that
+S02:Z042 | the self-driving car would steer towards the edge of the road during execution and not be able to
+S02:Z043 | recover[11]. Later,RossandBangelltheoreticallyshowedthatthiswasduetotherobot’sdistribution
+S02:Z044 | being different than the supervisor’s, a property known as covariate shift, which caused errors to
+S02:Z045 | compound during execution [13].
+S02:Z046 | Rosset al.[14] proposedDAgger, anon-policy methodin whichthe supervisoriteratively provides
+S02:Z047 | correctivefeedbackontherobot’sbehavior. Thisalleviatestheproblemofcompoundingerrors,since
+S02:Z048 | therobotistrainedtoidentifyandﬁxsmallerrorsaftertheyoccur. Butdespitetheirabilitytoaddress
+S02:Z049 | covariate shift, on-policy methods have been shown to be challenging for human supervisors [7] and
+S02:Z050 | requiretherobottovisitpotentiallydangerousregionsofthestatespaceduringtraining[24]. Further,
+S02:Z051 | on-policy methods require retraining the policy from scratch after each round of corrections.
+S02:Z052 | Techniqueshavebeenproposedtoaddresssomeoftheselimitations. Recently,Sunetal. proposeda
+S02:Z053 | gradientupdateforon-policymethodstoalleviatethecomputationburden [20]. However,ithasbeen
+S02:Z054 |                                                          2
+
+===== PDF S. 3 =====
+S03:Z001 | shown local gradient updates suffer in performance compared to full retraining of the policy [23].
+S03:Z002 | Zhangetal. trainedaclassiﬁertopredictwhentherobotislikelytoerrorduringexecutionandthen
+S03:Z003 | proposed to transfer control over to the supervisor [24]. However, this approach inherits the other
+S03:Z004 | limitationsofon-policymethods,thechallengeforhumansupervisorsandthecomputationalburden.
+S03:Z005 | 2.2   NoiseInjectiontoIncreaseRobustness
+S03:Z006 | In robust control theory, Andereson et al. noted a phenomenon similar to the covariate shift when
+S03:Z007 | performingmodel identiﬁcation[19]. They observedthatonce themodel hasbeenestimated anda
+S03:Z008 | control law hasbeen optimized, the robot visitedregions of the state spacein which it was unstable.
+S03:Z009 | A condition was proposed to correct for this known as persistance excitation, which requires the
+S03:Z010 | training data to be informative enough to learn a robust model [15].
+S03:Z011 | One way to achieve persistance excitation is to inject isotropic Gaussian noise into the control
+S03:Z012 | signal [4]. Due to its full-rank covariance matrix, such white noise can expose the system to any
+S03:Z013 | disturbance with positive probability [10].  In light of this, we propose injecting noise into the
+S03:Z014 | supervisor’s policy in orderto collect demonstrations thatsimulate the errors thatthe robot would
+S03:Z015 | make at test time.
+S03:Z016 | 3   ProblemStatement
+S03:Z017 | The objective of Imitation Learning is to learn a policy that matches the supervisor’s policy.
+S03:Z018 | ModelingChoicesandAssumptions: We modelthe systemdynamics asMarkovianand stochastic.
+S03:Z019 | Wemodeltheinitialstateassampledfromadistributionoverthestatespace. Weassumeaknown
+S03:Z020 | state space andset of actions. We also assume access to a robot, suchthat we can samplefrom the
+S03:Z021 | state sequences induced by a policy. Lastly, we assume access to a supervisor who can provide a
+S03:Z022 | demonstration of the task.
+S03:Z023 | PoliciesandStateDensities. WedenotebyX thesetconsistingofobservablestatesforarobot,and
+S03:Z024 | byU the set of actions. We model dynamics as Markovian, such that the probability of visiting state
+S03:Z025 | xt+1∈X can be determined from the previous statext∈X and actionut∈U:
+S03:Z026 |                                 p(xt+1|x0,u0,...xt,ut) =p(xt+1|xt,ut).
+S03:Z027 | Weassumeaprobabilitydensityoverinitialstatesp(x0). Anenvironmentisthusdeﬁnedasaspeciﬁc
+S03:Z028 | instance of action and state spaces, initial state distribution, and dynamics.
+S03:Z029 | Given a time horizon T∈ N, a trajectory ξ is a ﬁnite sequence of T pairs of states visited and
+S03:Z030 | corresponding control inputs at these states, ξ = (x0,u0,x1,u1,...,xT), where xt∈X  and
+S03:Z031 | ut∈U for eacht.
+S03:Z032 | A policy is a measurable function π :X→U from states to controls.  We consider policies
+S03:Z033 | πθ :X→U parameterized by someθ∈ Θ. Under our assumptions, any such policyπθ induces a
+S03:Z034 | probability density over the set of trajectories of lengthT:
+S03:Z035 |                                                    T−1∏
+S03:Z036 |                               p(ξ|πθ) =p(x0)            πθ(ut|xt)p(xt+1|ut,xt)
+S03:Z037 |                                                    t=0
+S03:Z038 | The termπθ(ut|xt) indicates stochasticity in the applied policy and we consider this to be a user-
+S03:Z039 | deﬁneddistribution inwhichthe deterministic outputofthe policyisa parameterinthe distribution.
+S03:Z040 | Anexample distribution isϵ-greedy,in which withprobabilityϵ arandom controlisappliedinstead
+S03:Z041 | ofπθ(xt).
+S03:Z042 | While we do not assume knowledge of the distributions corresponding top(xt+1|xt,ut) orp(x0),
+S03:Z043 | we assume that we have a real robot or a simulator. Therefore, when ‘rolling out’ trajectories under
+S03:Z044 | a policy πθ, we utilize the robot or the simulator to sample from the resulting distribution over
+S03:Z045 | trajectories rather than estimatingp(ξ|πθ) itself.
+S03:Z046 | Objective.  In Imitation Learning, we do not assume access to a reward function, like we do in
+S03:Z047 | ReinforcementLearning[21],butinsteadasupervisor,πθ∗,whereθ∗ maynotbecontainedinΘ. We
+S03:Z048 | assume the supervisor achieves a desired level of performance on the task, although it may not be
+S03:Z049 | optimal.
+S03:Z050 |                                                          3
+
+===== PDF S. 4 =====
+S04:Z001 | We measure the difference between controls using a surrogate loss l :U×U→ R [14, 13].  A
+S04:Z002 | commonly considered surrogate loss is the squared L2-norm on the control vectors l(u1,u2) =
+S04:Z003 | ||u1−u2||22 [8]. Wemeasuretotallossalongatrajectorywithrespecttotwopoliciesπθ1 andπθ2 by
+S04:Z004 | J(θ1,θ2|ξ) =∑T−1t=0 l(πθ1(xt),πθ2(xt)).
+S04:Z005 | TheobjectiveofImitationLearningistominimizetheexpectedsurrogatelossalongthedistribution
+S04:Z006 | induced by the robot’s policy:
+S04:Z007 |                                              minθ  Ep(ξ|πθ)J(θ,θ∗|ξ).                                                       (1)
+S04:Z008 | InEq.1,thedistributionontrajectoriesandthecumulativesurrogatelossarecoupled,whichmakes
+S04:Z009 | this a challenging optimization problem. The ﬁeld of Imitation Learning has considered two types of
+S04:Z010 | algorithmicsolutions tothisobjective,off-policy learningandon-policy learning[13]. Acommon
+S04:Z011 | off-policy technique is Behavior Cloning, which samples from the supervisor’s distribution and
+S04:Z012 | performs expected risk minimization on the demonstrations:
+S04:Z013 |                                        θR = argmin
+S04:Z014 |                                                   θ    Ep(ξ|πθ∗)J(θ,θ∗|ξ).
+S04:Z015 | The performance of the policyπθR can be written in terms of the following decomposition:
+S04:Z016 |                Ep(ξ|πθR)J(θR,θ∗|ξ)
+S04:Z017 |                 =Ep(ξ|πθR)J(θR,θ∗|ξ)−Ep(ξ|πθ∗)J(θR,θ∗|ξ)             +Ep(ξ|πθ∗)J(θR,θ∗|ξ)     ,
+S04:Z018 |                                             Shift                                       Loss
+S04:Z019 | whichcorrespondstothecovariateshiftandthestandardloss. Inthiswork,wefocusonminimizing
+S04:Z020 | thecovariateshift. Forreferencesonhowtominimizethestandardlosssee [16]. Inthenextsection,
+S04:Z021 | we will show how noise injection can be used to reduce covariate shift.
+S04:Z022 | 4   Off-PolicyImitationLearningwithNoiseInjection
+S04:Z023 | Noiseinjectedintothesupervisor’spolicysim-
+S04:Z024 | ulateserror occurringduring testing. Under this
+S04:Z025 | noise, the supervisor is forced to take correc-
+S04:Z026 | tive actions in order to successfully perform the
+S04:Z027 | task. The corrective examples allow the robot
+S04:Z028 | to learn how to recover when it deviates from
+S04:Z029 | thesupervisor’sdistribution. However,because
+S04:Z030 | the demonstrations are still concentrated around
+S04:Z031 | thesupervisor’spolicy,itcanhavelesscognitive               Figure1: RobotLearningtoreachagoalstatexG. The
+S04:Z032 | loadon thesupervisor thanon-policymethods,                 greydenotesthedistributionovertrajectories. Left: Off-
+S04:Z033 | whichareconcentratedaroundtherobot’spolicy.                Policy learning in which the supervisor, the orange ar-
+S04:Z034 | The intuition of providing corrective examples             rows, provides demonstrations. The robot, the teal ar-
+S04:Z035 | during data collection is shown in Fig. 1.                 rows, deviates from the distributions and incurs high er-
+S04:Z036 | Denotebyp(ξ|πθ∗,ψ)adistributionovertrajec-                 ror. Middle: On-Policy which samples from the current
+S04:Z037 | tories with noise injected into the supervisor’s           robot’s policy, the light teal arrows, to receive correc-
+S04:Z038 |                                                            tive examples from the supervisor. Right: DART, which
+S04:Z039 | distributionπθ∗(u|x,ψ). Theparameterψ rep-                 injectsnoisetowidenthesupervisor’sdistributionand
+S04:Z040 | resents the sufﬁcient statistics that deﬁne the            provides corrective examples. DART is off-policy but
+S04:Z041 | noise distribution.  For example, if Gaussian              robust.
+S04:Z042 | noise is injected parameterized byψ,πθ∗(u|x,ψ) =N(πθ∗(x),Σ).
+S04:Z043 | SimilartoBehaviorCloning,wecansampledemonstrationsfromthenoise-injectedsupervisorand
+S04:Z044 | minimize the expected loss via standard supervised learning techniques.  This can be written as
+S04:Z045 | follows:
+S04:Z046 |                                       θR = argmin
+S04:Z047 |                                                  θ    Ep(ξ|πθ∗,ψ)J(θ,θ∗|ξ)                                              (2)
+S04:Z048 | Eq.2, though, does not explicitly minimizethe covariate shift for arbitrarychoice of       ψ. In order to
+S04:Z049 | reducecovariateshift, weintroducethefollowingLemmatoboundtheshift. Wecanthenattempt
+S04:Z050 |                                                           4
+
+===== PDF S. 5 =====
+S05:Z001 | to optimize this bound with respect toψ. This bound holds when the surrogate loss∀u1,u2∈U
+S05:Z002 | l(u1,u2)∈ [0,1].  Examples of when this occurs is if the robot has a discrete set of actions or
+S05:Z003 | bounded continuous controls and they are normalized during learning.
+S05:Z004 | Lemma4.1  If∀u1,u2∈U,  0≤l(u1,u2)≤ 1 the following is true for a time horizon ofT
+S05:Z005 |                                                                       √1
+S05:Z006 |       |Ep(ξ|πθ∗,ψ)J(θR,θ∗|ξ)−Ep(ξ|πθR)J(θR,θ∗|ξ)|≤T                      2DKL(p(ξ|πθR),p(ξ|πθ∗,ψ))
+S05:Z007 | [See Appendix for Proof]
+S05:Z008 | To minimize the covariate shift, we can optimize the KL-divergence,DKL, with respect to the
+S05:Z009 | sufﬁcientstatistics,ψ,ofthenoisedistribution. Thiscanbereducedtothefollowingoptimization
+S05:Z010 | problem:
+S05:Z011 |                                                   T−1∑
+S05:Z012 |                               minψ  Ep(ξ|πθR)−          log[πθ∗(πθR(xt)|xt,ψ)]
+S05:Z013 |                                                    t=0
+S05:Z014 | This above optimization problem decreases the negative log-likelihood of the robot’s control during
+S05:Z015 | data collection. Thus, wewant to choosea noiseparameter that makesthe supervisor’s distribution
+S05:Z016 | closertotheﬁnalrobot’sdistribution. Aclearlimitationofthisoptimizationproblemisthatitrequires
+S05:Z017 | knowingthe ﬁnalrobot’sdistributionp(ξ|πθR),which isdeterminedonly afterthedata iscollected.
+S05:Z018 | The dependency on this term creates a chicken and egg problem. In the next section, we present
+S05:Z019 | DART, which applies an iterative approach to the optimization.
+S05:Z020 | 4.1   DART:DisturbancesforAugmentingRobotTrajectories
+S05:Z021 | Theaboveobjectivecannotbesolvedbecausep(ξ|πθR) isnotknownuntilaftertherobothasbeen
+S05:Z022 | trained. Wecaninsteaditerativelysamplefromthesupervisor’sdistributionwith thecurrentnoise
+S05:Z023 | parameter,ψk,andminimizethenegativelog-likelihoodofthenoise-injectedsupervisortakingthe
+S05:Z024 | current robot’s,πˆθ, control.
+S05:Z025 |                                                             T−1∑
+S05:Z026 |                        ˆψk+1 = argmin                            log[πθ∗(πˆθ(xt)|xt,ψ)]                           (3)
+S05:Z027 |                                     ψ    Ep(ξ|πθ∗,ψk)−      t=0
+S05:Z028 | However, the above iterative process can be slow to converge because it is optimizing the noise with
+S05:Z029 | respecttothe currentrobot’spolicyandare optimizingonsamplesfromthe supervisor’sdistribution.
+S05:Z030 | Wecanobtainabetter estimatebyobservingthatthe supervisorshouldsimulateasmuchexpected
+S05:Z031 | error as the ﬁnal robot policy,Ep(ξ|πθR)J(θR,θ∗|ξ). It is possible that we have some knowledge of
+S05:Z032 | this quantity from previously training on similar domains.
+S05:Z033 | Inspiredby shrinkageestimation[3],we canobtaina betterestimateof ˆψ bya targetvaluebasedon
+S05:Z034 | the anticipated ﬁnal robot’s error and subsequently scaling the current simulated error to this level.∑T−1
+S05:Z035 | DenoteEp(ξ|πθ∗,ˆψ)       t=0 l(ut,πθ∗(xt)), theexpected deviationfrom thesupervisor’scontrol for a
+S05:Z036 | given surrogate loss. The scaling can be denoted
+S05:Z037 |                                                                          T−1∑
+S05:Z038 |                    ψαk+1 = ˆψk+1∗argmin                                       l(ut,πθ∗(xt))|                      (4)
+S05:Z039 |                                         β≥0|α−Ep(ξ|πθ∗,β∗ˆψk+1)           t=0
+S05:Z040 | where α corresponds to an estimated guess of the robot’s ﬁnal error and ψαk+1 corresponds to
+S05:Z041 | the sufﬁcient statistic after the scaling has been applied.   For Gaussian noise with covariance
+S05:Z042 | matrix Σ,  the expected deviation has a closed form solution for the squared Euclidean loss:∑T−1
+S05:Z043 | Ep(ξ|πθ∗,ˆψ)    t=0 l(ut,πθ∗(xt))) =Ttr(Σ). Thus,aknownclosedformsolutioncanbederivedfor
+S05:Z044 | both Eq. 3 and Eq. 4:
+S05:Z045 |                                                               T−1∑
+S05:Z046 | Σαk+1 =       α         ˆΣk+1,    ˆΣk+1 = 1                        (πˆθ(xt)−πθ∗(xt))(πˆθ(xt)−πθ∗(xt))T.
+S05:Z047 |           Ttr(ˆΣk+1)                         TEp(ξ|πθ∗,Σαk)    t=0
+S05:Z048 |                                                          5
+
+===== PDF S. 6 =====
+S06:Z001 | In Algorithm 1, we present DART, which iter-
+S06:Z002 | atively solves forψαk+1 and to collect data and
+S06:Z003 | train the ﬁnal robot policy. FirstN demonstra-
+S06:Z004 | tions are collected from a supervisor with an
+S06:Z005 | initial noise parameter set.  Then a policy, πˆθ,
+S06:Z006 | is learned via empiricalrisk minimization. The
+S06:Z007 | learned policy is then used to optimize Eq.3
+S06:Z008 | based on sample estimates and the outcome is
+S06:Z009 | thenscaledbasedonEq.4. Oncethenoiseterm
+S06:Z010 | is found N demonstrations are collected with
+S06:Z011 | the noise-injected supervisor and the robot is
+S06:Z012 | trainedontheaggregatedataset. Thealgorithm
+S06:Z013 | is repeated forK iterations.
+S06:Z014 | 4.2   TheoreticalAnalysisofDART
+S06:Z015 | ComparedtoBehaviorCloning,DARTreducescovariateshiftbysimulatingerrorstherobotislikely
+S06:Z016 | tomake. WeshowthefollowingPropositiontoprovidebetterintuitionforwhenthisimprovement
+S06:Z017 | occurs.
+S06:Z018 | Proposition4.1 Given  a  deterministic  supervisor’s  policy  with  Gaussian  noise  injected,
+S06:Z019 | π∗(u|x,ψ) =N(π∗(x),Σ), when the robot policy has error Ep(ξ|πθR)J(θR,θ∗|ξ) > 0.  The
+S06:Z020 | following holds:
+S06:Z021 |                        DKL(p(ξ|πθR),p(ξ|πθ∗,Σ))<DKL(p(ξ|πθR),p(ξ|πθ∗))
+S06:Z022 | where the right hand side corresponds to Behavior Cloning. [See Appendix for Proof]
+S06:Z023 | Proposition4.1shows thatDART reducesan upper boundon covariate shift, or thedistance between
+S06:Z024 | the distributions, more so than Behavior Cloning, when the robot has non-zero error with respect
+S06:Z025 | to the supervisor. We note this assumes the supervisor is not affected by the noise injection, which
+S06:Z026 | forhumansupervisor’sthismightnotalwaysbetrue. Thus,noiseshouldbeinjectediftherobotis
+S06:Z027 | expected to make some errors after training.
+S06:Z028 | However,noiseinjectionwilloffernoimprovementiftherobotcanrepresentthesupervisorperfectly
+S06:Z029 | and collect sufﬁcient data.  A similar result was shown in Laskey et al. [7] for when DAgger is
+S06:Z030 | expectedtoimproveoverBehaviorCloning. Inpracticalapplications,itisunlikelytoobtainsufﬁcient
+S06:Z031 | data to perfectly represent the supervisor, which highlights the need for DART.
+S06:Z032 | 5   Experiments
+S06:Z033 | Our experiments are designed to explore: 1) Does DART reduce covariate shift as effectively as
+S06:Z034 | on-policymethods? 2) Howmuchdoes DARTreducethe computationalcost andhowmuch doesit
+S06:Z035 | decaythesupervisor’sperformanceduringdatacollection? 3)Arehumansupervisorsabletoprovide
+S06:Z036 | better demonstrations with DART?
+S06:Z037 | 5.1   MuJoCoLocomotionEnvironments
+S06:Z038 | TotesthowwellDARTperformscomparedwithanon-policymethodssuchasDAggerandoff-policy
+S06:Z039 | methods like Behavior Cloning, we use MuJoCo locomotion environments [22]. The challenge for
+S06:Z040 | these environments is that the learner does not have access to the dynamics model and must learn a
+S06:Z041 | control policy that operates in a high-dimensional continuous control space and moves the robot in a
+S06:Z042 | forward direction without falling.
+S06:Z043 | We usean algorithmic supervisorin thesedomains: a policywhich istrainedwith TRPO[17]and
+S06:Z044 | is represented as a neural network with two hidden layers of size 64.  Note, while TRPO uses a
+S06:Z045 | stochastic policy, the supervisor is the deterministic mean of the learner. This is the same supervisor
+S06:Z046 | used in  [6]. For all4 domains, we used the same neural network as the supervisor andtrained the
+S06:Z047 |                                                         6
+
+===== PDF S. 7 =====
+S07:Z001 | Figure 2: Top: The four different locomotive domains in MuJoCo we evaluated DART on: Walker, Hopper,
+S07:Z002 | Half-CheetahandHumanoid. TopMiddle: Thetime,inseconds,toachievetheperformancelevelreportedbelow.
+S07:Z003 | DART achieves similar performance to DAgger in all 4 domains, but requires signiﬁcantly less computation
+S07:Z004 | becauseitdoesn’trequireretrainingthe currentrobotpolicy aftereachdemonstration. DAgger-Breducesthe
+S07:Z005 | computation required by less frequently training the robot, but suffers signiﬁcantly in performance in domains
+S07:Z006 | likeHumanoid. BottomMiddle: Thelearningcurvewithrespecttorewardobtainedduringtrainingwitheach
+S07:Z007 | algorithm plotted across the number of demonstrations. Bottom: The reward obtained during collection of
+S07:Z008 | demonstrations for learning. DART receives near the supervisor’s reward at all iterations whereas DAgger can
+S07:Z009 | be substantially worse in the beginning.
+S07:Z010 | policiesinTensorﬂow. Ateachiterationwecollectedonedemonstration. Inordertomakethetask
+S07:Z011 | challengingforImitationLearning,weusedthesametechniqueasin[6],whichistosub-sample50
+S07:Z012 | state and control pairs from the demonstrated trajectories, making the learners receive less data at
+S07:Z013 | each iteration.
+S07:Z014 | We compare the following ﬁve techniques: Behavior Cloning, where data is collected from the
+S07:Z015 | supervisor’sdistributionwithoutnoiseinjected;DAgger,whichisanon-policymethodthatstochas-
+S07:Z016 | tically samples from the robot’s distribution and then fully retrains the robot’s policy after every
+S07:Z017 | demonstrationiscollected;DAgger-B,whichisDAggerbuttheretrainingisdoneintermittentlyto
+S07:Z018 | reducecomputationtime;Isotropic-Gaussianwhichinjectsnon-optimizedisotropicnoise;andDART.
+S07:Z019 | See supplement material for how the hyper-parameters for each method are set.
+S07:Z020 | We used the following MuJoCo environments: Walker, Hopper, Humanoid, and Half-Cheetah. The
+S07:Z021 | size of the state and control space for each task is{|X| = 17,|U| = 6},{|X| = 11,|U| = 3},
+S07:Z022 | {|X| = 376,|U| = 17},{|X| = 117,|U| = 6}, respectively.  All experiments were run on a
+S07:Z023 | MacBook Pro with an 2.5 GHz Intel Core i7 CPU. We measured the cumulative reward of each
+S07:Z024 | learned policy by rolling it for500 timesteps, the total computation time for each method and the
+S07:Z025 | cumulative reward obtained during learning.
+S07:Z026 | Fig.2shows the results. In all domains, DART achieves parity with DAgger, whereas Behavior
+S07:Z027 | Cloning andDAgger-Bare below thisperformance level inWalker andHumanoid. ForHumanoid,
+S07:Z028 | DARTis3xfasterincomputationtimeandduringtrainingonlydecreasesthesupervisor’scumulative
+S07:Z029 | rewardby5%,whereasDAggerexecutespoliciesthathaveover80%lesscumulativerewardthanthe
+S07:Z030 | supervisor. The reasonfor thisis thatDAgger requiresconstantly updatingthe currentrobot policy
+S07:Z031 | andforcestherobotintosub-optimalstates. While,onewaytoreducethiscomputationistodecrease
+S07:Z032 |                                                          7
+
+===== PDF S. 8 =====
+S08:Z001 | Figure3: Left: Experimentalsetupforthegraspingincluttertask. AToyotaHSRrobotusesahead-mounted
+S08:Z002 | RGBD camera and its arm to push obstacle objects out of the way to reach the goal object, a mustard bottle.
+S08:Z003 | The robot’s policy for pushing objects away uses a CNN trained on images taken from the robot’s Primesense
+S08:Z004 | camera, an exampleimage from the robot’s view point is shown in theorange box. Right: the Success Rate for
+S08:Z005 | Behavior Cloning, DART(α = 3) and DART(α = 6). DART(α = 3) achieves the largest success rate.
+S08:Z006 | thenumberoftimesthepolicyisupdated. DAgger-Billustratesthatthiscansigniﬁcantlydeteriorate
+S08:Z007 | performance. Lastly, naively applying isotropic noise does not perform well, and leads to unsafe
+S08:Z008 | policies during execution, which suggests the need for optimizing the level of noise.
+S08:Z009 | 5.2   RoboticGraspinginClutter
+S08:Z010 | WeevaluateDARTwithhumansupervisorsinagraspingincluttertaskonaToyotaHSRrobot. We
+S08:Z011 | considerataskinspiredbytheAmazonPickingChallenge[2]. Thegoalofthetaskisfortherobotto
+S08:Z012 | retrieveagoalobjectfromacupboard. Thetaskischallengingbecausethegoalobjectisoccludedby
+S08:Z013 | obstacle objects and the robot must reason about how to clear a path based on observations taken
+S08:Z014 | from an eye-in-hand perspective. The objects are 6 common household food items, which consist of
+S08:Z015 | boxesandbottleswithvaryingtexturesandmassdistributions. Thetargetobjectisﬁxedtoalwaysbe
+S08:Z016 | amustardbottle. Therobot,taskandimageviewpointareshowninFig.3. Seesupplementmaterial
+S08:Z017 | for additional information on the task.
+S08:Z018 | We use 4 supervisors who have robotics experience but not speciﬁcally in the ﬁeld of Imitation
+S08:Z019 | Learning and compare Behavior Cloning and DART. When performing the study, we ﬁrst collect
+S08:Z020 | N = 10demonstrationswithBehaviorCloning(i.e. nonoise)andtheninacounter-balancedordering
+S08:Z021 | collectN = 30 more demonstrations with each technique. Our experiment was within-subject, have
+S08:Z022 | every supervisor perform all three methods.
+S08:Z023 | Weonlyupdatedthenoiseparameteraftertheﬁrst10demonstrations(i.e. K = 2). Theﬁnalrobot
+S08:Z024 | policy was then trained on the total of40 demonstrations. We consider two different choices ofα:
+S08:Z025 | α = 3Ttr( ˆΣ1) andα = 3Ttr( ˆΣ1). Thesechoices correspond tothe intuitionthat with smalldatasets
+S08:Z026 | in high dimensional image space the robot will have signiﬁcant shift from the current loss on the
+S08:Z027 | supervisor’sdistribution. Throughtherestofthepaper,wewillwriteourchoicesasα = 3andα = 6
+S08:Z028 | for brevity in notation.
+S08:Z029 | During policy evaluation, we measured success as 1) the robot is able to identify the goal object and
+S08:Z030 | 2)therebeingaclearpathbetweenitsgripperandtheobject. Oncetheseconditionsareidentiﬁed,as
+S08:Z031 | detailedinthesupplementmaterial,anopen-loopmotionplanisgeneratedtoexecuteagrasparound
+S08:Z032 | the target object.
+S08:Z033 | In Fig.3, we report the average performance of the three techniques across DART 20 times on
+S08:Z034 | different sampledinitial states. DART withα = 3 performs thebest outof thethree techniques, with
+S08:Z035 | a79% success rate over traditional Behavior Cloning’s49% success rate. Interestingly, DART with
+S08:Z036 | α = 6 performs better than Behavior Cloning, but only has a72% success rate. This may suggest
+S08:Z037 | this level of noise was potentially too high for the human supervisor.
+S08:Z038 | 6   Conclusion
+S08:Z039 | This paper considers injecting noise into the supervisor’s demonstrations to minimize covariate shift.
+S08:Z040 | Ouralgorithm,DART,providestherobotwithcorrectiveexamplesattheboundaryofthesupervisor’s
+S08:Z041 | policy. By being concentrated around the supervisor’s policy, it collects demonstrations without
+S08:Z042 | visitinghighlysub-optimalstatesandiseasierforhumansupervisorstele-operating. Wedemonstrate
+S08:Z043 | it achieves parity with on-policy methodsin simulated MuJoCo domains andis signiﬁcantly better
+S08:Z044 | than traditional Behavior Cloning on a real robot.  For code and more information see http:
+S08:Z045 | //berkeleyautomation.github.io/DART/
+S08:Z046 |                                                          8
+
+===== PDF S. 9 =====
+S09:Z001 | 7   Acknowledgements
+S09:Z002 | This research was performed at the AUTOLAB at UC Berkeley in afﬁliation with the Berkeley
+S09:Z003 | AI Research (BAIR) Lab, the Berkeley Deep Drive (BDD) Initiative, the Real-Time Intelligent
+S09:Z004 | Secure Execution (RISE) Lab, and the CITRIS ”People and Robots” (CPAR) Initiative and by
+S09:Z005 | the Scalable Collaborative Human-Robot Learning (SCHooL) Project, NSF National Robotics
+S09:Z006 | InitiativeAward1734633. AdditionaldonationswerefromdonationsfromSiemens,Google,Cisco,
+S09:Z007 | Samsung, Autodesk, Intuitive Surgical, Amazon, and IBM. Any opinions, ﬁndings, and conclusions
+S09:Z008 | orrecommendationsexpressedinthismaterialarethoseoftheauthor(s)anddonotnecessarilyreﬂect
+S09:Z009 | theviewsoftheSponsors. Wethankourcolleagueswhoprovidedhelpfulfeedbackandsuggestions,
+S09:Z010 | in particular Kevin Jamieson, Sanjay Krishnan, Jeff Mahler and Zoey McCarthy.
+S09:Z011 | References
+S09:Z012 |  [1]  M. Bojarski, D. Del Testa, D. Dworakowski, B. Firner, B. Flepp, P. Goyal, L. D. Jackel,
+S09:Z013 |       M. Monfort, U. Muller, J. Zhang, et al. End to end learning for self-driving cars. arXiv preprint
+S09:Z014 |       arXiv:1604.07316, 2016.
+S09:Z015 |  [2]  N.Correll, K.E.Bekris,D. Berenson,O.Brock, A.Causo,K. Hauser,K.Okada, A.Rodriguez,
+S09:Z016 |       J. M. Romano, and P. R. Wurman. Lessons from the amazon picking challenge. arXiv preprint
+S09:Z017 |       arXiv:1601.05484, 2016.
+S09:Z018 |  [3]  M.J.DanielsandR.E.Kass. Shrinkageestimatorsforcovariancematrices. Biometrics,57(4):
+S09:Z019 |       1173–1184, 2001.
+S09:Z020 |  [4]  M.GreenandJ.B.Moore. Persistenceofexcitationinlinearsystems. Systems&controlletters,
+S09:Z021 |       7(5):351–360, 1986.
+S09:Z022 |  [5]  X.Guo,S.Singh,H.Lee,R.L.Lewis,andX.Wang. Deeplearningforreal-timeatarigame
+S09:Z023 |       play using ofﬂine monte-carlo tree search planning. InNIPS, pages 3338–3346. 2014.
+S09:Z024 |  [6]  J.HoandS.Ermon. Generativeadversarialimitationlearning. InAdvancesinNeuralInforma-
+S09:Z025 |       tion Processing Systems, pages 4565–4573, 2016.
+S09:Z026 |  [7]  M. Laskey, C. Chuck, J. Lee, J. Mahler, S. Krishnan, K. Jamieson, A. Dragan, and K. Gold-
+S09:Z027 |       berg.  Comparing human-centric and robot-centric sampling for robot deep learning from
+S09:Z028 |       demonstrations. arXiv preprint arXiv:1610.00850, 2016.
+S09:Z029 |  [8]  M.Laskey,J.Lee,C.Chuck,D.Gealy,W.Hsieh,F.T.Pokorny,A.D.Dragan,andK.Goldberg.
+S09:Z030 |       Robotgraspinginclutter: Usingahierarchyofsupervisorsforlearningfromdemonstrations. In
+S09:Z031 |       Automation Science and Engineering (CASE), 2016 IEEE International Conference on, pages
+S09:Z032 |       827–834. IEEE, 2016.
+S09:Z033 |  [9]  A.Lesne. Shannonentropy: arigorousnotionatthecrossroadsbetweenprobability,information
+S09:Z034 |       theory,dynamicalsystemsandstatisticalphysics. MathematicalStructuresinComputerScience,
+S09:Z035 |       24(3), 2014.
+S09:Z036 | [10] P. Z. Marmarelis and V. Z. Marmarelis. The white-noise method in system identiﬁcation. In
+S09:Z037 |       Analysis of physiological systems, pages 131–180. Springer, 1978.
+S09:Z038 | [11] D.A.Pomerleau. Alvinn: Anautonomouslandvehicleinaneuralnetwork. Technicalreport,
+S09:Z039 |       Carnegie-Mellon University, 1989.
+S09:Z040 | [12] S. Ren, K. He, R. Girshick, and J. Sun.  Faster r-cnn:  Towards real-time object detection
+S09:Z041 |       with region proposal networks. In C. Cortes, N. D. Lawrence, D. D. Lee, M. Sugiyama, and
+S09:Z042 |       R. Garnett, editors, Advances in Neural Information Processing Systems 28, pages 91–99.
+S09:Z043 |       Curran Associates, Inc., 2015.
+S09:Z044 | [13] S.RossandD.Bagnell. Efﬁcientreductionsforimitationlearning. InInternationalConference
+S09:Z045 |       on Artiﬁcial Intelligence and Statistics, pages 661–668, 2010.
+S09:Z046 | [14] S. Ross, G. J. Gordon, and J. A. Bagnell.  A reduction of imitation learning and structured
+S09:Z047 |       prediction to no-regret online learning. arXiv preprint arXiv:1011.0686, 2010.
+S09:Z048 |                                                         9
+
+===== PDF S. 10 =====
+S10:Z001 | [15] S. Sastry and M. Bodson. Adaptive control: stability, convergence and robustness. Courier
+S10:Z002 |       Corporation, 2011.
+S10:Z003 | [16] B.Sch¨olkopfandA.J.Smola. Learningwithkernels: Supportvectormachines,regularization,
+S10:Z004 |       optimization, and beyond. MIT press, 2002.
+S10:Z005 | [17] J. Schulman, S. Levine, P. Abbeel, M. Jordan, and P. Moritz. Trust region policy optimization.
+S10:Z006 |       In Proceedings of The 32nd International Conference on Machine Learning, pages 1889–1897,
+S10:Z007 |       2015.
+S10:Z008 | [18] J.Schulman,J.Ho,C.Lee,andP.Abbeel. Learningfromdemonstrationsthroughtheuseof
+S10:Z009 |       non-rigid registration. InRobotics Research, pages 339–354. Springer, 2016.
+S10:Z010 | [19] W. A. Sethares and C. Johnson Jr. Persistency of excitation and (lack of) robustness in adaptive
+S10:Z011 |       systems. InAdvances in Computing and Control, pages 340–351. Springer, 1989.
+S10:Z012 | [20] W. Sun, A. Venkatraman, G. J. Gordon, B. Boots, and J. A. Bagnell.  Deeply aggrevated:
+S10:Z013 |       Differentiableimitationlearningforsequentialprediction. arXivpreprintarXiv:1703.01030,
+S10:Z014 |       2017.
+S10:Z015 | [21]R. S. Sutton and A. G. Barto.        Reinforcement learning: An introduction. MIT press, 1998.
+S10:Z016 | [22] E. Todorov, T. Erez, and Y. Tassa.  Mujoco: A physics engine for model-based control.  In
+S10:Z017 |       Intelligent Robots and Systems (IROS), 2012 IEEE/RSJ International Conference on, pages
+S10:Z018 |       5026–5033. IEEE, 2012.
+S10:Z019 | [23] A. Vlachos.  An investigation of imitation learning algorithms for structured prediction.  In
+S10:Z020 |       European Workshop on Reinforcement Learning, pages 143–154, 2013.
+S10:Z021 | [24] J. Zhang and K. Cho. Query-efﬁcient imitation learning for end-to-end autonomous driving.
+S10:Z022 |       arXiv preprint arXiv:1605.06450, 2016.
+S10:Z023 | 8   Appendix
+S10:Z024 | 8.1   ProofsforTheoreticalAnalysis
+S10:Z025 | Lemma4.1  If∀u1,u2∈U,  0≤l(u1,u2)≤ 1, the following is true:
+S10:Z026 |                                                                      √1
+S10:Z027 |           |Ep(ξ|πθ∗,ψ)J(θ,θ∗|ξ)−Ep(ξ|πθ)J(θ,θ∗|ξ)|≤T                    2DKL(p(ξ|πθ),p(ξ|πθ∗,ψ))
+S10:Z028 | Proof:
+S10:Z029 |                                 |Ep(ξ|πθ∗,ψ)J(θ,θ∗|ξ)−Ep(ξ|πθ)J(θ,θ∗|ξ)|                                       (5)
+S10:Z030 |                                  ≤T||p(ξ|πθ∗,ψ)−p(ξ|πθ)||TV                                                         (6)√
+S10:Z031 |                                  ≤T      1
+S10:Z032 |                                          2DKL(p(ξ|πθ),p(ξ|πθ∗,ψ))                                                 (7)
+S10:Z033 | The ﬁrst line of the proof follos from Lemma 4.2, which is stated below and the fact∀u1,u2 0≤
+S10:Z034 | l(u1,u2)≤ 1. The second line follows from Pinsker’s Inequality.■
+S10:Z035 | Lemma4.2  LetP andQ be any distribution onX. Letf :X→ [0,B]. Then
+S10:Z036 |                                  |EP[f(x)]−EQ[f(x)]|≤B||P−Q||TV
+S10:Z037 | Proof:
+S10:Z038 |                                                          10
+
+===== PDF S. 11 =====
+S11:Z001 |                                                      ∫                     ∫
+S11:Z002 |                      |EP[f(x)]−EQ[f(x)]| =|
+S11:Z003 |                                                      ∫xp(x)f(x)dx−          xq(x)f(x)dx|
+S11:Z004 |                                                  =|
+S11:Z005 |                                                      ∫x(p(x)−q(x))f(x)dx|(p(x)−q(x))(f(x)− B
+S11:Z006 |                                                  =|                                  2)dx
+S11:Z007 |                                                        x∫
+S11:Z008 |                                                  + B       (p(x)−q(x))dx|
+S11:Z009 |                                                     ∫2   x
+S11:Z010 |                                                  ≤                                2|dx
+S11:Z011 |                                                       x|p(x)−q(x)||f(x)− B∫
+S11:Z012 |                                                  ≤ B2
+S11:Z013 |                                                          x|p(x)−q(x)|dx
+S11:Z014 |                                                  ≤B||P−Q||TV
+S11:Z015 | Thelastlineappliesthedeﬁnitionoftotalvariationaldistance,whichis||P−Q||TV = 1                         ∫
+S11:Z016 |                                                                                                     2  x|p(x)−
+S11:Z017 | q(x)|.■
+S11:Z018 | Proposition4.1 Given  a  supervisor’s  policy  with  Gaussian  noise  injected,  π∗(u|x,ψ)   =
+S11:Z019 | N(π∗(x),Σ), when the robot policy has errorEp(τ|πθ)J(θ,θ∗|ξ)> 0. The following is true:
+S11:Z020 |                          DKL(p(ξ|πθ),p(ξ|πθ∗,Σ))<DKL(p(ξ|πθ),p(ξ|πθ∗))
+S11:Z021 | where the right hand side corresponds to Behavior Cloning.
+S11:Z022 | Proof: We begin the proof with the deﬁnition of the KL-divergence:
+S11:Z023 |                                                                       ∏T−1
+S11:Z024 |                        DKL(p(ξ|πθ),p(ξ|πθ∗))=Ep(ξ|πθ) log            ∏T−1t=0 πθ(ut|xt)
+S11:Z025 |                                                                         t=0 πθ∗(ut|xt)                            (8)
+S11:Z026 |                                                                   T−1∑
+S11:Z027 |                                                      =Ep(ξ|πθ)         log πθ(ut|xt)πθ∗(ut|xt)                                (9)
+S11:Z028 |                                                                    t=
+S11:Z029 | We know thatifEp(τ|πθ)J(θ,θ∗|ψ) = 0, then theKL divergencewould be zerobecause at all states
+S11:Z030 | under the distribution the two policies would perfectly agree. However, if they do not agree then the
+S11:Z031 | KL-divergence becomes the there∃ξ such thatp(ξ|πθ∗) = 0 whenp(ξ|πθ)> 0, which implies [9].
+S11:Z032 |                                        DKL(p(ξ|πθ),p(ξ|πθ∗))=∞
+S11:Z033 | One technique to correct for this is to ensure that the supervisor has ﬁnite probability of applying
+S11:Z034 | any control (i.e.∀ξ p(ξ|πθ∗) > 0 when p(ξ|πθ) > 0. Injecting Gaussian noise ensures non-zero
+S11:Z035 | probability for all controls at a given trajectory and subesequently:
+S11:Z036 |                                       DKL(p(ξ|πθ),p(ξ|πθ∗,Σ))<∞
+S11:Z037 | ■
+S11:Z038 | 4.2   DerivationforOptimizingNoise
+S11:Z039 | When optimizing noise, we need to ﬁrst optimize Eq.3, which ﬁnds the noise parameter that
+S11:Z040 | maximizes the likelihood of the current robot policy and then we can scale the parameter to our prior
+S11:Z041 | of the error in the ﬁnal robot’s policy.
+S11:Z042 | Inthis section,we re-derive theclosed fromsolutions forthe Gaussianandϵ-greedyscenario forthe
+S11:Z043 | MLEobjectiveofthecurrentrobot’scontrol. WethenderiveasolutionforEq.4fortheGaussian
+S11:Z044 | case.
+S11:Z045 |                                                        11
+
+===== PDF S. 12 =====
+S12:Z001 | GaussianMLEWe beginwith thecontinuous case wherethe supervisor’spolicy isstochastic with
+S12:Z002 | distributionπθ∗(ut|xt,Σ) deﬁned byN(πθ∗(xt,Σ) and the learner’s policy is given byπˆθ. Then
+S12:Z003 | the optimization problem is
+S12:Z004 |                             T−1∑
+S12:Z005 | ˆΣ = argmin                      log[πθ∗(πˆθ(xt)|xt,Σ)]
+S12:Z006 |          Σ −Ep(ξ|πθ∗)        t=0
+S12:Z007 |                                                     T−1∑ (πˆθ(xt)−πθ∗(xt))T Σ−1(πˆθ(xt)−πθ∗(xt)).
+S12:Z008 |    = argmin                   2 logdetΣ−1+ 12
+S12:Z009 |          Σ     Ep(ξ|πθ∗)− T                         t=0
+S12:Z010 | We take the derivative with respect toΣ and set it equal to zero:
+S12:Z011 |                                        T−1∑ (πˆθ(xt)−πθ∗(xt))(πˆθ(xt)−πθ∗(xt))T .
+S12:Z012 |                   −TΣ+Ep(ξ|πθ∗)
+S12:Z013 |                                        t=0
+S12:Z014 | Then the optimal covariance matrix is
+S12:Z015 |                                       T−1∑ (πˆθ(xt)−πθ∗(xt))(πˆθ(xt)−πθ∗(xt))T .
+S12:Z016 |                    ˆΣ = 1TEp(ξ|πθ∗)
+S12:Z017 |                                        t=0
+S12:Z018 | ϵ-greedyMLE For theϵ-greedy case in the discrete action domain with a ﬁnite number of controls
+S12:Z019 | K, the probability of the supervisor choosing a control at a particular state is given by{1−ϵ   πθ∗(xt) =ut
+S12:Z020 |                                 πθ∗(ut|xt,ϵ) =         ϵ
+S12:Z021 |                                                      K−1     otherwise      .
+S12:Z022 | For any u1,u2∈U, let the loss function l(u1,u2) be deﬁned as the indicator function so that
+S12:Z023 | l(u1,u2) = 0 foru1 =u2 and 1 otherwise. Then the optimization problem in Eq.3becomes
+S12:Z024 |                                       T−1∑
+S12:Z025 |            ˆϵ = argmin                     log[πθ∗(πˆθ(xt)|xt,ϵ)]
+S12:Z026 |                     ϵ −Ep(ξ|πθ∗)       t=0
+S12:Z027 |                                                       [  ϵ      ]
+S12:Z028 |              = argmin                                   K−1       +(T−J(ˆθ,θ∗|ξ))log[1−ϵ]
+S12:Z029 |                     ϵ −Ep(ξ|πθ∗)J(ˆθ,θ∗|ξ)log
+S12:Z030 | The previous linefollows fromthe factthat alongany given trajectoryξ fromπθ∗, theprobability of
+S12:Z031 | ξ canbe writtenusing onlyJ(ˆθ,θ∗|ξ),which isthe numbertimesthatπˆθ andπθ∗ disagreealongξ.
+S12:Z032 | Notethatthisisconvexinϵ. Bytakingthederivativewithrespecttoϵandsettingitequaltozero,we
+S12:Z033 | get
+S12:Z034 |                           Ep(ξ|πθ∗)J(ˆθ,θ∗|ξ)
+S12:Z035 |                                     ϵ    − T−Ep(ξ|πθ∗)J(ˆθ,θ∗|ξ)1−ϵ               = 0.
+S12:Z036 | Therefore, we have
+S12:Z037 |                                         ˆϵ = 1TEp(ξ|πθ∗)J(ˆθ,θ∗|ξ).
+S12:Z038 | GaussianScalingGivenanoptimizedcovaraincematrix ˆΣ,wewishtoscaleittosomepriorover
+S12:Z039 | what we expect the robot’s ﬁnal error to be.
+S12:Z040 |                                                           T−1∑
+S12:Z041 |                             argmin                             l(ut,πθ∗(xt)))|
+S12:Z042 |                               β≥0|α−Ep(ξ|πθ∗,β∗ˆΣ)         t=0
+S12:Z043 |                                                           T−1∑
+S12:Z044 |                           =argmin                              ||ut−πθ∗(xt)))||22
+S12:Z045 |                               β≥0|α−Ep(ξ|πθ∗,β∗ˆΣ)         t=0
+S12:Z046 |                           =argmin
+S12:Z047 |                               β≥0|α−βTtr(ˆΣ)|
+S12:Z048 |                                                       12
+
+===== PDF S. 13 =====
+S13:Z001 | Wherethelastlinefollowedfromknownpropertiesofthemulti-variateGaussianandthefactthatthe
+S13:Z002 | level of noise is independent of the current statext. We can derive a solution forβ.
+S13:Z003 |                                                     =    αTtr(ˆΣ)
+S13:Z004 | 4.3   AdditionalInformationforMuJoCoExperiments
+S13:Z005 | The following hyperparameters were used for all domains. For DAgger and DAgger-B, we swept
+S13:Z006 | several values forβ, the stochastic mixing hyperparameter, and found that settingβ = 0.5 yields
+S13:Z007 | the best results. For noise injection algorithms, we choseα = Ttr(ˆΣk), which corresponds to no
+S13:Z008 | additional knowledge being used. For Isotropic-Gaussian noise injection, we setΣαk =I for allk.
+S13:Z009 | Additionally,thecovariancematrixforDARTwasalwaysestimatedusingheld-outdemonstrations
+S13:Z010 | collected in prior iterations.
+S13:Z011 | IntheWalker,HopperandHalfCheetahdomains,weranthesealgorithmsfor20iterations,evaluating
+S13:Z012 | thelearnersat5,10,15,and20iterations. Oneinitialsupervisordemonstrationwasalwayscollected
+S13:Z013 | in theﬁrst iteration. To remainconsistent, we updatedDAgger-B andDART at thesame iterations:
+S13:Z014 | iteration 2 and iteration 8.
+S13:Z015 | In the Humanoid domain, we ran the algorithms for 200 iterations and evaluated the learners at
+S13:Z016 | iterations50,100,150,and200. Again,wecollectedoneinitialsupervisordemonstrationforDAgger
+S13:Z017 | and Isotropic-Gaussian. For DAgger-B and DART, we collected 50 initial supervisor demonstrations
+S13:Z018 | before retraining every 25 iterations.
+S13:Z019 | 4.4   AdditionalExperimentsinMuJoCoDomains
+S13:Z020 | TobetterunderstandhowDARTwasabletoachievethereportedperformance,weaskedtheadditional
+S13:Z021 | questions: 1) Does DART reduce the covariate shift? 2) How well do other noise injection methods
+S13:Z022 | perform against DART?
+S13:Z023 | ReducingCovariateShift To test how effective DART was at reducing the shift, we evaluate the
+S13:Z024 | surrogate loss on both the supervisor’s distributionp(ξ|π∗θ, ˆψ) and the robot’s distributionp(ξ|π∗θ).
+S13:Z025 | InFig.4, wereport thelossesfor eachalgorithm. Both DAggerand DARTare capableof reducing
+S13:Z026 | thecovariateshift,whichisreﬂectedbythesmallerdisparitybetweenthelossesonthesupervisor
+S13:Z027 | distributions and those on the robot distributions.
+S13:Z028 | RandomCovarianceMatricesWe alsocompared DART againstlearners thatobtaineddata from
+S13:Z029 | supervisorswith randomcovariance matrices. We deﬁnethe simulatederrorof anoisy supervisor
+S13:Z030 | to be the expected error of the supervisor on its noisy distribution. In the Gaussian case, note that
+S13:Z031 | the expected squared L2 error that the noisy supervisor simulates is equivalent to the trace of the
+S13:Z032 | covariance matrix. That is,[                ]                    [                                               ]
+S13:Z033 |                 1  T−1∑                                             1 T−1∑
+S13:Z034 | Ep(ξ|πθ∗,ˆψ)    T       ∥ut−πθ∗(xt)∥22        = trEp(ξ|πθ∗,ˆψ)     T       (ut−πθ∗(xt))(ut−πθ∗(xt))T
+S13:Z035 |                    t=0                                                 t=0
+S13:Z036 |                                               = tr (Σ),
+S13:Z037 | where ˆψ corresponds to the parameters of the multivariate Gaussian distribution with zero mean and
+S13:Z038 | covariance matrixΣ. Thus, the amount of simulated error can be tuned by tuning the trace of the
+S13:Z039 | covariancematrix. WeusedthisfactgeneraterandomcovariancematricesdrawnfromtheWishart
+S13:Z040 | distribution and scaled the traces of the covariance matrices such that they simulated losses of 0.005,
+S13:Z041 | 0.5,and5.0forWalker,Hopper,andHalfCheetahand0.005,0.5,and10.0forHumanoid. Theresults,
+S13:Z042 | reported in Fig.5, suggest that, as long as the simulated error is carefully chosen, randomlysampled
+S13:Z043 | covariancematricesmayperformaswellasDART;howeveritisnotoftenknowninpracticewhat
+S13:Z044 | the simulated error should be before training the learner and evaluating it.
+S13:Z045 | 4.5   AdditionalInformationonRobotSetup
+S13:Z046 | During policy evaluation, we measured success as 1) the robot is able to identify the goal object and
+S13:Z047 | 2) there being a clear path between its gripper and the object. Once these conditions are identiﬁed an
+S13:Z048 |                                                         13
+
+===== PDF S. 14 =====
+S14:Z001 | Figure 4: The covariate shift on the four different locomotive domains in MuJoCo we evaluated DART on:
+S14:Z002 | Walker, Hopper, Half-Cheetah and Humanoid.  The dashed lines correspond to the surrogate losses on the
+S14:Z003 | supervisor distributions,Ep(ξ|πθ∗,ψαk )J(θR,θ∗|ξ), and the solid lines correspond to the loss on the robot
+S14:Z004 | distributionsEp(ξ|πθR)J(θR,θ∗|ξ). DART is able to reduce the covariate shift in all four domains, which is
+S14:Z005 | illustrated by the dash line converging to the solid line. Additionally, DAgger is also able to reduce the shift.
+S14:Z006 | However, Behavior Cloning is less effective at doing so, which is illustrated by a slower convergence rate.
+S14:Z007 | Figure 5: The losses of learners trained from supervisors with randomly sampled covariance matrices are
+S14:Z008 | compared against thelosses of DART. Again, the dashedlines represent the losson the supervisor disributions
+S14:Z009 | while thesolid linesrepresent the losson the robotdistributions. When thesimulated erroris well-chose, such
+S14:Z010 | as Tr(Σ) = 0.5 in these experiments, the performance matches that of DART and the covariate shift is reduced.
+S14:Z011 | However higher or lower levels of the noise can cause drastically higher losses.
+S14:Z012 | open-loop motion plan is generated to execute a grasp around the target object. In order for the robot
+S14:Z013 | toidentify thetargetobject, weusethe FasterR-CNNtrained onthePASCALVOC2012 dataset,
+S14:Z014 | whichhasabottleobject category [12]. Oncethemustard bottle hasbeenidentiﬁedandtheapathis
+S14:Z015 | clearedahumansupervisortellstherobottoexecutetheopen-loopmotionplantowardsaﬁxposition
+S14:Z016 | thatthegoalobjectisat. Thehumansupervisorisusedtoensurethatthesuccesscriteriaisnotprone
+S14:Z017 | to error in the system, but the supervisor is blinded to which policy is being evaluated to prevent
+S14:Z018 | biases. We evaluate the policy 20 times on different sampled initial states. A video of the learned
+S14:Z019 | policy and the robot setup can be found here: https://youtu.be/LfMD69llesg.
+S14:Z020 |                                                              14
+

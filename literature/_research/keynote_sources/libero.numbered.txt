@@ -1,0 +1,734 @@
+libero: PDF-Seiten ab 1; Z = nichtleere Layout-Textzeile je Seite; keine Original-Zeilennummern.
+
+===== PDF S. 1 =====
+S01:Z001 |          LIBERO:               Benchmarking               Knowledge               Transfer               for
+S01:Z002 |                                                                  Lifelong               Robot               Learning
+S01:Z003 |                                                    †                   ⇤†                                 ⇤     ‡                                       ⇤     †
+S01:Z004 |                                                      Bo        Liu,          Yifeng        Zhu               ,    Chongkai        Gao                      ,    Yihao        Feng
+S01:Z005 |                                                                        †Qiang        Liu,              †Yuke        Zhu,              †,§Peter        Stone
+S01:Z006 |                                       †The         University         of         Texas         at         Austin,            §Sony         AI,         ‡Tsinghua         University
+S01:Z007 |                                             {bliu,yifengz,lqiang,yukez,pstone}@cs.utexas.edu
+S01:Z008 |                                              yihao.ac@gmail.com,         gck20@mails.tsinghua.edu.cn
+S01:Z009 |                                                                                                            Abstract
+S01:Z010 |                       Lifelong         learning         offers         a         promising         paradigm         of         building         a         generalist         agent         that
+S01:Z011 |                       learns         and         adapts         over         its         lifespan.            Unlike         traditional         lifelong         learning         problems         in
+S01:Z012 |                       image         and         text         domains,         which         primarily         involve         the         transfer         of         declarative         knowl-
+S01:Z013 |                       edge         of         entities         and         concepts,         lifelong         learning         in         decision-making         (LLDM)         also
+S01:Z014 |                       necessitates         the         transfer         of         procedural         knowledge,         such         as         actions         and         behaviors.
+S01:Z015 |                      To           advance           research           in        LLDM               ,           we           introduce   LIBERO                  ,           a           novel           benchmark           of
+S01:Z016 |                       lifelong         learning         for         robot         manipulation.            Speciﬁcally,                                LIBERO                  highlights         ﬁve         key
+S01:Z017 |                       research           topics           in       LLDM:                 1)     how           to           efﬁciently           transfer           declarative           knowledge,
+S01:Z018 |                       procedural          knowledge,          or          the          mixture          of          both;                 2)     how          to          design          effective          policy
+S01:Z019 |                       architectures         and                 3)    effective         algorithms         for                 LLDM;                4)     the         robustness         of         a         lifelong
+S01:Z020 |                       learner           with           respect           to           task           ordering;            and  5)     the           effect           of           model           pretraining           for
+S01:Z021 |                       LLDM              .              We              develop              an              extendibleprocedural              generation                  pipeline              that              can              in
+S01:Z022 |                       principle           generate           inﬁnitely           many           tasks.                  For           benchmarking           purpose,            we           create
+S01:Z023 |                       four         task         suites         (130         tasks         in         total)         that         we         use         to         investigate         the         above-mentioned
+S01:Z024 |                       research             topics.                      To             support             sample-efﬁcient             learning,              we             provide             high-quality
+S01:Z025 |                       human-teleoperated         demonstration         data         for         all         tasks.            Our         extensive         experiments
+S01:Z026 |                       present           several           insightful           or           even          unexpected                   discoveries:               sequential           ﬁnetuning
+S01:Z027 |                       outperforms         existing         lifelong         learning         methods         in         forward         transfer,         no         single         visual
+S01:Z028 |                       encoder         architecture         excels         at         all         types         of         knowledge         transfer,         and         naive         supervised
+S01:Z029 |                       pretraining         can         hinder         agents’         performance         in         the         subsequent          L L D M.2
+S01:Z030 | 1                                          Introduction
+S01:Z031 | A          longstanding          goal          in          machine          learning          is          to          develop          a          generalist          agent          that          can          perform          a          wide
+S01:Z032 | range         of         tasks.            While         multitask         learning         [10]         is         one         approach,         it         is         computationally         demanding         and
+S01:Z033 | not           adaptable           to           ongoing           changes.                Lifelong           learning           [65],           however,           offers           a           practical           solution           by
+S01:Z034 | amortizing         the         learning         process         over         the         agent’s         lifespan.            Its         goal         is         to         leverage         prior         knowledge         to
+S01:Z035 | facilitate          learning          new          tasks          (forward          transfer)          and          use          the          newly          acquired          knowledge          to          enhance
+S01:Z036 | performance         on         prior         tasks         (backward         transfer).
+S01:Z037 | The           main           body           of           the           lifelong           learning           literature           has           focused           on           how           agents           transferdeclarative
+S01:Z038 | knowledge         in         visual         or         language         tasks,         which         pertains         to                    declarative          knowledge                           about         entities         and
+S01:Z039 | concepts           [7,          40].                 Yet           it           is           understudied           how           agents           transfer           knowledge           in           decision-making           tasks,
+S01:Z040 | which         involves         a         mixture         of         both        declarative                 and       procedural                  knowledge         (knowledge         about         how         to                        do
+S01:Z041 | something).            Consider         a         scenario         where         a         robot,         initially         trained         to         retrieve         juice         from         a         fridge,         fails
+S01:Z042 |        ⇤Equal        contribution.
+S01:Z043 |        2Check        the        website        at       https://libero-project.github.io                                                              for        the        code        and        the        datasets.
+S01:Z044 | 37th        Conference        on        Neural        Information        Processing        Systems        (NeurIPS        2023)        Track        on        Datasets        and        Benchmarks.
+
+===== PDF S. 2 =====
+S02:Z001 |                                                                                                                                                           Involvedeclarativeknowledge                        Involveproceduralknowledge
+S02:Z002 |                                                                                                                     Procedural
+S02:Z003 |                                                                                                                    Generation
+S02:Z004 |                                                                              LIBERO-Object                                                       LIBERO-Goal
+S02:Z005 |                                                                                                                                                                                 Different       goals,      same      objects       &   layout
+S02:Z006 |            Different       layouts,same             objects
+S02:Z007 |                                                                            LIBERO-Spatial                                                         LIBERO-100
+S02:Z008 |          Different        objects,      same      layout
+S02:Z009 |                                                                                                                                                                                    Diverse objects,            layouts,      backgrounds
+S02:Z010 |         Distribution              Shifts              Algorithmic                Designs              Neural           Arc  hitectures                      Ta    s    kOrderings                        Pretraining               Effects
+S02:Z011 | Figure              1:  Top       :   LIBERO                   has         four         procedurally-generated         task         suites:                                 LIBERO-S                      PAT   I   A   L,     LIBERO-
+S02:Z012 | OBJECT               ,         and LIBERO-G                       OAL          have         10         tasks         each         and         require         transferring         knowledge         about         spatial
+S02:Z013 | relationships,              objects,              and             task             goals;           LIBERO-100                              has             100             tasks             and             requires             the             transfer             of
+S02:Z014 | entangled         knowledge.                            Bottom:            we         investigate         ﬁve         key         research         topics         in          L L D M          on          L I B E RO.
+S02:Z015 | after          learning          new          tasks.             This          could          be          due          to          forgetting          the          juice          or          fridge’s          location          (declarative
+S02:Z016 | knowledge)           or          how          to           open          the          fridge           or          grasp           the          juice          (procedural           knowledge).               So           far,           we           lack
+S02:Z017 | methods         to         systematically         and         quantitatively         analyze         this         complex         knowledge         transfer.
+S02:Z018 | To          bridge          this          research          gap,          this          paper          introduces          a          new          simulation          benchmark,          LIfelong          learning
+S02:Z019 | BEchmark           on           RObot           manipulation           tasks,                               LIBERO,           to           facilitate           the           systematic           study           of           lifelong
+S02:Z020 | learning         in         decision         making         (LLDM                            ).         An         ideal LLDM                 testbed         should         enable         continuous         learning
+S02:Z021 | across           an           expanding           set           of           diverse           tasks           that           share           concepts           and           actions.      LIBERO                    supports           this
+S02:Z022 | through         a         procedural         generation         pipeline         for         endless         task         creation,         based         on         robot         manipulation         tasks
+S02:Z023 | with         shared         visual         concepts         (declarative         knowledge)         and         interactions         (procedural         knowledge).
+S02:Z024 | For         benchmarking         purpose,                             LIBERO                   generates         130         language-conditioned         robot         manipulation         tasks
+S02:Z025 | inspired          by          human          activities          [22]          and,           grouped          into          four          suites.               The          four          task          suites          are          designed
+S02:Z026 | to         examine         distribution         shifts         in         the         object         types,         the         spatial         arrangement         of         objects,         the         task         goals,
+S02:Z027 | or          the          mixture          of          the          previous          three          (top          row          of          Figure                     1).LIBERO   is          scalable,          extendable,          and
+S02:Z028 | designed         explicitly         for         studying         lifelong         learning         in         robot         manipulation.            To         support         efﬁcient         learning,
+S02:Z029 | we         provide         high-quality,         human-teleoperated         demonstration         data         for         all         130         tasks.
+S02:Z030 | We              present              an              initial              study              usingLIBERO           to              investigate              ﬁve              major              research              topics              inLLDM
+S02:Z031 | (Figure           1):         1)     knowledge           transfer           with           different           types           of           distribution           shift;                        2)     neural           architecture
+S02:Z032 | design;             3)     lifelong          learning          algorithm          design;                            4)     robustness          of          the          learner          to          task          ordering;          and         5)
+S02:Z033 | how            to            leverage            pre-trained            models            in        LLDM                 (bottom            row            of            Figure            1).                    We            perform            extensive
+S02:Z034 | experiments         across         different         policy         architectures         and         different         lifelong         learning         algorithms.            Based         on
+S02:Z035 | our         experiments,         we         make         several         insightful         or         even                        unexpected                      observations:
+S02:Z036 |               1.      Policy           architecture           design           is           as           crucial           as           lifelong           learning           algorithms.                  The           transformer
+S02:Z037 |                       architecture          is          better          at          abstracting          temporal          information          than          a          recurrent          neural          network.
+S02:Z038 |                       Vision             transformers             work             well             on             tasks             with             rich             visual             information             (e.g.,              a             variety             of
+S02:Z039 |                       objects).            Convolution         networks         work         well         when         tasks         primarily         need         procedural         knowledge.
+S02:Z040 |               2.      While         the         lifelong         learning         algorithms         we         evaluated         are         effective         at         preventing         forgetting,
+S02:Z041 |                       they         generally         perform                     worse           than         sequential         ﬁnetuning         in         terms         of         forward         transfer.
+S02:Z042 |               3.      Our         experiment         shows         that         using         pretrained         language         embeddings         of         semantically-rich         task
+S02:Z043 |                       descriptions         yields         performance                                   no          better      than         using         those         of         the         task         IDs.
+S02:Z044 |                                                                                                                           2
+
+===== PDF S. 3 =====
+S03:Z001 |                4.      Basic         supervised         pretraining         on         a         large-scale         ofﬂine         dataset         can         have         a                                negative               impact         on
+S03:Z002 |                        the         learner’s         downstream         performance         in          L L D M.
+S03:Z003 | 2                                          Background
+S03:Z004 | This         section         introduces         the         problem         formulation         and         deﬁnes         key         terms         used         throughout         the         paper.
+S03:Z005 | 2.1                                   Markov        Decision        Process        for        Robot        Learning
+S03:Z006 | A           robot           learning           problem           can           be           formulated           as           a           ﬁnite-horizon           Markov           Decision           Process:                                 M         =
+S03:Z007 | (S,      A,      T    ,H,          µ0,R).               Here,           S      and        A      are           the           state           and           action           spaces           of           the           robot.µ0is           the           initial
+S03:Z008 | state           distribution,                   R      :   S⇥A!                         R     is           the           reward           function,            and     T      :   S⇥A!S                              is           the           transition
+S03:Z009 | function.                       In             this             work,              we             assume             a             sparse-reward             setting             and             replaceRwith             a             goal             predicate
+S03:Z010 | g     :   S!{                0,    1}.                  The            robot’s           objective           is           to            learn           a           policyP⇡that           maximizes            the           expected           return:
+S03:Z011 | max              J(⇡)=                E                             [       H         g(s        )].
+S03:Z012 |             ⇡                             st,at⇠⇡,µ              0          t=1                t
+S03:Z013 | 2.2                                   Lifelong        Robot        Learning        Problem
+S03:Z014 | In         alifelong          robot          learning          problem,         a         robot         sequentially         learns         over                                 K       tasks         {T1,...,T                     K}       with         a
+S03:Z015 | single        policy             ⇡.           We        assume        ⇡    is        conditioned        on        the        task,        i.e.,         ⇡(·|         s;    T).           For        each        task,    T    k    ⌘      (µk,gk)
+S03:Z016 |                                                                                                              k                                                                  k    3                                                          0
+S03:Z017 | is         deﬁned         by         the         initial         state         distribution               µ0      and         the         goal         predicate             g     .     We         assume              S,     A,T          ,H        are
+S03:Z018 | the         same         for         all         tasks.            Up         to         thek-th         taskT  k,         the         robot         aims         to         optimize
+S03:Z019 |                                                                                                   1     Xk                                                      XL                               
+S03:Z020 |                                                      max            JLRL(⇡)=                                                             E                                      gp(sp)                 .                                               (1)
+S03:Z021 |                                                           ⇡                                       k                   sp,ap⇠⇡(·;Tp),µp                                                     t
+S03:Z022 |                                                                                                         p=1              t      t                            0        t=1
+S03:Z023 | An         important         feature         of         the         lifelong         setting         is         that         the         agent         loses         access         to         the         previous              k           1   tasks
+S03:Z024 | when         it         learns         on         task   T    k.
+S03:Z025 | Lifelong        Imitation        Learning                                           Due         to         the         challenge         of         sparse-reward         reinforcement         learning,         we
+S03:Z026 | consider           a           practical           alternative           setting           where           a           user           would           provide           a           small           demonstration           dataset
+S03:Z027 | for             each             task             in             the             sequence.                       DenoteDk=  {⌧k}N                   as     N       demonstrations             for             task                  Tk.                       Each
+S03:Z028 |     k                                                                                             k                               i      i=1
+S03:Z029 | ⌧i       =(o0,a0,o1,a1,...,o                                         lk)      where             l             H.                 Here,   ot     is           the           robot’s           sensory           input,            including           the
+S03:Z030 | perceptual            observation            and            the            information            about            the            robot’s            joints            and            gripper.                    In            practice,             the
+S03:Z031 | observation                    ot    is        often        non-Markovian.           Therefore,        following        works        in        partially        observable        MDPs        [25],
+S03:Z032 | we           represent             st     by           the           aggregated           history           of           observations,           i.e.                st      ⌘      ot         ,      (o0,o1,...,o                      t).                 This
+S03:Z033 | results         in         the     lifelong          imitation          learning          problem                               with         the         same         objective         as         in         Eq.      (1).            But         during
+S03:Z034 | training,         we         perform         behavioral         cloning         [4]         with         the         following         surrogate         objective         function:
+S03:Z035 |                                                                                               1    Xk                                Xlp                                                          
+S03:Z036 |                                                      min          JBC(⇡)=                                              E                           L       ⇡(ot;            T    p),ap                 ,                                              (2)
+S03:Z037 |                                                         ⇡                                     k               o   ,a     ⇠Dp                                                                  t
+S03:Z038 |                                                                                                    p=1          t      t                  t=0
+S03:Z039 | where             L     is            a            supervised            learning            loss,            e.g.,            the            negative            log-likelihood            loss,            and     ⇡     is            a            Gaussian
+S03:Z040 | mixture         model.            Similarly,         we         assume                           {Dp           :  p<k}                are         not         fully         available         when         learning                  Tk.
+S03:Z041 | 3                                          Research          Topics          in           L  L  D  M
+S03:Z042 | We         outline         ﬁve         major         research         topics         in                LLDM                 that         motivate         the         design         of          LIBERO                    and         our         study.
+S03:Z043 | (T1)           Transfer         of         Different         Types         of         Knowledge                                           In          order          to          accomplish          a          task          such          asput          the
+S03:Z044 | ketchup           next           to           the           plate           in           the           basket,           a           robot           must           understand           the           conceptketchup,           the           location
+S03:Z045 | of          the  plate/basket,          and          how          to               put       the          ketchup          in          the          basket.              Indeed,          robot          manipulation          tasks          in
+S03:Z046 | general          necessitate          different          types          of          knowledge,          making          it          hard          to          determine          the          cause          of          failure.
+S03:Z047 | We         present         four         task         suites         in         Section         4.2:            three         task         suites         for         studying         the         transfer         of         knowledge
+S03:Z048 | about         spatial         relationships,         object         concepts,         and         task         goals         in         a         disentangled         manner,         and         one         suite
+S03:Z049 | for         studying         the         transfer         of         mixed         types         of         knowledge.
+S03:Z050 |         3Throughout        the        paper,        a        superscript/subscript        is        used        to        index        the        task/time        step.
+S03:Z051 |                                                                                                                               3
+
+===== PDF S. 4 =====
+S04:Z001 | Figure         2:         LIBERO                   ’s         procedural         generation         pipeline:            Extracting         behavioral         templates         from         a         large-
+S04:Z002 | scale             human             activity             dataset               (1),             Ego4D,             for             generating             task             instructions                  (2);              Based             on             the             task
+S04:Z003 | description,         selecting         the         scene         and         generating         the         PDDL         description         ﬁle                                             (3)      that         speciﬁes         the         objects
+S04:Z004 | and         layouts             (A),         the         initial         object         conﬁgurations                           (B),         and         the         task         goal    (C).
+S04:Z005 | (T2)           Neural         Architecture         Design                                            An          important          research          question          in                         LLDM                  is          how          to          design
+S04:Z006 | effective         neural         architectures         to         abstract         the         multi-modal         observations         (images,         language         descriptions,
+S04:Z007 | and         robot         states)         and         transfer         only         relevant         knowledge         when         learning         new         tasks.
+S04:Z008 | (T3)          Lifelong        Learning        Algorithm        Design                                                      Given         a         policy         architecture,         it         is         crucial         to         determine
+S04:Z009 | what         learning         algorithms         to         apply         for                      LLDM.         Speciﬁcally,         the         sequential         nature         of                                    LLDM                 suggests
+S04:Z010 | that         even         minor         forgetting         over         successive         steps         can         potentially         lead         to         a         total         failure         in         execution.            As
+S04:Z011 | such,         we         consider         the         design         of         lifelong         learning         algorithms         to         be         an         open         area         of         research         in                   LLDM.
+S04:Z012 | (T4)           Robustness            to            Task            Ordering                                   It              is              well-known              that              task              curriculum              inﬂuences              policy
+S04:Z013 | learning          [6,           48].              A          robot          in          the          real          world,          however,          often          cannot          choose          which          task          to          encounter
+S04:Z014 | ﬁrst.            Therefore,         a         good         lifelong         learning         algorithm         should         be         robust         to         different         task         orderings.
+S04:Z015 | (T5)           Usage           of           Pretrained           Models                                 In            practice,             robots            will            be            most            likely            pretrained            on            large
+S04:Z016 | datasets           in           factories           before           deployment           [28].                 However,           it           is           not           well-understood           whether           or           how
+S04:Z017 | pretraining         could         beneﬁt         subsequent          L L D M.
+S04:Z018 | 4                                          LIBERO
+S04:Z019 | This         section         introduces         the         components         in          L I B E RO:         the         procedural         generation         pipeline         that         allows
+S04:Z020 | the         never-ending         creation         of         tasks         (Section         4.1),         the         four         task         suites         we         generate         for         benchmarking
+S04:Z021 | (Section         4.2),         ﬁve         algorithms         (Section         4.3),         and         three         neural         architectures         (Section         4.4).
+S04:Z022 | 4.1                                   Procedural        Generation        of        Tasks
+S04:Z023 | Research         in              LLDM                 requires         a         systematic         way         to         create         new         tasks         while         maintaining         task         diversity
+S04:Z024 | and         relevance         to         existing         tasks.                   LIBERO                     procedurally         generates         new         tasks         in         three         steps:                              1)     extract
+S04:Z025 | behavioral            templates            from            language            annotations            of            human            activities            and            generate            sampled            tasks
+S04:Z026 | described         in         natural         language         based         on         such         templates;                                 2)     specify         an         initial         object         distribution         given         a
+S04:Z027 | task         description;         and                  3)     specify         task         goals         using         a         propositional         formula         that         aligns         with         the         language
+S04:Z028 | instructions.                 Our           generation           pipeline           is           built           on           top           of       Robosuite                        [76],           a           modular           manipulation
+S04:Z029 | simulator         that         offers         seamless         integration.            Figure         2         illustrates         an         example         of         task         creation         using         this
+S04:Z030 | pipeline,         and         each         component         is         expanded         upon         below.
+S04:Z031 | Behavioral        Templates        and        Instruction        Generation                                                                       Human         activities         serve         as         a         fertile         source         of
+S04:Z032 | tasks           that          can           inspire           and          generate           a           vast           number          of           manipulation           tasks.               We           choose          a           large-scale
+S04:Z033 | activity           dataset,            Ego4D           [22],            which           includes           a           large           variety           of           everyday           activities           with           language
+S04:Z034 | annotations.            We         pre-process         the         dataset         by         extracting         the         language         descriptions         and         then         summarize
+S04:Z035 | them         into         a         large         set         of         commonly         used         language         templates.            After         this         pre-processing         step,         we         use
+S04:Z036 | the         templates         and         select         objects         available         in         the         simulator         to         generate         a         set         of         task         descriptions         in         the
+S04:Z037 |                                                                                                                                  4
+
+===== PDF S. 5 =====
+S05:Z001 | form         of         language         instructions.            For         example,         we         can         generate         an         instruction         “Open         the         drawer         of         the
+S05:Z002 | cabinet”         from         the         template         “Open         ...”.
+S05:Z003 | Initial          State          Distribution          (µ0)                             To           specify         µ0,            we           ﬁrst           sample           a           scene           layout           that           matches           the
+S05:Z004 | objects/behaviors         in         a         provided         instruction.            For         instance,         a         kitchen         scene         is         selected         for         an         instruction
+S05:Z005 | Open          the          top          drawer          of          the          cabinet          and          put          the          bowl          in          it.            Then,         the         details         aboutµ0are         generated         in
+S05:Z006 | the         PDDL         language         [43,                63].            Concretely,               µ0      contains         information         about         object         categories         and         their
+S05:Z007 | placement         (Figure         2-(A)),         and         their         initial         status         (Figure         2-(B)).
+S05:Z008 | Goal        Speciﬁcations                           (g)           Based         on         µ0      and         the         language         instruction,         we         specify         the         task         goal         using
+S05:Z009 | a          conjunction          of          predicates.            Predicates          include                          unary          predicates                   that          describe          the          properties          of          an
+S05:Z010 | object,         such        as       Open(X)        or            TurnOff(X),        and                       binary         predicates                   that        describe        spatial        relations        between
+S05:Z011 | objects,         such         as         On(A,         B)         or    In(A,         B).         An         example         of         the         goal         speciﬁcation         using         PDDL         language
+S05:Z012 | can         be         found         in         Figure         2-(C).         The         simulation         terminates         when         all         predicates         are         veriﬁed         true.
+S05:Z013 | 4.2                                   Task        Suites
+S05:Z014 | While         the         pipeline         in         Section         4.1         supports         the         generation         of         an         unlimited         number         of         tasks,         we         offer
+S05:Z015 | ﬁxed         sets         of         tasks         for         benchmarking         purposes.                          LIBERO                    has         four         task         suites:       LIBERO-S                      PAT   I   A   L,
+S05:Z016 | LIBERO-O                        BJECT,             LIBERO-G                        OAL,         and         LIBERO-100                           .            The         ﬁrst         three         task         suites         are         curated         to
+S05:Z017 | disentangle            the            transfer            of         declarative                   and        procedural                    knowledge            (as            mentioned            in                (T1)),            while
+S05:Z018 | L I B E RO - 1 0 0          is         a         suite         of         100         tasks         with         entangled         knowledge         transfer.
+S05:Z019 | LIBERO-X                                 LIBERO-S                       PAT   I   A   L,      LIBERO-O                        BJECT           ,            andLIBERO-G                       OAL          all           have           10           tasks4
+S05:Z020 | and               are               designed               to               investigate               the               controlled               transfer               of               knowledge               about               spatial               information
+S05:Z021 | (declarative),         objects         (declarative),         and         task         goals         (procedural).            Speciﬁcally,         all         tasks         in                                              LIBERO-
+S05:Z022 | SPAT   I   A   L        request         the         robot         to         place         a         bowl,         among         the         same         set         of         objects,         on         a         plate.            But         there         are
+S05:Z023 | two         identical         bowls         that         differ         only         in         their         location         or         spatial         relationship         to         other         objects.            Hence,         to
+S05:Z024 | successfully         complete                            LIBERO-S                      PAT   I   A   L,         the         robot         needs         to         continually         learn         and         memorize         new
+S05:Z025 | spatial         relationships.            All         tasks         in             LIBERO-O                       BJECT             request         the         robot         to         pick-place         a         unique         object.
+S05:Z026 | Hence,          to          accomplish                  LIBERO-O                        BJECT,          the          robot          needs          to          continually          learn          and          memorize          new
+S05:Z027 | object         types.            All         tasks         in  LIBERO-G                      OAL          share         the         same         objects         with         ﬁxed         spatial         relationships         but
+S05:Z028 | differ         only         in         the         task         goal.            Hence,         to         accomplish         LIBERO-G                        OAL,         the         robot         needs         to         continually
+S05:Z029 | learn         new         knowledge         about         motions         and         behaviors.            More         details         are         in         Appendix         C.
+S05:Z030 | LIBERO-100                                 LIBERO-100                           contains        100        tasks        that        entail        diverse        object        interactions        and        versatile
+S05:Z031 | motor         skills.            In         this         paper,         we         splitLIBERO-100                           into         90         short-horizon         tasks         (LIBERO-90                                )         and         10
+S05:Z032 | long-horizon         tasks         (LIBERO-L                                     ONG).            LIBERO-90                           serves         as         the         data         source         for         pretraining            (T5)
+S05:Z033 | and          L I B E RO - LONG                        for         downstream         evaluation         of         lifelong         learning         algorithms.
+S05:Z034 | 4.3                                   Lifelong        Learning        Algorithms
+S05:Z035 | We            implement            three            representative            lifelong            learning            algorithms            to            facilitate            research            in            algorith-
+S05:Z036 | mic          design          for      LLDM                .          Speciﬁcally,          we          implement          Experience          Replay          (ER)[13],          Elastic          Weight
+S05:Z037 | Consolidation         (EWC)[33],         and                                      PAC KNET                    [41].            We         pick    ER,         EWC,         and             PAC KNET                    because         they
+S05:Z038 | correspond         to         the         memory-based,         regularization-based,         and         dynamic-architecture-based         methods         for
+S05:Z039 | lifelong         learning.           In         addition,         prior         research         [69]         has         discovered         that         they         are         state-of-the-art         methods.
+S05:Z040 | Besides         these         three         methods,         we         also         implement         sequential         ﬁnetuning         (SEQL)         and         multitask         learning
+S05:Z041 | (MTL),         which         serve         as         a         lower         bound         and         upper         bound         for         lifelong         learning         algorithms,         respectively.
+S05:Z042 | More         details         about         the         algorithms         are         in         Appendix         B.1.
+S05:Z043 | 4.4                                   Neural        Network        Architectures
+S05:Z044 | We         implement         three         vision-language         policy         networks,                                            RESNET-RNN,                              RESNET-T,         and                     VIT-    T,         that
+S05:Z045 | integrate           visual,            temporal,            and           linguistic           information           for                          LLDM.           Language           instructions           of           tasks
+S05:Z046 | are         encoded         using         pretrained         BERT         embeddings         [19].            The                                 RESNET-RNN                             [42]         uses         a         ResNet         as         the
+S05:Z047 | visual         backbone         that         encodes         per-step         visual         observations         and         an         LSTM         as         the         temporal         backbone         to
+S05:Z048 | process         a         sequence         of         encoded         visual         information.            The         language         instruction         is         incorporated         into         the
+S05:Z049 | ResNet        features        using        the        FiLM        method        [50]        and        added        to        the        LSTM        inputs,         respectively.                                          RESNET-T
+S05:Z050 |         4A        suite        of        10        tasks        is        enough        to        observe        catastrophic        forgetting        while        maintaining        computation        efﬁciency.
+S05:Z051 |                                                                                                                           5
+
+===== PDF S. 6 =====
+S06:Z001 | architecture           [75]           uses           a           similar           ResNet-based           visual           backbone,           but           a           transformer           decoder           [66]           as
+S06:Z002 | the           temporal           backbone           to           process           outputs           from           ResNet,           which           are           a           temporal           sequence           of           visual
+S06:Z003 | tokens.            The         language         embedding         is         treated         as         a         separate         token         in         inputs         to         the         transformer         alongside
+S06:Z004 | the         visual         tokens.            The          VIT-    T          architecture         [31],         which         is         widely         used         in         visual-language         tasks,         uses         a
+S06:Z005 | Vision         Transformer         (ViT)         as         the         visual         backbone         and         a         transformer         decoder         as         the         temporal         backbone.
+S06:Z006 | The           language           embedding           is           treated           as           a           separate           token           in           inputs           of           both           ViT           and           the           transformer
+S06:Z007 | decoder.                    All            the            temporal            backbones            output            a            latent            vector            for            every            decision-making            step.                    We
+S06:Z008 | compute         the         multi-modal         distribution         over         manipulation         actions         using         a         Gaussian-Mixture-Model
+S06:Z009 | (GMM)         based         output         head         [8,                    42,      68].            In         the         end,         a         robot         executes         a         policy         by         sampling         a         continuous
+S06:Z010 | value         for         end-effector         action         from         the         output         distribution.            Figure         6         visualizes         the         three         architectures.
+S06:Z011 | For         all         the         lifelong         learning         algorithms         and         neural         architectures,         we         use         behavioral         cloning         (BC)         [4]
+S06:Z012 | to         train         policies         for         individual         tasks         (See                   (2)).            BC         allows         for         efﬁcient         policy         learning         such         that         we
+S06:Z013 | can         study         lifelong         learning         algorithms         with         limited         computational         resources.            To         train         BC,         we         provide
+S06:Z014 | 50         trajectories         of         high-quality         demonstrations         for         every         single         task         in         the         generated         task         suites.            The
+S06:Z015 | demonstrations         are         collected         by         human         experts         through         teleoperation         with         3Dconnexion         Spacemouse.
+S06:Z016 | 5                                          Experiments
+S06:Z017 | Experiments         are         conducted         as         an         initial         study         for         the         ﬁve         research         topics         mentioned         in         Section         3.            We
+S06:Z018 | ﬁrst         introduce         the         evaluation         metric         used         in         experiments,         and         present         analysis         of         empirical         results         in
+S06:Z019 | LIBERO                   .         The         detailed         experimental         setup         is         in         Appendix         D.         Our         experiments         focus         on         addressing
+S06:Z020 | the         following         research         questions:
+S06:Z021 | Q1:            How         do         different         architectures/LL         algorithms         perform         under         speciﬁc         distribution         shifts?
+S06:Z022 | Q2:            To         what         extent         does         neural         architecture         impact         knowledge         transfer         in                                       LLDM,         and         are         there         any
+S06:Z023 | discernible         patterns         in         the         specialized         capabilities         of         each         architecture?
+S06:Z024 | Q3:            How         do         existing         algorithms         from         lifelong         supervised         learning         perform         on          L L D M          tasks?
+S06:Z025 | Q4:            To         what         extent         does         language         embedding         affect         knowledge         transfer         in          L L D M?
+S06:Z026 | Q5:            How         robust         are         different         LL         algorithms         to         task         ordering         in          L L D M?
+S06:Z027 | Q6:            Can         supervised         pretraining         improve         downstream         lifelong         learning         performance         in          L L D M?
+S06:Z028 | 5.1                                   Evaluation        Metrics
+S06:Z029 | We              report              three              metrics:                     FWT              (forward              transfer)              [20],               NBT              (negative              backward              transfer),               and
+S06:Z030 | AUC            (area            under            the            success            rate            curve).                     All            metrics            are            computed            in            terms            of            success            rate,             as
+S06:Z031 | previous           literature           has           shown           that           the           success           rate           is           a           more           reliable           metric           than           training           loss           for
+S06:Z032 | manipulation            policies            [42]            (Detailed            explanation            in            Appendix            E.2).                   Lower            NBT            means            a            policy
+S06:Z033 | has         better         performance         in         the         previously         seen         tasks,         higher         FWT         means         a         policy         learns         faster         on         a
+S06:Z034 | new          task,           and          higher          AUC          means          an          overall          better          performance          considering          both          NBT          and          FWT.
+S06:Z035 | Speciﬁcally,        denote                          ci,j,e        as        the        agent’s        success        rate        on        task           j   when        it        learned        over             i        1   previous        tasks
+S06:Z036 | and         has         just         learned         e    epochs         (e          2{        0,    5,...,            50})         on         task      i.            Letci,i      be         the         best         success         rate         over         all
+S06:Z037 | evaluated         epochs                      e    for         the         current         task       i   (i.e.,       ci,i      =           maxe       ci,i,e).            Then,         we         ﬁnd         the         earliest         epoch             e⇤
+S06:Z038 |                                                                                                                                                                                  ⇤                                                                                 i
+S06:Z039 | in          which          the          agent          achieves          the          best          performance          on          task                  i   (i.e.,        ei       =             arg       mine    ci,i,ei          =      ci,i),          and
+S06:Z040 | assume         for         all         e           e⇤,      ci,i,e         =      ci,i.5         Given         a         different         task             j    6=     i,         we         deﬁne      ci,j       =      ci,j,e⇤.            Then         the
+S06:Z041 |                                                       i                                                                                                                                                                                i
+S06:Z042 | three         metrics         are         deﬁned:
+S06:Z043 |                                                                   X             FWTk                                                  1             X
+S06:Z044 |                                          FWT             =                           K            ,       FWTk               =      11                                ck,k,e
+S06:Z045 |                                                                 k2[K]                                                                        e2{      0...50}
+S06:Z046 |                                                                  X             NBT                                                         1               XK                                             
+S06:Z047 |                                          NBT            =                                   k   ,         NBT               =                                               c                  c
+S06:Z048 |                                                                                     K                                  k            K             k                            k,k                ⌧,k                                                          (3)
+S06:Z049 |                                                                k2[K]                                                                                    ⌧=k+1
+S06:Z050 |                                                                   X             AUC                                                             1                                                XK                        
+S06:Z051 |                                          AUC            =                                    k   ,       AUC                =                                       FWT                +                       c
+S06:Z052 |                                                                                      K                                 k           K             k     +1                         k                               ⌧,k
+S06:Z053 |                                                                k2[K]                                                                                                                          ⌧=k+1
+S06:Z054 |         5In        practice,        it’s        possible        that        the        agent’s        performance        on        task                      i   is        not        monotonically        increasing        due        to        the
+S06:Z055 | variance         of         learning.            But         we         keep         the         best         checkpoint         among         those         saved         at         epochs               {e}        as         if         the         agent         stops
+S06:Z056 | learning        after            e⇤.
+S06:Z057 |                                     i
+S06:Z058 |                                                                                                                                  6
+
+===== PDF S. 7 =====
+S07:Z001 | A         visualization         of         these         metrics         is         provided         in         Figure         3.
+S07:Z002 |                                                                                              Figure         3:            Metrics         for          L L D M.
+S07:Z003 | 5.2                                   Experimental        Results
+S07:Z004 | We         present         empirical         results         to         address         the         research         questions.            Please         refer         to         Appendix         E.1         for         the
+S07:Z005 | full         results         across         all         algorithms,         policy         architectures,         and         task         suites.
+S07:Z006 | Study        on        the        Policy’s        Neural        Architectures        (Q1,        Q2)                                                    Table         1         reports         the         agent’s         lifelong         learning
+S07:Z007 | performance         using         the         three         different         neural         architectures         on         the         four         task         suites.            Results         are         reported
+S07:Z008 | when            ER         and        PAC KNET                     are         used         as         they         demonstrate         the         best         lifelong         learning         performance         across
+S07:Z009 | all         task         suites.
+S07:Z010 |     Policy         Arch.                                                                        ER                                                                                                                                                                                                                                                                                                                                                                                                                                                                    PAC KNET
+S07:Z011 |                                                      FWT(")                                                                               NBT(#)                                                                                AUC(")                                                                              FWT(")                                                                               NBT(#)                                                                            AUC(")
+S07:Z012 |                                                                                                                                       LIBERO-L                      ONG
+S07:Z013 |     RESNET- R N N                                   0.16±0.02                        0.16±0.02                            0.08        ±     0.01               0.13        ±0.00                   0.21±0.01                            0.03        ±     0.00
+S07:Z014 |     RESNET-T                                     0.48        ±0.02                   0.32±              0.04              0.32        ±     0.01               0.22        ±0.01                   0.08±             0.01               0.25        ±     0.00
+S07:Z015 |     VIT- T                                                                                                                                             0.38±0.050.29±0.060.25±0.020.36±0.01        0.14±             0.01               0.34        ±     0.01
+S07:Z016 |                                                                                                                                   LIBERO-S                      PAT  I   A   L
+S07:Z017 |     RESNET- R N N                                   0.40±0.02                        0.29±0.02                            0.29        ±     0.01               0.27        ±0.03                   0.38±0.03                            0.06        ±     0.01
+S07:Z018 |     RESNET-T                                     0.65        ±0.03                   0.27±              0.03              0.56        ±     0.01               0.55        ±0.01                   0.07±             0.02               0.63        ±     0.00
+S07:Z019 |     VIT- T                                                                                                                                             0.63±0.010.29±0.020.50±0.020.57±0.04        0.15±             0.00               0.59        ±     0.03
+S07:Z020 |                                                                                                                                    LIBERO-O                       BJECT
+S07:Z021 |     RESNET- R N N                                   0.30±0.01                        0.27±0.05                            0.17        ±     0.05               0.29        ±0.02                   0.35±0.02                            0.13        ±     0.01
+S07:Z022 |     RESNET- T                                                                                  0.67±0.070.43±0.04         0.44        ±     0.06               0.60        ±0.07                   0.17±0.05                            0.60        ±     0.05
+S07:Z023 |     VIT-   T                                     0.70        ±     0.02              0.28         ±     0.01              0.57        ±     0.01               0.58        ±     0.03              0.18         ±    0.02               0.56        ±     0.04
+S07:Z024 |                                                                                                                                       LIBERO-G                      OAL
+S07:Z025 |     RESNET- R N N                                   0.41±0.00                        0.35±0.01                            0.26        ±     0.01               0.32        ±0.03                   0.37±0.04                            0.11        ±     0.01
+S07:Z026 |     RESNET-T                                     0.64        ±0.01                   0.34±              0.02              0.49        ±     0.02               0.63        ±0.02                   0.06±             0.01               0.75        ±     0.01
+S07:Z027 |     VIT- T                                                                                                                                             0.57±0.000.40±0.020.38±0.010.69±0.02        0.08±             0.01               0.76        ±     0.02
+S07:Z028 | Table         1:             Performance          of          the          three         neural          architectures          usingER                                            and         PAC KNET                       on            the            four           task
+S07:Z029 | suites.             Results          are          averaged          over          three          seeds          and          we          report          the          mean          and          standard          error.             The          best
+S07:Z030 | performance           is                   bolded,            and           colored           in            purple               if           the           improvement           is           statistically           signiﬁcant           over
+S07:Z031 | other         neural         architectures,         when         a         two-tailed,         Student’s         t-test         under         equal         sample         sizes         and         unequal
+S07:Z032 | variance         is         applied         with         a           p-value         of         0.05.
+S07:Z033 | Findings:                   First,         we         observe         that              RESNET-T                        and         VIT-    T           work         much         better         than                  RESNET-RNN                                 on
+S07:Z034 | average,           indicating           that           using           a           transformer           on           the           “temporal"           level           could           be           a           better           option           than
+S07:Z035 | using          an          RNN          model.              Second,          the          performance          difference          among          different          architectures          depends
+S07:Z036 | on           the           underlying           lifelong           learning           algorithm.               If                      PAC KNET                      (a           dynamic           architecture           approach)           is
+S07:Z037 |                                                                                                                                    7
+
+===== PDF S. 8 =====
+S08:Z001 | used,         we         observe         no         signiﬁcant         performance         difference         between                                                                      RESNET-T                           and         VIT-    T             except         on
+S08:Z002 | the        LIBERO-L                            ONG             task           suite           where             VIT-    T             performs           much           better           than                         RESNET-T.           In           contrast,
+S08:Z003 | if     ER          is            used,             we            observe            that     RESNET-T                           performs            better            than                     VIT-    T            on            all            task            suites            except
+S08:Z004 | LIBERO-O                            BJECT.            This         potentially         indicates         that         the         ViT         architecture         is         better         at         processing         visual
+S08:Z005 | information          with          more          object          varieties          than          the          ResNet          architecture          when          the          network          capacity          is
+S08:Z006 | sufﬁciently         large         (See         the                        MTL              results         in         Table         8         on      LIBERO-O                            BJECT               as         the         supporting         evidence).
+S08:Z007 | The         above         ﬁndings         shed         light         on         how         one         can         improve         architecture         design         for         better         processing         of
+S08:Z008 | spatial         and         temporal         information         in          L L D M.
+S08:Z009 | Study           on           Lifelong           Learning           Algorithms           (Q1,            Q3)                                                         Table            2            reports            the            lifelong            learning            per-
+S08:Z010 | formance            of            the            three            lifelong            learning            algorithms,             together            with            the                                    SEQL                and          MTL               baselines.
+S08:Z011 | All              experiments              use              the              same            RESNET-T                           architecture              as              it              performs              the              best              across              all              policy
+S08:Z012 | architectures.
+S08:Z013 |     Lifelong         Algo.                                                                      FWT(")                                                                                                  NBT(#)                                                                                                   AUC(")                                                                                                 FWT(")                                                                                                  NBT(#)                                                                                                   AUC(")
+S08:Z014 |                                                                                    LIBERO-L                         ONG                                                                              LIBERO-S                        PAT  I   A   L
+S08:Z015 |     SEQL                                           0.54         ±0.01                     0.63±0.01                              0.15         ±      0.00               0.72         ±0.01                     0.81±0.01                               0.20         ±     0.01
+S08:Z016 |     E R                                                                                                                                                                         0.48±0.020.32±0.040.32±0.010.65±0.030.27±0.03                          0.56         ±     0.01
+S08:Z017 |     E W C                                                                                                                                            0.13±0.020.22±0.030.02±0.000.23 ±0.01                     0.33±0.01                               0.06         ±     0.01
+S08:Z018 |     PAC KNET                                       0.22         ±0.01                     0.08±0.01                              0.25         ±      0.00               0.55         ±0.01                     0.07±0.02                               0.63         ±     0.00
+S08:Z019 |     M T L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        0.48±0.010.83±0.00
+S08:Z020 |                                                                                  LIBERO-O                         BJECT                                                                                  LIBERO-G                         OAL
+S08:Z021 |     SEQL                                           0.78         ±0.04                     0.76±0.04                              0.26         ±      0.02               0.77         ±0.01                     0.82±0.01                               0.22         ±     0.00
+S08:Z022 |     E R                                                                                                                                                                         0.67±0.070.43±0.040.44±0.060.64±0.010.34±0.02                          0.49         ±     0.02
+S08:Z023 |     E W C                                                                                                                                            0.56±0.030.69±0.020.16±0.020.32 ±0.02                     0.48±0.03                               0.06         ±     0.00
+S08:Z024 |     PAC KNET                                       0.60         ±0.07                     0.17±0.05                              0.60         ±      0.05               0.63         ±0.02                     0.06±0.01                               0.75         ±     0.01
+S08:Z025 |     M T L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        0.54±0.020.80±0.01
+S08:Z026 | Table         2:            Performance         of         three         lifelong         algorithms         and         theSEQL                                                               and          MTL               baselines           on           the           four
+S08:Z027 | task          suites,           where           the           policy           is          ﬁxed           to          be     RESNET-T.          Results           are          averaged          over          three           seeds          and
+S08:Z028 | we          report          the          mean          and          standard          error.              The          best          performance          is                                bolded,           and          colored          in                  purple                 if
+S08:Z029 | the         improvement         is         statistically         signiﬁcant         over         other         algorithms,         when         a         two-tailed,         Student’s         t-test
+S08:Z030 | under         equal         sample         sizes         and         unequal         variance         is         applied         with         a                                         p-value         of         0.05.
+S08:Z031 | Findings:                    We         observed         a         series         of         interesting         ﬁndings         that         could         potentially         beneﬁt         future         research
+S08:Z032 | on         algorithm         design         for                     LLDM:                    1)      SEQL              shows         the         best         FWT         over         all         task         suites.            This         is         surprising
+S08:Z033 | since             it             indicates             all             lifelong             learning             algorithms             we             consider             actually             hurt             forward             transfer;                                       2)
+S08:Z034 | PAC KNET                        outperforms          other          lifelong          learning          algorithms          on                                                     LIBERO-X                              but          is          outperformed          by
+S08:Z035 | ER          signiﬁcantly          on                       LIBERO-L                            ONG,          mainly          because          of          low          forward          transfer.             This          conﬁrms          that
+S08:Z036 | the         dynamic         architecture         approach         is         good         at         preventing         forgetting.            But         since                                                                  PAC KNET                       splits         the
+S08:Z037 | network         into         different         sub-networks,         the         essential         capacity         of         the         network         for         learning         any         individual
+S08:Z038 | task          is          smaller.              Therefore,          we          conjecture          that                              PAC KNET                        is          not          rich          enough          to          learn          on    LIBERO-
+S08:Z039 | LONG;                3)      EWC               works        worse        than                    SEQL,        showing        that        the        regularization        on        the        loss        term        can        actually
+S08:Z040 | impede         the         agent’s         performance         on          L L D M          problems         (See         Appendix         E.2);         and                                                                      4)      E R,         the         rehearsal
+S08:Z041 | method,         is         robust         across         all         task         suites.
+S08:Z042 | Study           on           Language           Embeddings           as           the           Task           Identiﬁer           (Q4)                                                               To             investigate             to             what             extent
+S08:Z043 | language         embedding         play         a         role         in                          LLDM,         we         compare         the         performance         of         the         same         lifelong         learner
+S08:Z044 | using          four          different          pretrained          language          embeddings.               Namely,           we          choose          BERT          [19],           CLIP          [52],
+S08:Z045 | GPT-2         [53]         and         the         Task-ID         embedding.            Task-ID         embeddings         are         produced         by         feeding         a         string         such
+S08:Z046 | as         “Task         5”         into         a         pretrained         BERT         model.
+S08:Z047 | Findings:                     From         Table         3,         we         observe                    no       statistically         signiﬁcant         difference         among         various         language
+S08:Z048 | embeddings,           including           the           Task-ID           embedding.                This,           we           believe,           is           due           to           sentence           embeddings
+S08:Z049 | functioning         as         bag-of-words         that         differentiates         different         tasks.            This         insight         calls         for         better         language
+S08:Z050 | encoding         to         harness         the         semantic         information         in         task         descriptions.            Despite         the         similar         performance,
+S08:Z051 | we         opt         for         BERT         embeddings         as         our         default         task         embedding.
+S08:Z052 |                                                                                                                                             8
+
+===== PDF S. 9 =====
+S09:Z001 |                                      Embedding         Type                                               Dimension                                                                           FWT(")                                                                                                          NBT(#)                                                                                                           AUC(")
+S09:Z002 |                                      BERT                                                                                                                                                                                                                                                                                 768                                                                                                       0.48±0.020.32±0.040.32±0.01
+S09:Z003 |                                      CLIP                                                                                                                                                                                                                                                                                              5120.52±0.000.34±0.010.35±0.01
+S09:Z004 |                                      GPT-2                                                                                                                                                                                                                                                                            768                                                                                                       0.46±0.010.34±0.020.30±0.01
+S09:Z005 |                                      Task-ID                                                                                                                                                                                                                                                    768                                                                                                       0.50±0.010.37±0.010.33±0.01
+S09:Z006 | Table         3:            Performance         of         a         lifelong         learner         using         four         different         language         embeddings         on                                                                                                  LIBERO-
+S09:Z007 | LONG,         where         we         ﬁx         the         policy         architecture         to                                               RESNET-T                             and         the         lifelong         learning         algorithm         to                                          ER.
+S09:Z008 | The         Task-ID         embeddings         are         retrieved         by         feeding         “Task         +         ID"         into         a         pretrained         BERT         model.           Results
+S09:Z009 | are         averaged         over         three         seeds         and         we         report         the         mean         and         standard         error.            The         best         performance         is
+S09:Z010 | bolded.            No         statistically         signiﬁcant         difference         is         observed         among         the         different         language         embeddings.
+S09:Z011 | Study        on        task        ordering        (Q5)                                               Figure         4         shows         the         result         of         the         study         on                         Q4.            For         all         experiments         in
+S09:Z012 | this         study,         we         used                   RESNET-T                              as         the         neural         architecture         and         evaluated         both                                                  ER          and           PAC KNET.            As
+S09:Z013 | the         ﬁgure         illustrates,         the         performance         of         both         algorithms         varies         across         different         task         orderings.            This
+S09:Z014 | ﬁnding         highlights         an         important         direction         for         future         research:            developing         algorithms         or         architectures
+S09:Z015 | that         are         robust         to         varying         task         orderings.
+S09:Z016 | Figure         4:            Performance         of                                ER           and           PAC KNET                           using               RESNET-T                              on         ﬁve         different         task         orderings.            An
+S09:Z017 | error         bar         shows         the         performance         standard         deviation         for         a         ﬁxed         ordering.
+S09:Z018 | Findings:                       From         Figure         4,         we         observe         that         indeed         different         task         ordering         could         result         in         very         different
+S09:Z019 | performances            for            the            same            algorithm.                    Speciﬁcally,             such            difference            is            statistically            signiﬁcant            for
+S09:Z020 | PAC KNET.
+S09:Z021 | Study            on            How            Pretraining            Affects            Downstream                                                                        LLDM                        (Q6)                       Fig             5             reports             the             results             on
+S09:Z022 | LIBERO-L                                ONG             of         ﬁve         combinations         of         algorithms         and         policy         architectures,         when         the         underlying
+S09:Z023 | model           is           pretrained           on           the           90           short-horizion           tasks           in                                        LIBERO-100                                        or           learned           from           scratch.                For
+S09:Z024 | pretraining,         we         apply         behavioral         cloning         on         the         90         tasks         using         the         three         policy         architectures         for         50
+S09:Z025 | epochs.                    We            save            a            checkpoint            every            5            epochs            of            training            and            then            pick            the            checkpoint            for            each
+S09:Z026 | architecture         that         has         the         best         performance         as         the         pretrained         model         for         downstream          L L D M.
+S09:Z027 | Figure         5:            Performance         of         different         combinations         of         algorithms         and         architectures         without         pretraining
+S09:Z028 | or         with         pretraining.            The         multi-task         learning         performance         is         also         included         for         reference.
+S09:Z029 | Findings:                       We         observe         that         the         basic         supervised         pretraining         can                                                          hurt           the         model’s         downstream         lifelong
+S09:Z030 | learning        performance.           This,        together        with        the        results        seen        in        Table        2        (e.g.,        naive        sequential        ﬁne-tuning
+S09:Z031 |                                                                                                                                                             9
+
+===== PDF S. 10 =====
+S10:Z001 | has         better         forward         transfer         than         when         lifelong         learning         algorithms         are         applied),         indicates         that         better
+S10:Z002 | pretraining         techniques         are         needed.
+S10:Z003 | Attention        Visualization:                                         To         better         understand         what         type         of         knowledge         the         agent         forgets         during         the
+S10:Z004 | lifelong         learning         process,         we         visualize         the         agent’s         attention         map         on         each         observed         image         input.            The
+S10:Z005 | visualized         saliency         maps         and         the         discussion         can         be         found         in         Appendix         E.4.
+S10:Z006 | 6                                          Related          Work
+S10:Z007 | This         section         provides         an         overview         of         existing         benchmarks         for         lifelong         learning         and         robot         learning.
+S10:Z008 | We         refer         the         reader         to         Appendix         B.1         for         a         detailed         review         of         lifelong         learning         algorithms.
+S10:Z009 | Lifelong             Learning             Benchmarks                                                 Pioneering               work               has               adapted               standard               vision               or               language
+S10:Z010 | datasets         for         studying         LL.         This         line         of         work         includes         image         classiﬁcation         datasets         like         MNIST         [18],
+S10:Z011 | CIFAR             [34],              and             ImageNet             [17];               segmentation             datasets             like             Core50             [38];               and             natural             language
+S10:Z012 | understanding         datasets         like         GLUE         [67]         and         SuperGLUE         [59].            Besides         supervised         learning         datasets,
+S10:Z013 | video         game         benchmarks         (e.g.,         Atari         [46],         XLand         [64],         and         VisDoom         [30])         in         reinforcement         learning
+S10:Z014 | (RL)          have          also          been          used          for          studying          LL.          However,          LL          in          standard          supervised          learning          does          not
+S10:Z015 | involve        procedural        knowledge        transfer,        while        RL        problems        in        games        do        not        represent        human        activities.
+S10:Z016 | ContinualWorld         [69]         modiﬁes         the         50         manipulation         tasks         in         MetaWorld         for         LL.         CORA         [51]         builds
+S10:Z017 | four             lifelong             RL             benchmarks             based             on             Atari,             Procgen             [15],             MiniHack             [58],             and             ALFRED             [62].
+S10:Z018 | F-SIOL-310         [3]         and         OpenLORIS         [61]         are         challenging         real-world         lifelong         object         learning         datasets
+S10:Z019 | that         are         captured         from         robotic         vision         systems.            Prior         works         have         also         analyzed         different         components
+S10:Z020 | in         a         LL         agent         [45,         70,         21],         but         they         do         not         focus         on         robot         manipulation         problems.
+S10:Z021 | Robot             Learning             Benchmarks                                             A              variety              of              robot              learning              benchmarks              have              been              proposed
+S10:Z022 | to              address              challenges              in              meta              learning              (MetaWorld              [73]),               causality              learning              (CausalWorld              [1]),
+S10:Z023 | multi-task            learning            [27,                   35],            policy            generalization            to            unseen            objects            [47,                  24],            and            compositional
+S10:Z024 | learning           [44].                Compared           to           existing           benchmarks           in           lifelong           learning           and           robot           learning,           the           task
+S10:Z025 | suites         in      LIBERO                     are         curated         to         address         the         research         topics         of                LLDM.         The         benchmark         includes         a
+S10:Z026 | large         number         of         tasks         based         on         everyday         human         activities         that         feature         rich         interactive         behaviors         with
+S10:Z027 | a         diverse         range         of         objects.            Additionally,         the         tasks         in                  LIBERO                     are         procedurally         generated,         making
+S10:Z028 | the         benchmark         scalable         and         adaptable.            Moreover,         the         provided         high-quality         human         demonstration
+S10:Z029 | dataset         in          L I B E RO          supports         and         encourages         learning         efﬁciency.
+S10:Z030 | 7                                          Conclusion          and          Limitations
+S10:Z031 | This         paper         introduces                     LIBERO                   ,         a         new         benchmark         in         the         robot         manipulation         domain         for         supporting
+S10:Z032 | research         in            LLDM.                  LIBERO                     includes         a         procedural         generation         pipeline         that         can         create         an         inﬁnite
+S10:Z033 | number         of         manipulation         tasks         in         the         simulator.            We         use         this         pipeline         to         create         130         standardized         tasks
+S10:Z034 | and          conduct           a          comprehensive          set          of          experiments          on          policy          and          algorithm          designs.               The          empirical
+S10:Z035 | results        suggest        several        future        research        directions:           1)        how        to        design        a        better        neural        architecture        to        better
+S10:Z036 | process         spatial         information         or         temporal         information;         2)         how         to         design         a         better         algorithm         to         improve
+S10:Z037 | forward         transfer         ability;         and         3)         how         to         use         pretraining         to         help         improve         lifelong         learning         performance.
+S10:Z038 | In             the             short             term,             we             do             not             envision             any             negative             societal             impacts             triggered             byLIBERO.             But
+S10:Z039 | as           the           lifelong           learner           mainly           learns           from           humans,            studying           how           to           preserve           user           privacy           within
+S10:Z040 | L L D M          [36]         is         crucial         in         the         long         run.
+S10:Z041 | References
+S10:Z042 |    [1]        Ossama           Ahmed,            Frederik           Träuble,            Anirudh           Goyal,            Alexander           Neitz,            Yoshua           Bengio,            Bern-
+S10:Z043 |               hard          Schölkopf,          Manuel          Wüthrich,          and          Stefan          Bauer.                Causalworld:             A          robotic          manipulation
+S10:Z044 |               benchmark         for         causal         structure         and         transfer         learning.                                        arXiv          preprint          arXiv:2010.04296,         2020.
+S10:Z045 |    [2]        Ali          Ayub          and          Carter          Fendley.                Few-shot          continual          active          learning          by          a          robot.                            arXiv           preprint
+S10:Z046 |               arXiv:2210.04137,         2022.
+S10:Z047 |    [3]        Ali         Ayub         and         Alan         R         Wagner.              F-siol-310:            A         robotic         dataset         and         benchmark         for         few-shot         incre-
+S10:Z048 |               mental         object         learning.             In                 2021          IEEE          International          Conference          on          Robotics          and          Automation
+S10:Z049 |               (ICRA),         pages         13496–13502.         IEEE,         2021.
+S10:Z050 |                                                                                                                                10
+
+===== PDF S. 11 =====
+S11:Z001 |    [4]       Michael         Bain         and         Claude         Sammut.              A         framework         for         behavioural         cloning.              In                          Machine          Intelli-
+S11:Z002 |              gence          15,         pages         103–129,         1995.
+S11:Z003 |    [5]       Eseoghene         Ben-Iwhiwhu,         Saptarshi         Nath,         Praveen         K         Pilly,         Soheil         Kolouri,         and         Andrea         Soltog-
+S11:Z004 |              gio.              Lifelong         reinforcement         learning         with         modulating         masks.                                  arXiv          preprint          arXiv:2212.11110,
+S11:Z005 |              2022.
+S11:Z006 |    [6]       Yoshua         Bengio,         Jérôme         Louradour,         Ronan         Collobert,         and         Jason         Weston.              Curriculum         learning.
+S11:Z007 |              In    Proceedings          of          the          26th          annual          international          conference          on          machine          learning,         pages         41–48,
+S11:Z008 |              2009.
+S11:Z009 |    [7]       Magdalena            Biesialska,            Katarzyna            Biesialska,            and            Marta            R            Costa-Jussa.                      Continual            lifelong
+S11:Z010 |              learning         in         natural         language         processing:            A         survey.                     arXiv          preprint          arXiv:2012.09823,         2020.
+S11:Z011 |    [8]       Christopher         M         Bishop.              Mixture         density         networks.              1994.
+S11:Z012 |    [9]       Pietro         Buzzega,         Matteo         Boschini,         Angelo         Porrello,         Davide         Abati,         and         Simone         Calderara.              Dark
+S11:Z013 |              experience              for              general              continual              learning:                     a              strong,               simple              baseline.Advances               in               neural
+S11:Z014 |              information          processing          systems,         33:15920–15930,         2020.
+S11:Z015 | [10]         Rich         Caruana.              Multitask         learning.                      Machine          learning,         28(1):41–75,         1997.
+S11:Z016 | [11]         Arslan       Chaudhry,        Puneet       K       Dokania,        Thalaiyasingam       Ajanthan,        and       Philip       HS       Torr.         Riemannian
+S11:Z017 |             walk         for         incremental         learning:            Understanding         forgetting         and         intransigence.              In                                         Proceedings          of
+S11:Z018 |              the          European          Conference          on          Computer          Vision          (ECCV),         pages         532–547,         2018.
+S11:Z019 | [12]         Arslan         Chaudhry,         Marc’Aurelio         Ranzato,         Marcus         Rohrbach,         and         Mohamed         Elhoseiny.             Efﬁcient
+S11:Z020 |              lifelong         learning         with         a-gem.                   arXiv          preprint          arXiv:1812.00420,         2018.
+S11:Z021 | [13]         Arslan         Chaudhry,         Marcus         Rohrbach,         Mohamed         Elhoseiny,         Thalaiyasingam         Ajanthan,         Puneet         K
+S11:Z022 |              Dokania,         Philip         HS         Torr,         and         Marc’Aurelio         Ranzato.              On         tiny         episodic         memories         in         continual
+S11:Z023 |              learning.              arXiv          preprint          arXiv:1902.10486,         2019.
+S11:Z024 | [14]         Brian         Cheung,         Alexander         Terekhov,         Yubei         Chen,         Pulkit         Agrawal,         and         Bruno         Olshausen.              Su-
+S11:Z025 |              perposition         of         many         models         into         one.                Advances          in          neural          information          processing          systems,         32,
+S11:Z026 |              2019.
+S11:Z027 | [15]         Karl         Cobbe,         Chris         Hesse,         Jacob         Hilton,         and         John         Schulman.              Leveraging         procedural         generation
+S11:Z028 |              to         benchmark         reinforcement         learning.              In                       International          conference          on          machine          learning,         pages
+S11:Z029 |              2048–2056.         PMLR,         2020.
+S11:Z030 | [16]         Matthias              De              Lange,               Rahaf              Aljundi,               Marc              Masana,               Sarah              Parisot,               Xu              Jia,               Aleš              Leonardis,
+S11:Z031 |              Gregory         Slabaugh,         and         Tinne         Tuytelaars.              A         continual         learning         survey:            Defying         forgetting         in
+S11:Z032 |              classiﬁcation       tasks.                    IEEE       transactions       on       pattern       analysis       and       machine       intelligence,        44(7):3366–
+S11:Z033 |              3385,         2021.
+S11:Z034 | [17]         Jia           Deng,            Wei           Dong,            Richard           Socher,            Li-Jia           Li,            Kai           Li,            and           Li           Fei-Fei.                   Imagenet:               A           large-
+S11:Z035 |              scale         hierarchical         image         database.              In                  2009          IEEE          conference          on          computer          vision          and          pattern
+S11:Z036 |              recognition,         pages         248–255.         Ieee,         2009.
+S11:Z037 | [18]         Li         Deng.              The         mnist         database         of         handwritten         digit         images         for         machine         learning         research.                         IEEE
+S11:Z038 |             Signal          Processing          Magazine,         29(6):141–142,         2012.
+S11:Z039 | [19]         Jacob           Devlin,           Ming-Wei           Chang,           Kenton           Lee,           and           Kristina           Toutanova.                  Bert:              Pre-training           of
+S11:Z040 |              deep         bidirectional         transformers         for         language         understanding.                                              arXiv          preprint          arXiv:1810.04805,
+S11:Z041 |              2018.
+S11:Z042 | [20]         Natalia               Díaz-Rodríguez,                Vincenzo               Lomonaco,                David               Filliat,                and               Davide               Maltoni.                               Don’t
+S11:Z043 |              forget,                there               is               more               than              forgetting:                      new               metrics               for               continual               learning.arXiv               preprint
+S11:Z044 |              arXiv:1810.13166,         2018.
+S11:Z045 | [21]         Beyza         Ermis,         Giovanni         Zappella,         Martin         Wistuba,         and         Cédric         Archambeau.              Memory         efﬁcient
+S11:Z046 |              continual         learning         with         transformers.              2022.
+S11:Z047 |                                                                                                                     11
+
+===== PDF S. 12 =====
+S12:Z001 | [22]         Kristen         Grauman,         Andrew         Westbury,         Eugene         Byrne,         Zachary         Chavis,         Antonino         Furnari,         Rohit
+S12:Z002 |              Girdhar,         Jackson         Hamburger,         Hao         Jiang,         Miao         Liu,         Xingyu         Liu,         et         al.            Ego4d:           Around         the         world
+S12:Z003 |              in         3,000         hours         of         egocentric         video.              In   Proceedings          of          the          IEEE/CVF          Conference          on          Computer
+S12:Z004 |             Vision          and          Pattern          Recognition,         pages         18995–19012,         2022.
+S12:Z005 | [23]         Sam         Greydanus,         Anurag         Koul,         Jonathan         Dodge,         and         Alan         Fern.              Visualizing         and         understanding
+S12:Z006 |              atari         agents.           ArXiv,         abs/1711.00138,         2017.
+S12:Z007 | [24]         Jiayuan            Gu,             Fanbo            Xiang,             Xuanlin            Li,             Zhan            Ling,             Xiqiang            Liu,             Tongzhou            Mu,             Yihe            Tang,
+S12:Z008 |              Stone         Tao,         Xinyue         Wei,         Yunchao         Yao,         et         al.              Maniskill2:            A         uniﬁed         benchmark         for         generalizable
+S12:Z009 |              manipulation         skills.                      arXiv          preprint          arXiv:2302.04659,         2023.
+S12:Z010 | [25]         Matthew         Hausknecht         and         Peter         Stone.              Deep         recurrent         q-learning         for         partially         observable         mdps.
+S12:Z011 |              In    2015          aaai          fall          symposium          series,         2015.
+S12:Z012 | [26]         Ching-Yi         Hung,         Cheng-Hao         Tu,         Cheng-En         Wu,         Chien-Hung         Chen,         Yi-Ming         Chan,         and         Chu-
+S12:Z013 |              Song         Chen.              Compacting,         picking         and         growing         for         unforgetting         continual         learning.                                             Advances          in
+S12:Z014 |              Neural          Information          Processing          Systems,         32,         2019.
+S12:Z015 | [27]         Stephen             James,              Zicong             Ma,              David             Rovick             Arrojo,              and             Andrew             J             Davison.                         Rlbench:                   The
+S12:Z016 |              robot           learning           benchmark           &           learning           environment.                                 IEEE           Robotics           and           Automation           Letters,
+S12:Z017 |              5(2):3019–3026,         2020.
+S12:Z018 | [28]         Leslie         Pack         Kaelbling.              The         foundation         of         efﬁcient         robot         learning.                          Science,         369(6506):915–916,
+S12:Z019 |              2020.
+S12:Z020 | [29]         Minsoo             Kang,              Jaeyoo             Park,              and             Bohyung             Han.                         Class-incremental             learning             by             knowledge
+S12:Z021 |              distillation         with         adaptive         feature         consolidation.              In                         Proceedings          of          the          IEEE/CVF          conference          on
+S12:Z022 |              computer          vision          and          pattern          recognition,         pages         16071–16080,         2022.
+S12:Z023 |                                                                                                                                                                                                                                ´
+S12:Z024 | [30]         Michał          Kempka,          Marek          Wydmuch,          Grzegorz          Runc,          Jakub          Toczek,          and          Wojciech          Ja                                             skowski.
+S12:Z025 |              Vizdoom:            A         doom-based         ai         research         platform         for         visual         reinforcement         learning.              In                                   2016          IEEE
+S12:Z026 |              conference          on          computational          intelligence          and          games          (CIG),         pages         1–8.         IEEE,         2016.
+S12:Z027 | [31]         Wonjae          Kim,          Bokyung          Son,          and          Ildoo          Kim.                Vilt:             Vision-and-language          transformer          without
+S12:Z028 |              convolution         or         region         supervision.              In                    International          Conference          on          Machine          Learning,         pages
+S12:Z029 |              5583–5594.         PMLR,         2021.
+S12:Z030 | [32]         Diederik        P        Kingma        and        Jimmy        Ba.           Adam:           A        method        for        stochastic        optimization.                                      arXiv         preprint
+S12:Z031 |              arXiv:1412.6980,         2014.
+S12:Z032 | [33]         James             Kirkpatrick,              Razvan             Pascanu,              Neil             Rabinowitz,              Joel             Veness,              Guillaume             Desjardins,
+S12:Z033 |              Andrei        A        Rusu,         Kieran        Milan,         John        Quan,         Tiago        Ramalho,         Agnieszka        Grabska-Barwinska,         et        al.
+S12:Z034 |              Overcoming         catastrophic         forgetting         in         neural         networks.                                         Proceedings         of         the         national         academy         of
+S12:Z035 |              sciences,         114(13):3521–3526,         2017.
+S12:Z036 | [34]         Alex         Krizhevsky,         Geoffrey         Hinton,         et         al.              Learning         multiple         layers         of         features         from         tiny         images.
+S12:Z037 |              2009.
+S12:Z038 | [35]         Chengshu         Li,         Ruohan         Zhang,         Josiah         Wong,         Cem         Gokmen,         Sanjana         Srivastava,         Roberto         Martín-
+S12:Z039 |              Martín,            Chen           Wang,            Gabrael           Levine,            Michael           Lingelbach,            Jiankai           Sun,            et           al.                    Behavior-1k:
+S12:Z040 |              A              benchmark              for              embodied              ai              with              1,000              everyday              activities              and              realistic              simulation.                             In
+S12:Z041 |              Conference          on          Robot          Learning,         pages         80–93.         PMLR,         2023.
+S12:Z042 | [36]         B.         Liu,         Qian         Liu,         and         Peter         Stone.              Continual         learning         and         private         unlearning.              In         CoLLAs,         2022.
+S12:Z043 | [37]         Hao            Liu            and            Huaping            Liu.                     Continual            learning            with            recursive            gradient            optimization.                arXiv
+S12:Z044 |              preprint          arXiv:2201.12522,         2022.
+S12:Z045 | [38]         Vincenzo         Lomonaco         and         Davide         Maltoni.            Core50:           a         new         dataset         and         benchmark         for         continuous
+S12:Z046 |              object         recognition.              In            Conference          on          Robot          Learning,         pages         17–26.         PMLR,         2017.
+S12:Z047 | [39]         David         Lopez-Paz         and         Marc’Aurelio         Ranzato.              Gradient         episodic         memory         for         continual         learning.
+S12:Z048 |             Advances          in          neural          information          processing          systems,         30,         2017.
+S12:Z049 |                                                                                                                       12
+
+===== PDF S. 13 =====
+S13:Z001 | [40]         Zheda         Mai,         Ruiwen         Li,         Jihwan         Jeong,         David         Quispe,         Hyunwoo         Kim,         and         Scott         Sanner.              Online
+S13:Z002 |              continual         learning         in         image         classiﬁcation:            An         empirical         survey.                                 Neurocomputing,         469:28–51,
+S13:Z003 |              2022.
+S13:Z004 | [41]         Arun          Mallya          and          Svetlana          Lazebnik.               Packnet:            Adding          multiple          tasks          to          a          single          network          by
+S13:Z005 |              iterative            pruning.                       InProceedings             of             the             IEEE             conference             on             Computer             Vision             and             Pattern
+S13:Z006 |             Recognition,         pages         7765–7773,         2018.
+S13:Z007 | [42]         Ajay         Mandlekar,         Danfei         Xu,         Josiah         Wong,         Soroush         Nasiriany,         Chen         Wang,         Rohun         Kulkarni,
+S13:Z008 |              Li         Fei-Fei,         Silvio         Savarese,         Yuke         Zhu,         and         Roberto         Martín-Martín.              What         matters         in         learning
+S13:Z009 |              from         ofﬂine         human         demonstrations         for         robot         manipulation.                                        arXiv          preprint          arXiv:2108.03298,
+S13:Z010 |              2021.
+S13:Z011 | [43]         Drew        McDermott,        Malik        Ghallab,        Adele        Howe,        Craig        Knoblock,        Ashwin        Ram,        Manuela        Veloso,
+S13:Z012 |              Daniel         Weld,         and         David         Wilkins.              Pddl-the         planning         domain         deﬁnition         language.              1998.
+S13:Z013 | [44]         Jorge         A         Mendez,         Marcel         Hussing,         Meghna         Gummadi,         and         Eric         Eaton.              Composuite:            A         compo-
+S13:Z014 |              sitional         reinforcement         learning         benchmark.                                       arXiv          preprint          arXiv:2207.04136,         2022.
+S13:Z015 | [45]         Seyed         Iman         Mirzadeh,         Arslan         Chaudhry,         Dong         Yin,         Timothy         Nguyen,         Razvan         Pascanu,         Dilan
+S13:Z016 |              Gorur,            and            Mehrdad            Farajtabar.                     Architecture            matters            in            continual            learning.                   arXiv            preprint
+S13:Z017 |              arXiv:2202.00275,         2022.
+S13:Z018 | [46]         Volodymyr         Mnih,         Koray         Kavukcuoglu,         David         Silver,         Alex         Graves,         Ioannis         Antonoglou,         Daan
+S13:Z019 |             Wierstra,         and         Martin         Riedmiller.             Playing         atari         with         deep         reinforcement         learning.                                    arXiv          preprint
+S13:Z020 |              arXiv:1312.5602,         2013.
+S13:Z021 | [47]         Tongzhou          Mu,           Zhan          Ling,           Fanbo          Xiang,           Derek          Yang,           Xuanlin          Li,           Stone          Tao,           Zhiao          Huang,
+S13:Z022 |              Zhiwei        Jia,        and        Hao        Su.          Maniskill:           Generalizable        manipulation        skill        benchmark        with        large-scale
+S13:Z023 |              demonstrations.                         arXiv          preprint          arXiv:2107.14483,         2021.
+S13:Z024 | [48]         Sanmit         Narvekar,         Bei         Peng,         Matteo         Leonetti,         Jivko         Sinapov,         Matthew         E         Taylor,         and         Peter         Stone.
+S13:Z025 |              Curriculum             learning             for             reinforcement             learning             domains:                  A             framework             and             survey.                   arXiv
+S13:Z026 |              preprint          arXiv:2003.04960,         2020.
+S13:Z027 | [49]         German       I       Parisi,       Ronald       Kemker,       Jose       L       Part,       Christopher       Kanan,       and       Stefan       Wermter.         Continual
+S13:Z028 |              lifelong         learning         with         neural         networks:            A         review.                    Neural          Networks,         113:54–71,         2019.
+S13:Z029 | [50]         Ethan          Perez,           Florian          Strub,           Harm          De          Vries,           Vincent          Dumoulin,           and          Aaron          Courville.                 Film:
+S13:Z030 |             Visual         reasoning         with         a         general         conditioning         layer.              In                Proceedings          of          the          AAAI          Conference          on
+S13:Z031 |             Artiﬁcial          Intelligence,         volume         32,         2018.
+S13:Z032 | [51]         Sam       Powers,       Eliot       Xing,       Eric       Kolve,       Roozbeh       Mottaghi,       and       Abhinav       Gupta.         Cora:          Benchmarks,
+S13:Z033 |              baselines,         and         metrics         as         a         platform         for         continual         reinforcement         learning         agents.                              arXiv          preprint
+S13:Z034 |              arXiv:2110.10067,         2021.
+S13:Z035 | [52]         Alec         Radford,         Jong         Wook         Kim,         Chris         Hallacy,         Aditya         Ramesh,         Gabriel         Goh,         Sandhini         Agarwal,
+S13:Z036 |              Girish         Sastry,         Amanda         Askell,         Pamela         Mishkin,         Jack         Clark,         et         al.              Learning         transferable         visual
+S13:Z037 |              models         from         natural         language         supervision.              In                       International          conference          on          machine          learning,
+S13:Z038 |              pages         8748–8763.         PMLR,         2021.
+S13:Z039 | [53]         Alec            Radford,             Jeffrey            Wu,             Rewon            Child,             David            Luan,             Dario            Amodei,             Ilya            Sutskever,             et            al.
+S13:Z040 |              Language         models         are         unsupervised         multitask         learners.                                        OpenAI          blog,         1(8):9,         2019.
+S13:Z041 | [54]         Amanda          Rios          and          Laurent          Itti.                 Lifelong          learning          without          a          task          oracle.                 In2020           IEEE           32nd
+S13:Z042 |             International          Conference          on          Tools          with          Artiﬁcial          Intelligence          (ICTAI),         pages         255–263.         IEEE,
+S13:Z043 |              2020.
+S13:Z044 | [55]         Stéphane          Ross,           Geoffrey          Gordon,           and          Drew          Bagnell.                 A          reduction          of          imitation          learning          and
+S13:Z045 |              structured           prediction           to           no-regret           online           learning.                   In          Proceedings           of           the           fourteenth           interna-
+S13:Z046 |              tional          conference          on          artiﬁcial          intelligence          and          statistics,         pages         627–635.         JMLR         Workshop         and
+S13:Z047 |              Conference         Proceedings,         2011.
+S13:Z048 |                                                                                                                     13
+
+===== PDF S. 14 =====
+S14:Z001 | [56]         Andrei         A         Rusu,         Neil         C         Rabinowitz,         Guillaume         Desjardins,         Hubert         Soyer,         James         Kirkpatrick,
+S14:Z002 |              Koray         Kavukcuoglu,         Razvan         Pascanu,         and         Raia         Hadsell.              Progressive         neural         networks.                                                        arXiv
+S14:Z003 |              preprint          arXiv:1606.04671,         2016.
+S14:Z004 | [57]         Gobinda         Saha,         Isha         Garg,         Aayush         Ankit,         and         Kaushik         Roy.              Space:            Structured         compression         and
+S14:Z005 |              sharing         of         representational         space         for         continual         learning.                              IEEE          Access,         9:150480–150494,         2021.
+S14:Z006 | [58]         Mikayel         Samvelyan,         Robert         Kirk,         Vitaly         Kurin,         Jack         Parker-Holder,         Minqi         Jiang,         Eric         Hambro,
+S14:Z007 |              Fabio       Petroni,        Heinrich       Küttler,        Edward       Grefenstette,        and       Tim       Rocktäschel.         Minihack       the       planet:
+S14:Z008 |             A         sandbox         for         open-ended         reinforcement         learning         research.                                          arXiv          preprint          arXiv:2109.13202,
+S14:Z009 |              2021.
+S14:Z010 | [59]         Paul-Edouard         Sarlin,         Daniel         DeTone,         Tomasz         Malisiewicz,         and         Andrew         Rabinovich.             Superglue:
+S14:Z011 |              Learning             feature             matching             with             graph             neural             networks.                           InProceedings              of              the              IEEE/CVF
+S14:Z012 |              conference          on          computer          vision          and          pattern          recognition,         pages         4938–4947,         2020.
+S14:Z013 | [60]         Jonathan                Schwarz,                 Wojciech                Czarnecki,                 Jelena                Luketina,                 Agnieszka                Grabska-Barwinska,
+S14:Z014 |             Yee        Whye        Teh,         Razvan        Pascanu,         and        Raia        Hadsell.            Progress        &        compress:           A        scalable        framework
+S14:Z015 |              for         continual         learning.              In        International          Conference          on          Machine          Learning,         pages         4528–4537.
+S14:Z016 |              PMLR,         2018.
+S14:Z017 | [61]         Qi         She,         Fan         Feng,         Xinyue         Hao,         Qihan         Yang,         Chuanlin         Lan,         Vincenzo         Lomonaco,         Xuesong         Shi,
+S14:Z018 |              Zhengwei         Wang,         Yao         Guo,         Yimin         Zhang,         et         al.              Openloris-object:            A         robotic         vision         dataset         and
+S14:Z019 |              benchmark         for         lifelong         deep         learning.              In               2020          IEEE          international          conference          on          robotics          and
+S14:Z020 |              automation          (ICRA),         pages         4767–4773.         IEEE,         2020.
+S14:Z021 | [62]         Mohit         Shridhar,         Jesse         Thomason,         Daniel         Gordon,         Yonatan         Bisk,         Winson         Han,         Roozbeh         Mot-
+S14:Z022 |              taghi,             Luke             Zettlemoyer,             and             Dieter             Fox.                        Alfred:                  A             benchmark             for             interpreting             grounded
+S14:Z023 |              instructions         for         everyday         tasks.             In           Proceedings         of         the         IEEE/CVF         conference         on         computer         vision
+S14:Z024 |              and          pattern          recognition,         pages         10740–10749,         2020.
+S14:Z025 | [63]         Sanjana        Srivastava,        Chengshu        Li,        Michael        Lingelbach,        Roberto        Martín-Martín,        Fei        Xia,        Kent        El-
+S14:Z026 |              liott         Vainio,         Zheng         Lian,         Cem         Gokmen,         Shyamal         Buch,         Karen         Liu,         et         al.              Behavior:            Benchmark
+S14:Z027 |              for               everyday               household               activities               in               virtual,                interactive,                and               ecological               environments.                               In
+S14:Z028 |             Conference          on          Robot          Learning,         pages         477–490.         PMLR,         2022.
+S14:Z029 | [64]         Open            Ended            Learning            Team,            Adam            Stooke,            Anuj            Mahajan,            Catarina            Barros,            Charlie            Deck,
+S14:Z030 |              Jakob         Bauer,         Jakub         Sygnowski,         Maja         Trebacz,         Max         Jaderberg,         Michael         Mathieu,         et         al.              Open-
+S14:Z031 |              ended         learning         leads         to         generally         capable         agents.                       arXiv          preprint          arXiv:2107.12808,         2021.
+S14:Z032 | [65]         Sebastian            Thrun            and            Tom            M            Mitchell.                     Lifelong            robot            learning.      Robotics            and            autonomous
+S14:Z033 |              systems,         15(1-2):25–46,         1995.
+S14:Z034 | [66]         Ashish         Vaswani,         Noam         Shazeer,         Niki         Parmar,         Jakob         Uszkoreit,         Llion         Jones,         Aidan         N         Gomez,
+S14:Z035 |              Łukasz         Kaiser,         and         Illia         Polosukhin.              Attention         is         all         you         need.           Advances          in          neural          information
+S14:Z036 |              processing          systems,         30,         2017.
+S14:Z037 | [67]         Alex         Wang,         Amanpreet         Singh,         Julian         Michael,         Felix         Hill,         Omer         Levy,         and         Samuel         R         Bowman.
+S14:Z038 |              Glue:            A         multi-task         benchmark         and         analysis         platform         for         natural         language         understanding.                                             arXiv
+S14:Z039 |              preprint          arXiv:1804.07461,         2018.
+S14:Z040 | [68]         Chen           Wang,            Linxi           Fan,            Jiankai           Sun,            Ruohan           Zhang,            Li           Fei-Fei,            Danfei           Xu,            Yuke           Zhu,            and
+S14:Z041 |             Anima          Anandkumar.                Mimicplay:             Long-horizon          imitation          learning          by          watching          human          play.
+S14:Z042 |              arXiv          preprint          arXiv:2302.12422,         2023.
+S14:Z043 | [69]         Maciej       Wołczyk,       Michal       Zajkac,       Razvan       Pascanu,       Lukasz       Kuci’nski,       and       Piotr       Milo’s.         Continual
+S14:Z044 |             world:                   A             robotic             benchmark             for             continual             reinforcement             learning.                          InNeural              Information
+S14:Z045 |             Processing          Systems,         2021.
+S14:Z046 | [70]         Maciej         Wołczyk,         Michal         Zajkac,         Razvan         Pascanu,         Lukasz         Kuci’nski,         and         Piotr         Milo’s.              Disen-
+S14:Z047 |              tangling         transfer         in         continual         reinforcement         learning.                                    ArXiv,         abs/2209.13900,         2022.
+S14:Z048 |                                                                                                                      14
+
+===== PDF S. 15 =====
+S15:Z001 | [71]         Lemeng         Wu,         Bo         Liu,         Peter         Stone,         and         Qiang         Liu.              Fireﬂy         neural         architecture         descent:            a         general
+S15:Z002 |              approach         for         growing         neural         networks.                            Advances          in          Neural          Information          Processing          Systems,
+S15:Z003 |              33:22373–22383,         2020.
+S15:Z004 | [72]         Jaehong               Yoon,                Eunho               Yang,                Jeongtae               Lee,                and               Sung               Ju               Hwang.                              Lifelong               learning               with
+S15:Z005 |              dynamically         expandable         networks.                                      arXiv          preprint          arXiv:1708.01547,         2017.
+S15:Z006 | [73]         Tianhe          Yu,           Deirdre          Quillen,           Zhanpeng          He,           Ryan          Julian,           Karol          Hausman,           Chelsea          Finn,           and
+S15:Z007 |              Sergey        Levine.           Meta-world:           A        benchmark        and        evaluation        for        multi-task        and        meta        reinforcement
+S15:Z008 |              learning.              In     Conference          on          robot          learning,         pages         1094–1100.         PMLR,         2020.
+S15:Z009 | [74]         Da-Wei        Zhou,         Fu-Yun        Wang,         Han-Jia        Ye,         Liang        Ma,         Shiliang        Pu,         and        De-Chuan        Zhan.            Forward
+S15:Z010 |              compatible         few-shot         class-incremental         learning.              In                                     Proceedings          of          the          IEEE/CVF          Conference
+S15:Z011 |              on          Computer          Vision          and          Pattern          Recognition,         pages         9046–9056,         2022.
+S15:Z012 | [75]         Yifeng         Zhu,         Abhishek         Joshi,         Peter         Stone,         and         Yuke         Zhu.              Viola:            Imitation         learning         for         vision-
+S15:Z013 |              based         manipulation         with         object         proposal         priors.                              arXiv          preprint          arXiv:2210.11339,         2022.
+S15:Z014 | [76]         Yuke         Zhu,         Josiah         Wong,         Ajay         Mandlekar,         and         Roberto         Martín-Martín.              robosuite:            A         modular
+S15:Z015 |              simulation           framework           and           benchmark           for           robot           learning.                              arXiv           preprint           arXiv:2009.12293,
+S15:Z016 |              2020.
+S15:Z017 |                                                                                                                     15
+
+===== PDF S. 16 =====
+S16:Z001 | Checklist
+S16:Z002 |                1.      For         all         authors...
+S16:Z003 |                          (a)        Do         the         main         claims         made         in         the         abstract         and         introduction         accurately         reﬂect         the         paper’s
+S16:Z004 |                                     contributions         and         scope?                         [Yes]
+S16:Z005 |                          (b)        Did         you         describe         the         limitations         of         your         work?                    [Yes]
+S16:Z006 |                          (c)        Did         you         discuss         any         potential         negative         societal         impacts         of         your         work?                                [Yes]
+S16:Z007 |                          (d)        Have         you         read         the         ethics         review         guidelines         and         ensured         that         your         paper         conforms         to
+S16:Z008 |                                     them?            [Yes]
+S16:Z009 |                2.      If         you         are         including         theoretical         results...
+S16:Z010 |                          (a)        Did         you         state         the         full         set         of         assumptions         of         all         theoretical         results?             [N/A]
+S16:Z011 |                          (b)        Did         you         include         complete         proofs         of         all         theoretical         results?                            [N/A]
+S16:Z012 |                3.      If         you         ran         experiments         (e.g.            for         benchmarks)...
+S16:Z013 |                          (a)        Did         you         include         the         code,         data,         and         instructions         needed         to         reproduce         the         main         experi-
+S16:Z014 |                                     mental         results         (either         in         the         supplemental         material         or         as         a         URL)?                       [Yes]
+S16:Z015 |                          (b)        Did          you          specify           all          the          training          details          (e.g.,           data          splits,           hyperparameters,           how          they
+S16:Z016 |                                    were         chosen)?                  [Yes]
+S16:Z017 |                          (c)        Did         you         report         error         bars         (e.g.,         with         respect         to         the         random         seed         after         running         experi-
+S16:Z018 |                                     ments         multiple         times)?                      [Yes]
+S16:Z019 |                          (d)        Did         you         include         the         total         amount         of         compute         and         the         type         of         resources         used         (e.g.,         type
+S16:Z020 |                                     of         GPUs,         internal         cluster,         or         cloud         provider)?                        [Yes]
+S16:Z021 |                4.      If         you         are         using         existing         assets         (e.g.,         code,         data,         models)         or         curating/releasing         new         assets...
+S16:Z022 |                          (a)        If         your         work         uses         existing         assets,         did         you         cite         the         creators?            [Yes]
+S16:Z023 |                          (b)        Did         you         mention         the         license         of         the         assets?            [N/A]
+S16:Z024 |                          (c)        Did         you         include         any         new         assets         either         in         the         supplemental         material         or         as         a         URL?             [Yes]
+S16:Z025 |                          (d)        Did         you         discuss         whether         and         how         consent         was         obtained         from         people         whose         data         you’re
+S16:Z026 |                                     using/curating?                          [N/A]
+S16:Z027 |                          (e)        Did        you        discuss        whether        the        data        you        are        using/curating        contains        personally        identiﬁable
+S16:Z028 |                                     information         or         offensive         content?                              [N/A]
+S16:Z029 |                5.      If         you         used         crowdsourcing         or         conducted         research         with         human         subjects...
+S16:Z030 |                          (a)        Did          you          include          the          full          text          of          instructions          given          to          participants          and          screenshots,          if
+S16:Z031 |                                     applicable?                    [N/A]
+S16:Z032 |                          (b)        Did            you            describe            any            potential            participant            risks,             with            links            to            Institutional            Review
+S16:Z033 |                                     Board         (IRB)         approvals,         if         applicable?                             [N/A]
+S16:Z034 |                          (c)        Did         you         include         the         estimated         hourly         wage         paid         to         participants         and         the         total         amount
+S16:Z035 |                                     spent         on         participant         compensation?                                  [N/A]
+S16:Z036 |                                                                                                                             16
+

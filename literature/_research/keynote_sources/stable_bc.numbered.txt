@@ -1,0 +1,470 @@
+stable_bc: PDF-Seiten ab 1; Z = nichtleere Layout-Textzeile je Seite; keine Original-Zeilennummern.
+
+===== PDF S. 1 =====
+S01:Z001 |                                                                                                                                                           1
+S01:Z002 |        Stable-BC: Controlling Covariate Shift with Stable Behavior Cloning
+S01:Z003 | Shaunak A. Mehta1, Yusuf Umut Ciftci2, Balamurugan Ramachandran1, Somil Bansal2, and Dylan P. Losey1
+S01:Z004 |    Abstract—Behavior cloning is a common imitation learning
+S01:Z005 | paradigm.  Under  behavior  cloning  the  robot  collects  expert
+S01:Z006 | demonstrations, and then trains a policy to match the actions
+S01:Z007 | taken by the expert. This works well when the robot learner
+S01:Z008 | visits  states  where  the  expert  has  already  demonstrated  the
+S01:Z009 | correct action; but inevitably the robot will also encounter new
+S01:Z010 | states outside of its training dataset. If the robot learner takes
+S01:Z011 | the wrong action at these new states it could move farther from
+S01:Z012 | the training data, which in turn leads to increasingly incorrect
+S01:Z013 | actions and compounding errors. Existing works try to address
+S01:Z014 | this  fundamental  challenge  by  augmenting  or  enhancing  the
+S01:Z015 | training data. By contrast, in our paper we develop the control
+S01:Z016 | theoretic properties of behavior cloned policies. Specifically, we              Fig. 1.    Robot playing air hockey by behavior cloning demonstrationsD.
+S01:Z017 | consider the error dynamics between the system’s current state                  The robot can successfully hit the puck when it moves at an angle and
+S01:Z018 | and the states in the expert dataset. From the error dynamics                   velocity observed during training (∈D). However, when the puck moves
+S01:Z019 | we derive model-based and model-free conditions for stability:                  at new angles or velocities (/∈D), standard behavior cloning (BC) misses
+S01:Z020 | under these conditions the robot shapes its policy so that its                  the puck entirely because of covariate shift. To address this problem we
+S01:Z021 | current behavior converges towards example behaviors in the                     introduce Stable-BC, a variant of BC that encourages the system state to
+S01:Z022 | expert dataset. In practice, this results in Stable-BC, an easy                 evolve similarly to the expert’s demonstrated behaviors.
+S01:Z023 | to implement extension of standard behavior cloning that is                     behavior, off-policy methods perturb the human to collect
+S01:Z024 | provablyrobusttocovariateshift.Wedemonstratetheeffective-                       more  diverse  examples  [4],  [5],  or  synthetically  augment
+S01:Z025 | ness of our algorithm in simulations with interactive, nonlinear,
+S01:Z026 | and visual environments. We also conduct experiments where                      the human’s demonstrations to gather a larger dataset [6]–
+S01:Z027 | a robot arm uses Stable-BC to play air hockey. See our website                  [10]. Similarly, as the robot executes what it has learned in
+S01:Z028 | here: https://collab.me.vt.edu/Stable-BC/                                       the environment, on-policy methods encourage the human to
+S01:Z029 |                          I.  INTRODUCTION                                       correct the robot when it makes mistakes, and then add these
+S01:Z030 |    Behavior  cloning  enables  robots  to  learn  new  tasks  by                new examples to the robot’s dataset [11]–[16]. In either case,
+S01:Z031 | imitating humans. Consider the air hockey game in Figure1.                      a core idea within existing works is that — if the robot has
+S01:Z032 | Here a human might show the robot arm a few examples of                         sufficient and relevant data — it will return to the desired
+S01:Z033 | how to block the puck. With behavior cloning, the robot                         behavior when it encounters novel states and situations.
+S01:Z034 | learns to match the human’s actions, so that — if the robot                        Inthispaperweintroduceanalternateviewpointforrobust
+S01:Z035 | sees the puck moving like it did in one of the examples                         behavior cloning. Instead of enhancing the data used to train
+S01:Z036 | —  the  robot  mimics  how  the  human  expert  blocked  that                   the robot, we will focus on the control theoretic properties
+S01:Z037 | puck. But what happens when the puck moves in a new way                         of the robot’s learned policy. We hypothesize that:
+S01:Z038 | (e.g., with a previously unseen angle or velocity)? This is                        Behavior cloned policies are robust when they stick to
+S01:Z039 | an instance of covariate shift, a difference between what the                    what they know, i.e., when the robot remains close to the
+S01:Z040 | robot observes at training time and what the robot encounters                          example motions that the expert demonstrated.
+S01:Z041 | when executing its learned policy [1]–[3]. Covariate shift is                   Our intuition here is that compounding errors occur when the
+S01:Z042 | a fundamental problem for behavior cloning because it can                       robot drifts away from its training distribution, and so we can
+S01:Z043 | leadtocompoundingerrors:asmallchangeinthepuckangle                              avoid these errors by intentionally attracting the robot back
+S01:Z044 | or velocity may cause the robot to take the wrong action,                       towards the dataset. We apply this hypothesis to formulate
+S01:Z045 | resulting in a larger covariate shift and increasingly incorrect                covariate shift as a dynamical system, and derive stability
+S01:Z046 | robot behavior (i.e., the robot misses the puck entirely).                      conditionsthatcausetherobottoconvergetowardsbehaviors
+S01:Z047 |    Existing research tries to prevent compounding errors and                    the human has demonstrated. In practice, this results in a
+S01:Z048 | learn robust policies by focusing on the data (i.e., the human                  behavior cloning algorithm with two loss functions. First,
+S01:Z049 | examples) used during behavior cloning. For instance, when                      the standard loss that causes the robot policy to match the
+S01:Z050 | the human provides initial demonstrations of their desired                      human’s behavior, and second, a stability loss that makes the
+S01:Z051 |   This work was supported by NSF Grants #2246446 and #2240163                   expert dataset a basin of attraction. Robots that execute this
+S01:Z052 | 1S. A. Mehta, B. Ramachandran, and D. P. Losey are with the Collaborative       learned policy are inherently robust to covariate shift: e.g.,
+S01:Z053 | Robotics Lab (Collab), Dept. of Mechanical Engineering, Virginia Tech,          when the puck’s angle and velocity in Figure1deviates from
+S01:Z054 | Blacksburg, VA 24061.                                                           the dataset, the robot extrapolates from the expert examples
+S01:Z055 | 2Y. U. Ciftci and S. Bansal are with the Safe and Intelligent Autonomy Lab
+S01:Z056 | (SIA Lab), USC Viterbi School of Engineering, Los Angeles, CA 90089.            whilestillremainingsimilartothesedemonstratedbehaviors.
+S01:Z057 | Email: mehtashaunak@vt.edu,  yciftci@usc.edu                                       Overall, we make the following contributions:
+
+===== PDF S. 2 =====
+S02:Z001 |                                                                                                                                                      2
+S02:Z002 | Stability Condition. We write covariate shift as a linearized                and ensure that this system converges towards a goal state
+S02:Z003 | dynamical system. We then use these error dynamics to de-                    [21]–[23]. The robot can also take advantage of the stability
+S02:Z004 | rive model-based and model-free stability conditions. These                  of the human teacher: Pfrommer et al. [24] train the robot’s
+S02:Z005 | conditions bound the covariate shift in the robot state as a                 behavior cloned policy to match the higher order derivatives
+S02:Z006 | function of the covariate shift in the environment state.                    of the human’s demonstrations.
+S02:Z007 | Stable-BC. We leverage our analysis to develop Stable-BC,                       Our approach is most similar to recent research by Kang
+S02:Z008 | a behavior cloning algorithm that encourages policy stability                et al. [25]. In [25] the authors seek to prevent distribution
+S02:Z009 | around the dataset. Two key advantages of our approach are                   shift in learned policies by formulating the entire training
+S02:Z010 | (a)itiseasytoimplementand(b)itdoesnotalterthetraining                        distribution as an equilibrium point. However, [25] focuses
+S02:Z011 | data. As such, Stable-BC can be applied independently or                     on model-based reinforcement learning — by contrast, we
+S02:Z012 | alongside existing on-policy or off-policy methods.                          study local stability for behavior cloning.
+S02:Z013 | Experiments. We conduct simulated experiments in inter-                                          III.  PROBLEM STATEMENT
+S02:Z014 | active, nonlinear, and visual environments. We also perform                     We consider settings where a robot is learning to imitate
+S02:Z015 | a real-world study where human users teach a robot arm to                    human behaviors. This includes scenarios where the robot is
+S02:Z016 | play a simplified game of air hockey. Across all experiments,                actinginisolation(e.g.,arobotarmreachingagoalposition),
+S02:Z017 | we find that Stable-BC results in more robust and effective                  as well as interactive tasks where the robot must reason over
+S02:Z018 | policies than state-of-the-art baselines.                                    other agents (e.g., an autonomous vehicle at an intersection
+S02:Z019 |                        II.  RELATED WORKS                                    with a human-driven car). Offline the robot is provided with
+S02:Z020 |                                                                              a dataset of state-action pairs, and the robot applies behavior
+S02:Z021 |   Behavior cloning is a common imitation learning approach                   cloning to learn its policy. Our objective is for the robot to
+S02:Z022 | in robotics [17]. Below we summarize recent methods for                      extrapolate from the dataset to the learned policy, so that
+S02:Z023 | robust behavior cloning, as well as works that apply stability               online — when the robot executes this policy — the system
+S02:Z024 | analysis in similar imitation learning settings.                             is robust to covariate shift.
+S02:Z025 | Off-Policy Approaches. Within behavior cloning the robot                     Robot. Letx∈X ⊂Rm be the state of the robot and letu∈
+S02:Z026 | is given a dataset of expert state-action pairs, and the robot               U ⊂ Rn be the robot’s action. For instance, within our air
+S02:Z027 | learns a policy to match this dataset. One way to enhance the                hockeyexamplefromFigure1,           xisthepositionofthepaddle
+S02:Z028 | robustness of the learned policy is to improve the quality of                and u is the robot’s end-effector velocity. The robot’s state
+S02:Z029 | the original dataset. For example, some off-policy methods                   evolves according to the dynamics ˙x(t) =f x(t),u(t). We
+S02:Z030 | intentionally  perturb  the  human  when  they  are  providing               assume that the robot can observe its state x, and that the
+S02:Z031 | demonstrations,  and  then  record  how  the  human  corrects                robot has an accurate model of its own dynamics f.
+S02:Z032 | the robot in response to those disturbances [4], [5]. Other                  Environment.  During  each  task  the  robot  interacts  with
+S02:Z033 | approaches synthetically augment the dataset provided by                     its  environment.  This  environment  could  consist  of  static
+S02:Z034 | the human to enhance the diversity and quantity of training                  goals, dynamic objects, or even other agents. We separate
+S02:Z035 | data [6]–[10]. For example, Ke et al. [6] learn a dynamics                   the state of the environment from the state of the robot: let
+S02:Z036 | modelfromthedata,andthenusethatmodeltogeneratenew                            y∈Y ⊂Rd be the environment’s state. Returning to our air
+S02:Z037 | state-action pairs that align with the expert’s demonstrations.              hockey example, y could be the angle and velocity of the
+S02:Z038 | On-Policy Approaches. The robot can also iteratively gather                  puck the robot is trying to block. The environment state y
+S02:Z039 | new data by executing its policy in the environment, and then                updates according to its dynamics ˙y(t) =g x(t),y(t),u(t).
+S02:Z040 | asking the human to provide expert guidance when the robot                   We assume that the robot can observe the environment state
+S02:Z041 | makes mistakes [11]. Recent works in interactive imitation                   y, but we do not assume that the robot has access to the
+S02:Z042 | learning explore when to query the human for additional                      environment dynamics g. For instance, when the robot arm
+S02:Z043 | data, and how to best leverage that data to accelerate the                   moves to block the puck, the robot does not know how the
+S02:Z044 | robot’s learning [12]–[16]. For example, in Mendaet al. [14]                 angle and velocity of the puck might change after collision.
+S02:Z045 | the robot maintains an ensemble of behavior cloned models;                   BehaviorCloning.TherobotisgivenadatasetD ofN state-
+S02:Z046 | the robot asks for human guidance when it encounters a state                 action pairs. Here the overall system state (x,y) consists of
+S02:Z047 | where the models disagree over which action to take.                         both the robot’s state and the environment’s state. Hence, the
+S02:Z048 |   Overall, both off-policy and on-policy methods focus on                    offline dataset is:D ={(x1,y1,u1),...,(xN,yN,uN)}.
+S02:Z049 | the  data  used  to  train  the  behavior  cloned  agent.  This  is             Based on this dataset, the robot should learn a policy π
+S02:Z050 | orthogonal to our approach, where we will only consider                      that maps from system states to robot actions: π(x,y)→u.
+S02:Z051 | the control theoretic properties of the learned policy.                      We instantiate this policy as a neural network with weightsθ.
+S02:Z052 | Stable  Imitation  Learning.  Multiple  related  works  have                 Within standard behavior cloning algorithms the robot learns
+S02:Z053 | applied stability analysis to imitation learning. For example,               θ such that the policy’s actions match the human’s actions
+S02:Z054 | safety filters [18]–[20] monitor the robot’s real-time error                 acrossstatesinthedataset.Morespecifically,therobotlearns
+S02:Z055 | (e.g.,  covariate  shift),  and  revert  to  a  given  or  learned           θ to minimize the loss function:
+S02:Z056 | backup policy when that error exceeds some threshold. Other                                LBC(θ) = X                ∥πθ(x,y)−u∥2              (1)
+S02:Z057 | methods structure the robot’s policy like a dynamical system,                                            (x,y,u)∈D
+
+===== PDF S. 3 =====
+S03:Z001 |                                                                                                                                                      3
+S03:Z002 | Althoughtheresultingpolicyisdesignedtomimicthehuman                          This coupling is reflected in our motivating example from
+S03:Z003 | at states within dataset D, it may fail to match the human                   Figure1: if the puck moves with a new angle or velocity
+S03:Z004 | outside of this dataset. Consider Figure1: training the robot                such that y′  is dissimilar from any y  in the dataset (i.e.,
+S03:Z005 | using Equation (1) leads to compounding errors when the                      ∥y′−y∥ is large), then this could cause the robot’s position
+S03:Z006 | puck moves at a previously unseen angle and velocity.                        x′ to increasingly diverge from labeled states x.
+S03:Z007 |                                                                                 Below we write the coupled system in standardized form:
+S03:Z008 |                IV.  STABLE BEHAVIOR CLONING                                                                   ˙z =Az                                      (4)
+S03:Z009 |   Our  objective  is  to  learn  a  robot  policy  that  maintains
+S03:Z010 | the correct behavior despite covariate shift. Here we return                 where z  is the augmented error state, and A is a square
+S03:Z011 | to our hypothesis: behavior cloning is robust when robots                    matrix that captures the coupled error dynamics:
+S03:Z012 | stick  to  what  they  know,  i.e.,  when  robots  remain  close                            x′−x
+S03:Z013 | to the example motions the expert has demonstrated. We                               z =     y′−y     ,                                                          (5)
+S03:Z014 | will apply this hypothesis to introduce Stable-BC, a control                                ∇xf +∇uf·∇xπ       ∇uf·∇yπ
+S03:Z015 | theoretic approach for behavior cloning. Stable-BC is based                          A =     ∇xg+∇ug·∇xπ   ∇yg+∇ug·∇yπ                             (6)
+S03:Z016 | on the error dynamics between the system’s current state and
+S03:Z017 | the states in dataset D. We define these error dynamics in                   Ideally, we want the error dynamics  ˙z = Az to be stable
+S03:Z018 | SectionIV-A, and derive the stability conditions under which                 about the equilibriumz = 0. If we achieve this stability, then
+S03:Z019 | the error locally converges to zero. In practice, robot policies             the the behavior starting at the current system state (x′,y′)
+S03:Z020 | that satisfy these stability conditions update the robot’s state             will converge towards the demonstrated behavior starting at
+S03:Z021 | to converge towards behaviors in the dataset, mitigating the                 a labeled state (x,y). This mathematically formalizes our
+S03:Z022 | effects of covariate shift and preventing compounding errors.                original hypothesis: stabilizing Equation (4) encourages the
+S03:Z023 | We  next  apply  our  stability  analysis  to  derive  new  loss             robot  to  take  actions  that  remain  close  to  the  examples
+S03:Z024 | functions for behavior cloning when the robot has access                     the expert has demonstrated. Because matrix A is a local,
+S03:Z025 | to a model of the environment (SectionIV-B), and when the                    linearized approximation of the error dynamics, we conclude
+S03:Z026 | environment dynamics are unknown (SectionIV-C).                              that ˙z =Az is locally stable if and only if matrixA is stable,
+S03:Z027 |                                                                              i.e.,ifalleigenvaluesofAhavenegativerealparts[26](The-
+S03:Z028 | A. Error Dynamics and Stability Analysis                                     orem 7.1). When A is stable the system locally converges
+S03:Z029 |   We start by formulating the error dynamics between the                     towardsz = 0. The rate of convergence is determined by the
+S03:Z030 | current state of the system and the states observed during                   eigenvalues of matrix A, where more negative eigenvalues
+S03:Z031 | training. Let (x′,y′) be the current state, and let (x,y)∈D                  result in faster convergence [26] (Theorem 7.2).
+S03:Z032 | bealabeledstatefromthetrainingdataset.Inordertoremain
+S03:Z033 | close to behaviors that the human expert has demonstrated,                   B. Stable-BC for Model-Based Settings
+S03:Z034 | the robot should take actions so that a trajectory starting at
+S03:Z035 | (x′,y′) converges towards a trajectory starting at (x,y). Re-                   Overall, our analysis from SectionIV-Aindicates that we
+S03:Z036 | call that the robot state x updates according to the dynamics                can mitigate errors between the system’s current behavior
+S03:Z037 | ˙x =f(x,u), and the environment state y updates according                    and  the  expert’s  demonstrated  behaviors  by  ensuring  that
+S03:Z038 | to dynamics  ˙y = g(x,y,u). Utilizing these equations, the                   matrix A is stable. Inspecting Equation (6), we find that   A
+S03:Z039 | overall error dynamics become:                                               depends upon the robot dynamics f, the robot policy π, and
+S03:Z040 |                 ˙x′− ˙x =f x′,u′−f x,u                        (2)          the environment dynamics g. In this section we will focus
+S03:Z041 |                                                                              on model-based settings where the robot has access to all of
+S03:Z042 |                 ˙y′− ˙y =g x′,y′,u′−g x,y,u                (3)             these terms. Put another way, here we assume that the robot
+S03:Z043 | Compounding errors occur when (x′,y′) diverges from the                      not only knows its own dynamics f(x,u), but it also has an
+S03:Z044 | dataset (x,y) ∈ D, i.e., as the error grows over time. To                    accurate model of the environment dynamics g(x,y,u).
+S03:Z045 | mitigate compounding errors we therefore want to design                      Stability vs. Performance. Within model-based settings the
+S03:Z046 | the robot’s policy such that Equations (2) and (3) converge                  robot can directly compute the A matrix. Accordingly — in
+S03:Z047 | to zero. Substituting u = π(x,y) into the above equations,                   order to make the matrixA locally stable — we simply need
+S03:Z048 | whereπ istherobot’spolicy,andapplyingafirstorderTaylor                       to train the robot’s policyπ such that all the eigenvalues of
+S03:Z049 | Series approximation around (x,y)∈D, we reach:                               A have negative real parts across each state (x,y)∈D. But
+S03:Z050 |              ˙x′− ˙x = ∇xf +∇uf·∇xπ(x′−x)                                   just ensuring that A is stable does not mean that the robot
+S03:Z051 |                                                                              haslearnedtoperformthetaskcorrectly.Infact,thisstability
+S03:Z052 |                                + ∇uf·∇yπ(y′−y)                              can conflict with performance; for instance, whenA is stable
+S03:Z053 |              ˙y′− ˙y = ∇xg+∇ug·∇xπ(x′−x)                                    the robot may converge to z = 0, and then remain at rest at
+S03:Z054 |                        + ∇yg+∇ug·∇yπ(y′−y)                                  that local equilibrium instead of continuing to complete the
+S03:Z055 |                                                                              task. In practice, we resolve this theoretical conflict between
+S03:Z056 | It is important to recognize that these equations are coupled.               stability  and  performance  by  training  the  robot  to  match
+S03:Z057 | The covariate shift in the robot state x is a function of the                the expert’s demonstrations (standard behavior cloning loss)
+S03:Z058 | covariate shift in the environment state y, and vice versa.                  while also penalizing the robot’s policy whenA is unstable
+
+===== PDF S. 4 =====
+S04:Z001 |                                                                                                                                                     4
+S04:Z002 | (our proposed addition). This leads to the loss function:                   Algorithm 1 Stable-BC
+S04:Z003 |                          "                                                    1: Given: state-action pairsD and robot dynamics f
+S04:Z004 |     L(θ) = X               ∥u−πθ(x,y)∥2                                       2: Initialize: robot policy πθ(x,y) with weights θ
+S04:Z005 |               (x,y,u)∈D                                                       3: for i∈ 1,2,···  do
+S04:Z006 |                                                                #     (7)      4:       if g is available then
+S04:Z007 |                            +λ X             ReLU(Re(σi))                      5:             Compute lossL(θ) using Equation (7)
+S04:Z008 |                                 σi∈eig(A)                                     6:       else
+S04:Z009 |                                                                               7:             Compute lossL(θ) using Equation (11)
+S04:Z010 | The first term in Equation (7) matches the original behavior                  8:       end if
+S04:Z011 | cloning loss function from Equation (1). Within the second                    9:       Update robot policy θ←θ−α∇θL(θ)
+S04:Z012 | term, σi∀i ∈ {1,2,···} are the eigenvalues of A, Re(σ)                       10: end for
+S04:Z013 | represents the real part of eigenvalue σ, and ReLU  is the                   11: return Trained robot policy πθ(x,y)
+S04:Z014 | Rectified  Linear  Unit  activation.  The  constant λ  >  0  is
+S04:Z015 | a  hyperparameter  set  by  the  designer  that  determines  the
+S04:Z016 | relative weight of the two loss terms. Intuitively, a robot                 and cause∥ex∥ to converge towards zero.
+S04:Z017 | policy  that  minimizes  Equation  (7)  mimics  the  expert’s                  In order to minimize the right side of Equation (9) we
+S04:Z018 | actions across the dataset D, while also shaping its policy                 propose to design the robot’s policyπ such that matrixA1 is
+S04:Z019 | to converge towards the demonstrated behaviors. We directly                 stable. This causes∥ex(0)eA1t∥→ 0, and thus Equation (9)
+S04:Z020 | use this loss function to train Stable-BC policies in model-                simplifies  to ∥ex(t)∥ ≤ ∥A2∥ϵRt
+S04:Z021 | based settings where the robot has an estimate of g.                        leveraging the properties of matrix exponentials, we haveτ=0∥eA1(t−τ)∥dτ.  Next,
+S04:Z022 | C. Stable-BC for Model-Free Settings                                        that∥eA1t∥≤e∥A1∥t, where∥A1∥ is the induced 2-norm of
+S04:Z023 |   In  practice,  often  robots  do  not  have  a  model  of  how            matrixA1. Substituting this inequality back into the equation
+S04:Z024 | their actions will impact the environment around them. For                  and solving the integral, we finally reach:
+S04:Z025 | instance, in our air hockey experiments the robot arm does
+S04:Z026 | not know how its positionx and velocityu will changey, the                                  ∥ex(t)∥≤ ∥A2∥·ϵ∥A1∥  ·     e∥A1∥t−1                 (10)
+S04:Z027 | angle and velocity of the puck. In this section we therefore                Equation(10)offersausefulupperboundontherobot’sstate
+S04:Z028 | consider model-free settings where the robot is not given                   error. Provided that the change in the environment state is
+S04:Z029 | the environment dynamicsg(x,y,u). Model-free settings are                   bounded byϵ, Equation (10) shows that the covariate shift in
+S04:Z030 | challengingbecause—withoutamodelof  g —therobotcan                          the robot’s state is also bounded, and the magnitude of that
+S04:Z031 | only compute the top row of the A matrix in Equation (6).                   bound depends on the off-diagonal matrix A2. For instance,
+S04:Z032 | In general, if we have no information about the environment                 if we design the matrix A such that ∥A2∥ → 0, then the
+S04:Z033 | dynamicsg or statey′, we cannot make guarantees about the                   upper bound on ∥ex(t)∥ also converges towards zero, and
+S04:Z034 | overall stability of matrix A.                                              the robot’s behavior at test time will remain similar to the
+S04:Z035 | Bounded Stability. To resolve this issue we define∥y′−y∥                    examples given at training time.
+S04:Z036 | as  the  magnitude  of  the  environment’s  covariate  shift.  In           Stability vs. Performance. To summarize our analysis, in
+S04:Z037 | many settings it is reasonable to assume that this magnitude                model-free settings we cannot directly stabilize matrix A.
+S04:Z038 | is  bounded,  i.e.,  the  environment  in  which  the  robot  is            Instead, we enforce an upper bound on the covariate shift in
+S04:Z039 | performing its task is similar to the environments seen during              the robot’s state by designing policyπ such that:
+S04:Z040 | training. Moving forward, we will therefore assume that the                   1)All eigenvalues of matrix    A1 (the top left component
+S04:Z041 | magnitude  of  the  environment’s  covariate  shift  has  some                    of A) have negative real parts
+S04:Z042 | upper bound∥y′−y∥≤ϵ. Let A1 =∇xf+∇uf·∇uπ and                                  2)The magnitude of matrix    A2 (the top right component
+S04:Z043 | A2 =∇uf·∇yπ. Substituting these terms in Equation (6),                            of A) is minimized
+S04:Z044 | the first row of the A matrix can be written as:
+S04:Z045 |     ˙ex =A1ex+A2ey,   ex =x′−x,   ey =y′−y     (8)                          We note that the robot can compute both A1 and A2, since
+S04:Z046 |                                                                             neither term depends on the environment dynamics g.
+S04:Z047 | Integrating both sides of this ordinary differential equation,                 Examining these two conditions we again find a conflict
+S04:Z048 | we obtain: ex(t) = ex(0)eA1t +Rt                                            between stability and performance. Specifically, if∥A2∥→
+S04:Z049 |                                            τ=0A2ey(τ)eA1(t−τ)dτ.            0, then ∇yπ→ 0 and the robot’s policy no longer depends
+S04:Z050 | Taking the matrix norm of the result, and substituting in the               upon the environment state y. From a stability perspective,
+S04:Z051 | upper bound for∥ey∥≤ϵ, we obtain an upper bound on the                      this is desirable because∥A2∥ = 0 means that the equations
+S04:Z052 | covariate shift in the robot’s state:     Z t                               in Equation (4) are decoupled, and thus any error   y′−y will
+S04:Z053 |    ∥ex(t)∥≤∥ex(0)eA1t∥+∥A2∥ϵ                                                not impactx′−x. From a performance perspective, however,
+S04:Z054 |                                             τ=0∥eA1(t−τ)∥dτ    (9)          this is undesirable because we often need the robot to make
+S04:Z055 | Intuitively, Equation (9) provides an limit on how far the                  decisions based on its environment state. Consider our air
+S04:Z056 | robotstateattesttime,x′,coulddivergefromtherobotstates                      hockey example: to successfully hit the puck, the robot’s
+S04:Z057 | during training, x. Similar to our approach from SectionIV-                 policy must reason over the state of that puck. Similar to
+S04:Z058 | A, our goal here is to minimize the upper bound on this error               SectionIV-B, we practically resolve this conflict by training
+
+===== PDF S. 5 =====
+S05:Z001 |                                                                                                                                                    5
+S05:Z002 | a robot policy that trades-off between mimicking the expert’s               y∈R2 is the position of the human’s vehicle, andy evolves
+S05:Z003 | actions and satisfying the two stability conditions. Our loss               with unknown and nonlinear dynamics g(x,y).
+S05:Z004 | function for Stable-BC in model-free settings is:"                             The autonomous car is given a datasetD of offline demon-
+S05:Z005 |                                                                             strations. In each demonstration two simulated humans show
+S05:Z006 |   L(θ) = X               ∥u−πθ(x,y)∥2+λ1∥A2∥                                how  both  vehicles  should  navigate  the  intersection.  The
+S05:Z007 |             (x,y,u)∈D                                                       initial car positionsx andy are uniformly randomly sampled
+S05:Z008 |                                    X                           #   (11)     from regions on the left and bottom of the intersection. Then
+S05:Z009 |                          +λ2                ReLU(Re(σi))                    one simulated human expert drives the autonomous car while
+S05:Z010 |                                 σi∈eig(A1)                                  noisily optimizing the following cost function:
+S05:Z011 | where σ are the eigenvalues of the sub-matrix A1. The first                    Cost(x,y,c) =∥x(t+∆t)−c∥−∥x(t)−c∥+
+S05:Z012 | term in Equation (11) matches the original behavior cloning                       0.75·∥x(t)−y(t)∥−0.75·∥x(t+∆t)−y(t)∥   (12)
+S05:Z013 | loss function from Equation (1). The other terms enforce
+S05:Z014 | our two conditions for bounded stability, and λ1 and λ2 are                 where c is the constant goal position. The first two terms
+S05:Z015 | hyperparameters selected by the designer. We note that this                 of Equation (12) encourage the car to move towards goal     c,
+S05:Z016 | result for the model-free case is weaker than in the model-                 and the final two terms penalize actions that get closer to the
+S05:Z017 | based case. Within SectionIV-Bwe provided conditions for                    other vehicle y. Simultaneously, a second simulated human
+S05:Z018 | local asymptotic stability in both ex  and ey; by contrast,                 controls  the human-driven  car while  optimizing the  same
+S05:Z019 | here we can only ensure bounded stability for ex assuming                   cost function (where x and y are switched). Each individual
+S05:Z020 | an upper bound on the magnitude of ey.                                      demonstration results in 20 state-action pairs (x,y,u).
+S05:Z021 | Algorithm Summary. Given a dataset of state-action pairs                    Methods. The autonomous car learns from these demonstra-
+S05:Z022 | D ={(x1,y1,u1)...(xN,yN,uN)} and robot dynamics f,                          tions using four different methods. We start with standard
+S05:Z023 | the robot uses the procedure outlined in Algorithm1to learn                 behavior cloning (BC) trained using Equation (1). Next, we
+S05:Z024 | a behavior cloned policy that is locally stable around the                  implement CCIL [6]: CCIL is a state-of-the-art off-policy
+S05:Z025 | expert demonstrations. We refer to this approach as Stable-                 approach that builds a dynamics model from the dataset, and
+S05:Z026 | BC. If the robot has access to the environment dynamics g,                  then leverages that model to synthetically increase the num-
+S05:Z027 | thenweuseEquation(7)asthelossfunction.Alternatively,if                      ber of expert state-action pairs. We compare these baselines
+S05:Z028 | the environment dynamics are unknown, the robot leverages                   to our approach applied independently (Stable-BC), as well
+S05:Z029 | Equation (11) as the loss function.                                         as our approach applied alongside CCIL. In CCIL + Stable-
+S05:Z030 |                          V.  SIMULATIONS                                    BC we first use CCIL to enhance the offline dataset, and then
+S05:Z031 |                                                                             train Stable-BC on this augmented dataset.
+S05:Z032 |   In SectionIVwe presented Stable-BC, our method for                        Results. Our results are summarized in Figure2. We report
+S05:Z033 | shaping behavior cloned policies such that they have stable                 the autonomous car’s total cost across an interaction, where
+S05:Z034 | error dynamics. Next we will perform controlled simulations                 the cost at the current timestep is computed using Equa-
+S05:Z035 | that compare Stable-BC to standard behavior cloning and                     tion (12). In the top row we compare BC to Stable-BC, and
+S05:Z036 | recent off-policy variants. We consider three different tasks:              in the bottom row we compare CCIL and CCIL + Stable-BC.
+S05:Z037 | (SectionV-A) an interactive driving environment where an                    We also plot Stable-BC in the bottom row for reference.
+S05:Z038 | autonomous car and human vehicle are trying to cross an                        To  evaluate  the  robustness  of  the  learned  policies,  we
+S05:Z039 | intersection,  (SectionV-B)  a  single-agent  quadrotor  envi-              executed each trained policy in three different testing envi-
+S05:Z040 | ronment where drone with nonlinear dynamics must safely                     ronments. We started with a testing environment that exactly
+S05:Z041 | navigate3Dspaces,and(SectionV-C)asimplevisualsetting                        matched the training environment (left column). Next, we
+S05:Z042 | where a point mass uses RGB images to estimate its goal                     modified the dynamics g of the human-driven car (middle
+S05:Z043 | position. The code for implementation can be found here:                    column). Instead of moving to avoid the autonomous car
+S05:Z044 | https://github.com/VT-Collab/Stable-BC                                      with dynamics g(x,y), now the simulated human was self-
+S05:Z045 | A. Interactive Driving                                                      centered,  and  only  reasoned  over  their  own  state  using
+S05:Z046 |   In our first simulation an autonomous car learns to cross                 dynamics g(y). Finally, we sampled the autonomous car’s
+S05:Z047 | an intersection while avoiding a human driver (see Figure2).                initial state x(0) from regions outside of the training distri-
+S05:Z048 | This  environment  is  challenging  for  the  autonomous  car               bution (right column). The human again used the training
+S05:Z049 | because it is interactive: even if the autonomous car matches               dynamics g(x,y), but the autonomous car had to navigate
+S05:Z050 | the demonstrated behavior, changes in how the human drives                  around that human from new regions of the workspace.
+S05:Z051 | during policy execution can lead to covariate shift.                        Summary. Across all testing environments, our results indi-
+S05:Z052 | Environment. The autonomous car’s state x ∈ R2  is its                      cate that Stable-BC outperforms BC and CCIL, and that the
+S05:Z053 | position, and actionu∈R2 is the autonomous car’s velocity.                  differences between Stable-BC and CCIL + Stable-BC are
+S05:Z054 | State x updates with the known linear dynamics  ˙x = u.                     negligible. This is a positive result because it suggests that
+S05:Z055 | During each interaction the autonomous car tries to reach a                 our approach is more robust to covariate shift in interactive
+S05:Z056 | static goal position on the opposite side of the intersection               settings, and that off-policy data-augmentation methods may
+S05:Z057 | while maintaining a safe distance from a human driver. Here                 not be necessary when applying Stable-BC.
+
+===== PDF S. 6 =====
+S06:Z001 |                                                                                                                                                                6
+S06:Z002 | Fig. 2.    Simulation results from interactive driving. (Left) An example rollout using BC and Stable-BC. With BC the autonomous car gets stuck in the
+S06:Z003 | middle of the intersection. By contrast, when using Stable-BC the autonomous car lets the human pass and then crosses afterwards, resulting in a lower
+S06:Z004 | cost. (Right) Average cost over 100 trials as a function of the number of expert demonstrations. In the left column the testing environment matches the
+S06:Z005 | training environment. In the middle column the human agent ignores the autonomous car, and in the right column the autonomous car starts from initial
+S06:Z006 | states outside of its training distribution. Shaded regions show SEM. Ideal cost is the best-case scenario where the autonomous car’s learned policy exactly
+S06:Z007 | matches the policy of the human teacher. In the bottom row we plot Stable-BC (solid orange) and CCIL + Stable-BC (dashed orange).
+S06:Z008 | B. Nonlinear Quadrotor Navigation
+S06:Z009 |    In our second simulation we apply Stable-BC to a non-
+S06:Z010 | linear  system.  Specifically,  we  consider  a  quadrotor  that
+S06:Z011 | must navigate across a room with spherical obstacles (see
+S06:Z012 | Figure3). The quadrotor’s state           x∈R6 includes its position
+S06:Z013 | (px,py,pz)  and  velocity (vx,vy,vz),  and  the  quadrotor’s
+S06:Z014 | action u ∈ R3  includes its acceleration uT, roll uϕ, and
+S06:Z015 | pitch uθ. State x evolves with nonlinear dynamics:
+S06:Z016 |                    ˙px =vx,    ˙py =vy,    ˙pz =vz                                Fig. 3.    Simulation results for nonlinear quadrotor navigation. (Left) An
+S06:Z017 |                                                                                   example trajectory of the quadrotor flying around the3D obstacles to reach
+S06:Z018 |      ˙vx =agtanuθ,    ˙vy =−agtanuϕ,    ˙vz =uT −ag                               its goal position. (Right) Average success rate of the quadrotor. We trained
+S06:Z019 |                                                                                   the  system  end-to-end  10  separate  times,  and  then  performed  100  test
+S06:Z020 | At the start of each interaction the quadrotor is uniformly                       rollouts with each trained model. Shaded regions show SEM.
+S06:Z021 | randomlyinitializedononesideoftheroom.Thereareseven                               Results. Our results are summarized in Figure3. We report
+S06:Z022 | static obstacles that the robot must avoid as it navigates to                     thesuccessrate,i.e.,thefractionoftrialswherethequadrotor
+S06:Z023 | its fixed goal location on the opposite side of the room. The                     reached  its  goal  without  collisions.  For  all  methods  the
+S06:Z024 | interaction ends when the quadrotor either reaches within0.5                      success  rate  increases  when  the  robot  is  given  more  ex-
+S06:Z025 | units of the goal (a success) or collides with an obstacle or                     pert demonstrations. However, Stable-BC achieves a higher
+S06:Z026 | wall of the room (a failure).                                                     success rate with fewer demonstrations as compared to the
+S06:Z027 | Methods. Because the obstacles and goal locations are fixed,                      baselines. Looking specifically at DART and Stable-BC, we
+S06:Z028 | and the quadrotor knows its dynamics, in this simulation we                       findthatStable-BCwiththeoriginalofflinedatasetconverges
+S06:Z029 | apply our model-based approach for Stable-BC. We com-                             to best-case performance more rapidly than robots which use
+S06:Z030 | pare Stable-BC to two baselines: BC and DART [4]. DART                            DART to perturb the expert and collect more diverse data.
+S06:Z031 | is a state-of-the-art data collection approach that perturbs the                  These results demonstrate that Stable-BC can be effectively
+S06:Z032 | expert while they provide demonstrations to increase dataset                      applied to nonlinear systems.
+S06:Z033 | diversity. As the robot collects expert demonstrations offline,                   C. Point Mass with Visual Observations
+S06:Z034 | DART iteratively estimates the errors between the expert’s
+S06:Z035 | actions and its current policy. DART then injects noise based                        Our final simulation examines whether Stable-BC extends
+S06:Z036 | on these errors when collecting new demonstrations from                           to visual settings. Here a point mass robot attempts to reach a
+S06:Z037 | the expert; this causes the expert to show the robot more                         2D goallocation. The robot’sstatex∈R2 is itsposition, and
+S06:Z038 | diverse  and  corrective  behaviors.  BC  and  Stable-BC  are                     x updates with linear dynamics  ˙x = u. In each interaction
+S06:Z039 | trained using the same offline dataset that does not include                      the start and goal position are uniformly randomly sampled.
+S06:Z040 | DART’s perturbation procedure. To test the robustness of the                      However, the robot is not given direct access to the goal;
+S06:Z041 | learnedpoliciesandsimulatereal-worldconditions,weinject                           instead, the robot observes an image y that displays the goal
+S06:Z042 | Gaussian noise into quadrotor’s actions at test time.                             location in pixel space (see Figure4). The robot must learn
+
+===== PDF S. 7 =====
+S07:Z001 |                                                                                                                                                        7
+S07:Z002 |                                                                               gave their informed consent under IRB #23-784. We first
+S07:Z003 |                                                                               gave the participants 2 minutes to practice controlling the
+S07:Z004 |                                                                               robot and hitting the puck. Once this practice was complete,
+S07:Z005 |                                                                               each participant teleoperated the robot to repeatedly hit the
+S07:Z006 |                                                                               puck against the opposite side of the table for∼ 2.5 minutes.
+S07:Z007 |                                                                               This resulted in∼ 3000 state-action pairs per user. We kept
+S07:Z008 |                                                                               each user’s data separate, so that we obtained10 different
+S07:Z009 |                                                                               datasetsD1...D10 that we used to test our approach.
+S07:Z010 | Fig. 4.   Simulation results for visual observations. (Left) The robot is tryingTesting Procedure. Given the expert datasetsD1...D10, we
+S07:Z011 | to reach a goal. At each timestep the robot observes imagey where the goal    trainedrobotpoliciesusingBCandStable-BC.Wevariedthe
+S07:Z012 | position is marked by a white pixel; here we show an example of one of        amountofdatatherobothadaccesstoduringtraining—e.g.,
+S07:Z013 | these images. The goal position and robot position are randomly sampled at
+S07:Z014 | the start of each new interaction. (Right) Average distance between the goal  we trained robot policies with 15, 60, and 120 seconds of
+S07:Z015 | and the robot’s final position over25 trials. Shaded regions show SEM.        expert data. For each amount of training data we learned 10
+S07:Z016 | a policy that moves towards this goal based on its current                    different policies (one for every user’s dataset), and then we
+S07:Z017 | position x and the visual observation y.                                      tested the performance of each policy across 10 independent
+S07:Z018 |                                                                               rollouts. The proctor started every trial by pushing the puck
+S07:Z019 | Methods. The images that the robot receives have 21×21                        towards the robot, and then the robot executed its policy to
+S07:Z020 | pixels. Offline, a simulated expert shows the robot what ac-                  autonomously and repeatedly hit the puck.
+S07:Z021 | tions to take in respond to these images: each demonstration                     We  quantified  the  performance  of  the  robot  learner  by
+S07:Z022 | consists  of  a  (x, y, u)  pair  (i.e.,  at  state x,  if  the  robot        measuring the average number of times that the robot con-
+S07:Z023 | observes image y, it should take action u). After collecting                  secutively hit the puck against the opposite side of the table
+S07:Z024 | the set of these demonstrations, we first train an autoencoder                without missing it (Number of Successful Hits). If the robot
+S07:Z025 | that embeds images y  into a 10-dimensional latent space                      successfully hit the puck 25 times in a row, we terminated
+S07:Z026 | using the encoder E(y). We then apply BC and Stable-BC                        the trial there; i.e., 25 was the maximum possible number of
+S07:Z027 | to learn policies of the form π(x,E(y)). Both methods are                     successful hits. To assess the quality of the robot’s motion,
+S07:Z028 | trained using the same demonstration data.                                    we  also  measured  the  Number  of  Direction  Changes  per
+S07:Z029 | Results. In Figure4we plot the distance between the robot’s                   successful hit. A direction change was defined as a difference
+S07:Z030 | position at the end of each interaction and the goal state (i.e.,             between actions ut and ut−1 of more than 10 degrees.
+S07:Z031 | Final State Error). If the robot moves completely randomly,                   Hypothesis. We had the following two hypotheses:
+S07:Z032 | the expected Final State Error is 10 units. Our results from                  H1. Given the same training data, Stable-BC will achieve a
+S07:Z033 | this proof-of-concept simulation suggest that Stable-BC can                   higher number of successful hits as compared to BC.
+S07:Z034 | beappliedtosettingswherey consistsofvisualobservations;                       H2. Stable-BC will learn policies that output actions with
+S07:Z035 | we find that Stable-BC outperforms standard BC when given                     fewer direction changes.
+S07:Z036 | the same amount of training data.                                             Results. Our results are summarized in Figure5. A repeated
+S07:Z037 |                 VI.  AIR HOCKEY EXPERIMENT                                    measures  ANOVA  revealed  that  both  the  robot’s  learning
+S07:Z038 |    In this section we evaluate Stable-BC in a real-world en-                  algorithm (F(1,9) = 19.03, p < 0.05) and the amount of
+S07:Z039 | vironment with user-provided training data. Specifically, we                  training data (F(2,18) = 50.79, p < 0.05) had significant
+S07:Z040 | conduct  imitation  learning  experiments  where  participants                effects on the number of successful hits. For 15, 60, and 120
+S07:Z041 | teach a 7-DoF Franka Emika robot arm to play a simplified                     seconds of training data, Stable-BC resulted in more robust
+S07:Z042 | game of air hockey. We compare Algorithm1(Stable-BC) to                       policies that had a higher number of successful hits than BC
+S07:Z043 | standard behavior cloning (BC). Videos of our air hockey ex-                  (p < 0.05). As expected, the performance of both imitation
+S07:Z044 | periments are available here:https://youtu.be/ZC3BjY1k18w                     learning algorithms increased in proportion to the amount of
+S07:Z045 |                                                                               training data. But Stable-BC was able to converge to ideal
+S07:Z046 | Experimental Setup. The robot’s task is to hit the hockey                     performance with less data than BC: under Stable-BC, the
+S07:Z047 | puck so that it bounces off the opposite side of the table and                number of successful hits with 120 seconds (2 minutes) of
+S07:Z048 | returns to the robot (see Figures1and5). The robot’s state                    data was only marginally less than the number of successful
+S07:Z049 | x∈R2 isthepositionofitsend-effectoronthesurfaceofthe                          hits with 1200 seconds (20 minutes) of training data. Both
+S07:Z050 | airhockeytable,andactionu∈R2 istherobot’send-effector                         BC and Stable-BC converged to similar performance when
+S07:Z051 | velocity. A camera is mounted directly above the table to                     given 1200 seconds of data — i.e., the combined data across
+S07:Z052 | track the position of the hockey puck at a frame rate of 20                   all 10 users — indicating that Stable-BC is as effective or
+S07:Z053 | Hz. The environment statey∈R4 is the current and previous                     more effective than BC across all data levels. Overall, these
+S07:Z054 | position of the puck in this camera frame; y evolves with                     results support hypothesis H1.
+S07:Z055 | unknown dynamics g(x,y,u). Because the robot does not                            We next explored the smoothness of the robot’s learned
+S07:Z056 | have access to g, in this experiment we applied the model-                    policy. As before, a repeated measures ANOVA found that
+S07:Z057 | free version of our proposed Stable-BC algorithm.                             the robot’s learning algorithm (F(1,9) = 59.65, p < 0.05)
+S07:Z058 | Training  Data. We recruited 10 members of the Virginia                       as well as the amount of training data (F(2,18) = 9.62,
+S07:Z059 | Tech community to provide offline training data. Participants                 p< 0.05) had significant effects of the number of direction
+
+===== PDF S. 8 =====
+S08:Z001 |                                                                                                                                                                                     8
+S08:Z002 | Fig. 5.     Results for the air hockey experiment in SectionVI. (Left) Participants teleoperated a                7 DoF robot arm to hit the puck. We collected their
+S08:Z003 | demonstration data offline, and then used this data to train BC and Stable-BC policies. (Center) We measured the number of successful hits with different
+S08:Z004 | amounts of training data. Ideally, a robust robot policy will repeatedly hit the puck, even when that puck travels with previously unseen angles and velocities.
+S08:Z005 | Both BC and Stable-BC eventually converged to equivalent performance, but Stable-BC reached that performance with a smaller amount of training data.
+S08:Z006 | (Right) To qualitatively assess the learned behavior, we also measured the number of direction changes per successful hit. Stable-BC produced policies
+S08:Z007 | that were more smooth and consistent, with fewer direction changes than BC. Error bars show SEM and∗ denotes statistical significance (p< 0.05).
+S08:Z008 | changes. Post-hoc analysis confirmed that across all levels of                                [9]J.  D.  Chang,  M.  Uehara,  D.  Sreenivas,  R.  Kidambi,  and  W.  Sun,
+S08:Z009 | learning data, Stable-BC produced policies with significantly                                       “Mitigatingcovariateshiftinimitationlearningviaofflinedatawithout
+S08:Z010 | fewer  direction  changes  (p  <  0.05)  than  BC.  We  even                                        great coverage,” in Neural Information Processing Systems, 2021.
+S08:Z011 |                                                                                              [10]R.  Hoque,  A.  Mandlekar,  C.  Garrett,  K.  Goldberg,  and  D.  Fox,
+S08:Z012 | observed that Stable-BC had fewer direction change when                                             “IntervenGen:  Interventional  data  generation  for  robust  and  data-
+S08:Z013 | trained on the combined dataset with 1200 seconds of data                                           efficient robot imitation learning,”arXiv:2405.01472, 2024.
+S08:Z014 | (t(9)  =  4.681,p <  0.05).  Viewed  together,  these  results                               [11]S. Ross, G. Gordon, and D. Bagnell, “A reduction of imitation learning
+S08:Z015 |                                                                                                     and structured prediction to no-regret online learning,” inInternational
+S08:Z016 | support hypothesis H2 and suggest that not only does Stable-                                        Conference on Artificial Intelligence and Statistics, 2011.
+S08:Z017 | BC  lead  to  more  robust  policies,  but  these  policies  are                             [12]R. Hoque, A. Balakrishna, E. Novoseller, A. Wilcox, D. S. Brown, and
+S08:Z018 | qualitatively more smooth and consistent.                                                           K. Goldberg, “ThriftyDAgger: Budget-aware novelty and risk gating
+S08:Z019 |                                                                                                     for interactive imitation learning,” in Conf. on Robot Learning, 2021.
+S08:Z020 |                              VII.  CONCLUSION                                                [13]M. Kelly, C. Sidrane, K. Driggs-Campbell, and M. J. Kochenderfer,
+S08:Z021 |                                                                                                     “HG-DAgger: Interactive imitation learning with human experts,” in
+S08:Z022 |    In this paper we presented a behavior cloning approach                                           IEEE International Conference on Robotics and Automation, 2019.
+S08:Z023 | to reduce covariate shift. Instead of focusing on the training                               [14]K. Menda, K. Driggs-Campbell, and M. J. Kochenderfer, “Ensem-
+S08:Z024 |                                                                                                     bleDAgger:  A  bayesian  approach  to  safe  imitation  learning,”  in
+S08:Z025 | data, our method explored on the error dynamics between                                             IEEE/RSJ Int. Conf. on Intelligent Robots and Systems, 2019.
+S08:Z026 | the robot’s current behavior and the expert’s demonstrated                                   [15]J.  Spencer,  S.  Choudhury,  M.  Barnes,  M.  Schmittle,  M.  Chiang,
+S08:Z027 | behaviors. By performing control theoretic analysis on these                                        P.  Ramadge,  and  S.  Srinivasa,  “Expert  intervention  learning:  An
+S08:Z028 |                                                                                                     online framework for robot learning from explicit and implicit human
+S08:Z029 | dynamics, we derived model-based and model-free stability                                           feedback,” Autonomous Robots, 2022.
+S08:Z030 | conditions for shaping the learned policy to bound covariate                                 [16]S. A. Mehta and D. P. Losey, “Unified learning from demonstrations,
+S08:Z031 | shift.  Our  resulting  algorithm,  Stable-BC,  is  an  easy  to                                    corrections, and preferences during physical human-robot interaction,”
+S08:Z032 |                                                                                                     ACM Transactions on Human-Robot Interaction, 2023.
+S08:Z033 | implement extension of standard behavior cloning that can                                    [17]D. A. Pomerleau, “Alvinn: An autonomous land vehicle in a neural
+S08:Z034 | be used independently or alongside existing data-centric ap-                                        network,” in Neural Information Processing Systems, 1988.
+S08:Z035 | proaches. Multiple experiments across interactive, nonlinear,                                [18]K. P. Wabersich, A. J. Taylor, J. J. Choi, K. Sreenath, C. J. Tom-
+S08:Z036 |                                                                                                     lin,  A.  D.  Ames,  and  M.  N.  Zeilinger,  “Data-driven  safety  filters:
+S08:Z037 | visual, and real-world environments suggest that Stable-BC                                          Hamilton-Jacobi reachability, control barrier functions, and predictive
+S08:Z038 | produces more robust policies than state-of-the-art baselines                                       methods for uncertain systems,” IEEE Control Systems Mag., 2023.
+S08:Z039 | given the same training data.                                                                [19]K.-C. Hsu, H. Hu, and J. F. Fisac, “The safety filter: A unified view
+S08:Z040 |                                                                                                     of safety-critical control in autonomous systems,” Annual Review of
+S08:Z041 |                                   REFERENCES                                                        Control, Robotics, and Autonomous Systems, 2023.
+S08:Z042 |                                                                                              [20]A. Reichlin, G. L. Marchetti, H. Yin, A. Ghadirzadeh, and D. Kragic,
+S08:Z043 |  [1]S. Ross and D. Bagnell, “Efficient reductions for imitation learning,”                          “Back to the manifold: Recovering from out-of-distribution states,” in
+S08:Z044 |       in Int. Conf. on Artificial Intelligence and Statistics, 2010.                                IEEE/RSJ Int. Conf. on Intelligent Robots and Systems, 2022.
+S08:Z045 |  [2]P.  De  Haan,  D.  Jayaraman,  and  S.  Levine,  “Causal  confusion  in                  [21]D.  Totsila,  K.  Chatzilygeroudis,  D.  Hadjivelichkov,  V.  Modugno,
+S08:Z046 |       imitation learning,” in Neural Information Processing Systems, 2019.                          I.  Hatzilygeroudis,  and  D.  Kanoulas,  “End-to-end  stable  imitation
+S08:Z047 |  [3]J. Spencer, S. Choudhury, A. Venkatraman, B. Ziebart, and J. A. Bag-                            learning via autonomous neural dynamic policies,” in IEEE Interna-
+S08:Z048 |       nell, “Feedback in imitation learning: The three regimes of covariate                         tional Conference on Robotics and Automation, 2023.
+S08:Z049 |       shift,” arXiv preprint arXiv:2102.02872, 2021.                                         [22]S.  M.  Khansari-Zadeh  and  A.  Billard,  “Learning  stable  nonlinear
+S08:Z050 |  [4]M. Laskey, J. Lee, R. Fox, A. Dragan, and K. Goldberg, “DART:                                   dynamical systems with gaussian mixture models,”IEEE Transactions
+S08:Z051 |       Noise injection for robust imitation learning,” inConference on Robot                         on Robotics, 2011.
+S08:Z052 |       Learning, 2017.                                                                        [23]S. A. Mehta, F. Meng, A. Bajcsy, and D. P. Losey, “StROL: Stabi-
+S08:Z053 |  [5]Y. Umut Ciftci, Z. Feng, and S. Bansal, “SAFE-GIL: Safety guided                                lized and robust online learning from humans,” IEEE Robotics and
+S08:Z054 |       imitation learning,” arXiv preprint arXiv:2404.05249, 2024.                                   Automation Letters, 2024.
+S08:Z055 |  [6]L. Ke, Y. Zhang, A. Deshpande, S. Srinivasa, and A. Gupta, “CCIL:                        [24]D. Pfrommer, T. Zhang, S. Tu, and N. Matni, “TaSIL: Taylor series
+S08:Z056 |       Continuity-based data augmentation for corrective imitation learning,”                        imitation learning,” in Neural Information Processing Systems, 2022.
+S08:Z057 |       in International Conference on Learning Representations, 2024.                         [25]K. Kang, P. Gradu, J. J. Choi, M. Janner, C. Tomlin, and S. Levine,
+S08:Z058 |  [7]L.Ke,J.Wang,T.Bhattacharjee,B.Boots,andS.Srinivasa,“Grasping                                    “Lyapunov density models: Constraining distribution shift in learning-
+S08:Z059 |       with  chopsticks:  Combating  covariate  shift  in  model-free  imitation                     based control,” in Int. Conf. on Machine Learning, 2022.
+S08:Z060 |       learning for fine manipulation,” inIEEE International Conference on                    [26]G. Teschl,        Ordinary Differential Equations and Dynamical Systems.
+S08:Z061 |       Robotics and Automation, 2021.                                                                American Mathematical Society, 2012.
+S08:Z062 |  [8]A. Zhou, M. J. Kim, L. Wang, P. Florence, and C. Finn, “NeRF in the
+S08:Z063 |       palm of your hand: Corrective augmentation for robotics via novel-
+S08:Z064 |       view synthesis,” in IEEE/CVF CVPR, 2023.
+

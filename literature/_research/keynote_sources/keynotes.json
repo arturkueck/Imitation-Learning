@@ -1,0 +1,728 @@
+[
+  {
+    "id": "DAGGER-K01",
+    "paper": "dagger",
+    "note": "Eigene Aktionen verändern die späteren Beobachtungen. Dadurch ist die i.i.d.-Annahme klassischen überwachten Lernens im Rollout verletzt.",
+    "locators": [
+      [
+        1,
+        14,
+        30,
+        "rechte Spalte, Einleitung"
+      ]
+    ]
+  },
+  {
+    "id": "DAGGER-K02",
+    "paper": "dagger",
+    "note": "Klassisches BC minimiert den Imitationsverlust auf Expertenzuständen; das eigentliche Imitationsziel bewertet dagegen die durch die Policy selbst erzeugte Zustandsverteilung.",
+    "locators": [
+      [
+        2,
+        13,
+        25,
+        "rechts, §2, Gl. (1)"
+      ],
+      [
+        2,
+        28,
+        36,
+        "rechts, §2.1, Gl. (2)"
+      ]
+    ]
+  },
+  {
+    "id": "DAGGER-K03",
+    "paper": "dagger",
+    "note": "Theorem 2.1 liefert unter den genannten 0–1-Surrogatloss- und Kostenannahmen den Worst-Case-Term T²ε. Das ist keine allgemeine Vorhersage empirischer Fehlerkurven.",
+    "locators": [
+      [
+        2,
+        38,
+        49,
+        "rechts, Theorem 2.1"
+      ]
+    ]
+  },
+  {
+    "id": "DAGGER-K04",
+    "paper": "dagger",
+    "note": "DAgger sammelt Rollouts, lässt die besuchten Zustände vom Experten labeln und trainiert auf dem aggregierten Datensatz. Die Policy wird anhand von Validierung ausgewählt.",
+    "locators": [
+      [
+        4,
+        2,
+        13,
+        "links, Algorithmus 3.1"
+      ]
+    ]
+  },
+  {
+    "id": "DAGGER-K05",
+    "paper": "dagger",
+    "note": "Die Erhebung kann Expert- und Learneraktionen mischen; der mittlere Expertanteil soll gegen null gehen. Expertlabels bleiben Teil der Datenerhebung.",
+    "locators": [
+      [
+        4,
+        26,
+        44,
+        "links, §3"
+      ],
+      [
+        4,
+        7,
+        10,
+        "links, Algorithmus 3.1"
+      ]
+    ]
+  },
+  {
+    "id": "DAGGER-K06",
+    "paper": "dagger",
+    "note": "Die Originalarbeit untersucht SuperTuxKart, Super Mario und OCR. Ihre Experimente sind kein direkter Nachweis für robotisches Stack- oder Multitask-Lernen.",
+    "locators": [
+      [
+        2,
+        27,
+        39,
+        "links, Einleitung"
+      ]
+    ]
+  },
+  {
+    "id": "DART-K01",
+    "paper": "dart",
+    "note": "Rauschen wird während der Expertenausführung injiziert. Der Expert demonstriert dadurch echte Korrekturen; anschließend wird auf diesen Demonstrationen überwacht gelernt.",
+    "locators": [
+      [
+        4,
+        23,
+        35,
+        "§4, links neben Abb. 1"
+      ],
+      [
+        4,
+        43,
+        47,
+        "§4, Gl. (2)"
+      ]
+    ]
+  },
+  {
+    "id": "DART-K02",
+    "paper": "dart",
+    "note": "Richtung und Größe des Rauschens sollen die Fehler der späteren Policy annähern. DART optimiert ein parametrisiertes Rauschmodell statt beliebiges Rauschen zu verwenden.",
+    "locators": [
+      [
+        2,
+        14,
+        21,
+        "§1"
+      ]
+    ]
+  },
+  {
+    "id": "DART-K03",
+    "paper": "dart",
+    "note": "Die reale HSR-Studie verwendet vier Demonstratoren. Pro untersuchter Bedingung wird die finale Policy mit 40 Demonstrationen trainiert: zehn anfänglichen und 30 zusätzlichen.",
+    "locators": [
+      [
+        8,
+        18,
+        28,
+        "§5.2"
+      ]
+    ]
+  },
+  {
+    "id": "DART-K04",
+    "paper": "dart",
+    "note": "Berichtet werden 79 % für DART α=3 gegenüber 49 % für BC. Erfolg betrifft Zielidentifikation und freien Greifpfad; danach folgt ein Open-loop-Greifplan.",
+    "locators": [
+      [
+        8,
+        29,
+        37,
+        "§5.2"
+      ]
+    ]
+  },
+  {
+    "id": "DART-K05",
+    "paper": "dart",
+    "note": "DART α=6 erreicht 72 %. Die Autoren vermuten zu starkes Rauschen für den menschlichen Demonstrator; mehr Rauschen ist hier nicht automatisch besser.",
+    "locators": [
+      [
+        8,
+        33,
+        37,
+        "§5.2"
+      ]
+    ]
+  },
+  {
+    "id": "DART-K06",
+    "paper": "dart",
+    "note": "Abb. 3 beschreibt eine kopfmontierte RGB-D-Kamera, der Fließtext eine Eye-in-hand-Perspektive. Die Kameramontage deshalb nicht ohne Klärung eindeutig zitieren.",
+    "locators": [
+      [
+        8,
+        1,
+        4,
+        "Bildunterschrift Abb. 3"
+      ],
+      [
+        8,
+        10,
+        16,
+        "§5.2"
+      ]
+    ]
+  },
+  {
+    "id": "STABLE_BC-K01",
+    "paper": "stable_bc",
+    "note": "Stable-BC verändert das Lernverfahren über Stabilitätsbedingungen; der Trainingsdatensatz muss dafür nicht verändert werden.",
+    "locators": [
+      [
+        2,
+        7,
+        12,
+        "links, Beitragsübersicht"
+      ]
+    ]
+  },
+  {
+    "id": "STABLE_BC-K02",
+    "paper": "stable_bc",
+    "note": "Roboterzustand x und Umgebungszustand y werden getrennt. Ein genaues Modell der Roboterdynamik f wird vorausgesetzt; die Umgebungsdynamik g darf unbekannt sein.",
+    "locators": [
+      [
+        2,
+        25,
+        44,
+        "rechts, §III"
+      ]
+    ]
+  },
+  {
+    "id": "STABLE_BC-K03",
+    "paper": "stable_bc",
+    "note": "Die Arbeit linearisiert gekoppelte Fehlerdynamiken und untersucht die Eigenwerte der Matrix A. Der Bezug ist lokale Stabilität nahe demonstriertem Verhalten.",
+    "locators": [
+      [
+        3,
+        17,
+        31,
+        "rechts, §IV-A"
+      ]
+    ]
+  },
+  {
+    "id": "STABLE_BC-K04",
+    "paper": "stable_bc",
+    "note": "Im modellbasierten Fall ergänzt eine Strafe auf positive Realteile der Eigenwerte den BC-Loss. λ steuert das relative Gewicht.",
+    "locators": [
+      [
+        4,
+        2,
+        21,
+        "links, Gl. (7) und Erläuterung"
+      ]
+    ]
+  },
+  {
+    "id": "STABLE_BC-K05",
+    "paper": "stable_bc",
+    "note": "Die Autoren erklären ausdrücklich, dass Stabilität allein keine korrekte Aufgabenausführung sicherstellt; eine Policy könnte lokal stehen bleiben.",
+    "locators": [
+      [
+        3,
+        45,
+        58,
+        "rechts, Stability vs. Performance"
+      ]
+    ]
+  },
+  {
+    "id": "STABLE_BC-K06",
+    "paper": "stable_bc",
+    "note": "Ohne g wird eine Schranke für die Abweichung des Umgebungszustands angenommen. Die Methode bleibt von f abhängig und liefert keine uneingeschränkte globale Taskgarantie.",
+    "locators": [
+      [
+        4,
+        22,
+        45,
+        "links, §IV-C"
+      ],
+      [
+        2,
+        29,
+        31,
+        "rechts, Robot"
+      ]
+    ]
+  },
+  {
+    "id": "ACT-K01",
+    "paper": "act",
+    "note": "ACT sagt Sequenzen von k Aktionen voraus. Die Autoren motivieren dies mit einem kürzeren effektiven Entscheidungshorizont und zeitlichen Abhängigkeiten menschlicher Demonstrationen.",
+    "locators": [
+      [
+        5,
+        35,
+        45,
+        "links, §IV-A"
+      ],
+      [
+        5,
+        5,
+        15,
+        "rechts, Fortsetzung §IV-A"
+      ]
+    ]
+  },
+  {
+    "id": "ACT-K02",
+    "paper": "act",
+    "note": "Bei jedem Zeitschritt neu vorhergesagte Chunks überlappen. Gemittelt werden Vorhersagen für denselben Ausführungszeitpunkt; dadurch entstehen zusätzliche Inferenzkosten.",
+    "locators": [
+      [
+        5,
+        16,
+        37,
+        "rechts, §IV-A"
+      ]
+    ]
+  },
+  {
+    "id": "ACT-K03",
+    "paper": "act",
+    "note": "ACT wird als CVAE trainiert. Zur Ausführung wird der Encoder verworfen und z auf null gesetzt; die beschriebene Decodierung ist damit deterministisch.",
+    "locators": [
+      [
+        6,
+        27,
+        43,
+        "links, §IV-B"
+      ]
+    ]
+  },
+  {
+    "id": "ACT-K04",
+    "paper": "act",
+    "note": "Die beschriebene Policy nutzt vier RGB-Bilder mit 480×640 Pixeln und Gelenkpositionen. Ausgaben sind absolute Zielgelenkpositionen beider Arme, insgesamt 14 Dimensionen pro Schritt.",
+    "locators": [
+      [
+        6,
+        13,
+        24,
+        "rechts, §IV-C"
+      ]
+    ]
+  },
+  {
+    "id": "ACT-K05",
+    "paper": "act",
+    "note": "Die Autoren nennen ungefähr 80 Millionen Parameter, Training von Grund auf pro Aufgabe und etwa fünf Stunden auf einer RTX 2080 Ti. Diese Zahlen sind setupspezifisch.",
+    "locators": [
+      [
+        6,
+        46,
+        50,
+        "rechts, §IV-C"
+      ]
+    ]
+  },
+  {
+    "id": "ACT-K06",
+    "paper": "act",
+    "note": "Algorithmus 1 nennt MSE als Rekonstruktionsloss; der Implementierungsabschnitt nennt L1 statt L2. Die konkrete Losswahl nur mit dieser Versionsdiskrepanz wiedergeben.",
+    "locators": [
+      [
+        6,
+        11,
+        13,
+        "links, Algorithmus 1"
+      ],
+      [
+        6,
+        39,
+        44,
+        "rechts, §IV-C"
+      ]
+    ]
+  },
+  {
+    "id": "DIFFUSION_POLICY-K01",
+    "paper": "diffusion_policy",
+    "note": "Das Diffusionsmodell erzeugt Roboteraktionen durch einen auf Beobachtungen konditionierten Denoising-Prozess.",
+    "locators": [
+      [
+        3,
+        7,
+        14,
+        "links, §II-C"
+      ]
+    ]
+  },
+  {
+    "id": "DIFFUSION_POLICY-K02",
+    "paper": "diffusion_policy",
+    "note": "Aus To Beobachtungsschritten werden Tp Aktionen vorhergesagt; nur Ta davon werden vor erneuter Planung ausgeführt. Beobachtungs-, Vorhersage- und Ausführungshorizont sind verschiedene Parameter.",
+    "locators": [
+      [
+        3,
+        15,
+        28,
+        "links, §II-C"
+      ]
+    ]
+  },
+  {
+    "id": "DIFFUSION_POLICY-K03",
+    "paper": "diffusion_policy",
+    "note": "Die Autoren berichten für Transformer gute Ergebnisse bei komplexen oder schnell wechselnden Aktionen, aber höhere Hyperparametersensitivität. Sie schlagen CNN als ersten Versuch vor.",
+    "locators": [
+      [
+        4,
+        8,
+        21,
+        "links, §III-A"
+      ]
+    ]
+  },
+  {
+    "id": "DIFFUSION_POLICY-K04",
+    "paper": "diffusion_policy",
+    "note": "Unterschiedliche Ansichten erhalten separate Encoder. ResNet-18 wird ohne Vortraining gemeinsam mit der Policy trainiert; Spatial Softmax und GroupNorm ersetzen Standardkomponenten.",
+    "locators": [
+      [
+        4,
+        23,
+        35,
+        "links, §III-B"
+      ]
+    ]
+  },
+  {
+    "id": "DIFFUSION_POLICY-K05",
+    "paper": "diffusion_policy",
+    "note": "Stochastische Initialisierung und Sampling erlauben mehrere Aktionsmodi. Abb. 4 illustriert alternative Wege um ein Objekt; das ist ein konkretes Beispiel, keine universelle Generalisierungsgarantie.",
+    "locators": [
+      [
+        4,
+        6,
+        25,
+        "rechts, §IV-A"
+      ],
+      [
+        4,
+        33,
+        39,
+        "rechts, Abb. 4"
+      ]
+    ]
+  },
+  {
+    "id": "DIFFUSION_POLICY-K06",
+    "paper": "diffusion_policy",
+    "note": "DDIM erlaubt weniger Denoising-Schritte bei der Inferenz. Berichtet werden 100 Trainings- gegenüber zehn Inferenzschritten und etwa 0,1 s Latenz auf einer RTX 3080.",
+    "locators": [
+      [
+        4,
+        46,
+        56,
+        "links, §III-D"
+      ]
+    ]
+  },
+  {
+    "id": "UMI-K01",
+    "paper": "umi",
+    "note": "UMI verwendet einen handgeführten Parallelgreifer mit GoPro als Sensor und Aufnahmegerät; für bimanuale Demonstrationen kommt ein zweiter Greifer hinzu.",
+    "locators": [
+      [
+        4,
+        1,
+        9,
+        "links, §III-A"
+      ]
+    ]
+  },
+  {
+    "id": "UMI-K02",
+    "paper": "umi",
+    "note": "UMI nutzt ausschließlich Wrist-Kameras. Bei Demonstration und Roboterausführung bleibt ihre Montage relativ zu den Greiferfingern gleich, um Beobachtungsunterschiede zu reduzieren.",
+    "locators": [
+      [
+        4,
+        18,
+        29,
+        "links, HD1"
+      ]
+    ]
+  },
+  {
+    "id": "UMI-K03",
+    "paper": "umi",
+    "note": "Ein 155°-Fisheye erweitert den Kontext; Seitenspiegel liefern zusätzliche Perspektiven für implizite Tiefeninformation.",
+    "locators": [
+      [
+        2,
+        1,
+        3,
+        "Abb. 2"
+      ],
+      [
+        4,
+        34,
+        46,
+        "rechts, HD3"
+      ]
+    ]
+  },
+  {
+    "id": "UMI-K04",
+    "paper": "umi",
+    "note": "Beobachtungen werden zeitlich abgeglichen; veraltete Aktionen verworfen. Vorhergesagte Posen beziehen sich auf dieselbe aktuelle Endeffektorpose.",
+    "locators": [
+      [
+        6,
+        1,
+        11,
+        "links, PD1.1"
+      ],
+      [
+        6,
+        22,
+        42,
+        "links, PD1.2/PD2"
+      ]
+    ]
+  },
+  {
+    "id": "UMI-K05",
+    "paper": "umi",
+    "note": "Beim Cup Arrangement: 305 Demonstrationen, 20 Testfälle; UMI erreicht 20/20, die auf 69° entzerrte/beschnittene Bildvariante 11/20. Dies isoliert nicht allein die Kameraposition.",
+    "locators": [
+      [
+        7,
+        24,
+        28,
+        "links, Performance"
+      ],
+      [
+        7,
+        14,
+        25,
+        "rechts, No Fisheye lens"
+      ]
+    ]
+  },
+  {
+    "id": "UMI-K06",
+    "paper": "umi",
+    "note": "Die Generalisierungsfrage betrifft unbekannte Umgebungen und Objekte. Die Capability-Tests verwenden vier Aufgaben mit randomisierten Starts in der Erhebungsumgebung.",
+    "locators": [
+      [
+        6,
+        33,
+        40,
+        "rechts, §IV"
+      ],
+      [
+        6,
+        52,
+        56,
+        "rechts, §V"
+      ]
+    ]
+  },
+  {
+    "id": "LIBERO-K01",
+    "paper": "libero",
+    "note": "Eine aufgabenkonditionierte Policy lernt Aufgaben nacheinander. Frühere Aufgabendaten sind beim Lernen neuer Aufgaben nicht vollständig verfügbar.",
+    "locators": [
+      [
+        3,
+        13,
+        24,
+        "§2.2"
+      ],
+      [
+        3,
+        25,
+        40,
+        "Lifelong Imitation Learning"
+      ]
+    ]
+  },
+  {
+    "id": "LIBERO-K02",
+    "paper": "libero",
+    "note": "Spatial, Object und Goal enthalten jeweils zehn Aufgaben und variieren unterschiedliche Wissensaspekte. LIBERO-100 ergänzt 100 Aufgaben mit gemischten Anforderungen.",
+    "locators": [
+      [
+        5,
+        13,
+        29,
+        "§4.2"
+      ]
+    ]
+  },
+  {
+    "id": "LIBERO-K03",
+    "paper": "libero",
+    "note": "LIBERO-100 wird in 90 kurze Vortrainingsaufgaben und zehn lange Aufgaben für nachfolgendes Lifelong Learning aufgeteilt. Das Protokoll ist kein reiner Zero-shot-Test.",
+    "locators": [
+      [
+        5,
+        30,
+        33,
+        "§4.2"
+      ],
+      [
+        3,
+        25,
+        40,
+        "§2.2"
+      ]
+    ]
+  },
+  {
+    "id": "LIBERO-K04",
+    "paper": "libero",
+    "note": "Je Aufgabe werden 50 hochwertige Demonstrationen bereitgestellt, erhoben durch menschliche Teleoperation mit einer 3Dconnexion SpaceMouse.",
+    "locators": [
+      [
+        6,
+        11,
+        15,
+        "Ende §4.4"
+      ]
+    ]
+  },
+  {
+    "id": "LIBERO-K05",
+    "paper": "libero",
+    "note": "Verglichen werden Experience Replay, EWC und PackNet sowie sequenzielles Fine-Tuning und Multitask-Lernen als Referenzen.",
+    "locators": [
+      [
+        5,
+        34,
+        42,
+        "§4.3"
+      ]
+    ]
+  },
+  {
+    "id": "LIBERO-K06",
+    "paper": "libero",
+    "note": "Forward Transfer, negativer Backward Transfer und AUC beruhen auf Erfolgsraten. Sie erfassen Lernen neuer Aufgaben, Vergessen und Gesamtleistung; die Checkpointregel gehört zur Definition.",
+    "locators": [
+      [
+        6,
+        28,
+        42,
+        "§5.1"
+      ],
+      [
+        6,
+        54,
+        57,
+        "Fußnote 5"
+      ]
+    ]
+  },
+  {
+    "id": "OPEN_X-K01",
+    "paper": "open_x",
+    "note": "Die Fassung beschreibt über eine Million reale Trajektorien aus 60 Datensätzen und 22 Verkörperungen, vereinheitlicht im RLDS-Format.",
+    "locators": [
+      [
+        3,
+        13,
+        27,
+        "rechts, §III-A"
+      ]
+    ]
+  },
+  {
+    "id": "OPEN_X-K02",
+    "paper": "open_x",
+    "note": "Die experimentelle Trainingsmischung umfasst neun Verkörperungen. Die 22 Verkörperungen des Gesamtbestands dürfen nicht als Trainingsumfang dieser Experimente angegeben werden.",
+    "locators": [
+      [
+        5,
+        19,
+        28,
+        "links, Fortsetzung §IV-C"
+      ]
+    ]
+  },
+  {
+    "id": "OPEN_X-K03",
+    "paper": "open_x",
+    "note": "Pro Datensatz wird eine Kameraansicht gewählt; Aktionen werden normalisiert und grob vereinheitlicht. Koordinatenrahmen sowie absolute/relative Positions- oder Geschwindigkeitssteuerung bleiben heterogen.",
+    "locators": [
+      [
+        4,
+        20,
+        44,
+        "links, §IV-A"
+      ]
+    ]
+  },
+  {
+    "id": "OPEN_X-K04",
+    "paper": "open_x",
+    "note": "In der Emergent-Skills-Evaluation erreicht RT-2-X 75,8 % gegenüber 27,3 % für RT-2. Die Fertigkeiten fehlen in den Google-Robot-Daten, sind aber in Bridge vorhanden.",
+    "locators": [
+      [
+        6,
+        1,
+        10,
+        "Tabelle II"
+      ],
+      [
+        6,
+        19,
+        33,
+        "links, §V-B"
+      ]
+    ]
+  },
+  {
+    "id": "OPEN_X-K05",
+    "paper": "open_x",
+    "note": "Ohne Bridge sinkt der entsprechende RT-2-X-Wert auf 42,8 %. Die Autoren deuten dies als Evidenz für Fertigkeitstransfer aus WidowX-Daten.",
+    "locators": [
+      [
+        6,
+        1,
+        10,
+        "Tabelle II"
+      ],
+      [
+        6,
+        34,
+        40,
+        "links, §V-B"
+      ]
+    ]
+  },
+  {
+    "id": "OPEN_X-K06",
+    "paper": "open_x",
+    "note": "Die Experimente untersuchen keine Generalisierung auf neue Roboter und keine stark abweichenden Sensor-/Aktuatormodalitäten.",
+    "locators": [
+      [
+        6,
+        50,
+        59,
+        "rechts, §VI"
+      ]
+    ]
+  }
+]

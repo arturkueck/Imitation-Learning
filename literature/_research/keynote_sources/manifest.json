@@ -1,0 +1,178 @@
+{
+  "pypdf_version": "6.10.0",
+  "convention": "layout extraction, remove blank lines, retain both columns, count each page from 1",
+  "papers": {
+    "dagger": {
+      "pdf": "../dagger.pdf",
+      "source": "https://proceedings.mlr.press/v15/ross11a/ross11a.pdf",
+      "sha256": "17bdd6e049e64f09010b322f9e2d4fb5c744c33ff7ac99b4c4561e39bd9082a7",
+      "pages": 9,
+      "line_counts": [
+        46,
+        56,
+        55,
+        55,
+        55,
+        54,
+        49,
+        54,
+        51
+      ]
+    },
+    "dart": {
+      "pdf": "../dart.pdf",
+      "source": "https://proceedings.mlr.press/v78/laskey17a/laskey17a.pdf",
+      "sha256": "b040bfe4c11ba7208e467016b8240ad94e771b15b1e74652d454a7f9ac1c4471",
+      "pages": 14,
+      "line_counts": [
+        46,
+        54,
+        50,
+        50,
+        48,
+        47,
+        32,
+        46,
+        48,
+        38,
+        45,
+        48,
+        48,
+        20
+      ]
+    },
+    "stable_bc": {
+      "pdf": "../stable_bc.pdf",
+      "source": "https://arxiv.org/pdf/2408.06246v1",
+      "sha256": "a3e8d38bc1ab4a220f77954f76f62bbbd9c531a0505c3e277a1a4f01b60cc408",
+      "pages": 8,
+      "line_counts": [
+        57,
+        57,
+        58,
+        58,
+        57,
+        42,
+        59,
+        64
+      ]
+    },
+    "act": {
+      "pdf": "../act.pdf",
+      "source": "https://www.roboticsproceedings.org/rss19/p016.pdf",
+      "sha256": "8ba87afc999609ed38bf254aa974607aa2a838a812c50fc6b44d0d74052d4fb8",
+      "pages": 19,
+      "line_counts": [
+        43,
+        56,
+        44,
+        44,
+        45,
+        58,
+        1,
+        43,
+        56,
+        55,
+        45,
+        56,
+        56,
+        46,
+        56,
+        27,
+        27,
+        1,
+        49
+      ]
+    },
+    "diffusion_policy": {
+      "pdf": "../diffusion_policy.pdf",
+      "source": "https://www.roboticsproceedings.org/rss19/p026.pdf",
+      "sha256": "723a030b809be1958d03b06472ac79934fd64e5a890cdfeffd9508a353101a25",
+      "pages": 16,
+      "line_counts": [
+        47,
+        54,
+        44,
+        56,
+        48,
+        49,
+        57,
+        57,
+        23,
+        56,
+        55,
+        56,
+        56,
+        56,
+        58,
+        54
+      ]
+    },
+    "umi": {
+      "pdf": "umi.pdf",
+      "source": "https://www.roboticsproceedings.org/rss20/p045.pdf",
+      "sha256": "7b964be9c247bea4e7afc2bd2fe4c60658fa0f2a1f048e453e5fcef73e6cdef0",
+      "pages": 14,
+      "line_counts": [
+        42,
+        42,
+        56,
+        55,
+        41,
+        56,
+        28,
+        25,
+        40,
+        38,
+        39,
+        56,
+        56,
+        56
+      ]
+    },
+    "libero": {
+      "pdf": "libero.pdf",
+      "source": "https://proceedings.neurips.cc/paper_files/paper/2023/file/8c3c666820ea055a77726d66fc7d447f-Paper-Datasets_and_Benchmarks.pdf",
+      "sha256": "a99676bd4887c071966e424f93a2bf6971e02ad87b4fffb25c60a75912c2092c",
+      "pages": 16,
+      "line_counts": [
+        44,
+        44,
+        51,
+        37,
+        51,
+        58,
+        37,
+        52,
+        31,
+        50,
+        47,
+        49,
+        48,
+        48,
+        17,
+        36
+      ]
+    },
+    "open_x": {
+      "pdf": "open_x.pdf",
+      "source": "https://arxiv.org/pdf/2310.08864v5",
+      "sha256": "4371132c2c5da21e2f55c047668fea908a42c00ec10b374345ea6629b27232f7",
+      "pages": 12,
+      "line_counts": [
+        49,
+        61,
+        37,
+        48,
+        51,
+        59,
+        57,
+        57,
+        57,
+        57,
+        57,
+        41
+      ]
+    }
+  }
+}
