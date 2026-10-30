@@ -1,0 +1,973 @@
+{
+  "final": {
+    "curriculum_seed1_n2": {
+      "successes": 47,
+      "attempts": 50
+    },
+    "curriculum_seed1_n3": {
+      "successes": 27,
+      "attempts": 50
+    },
+    "curriculum_seed1_n4": {
+      "successes": 17,
+      "attempts": 50
+    },
+    "curriculum_seed1_n5": {
+      "successes": 7,
+      "attempts": 100
+    },
+    "curriculum_seed2_n2": {
+      "successes": 48,
+      "attempts": 50
+    },
+    "curriculum_seed2_n3": {
+      "successes": 28,
+      "attempts": 50
+    },
+    "curriculum_seed2_n4": {
+      "successes": 19,
+      "attempts": 50
+    },
+    "curriculum_seed2_n5": {
+      "successes": 8,
+      "attempts": 100
+    },
+    "curriculum_seed3_n2": {
+      "successes": 48,
+      "attempts": 50
+    },
+    "curriculum_seed3_n3": {
+      "successes": 18,
+      "attempts": 50
+    },
+    "curriculum_seed3_n4": {
+      "successes": 13,
+      "attempts": 50
+    },
+    "curriculum_seed3_n5": {
+      "successes": 5,
+      "attempts": 100
+    },
+    "direct_seed1_n2": {
+      "successes": 47,
+      "attempts": 50
+    },
+    "direct_seed1_n3": {
+      "successes": 29,
+      "attempts": 50
+    },
+    "direct_seed1_n4": {
+      "successes": 18,
+      "attempts": 50
+    },
+    "direct_seed1_n5": {
+      "successes": 10,
+      "attempts": 100
+    },
+    "direct_seed2_n2": {
+      "successes": 49,
+      "attempts": 50
+    },
+    "direct_seed2_n3": {
+      "successes": 27,
+      "attempts": 50
+    },
+    "direct_seed2_n4": {
+      "successes": 19,
+      "attempts": 50
+    },
+    "direct_seed2_n5": {
+      "successes": 7,
+      "attempts": 100
+    },
+    "direct_seed3_n2": {
+      "successes": 47,
+      "attempts": 50
+    },
+    "direct_seed3_n3": {
+      "successes": 16,
+      "attempts": 50
+    },
+    "direct_seed3_n4": {
+      "successes": 10,
+      "attempts": 50
+    },
+    "direct_seed3_n5": {
+      "successes": 6,
+      "attempts": 100
+    }
+  },
+  "paired": {
+    "1": {
+      "curriculum_only": 0,
+      "direct_only": 3
+    },
+    "2": {
+      "curriculum_only": 2,
+      "direct_only": 1
+    },
+    "3": {
+      "curriculum_only": 0,
+      "direct_only": 1
+    }
+  },
+  "cost": {
+    "final_test": {
+      "episodes": 1500,
+      "steps": 1765223
+    },
+    "development_and_gates": {
+      "episodes": 1250,
+      "steps": 1030356
+    },
+    "collection": {
+      "episodes": 360,
+      "steps": 450331
+    }
+  },
+  "datasets": {
+    "curriculum_n3_cycle0": {
+      "episodes": 120,
+      "successes": {
+        "train": 52,
+        "valid": 10
+      },
+      "frames": {
+        "train": 17069,
+        "valid": 3336
+      },
+      "teachers": {
+        "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth / train": {
+          "attempts": 34,
+          "successes": 18
+        },
+        "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth / train": {
+          "attempts": 33,
+          "successes": 18
+        },
+        "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth / train": {
+          "attempts": 33,
+          "successes": 16
+        },
+        "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth / valid": {
+          "attempts": 7,
+          "successes": 7
+        },
+        "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth / valid": {
+          "attempts": 7,
+          "successes": 2
+        },
+        "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth / valid": {
+          "attempts": 6,
+          "successes": 1
+        }
+      }
+    },
+    "curriculum_n4_cycle0": {
+      "episodes": 120,
+      "successes": {
+        "train": 27,
+        "valid": 8
+      },
+      "frames": {
+        "train": 12858,
+        "valid": 3838
+      },
+      "teachers": {
+        "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\training\\curriculum_n3_c0_seed1\\best.pth / train": {
+          "attempts": 100,
+          "successes": 27
+        },
+        "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\training\\curriculum_n3_c0_seed1\\best.pth / valid": {
+          "attempts": 20,
+          "successes": 8
+        }
+      }
+    },
+    "direct_n5_cycle0": {
+      "episodes": 120,
+      "successes": {
+        "train": 6,
+        "valid": 3
+      },
+      "frames": {
+        "train": 3829,
+        "valid": 1901
+      },
+      "teachers": {
+        "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth / train": {
+          "attempts": 34,
+          "successes": 4
+        },
+        "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth / train": {
+          "attempts": 33,
+          "successes": 1
+        },
+        "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth / train": {
+          "attempts": 33,
+          "successes": 1
+        },
+        "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth / valid": {
+          "attempts": 7,
+          "successes": 0
+        },
+        "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth / valid": {
+          "attempts": 7,
+          "successes": 2
+        },
+        "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth / valid": {
+          "attempts": 6,
+          "successes": 1
+        }
+      }
+    }
+  },
+  "training": {
+    "curriculum_n3_c0_seed1": {
+      "updates": 30000,
+      "parameter_change_l2": 1.677227840434214,
+      "optimizer_step_range": [
+        29996.0,
+        30000.0
+      ],
+      "curve": [
+        {
+          "update": 10000,
+          "actor_loss": 0.00011759030167013407,
+          "completion_loss": 0.18587259948253632,
+          "original_valid": {
+            "action_mse": [
+              7.808113102788922e-05,
+              2.326884325681778e-05,
+              4.376597280497663e-07,
+              1.4165573121327571e-05,
+              0.0001486502482758877,
+              9.362636250443757e-06,
+              1.124246163005068e-06
+            ],
+            "transition_tp": [
+              20.0,
+              18.0,
+              20.0,
+              20.0,
+              18.0,
+              16.0,
+              0.0
+            ],
+            "transition_fp": [
+              5.0,
+              3.0,
+              0.0,
+              4.0,
+              3.0,
+              7.0,
+              0.0
+            ],
+            "transition_fn": [
+              0.0,
+              2.0,
+              0.0,
+              0.0,
+              2.0,
+              4.0,
+              0.0
+            ]
+          }
+        },
+        {
+          "update": 30000,
+          "actor_loss": 0.00016004704229999334,
+          "completion_loss": 0.15049856901168823,
+          "original_valid": {
+            "action_mse": [
+              8.495862588403731e-05,
+              2.7279599611570367e-05,
+              3.597675231503672e-07,
+              1.771075525808582e-05,
+              8.346867936670332e-05,
+              1.1801420710980892e-05,
+              9.247624495820281e-07
+            ],
+            "transition_tp": [
+              19.0,
+              19.0,
+              20.0,
+              20.0,
+              20.0,
+              18.0,
+              0.0
+            ],
+            "transition_fp": [
+              1.0,
+              3.0,
+              0.0,
+              4.0,
+              4.0,
+              9.0,
+              0.0
+            ],
+            "transition_fn": [
+              1.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              2.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    "curriculum_n3_c0_seed2": {
+      "updates": 30000,
+      "parameter_change_l2": 1.6102497161941713,
+      "optimizer_step_range": [
+        29996.0,
+        30000.0
+      ],
+      "curve": [
+        {
+          "update": 10000,
+          "actor_loss": 6.861572182970122e-05,
+          "completion_loss": 0.08076696842908859,
+          "original_valid": {
+            "action_mse": [
+              0.00011034552350131859,
+              7.1634369765806845e-06,
+              3.3661866837064737e-07,
+              5.882679794104736e-05,
+              0.00010967450239753962,
+              8.508050290402024e-06,
+              9.742518721665447e-07
+            ],
+            "transition_tp": [
+              20.0,
+              20.0,
+              20.0,
+              20.0,
+              19.0,
+              19.0,
+              0.0
+            ],
+            "transition_fp": [
+              6.0,
+              8.0,
+              0.0,
+              3.0,
+              3.0,
+              13.0,
+              0.0
+            ],
+            "transition_fn": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        {
+          "update": 30000,
+          "actor_loss": 0.00013470053090713918,
+          "completion_loss": 0.13236384093761444,
+          "original_valid": {
+            "action_mse": [
+              0.00011533136134893875,
+              1.0683552701087848e-05,
+              3.1187607419269625e-07,
+              5.593762349754249e-05,
+              0.00012793025366009627,
+              1.054035359993577e-05,
+              1.2179291783244428e-06
+            ],
+            "transition_tp": [
+              20.0,
+              20.0,
+              20.0,
+              20.0,
+              19.0,
+              18.0,
+              0.0
+            ],
+            "transition_fp": [
+              4.0,
+              7.0,
+              0.0,
+              8.0,
+              3.0,
+              13.0,
+              0.0
+            ],
+            "transition_fn": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              2.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    "curriculum_n3_c0_seed3": {
+      "updates": 30000,
+      "parameter_change_l2": 2.328337181555096,
+      "optimizer_step_range": [
+        29996.0,
+        30000.0
+      ],
+      "curve": [
+        {
+          "update": 10000,
+          "actor_loss": 6.158139876788482e-05,
+          "completion_loss": 0.22141189873218536,
+          "original_valid": {
+            "action_mse": [
+              0.00011917648304087596,
+              9.996610243384227e-06,
+              1.664582785451785e-05,
+              8.250890629171034e-05,
+              0.0001659921001652279,
+              0.00010411660280078649,
+              1.0644064210219403e-06
+            ],
+            "transition_tp": [
+              18.0,
+              20.0,
+              20.0,
+              20.0,
+              19.0,
+              20.0,
+              0.0
+            ],
+            "transition_fp": [
+              6.0,
+              20.0,
+              0.0,
+              12.0,
+              3.0,
+              22.0,
+              0.0
+            ],
+            "transition_fn": [
+              2.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        {
+          "update": 30000,
+          "actor_loss": 9.893261449178681e-05,
+          "completion_loss": 0.2610767185688019,
+          "original_valid": {
+            "action_mse": [
+              0.000115058360391558,
+              1.591295124984943e-05,
+              1.6166686546057463e-05,
+              8.416991169809865e-05,
+              0.00016539687183417175,
+              9.538361243903637e-05,
+              8.913167545385365e-07
+            ],
+            "transition_tp": [
+              16.0,
+              19.0,
+              20.0,
+              20.0,
+              19.0,
+              19.0,
+              0.0
+            ],
+            "transition_fp": [
+              3.0,
+              15.0,
+              0.0,
+              5.0,
+              6.0,
+              17.0,
+              0.0
+            ],
+            "transition_fn": [
+              4.0,
+              1.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    "curriculum_n4_c0_seed1": {
+      "updates": 30000,
+      "parameter_change_l2": 1.2325158208231188,
+      "optimizer_step_range": [
+        29996.0,
+        30000.0
+      ],
+      "curve": [
+        {
+          "update": 10000,
+          "actor_loss": 2.8760980057995766e-05,
+          "completion_loss": 0.18299198150634766,
+          "original_valid": {
+            "action_mse": [
+              7.355819563833591e-05,
+              2.542255973623929e-05,
+              3.866084580295137e-07,
+              1.2025379030276023e-05,
+              7.748485246397798e-05,
+              9.52925975434482e-06,
+              1.1572321414711006e-06
+            ],
+            "transition_tp": [
+              20.0,
+              18.0,
+              20.0,
+              20.0,
+              19.0,
+              16.0,
+              0.0
+            ],
+            "transition_fp": [
+              5.0,
+              3.0,
+              0.0,
+              4.0,
+              3.0,
+              7.0,
+              0.0
+            ],
+            "transition_fn": [
+              0.0,
+              2.0,
+              0.0,
+              0.0,
+              1.0,
+              4.0,
+              0.0
+            ]
+          }
+        },
+        {
+          "update": 30000,
+          "actor_loss": 3.710400778800249e-05,
+          "completion_loss": 0.14893966913223267,
+          "original_valid": {
+            "action_mse": [
+              9.463683230279311e-05,
+              2.9834612089938023e-05,
+              3.8285072150756606e-07,
+              1.566394170013253e-05,
+              7.485451041382356e-05,
+              8.397920348215849e-06,
+              6.145223649622643e-07
+            ],
+            "transition_tp": [
+              18.0,
+              19.0,
+              20.0,
+              20.0,
+              20.0,
+              18.0,
+              0.0
+            ],
+            "transition_fp": [
+              1.0,
+              3.0,
+              0.0,
+              4.0,
+              4.0,
+              8.0,
+              0.0
+            ],
+            "transition_fn": [
+              2.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              2.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    "curriculum_n4_c0_seed2": {
+      "updates": 30000,
+      "parameter_change_l2": 1.3919459795376716,
+      "optimizer_step_range": [
+        29996.0,
+        30000.0
+      ],
+      "curve": [
+        {
+          "update": 10000,
+          "actor_loss": 8.40785214677453e-05,
+          "completion_loss": 0.07888667285442352,
+          "original_valid": {
+            "action_mse": [
+              0.00013650432620148647,
+              8.906975490906348e-06,
+              9.596935069566825e-07,
+              5.7187207910612175e-05,
+              0.00011117721237895781,
+              7.124486321117729e-06,
+              1.1662605375768352e-06
+            ],
+            "transition_tp": [
+              20.0,
+              20.0,
+              20.0,
+              20.0,
+              20.0,
+              19.0,
+              0.0
+            ],
+            "transition_fp": [
+              6.0,
+              8.0,
+              0.0,
+              3.0,
+              3.0,
+              14.0,
+              0.0
+            ],
+            "transition_fn": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        {
+          "update": 30000,
+          "actor_loss": 5.476672959048301e-05,
+          "completion_loss": 0.1344347596168518,
+          "original_valid": {
+            "action_mse": [
+              0.00010705436885435125,
+              1.3806656538013448e-05,
+              2.8044301507179626e-06,
+              5.532564790347853e-05,
+              0.0001344637791241022,
+              7.48391926754266e-06,
+              2.3241548256196483e-06
+            ],
+            "transition_tp": [
+              20.0,
+              20.0,
+              20.0,
+              20.0,
+              19.0,
+              18.0,
+              0.0
+            ],
+            "transition_fp": [
+              4.0,
+              5.0,
+              0.0,
+              8.0,
+              3.0,
+              13.0,
+              0.0
+            ],
+            "transition_fn": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              2.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    "curriculum_n4_c0_seed3": {
+      "updates": 30000,
+      "parameter_change_l2": 2.2070196576104526,
+      "optimizer_step_range": [
+        29996.0,
+        30000.0
+      ],
+      "curve": [
+        {
+          "update": 10000,
+          "actor_loss": 7.261177233885974e-05,
+          "completion_loss": 0.21816302835941315,
+          "original_valid": {
+            "action_mse": [
+              0.00013093206435050865,
+              1.575283890030838e-05,
+              1.1559943413885776e-06,
+              8.336076805442033e-05,
+              0.0001554464603911964,
+              8.192669600248336e-05,
+              1.8764689178367611e-06
+            ],
+            "transition_tp": [
+              18.0,
+              20.0,
+              20.0,
+              20.0,
+              19.0,
+              20.0,
+              0.0
+            ],
+            "transition_fp": [
+              6.0,
+              18.0,
+              0.0,
+              8.0,
+              3.0,
+              22.0,
+              0.0
+            ],
+            "transition_fn": [
+              2.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        {
+          "update": 30000,
+          "actor_loss": 8.57490231283009e-05,
+          "completion_loss": 0.2518730163574219,
+          "original_valid": {
+            "action_mse": [
+              0.0001620585111084729,
+              1.0654596385081468e-05,
+              1.050135091645643e-05,
+              7.721519228810652e-05,
+              0.00014736114261219076,
+              6.568707805126906e-05,
+              8.195667576826286e-07
+            ],
+            "transition_tp": [
+              16.0,
+              19.0,
+              20.0,
+              20.0,
+              19.0,
+              19.0,
+              0.0
+            ],
+            "transition_fp": [
+              3.0,
+              15.0,
+              0.0,
+              5.0,
+              6.0,
+              14.0,
+              0.0
+            ],
+            "transition_fn": [
+              4.0,
+              1.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "trace_diagnostics": [
+    {
+      "name": "curriculum_seed1_n5",
+      "seed": 365000,
+      "success": false,
+      "transition_diagnostics": [
+        {
+          "prefix": 2,
+          "within40_steps_validity_lost": true
+        }
+      ]
+    },
+    {
+      "name": "curriculum_seed1_n5",
+      "seed": 365001,
+      "success": false,
+      "transition_diagnostics": [
+        {
+          "prefix": 2,
+          "within40_steps_validity_lost": false
+        },
+        {
+          "prefix": 3,
+          "within40_steps_validity_lost": true
+        },
+        {
+          "prefix": 4,
+          "within40_steps_validity_lost": true
+        }
+      ]
+    },
+    {
+      "name": "curriculum_seed2_n5",
+      "seed": 365000,
+      "success": false,
+      "transition_diagnostics": [
+        {
+          "prefix": 2,
+          "within40_steps_validity_lost": true
+        }
+      ]
+    },
+    {
+      "name": "curriculum_seed2_n5",
+      "seed": 365001,
+      "success": false,
+      "transition_diagnostics": [
+        {
+          "prefix": 2,
+          "within40_steps_validity_lost": false
+        },
+        {
+          "prefix": 3,
+          "within40_steps_validity_lost": true
+        },
+        {
+          "prefix": 4,
+          "within40_steps_validity_lost": true
+        }
+      ]
+    },
+    {
+      "name": "curriculum_seed3_n5",
+      "seed": 365000,
+      "success": false,
+      "transition_diagnostics": [
+        {
+          "prefix": 2,
+          "within40_steps_validity_lost": true
+        }
+      ]
+    },
+    {
+      "name": "curriculum_seed3_n5",
+      "seed": 365001,
+      "success": false,
+      "transition_diagnostics": [
+        {
+          "prefix": 2,
+          "within40_steps_validity_lost": false
+        }
+      ]
+    },
+    {
+      "name": "direct_seed1_n5",
+      "seed": 365000,
+      "success": false,
+      "transition_diagnostics": [
+        {
+          "prefix": 2,
+          "within40_steps_validity_lost": true
+        }
+      ]
+    },
+    {
+      "name": "direct_seed1_n5",
+      "seed": 365001,
+      "success": false,
+      "transition_diagnostics": [
+        {
+          "prefix": 2,
+          "within40_steps_validity_lost": false
+        },
+        {
+          "prefix": 3,
+          "within40_steps_validity_lost": true
+        },
+        {
+          "prefix": 4,
+          "within40_steps_validity_lost": true
+        }
+      ]
+    },
+    {
+      "name": "direct_seed2_n5",
+      "seed": 365000,
+      "success": false,
+      "transition_diagnostics": [
+        {
+          "prefix": 2,
+          "within40_steps_validity_lost": true
+        }
+      ]
+    },
+    {
+      "name": "direct_seed2_n5",
+      "seed": 365001,
+      "success": false,
+      "transition_diagnostics": [
+        {
+          "prefix": 2,
+          "within40_steps_validity_lost": false
+        },
+        {
+          "prefix": 3,
+          "within40_steps_validity_lost": true
+        },
+        {
+          "prefix": 4,
+          "within40_steps_validity_lost": true
+        }
+      ]
+    },
+    {
+      "name": "direct_seed3_n5",
+      "seed": 365000,
+      "success": false,
+      "transition_diagnostics": [
+        {
+          "prefix": 2,
+          "within40_steps_validity_lost": true
+        }
+      ]
+    },
+    {
+      "name": "direct_seed3_n5",
+      "seed": 365001,
+      "success": false,
+      "transition_diagnostics": [
+        {
+          "prefix": 2,
+          "within40_steps_validity_lost": false
+        }
+      ]
+    }
+  ],
+  "hashes_verified": true,
+  "original_sha256": "5222cbf96dc6218389d491fe7b99449295dcfc9bceb3bab8f8776ffff19fe6f8",
+  "completed_utc": "2026-10-24T02:46:28Z",
+  "elapsed_hours": 5.488888888888889
+}

@@ -1,0 +1,408 @@
+psd_quality / arXiv:2605.01544v2. PDF pages start at 1. Z = custom nonempty layout line per page, not official publication lines.
+
+===== PDF S. 1 =====
+S01:Z001 |         An Efficient Metric for Data Quality Measurement in Imitation
+S01:Z002 |                                                                    Learning
+S01:Z003 |                                      Noushad Sojib1, Sajay Arthanat2, and Momotaz Begum1
+S01:Z004 |    Abstract—Imitation   learning   (IL)   has   seen   remarkable              the  ability  to  learn  new  policies  directly  from  end-users
+S01:Z005 | progress, yet field deployment of IL-powered robots remains                    data is extremely important for field deployment since pre-
+S01:Z006 | hindered  by  the  challenge  of  out-of-distribution  (OOD)  sce-             trained policy may not be available for every task that an
+S01:Z007 | narios. Fine-tuning pre-trained policies with end-user demon-                  end-user wants the robot to do for him/her. Demonstrations
+S01:Z008 | strations collected in deployment environments is a promising                  from end-users not only increases the training data size but
+S01:Z009 | strategy to address this challenge. However, end-user demon-
+S01:Z010 | strations are frequently of poor quality, characterized by ex-                 also introduces valuable learning signals arising from diverse
+S01:Z011 | cessive corrective motions, oscillations, and abrupt adjustments               human strategies and execution styles.
+S01:Z012 | that degrade both learned and fine-tuned policy performance.                      End-user demonstrations are often inefficient due to un-
+S01:Z013 | Existing  automated  approaches  for  curating  demonstration                  stable control and inconsistent task execution [12]. Novice
+S01:Z014 | data require policy rollouts in the environment, making them                   teleoperation,forinstance,tendstoproduceexcessivecorrec-
+S01:Z015 | computationally expensive and impractical for real-world de-
+S01:Z016 | ployment.  In  this  paper,  we  propose  a  fast,  efficient,  and            tivemotions,oscillations,andabruptadjustmentsthatdeviate
+S01:Z017 | fully  automated  demonstration  ranking  metric  based  on  the               from task intent. Kinesthetic teaching of high-DOF robots by
+S01:Z018 | power spectral density (PSD) of demonstration trajectories. The                layusersintroducessimilarartifacts.Critically,theseartifacts
+S01:Z019 | PSD  metric  requires  no  policy  learning,  environment  inter-              persist across tasks even when task completion is nominally
+S01:Z020 | action, or expert labeling, making it well-suited for scalable,                achieved. Training a policy entirely on such low-quality data
+S01:Z021 | in-the-field  data  curation.  Lower  PSD  values  correspond  to
+S01:Z022 | smoother,  higher-quality  demonstrations,  while  higher  PSD                 yields limited success rates. Moreover, when used for fine-
+S01:Z023 | values indicate erratic, artifact-laden trajectories. We evaluate              tuning, even a small proportion of poor-quality demonstra-
+S01:Z024 | the  proposed  metric  on  two  benchmark  imitation  learning                 tions can disproportionately degrade a pre-trained policy —
+S01:Z025 | datasets comprising expert and lay-user demonstrations, and                    in both task success rate and trajectory quality. A standard
+S01:Z026 | through a user study with older adults at a retirement facility,               mitigation strategy is to filter poor-quality demonstrations
+S01:Z027 | where collected demonstrations are used to fine-tuneπ0.5[1]
+S01:Z028 | for a daily living task. Results demonstrate that PSD-curated                  from the training pool prior to policy training or fine-tuning.
+S01:Z029 | data yields policies with higher task success rates and smoother               Manual and semi-manual filtering approaches are tractable at
+S01:Z030 | execution trajectories compared to uncurated baselines and two                 small dataset scales but become impractical as data volume
+S01:Z031 | competitive data-ranking methods.                                              grows [13]. Most of the existing automated curation methods
+S01:Z032 |                        I.  INTRODUCTION                                        require policy rollouts in the environment to rank demonstra-
+S01:Z033 |    ImitationLearningisexperiencingitsheyday,catalyzedby                        tions [14], [15], or expensive latent space calculation [16]
+S01:Z034 | incredible progress in large data collection [2], [3], compact                 which entails many hours of computation and supervision.
+S01:Z035 | visual representation learning [1], [4], sim2real [5], [6], and                These pipelines demand significant robotics expertise and are
+S01:Z036 | end-to-end policy learning [7], [8], [9]. There has been no                    ill-suited for practical deployment.What is needed instead
+S01:Z037 | better time to think about deployment of IL-powered robots                     is  a  fast,  reliable,  and  automated  method  for  ranking
+S01:Z038 | in homes to benefit older adults or people with disabilities                   demonstrations prior to policy learning or fine-tuning —
+S01:Z039 | in their activities of daily living [10]. One of the primary                   one that does not depend on environment interaction or
+S01:Z040 | impediments toward field deployment of IL policies is their                    expert oversight. To address this, we propose an efficient,
+S01:Z041 | inability to deal with out of distribution (OOD) scenarios                     automated metric for ranking demonstrations that requires
+S01:Z042 | whichareunavoidableatrun-time,especiallyinnaturalhome                          neither policy learning nor environment interaction, nor any
+S01:Z043 | environments.  Recent  progress  in  IL  policy  learning  has                 form of expert labeling. The metric is based on the power
+S01:Z044 | primarily been driven by high-quality expert demonstrations,                   spectral density (PSD) of the demonstration trajectory: lower
+S01:Z045 | making the resulting policies brittle at run-time due to OOD                   PSD corresponds to smoother, higher-quality demonstrations
+S01:Z046 | occurrences [1], [3]. Fine-tuning of pre-trained policies with                 characterized by greater task success and fewer motion arti-
+S01:Z047 | end-users’ demonstration data collected from the deployment                    facts, while higher PSD indicates inefficient demonstrations
+S01:Z048 | settings  is  a  natural  choice  to  combat  OOD  errors  and                 marked by erratic motion and frequent task failure.
+S01:Z049 | make IL usable in the field [11]. Apart from fine-tuning,                         We evaluate the proposed PSD metric by assessing its im-
+S01:Z050 |                                                                                pact on downstream policy performance, across both policy
+S01:Z051 |   1Noushad   Sojib   and   Momotaz   Begum   are   with   the   Department     learning from scratch and fine-tuning settings. We apply the
+S01:Z052 | of     Computer     Science,     University     of     New     Hampshire,     USAmetric to curate two benchmark imitation learning datasets
+S01:Z053 | noushad.sojib@unh.edu,mbegum@cs.unh.edu                                        comprising demonstrations from both expert and lay users
+S01:Z054 |   2Sajay Arthanat is with the Department of Occupational Therapy and the
+S01:Z055 | Center for Digital Health Innovation, University of New Hampshire, USA         [12], [10], and evaluate the performance of policies trained
+S01:Z056 | sajay.arthanat@unh.edu                                                         on the curated data. Additionally, we conduct a user study
+
+===== PDF S. 2 =====
+S02:Z001 | with  older  adults  at  a  retirement  facility  to  collect  lay-           then learn policy on top of the purified data. This process is
+S02:Z002 | user demonstrations for fine-tuning the state of the art pre-                 computationally expensive for high dimensional states such
+S02:Z003 | trained VLA modelπ0.5 [1] on a simple daily living task.                      as images.
+S02:Z004 | Results  demonstrate  that  data  curated  using  the  proposed               C. Learning to rank demonstrations
+S02:Z005 | PSD metric yields policies with higher task success rates
+S02:Z006 | and smoother execution trajectories compared to uncurated                        Several  prior  works  propose  scoring  mechanisms  to
+S02:Z007 | baselines and two competitive data-ranking methods [14],                      identify  high-quality  demonstrations  within  mixed-quality
+S02:Z008 | [16]. Our contributions are as follows:                                       datasets. CUPID[14] leverages influence functions to esti-
+S02:Z009 |    •A training-free demonstration ranking metric: We                          mate the contribution of individual demonstrations to down-
+S02:Z010 |       propose using power spectral density (PSD) of demon-                    stream policy performance. This approach requires executing
+S02:Z011 |       stration  trajectories  as  an  efficient,  automated  metric           a learned policy in the environment to estimate influence
+S02:Z012 |       for ranking demonstration quality, requiring no policy                  which can be risky for real-world robots, particularly when
+S02:Z013 |       learning, environment interaction, or expert labeling.                  policies  are  trained  on  mixed-quality  data.  Moreover,  in-
+S02:Z014 |    •Validation across learning and fine-tuning settings:                      fluence estimation becomes expensive for real robot com-
+S02:Z015 |       We demonstrate the PSD metric’s effectiveness on two                    plex  tasks  due  to  the  large  number  of  rollouts  required.
+S02:Z016 |       benchmark IL datasets and a real-world user study with                  Demonstration-Information (DemInf) [16] estimates demon-
+S02:Z017 |       olderadults,showingthatPSD-curateddataconsistently                      stration  quality  using  mutual  information,  relying  onk-
+S02:Z018 |       yields higher task success rates and smoother trajecto-                 NN–based  estimators.  However,  empirical  studies  report
+S02:Z019 |       ries compared to uncurated baselines and competitive                    weak correlation between DemInf rankings and downstream
+S02:Z020 |       ranking methods.                                                        policy performance [14], [23]. Demo-Score [15] similarly
+S02:Z021 |                                                                               depends on executing an initially trained policy to collect
+S02:Z022 |                         II.  RELATEDWORK                                      rollouts that are subsequently labeled as successful or failed.
+S02:Z023 |    A growing body of work studies imitation learning under                    This reliance on online interaction restricts its applicability
+S02:Z024 | suboptimal or mixed-quality demonstrations across settings                    to real-world robotic systems where large-scale rollouts are
+S02:Z025 | such  as  offline  imitation  learning,  reinforcement  learning,             costly  or  unsafe.  DataMIL  [24]  models  the  relationship
+S02:Z026 | and inverse reinforcement learning. In this section, we focus                 between data and policy performance and proposes an offline
+S02:Z027 | on prior work most relevant to offline imitation learning. We                 metric for demonstration quality without requiring environ-
+S02:Z028 | organize the literature into three categories: (i) data quality,              ment  interaction.  BED  [10]  adopts  a  self-supervised  ap-
+S02:Z029 | which examines what aspects of demonstrations affect pol-                     proach that selects high-quality demonstrations using multi-
+S02:Z030 | icy performance; (ii) policy learning from suboptimal data,                   term consistency metrics. However, BED assumes that the
+S02:Z031 | which directly trains policies on mixtures of expert and non-                 majorityofdemonstrationsareofhighquality,anassumption
+S02:Z032 | expert demonstrations; and (iii) learning to rank, which aims                 that  may  not  hold  for  datasets  collected  from  non-expert
+S02:Z033 | to identify and order demonstrations by quality, either at the                users. S2I [25] applies contrastive learning to classify ex-
+S02:Z034 | trajectory or segment level. Our work falls into the third                    tracted trajectories as good or bad. While effective at separat-
+S02:Z035 | category.                                                                     ingtrajectoryclusters,itspreference-learningvariantrequires
+S02:Z036 |                                                                               afixedsetofhigh-qualitydemonstrationsapriori,limitingits
+S02:Z037 | A. Data Quality                                                               practicality in fully uncurated datasets. SCIZOR [23] relies
+S02:Z038 |    Several  works  highlight  the  importance  of  demonstra-                 on  task  progress  estimation  and  transition-level  labeling,
+S02:Z039 | tion quality in offline imitation learning. RoboMimic [17]                    operating under the assumption that most demonstrations are
+S02:Z040 | shows that removing the lowest-quality demonstrations from                    good. This assumption weakens robustness when non-expert
+S02:Z041 | a multi-human, mixed-quality dataset can significantly im-                    or noisy data dominates.
+S02:Z042 | prove  policy  performance.  [18]  further  demonstrates  that                   Overall,  while  learning-based  ranking  methods  such  as
+S02:Z043 | naively  selecting  diverse  data  does  not  always  yield  bet-             DemInf, CUPID, and BED can be effective, they are com-
+S02:Z044 | ter results, emphasizing that diversity alone is insufficient                 putationally expensive, difficult to scale, and ill-suited for
+S02:Z045 | without accounting for quality. [19] identify trajectory path                 practical deployment. In contrast, our method is fast, fully
+S02:Z046 | length and jerk as indicators correlated with policy success;                 offline, and requires no environment interaction, making it
+S02:Z047 | however, their evaluation is limited to relatively simple tasks.              well-suited for field deployment and learning policy from
+S02:Z048 |                                                                               large-scale datasets containing many non-expert/sub-optimal
+S02:Z049 | B. Policy learning from suboptimal data                                       demonstrations.
+S02:Z050 |    Another  line  of  work  focuses  on  learning  policies  di-                  III.  PROBLEMFORMULATION ANDPRELIMINARIES
+S02:Z051 | rectly  from  suboptimal  or  noisy  demonstrations.  BCND                    A. Preliminaries on Imitation Learning:
+S02:Z052 | [20]  iteratively  learns  a  policy  using  an  ensemble-based
+S02:Z053 | approach,  but  relies  on  the  assumption  that  the  majority                 We  consider  offline  imitation  learning  as  a  Markov
+S02:Z054 | of demonstrations are of high quality. ILEED [21] jointly                     Decision    Process    (MDP)    represented    by    the    tuple
+S02:Z055 | estimates latent expertise labels while learning the policy,                  (S,A,r,q,s 0,γ).  Here,  the  reward  functionr and  the
+S02:Z056 | enabling robustness to mixed-quality data. DP-IL [22] first                   environment dynamicsqare unknown. However, we assume
+S02:Z057 | purify imperfect demonstrations using diffusion process and                   access to a datasetD={τ                     1,τ2,...,τN}comprising ofN
+
+===== PDF S. 3 =====
+S03:Z001 | Fig. 1.    Demonstration trajectories (left) and their power spectrum (middle). Poor demonstrations exhibit broader spectral support and higher total power
+S03:Z002 | while good demonstrations are strong in low frequencies. Demonstrations ranked according to power spectral density are shown in the right column.
+S03:Z003 | trajectories,  which  includeboth  optimal  and  erroneous                           B. Expert Vs Non-expert Demonstration
+S03:Z004 | demonstrations.  Every  trajectoryτ                                            i   is  a  sequence  ofExpert demonstrations are typically smoother while non-
+S03:Z005 | state-action  pairs,τ         i  ={(s       1,a1),(s    2,a2),...,(s    Ti,aTi)},    expert demonstrations exhibit motion artifacts including high
+S03:Z006 | wheres∈Sdenotes a state,a∈Adenotes an action, and                                    jerk, temporal inconsistency, abrupt or oscillatory motions,
+S03:Z007 | Ti is the horizon of the trajectoryτ                i. In case of behavior           prolonged  pauses,  and  repeated  trial-and-error  behaviors.
+S03:Z008 | cloning (BC) – the most prevalent policy learning method                             Figure 2 shows representative example of expert (an author
+S03:Z009 | in contemporary IL literature – the objective is to learn a                          of this paper) and non-expert (an older adult participant of
+S03:Z010 | policyπ  θ :S→Athat maps states to actions by minimizing                             our user study) trajectories for a task of opening a microwave
+S03:Z011 | the standard BC loss functionE              (s,a)∼D        [−logπ    θ(a|s)].        by a Franka robot arm. Note that we consider adversarial
+S03:Z012 |                                                                                      demonstrations as coordinated efforts to fool the learning
+S03:Z013 |                                                                                      algorithm while non-expert demonstrations as inadvertent,
+S03:Z014 |                                                                                      natural human errors; our work only deals with non-expert
+S03:Z015 |                                                                                      demonstrations that are prevalent in field deployment.
+S03:Z016 |                                                                                      C. Frequency-Domain Analysis of a Signal
+S03:Z017 |                                                                                         For an aperiodic time-domain signalx(t)withTsamples,
+S03:Z018 |                                                                                      the discrete Fourier transform (DFT) is computed as [26]:
+S03:Z019 |                                                                                                                            TX
+S03:Z020 |                                                                                                               X(Ω) =           x(t)e     −jΩt                               (1)
+S03:Z021 |                                                                                                                           t=1
+S03:Z022 |                                                                                      with frequencyΩ =   2πT k,k={0,1,...,T−1}. The power
+S03:Z023 |                                                                                      spectral density (PSD) of the signal is proportional to its
+S03:Z024 |                                                                                      frequency content:
+S03:Z025 |                                                                                                                   P(Ω)∞|X(Ω)|                     2                              (2)
+S03:Z026 |                                                                                      The noisy (i.e., high-frequency) version of a signal – e.g.
+S03:Z027 | Fig.  2.       Example  of  an  expert  (Demo  0)  and  a  non-expert  (Demo         the trajectory of a task as shown in Fig. 2 – has higher
+S03:Z028 | 38) trajectory. Expert trajectories are generally smooth and contains less           PSD than its non-noisy (i.e., low-frequency) version. Non-
+S03:Z029 | surprised turns compare to a non-expert trajectory.                                  expert trajectories typically contain motion artifacts — such
+S03:Z030 |                                                                                      as oscillations, abrupt corrections, and erratic adjustments
+
+===== PDF S. 4 =====
+S04:Z001 | —  that  elevate  their  frequency  content  relative  to  expert              C. Demonstration Ranking and Evaluation
+S04:Z002 | demonstrations (e.g., Fig. 2). That makes PSD comparison                          Demonstrationsτ                          i  are  ranked  froom  good  to  bad  by
+S04:Z003 | between two trajectories of the same task a reliable proxy                     ascendingW                i values.
+S04:Z004 | for demonstration quality.
+S04:Z005 |      IV.  PSDOFDEMONSTRATIONTRAJECTORY: AN                                                           τi≺τ   j    if W  i <Wj.
+S04:Z006 |     EFFICIENTMETRIC FORQUALITYMEASUREMENT                                      Based on this ranking, we curate datasets by discarding a
+S04:Z007 |    We propose a scalar metricWderived solely from the                          fractionρof  the  lowest-ranked  demonstrations.  ThenD                        ρ
+S04:Z008 | PSD of the low-level demonstration trajectory. Despite its                     dataset can be used by any policy learning algorithms.
+S04:Z009 | simplicity, this metric effectively captures the overall mo-                                   Dρ ={τ     i∈D|W       i≤q   1−ρ   (W)}.
+S04:Z010 | tion quality of a demonstration — higher values indicate
+S04:Z011 | increased oscillatory and corrective behavior typical of non-                     Whereq           α(W) denotes  the  empericalαquantile  of
+S04:Z012 | expert users, while lower values correspond to the smoother,                   the  score  distribution.  Since  largerW     i  indicates  lower-
+S04:Z013 | more deliberate motions characteristic of expert demonstra-                    quality  demonstrations,  thresholding  atq   1−ρ   (W)discards
+S04:Z014 | tions. Notably,Wfocuses exclusively on trajectory quality,                     the highest-scoring fractionρof trajectories and retains the
+S04:Z015 | without regard to whether the task was ultimately completed.                   remaining1−ρ.
+S04:Z016 | This  design  choice  is  intentional:  IL  policies  trained  on
+S04:Z017 | mixed-quality datasets benefit not only from expert demon-                                               V.  EXPERIMENTS
+S04:Z018 | strations with task success, but also from the recovery strate-                   We conducted experiments to answer the following two
+S04:Z019 | gies and broader state-space coverage present in non-expert                    research questions:
+S04:Z020 | demonstrations [27], regardless of task outcome. However,                         •R1. Demonstration quality: How effectively does the
+S04:Z021 | trajectories that deviate excessively from a nominal path risk                       proposed PSD metric rank demonstrations in a mixed-
+S04:Z022 | driving a BC policy into irrecoverable states, leading to task                       quality training set relative to competing ranking meth-
+S04:Z023 | failure. The proposed PSD-based metricWdirectly captures                             ods?
+S04:Z024 | this trade-off. Importantly,Wis computed entirely offline,                        •R2. Policy Performance: How does filtering demon-
+S04:Z025 | requires no task-specific rewards or environment interaction,                        stration  data  with  the  proposed  PSD  metric  impact
+S04:Z026 | and is agnostic to the choice of policy representation.                              downstream imitation learning policy performance?
+S04:Z027 | A. Trajectory Representation                                                   Experiments  consider  four  baselines  for  comparison:  1)
+S04:Z028 |    From each demonstration trajectoryτ                i∈D, we extract a        performance without any data curation, 2) performance with
+S04:Z029 | time domain signal                                                             curationdonebyanoracle3)performancewithcurationdone
+S04:Z030 |                    xi(t)∈R       d,   t= 1,...,T   i,                          by two contemporary demo ranking methods: DemInf [16]
+S04:Z031 |                                                                                and CUPID [14] 4) performance with curation done using
+S04:Z032 | wherex          i(t)are kinematic state variables,dis the signal               two kinematic variables of motion – jerk and path-length –
+S04:Z033 | dimensionality, andT      i is the signal length. We specifically              suggested in [19]:
+S04:Z034 | used end-effector position in the 3D Cartesian space asx   i(t),               A. Experimental Setup
+S04:Z035 | makingd= 3. To ensure consistency across demonstrations,                          We consider two experimental setups for evaluation: 1)
+S04:Z036 | we treat each dimension independently and analyze temporal                     offline policy learning from a mixed quality data set and
+S04:Z037 | variation along each dimension.                                                2) fine-tuning a pre-trained generalist model,π0.5 [1], with
+S04:Z038 | B. Frequency Domain Decomposition of a Trajectory                              non-expert data.
+S04:Z039 |    Using (1) and (2) we calculate the PSDP       i,d(Ω)for each                   1) Offline policy learning from mixed-quality data:We
+S04:Z040 | dimension ofx   i(t). We aggregate spectral powers across all                  considered two benchmark IL datasets manipulation tasks
+S04:Z041 | dimensiond={0,1,2}to obtain a trajectory-level PSD:                            –  Robomimic-MH  [12],  and  Layman2  [10].  Each  dataset
+S04:Z042 |                                      2X                                        contains demonstrations for two simulation tasks:Can(the
+S04:Z043 |                        Pi(Ω) =          Pi,d(Ω).                               robotmustgraspacylindricalcanandplaceitatadesignated
+S04:Z044 |                                    d=0                                         target location) andSquare(the robot must pick up a square
+S04:Z045 | Finally, the total spectral power of the trajectory is calculated              nut and place it onto a square peg).
+S04:Z046 | as the metric to measure the quality of the demonstrationτ                        i.•Robomimic-MH:This is a commonly used IL benchmark
+S04:Z047 |                                                                                consisting 300 demonstrations (270 for training and 30 for
+S04:Z048 |                    Wi = PSD(τ          i) =X   Pi(Ω).                          validation) for each of the two tasks, collected from six hu-
+S04:Z049 |                                            Ω                                   man users, annotated with three expertise levels:better(label
+S04:Z050 | Fig. 1 demonstrate this process. The higher spectral power of                  3),okay (label 2), andworse (label 1). Demonstrations are
+S04:Z051 | any finite time domain signal resides in the lower frequencies                 recorded in simulation using standard robomimic environ-
+S04:Z052 | [26]. However, the abrupt movements in non-expert trajecto-                    ments.
+S04:Z053 | ries add more high frequency components in their DFT and                       •Layman2:This dataset contains 300 demonstrations for
+S04:Z054 | thereby contributing to higherWvalues (as shown in the                         each of the two tasks by 15 non-expert users with diverse
+S04:Z055 | 2nd column of Fig 1).                                                          skills. The dataset mirrors the task definitions and annotation
+
+===== PDF S. 5 =====
+S05:Z001 |                                 TABLE I                                           Figure 3 further illustrates ranking behavior as demon-
+S05:Z002 |    AVERAGE QUALITY OF THE REMAINING DEMONSTRATIONS AFTER                       strations are progressively removed. The proposed method
+S05:Z003 |         FILTERING OUT50%OF THE DATA(HIGHER IS BETTER).                         maintainshigherremainingqualityacrossremovalthresholds
+S05:Z004 |  Dataset        Task      Random     Oracle    DemInf     CuPID     Ours       and more closely tracks the oracle curve than DemInf [16]
+S05:Z005 |  Robomimic      Can         1.99      2.67       2.37      2.32     2.53       and Cupid [14].
+S05:Z006 |                 Square      1.99      2.67       2.34      2.30     2.47          We  next  evaluate  whether  improved  ranking  translates
+S05:Z007 |  Layman2        Can         1.99      2.67       2.57      2.53     2.67       to  downstream  policy  performance  (R2).  Table  II  reports
+S05:Z008 |                 Square      1.99      2.67       2.48      2.50     2.64
+S05:Z009 |                                                                                success rates after training on datasets filtered using each
+S05:Z010 |                                                                                method.
+S05:Z011 | structure of Robomimic-MH. Demonstrations in this dataset                         Across both Robomimic and Layman2, policies trained
+S05:Z012 | are longer in duration, exhibit more trajectory variations and                 on demonstrations filtered by our the proposed metric con-
+S05:Z013 | trial–error behaviors, typically exhibited by lay users.                       sistently outperform those trained on mixed-quality data and
+S05:Z014 | To investigateR1, we measure the average quality of the                        are competitive with oracle selection. Notably, our method
+S05:Z015 | remaining demonstrations after removing the bottom 50%                         achieves  the  largest  gains  on  Layman  2,  highlighting  its
+S05:Z016 | according to various baseline methods. Demonstrations are                      effectiveness in realistic non-expert settings where control
+S05:Z017 | ranked offline using different metrics, the bottom fraction of                 inefficiencies are prevalent.
+S05:Z018 | demonstrations is removed, and IL policies are trained on the                     1) Comparison  of  W  with  other  Kinematic  proxies:
+S05:Z019 | filtered datasets. Additionally, we evaluate the time required                 To  assess  whether  the  proposed  W  provides  any  benefit
+S05:Z020 | for ranking by the proposed method and baselines as show                       beyond analyzing the trajectory path length and mean jerk
+S05:Z021 | in the table III.                                                              norm – quantities that have been shown to correlate with
+S05:Z022 |    For all experimental conditions, policies are trained using                 demonstration consistency in prior work [19] – we compare
+S05:Z023 | the same diffusion-based imitation learning architecture with                  against these proxies. Across all tasks and datasets, the pro-
+S05:Z024 | identical optimization and training hyperparameters. Perfor-                   posed W consistently outperforms these baselines in terms
+S05:Z025 | mance is evaluated over three random seeds and reported as                     of preserving demonstration quality. Figure 5 illustrates this
+S05:Z026 | the average success rate across evaluation episodes.                           distinction. While trajectory path length and jerk magnitude
+S05:Z027 |    2) Fine  tuningπ0.5:Due  to  the  nature  of  this  setup,                  can correlate with demonstration quality in isolated cases,
+S05:Z028 | we only investigatedR2. We conducted an IRB-approved                           their  behavior  is  inconsistent  across  tasks  and  datasets.
+S05:Z029 | user study with five older adults (ages 79, 80, 86, 84 and                     In  particular,  path  length  is  highly  sensitive  to  variations
+S05:Z030 | one  undisclosed)  to  simulate  a  realistic  home-deployment                 in initial object poses and goal distances, which naturally
+S05:Z031 | environment. The robot is equipped withπ0.5, a generalist                      differ across demonstrations even when execution quality is
+S05:Z032 | policy, which needs to be fine-tuned by the participants to                    comparable. In contrast, the metric W provides a more stable
+S05:Z033 | be able to open a microwave in the kitchen, as shown in                        and task-agnostic signal by directly capturing corrective and
+S05:Z034 | Fig.  4.  We  asked  the  participants  to  give  demonstrations               oscillatory motion patterns that arise from inefficient control.
+S05:Z035 | using  two  interfaces  –  a  space  mouse  and  a  meta  quest                   2) Computational Efficiency of Quality Measurement:A
+S05:Z036 | VR. Participants were given 30 minutes to play with both                       key advantage of the proposed spectral metric is its com-
+S05:Z037 | interfaces to gain familiarity and provided data only when                     putational efficiency. Unlike learning-based ranking methods
+S05:Z038 | they felt comfortable handling the robot and interfaces. We                    such as DemInf and Cupid, which require expensive nearest-
+S05:Z039 | stopped data collection when the participant filled fatigued                   neighbor searches or policy rollouts to estimate demonstra-
+S05:Z040 | or  felt  uncomfortable,  to  emulate  a  realistic  deployment                tion utility, our method operates directly on raw trajectory
+S05:Z041 | setting  where  participants  are  unlikely  to  spend  extended               time  series  using  a  single  discrete  Fourier  transform  per
+S05:Z042 | time to generate many demonstrations for the robot. The five                   demonstration.
+S05:Z043 | participants generated 20,20,17,15, and 20 demonstrations.                        We  compare  the  wall-clock  time  required  to  compute
+S05:Z044 | We fine tunedπ0.5 with a batch size of 16 and for 10000                        quality scores for each method under identical hardware and
+S05:Z045 | steps.                                                                         dataset conditions. As shown in Table III, our approach is
+S05:Z046 |                             VI.  RESULTS                                       orders of magnitude faster than DemInf and Cupid, enabling
+S05:Z047 | A. Offline policy learning from mixed-quality data                             scalable demonstration curation for large datasets and real-
+S05:Z048 |                                                                                world  robotic  systems  where  rapid  offline  processing  is
+S05:Z049 |    Table  I  shows  the  filtering  out  using  our  method  can               essential.
+S05:Z050 | effectively remove bad demonstrations compared to others                       B. Fine tuningπ0.5
+S05:Z051 | as the average quality of the remaining demonstrations after
+S05:Z052 | removing 50% data is higher. Ranking using W consistently                         Since  real-world  deployment  assumes  non-expert  users
+S05:Z053 | retains higher-quality demonstrations compared to all other                    will teach robots new tasks—and collecting demonstrations
+S05:Z054 | baselines, and closely follows the oracle ordering. This trend                 is costly—we adopt a state-of-the-art generalist policy and
+S05:Z055 | is particularly pronounced on Layman2, where non-expert                        fine-tune it on newly collected user data using Franka robot
+S05:Z056 | artifacts dominate and the other two learning-based ranking                    on the microwave openning task. For each participant, we
+S05:Z057 | methods [16], [14] exhibit weaker correlation with ground-                     fine-tunedπ0.5using LoRA [28] with a batch size of 16
+S05:Z058 | truth quality.                                                                 for 10,000 gradient steps on an RTX 5090 consumer GPU.
+
+===== PDF S. 6 =====
+S06:Z001 |                Fig. 3.     Remaining average demonstration quality is plotted against the number of demonstrations removed for Can and Square tasks under MH and
+S06:Z002 |                Layman2 datasets. The dashed black line denotes an oracle ordering, while gray corresponds to random removal. Among learned methods, Ours maintains
+S06:Z003 |                higher remaining quality as demonstrations are progressively removed and more closely follows the oracle compared to DemInf and Cupid across tasks
+S06:Z004 |                and datasets.
+S06:Z005 |                                                                                                       TABLE II
+S06:Z006 |                               SUCCESS RATE ACROSS3SEEDS ON50%FILTERED DATA.STATEANDIMAGEDENOTE DIFFERENT EXPERIMENT MODALITIES.
+S06:Z007 |                Fig. 4.    An older adult participant from our study teleoperating a Franka
+S06:Z008 |                robot using a SpaceMouse to open a microwave in a simulated home setting.
+S06:Z009 |                                                       TABLE III
+S06:Z010 |                       APPROXIMATE COMPUTATION TIME REQUIRED TO GENERATE
+S06:Z011 |                    DEMONSTRATION RANKINGS FOR EACH METHOD(INCLUDING ALL
+S06:Z012 |                            TRAINING AND FINAL RANKING GENERATION STEPS).                                       Fig. 5.     Our method generalize simple kinematics methods such as jerk
+S06:Z013 |                                                                                                                and path length.
+S06:Z014 |                       Dataset            Task           DemInf              Cupid           Ours                                                     TABLE IV
+S06:Z015 |                       Robomimic          Can         300 minutes         360 minutes         10s
+S06:Z016 |                                          Square      300 minutes         360 minutes         10s                AVERAGE SUCCESS RATE OFπ0.5ON THE MICROWAVE OPENING TASK
+S06:Z017 |                       Layman v2          Can         300 minutes         360 minutes         10s                   USING NON-EXPERT DEMONSTRATIONS. DEMINF ANDOURS ARE
+S06:Z018 |                                          Square      300 minutes         360 minutes         10s                 CURATION METHODS RETAINING60%OF DEMONSTRATIONS,WHILE
+S06:Z019 |                                                                                                                                     UNFILTERED USES THE FULL DATASET.
+S06:Z020 |                We  evaluated  two  training  settings  per  user:  (1)  the  full                                                   User           Unfiltered       DemInf        Ours
+S06:Z021 |                dataset (all demonstrations) and (2) a filtered subset retaining                                                Participant 1          0.15            0.50         0.55
+S06:Z022 |                60%  of  demonstrations  (removing  40%).  In  both  cases,                                                     Participant 2          0.15            0.25         0.50
+S06:Z023 |                                                                                                                                Participant 3          0.00            0.10         0.30
+S06:Z024 |                we  performed  20  rollouts  and  report  the  average  success                                                 Participant 4          0.35            0.15         0.40
+S06:Z025 |                rate. As shown in Table IV, training on the filtered dataset                                                    Participant 5          0.10            0.35         0.15
+S06:Z026 |                consistently improves policy performance.                                                                           Mean               0.15            0.27         0.38
+S06:Z027 | Experiment            Dataset               Task             Unfiltered                Oracle                   DemInf                    Cupid                    Ours
+S06:Z028 |                       Robomimic             Can            0.91±0.01              1.00±0.00                 1.00±0.00                 0.91±0.04              1.00±0.00
+S06:Z029 | State                                       Square         0.87±0.03                0.85±0.02                0.89±0.02                0.77±0.04              0.90±0.02
+S06:Z030 |                       Layman2               Can            0.31±0.01                0.71±0.02                0.78±0.03                0.21±0.04              0.86±0.00
+S06:Z031 |                                             Square         0.44±0.05                0.73±0.04                0.66±0.04                0.27±0.01              0.79±0.01
+S06:Z032 |                       Robomimic             Can            0.97±0.01                0.98±0.02               1.00±0.00                 0.96±0.02               0.99±0.01
+S06:Z033 | Image                                       Square         0.87±0.07              0.90±0.02                  0.87±0.02                0.87±0.02               0.85±0.05
+S06:Z034 |                       Layman2               Can            0.05±0.01                0.27±0.08                0.21±0.08                0.19±0.02              0.21±0.04
+S06:Z035 |                                             Square         0.21±0.02                0.29±0.06                0.28±0.07                0.08±0.03              0.34±0.04
+S06:Z036 |                                             Mean           0.58±0.03                0.72±0.03                0.71±0.03                0.53±0.03              0.74±0.02
+
+===== PDF S. 7 =====
+S07:Z001 | C. Discussion                                                                                                             REFERENCES
+S07:Z002 |    The      proposedPSDmetric      targets      control
+S07:Z003 | inefficiency—manifested   as   high-frequency   oscillations,                              [1]P.  Intelligence,  K.  Black,  Brownet  al.,  “pi0.5:  a  vision-language-
+S07:Z004 | jitter, and corrective motion—rather than explicitly encoding                                   action   model   with   open-world   generalization,” arXiv   preprint
+S07:Z005 |                                                                                                 arXiv:2504.16054, 2025.
+S07:Z006 | semantic task success. While this design choice allows for                                 [2]O.  X.-E.  Collaboration,  A.  O’Neill,  A.  Rehmanet  al.,  “Open  X-
+S07:Z007 | the possibility of smooth but unsuccessful demonstrations,                                      Embodiment:  Robotic  learning  datasets  and  RT-X  models,”  https:
+S07:Z008 | our experiments indicate that in realistic non-expert datasets                                  //arxiv.org/abs/2310.08864, 2023.
+S07:Z009 |                                                                                            [3]O. M. Team, D. Ghosh, H. Walke, K. Pertsch, K. Black, O. Mees,
+S07:Z010 | such  asLayman  v2,  the  primary  source  of  performance                                      S. Dasari, J. Hejna, T. Kreiman, C. Xuet al., “Octo: An open-source
+S07:Z011 | degradation   in   offline   imitation   learning   arises   from                               generalist robot policy,”arXiv preprint arXiv:2405.12213, 2024.
+S07:Z012 | erratic,  trial-and-error  behavior  that  introduces  substantial                         [4]J. Bjorcket al., “Gr00t n1: An open foundation model for generalist
+S07:Z013 | spectral  energy.  In  these  regimes,PSDeffectively  filters                                   humanoid robots,”arXiv preprint arXiv:2503.14734, 2025.
+S07:Z014 |                                                                                            [5]C. Pan, L. Liang, D. Bauer, E. Cousineau, B. Burchfiel, S. Feng,
+S07:Z015 | demonstrations that disproportionately harm policy learning.                                    and S. Song, “One demo is worth a thousand trajectories: Action-
+S07:Z016 | Compared  to  simple  kinematic  heuristics  such  as  path                                     view augmentation for visuomotor policies,” inConference on Robot
+S07:Z017 | length   or   jerk   magnitude,PSDcaptures   finer-grained                                      Learning (CoRL), 2025.
+S07:Z018 |                                                                                            [6]S. Yang, W. Yu, J. Zeng, J. Lv, K. Ren, C. Lu, D. Lin, and J. Pang,
+S07:Z019 | temporal  characteristics  of  control  by  emphasizing  the                                    “Novel demonstration generation with gaussian splatting enables ro-
+S07:Z020 | rate  and  consistency  of  adjustments  rather  than  absolute                                 bust one-shot manipulation,”arXiv preprint arXiv:2504.13175, 2025.
+S07:Z021 | trajectory  length,  enabling  the  metric  to  remain  largely                            [7]C.Chi,S.Feng,Y.Du,Z.Xu,E.Cousineau,B.Burchfiel,andS.Song,
+S07:Z022 |                                                                                                 “Diffusion policy: Visuomotor policy learning via action diffusion,” in
+S07:Z023 | task-agnostic. Finally, becausePSDrequires only a single                                        Proceedings of Robotics: Science and Systems (RSS), 2023.
+S07:Z024 | discrete  Fourier  transform  per  trajectory  and  no  policy                             [8]F. Zhang and M. Gienger, “Affordance-based robot manipulation with
+S07:Z025 | rollouts or environment interaction, it is orders of magnitude                                  flow matching,”arXiv preprint arXiv:2409.01083, 2024.
+S07:Z026 | more computationally efficient than learning-based ranking                                 [9]T. Z. Zhao, V. Kumar, S. Levine, and C. Finn, “Learning fine-grained
+S07:Z027 |                                                                                                 bimanual  manipulation  with  low-cost  hardware,”arXiv  preprint
+S07:Z028 | methods, making it a practical and scalable tool for curating                                   arXiv:2304.13705, 2023.
+S07:Z029 | large-scale robotic demonstration datasets.                                               [10]N. Sojib and M. Begum, “Self supervised detection of incorrect human
+S07:Z030 |                                                                                                 demonstrations: A path toward safe imitation learning by robots in
+S07:Z031 |                          VII.  CONCLUSIONS                                                      the wild,” in2024 IEEE/RSJ International Conference on Intelligent
+S07:Z032 |                                                                                                 Robots and Systems (IROS).   IEEE, 2024, pp. 2862–2869.
+S07:Z033 |    We  presented  a  simple  and  scalable  approach  for  au-                            [11]M. Ahn, A. Brohanet al., “Do as i can, not as i say: Grounding
+S07:Z034 | tomatically  curating  human  demonstration  datasets  using                                    language in robotic affordances,”arXiv preprint arXiv:2204.01691,
+S07:Z035 | frequency-domainanalysisofmotiontrajectories.Byranking                                          2022.
+S07:Z036 | demonstrations based on spectral power, our method identi-                                [12]A. Mandlekar, D. Xu, J. Wong, S. Nasiriany, C. Wang, R. Kulkarni,
+S07:Z037 |                                                                                                 L. Fei-Fei, S. Savarese, Y. Zhu, and R. Mart´ın-Mart´ın, “What matters
+S07:Z038 | fies control inefficiencies commonly exhibited by non-expert                                    in learning from offline human demonstrations for robot manipula-
+S07:Z039 | users and filters low-quality data prior to policy learning.                                    tion,” inarXiv preprint arXiv:2108.03298, 2021.
+S07:Z040 |    Despite its simplicity, the proposed metric is fully offline,                          [13]A. Khazatsky, K. Pertschet al., “Droid: A large-scale in-the-wild robot
+S07:Z041 |                                                                                                 manipulation dataset,” 2024.
+S07:Z042 | computationally efficient, and requires no task-specific tun-                             [14]C. Agiaet al., “Cupid: Curating data your robot loves with influence
+S07:Z043 | ing or policy rollouts. Extensive experiments across simu-                                      functions,”arXiv preprint arXiv:2506.19121, 2025.
+S07:Z044 | lated benchmarks, a newly collected non-expert dataset, and                               [15]A. S. Chen, A. M. Lessing, Y. Liu, and C. Finn, “Curating demon-
+S07:Z045 |                                                                                                 strations using online experience,”arXiv preprint arXiv:2503.03707,
+S07:Z046 | real-robot manipulation tasks demonstrate that spectral rank-                                   2025.
+S07:Z047 | ingconsistentlyimprovesimitationlearningperformanceand                                    [16]J. Hejnaet al., “Robot data curation with mutual information estima-
+S07:Z048 | compares favorably to contemporary ranking methods.                                             tors,”arXiv preprint arXiv:2502.08623, 2025.
+S07:Z049 |    While the proposed metric does not aim to capture all                                  [17]A.  Mandlekar,  Xuet  al.,  “What  matters  in  learning  from  of-
+S07:Z050 |                                                                                                 fline human demonstrations for robot manipulation,”arXiv preprint
+S07:Z051 | aspects  of  demonstration  optimality,  our  results  indicate                                 arXiv:2108.03298, 2021.
+S07:Z052 | that frequency-domain signatures of control inefficiency pro-                             [18]S.  Belkhale,  Y.  Cui,  and  D.  Sadigh,  “Data  quality  in  imitation
+S07:Z053 | vide a strong and practical proxy for demonstration qual-                                       learning,”Advances in neural information processing systems, vol. 36,
+S07:Z054 |                                                                                                 pp. 80375–80395, 2023.
+S07:Z055 | ity  in  motion-dominated  manipulation  tasks.  We  believe                              [19]M.  Sakr,  J.  Zhang,  H.  M.  V.  d.  Loos,  D.  Kuli      ´c,  and  E.  Croft,
+S07:Z056 | this  work  offers  a  lightweight  yet  effective  tool  for  scal-                            “Consistency matters: Defining demonstration data quality metrics in
+S07:Z057 | ing demonstration-driven robot learning to realistic, mixed-                                    robot learning from demonstration,”ACM Transactions on Human-
+S07:Z058 |                                                                                                 Robot Interaction, vol. 15, no. 2, pp. 1–31, 2025.
+S07:Z059 | quality data collection settings.                                                         [20]F. Sasaki and R. Yamashina, “Behavioral cloning from noisy demon-
+S07:Z060 |                                                                                                 strations,” inInternational Conference on Learning Representations,
+S07:Z061 |                                                                                                 2020.
+S07:Z062 |                                                                                           [21]M.Beliaev,A.Shih,S.Ermon,D.Sadigh,andR.Pedarsani,“Imitation
+S07:Z063 |                                                                                                 learning by estimating expertise of demonstrators,” inInternational
+S07:Z064 |                                                                                                 Conference on Machine Learning.   PMLR, 2022, pp. 1732–1748.
+S07:Z065 |                                                                                           [22]Y. Wang, M. Dong, Y. Zhao, B. Du, and C. Xu, “Imitation learn-
+S07:Z066 |                                                                                                 ing from purified demonstrations,”arXiv preprint arXiv:2310.07143,
+S07:Z067 |                                                                                                 2023.
+S07:Z068 |                                                                                           [23]Y. Zhanget al., “Scizor: A self-supervised approach to data curation
+S07:Z069 |                                                                                                 for large-scale imitation learning,”arXiv preprint arXiv:2505.22626,
+S07:Z070 |                                                                                                 2025.
+S07:Z071 |                                                                                           [24]S. Dass, A. Khaddaj, L. Engstrom, A. Madry, A. Ilyas, and R. Mart      ´ın-
+S07:Z072 |                                                                                                 Mart´ın,  “Datamil:  Selecting  data  for  robot  imitation  learning  with
+S07:Z073 |                                                                                                 datamodels,”arXiv preprint arXiv:2505.09603, 2025.
+
+===== PDF S. 8 =====
+S08:Z001 | [25]J. Chen, H. Fang, H.-S. Fang, and C. Lu, “Towards effective uti-
+S08:Z002 |       lization of mixed-quality demonstrations in robotic manipulation via
+S08:Z003 |       segment-level selection and optimization,” in2025 IEEE International
+S08:Z004 |       Conference on Robotics and Automation (ICRA).    IEEE, 2025, pp.
+S08:Z005 |       16884–16891.
+S08:Z006 | [26]A.V.Oppenheim,Discrete-timesignalprocessing.  PearsonEducation
+S08:Z007 |       India, 1999.
+S08:Z008 | [27]K. Huanget al., “Using non-expert data to robustify imitation learning
+S08:Z009 |       via offline reinforcement learning,”arXiv preprint arXiv:2510.19495,
+S08:Z010 |       2025.
+S08:Z011 | [28]E. J. Hu, Y. Shen, P. Wallis, Z. Allen-Zhu, Y. Li, S. Wang, L. Wang,
+S08:Z012 |       W. Chenet al., “Lora: Low-rank adaptation of large language models.”
+S08:Z013 |       Iclr, vol. 1, no. 2, p. 3, 2022.
+S08:Z014 |                                  APPENDIX
+S08:Z015 |    Training details: To account for differences in demonstra-
+S08:Z016 | tion length between datasets, we adjust the rollout horizon
+S08:Z017 | for Layman v2 while keeping all other settings fixed. Specif-
+S08:Z018 | ically, we use 1200 timesteps for  thecantask and 1400
+S08:Z019 | timesteps for thesquaretask on Layman v2, compared to
+S08:Z020 | 500  and  800  timesteps,  respectively,  for  Robomimic-MH.
+S08:Z021 | This adjustment reflects the longer and more variable trajec-
+S08:Z022 | tories in Layman v2, which arise from increased trial–error
+S08:Z023 | behavior by non-expert users. In all cases, timestep limits are
+S08:Z024 | chosen based on the maximum trajectory lengths observed
+S08:Z025 | in each dataset to ensure fair and consistent evaluation.
+

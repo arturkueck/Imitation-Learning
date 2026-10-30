@@ -1,0 +1,58 @@
+{
+  "papers": [
+    {
+      "id": "demo_score",
+      "name": "Demo-SCORE",
+      "fullTitle": "Curating Demonstrations using Online Experience",
+      "url": "https://arxiv.org/abs/2503.03707v2",
+      "year": 2025,
+      "topic": "Data & cameras",
+      "innovation": "Demonstrationen anhand erfolgreicher und gescheiterter Policy-Rollouts filtern",
+      "data": "Heterogene erfolgreiche Demonstrationen; zusätzliche Rollouts aus mehreren Checkpoints; Robosuite und ALOHA",
+      "method": "Zustandsklassifikator mit Cross-Validation; Episoden- oder Chunkfilter; erneutes BC-Training",
+      "venue": "arXiv 2025, geprüfte Fassung v2",
+      "limit": "Rollouts müssen die Demonstrationsstrategien ausreichend abdecken. Fehlende Ausgangserfolge und Verlust von Zustandsabdeckung begrenzen das Verfahren.",
+      "version": "arXiv:2503.03707v2, 22.07.2025; 14 PDF-Seiten. Eigene seitenlokale Zeilen der eingefrorenen Layout-Lesefassung; bei zweispaltigem Text Spaltenangabe beachten.",
+      "pdf": "https://arxiv.org/pdf/2503.03707v2",
+      "status": "reviewed",
+      "topics": ["data curation", "quality weighting", "successful rollouts", "diffusion models", "action chunking"],
+      "bibliography": [],
+      "projectRelevance": "Eigene Einordnung: Ein Vergleich mit Demo-SCORE könnte prüfen, ob aus Rollout-Ergebnissen gelernte Auswahl nützlicher ist als unser handgesetzter Übergangsscore. Chunkfilter passen zur Nutzung guter Teilabschnitte. Das Paper belegt keinen Vorteil für unseren Stack-Datensatz und erzeugt keine neuen Expertenkorrekturen.",
+      "notes": [
+        {"id":"DEMO_SCORE-K01","paper":"demo_score","label":"Erfolg ist noch keine Zuverlässigkeit","note":"Auch ausschließlich erfolgreiche Demonstrationen können Strategien enthalten, die eine gelernte Policy nur unzuverlässig reproduziert. Demo-SCORE nutzt deshalb Erfolge und Fehler eigener Rollouts zur Datenauswahl.","locators":[[2,41,52,"rechte Spalte, §III Preliminaries"],[3,11,20,"linke Spalte, §IV Data Curation"]]},
+        {"id":"DEMO_SCORE-K02","paper":"demo_score","label":"Klassifikator und Cross-Validation","note":"Ein Zustandsklassifikator lernt binäre Rollout-Ergebnisse. Klassifikatoren aus früheren Checkpoints werden mit Rollouts eines späteren Checkpoints validiert, um Überanpassung an eine einzelne Rollout-Verteilung zu begrenzen.","locators":[[3,14,22,"rechte Spalte, §IV-A"],[3,38,43,"rechte Spalte, §IV-A"]]},
+        {"id":"DEMO_SCORE-K03","paper":"demo_score","label":"Filtern und erneut trainieren","note":"Die mittlere vorhergesagte Erfolgswahrscheinlichkeit einer Episode wird mit einer aus Rollout-Daten bestimmten Schwelle verglichen. Anschließend wird auf gefilterten Demonstrationen und gefilterten erfolgreichen Rollouts trainiert oder feinabgestimmt.","locators":[[4,16,35,"linke Spalte, §IV-B"],[4,5,14,"rechte Spalte, Fortsetzung §IV-B"]]},
+        {"id":"DEMO_SCORE-K04","paper":"demo_score","label":"Empirischer Umfang","note":"Untersucht werden Diffusion Policy in Robosuite sowie ACT in simuliertem und realem ALOHA. Die Hauptexperimente in Simulation verwenden 400 Rollouts zur Kuration; bewertet wird mit 256 Simulations- beziehungsweise 30 Realrollouts.","locators":[[5,7,15,"linke Spalte, §V-A Experimental Setup"],[5,28,36,"linke Spalte, §V-A Comparisons"]]},
+        {"id":"DEMO_SCORE-K05","paper":"demo_score","label":"Teilabschnitte statt ganzer Episoden","note":"In der Square-Peg-Ablation erreicht Chunkfilterung eine ähnliche Leistung wie Episodenfilterung. Damit können brauchbare Abschnitte erhalten bleiben; dies ist kein allgemeiner Nachweis für beliebige lange Aufgaben.","locators":[[8,32,43,"rechte Spalte, §V-D(d) Filtering at the chunk level"]]},
+        {"id":"DEMO_SCORE-K06","paper":"demo_score","label":"Grenzen des Erfolgssignals","note":"Nicht repräsentative Rollouts, fehlende Ausgangserfolge und reduzierte Zustandsabdeckung können die Methode begrenzen. Die Autoren richten die Kuration auf abschließende Aufgabenleistung aus, nicht auf maximale Breite eines Vortrainingsdatensatzes.","locators":[[9,15,36,"linke Spalte, §VI Limitations"]]}
+      ]
+    },
+    {
+      "id": "cupid",
+      "name": "CUPID",
+      "fullTitle": "CUPID: Curating Data your Robot Loves with Influence Functions",
+      "url": "https://cupid-curation.github.io/",
+      "year": 2025,
+      "topic": "Data & cameras",
+      "innovation": "Demonstrationen nach geschätztem Einfluss auf die geschlossene Policy-Ausführung auswählen",
+      "data": "RoboMimic Lift, Square und Transport; drei Franka-Aufgaben; zusätzliche Policy-Rollouts",
+      "method": "Approximierte Influence Functions und Return-Schätzung; bestehende Daten filtern oder zusätzliche Daten auswählen",
+      "venue": "CoRL 2025; geprüft: arXiv v2",
+      "limit": "Rechenaufwand der Einflussberechnung, Varianz bei wenigen Rollouts und nicht modellierte Wechselwirkungen zwischen Demonstrationen; Nutzen abhängig von Aufgabe und Daten.",
+      "version": "arXiv:2506.19121v2, 23.09.2025; 27 PDF-Seiten. Eigene seitenlokale Zeilen der eingefrorenen Layout-Lesefassung. Extraktion enthält fehlende Leerzeichen und Formelartefakte; Original-PDF ist maßgeblich.",
+      "pdf": "https://arxiv.org/pdf/2506.19121v2",
+      "status": "reviewed",
+      "topics": ["data curation", "influence functions", "closed-loop performance", "quality weighting", "diffusion models"],
+      "bibliography": [],
+      "projectRelevance": "Eigene Einordnung: Besonders relevant für die Validierung unseres Qualitätsscores. Eine ruhige oder erfolgreiche Demonstration muss nicht die größte Lernhilfe sein. Vor einer aufwendigen Umsetzung wären Nutzen, benötigte Rollouts und Einflussberechnung gegen einfache Auswahlbaselines zu prüfen. Kein Stack-Ergebnis wird hieraus abgeleitet.",
+      "notes": [
+        {"id":"CUPID-K01","paper":"cupid","label":"Ziel: Erfolg im Regelkreis","note":"CUPID schätzt aus Policy-Rollouts den Einfluss einzelner Demonstrationen auf den erwarteten Return. Die Auswahl kann bestehende Daten entfernen oder aus einem weiteren Datenpool hilfreiche Beispiele hinzufügen.","locators":[[2,4,17,"einspaltig, §1 Introduction"],[4,8,20,"einspaltig, §4 Problem Formulation"]]},
+        {"id":"CUPID-K02","paper":"cupid","label":"Approximierter Einfluss","note":"Das Verfahren verwendet eine lineare Näherung der Leistungsänderung beim Hinzufügen oder Entfernen von Demonstrationen. Es berechnet somit eine geschätzte Wirkung, keinen exakten Erfolg nach jedem möglichen erneuten Training.","locators":[[6,1,17,"einspaltig, §5.2 Data Curation with Performance Influence"]]},
+        {"id":"CUPID-K03","paper":"cupid","label":"Versuchsaufbau und Rolloutkosten","note":"Untersucht werden drei RoboMimic- und drei Franka-Aufgaben. Zur Kuration sind 100 Simulations- beziehungsweise 25 Realrollouts vorgesehen. Die Arbeit nutzt Diffusion Policies und untersucht zusätzlich die Anpassung von π0.","locators":[[6,32,48,"einspaltig, §6 Experiments und Evaluation"]]},
+        {"id":"CUPID-K04","paper":"cupid","label":"Qualität kann robuste Strategien aussortieren","note":"Im TuckBox-Versuch macht eine veränderte Massenverteilung die dominante Schiebestrategie unzuverlässig. CUPID identifiziert alternative Demonstrationen trotz ausschließlich gescheiterter Ausgangsrollouts; Qualitätsheuristiken schneiden hier schlechter ab.","locators":[[8,14,30,"einspaltig, §6.2 TuckBox und Analyse"]]},
+        {"id":"CUPID-K05","paper":"cupid","label":"Weniger Daten ist nicht immer besser","note":"Der Nutzen der Kuration hängt von Aufgabe und Daten ab. In den berichteten Versuchen hilft Filtern bei Transport MH, während das Entfernen fast jeder Demonstration bei Square MH Leistung kostet.","locators":[[9,18,27,"einspaltig, §7.1 Data and task properties"]]},
+        {"id":"CUPID-K06","paper":"cupid","label":"Grenzen und Aufwand","note":"Die Auswahlmenge wird vorgegeben; Wechselwirkungen zwischen ausgewählten Demonstrationen bleiben unberücksichtigt. Vollständige Einflussberechnung kann ähnlich teuer wie Policytraining sein. Wenige Rollouts erhöhen zudem die Schätzvarianz.","locators":[[11,1,4,"einspaltig, §9 Curation tasks"],[11,10,22,"einspaltig, §9 Selection methods, Larger datasets, Estimator variance"]]}
+      ]
+    }
+  ]
+}

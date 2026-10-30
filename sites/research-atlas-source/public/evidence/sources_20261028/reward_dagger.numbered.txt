@@ -1,0 +1,543 @@
+reward_dagger / arXiv:2610.04054v1. PDF pages start at 1. Z = custom nonempty layout line per page, not official publication lines.
+
+===== PDF S. 1 =====
+S01:Z001 |            Reward-DAgger: Robot-Gated Interactive Imitation Learning
+S01:Z002 |                    with General-Purpose Progress-Based Reward Models
+S01:Z003 |                                               Ryan Li∗1 , Yigit Korkmaz∗2 , Erdem Bıyık2
+S01:Z004 |                                 1Department of Mathematics, University of Southern California
+S01:Z005 |                   2Thomas Lord Department of Computer Science, University of Southern California
+S01:Z006 |    Abstract—Recent advances in robot learning have enabled                     functions trained from explicit failure data [12] or policy-
+S01:Z007 | generalist control policies capable of completing a wide range                 dependent uncertainty scores that require task- and policy-
+S01:Z008 | of tasks. However, their performance degrades when deployed                    specific calibration [13,14,15,16,17]. The former requires
+S01:Z009 | in  unseen  environments,  making  it  critical  to  detect  failures          collecting failures that are undesirable or infeasible during
+S01:Z010 | and  teach  recovery  behaviors.  Existing  runtime  monitoring                safety-critical deployment, while the latter couples the gating
+S01:Z011 | methods  often  require  task-  and  policy-specific  training  or
+S01:Z012 | hyperparameter  tuning,  limiting  cross-task  deployment  and                 mechanism to a particular policy checkpoint. As the policy
+S01:Z013 | introducingadditional overheadduringiterative policyupdates.                   changes throughout interactive learning, the gate needs to be
+S01:Z014 | We present Reward-DAgger, a robot-gated interactive imitation                  retrained or recalibrated, limiting its scalability.
+S01:Z015 | learning  framework  that  uses  dense  progress  signals  from                   Ideally, a scalable gating mechanism for interactive im-
+S01:Z016 | a  general-purpose  reward  model  to  determine  when  human                  itation  learning  should  satisfy  four  properties:(1)detect
+S01:Z017 | intervention is needed. Our approach is agnostic to the under-
+S01:Z018 | lying policy architecture, requires no access to policy internals,             failures  early  while  avoiding  unnecessary  interruptions  of
+S01:Z019 | and can be applied across tasks without retuning the gating                    successful behavior;(2)remain effective across iterations of
+S01:Z020 | mechanism.  Our  results  show  that  Reward-DAgger  achieves                  interactive learning without repeated retraining or recalibra-
+S01:Z021 | a  better  failure-detection  accuracy–latency  tradeoff  than  ex-            tion;(3)operate with different, potentially black-box, policy
+S01:Z022 | isting  runtime  monitoring  baselines.  Across  eight  simulated              architectures; and(4)transfer across tasks without requiring
+S01:Z023 | and  real-world  tasks,  Reward-DAgger  consistently  improves
+S01:Z024 | the downstream policy’s autonomous success rate throughout                     a separate training or calibration procedure for each task.
+S01:Z025 | interactivelearningandachievesstrongreturnonhumaneffort,                          Our  key  insight  is  that  general-purpose  progress-based
+S01:Z026 | outperforming the baselines in most settings. Importantly, the                 reward models, which estimate task progress directly from
+S01:Z027 | same gating configuration is used across tasks without task-                   visual  observations  and  natural-language  instructions  [18,
+S01:Z028 | specific hyperparameter tuning, demonstrating transfer across                  19, 20],  provide  a  natural  signal  for  such  a  gate.  Unlike
+S01:Z029 | tasks, environments, and policy architectures. Code and videos
+S01:Z030 | are available athttps://liralab.usc.edu/reward-dagger.                         policy-dependent  uncertainty  measures,  task  progress  de-
+S01:Z031 |                                                                                scribes what the robot has accomplished rather than how the
+S01:Z032 |                          I.  INTRODUCTION                                      policy generates its actions. Consequently, progress can be
+S01:Z033 |                                                                                evaluated independently of the underlying policy architecture
+S01:Z034 |    Modern learning-based robot policies, ranging from task-                    or checkpoint. This decoupling allows the gating mechanism
+S01:Z035 | specific models [1,2] to generalist vision-language-action                     to be fixed as the policy is updated and to be applied to
+S01:Z036 | (VLA) models [3,4,5], are increasingly capable of com-                         different policies without access to their internal represen-
+S01:Z037 | pleting challenging manipulation tasks. Yet, these policies                    tations. Moreover, by leveraging reward models pretrained
+S01:Z038 | remain brittle during deployment: a missed grasp, a dropped                    across diverse tasks, progress provides a common signal that
+S01:Z039 | object, or a misaligned insertion might cause an otherwise                     can support gating across tasks without task-specific gate
+S01:Z040 | successful rollout to fail. Interactive imitation learning meth-               training. Importantly, even under task distribution shift, the
+S01:Z041 | ods, such as DAgger [6] and its human-gated variants [7,8,                     reward model only determines when to request assistance;
+S01:Z042 | 9,10,11], address this problem by collecting expert inter-                     the  policy  is  still  trained  from  human  corrections,  which
+S01:Z043 | ventions from states where the policy struggles and using                      provide valid task-specific supervision.
+S01:Z044 | these corrections to iteratively improve the policy. However,                     Based  on  this  insight,  we  introduceReward-DAgger,
+S01:Z045 | continuously monitoring robot execution and deciding when                      a robot-gated interactive imitation learning framework that
+S01:Z046 | to intervene places a substantial burden on the human expert,                  uses a simple but effective two-timescale rule over progress
+S01:Z047 | making such approaches difficult to scale to robot fleets.                     estimates  from  a  general-purpose  progress-based  reward
+S01:Z048 |    Robot-gated interactive imitation learning instead seeks to                 model  to  trigger  human  takeover.  A  short-window  gate
+S01:Z049 | automate this decision by requesting human assistance when                     detects rapid decreases in progress, capturing immediate fail-
+S01:Z050 | the policy is likely to fail, thereby making more efficient use                ures such as dropping an object, while a long-window gate
+S01:Z051 | of costly human supervision. Existing robot-gating methods,                    detects progress plateaus corresponding to stalled behavior,
+S01:Z052 | however, commonly rely on either learned failure-prediction                    such  as  repeatedly  failed  grasps.  When  either  gate  fires,
+S01:Z053 |                                                                                control is transferred to a human expert, and the resulting
+S01:Z054 |   ⋆Equal Contribution                                                          corrections are used in the next policy update. Importantly,
+
+===== PDF S. 2 =====
+S02:Z001 | both the reward model and the gating configuration remain                      Runtime  Monitoring  in  Robot  Manipulation.Runtime
+S02:Z002 | fixed throughout interactive learning, requiring no per-round                  monitoring  provides  a  closely  related  approach  for  iden-
+S02:Z003 | retraining or recalibration.                                                   tifying  policy  failures  during  deployment.  These  methods
+S02:Z004 |    We  evaluate  Reward-DAgger  along  three  dimensions:                      typically reduce observations, predicted actions, or internal
+S02:Z005 | failure-detection performance, cross-task transfer of the gat-                 policy representations to a scalar score, and then calibrate
+S02:Z006 | ing  parameters,  and  downstream  policy  improvement.  On                    a conformal threshold for failure detection. Representative
+S02:Z007 | four  simulation  tasks,  Reward-DAgger  achieves  a  strong                   methods  derive  these  scores  from  temporal  inconsisten-
+S02:Z008 | accuracy–latency trade-off compared to existing robot-gating                   cies  among  consecutive  actions  [28],  deviations  from  the
+S02:Z009 | and  runtime-monitoring  baselines.  We  further  find  that  a                nominal observation distribution [16,29], action chunk en-
+S02:Z010 | single gate configuration selected jointly on multiple source                  tropy [29], or learned failure predictors using internal VLA
+S02:Z011 | tasks  transfers  to  held-out  target  tasks  without  reducing               features [13]. However, these methods are primarily stud-
+S02:Z012 | detection accuracy and with only a minor increase in de-                       ied as deployment-time mechanisms without updating the
+S02:Z013 | tection latency. In simulation, Reward-DAgger consistently                     monitored policy. Reward-DAgger closes this loop between
+S02:Z014 | improves autonomous success rate across three rounds of                        monitoringandlearningbyusinggatefiringstocollectexpert
+S02:Z015 | interactive learning while achieving the highest return on hu-                 corrections for subsequent policy updates without inducing
+S02:Z016 | man effort. Finally, we deploy the same simulation-selected                    expensive retraining or recalibration overheads.
+S02:Z017 | gateconfigurationonfourreal-worldmanipulationtaskswith                         General-Purpose Reward Models.Reward functions pro-
+S02:Z018 | large pretrained VLA policies. Without any task-specific hy-                   vide  scalar  feedback  about  the  desirability  of  states  or
+S02:Z019 | perparameter tuning, Reward-DAgger achieves competitive                        actions and are commonly used to guide policy optimiza-
+S02:Z020 | performance across all tasks and outperforms the baselines in                  tion. Recently, significant effort has focused on developing
+S02:Z021 | most settings in terms of autonomous success rate and return                   general-purpose reward models that provide dense reward
+S02:Z022 | on human effort, demonstrating that the gating mechanism                       signals  across  diverse  tasks  [18, 20, 30, 31, 32, 33].  A
+S02:Z023 | transfers across environments and policy architectures.                        common approach is to estimate task progress from visual
+S02:Z024 |    In summary, our main contributions are:                                     observations and language instructions and use this progress
+S02:Z025 | •We propose a two-timescale, progress-based gating mech-                       signal as a proxy for per-timestep reward [18,19,31,32],
+S02:Z026 |   anism that detects both abrupt failures and stalled behavior                 with recent works demonstrating its use for reinforcement
+S02:Z027 |   during  robot  execution. The  gate  is  independent of  the                 learning in real-world robotic manipulation. Despite these
+S02:Z028 |   underlying policy, remains fixed across policy updates, and                  advances, directly optimizing policies with imperfect learned
+S02:Z029 |   supports cross-task configuration transfer.                                  reward functions remains challenging, as they may exploit
+S02:Z030 | •We  introduce  Reward-DAgger,  an  interactive  imitation                     inaccuracies or spurious correlations in the learned reward,
+S02:Z031 |   learning  framework  that  uses  this  gating  mechanism  to                 leading to reward hacking without completing the intended
+S02:Z032 |   trigger human takeover and iteratively finetune the policy                   task [34,35,36,37]. Rather than directly optimizing the
+S02:Z033 |   from the resulting expert corrections.                                       progress signal, our key insight is to use it as a runtime
+S02:Z034 | •We extensively evaluate Reward-DAgger across four sim-                        monitoring  signal  for  interactive  imitation  learning.  Since
+S02:Z035 |   ulated and four real-world manipulation tasks with both                      progress is evaluated independently of the underlying policy
+S02:Z036 |   task-specific diffusion policies and large pretrained VLAs,                  and represented on a shared scale across tasks, it provides
+S02:Z037 |   studying failure detection, cross-task transfer, downstream                  a natural signal for determining when expert intervention is
+S02:Z038 |   policy improvement, and human-effort efficiency.                             needed without additional task- or policy-specific training or
+S02:Z039 |                                                                                calibration.
+S02:Z040 |                         II.  RELATEDWORK                                                                    III.  METHOD
+S02:Z041 | Interactive Imitation Learning.Interactive imitation learn-                       Reward-DAgger leverages dense progress signals obtained
+S02:Z042 | ing  mitigates  distribution  shift  in  behavioral  cloning  by               from general-purpose reward models to determine when a
+S02:Z043 | iteratively collecting expert actions on states visited by the                 robot policy should transfer control to the expert. In this
+S02:Z044 | learned policy [6,7,8,9,12,21]. Inhuman-gatedmethods, a                        section,wefirstintroducehowweconstructagatingcriterion
+S02:Z045 | supervisor monitors execution and decides when to intervene                    from general-purpose reward models, and then discuss how
+S02:Z046 | [7, 8, 9, 11, 22].  This  monitoring  requirement  becomes                     we  incorporate  the  criterion  into  an  interactive  imitation
+S02:Z047 | burdensome when supervision scales to many robots [23,                         learning pipeline for fine-tuning the base policy.
+S02:Z048 | 24,25].Robot-gatedmethods instead automate this decision
+S02:Z049 | using signals such as action disagreement, estimated risk, or                  A. Gating Criterion
+S02:Z050 | policy uncertainty [12,14,15,17,26,27]. However, these
+S02:Z051 | gates  commonly  depend  on  task-specific  learned  criteria                     A general-purpose reward model is typically constructed
+S02:Z052 | or policy-dependent signals that require additional training                   by  prompting  or  fine-tuning  a  VLM  to  produce  dense
+S02:Z053 | or  calibration  across  tasks  or  policy  updates.  In  contrast,            progress signals. Formally, letℓdenote a natural-language
+S02:Z054 | Reward-DAgger uses an external task-progress signal that                       task  instruction  and  leto   ≤t     =  (o 1,...,ot)denote  the
+S02:Z055 | can be applied zero-shot across tasks and policy architec-                     visual observations available up to timet. A general-purpose
+S02:Z056 | tures.                                                                         progress-based reward modelf          ψ produces a scalar estimate
+
+===== PDF S. 3 =====
+S03:Z001 | Fig. 1:Reward-DAggeris a robot-gated interactive imitation learning framework that uses a two-timescale rule over progress
+S03:Z002 | estimates from a general-purpose reward model to trigger human takeover. Collected corrections are appended to an initial
+S03:Z003 | dataset and the policy is finetuned in an iterative fashion.
+S03:Z004 | of current task progress,                                                        negative correlation. Therefore, we additionally define the
+S03:Z005 |                            ϕt =f   ψ(o ≤t  ,ℓ),                             (1)  maximum drop magnitude over the window as
+S03:Z006 | where larger values indicate greater predicted progress.                                              ∆t =      max
+S03:Z007 |                                                                                                               j∈{t−L           s+1:t}     ϕj−ϕ   t.                    (3)
+S03:Z008 |    Inspired by [18], we target two common temporal signa-                           Using the window correlations and maximum drop mag-
+S03:Z009 | tures of policy failure in terms of the predicted progress sig-                  nitude, we define the complete gating criterion as
+S03:Z010 | nal. First, the policy may suddenly undo previously achieved
+S03:Z011 | progress. For example, a grasped object may slip from the                             gst =I[(ρ       st <τs)∧(∆    t≥δ   min)],   g  lt =Iρlt <τl,
+S03:Z012 | gripper, or a partially inserted object may be pulled back out.                                                gt =g   st ∨g  lt,                                (4)
+S03:Z013 | These failures produce rapid decreases in predicted progress.                    whereτ          s  andτ      l  are the respective correlation thresholds,
+S03:Z014 | Second, the policy may become stuck without advancing the                        whileδ          min sets the maximum drop magnitude threshold for
+S03:Z015 | task. For example, it may repeatedly miss a grasp or oscillate                   the short-window gate. The reward gate fires when the short-
+S03:Z016 | near the target pose without completing the placement. Such                      window gate or long-window gate fires. A gate configuration
+S03:Z017 | failures appear as plateaus in the predicted progress.                           is specified by(L     s,τs,δmin,Ll,τl). We setτ      s < τl so that
+S03:Z018 |    Following this observation, we design two complemen-                          theshort-windowgatedetectsprogressdrops,whilethelong-
+S03:Z019 | tary gates that constitute the overallreward gate. At time                       windowgatedetectsprogressplateaus.Eachgateisevaluated
+S03:Z020 | stept, the reward gate has access to the progress history                        only after its corresponding window is full.
+S03:Z021 | ϕ1:t    = (ϕ 1,...,ϕt). Theshort-window gateexamines the
+S03:Z022 | most  recentL          s  progress  estimates,ϕ                t−L    s+1:t     ,  to  detectB. Reward-DAgger
+S03:Z023 | sharp decreases in progress. Thelong-window gateexamines                            We now summarize the Reward-DAgger procedure. We
+S03:Z024 | the most recentL          l progress estimates,ϕ                t−L    l+1:t     , to detectstart with a robot policyπ  0 and an offline dataset of expert
+S03:Z025 | progress plateaus, whereL          l >Ls.                                        demonstrations. During a rollout, the robot executes actions
+S03:Z026 |    To quantify drops and plateaus, we use Spearman rank                          in the environment until the reward gate fires, after which the
+S03:Z027 | correlation: given a time-indexed windowv= (v       1,...,vn)                    expert takes over and provides corrections. At each iteration
+S03:Z028 | of scalar values, we rank its values and compute the Pear-                       i, we collect expert correction transitions until a fixed budget
+S03:Z029 | son  correlation  between  these  ranks  and  the  time  indices                 is reached. We then aggregate these expert interventions with
+S03:Z030 | (1,...,n).  We  denote  the  resulting  coefficient  byρ(v).                     theexistingdatasetandfine-tuneπ              i toobtainthenextstudent
+S03:Z031 | A  coefficient  near+1indicates  monotonically  increasing                       policyπ  i+1 . This process is repeated for a fixed number of
+S03:Z032 | progress, a coefficient near−1indicates monotonically de-                        iterations without changing the reward gate’s configuration.
+S03:Z033 | creasing  progress,  and  a  coefficient  near0indicates  no                     An overview of the framework is shown in Figure1.
+S03:Z034 | clearmonotonictrend.WecomputetheSpearmancorrelation                                                        IV.  EXPERIMENTS
+S03:Z035 | within the short and long windows as
+S03:Z036 |             ρst =ρ(ϕ       t−L    s+1:                                              Our  experiments  evaluate  the  effectiveness  of  Reward-
+S03:Z037 |                              t    ),   ρ lt =ρ(ϕ       t−L    l+1:t    ).         (2)DAgger as a robot-gated interactive imitation learning frame-
+S03:Z038 |    One problem with Spearman correlation is that it captures                     work across different tasks and policy architectures. Specif-
+S03:Z039 | the direction of a progress trend but not the magnitude of the                   ically, we seek to answer the following research questions:
+S03:Z040 | change. This is particularly important for the short-window                      Q1. Does the gating mechanism of Reward-DAgger accu-
+S03:Z041 | gate,  since  a  small  fluctuation  may  produce  a  strongly                   rately detect failures with low detection latency?
+
+===== PDF S. 4 =====
+S04:Z001 | Q2. Does the gating configuration of Reward-DAgger trans-                     policy, and the expert is a human teleoperator. An overview
+S04:Z002 | fer across tasks without additional calibration?                              of the simulated and real-world tasks is provided in Figure3.
+S04:Z003 | Q3. Does Reward-DAgger efficiently improve downstream                         Q1: Failure Detection
+S04:Z004 | policy performance while minimizing human burden?                                 We first evaluate the effectiveness of Reward-DAgger’s
+S04:Z005 | Baselines.WecompareReward-DAggeragainstrobot-gated                            gating mechanism on individual tasks based on two metrics:
+S04:Z006 | DAgger methods as well as recent runtime monitoring ap-
+S04:Z007 | proaches adapted to interactive imitation learning:                           •Accuracy. The gate should fire on failure trajectories but
+S04:Z008 |                                                                                  not on successful trajectories. Since the evaluation data
+S04:Z009 | •ThriftyDAgger[12] trains a policy ensemble to estimate                          may  contain  an  unbalanced  number  of  successful  and
+S04:Z010 |   statenovelty,andaQ-functiontoestimaterisk.Thehuman                             failed trajectories, we measure balanced accuracy:
+S04:Z011 |   takeover is triggered when a state is deemed novel or risky.                                                  TPR(
+S04:Z012 | •Diff-DAgger[14]  uses  the  diffusion  policy’s  denoising                                      BA(c) =            12c)+TNR(c)                      (5)
+S04:Z013 |   loss for the proposed action as an uncertainty score, which                    wherecdenotes a gate configuration. TPR corresponds to
+S04:Z014 |   is then thresholded to trigger human takeover.                                 the fraction of failed trajectories where the gate fires, and
+S04:Z015 | •UCF[15] samples candidate end-effector poses within a                           TNR corresponds to the fraction of successful trajectories
+S04:Z016 |   radius of the current pose, fits a Gaussian mixture model to                   where the gate does not fire.
+S04:Z017 |   thedenoisingvectors,andcombinesinter-modedivergence                         •Latency. The gate should fire as early as possible when
+S04:Z018 |   with intra-mode variance to estimate uncertainty.                              a failure occurs. Since it is difficult to manually label the
+S04:Z019 | •SAFE-LSTM[13]  trains  an  LSTM  on  the  final-layer                           precise onset of every failure, we use themean trigger
+S04:Z020 |   features of a VLA policy to produce a scalar failure score,                    timeon the failed trajectories as a surrogate for detection
+S04:Z021 |   which is thresholded for detecting failures.                                   latency. For a failure trajectory where the gate does not
+S04:Z022 | •logpZO[16] trains a flow matching model to map in-                              fire, we assign the episode horizon as its trigger time. We
+S04:Z023 |   distribution observations to the standard normal distribu-                     normalize this value by the episode horizon.
+S04:Z024 |   tion, and uses the distance between the current observa-                    We compare Reward-DAgger’s gate against two categories
+S04:Z025 |   tion’s latent representation and the origin as the score.                   of baselines: (1)Learned gatestrain additional models to
+S04:Z026 | Reward Model.We instantiate the reward model in Reward-                       producethegatingsignal;thiscategoryincludesThriftyDAg-
+S04:Z027 | DAgger using Robometer-4B [18], a general-purpose reward                      ger, SAFE-LSTM, and logpZO. (2)Post-hoc gatesderive
+S04:Z028 | model  that  produces  dense,  frame-level  estimates  of  task               their scores directly from policies without additional offline
+S04:Z029 | progress on a normalized[0,1]scale. We select Robometer                       training; Diff-DAgger and UCF fall into this category.
+S04:Z030 | because it outperforms prior general-purpose reward-model                         For each of Tasks 0, 1, 4, and 6 from LIBERO-10 suite,
+S04:Z031 | baselines across cross-domain robotic reward evaluations.                     we collect 200 rollouts from the student policy. We reserve
+S04:Z032 | Simulation Setup.For our simulation experiments, we use                       50 rollouts for training the learned gates and evaluate every
+S04:Z033 | LIBERO-10  [38],  a  suite  of  10  long-horizon  tasks  with                 method on the remaining 150 rollouts. For ThriftyDAgger,
+S04:Z034 | diverse settings. Simulation enables us to evaluate different                 we use the policy ensemble and Q-risk estimator from its
+S04:Z035 | methods across multiple tasks at scale, collecting enough                     final checkpoint after three rounds of DAgger, which were
+S04:Z036 | rollouts to reliably characterize their accuracy–latency trade-               trained on more transitions than the 50 reserved rollouts.
+S04:Z037 | offs.Intheseexperiments,weuseafrozenπ           0.5   [39]LIBERO              We train SAFE-LSTM and logpZO using the 50 rollouts
+S04:Z038 | checkpoint as the expert policy. The student is a diffusion                   according  to  their  respective  training  objectives.  Reward-
+S04:Z039 | policy [1] trained on LIBERO demonstrations.                                  DAgger, Diff-DAgger, and UCF require no gate training.
+S04:Z040 |    We  first  identify  Tasks  0,  1,  4,  5,  6,  and  8,  where                 Comparing methods at a single operating point is insuffi-
+S04:Z041 | the initial student policies show intermediate performance,                   cient because they might be noisy and difficult to compare
+S04:Z042 | yielding  sufficient  numbers  of  both  successful  and  failed              due to the tradeoff between accuracy and trigger time. We
+S04:Z043 | trajectories for meaningful evaluation. For failure-detection                 therefore sweep multiple gate configurations and construct a
+S04:Z044 | and  downstream  interactive  learning  experiments,  we  use                 Pareto frontier for each method. LetT      det be the normalized
+S04:Z045 | Tasks  0,  1,  4,  and  6,  as  these  are  the  tasks  our  expert           trigger time averaged across all failure trajectories. A config-
+S04:Z046 | policy  consistently  recovers  from  frequent  failure  states.              urationcisPareto-optimalifnootherevaluatedconfiguration
+S04:Z047 | For  experiments  that  only  require  student-policy  rollouts,              c′ achieves both higher accuracyBA(c        ′)≥BA(c)and lower
+S04:Z048 | including hyperparameter selection and cross-task transfer,                   latencyT  det(c ′)≤T     det(c), with at least one inequality strict.
+S04:Z049 | we use all tasks.                                                                 To generate the candidate configurations, we sweep the
+S04:Z050 | Real  Robot  Setup.Our  real-robot  experiments  use  the                     score-quantile  parameterα[41]  for  each  baseline.  For
+S04:Z051 | DROID [40] setup, with a Franka FR3 robot arm equipped                        Reward-DAgger, we sweep the false-positive-rate capβ. For
+S04:Z052 | with a Robotiq 2F-85 gripper. We evaluate Reward-DAgger                       eachβ,  we  choose  the  gate  configuration  from  a  3600-
+S04:Z053 | on four tasks:stackthe red block on top of the blue block,                    configuration pool with the lowest trigger time subject to a
+S04:Z054 | pickup the red marker and put it into the blue cup,putthe                     false-positive rate at mostβ. We evaluate each configuration
+S04:Z055 | slice of bread from the toaster to the bowl, andremovethe                     using five-fold cross-validation repeated over five random
+S04:Z056 | towel and screwdriver from the basket and put them on the                     partitions on the 150 evaluation rollouts. Gate parameters are
+S04:Z057 | table. In these experiments, the student is a pretrainedπ                  0.5selected on four folds and evaluated on the held-out fold.
+
+===== PDF S. 5 =====
+S05:Z001 |                                                                                   TABLE I:Configuration transfer across tolerance levels.
+S05:Z002 |                                                                                   ∆BAis  in  percentage  points;  mean,  median,  and  worst
+S05:Z003 |                                                                                   denote matched-accuracy latency penalties (%).
+S05:Z004 |                                                                                                     One-to-three                                Three-to-one
+S05:Z005 |                                                                                      ϵ   ∆BAMean  Median  Worst∆BAMean  Median  Worst
+S05:Z006 |                                                                                     0.00−1.6   21.0         16.7      53.2          –          –              –           –
+S05:Z007 |                                                                                     0.01−2.1   13.1         12.7      21.9−0.7   21.7         18.9      33.7
+S05:Z008 |                                                                                     0.02−5.0   11.4           8.9      33.90.0     7.3           6.7      11.2
+S05:Z009 |                                                                                     0.03−7.3   11.6           8.0      42.90.0     7.6           7.8      13.7
+S05:Z010 |                                                                                     0.05−7.7   10.8           7.5      29.90.0     9.2           7.8      19.2
+S05:Z011 |                                                                                   balanced accuracy obtained on taskk. We select
+S05:Z012 |                                                                                                               1   X
+S05:Z013 |                                                                                        cϵ(S) =argmin         |S|       Tdet,k    (c)
+S05:Z014 |                                                                                                       c           k∈S                                        (6)
+S05:Z015 |                                                                                                  subject toBA   k(c)≥BA        ⋆k−ϵ, ∀k∈S.
+S05:Z016 |                                                                                   The selected configurationcminimizes average trigger time
+S05:Z017 |                                                                                   while staying withinϵof the highest balanced accuracy on
+S05:Z018 |                                                                                   every source task.
+S05:Z019 |                                                                                      We  quantify  transfer  using  two  metrics.  To  measure
+S05:Z020 |                                                                                   whether transfer preserves balanced accuracy, we usechange
+S05:Z021 |                                                                                   in  balanced  accuracy,  denoted  by∆BA  =  BA          transfer −
+S05:Z022 | Fig. 2:Detection frontier on LIBERO tasks.Each curve                              BAnative. Both quantities are measured on the target task,
+S05:Z023 | shows the Pareto frontier between balanced accuracy and                           withBA        native achieved by a configuration tuned on that task
+S05:Z024 | mean normalized trigger time. S and F denote the numbers                          using the sameϵ. To measure whether transfer preserves la-
+S05:Z025 | of successful and failed trajectories; the dashed gray line in-                   tency,weusematched-accuracylatencypenalty.Itmeasures,
+S05:Z026 | dicates the mean normalized length of successful trajectories.                    at the same balanced accuracy, the percentage increase in
+S05:Z027 |                                                                                   trigger time relative to the configuration on the target task’s
+S05:Z028 |    The  results  are  shown  in  Figure2.  Reward-DAgger                          native frontier. A lower penalty indicates better transfer.
+S05:Z029 | achievesthe highest maximum balanced accuracy on every                               TableI reports  the  results  across  all  tested  balanced-
+S05:Z030 | task, reaching at least0.96. Its frontier also lies above or                      accuracy  tolerance  values.  We  note  that  one-to-three  task
+S05:Z031 | on par with the baselines, with large improvements on Tasks                       transfer  is  not  consistently  reliable;  although  its  median
+S05:Z032 | 0 and 1. logpZO remains competitive at some early-trigger                         latency penalties are moderate, no tolerance level preserves
+S05:Z033 | operating points, but no baseline performs consistently as                        balanced accuracy and worst-case latency. We attribute this
+S05:Z034 | well as Reward-DAgger across all four tasks.                                      to possible overfitting of task-specific sampling noise when
+S05:Z035 |                                                                                   selecting  among  many  configurations  using  rollouts  from
+S05:Z036 |                                                                                   only one task. In contrast, selecting the gate jointly across
+S05:Z037 | Q2: Transfer of Gating Configurations                                             multiplesourcetaskssubstantiallyimprovestransferstability,
+S05:Z038 |                                                                                   preserving average balanced accuracy over a broad range of
+S05:Z039 |    Most existing baselines usetask-specificgates, meaning                         tolerances while incurring relatively small latency penalties.
+S05:Z040 | that the same gating function or thresholds tuned on one task                        Given the reliability of three-to-one transfer, we fixϵ=
+S05:Z041 | cannot be transferred directly to another. Several baselines                      0.02and examine these configurations in greater detail. In
+S05:Z042 | arealsopolicy-specific,meaningthatupdatingapolicyonthe                            TableII, we report the transfer metrics of a configuration
+S05:Z043 | sametaskrequiresretrainingorrecalibratingthegate.Incon-                           tuned on three of Tasks 0, 1, 5, and 8 and evaluated on both
+S05:Z044 | trast, Reward-DAgger depends on generic progress signals,                         the omitted task and independently held-out Tasks 4 and 6.
+S05:Z045 | which enable better transfer across tasks and policies. We                        The final row reports a configuration tuned jointly on all four
+S05:Z046 | investigate its cross-task transfer performance on LIBERO-                        source tasks and evaluated on Tasks 4 and 6.
+S05:Z047 | 10 tasks 0, 1, 5, and 8.                                                             Together,  these  results  demonstrate  that,  by  calibrating
+S05:Z048 |    We ask whether a single configuration tuned on one or                          across a broad set of source tasks, reward gate configurations
+S05:Z049 | more source tasks transfers to other tasks. We consider two                       transfer reliably to target tasks, preserving balanced accuracy
+S05:Z050 | settings:one-to-three transfer, where we tune the gate on one                     and inducing a small, controllable latency penalty.
+S05:Z051 | task and evaluate it on the other three tasks, andthree-to-one
+S05:Z052 | transfer, where we tune the gate jointly on three tasks and                       Q3: Policy Improvement with Reward-DAgger
+S05:Z053 | evaluate it on the remaining task.                                                   We next evaluate whether the interventions triggered by
+S05:Z054 |    To select a single configuration from the source tasks, we                     Reward-DAgger  lead  to  efficient  downstream  policy  im-
+S05:Z055 | define a balanced-accuracy toleranceϵ. Givenϵand a set of                         provement. We consider four simulated and four real-world
+S05:Z056 | source tasksS, letBA               ⋆k = maxcBAk(c)denote the highest              tasks,  visualized  in  Figure3.  Across  all  eight  tasks,  we
+
+===== PDF S. 6 =====
+S06:Z001 |                  TABLE II:Transfer  resultsatϵ= 0.02for three-to-one
+S06:Z002 |                  transfer and held-out Tasks 4 and 6.T   det is mean normalized
+S06:Z003 |                  trigger time; Pen is matched-accuracy latency penalty.
+S06:Z004 |                  use the same reward-gate configuration selected jointly on
+S06:Z005 |                  LIBERO Tasks 0, 1, 5, and 8:
+S06:Z006 |                          (L s,τs,δmin,Ll,τl) = (75,−0.9,0.05,225,0.0).
+S06:Z007 |                  In simulation, we query the reward model at every environ-
+S06:Z008 |                  ment step. For real-world experiments, we address querying
+S06:Z009 |                  latency by employing asynchronous scoring and querying the
+S06:Z010 |                  reward model everyk= 4environment steps.
+S06:Z011 |                     For  each  method,  we  perform  policy  finetuning  over
+S06:Z012 |                  multiple rounds. In each round, we collect a fixed budget of                        Fig. 3:Overview of simulated and real-world tasks.Left
+S06:Z013 |                  expert transitions using the corresponding gating method and                        and right images show each task’s initial and final frames.
+S06:Z014 |                  then finetune the base policy on a replay buffer containing
+S06:Z015 |                  the original offline demonstrations and the aggregated expert                                         TABLE III:Real-world results.
+S06:Z016 |                  corrections. Following [14], once takeover is triggered, the
+S06:Z017 |                  expert controls the robot for the remainder of the episode.                                                            Success rate (%)           ROHE
+S06:Z018 |                  After each round of training, we evaluate two metrics:                               Task         Method                 R0   R1      R2       R0     R1     R2
+S06:Z019 |                  •Autonomous success rateevaluates the updated student                                StackReward-DAgger6575       80       .667.731.643
+S06:Z020 |                     policy overKautonomous rollouts. It reflects how effec-                                       ThriftyDAgger65    70       55       .606   .556   .513
+S06:Z021 |                     tively the gate triggers informative expert interventions.                                    Diff-DAgger6575   70       .588.783.600
+S06:Z022 |                  •Return on human effort (ROHE)evaluates the perfor-                                  Pick  Reward-DAgger20    30   40   .541.533   .588
+S06:Z023 |                     mance of the combined student-expert system relative to                                       ThriftyDAgger20    25       25       .526   .474   .424
+S06:Z024 |                     the  amount  of  expert  interventions  required.  Following                                  Diff-DAgger2035       40       .548.435   .478
+S06:Z025 |                     [26], ROHE is defined as                                                          Put      Reward-DAgger3540   45   .594   .606   .645
+S06:Z026 |                                                                                                                   ThriftyDAgger35    35   50   .559   .500   .526
+S06:Z027 |                                            ROHE = P(S    τ = 1)                                                   Diff-DAgger35    20       30       .500   .346   .528
+S06:Z028 |                                                           1+H/T    .                       (7)        Remove Reward-DAgger7585       90       .588   .714.769
+S06:Z029 |                     The numerator corresponds to the task’s success rate when                                     ThriftyDAgger75    70       80       .526   .486   .563
+S06:Z030 |                     the  gate  is  active  and  the  expert  can  take  over. H/T                                 Diff-DAgger75    70       80       .545   .613.773
+S06:Z031 |                     denotes the fraction of rollout episodes in which the expert                     a subsequent collection round, we do not report ROHE for
+S06:Z032 |                     intervenes.  A  high  ROHE  indicates  that  the  combined                       the final checkpoint.
+S06:Z033 |                     system achieves a high success rate while requiring expert                          Because  UCF,  SAFE,  and  logpZO  were  not  originally
+S06:Z034 |                     intervention in relatively few episodes. We measure ROHE                         designedforiterativepolicyupdates,wecollect50additional
+S06:Z035 |                     at the episode level as each intervention in our setting                         rolloutsfromtheupdatedstudentpolicyaftereachround.For
+S06:Z036 |                     results in expert takeover for the remainder of the episode.                     UCF, these rollouts are used to recalibrate its uncertainty
+S06:Z037 |                  Simulation   Results.We   evaluate   Reward-DAgger   on                             threshold; for SAFE and logpZO, they are used to retrain
+S06:Z038 |                  LIBERO-10 tasks 0, 1, 4, and 6. Among the downstream                                their scoring models and recalibrate their thresholds.
+S06:Z039 |                  tasks,  Tasks  0  and  1  were  included  in  gate-configuration                       The results, averaged across three seeds, are reported in
+S06:Z040 |                  tuning, whereas Tasks 4 and 6 were held out.                                        Figure4. Reward-DAgger improves autonomous success on
+S06:Z041 |                     Weperformthreeroundsofinteractivelearningandcollect                              all four tasks, achieving the highest final success on Tasks 0
+S06:Z042 |                  3,000 successful expert state-action pairs for each round. We                       and 6 and remaining competitive on Tasks 1 and 4. It also
+S06:Z043 |                  compute each round’s ROHE from the expert-gated rollouts                            achieves the highest or near-highest ROHE throughout data
+S06:Z044 |                  during data collection. We then finetune the current student                        collection, indicating that these improvements are obtained
+S06:Z045 |                  policy using a sampling mixture of30%offline demonstra-                             with efficient use of expert interventions. Importantly, these
+S06:Z046 |                  tions and70%aggregated expert interventions. After each                             gains extend to Tasks 4 and 6 despite neither task being used
+S06:Z047 |                  round, we evaluate the updated policy’s autonomous success                          to select the gate configuration.
+S06:Z048 |                  rate using 100 rollouts. Since the final policy is not used in                      Real-robot  Tasks.We  then  evaluate  Reward-DAgger  on
+S06:Z049 |                    Three-to-one            Eval on Task 4         Eval on Task 6
+S06:Z050 | Held-out task∆BAT              det    Pen∆BAT            det    Pen∆BAT            det   Pen
+S06:Z051 | Task 0         −1.2 0.354     9.0−4.4 0.286     0.8−1.7 0.384    8.7
+S06:Z052 | Task 1         −0.9 0.341     4.3−11.0 0.260   11.7−0.8 0.379    3.6
+S06:Z053 | Task 5               1.4 0.336   11.2−1.3 0.352     1.9  0.0 0.400    6.7
+S06:Z054 | Task 8               0.5 0.485     4.5−1.3 0.352     1.9  0.0 0.400    6.7
+S06:Z055 | None (all four)          –         –       –  −1.3 0.352     1.9  0.4 0.412    3.2
+
+===== PDF S. 7 =====
+S07:Z001 | Fig. 4:Policy improvement resultson LIBERO-10 Tasks 0, 1, 4, and 6. Error bars indicate standard error across 3 seeds.
+S07:Z002 | four real-robot tasks. Forstack,pick, andput, there exist                         TABLE IV:Gate design ablation:earliest normalized trig-
+S07:Z003 | exact  or  closely  related  examples  in  the  dataset  used  to                 ger time for each balanced-accuracy threshold.
+S07:Z004 | train Robometer-4B. In contrast, theremovetask involves                                                            Trigger time at balanced accuracy≥
+S07:Z005 | manipulating two distinct objects in sequence and serves as                       Task       Detector                 0.80    0.85    0.90               0.95
+S07:Z006 | an out-of-distribution (OOD) task.                                                           Full gate           .184    .211    .224               .389
+S07:Z007 |    We useπ      0.5  -DROID as the student policy and provide                                Short only             .194    .228    .255                 –
+S07:Z008 | real human interventions through teleoperation. We deploy                         Task 0     Long only              .219    .219    .234               .411
+S07:Z009 | the same reward gate configuration selected in simulation                                    Absolute thresh.    .205    .266    .331               .500
+S07:Z010 | without additional tuning on the real-world tasks. We com-                                   Full gate           .199.252.261               .303
+S07:Z011 | pare Reward-DAgger with ThriftyDAgger and Diff-DAgger                             Task 1     Short only             .233.241.299               .324
+S07:Z012 | and  evaluate  every  iteration’s  policy  checkpoint  with  20                              Long only              .243    .260    .279               .319
+S07:Z013 | rollouts. We exclude UCF, SAFE, and logpZO from the real-                                    Absolute thresh.    .270    .270    .323               .385
+S07:Z014 | world comparisons because these methods require obtaining                                    Full gate           .206    .212    .279        .378
+S07:Z015 | fresh rollouts of the latest policy for recalibration or retrain-                 Task 4     Short only             .342    .342      –                    –
+S07:Z016 | ing. Under our 20-rollout evaluation budget, we find that                                    Long only              .242    .312    .337               .373
+S07:Z017 | calibration is highly unstable. To compute ROHE, we use                                      Absolute thresh.    .313    .313    .313        .357
+S07:Z018 | the evaluation rollouts, where the human annotator judges                                    Full gate           .215.265    .347               .448
+S07:Z019 | whether the state at which the gate triggers is recoverable.                      Task 6     Short only      .215    .249.358                 –
+S07:Z020 | A rollout is considered successful for the combined student-                                 Long only              .319    .319.329        .551
+S07:Z021 | expert system if the student completes the task autonomously                                 Absolute thresh.    .287    .314    .355        .445
+S07:Z022 | or the gate triggers while expert recovery remains feasible.                      effective across different reward models.
+S07:Z023 |    Results are reported in TableIII. Reward-DAgger achieves                       Gate Design.We compare the complete reward gate against
+S07:Z024 | strong overall performance, obtaining the highest ROHE in                         three baselines: a short-window-only gate, a long-window-
+S07:Z025 | most  settings  and  comparable  performance  in  the  others,                    onlygate,andanabsolute-progressgate,whichtriggerswhen
+S07:Z026 | while  consistently  improving  autonomous  success  across                       progress drops below a certain amount.
+S07:Z027 | DAgger  rounds.  This  advantage  extends  to  theremove                             TableIVsummarizes the resulting accuracy-latency trade-
+S07:Z028 | task, demonstrating Reward DAgger’s effectiveness on OOD                          off. The full gate achieves the lowest or tied trigger time
+S07:Z029 | tasks.  Empirically,  ThriftyDAgger  and  Diff-DAgger  fre-                       in  11  of  the  16  task-accuracy  combinations,  highlighting
+S07:Z030 | quently  trigger  during  successful  rollouts,  particularly  in                 the importance of combining both gates. The short-window-
+S07:Z031 | early rounds, leading to unnecessary interventions; in con-                       only gate detects some failures earlier but fails to reach high
+S07:Z032 | trast, Reward-DAgger rarely triggers on successful behavior.                      balanced accuracy on Tasks 0, 4, and 6, whereas the long-
+S07:Z033 |    Overall,  our  results  show  thatReward-DAgger  collects                      window-only gate provides broader coverage at the cost of
+S07:Z034 | interventionsthatarebothinformativefordownstreampolicy                            later detection. The full gate also triggers earlier than the
+S07:Z035 | improvement and efficient in their use of human supervision.                      absolute-progress gate in 14 of the 16 comparisons.
+S07:Z036 | Notably, the same reward model and gate configuration is                          Different Reward Model.To test whether our gating mech-
+S07:Z037 | used without additional tuning across eight simulated and                         anism generalizes across progress-based reward models, we
+S07:Z038 | real-world tasks, and different policy architectures.                             replaceRobometer-4BwithRynnValue-4Bwhilekeepingthe
+S07:Z039 | Ablations                                                                         gate construction and evaluation protocol unchanged. Fig.5
+S07:Z040 |                                                                                   shows that, under the same configuration-selection procedure
+S07:Z041 |    We conduct two ablations to evaluate our short- and long-                      on two simulation tasks, RynnValue achieves a comparable
+S07:Z042 | window gate design and whether Reward-DAgger remains                              accuracy–latency frontier and the second-highest balanced
+
+===== PDF S. 8 =====
+S08:Z001 |                                                                                           [3]M. J. Kim et al., “OpenVLA: An open-source vision-language-action
+S08:Z002 |                                                                                                  model,” inConference on Robot Learning (CoRL), 2024.
+S08:Z003 |                                                                                           [4]K.Blacketal.,“π      0:Avision-language-actionflowmodelforgeneral
+S08:Z004 |                                                                                                  robot control,”arXiv preprint arxiv:2410.24164, 2024.
+S08:Z005 |                                                                                           [5]O. M. Team et al., “Octo: An open-source generalist robot policy,”
+S08:Z006 |                                                                                                  inRobotics: Science and Systems (RSS), 2024.
+S08:Z007 |                                                                                           [6]S.  Ross,  G.  Gordon,  and  D.  Bagnell,  “A  reduction  of  imitation
+S08:Z008 |                                                                                                  learning and structured prediction to no-regret online learning,” in
+S08:Z009 |                                                                                                  International  Conference  on  Artificial  Intelligence  and  Statistics,
+S08:Z010 |                                                                                                  2011.
+S08:Z011 |                                                                                           [7]H. Liu, S. Nasiriany, L. Zhang, Z. Bao, and Y. Zhu, “Robot learn-
+S08:Z012 |                                                                                                  ing on the job: Human-in-the-loop autonomy and learning during
+S08:Z013 |                                                                                                  deployment,” inRobotics: Science and Systems (RSS), 2023.
+S08:Z014 |                                                                                           [8]Y.KorkmazandE.Bıyık,“Mile:Model-basedinterventionlearning,”
+S08:Z015 |                                                                                                  inInternational Conference on Robotics and Automation (ICRA),
+S08:Z016 |                                                                                                  2025.
+S08:Z017 | Fig. 5:Reward model ablation.Detection frontiers using                                    [9]M. Kelly, C. Sidrane, K. Driggs-Campbell, and M. J. Kochenderfer,
+S08:Z018 | Robometer and RynnValue as reward model backbones.                                               “Hg-dagger: Interactive imitation learning with human experts,” in
+S08:Z019 |                                                                                                  International Conference on Robotics and Automation (ICRA), 2019.
+S08:Z020 | accuracyonbothtasks,suggestingthatthegatingmechanism                                     [10]A. Mandlekar, D. Xu, R. Mart      ´ın-Mart´ın, Y. Zhu, L. Fei-Fei, and
+S08:Z021 | is not specific to a particular reward-model backbone.                                           S.  Savarese,  “Human-in-the-loop  imitation  learning  using  remote
+S08:Z022 |                                                                                                  teleoperation,”arXiv preprint arXiv:2012.06733, 2020.
+S08:Z023 |                              V.  CONCLUSION                                              [11]Z. Peng, Z. Liu, and B. Zhou, “Data-efficient learning from human
+S08:Z024 |                                                                                                  interventions for mobile robots,” in2025 IEEE International Con-
+S08:Z025 | Summary. We  introduced  Reward-DAgger,  a  robot-gated                                          ference on Robotics and Automation (ICRA), IEEE, 2025, pp. 7407–
+S08:Z026 | interactiveimitationlearningframeworkthatdetectsprogress                                         7414.
+S08:Z027 |                                                                                          [12]R. Hoque, A. Balakrishna, E. Novoseller, A. Wilcox, D. S. Brown,
+S08:Z028 | drops and plateaus using estimates from a general-purpose                                        and  K.  Goldberg,  “Thriftydagger:  Budget-aware  novelty  and  risk
+S08:Z029 | reward model. By decoupling the gating mechanism from                                            gating for interactive imitation learning,” inConference on Robot
+S08:Z030 | theunderlyingpolicy,Reward-DAggeroperatesacrosspolicy                                            Learning (CoRL), 2021.
+S08:Z031 |                                                                                          [13]Q. Gu et al., “Safe: Multitask failure detection for vision-language-
+S08:Z032 | checkpoints and architectures, including black-box policies,                                     action models,” inAdvances in Neural Information Processing Sys-
+S08:Z033 | without retraining or recalibrating the gate between DAgger                                      tems (NeurIPS), 2025.
+S08:Z034 | rounds. In simulated and real-robot experiments, Reward-                                 [14]S.-W.  Lee,  X.  Kang,  and  Y.-L.  Kuo,  “Diff-dagger:  Uncertainty
+S08:Z035 |                                                                                                  estimation with diffusion policy for robotic manipulation,” inIn-
+S08:Z036 | DAgger achieves effective failure detection, cross-task trans-                                   ternational Conference on Robotics and Automation (ICRA), 2025.
+S08:Z037 | fer, and efficient downstream policy improvement. Reward-                                [15]Z. He, Y. Cao, and M. Ciocarlie, “Uncertainty comes free: Learning
+S08:Z038 | DAgger is modular with respect to the reward model: more                                         human-in-the-loop policies with diffusion models,” inInternational
+S08:Z039 |                                                                                                  Conference on Robotics and Automation (ICRA), 2026.
+S08:Z040 | accurate general-purpose reward models can be incorporated                               [16]C.  Xu  et  al.,  “Can  we  detect  failures  without  failure  data?
+S08:Z041 | without modifying the interactive imitation learning pipeline.                                   uncertainty-aware  runtime  failure  detection  for  imitation  learning
+S08:Z042 | Limitations  and  Future  Work.Reward-DAgger  is  not                                            policies,” inRobotics: Science and Systems (RSS), 2025.
+S08:Z043 |                                                                                          [17]V. Myers, E. Bıyık, and D. Sadigh, “Active reward learning from
+S08:Z044 | without  limitations.  Its  long-window  gate  must  observe  a                                  online preferences,” inInternational Conference on Robotics and
+S08:Z045 | sustained  progress  plateau,  so  failures  such  as  repeated                                  Automation (ICRA), 2023.
+S08:Z046 | unsuccessful grasp attempts may persist for several seconds                              [18]A. Liang et al., “Robometer: Scaling general-purpose robotic reward
+S08:Z047 |                                                                                                  modelsviatrajectorycomparisons,”inRobotics:ScienceandSystems
+S08:Z048 | before triggering an intervention. More broadly, the frame-                                      (RSS), 2026.
+S08:Z049 | work is reactive rather than preemptive, requesting human                                [19]H. Tan et al., “Robo-dopamine: General process reward modeling
+S08:Z050 | assistance only after evidence of a failure emerges, which                                       for  high-precision  robotic  manipulation,”  inProceedings  of  the
+S08:Z051 |                                                                                                  Computer Vision and Pattern Recognition Conference (CVPR), 2026.
+S08:Z052 | limits its applicability in high-risk settings or when failures                          [20]T. Lee, A. Wagenmaker, K. Pertsch, P. Liang, S. Levine, and C. Finn,
+S08:Z053 | are difficult to recover from. A promising direction is to                                       “Roboreward: General-purpose vision-language reward models for
+S08:Z054 | integrate predictive world models [42,43] into the gating                                        robotics,”arXiv preprint arXiv:2601.00675, 2026.
+S08:Z055 |                                                                                          [21]K.  Baraka  et  al.,  “Human-interactive  robot  learning:  Definition,
+S08:Z056 | framework, allowing the robot to anticipate possible failure                                     challenges, and recommendations,”ACM Transactions on Human-
+S08:Z057 | outcomes and request intervention before executing them.                                         Robot Interaction, 2026.
+S08:Z058 |                                                                                          [22]Z. Hu et al., “Rac: Robot learning for long-horizon tasks by scaling
+S08:Z059 |                           ACKNOWLEDGMENTS                                                        recovery and correction,”arXiv preprint arXiv:2509.07953, 2025.
+S08:Z060 |    The  authors  thank  the  USC  Center  for  Advanced  Re-                             [23]H. Liu et al., “Multi-task interactive robot fleet learning with visual
+S08:Z061 |                                                                                                  world models,” inConference on Robot Learning (CoRL), 2024.
+S08:Z062 | search Computing (CARC) for providing us with compute                                    [24]R.  Hoque  et  al.,  “Fleet-DAgger:  Interactive  robot  fleet  learning
+S08:Z063 | resources, and acknowledge funding by the Airbus Institute                                       with scalable human supervision,” inConference on Robot Learning
+S08:Z064 |                                                                                                  (CoRL), 2022.
+S08:Z065 | for Engineering Research (AIER). This work was supported                                 [25]W.  Yu,  J.  Lv,  Z.  Ying,  Y.  Jin,  C.  Wen,  and  C.  Lu,  “Armada:
+S08:Z066 | by the Office of Naval Research (ONR) Young Investigator                                         Autonomous  online  failure  detection  and  human  shared  control
+S08:Z067 | Program (YIP) under grant number N00014-26-1-2473.                                               empower  scalable  real-world  deployment  and  adaptation,”IEEE
+S08:Z068 |                                                                                                  Robotics and Automation Letters, 2026.
+S08:Z069 |                                 REFERENCES                                               [26]H.Liu,S.Dass,R.Mart      ´ın-Mart´ın,andY.Zhu,“Model-basedruntime
+S08:Z070 |                                                                                                  monitoringwithinteractiveimitationlearning,”inIEEEInternational
+S08:Z071 |  [1]C. Chi et al., “Diffusion Policy: Visuomotor Policy Learning via                             Conference on Robotics and Automation (ICRA), 2024.
+S08:Z072 |         Action Diffusion,” inRobotics: Science and Systems (RSS), 2023.                  [27]H. Cai, Z. Peng, and B. Zhou, “Robot-gated interactive imitation
+S08:Z073 |  [2]T.  Z.  Zhao,  V.  Kumar,  S.  Levine,  and  C.  Finn,  “Learning  Fine-                     learning  with  adaptive  intervention  mechanism,”  inInternational
+S08:Z074 |         Grained  Bimanual  Manipulation  with  Low-Cost  Hardware,”  in                          Conference on Machine Learning (ICML), 2025.
+S08:Z075 |         Robotics: Science and Systems (RSS), 2023.
+
+===== PDF S. 9 =====
+S09:Z001 | [28]C.  Agia  et  al.,  “Unpacking  failure  modes  of  generative  policies:                             on-robot reinforcement learning,”arXiv preprint arXiv:2603.28730,
+S09:Z002 |         Runtime monitoring of consistency and progress,” inConference on                                  2026.
+S09:Z003 |         Robot Learning (CoRL), 2024.                                                              [36]J. Zhang et al., “Progress reward modeling for robotic learning: A
+S09:Z004 | [29]R.  R      ¨omer,  A.  Kobras,  L.  Worbis,  and  A.  P.  Schoellig,  “Failure                        comprehensive survey,”arXiv preprint arXiv:2607.21655, 2026.
+S09:Z005 |         prediction at runtime for generative robot policies,” inAdvances in                       [37]J.  Tien,  J.  Z.-Y.  He,  Z.  Erickson,  A.  Dragan,  and  D.  S.  Brown,
+S09:Z006 |         Neural Information Processing Systems (NeurIPS), 2025.                                            “Causal confusion and reward misidentification in preference-based
+S09:Z007 | [30]S. Chen et al., “Topreward: Token probabilities as hidden zero-shot                                   reward learning,” inInternational Conference on Learning Repre-
+S09:Z008 |         rewards for robotics,”arXiv preprint arXiv:2602.19313, 2026.                                      sentations (ICLR), 2023.
+S09:Z009 | [31]D.  Huang  et  al.,  “Rynnvalue:  Scaling  robotic  value  foundation                         [38]B. Liu et al., “Libero: Benchmarking knowledge transfer for lifelong
+S09:Z010 |         models with temporal distance,”arXiv preprint arXiv:2608.09853,                                   robot  learning,”  inAdvances  in  Neural  Information  Processing
+S09:Z011 |         2026.                                                                                             Systems (NeurIPS), 2023.
+S09:Z012 | [32]J. Zhang et al., “Rewind: Language-guided rewards teach robot poli-                           [39]K. Black et al., “π        0.5   : A vision-language-action model with open-
+S09:Z013 |         cies without new demonstrations,” inConference on Robot Learning                                  world  generalization,”  inConference  on  Robot  Learning  (CoRL),
+S09:Z014 |         (CoRL), 2025.                                                                                     2025.
+S09:Z015 | [33]S. A. Sontakke et al., “Roboclip: One demonstration is enough to                              [40]A. Khazatsky et al., “Droid: A large-scale in-the-wild robot manip-
+S09:Z016 |         learn robot policies,” inConference on Neural Information Process-                                ulation dataset,” inRobotics: Science and Systems (RSS), 2024.
+S09:Z017 |         ing Systems (NeurIPS), 2023.                                                              [41]R. Koenker and G. Bassett Jr, “Regression quantiles,”Econometrica:
+S09:Z018 | [34]R. Tian, Y. Wu, and A. Bajcsy, “Position: Good embodied reward                                        journal of the Econometric Society, 1978.
+S09:Z019 |         models  need  bad  behavior  data,”  inInternational  Conference  on                      [42]T. Yin et al., “Playworld: Learning robot world models from au-
+S09:Z020 |         Machine Learning (ICML), 2026.                                                                    tonomous play,” inConference on Robot Learning (CoRL), 2026.
+S09:Z021 | [35]P. Schroeder, T. Weng, K. Schmeckpeper, E. Rosen, S. Hart, and                                [43]Y. Wang et al., “Interactive world simulator for robot policy training
+S09:Z022 |         O. Biza, “Sole-r1: Video-language reasoning as the sole reward for                                and evaluation,” inRobotics: Science and Systems (RSS), 2026.
+
+===== PDF S. 10 =====
+S10:Z001 |                                                           SUPPLEMENTARYMATERIAL
+S10:Z002 | Additional Experiments
+S10:Z003 | Frontier Transfer.We explore whether configurations that perform well on one task remain effective on other tasks. For
+S10:Z004 | each source task, we construct its task-specific Pareto frontier using 200 policy rollouts from a diffusion policy trained
+S10:Z005 | exclusively on that task. We then apply the configurations on this frontier to each of the other three tasks and retain the
+S10:Z006 | Pareto-optimal points to form a transferred frontier.
+S10:Z007 |    To measure how closely each transferred frontier matches the target task’s native frontier, we compute the hypervolume
+S10:Z008 | ratio (HVR). Specifically, we divide the area under the transferred frontier by the area under the native frontier. The trigger-
+S10:Z009 | time range extends from zero to the latest non-dominated point reached by either frontier. An HVR near one indicates that
+S10:Z010 | the transferred configurations retain most of the accuracy–latency tradeoff obtained by task-specific tuning.
+S10:Z011 |    The results for each source-target task pair are shown in Figure6. Across the 12 ordered source-target pairs, Reward-
+S10:Z012 | DAgger achieves a mean HVR of0.92and a median HVR of0.93, indicating thathigh-performing regions of the gate
+S10:Z013 | configuration space are largely shared across tasks.
+S10:Z014 | Fig. 6:Frontier transfer of Reward-DAgger gate configurations.Each panel corresponds to a target task. The solid orange
+S10:Z015 | curve denotes the native frontier obtained through task-specific tuning, and each dashed curve is obtained by applying
+S10:Z016 | configurations from another task’s frontier without retuning. Numbers indicate the hypervolume ratios (HVR) for each
+S10:Z017 | transferred curve. The dashed grey line indicates the mean normalized length of successful trajectories.
+S10:Z018 | Different Reward Model Backbone in Real World Tasks.We further replace Robometer with RynnValue on theStackand
+S10:Z019 | Pickpolicy-improvement experiments while directly reusing the Robometer-selected gating parameters, without additional
+S10:Z020 | tuning.AsshowninTableV,RynnValueyieldssmallergainsinautonomoussuccessbutcomparableROHEoverall,indicating
+S10:Z021 | that the proposed gating mechanism is not specific to a particular reward-model backbone.
+S10:Z022 |                            TABLE V:Different reward model backbone ablation on real-world tasks.
+S10:Z023 |                                                                      Success rate (%)           ROHE
+S10:Z024 |                                           Task    Method              R0   R1      R2       R0     R1     R2
+S10:Z025 |                                           Stack   Robometer-4B   6575       80       .667   .731   .643
+S10:Z026 |                                                    RynnValue-4B   65    65       70       .606   .645   .613
+S10:Z027 |                                           Pick     Robometer-4B   2030       40       .541.533.588
+S10:Z028 |                                                    RynnValue-4B   20    25       25       .515.556.571
+
+===== PDF S. 11 =====
+S11:Z001 | Implementation Details
+S11:Z002 |                                                    TABLE VI: Hyperparameter grids for detection frontier analysis
+S11:Z003 |           Method                 Role                Parameter                              Values                                                                       Grid size
+S11:Z004 |                                         Frontier           FPR capβ                   B                                                                                   22
+S11:Z005 |                                                                Short-window lengthL         s     {20,30,50,75,100}
+S11:Z006 |           Reward-DAgger                                        Short-window thresholdτ              s   {−0.9,−0.7,−0.5}
+S11:Z007 |                                         Inner search           Minimum dropδ        min          {0,0.05,0.10,0.20}                                                                              3,600
+S11:Z008 |                                                                Long-window lengthL         l      {150,175, ...,400,450}
+S11:Z009 |                                                                Long-window thresholdτ              l   {−0.2,0,0.1,0.3,0.5}
+S11:Z010 |           ThriftyDAgger      Frontier           Novelty/Q-risk quantileα  A                                                                                  43
+S11:Z011 |           Diff-DAgger          Frontier           Diffusion-loss quantileα   A                                                                                  43
+S11:Z012 |           UCF                       Frontier           Uncertainty quantileα     A                                                                                  43
+S11:Z013 |           SAFE-LSTM         Frontier           Score quantileα            A                                                                                  43
+S11:Z014 |           logpZO                  Frontier           Score quantileα            A                                                                                  43
+S11:Z015 |           B={0,0.02}∪{0.05,0.10, ...,1.00}.
+S11:Z016 |           A= geomspace(10  −4  ,0.5,41)∪{10          −3  ,10−2  }.
+S11:Z017 |                                                                      TABLE VII: Training and evaluation details
+S11:Z018 |                                                                                Simulated tasks                                                         Real-robot tasks
+S11:Z019 |                                                         Task 0          Task 1          Task 4          Task 6           Stack             Pick               Put            Remove
+S11:Z020 |   Successful offline transitions          9,293           12,702          10,353           9,245            4,265            3,536            3,436            7,454
+S11:Z021 |               Observations                                   Agent-view RGB, wrist RGB,                                                   Exterior RGB, wrist RGB, joint positions (7),
+S11:Z022 |                                                                              and proprioception                                                               and gripper state (1)
+S11:Z023 |             Image crop size                                                                 224×224(resize with padding)
+S11:Z024 |               Action chunk
+S11:Z025 |          (predicted/executed)                                                 20/10                                                                             15/8
+S11:Z026 |           Control frequency                                                   20Hz                                                                            15Hz
+S11:Z027 |             Episode horizon                                                 800 steps                                                                      900 steps
+S11:Z028 |              Student policy                                    Diffusion policy trained onoffline expert demonstrations                                          π0.5  -DROID
+S11:Z029 |           Data Aggregation                          3 rounds, 3000 transitions per round                         2 rounds, 1500 transitions per round
+S11:Z030 |           Training per round                           Full FT, 4k steps, batch size 256,                                                             LoRA, 3k steps, batch size 32,
+S11:Z031 |                                                                                 constant lr 1e-4                                                               cosine lr2.5×10        −5
+S11:Z032 |                    Expert                                    π           0.5  -LIBERO                                                          Human teleoperator
+S11:Z033 |  Evaluation rollouts per round                                           100                                                                                20
+

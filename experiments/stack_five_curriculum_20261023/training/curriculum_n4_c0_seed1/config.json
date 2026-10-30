@@ -1,0 +1,15 @@
+{
+  "parent": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\training\\curriculum_n3_c0_seed1\\best.pth",
+  "parent_sha256": "0592a2be2997bfaa863f12317c1971ebfd866fe18a2a6a4e9b953a58a9468a19",
+  "seed": 1,
+  "arm": "curriculum",
+  "height": 4,
+  "cycle": 0,
+  "planned_updates": 30000,
+  "batch": 64,
+  "lr": 3e-05,
+  "mixture": "32 original +16 earlier heights +16 new height",
+  "completion_loss": "original only",
+  "sampler": "phase/episode/frame",
+  "architecture": "unchanged PhaseNet 10 inputs"
+}

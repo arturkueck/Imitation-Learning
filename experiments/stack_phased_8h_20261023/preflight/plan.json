@@ -1,0 +1,14 @@
+{
+  "name": "preflight",
+  "seeds": [
+    99
+  ],
+  "lr": 0.0001,
+  "completion_lambda": 0.1,
+  "threshold": 0.8,
+  "width": 128,
+  "updates_per_round": 1500,
+  "dev_episodes": 2,
+  "train_deadline": 1792736768.8011503,
+  "max_rounds": 1
+}

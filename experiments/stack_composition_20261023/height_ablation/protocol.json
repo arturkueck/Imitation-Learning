@@ -1,0 +1,63 @@
+{
+  "heights_cm": [
+    0,
+    1.0,
+    2.0,
+    3.0,
+    4.0
+  ],
+  "seeds": [
+    61000,
+    61001,
+    61002,
+    61003,
+    61004
+  ],
+  "cases": [
+    [
+      "relative_seed1",
+      30000
+    ],
+    [
+      "relative_seed2",
+      10000
+    ],
+    [
+      "relative_seed2",
+      30000
+    ]
+  ],
+  "horizon": 1000,
+  "checkpoint_hashes": {
+    "relative_seed1/30000": "d245a1bcc511f007b0c6e78889bc42bf21f9e90f577e2fa2b57abfccde5d2c5c",
+    "relative_seed2/10000": "c50d17ee8eb59805bd2965ca4946216c7a52fd913b5b4359aa011445dd4fd131",
+    "relative_seed2/30000": "4a69093b269ce9237ced631871dec920e78f82ef93103c57891d1397415b28e0"
+  },
+  "preparation": "40 neutral steps at height0; translate target and kinematic pedestal only; preserve all other qpos/qvel exactly",
+  "success": "50 continuous valid frames, contact, no finger support, low velocity, target on pedestal at specified height",
+  "limitations": "Two dynamic cubes on fixed pedestal. Not a free three-cube tower. Changing height also changes exposed pedestal geometry. Five development starts, no inferential significance claim.",
+  "trace_columns": [
+    "step",
+    "Ax",
+    "Ay",
+    "Az",
+    "Bx",
+    "By",
+    "Bz",
+    "eefx",
+    "eefy",
+    "eefz",
+    "action0",
+    "action1",
+    "action2",
+    "action3",
+    "action4",
+    "action5",
+    "action6",
+    "grasp",
+    "finger",
+    "contact",
+    "valid",
+    "sim_time"
+  ]
+}

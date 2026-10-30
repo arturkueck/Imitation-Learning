@@ -1,0 +1,2165 @@
+{
+  "complete": true,
+  "rows": [
+    {
+      "seed": 215000,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "ec81325ecca8ea4be615a6149c4bf337db28a3397360e77bed8a84ddc28be69f",
+      "prefix_max_run": [
+        14,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215000.npz"
+    },
+    {
+      "seed": 215001,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "102b15ef6036ed0f5e19a9539bceaeca3905deffd00e0bb6bba43554ba98d0ea",
+      "prefix_max_run": [
+        14,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215001.npz"
+    },
+    {
+      "seed": 215002,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "23828f2ec1ace2949073acbf9d72337423a0b4cc9400199b4432ba7884916e07",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215002.npz"
+    },
+    {
+      "seed": 215003,
+      "count": 3,
+      "success": true,
+      "frames": 317,
+      "initial_sha256": "23a7c4006125c6c69897d636fdfb9c333168585f3d2826e583d202e8615c0f35",
+      "prefix_max_run": [
+        182,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215003.npz"
+    },
+    {
+      "seed": 215004,
+      "count": 3,
+      "success": true,
+      "frames": 307,
+      "initial_sha256": "1035f206bafc5179823eecc7810469dbedcd8138528315fce9c7f07d38decbfd",
+      "prefix_max_run": [
+        183,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215004.npz"
+    },
+    {
+      "seed": 215005,
+      "count": 3,
+      "success": true,
+      "frames": 330,
+      "initial_sha256": "a5e1fd1fd1d1c9bb7f1dd8ca9a982812ae3dc5a142468463b48bf78716e6f1e0",
+      "prefix_max_run": [
+        145,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215005.npz"
+    },
+    {
+      "seed": 215006,
+      "count": 3,
+      "success": true,
+      "frames": 313,
+      "initial_sha256": "804a0a067eeb06145727a551eda8815b7baad2daec6d846e4393bd410fb91225",
+      "prefix_max_run": [
+        188,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215006.npz"
+    },
+    {
+      "seed": 215007,
+      "count": 3,
+      "success": true,
+      "frames": 343,
+      "initial_sha256": "cc8252c291d8158cfa3a5f5d7944124b36671d7f637d3be4f6702124a47c4c7a",
+      "prefix_max_run": [
+        131,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215007.npz"
+    },
+    {
+      "seed": 215008,
+      "count": 3,
+      "success": true,
+      "frames": 334,
+      "initial_sha256": "88e1f71ecafb466b8c8e0f35859afa9e86ffaa975193611e9492b629ad86d097",
+      "prefix_max_run": [
+        179,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215008.npz"
+    },
+    {
+      "seed": 215009,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "9224c7f335a9f75176c7c62f13a4039a6ec6f7abc750e6925f3299320f5061aa",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215009.npz"
+    },
+    {
+      "seed": 215010,
+      "count": 3,
+      "success": true,
+      "frames": 333,
+      "initial_sha256": "b87aca2d54eff44f1ecdd44b2e8eaa9b03fe723976036a6bd511614518440eb0",
+      "prefix_max_run": [
+        128,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215010.npz"
+    },
+    {
+      "seed": 215011,
+      "count": 3,
+      "success": true,
+      "frames": 346,
+      "initial_sha256": "98d6572b574f2c8311e1cf8d759a2dedbe86d814d3478db0d840192e67d562a4",
+      "prefix_max_run": [
+        151,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215011.npz"
+    },
+    {
+      "seed": 215012,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "430815305ba8d54c105829ab4ee96c3cf5bcc5964d01d4639a06f13f67c10539",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215012.npz"
+    },
+    {
+      "seed": 215013,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "69ca8cd2ee09536f1a3a0b473be694696cc14c026aab05fe515936b7234fb8e3",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215013.npz"
+    },
+    {
+      "seed": 215014,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "18114c2a20d33cdb29a6c2b71c1c3e55a32538a3cb4f4cda1066f2a89e3721b9",
+      "prefix_max_run": [
+        0,
+        0
+      ],
+      "last_stage": 1,
+      "phase": 1,
+      "pair_switches": 0,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215014.npz"
+    },
+    {
+      "seed": 215015,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "ca15c9dff93b2e21ff65493add212fb77045328cff1c4b609445bfd35438f91a",
+      "prefix_max_run": [
+        0,
+        0
+      ],
+      "last_stage": 1,
+      "phase": 6,
+      "pair_switches": 0,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215015.npz"
+    },
+    {
+      "seed": 215016,
+      "count": 3,
+      "success": true,
+      "frames": 357,
+      "initial_sha256": "2bd75ec5263639448f5828447d1cfd81bccb2d61814f33587fcc98ec7415a79f",
+      "prefix_max_run": [
+        112,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215016.npz"
+    },
+    {
+      "seed": 215017,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "91624771d5991811341e4924d7b6117d808aa22ed4418f9114f91ac3e347d71a",
+      "prefix_max_run": [
+        25,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215017.npz"
+    },
+    {
+      "seed": 215018,
+      "count": 3,
+      "success": true,
+      "frames": 319,
+      "initial_sha256": "ad34c374bc9879c6a2d0fccf1c3fc1eb75b4ca481aa7c11c61577c084293ea32",
+      "prefix_max_run": [
+        66,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215018.npz"
+    },
+    {
+      "seed": 215019,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "a203b107d3a95739789f7855de1fd5674b34ef7fdf6856b5ada9be83cc777ecd",
+      "prefix_max_run": [
+        14,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215019.npz"
+    },
+    {
+      "seed": 215020,
+      "count": 3,
+      "success": true,
+      "frames": 313,
+      "initial_sha256": "5fa50ba7e8c1a6b95560a9a67f47a63afa467540d440be25570338e8f6bee826",
+      "prefix_max_run": [
+        173,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215020.npz"
+    },
+    {
+      "seed": 215021,
+      "count": 3,
+      "success": true,
+      "frames": 311,
+      "initial_sha256": "cc9e2df5f52dd84bdee5919dc74bac528fafb53df2608d5bac3627e2f32f6820",
+      "prefix_max_run": [
+        65,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215021.npz"
+    },
+    {
+      "seed": 215022,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "d358b64b6445124aaddc3fd32d79006ecca40482e56028ed49d81a1c31ca8467",
+      "prefix_max_run": [
+        14,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215022.npz"
+    },
+    {
+      "seed": 215023,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "d83b49bd5233d1779291cec2c1a8b993a087bb31e87b1fc8ccf9caafe5ae732b",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215023.npz"
+    },
+    {
+      "seed": 215024,
+      "count": 3,
+      "success": true,
+      "frames": 308,
+      "initial_sha256": "af0f5ff2d1939bffd5a77751880ac6da25ee3382baa38892a151849207fa5b95",
+      "prefix_max_run": [
+        183,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215024.npz"
+    },
+    {
+      "seed": 215025,
+      "count": 3,
+      "success": true,
+      "frames": 342,
+      "initial_sha256": "0f14ce40771a223036da8db286adf424f66036b8e875d6cb7399930bd34a0ec6",
+      "prefix_max_run": [
+        185,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215025.npz"
+    },
+    {
+      "seed": 215026,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "6c13351b97a8074c352bbf48756881b3d0a6d13adf074ae882cd996738012094",
+      "prefix_max_run": [
+        14,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215026.npz"
+    },
+    {
+      "seed": 215027,
+      "count": 3,
+      "success": true,
+      "frames": 320,
+      "initial_sha256": "0006132d5fbc21f87ae16b493f42d9e9f6a47c55d17b0a409f11d63a42a95e0a",
+      "prefix_max_run": [
+        173,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215027.npz"
+    },
+    {
+      "seed": 215028,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "f05c397122e4e5a55b8727154ee6bd9f24b950f795909f74efa51d55739444d9",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215028.npz"
+    },
+    {
+      "seed": 215029,
+      "count": 3,
+      "success": true,
+      "frames": 303,
+      "initial_sha256": "7db232f26cb908e74c9881f32c424b77c976a2fec5b17ec033a02707d8da4fdc",
+      "prefix_max_run": [
+        152,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215029.npz"
+    },
+    {
+      "seed": 215030,
+      "count": 3,
+      "success": true,
+      "frames": 313,
+      "initial_sha256": "ff0e463039931ebdb2294f6eb497722e70349548817c283bb40371fb88209e61",
+      "prefix_max_run": [
+        191,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215030.npz"
+    },
+    {
+      "seed": 215031,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "3c062e53c044def6e29a8b341c7ce2b51c51adb7578db9518e91f5d08f0babed",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215031.npz"
+    },
+    {
+      "seed": 215032,
+      "count": 3,
+      "success": true,
+      "frames": 315,
+      "initial_sha256": "235abfff7dfa658404f48154a34362074381695c3a556cf7645e2984b44694fc",
+      "prefix_max_run": [
+        163,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215032.npz"
+    },
+    {
+      "seed": 215033,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "b7d3c6fe11055fc66d6b5491861028339c143d0a2f9e963bc85725fb25cd3797",
+      "prefix_max_run": [
+        27,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215033.npz"
+    },
+    {
+      "seed": 215034,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "7c258caffa19e9f33f5feb86f4c7e8255ae34f726659b505945d33492822dd55",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215034.npz"
+    },
+    {
+      "seed": 215035,
+      "count": 3,
+      "success": true,
+      "frames": 309,
+      "initial_sha256": "82b96bd7f14493edc87a7940a40df09fb1b266125fe73234c796677b70ad62a1",
+      "prefix_max_run": [
+        171,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215035.npz"
+    },
+    {
+      "seed": 215036,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "20117eb5e7682e8a19a01d2f8e8fdd824c06c5b1bafda9975097d95d647c8a8c",
+      "prefix_max_run": [
+        834,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215036.npz"
+    },
+    {
+      "seed": 215037,
+      "count": 3,
+      "success": true,
+      "frames": 326,
+      "initial_sha256": "d107f5e17b4533224a62133a90704a9a3438db668fd1af5cf52492d468b1c1a5",
+      "prefix_max_run": [
+        174,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215037.npz"
+    },
+    {
+      "seed": 215038,
+      "count": 3,
+      "success": true,
+      "frames": 341,
+      "initial_sha256": "9094d2b3cfcdc479fbcf7ab5e4b9cf36718f82cd5f35a87c9791ee84969af3fa",
+      "prefix_max_run": [
+        140,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215038.npz"
+    },
+    {
+      "seed": 215039,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "b9661b48bd51bc7eac690650e52a225624be8ccc8c43385be3938d99e92a3495",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215039.npz"
+    },
+    {
+      "seed": 215040,
+      "count": 3,
+      "success": true,
+      "frames": 312,
+      "initial_sha256": "5f578f6b214a264cc74b64ce6c0c3f4314a176f64b0ecf9e56f0432c592b22a7",
+      "prefix_max_run": [
+        164,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215040.npz"
+    },
+    {
+      "seed": 215041,
+      "count": 3,
+      "success": true,
+      "frames": 311,
+      "initial_sha256": "ebce135dff866c13cdb8c85acc934878d0bf894788d008241c28b691037d91ac",
+      "prefix_max_run": [
+        172,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215041.npz"
+    },
+    {
+      "seed": 215042,
+      "count": 3,
+      "success": true,
+      "frames": 323,
+      "initial_sha256": "6a569a1425eeb608901456e5e3ed1ff84f2c1756f77a534842c7c99134ce3b63",
+      "prefix_max_run": [
+        67,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215042.npz"
+    },
+    {
+      "seed": 215043,
+      "count": 3,
+      "success": true,
+      "frames": 310,
+      "initial_sha256": "e34bfbd9d9e9a5fbe6ef1a85b2cb343488760b9df17fcbe6b350dd2ca808f3b0",
+      "prefix_max_run": [
+        160,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215043.npz"
+    },
+    {
+      "seed": 215044,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "cf05170e6022e36adbd9d4d7a84f01812446e6c3cff421072ef9fa1b3f2c8221",
+      "prefix_max_run": [
+        15,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 5,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215044.npz"
+    },
+    {
+      "seed": 215045,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "7ab5ed16d3d26aadc78d9c3838948418ffff5d00fbd9ac7e9e709adced47199d",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215045.npz"
+    },
+    {
+      "seed": 215046,
+      "count": 3,
+      "success": true,
+      "frames": 336,
+      "initial_sha256": "20b5985728e52c537d6cdf382bae513b107720505fb03b64e44af5ab53e138a5",
+      "prefix_max_run": [
+        65,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215046.npz"
+    },
+    {
+      "seed": 215047,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "c81c5f244084576d9c101e7279244462ba5bdd27bfa0bb990ee6a499f1b3609a",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215047.npz"
+    },
+    {
+      "seed": 215048,
+      "count": 3,
+      "success": true,
+      "frames": 380,
+      "initial_sha256": "b94b19fce134d65845ee33ec20ea6090d7d63288345947338e15fbac12f69614",
+      "prefix_max_run": [
+        175,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215048.npz"
+    },
+    {
+      "seed": 215049,
+      "count": 3,
+      "success": true,
+      "frames": 343,
+      "initial_sha256": "260966ad4bcdd485cbcc3b712ee93a62e55d66a5a32ca133556f374f18ca0157",
+      "prefix_max_run": [
+        151,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215049.npz"
+    },
+    {
+      "seed": 215050,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "281e8e9a0ff0378332d84a4cc39e9355af71ca7985005f57aaa036517cb2422b",
+      "prefix_max_run": [
+        14,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215050.npz"
+    },
+    {
+      "seed": 215051,
+      "count": 3,
+      "success": true,
+      "frames": 330,
+      "initial_sha256": "7d792d674b81141fc669ab0b2468d2f6f1aee710ffc57ecf30504d7a1517539f",
+      "prefix_max_run": [
+        121,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215051.npz"
+    },
+    {
+      "seed": 215052,
+      "count": 3,
+      "success": true,
+      "frames": 362,
+      "initial_sha256": "2a8a9dbde6560aec6e3e3b2db6b2f279b5cce28712b569c4c9e2b0bd94019942",
+      "prefix_max_run": [
+        126,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215052.npz"
+    },
+    {
+      "seed": 215053,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "e00ef9e4e197c99cf471f0d1f25a8011be60499bc9576300ee77d2f1f00ff7e2",
+      "prefix_max_run": [
+        846,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215053.npz"
+    },
+    {
+      "seed": 215054,
+      "count": 3,
+      "success": true,
+      "frames": 318,
+      "initial_sha256": "05f287c7d38cdec526c72f6956e1f4bfc22ce865d08425e00b9f811af42db7a6",
+      "prefix_max_run": [
+        169,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215054.npz"
+    },
+    {
+      "seed": 215055,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "69cb31be9227666f86c521f8adc58784fe93b06bf91cdc9da92984ea069be786",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215055.npz"
+    },
+    {
+      "seed": 215056,
+      "count": 3,
+      "success": true,
+      "frames": 353,
+      "initial_sha256": "06129c2923ad2cf31c80e8417e55bf265952da6a8b7169cac9ce0ea9738602c8",
+      "prefix_max_run": [
+        108,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215056.npz"
+    },
+    {
+      "seed": 215057,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "0056122bf1656cf8393a14daca925aff78cd5a80ddfef754522ffdabc2463720",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215057.npz"
+    },
+    {
+      "seed": 215058,
+      "count": 3,
+      "success": true,
+      "frames": 342,
+      "initial_sha256": "d7fb3c147329d099ee3e1508d0c9a4840cbb7db0efd2dcbb48d4b505f3196537",
+      "prefix_max_run": [
+        143,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215058.npz"
+    },
+    {
+      "seed": 215059,
+      "count": 3,
+      "success": true,
+      "frames": 314,
+      "initial_sha256": "b3895ae755b0f30590170e50ccd6e26957d6949e24165a52df1211276d693819",
+      "prefix_max_run": [
+        183,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215059.npz"
+    },
+    {
+      "seed": 215060,
+      "count": 3,
+      "success": true,
+      "frames": 308,
+      "initial_sha256": "4c06401cd89c4ced07a6bdbfa938900f19b00ab4c08dbb81d507ff6181435c54",
+      "prefix_max_run": [
+        162,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215060.npz"
+    },
+    {
+      "seed": 215061,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "c340440bb9afeded080aa506a31ec724fae56f5e57cf37dd276dce0fb436e431",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215061.npz"
+    },
+    {
+      "seed": 215062,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "0fd565b9f1c94238d0ff1c66c9731337539fee3d5cb3ea3f3124111d9f20c2c3",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215062.npz"
+    },
+    {
+      "seed": 215063,
+      "count": 3,
+      "success": true,
+      "frames": 321,
+      "initial_sha256": "a6baa786c59d048e7504785598e11132ac6496846e755e5d9b6519cf29358c8b",
+      "prefix_max_run": [
+        185,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215063.npz"
+    },
+    {
+      "seed": 215064,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "a4b709439746ffd914cf0d0ac844a8bf327ea6fe4b2495c817e7dbd284baad25",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 4,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215064.npz"
+    },
+    {
+      "seed": 215065,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "4a9e5a39cbf045641c16f72103128b3eacde3c3db80ba9937a6f19f158f78f57",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215065.npz"
+    },
+    {
+      "seed": 215066,
+      "count": 3,
+      "success": true,
+      "frames": 303,
+      "initial_sha256": "0467de93ca68dd449f209a59011e8eb8a3db761a83bb84e622a96ebabf662c5b",
+      "prefix_max_run": [
+        181,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215066.npz"
+    },
+    {
+      "seed": 215067,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "3b680c6c16a12dc2829ad6b3efee786d14d1595cc181e2b0f69a1d26e04a912f",
+      "prefix_max_run": [
+        14,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215067.npz"
+    },
+    {
+      "seed": 215068,
+      "count": 3,
+      "success": true,
+      "frames": 354,
+      "initial_sha256": "7f1624593f16009529b588c8077c62b1632715b4e35ff4af3881838b097cbf77",
+      "prefix_max_run": [
+        146,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215068.npz"
+    },
+    {
+      "seed": 215069,
+      "count": 3,
+      "success": true,
+      "frames": 338,
+      "initial_sha256": "fa7771a5158eca24cf44131c85a0aded39128c94dbdc23ea429afc016e593c49",
+      "prefix_max_run": [
+        124,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215069.npz"
+    },
+    {
+      "seed": 215070,
+      "count": 3,
+      "success": true,
+      "frames": 326,
+      "initial_sha256": "584e26d3f732cef11f4f03a910f69aaed618cdbe0fe1ff317bd40c0a2b69d323",
+      "prefix_max_run": [
+        151,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215070.npz"
+    },
+    {
+      "seed": 215071,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "323faf97ec8eb70adec824d1914fade68d79f4126314871076b6bd00247bf2e6",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215071.npz"
+    },
+    {
+      "seed": 215072,
+      "count": 3,
+      "success": true,
+      "frames": 317,
+      "initial_sha256": "b88968df6ae0dca0cf3e527691bbbc5061790ae52a81db46c64721f3d6463f90",
+      "prefix_max_run": [
+        183,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215072.npz"
+    },
+    {
+      "seed": 215073,
+      "count": 3,
+      "success": true,
+      "frames": 342,
+      "initial_sha256": "16341a4d118a8b0e121fffb2f7e3f2a1bb5a0d823ca0b8dca225d8be37f2de2a",
+      "prefix_max_run": [
+        60,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215073.npz"
+    },
+    {
+      "seed": 215074,
+      "count": 3,
+      "success": true,
+      "frames": 324,
+      "initial_sha256": "2ce6d3f9bf252c7b1cdc0edb0de0b0b8d8fc86c383f83eb5fd980c08ce473dd2",
+      "prefix_max_run": [
+        129,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215074.npz"
+    },
+    {
+      "seed": 215075,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "dfdc593aa478edc5e1800bf14519465a6e2c7c1d242b509b15d77ad506cb47b4",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215075.npz"
+    },
+    {
+      "seed": 215076,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "3ce285c268ef7d02313ec8b3059c2a96afaac74a5815d9fe35079254729cc078",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215076.npz"
+    },
+    {
+      "seed": 215077,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "6581ad476ec43fb40178a331d0362125e2f97c6f0624f4224a8ab71e2c940877",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215077.npz"
+    },
+    {
+      "seed": 215078,
+      "count": 3,
+      "success": true,
+      "frames": 359,
+      "initial_sha256": "9cc3576201e6efd0e3705b6a1571ffc84551b7667c9e9aa809f53b68ffb34500",
+      "prefix_max_run": [
+        158,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215078.npz"
+    },
+    {
+      "seed": 215079,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "b1ff9661b42c4826cf3d9a4d230caf0004f6c9bef46a6bfd476ff6cbc09b2bb1",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215079.npz"
+    },
+    {
+      "seed": 215080,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "9a4e67bd8c774661b88faa9cc013018d3bed96d88166453e93445440548422d8",
+      "prefix_max_run": [
+        12,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215080.npz"
+    },
+    {
+      "seed": 215081,
+      "count": 3,
+      "success": true,
+      "frames": 338,
+      "initial_sha256": "3a61644c304a7343ff5b1aedc6ac8390986a0103d58f147646f49f478c5a77fe",
+      "prefix_max_run": [
+        155,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215081.npz"
+    },
+    {
+      "seed": 215082,
+      "count": 3,
+      "success": true,
+      "frames": 326,
+      "initial_sha256": "db98a3efd6b643faa2a41693d1788e2de4b6adeabc2ef6562ca38b1d74bea838",
+      "prefix_max_run": [
+        197,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215082.npz"
+    },
+    {
+      "seed": 215083,
+      "count": 3,
+      "success": true,
+      "frames": 339,
+      "initial_sha256": "014efa041428924c6399328f7eaf9b89cdb63ec2b8eb011f8abdc944c3e85ddb",
+      "prefix_max_run": [
+        139,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215083.npz"
+    },
+    {
+      "seed": 215084,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "ccc6f34a0cd4b8f8ac11407256d815d81676bd82c3fc377e8a3ec0cf371eddb2",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215084.npz"
+    },
+    {
+      "seed": 215085,
+      "count": 3,
+      "success": true,
+      "frames": 317,
+      "initial_sha256": "28155583f0ddbad2220d94238f2b3dbbc6261455b271f43807ca0397f31da463",
+      "prefix_max_run": [
+        188,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215085.npz"
+    },
+    {
+      "seed": 215086,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "92e71826a04ccd9ea459c34332c29c7a02a6ab0b62a7d420c2d6efc30e955b0f",
+      "prefix_max_run": [
+        15,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215086.npz"
+    },
+    {
+      "seed": 215087,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "c580f1033833b3e87dc499b45ff30683224b18b554c0c1bc17813fcc852ccbac",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215087.npz"
+    },
+    {
+      "seed": 215088,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "a012dda547cda3ccc7dee778fd51a70c729a7f996740953d0728318d06452bc1",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215088.npz"
+    },
+    {
+      "seed": 215089,
+      "count": 3,
+      "success": true,
+      "frames": 312,
+      "initial_sha256": "3544729c18e1519cd2913697fa1287e817ba743b1d829f85d1d6032922baa45e",
+      "prefix_max_run": [
+        184,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215089.npz"
+    },
+    {
+      "seed": 215090,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "ff061cbddf44f2ed2326213e6c9d10b8b2245e65f84bc87abf995f82515ef44c",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215090.npz"
+    },
+    {
+      "seed": 215091,
+      "count": 3,
+      "success": true,
+      "frames": 355,
+      "initial_sha256": "68781ba0f191c56544cdb02a997154374594da034450bd47578acfa270943e8c",
+      "prefix_max_run": [
+        137,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215091.npz"
+    },
+    {
+      "seed": 215092,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "da9eaf251e372083684c279423cbc9420662dfdab3fd22ac8d0581dff477a568",
+      "prefix_max_run": [
+        14,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215092.npz"
+    },
+    {
+      "seed": 215093,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "6959c42b6dce81bd3bc5eed2eae8afd6adfda9c67f187a15afb8465e2d600408",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215093.npz"
+    },
+    {
+      "seed": 215094,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "fdbfaad8d86e0debd327139eed8231e87a0d9cfa63fc256010f4deb241695065",
+      "prefix_max_run": [
+        14,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215094.npz"
+    },
+    {
+      "seed": 215095,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "34dcb9b57bfd518ff64dc73ce25d1aeb0afb28af4c4be90160db216192997240",
+      "prefix_max_run": [
+        14,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215095.npz"
+    },
+    {
+      "seed": 215096,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "d3e76ee963ca8464ad6c21f1313991ea988f069e98ca0a811b2fc0598dcc5570",
+      "prefix_max_run": [
+        17,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215096.npz"
+    },
+    {
+      "seed": 215097,
+      "count": 3,
+      "success": true,
+      "frames": 322,
+      "initial_sha256": "3a9ffa2fcff1f768392e6fa88578ce15ddffdf4a97e6ba4412b083fe0a3a6a96",
+      "prefix_max_run": [
+        65,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215097.npz"
+    },
+    {
+      "seed": 215098,
+      "count": 3,
+      "success": true,
+      "frames": 334,
+      "initial_sha256": "f7b11e3bad55877c6b3d23930f818efc66c23751195f6fa5cd0badec64149204",
+      "prefix_max_run": [
+        144,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215098.npz"
+    },
+    {
+      "seed": 215099,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "a9442e8956e71d9b1a1ee780e01c102b336aeec87e0ed012e32d096fc6afff1d",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215099.npz"
+    },
+    {
+      "seed": 215100,
+      "count": 3,
+      "success": true,
+      "frames": 323,
+      "initial_sha256": "1746ae066d14e74a3e41cc1e102d792d5810c9e9ed3ce46833a22012e8ebbcaf",
+      "prefix_max_run": [
+        170,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "valid",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215100.npz"
+    },
+    {
+      "seed": 215101,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "dd337e24cda21d9c8430ad963707f5abeb768768e0361a48ca2cc44be253ff34",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "valid",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215101.npz"
+    },
+    {
+      "seed": 215102,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "e209a2ce86883f84701f11cb58e1d568e72f3052dd60076772fdf7e7d60f077f",
+      "prefix_max_run": [
+        14,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "valid",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215102.npz"
+    },
+    {
+      "seed": 215103,
+      "count": 3,
+      "success": true,
+      "frames": 336,
+      "initial_sha256": "de220d7716444cc60904347f76bfde504e3a005c40169964ce43576cd859f85c",
+      "prefix_max_run": [
+        113,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "valid",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215103.npz"
+    },
+    {
+      "seed": 215104,
+      "count": 3,
+      "success": true,
+      "frames": 322,
+      "initial_sha256": "37992a131c5fe1531a490510eb00bdbea008c93ca5ecf5490ba66ad75fc7a8b7",
+      "prefix_max_run": [
+        194,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "valid",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215104.npz"
+    },
+    {
+      "seed": 215105,
+      "count": 3,
+      "success": true,
+      "frames": 349,
+      "initial_sha256": "67730da23d92668a78d88d569c3ab34c3183403c006d6cd9433ac22a005ee722",
+      "prefix_max_run": [
+        122,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "valid",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215105.npz"
+    },
+    {
+      "seed": 215106,
+      "count": 3,
+      "success": true,
+      "frames": 335,
+      "initial_sha256": "0cd8686c3413e3af2a1394702e97507ade85696f3f0361612156b89f6e2e87e7",
+      "prefix_max_run": [
+        110,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "valid",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215106.npz"
+    },
+    {
+      "seed": 215107,
+      "count": 3,
+      "success": true,
+      "frames": 308,
+      "initial_sha256": "39fc777df8e81a3680bd574af80263f27d79708fbea7591d8ca9c2d0c4f64f1d",
+      "prefix_max_run": [
+        66,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "valid",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215107.npz"
+    },
+    {
+      "seed": 215108,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "924a65fde6410257f20988249edcd0a3b8371763aafcb0232ebfce710d48ebaf",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "valid",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215108.npz"
+    },
+    {
+      "seed": 215109,
+      "count": 3,
+      "success": true,
+      "frames": 318,
+      "initial_sha256": "fb72dbdbb9f4475199b1381e00fbc1dddf333a31257d29f7087ba2922a7d0dc6",
+      "prefix_max_run": [
+        167,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "valid",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215109.npz"
+    },
+    {
+      "seed": 215110,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "9e0324ed5050b87d3000f55946b1d7e256a115e0e51c9f6662c39ab99e983663",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "valid",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215110.npz"
+    },
+    {
+      "seed": 215111,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "6243e3f7c0de2f6503912eb27266cbdf78f12d8fc053fb0dbe83bb3c1c1fc3fe",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "valid",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215111.npz"
+    },
+    {
+      "seed": 215112,
+      "count": 3,
+      "success": true,
+      "frames": 341,
+      "initial_sha256": "5bfe87b1b4dd41bb0fbf250573a0ac8f974c1fa933d86a56ea4faf47642e6dd1",
+      "prefix_max_run": [
+        147,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "valid",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215112.npz"
+    },
+    {
+      "seed": 215113,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "0b2f230d3a938b309566760672afbf22499976383c4ad95815d728c6b6989f6e",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "valid",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215113.npz"
+    },
+    {
+      "seed": 215114,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "e024b169bd34b69618613931d98a9400c244bbd14dc913000a535054e241b6f9",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "valid",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215114.npz"
+    },
+    {
+      "seed": 215115,
+      "count": 3,
+      "success": true,
+      "frames": 366,
+      "initial_sha256": "170824ae7485c5dc12a73cf299d0cbd15772655a168db80629a228f799e4f614",
+      "prefix_max_run": [
+        190,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "valid",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215115.npz"
+    },
+    {
+      "seed": 215116,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "456cacb9d6340c90b1613c029c4d3b571794b0865b7fd424d42531dc53013288",
+      "prefix_max_run": [
+        0,
+        0
+      ],
+      "last_stage": 1,
+      "phase": 1,
+      "pair_switches": 0,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "valid",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215116.npz"
+    },
+    {
+      "seed": 215117,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "514207a83e239e84bc54b33e8048bdc85eaeaa1228ae28d1be77810176bbb8a8",
+      "prefix_max_run": [
+        13,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "teacher_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "split": "valid",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215117.npz"
+    },
+    {
+      "seed": 215118,
+      "count": 3,
+      "success": true,
+      "frames": 338,
+      "initial_sha256": "9cb4a8b7a4f934646dd408ff985c2a3ff9b1678cc3bef0db56dd41dffe3aec4e",
+      "prefix_max_run": [
+        131,
+        50
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "teacher_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "split": "valid",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215118.npz"
+    },
+    {
+      "seed": 215119,
+      "count": 3,
+      "success": false,
+      "frames": 1000,
+      "initial_sha256": "046ffe82be4fb70b28aa4e130be4210c624d0378029903485d3334a12f5c92f8",
+      "prefix_max_run": [
+        852,
+        0
+      ],
+      "last_stage": 2,
+      "phase": 6,
+      "pair_switches": 1,
+      "teacher": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "teacher_sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a",
+      "split": "valid",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215119.npz"
+    }
+  ]
+}

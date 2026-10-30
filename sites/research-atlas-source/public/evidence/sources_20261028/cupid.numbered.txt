@@ -1,0 +1,1202 @@
+cupid / arXiv:2506.19121v2. PDF pages start at 1. Z = custom nonempty layout line per page, not official publication lines.
+
+===== PDF S. 1 =====
+S01:Z001 |              CUPID:CuratingDatayourRobotLoves
+S01:Z002 |                               withInfluenceFunctions
+S01:Z003 |                          ChristopherAgia1, RohanSinha 1, JingyunYang 1,
+S01:Z004 |   RikaAntonova2, MarcoPavone 1,3, HarukiNishimura 4, MashaItkina 4, JeannetteBohg 1
+S01:Z005 |   1StanfordUniversity,             2UniversityofCambridge,                          3NVIDIAResearch,                      4ToyotaResearchInstitute
+S01:Z006 | Figure1:WepresentCUPID,arobotdatacurationmethodthatleveragesinfluencefunctionstopredictively
+S01:Z007 | answercounterfactualquestionsabouttheeffectofeachdemonstrationondownstreampolicyperformance.
+S01:Z008 |           Abstract:Inrobotimitationlearning,policyperformanceistightlycoupledwith
+S01:Z009 |           thequalityandcompositionofthedemonstrationdata. Yet,developingapreciseun-
+S01:Z010 |           derstandingofhowindividualdemonstrationscontributetodownstreamoutcomes—
+S01:Z011 |           such as closed-loop task success or failure—remains a persistent challenge. We
+S01:Z012 |           proposeCUPID,arobotdatacurationmethodbasedonanovelinfluencefunction-
+S01:Z013 |           theoreticformulationforimitationlearningpolicies. Givenasetofevaluationroll-
+S01:Z014 |           outs,CUPIDestimatestheinfluenceofeachtrainingdemonstrationonthepolicy’s
+S01:Z015 |           expectedreturn. Thisenablesrankingandselectionofdemonstrationsaccording
+S01:Z016 |           totheirimpactonthepolicy’sclosed-loopperformance. WeuseCUPIDtocurate
+S01:Z017 |           databy1)filteringouttrainingdemonstrationsthatharmpolicyperformanceand2)
+S01:Z018 |           subselectingnewlycollectedtrajectoriesthatwillmostimprovethepolicy.Extensive
+S01:Z019 |           simulatedandhardwareexperimentsshowthatourapproachconsistentlyidentifies
+S01:Z020 |           whichdatadrivestest-timeperformance.Forexample,trainingwithlessthan33%of
+S01:Z021 |           curateddatacanyieldstate-of-the-artdiffusionpoliciesonthesimulatedRoboMimic
+S01:Z022 |           benchmark,withsimilargainsobservedinhardware. Furthermore,hardwareexper-
+S01:Z023 |           imentsshowthatourmethodcanidentifyrobuststrategiesunderdistributionshift,
+S01:Z024 |           isolatespuriouscorrelations,andevenenhancethepost-trainingofgeneralistrobot
+S01:Z025 |           policies. Videosandcodearemadeavailableat:https://cupid-curation.github.io.
+S01:Z026 |           Keywords:ImitationLearning,DataCuration,InfluenceFunctions
+S01:Z027 | 1   Introduction
+S01:Z028 | Whilesomeofthelargestbreakthroughsindeeplearninghaveemergedfromarchitecturalinnovations,
+S01:Z029 | data often remains an underrecognized yet critical driver of a model’s overall performance.  In
+S01:Z030 | particular,thesuccessofscalingvisionandlanguagemodelshasbeenfollowedbyarisinginterestin
+S01:Z031 | dataattribution[1,2,3]—methodsthatcausallylinkmodelbehaviortotrainingdata—andinautomatic
+S01:Z032 | datacurationalgorithms[4,5,6],groundedintheideathatnotalldatapointscontributeequally,or
+S01:Z033 | evenpositively,toamodel’sperformance. Aspartsoftheroboticscommunityscaleimitationlearning
+S01:Z034 | androboticsdatasetsbecomeincreasinglydiverse[7,8],developingadeeperunderstandingof(i)how
+S01:Z035 | demonstrationdatashapespolicybehaviorand(ii)howwecanextractmaximumutilityfromtraining
+S01:Z036 | datasetswillbeimperativetoadvancingpolicyperformancetowardreliable,open-worlddeployment.
+S01:Z037 | Curatingdataforrobotimitationlearninghasbeenthefocusofseveralrecentworks[9,10,11]. A
+S01:Z038 | common approach retains demonstrations deemed most valuable under a heuristic,task-agnostic
+S01:Z039 | qualitymetric, resulting in a smaller dataset curated offline [           10]. This approach typically rests on
+S01:Z040 | the implicit assumption that the designed quality metric aligns well with the policy’s downstream
+S01:Z041 | performance—anassumptionthatmaynotholduniformlyacrossdiverseroboticstasks. Whilerecent
+S01:Z042 |     Correspondenceto:cagia@cs.stanford.edu
+
+===== PDF S. 2 =====
+S02:Z001 | effortsattempttolearnperformance-correlatedheuristicsusingonlinepolicyexperience[                 11],theydo
+S02:Z002 | notestablishstrongcausallinksbetweentrainingdataandpolicybehavior. Asaresult,thesemethods
+S02:Z003 | riskmisattributingtherootcauseofpolicysuccessorfailurewithrespecttothetrainingdata[12].
+S02:Z004 | Inthiswork,weformallydefinedatacurationinimitationlearningastheproblemofidentifyingwhich
+S02:Z005 | expertdemonstrationsmaximallycontributetothepolicy’sexpectedreturn. WethenintroduceCUPID
+S02:Z006 | (CUratingPerformance-InfluencingDemonstrations),adatacurationmethodthatdirectlytargetsthis
+S02:Z007 | objectivebyleveraginginfluencefunctions[13,14]—atechniquepopularizedinthedataattribution
+S02:Z008 | literature[15]—toidentifywhichdemonstrationsinfluencedapolicy’spredictionsduringclosed-loop
+S02:Z009 | execution. Weshowthatademonstration’sinfluenceonexpectedreturndecomposesintoatractable
+S02:Z010 | sum over its state-action transitions and can be efficiently approximated using aREINFORCE-style
+S02:Z011 | estimator[16]givenasetofpolicyrollouts. Rankingdemonstrationsbytheirestimatedperformance
+S02:Z012 | impactfacilitatescurationintwosettings: (a)filteringexistingdemonstrationsfromtrainingsetsand
+S02:Z013 | (b)selectinghigh-impactdemonstrationsfromnewlycollectedorpre-collecteddata—whereasprior
+S02:Z014 | workfocusessolelyonfiltering[10,11]. Finally,whileourapproachoffersageneralandeffective
+S02:Z015 | standalonesignalforcuratingdemonstrationdata,weinvestigateitscombinedusewithtask-agnostic
+S02:Z016 | qualitymetrics(alsoderivedfrominfluencescores),identifyingconditionsunderwhichtheintegration
+S02:Z017 | ofperformance-andquality-basedmetricsstrengthensorweakensoverallcurationperformance.
+S02:Z018 | Ourcontributionsarethree-fold: (1)Weformulaterobotdatacurationastheproblemofvaluating
+S02:Z019 | demonstrationsinaccordancewiththeirdownstreamimpactonpolicyperformance;(2)Wepropose
+S02:Z020 | CUPID,anovelapproachforcuratingimitationlearningdatasetsbasedoninfluencefunctions,causally
+S02:Z021 | linkingdemonstrationstothepolicy’sexpectedreturn;(3)Wecharacterizetheconditionsunderwhich
+S02:Z022 | theintegrationoftask-agnosticqualitymetricsstrengthensperformance-baseddatacuration,providing
+S02:Z023 | practicalinsightsintowhensuchintegrationisbeneficial. Extensivesimulationandhardwareexper-
+S02:Z024 | imentsshowthatcurationwithCUPIDsignificantlyimprovespolicyperformanceinmixed-quality
+S02:Z025 | regimes,evenwhenusingonlyafractionofthetrainingdata. Moreover,itidentifiesrobuststrategies
+S02:Z026 | undertest-timedistributionshiftsandcandisentanglespuriouscorrelationsintrainingdatathathinder
+S02:Z027 | generalization—allbyobservingpolicyoutcomesalone,withoutrequiringadditionalsupervision.
+S02:Z028 | 2   RelatedWork
+S02:Z029 | DataCurationinRobotics.Assemblinglargerandmorediversedatasetshasbeencentraltoscaling
+S02:Z030 | effortsinrobotimitationlearning[7,8,17,18,19,20,21],yethowtoextractgreaterutilityfromthese
+S02:Z031 | datasetsremainsanopenquestion. Severalworkshaveexploreddataaugmentation[22,23,24,25,26]
+S02:Z032 | andmixtureoptimization[27]. Onlyrecentlyhasattentionshiftedtovaluatingindividualdemonstra-
+S02:Z033 | tionsfordatacuration[9,10,11]. Hejnaetal.[10]      estimatedemonstrationqualityofflineviamutual
+S02:Z034 | information—withoutconsideringpolicyperformance—whileChenetal.[11]trainclassifierstodis-
+S02:Z035 | tinguishsuccessfulandfailedrolloutsacrosspolicycheckpoints. Incontrast,wedirectlymeasurethe
+S02:Z036 | causalinfluenceofeachdemonstrationonthepolicy’sexpectedreturn,providingasignalthat(a)does
+S02:Z037 | notrequireobservingbothsuccessesandfailures,(b)usesonlyasinglepolicycheckpoint,(c)isrobust
+S02:Z038 | tospuriouscorrelationsinthepolicy’srolloutdistribution,and(d)naturallyextendstoselectingnew
+S02:Z039 | data,whereas[10,11]onlyfilterexistingdata.ConcurrenttoourworkisDataMIL[28],whichusesdata-
+S02:Z040 | modelstoselectfromlargemulti-taskdatasetswithanofflinemetric,whereaswefocusonsingle-task
+S02:Z041 | curationwithaninfluencemeasurethatdirectlyreflectsclosed-loopreturnsfromonlinepolicyrollouts.
+S02:Z042 | DataAttributionoutsideRobotics.Dataattributionmethodsmodeltherelationshipbetweentraining
+S02:Z043 | dataandlearnedbehavior,withapplicationsinmodelinterpretability[2,29],datavaluation[30,31],
+S02:Z044 | machineunlearning[32],andmore[33]. Recentworkhasfocusedonimprovingtheaccuracyofdata
+S02:Z045 | attributionmethods[34,35,36],suchasinfluencefunctions[13,14],andextendingthemtoincreasingly
+S02:Z046 | complexgenerativearchitectures[1,37,38]. Arelatedlineofresearchexploresimprovinglanguage
+S02:Z047 | modelpre-training[3]andfine-tuning[39,40,41]throughdataselection. However,thesesettings
+S02:Z048 | typicallyassumealignedtrainingandevaluationobjectives(i.e.,predictionloss)andaccesstotest-time
+S02:Z049 | labels. Incontrast,robotimitationlearninginvolvesanobjectivemismatch: policiesaretrainedvia
+S02:Z050 | supervisedlearningbutevaluatedthroughclosed-loopenvironmentinteractions,wheretasksuccess
+S02:Z051 | dependsonmanysequentialpredictionsandground-truthactionlabelsareunavailableattest-time.
+S02:Z052 |                                                        2
+
+===== PDF S. 3 =====
+S03:Z001 | 3   Background: DataAttributionviaInfluenceFunctions
+S03:Z002 | Atahigh-level,thegoalofdataattributionmethodologiesistoexplicitlyrelatemodelperformance
+S03:Z003 | andbehaviortothetrainingdata,sothatwecananswercounterfactualquestionsaboutthecontribution
+S03:Z004 | oftrainingsamplestowardstest-timepredictions. Considerastandardsupervisedlearningsetting,
+S03:Z005 | where we fit model parametersθ on a given training datasetD:={z          1,...,zn} of input-label pairsPn
+S03:Z006 | zi=(x i,yi)∈Z  withθ(D)=argmin      θ′{L(θ     ′;D):=      1n           i=1 ℓ(z   i;θ ′)} . Moreover, letf(ˆz;θ)∈R
+S03:Z007 | beanychosenperformancemetriconatestsample ˆz=(ˆx,ˆy)∈Z                givenmodelparametersθ (e.g.,
+S03:Z008 | cross-entropy loss for a classifier).  Then, a data attribution methodΨout :Z×Z →R      aims to
+S03:Z009 | approximatethechangeintheperformancemetricf ifweweretoexcludesamplezifromthemodel’s
+S03:Z010 | trainingdata. Thatis,weaimtodesignΨ           out suchthatΨ      out(ˆz,z  i)≈f  ˆz;θ(D\{z           i})−f(ˆz;θ(D)).
+S03:Z011 | Theinfluencefunctionisadataattributiontechniquethatapproximates             Ψout withoutretrainingany
+S03:Z012 | models[15]. ConsiderperturbingthetrainingobjectiveasLϵ,z(θ ′;D):=L(θ           ′;D)+ϵℓ(z,θ          ′),  where
+S03:Z013 | weaddaninfinitesimalweightϵonthelossofsomesampleztoL. Theinfluencefunctionestimates
+S03:Z014 | thechangeintheperformancemetricfasafunctionofϵwithafirst-orderTaylorapproximationas
+S03:Z015 | ϵ=0 =−∇   θf(ˆz;θ(D))           ⊤H−1
+S03:Z016 |                      Ψinf(ˆz,z):=     df(ˆz;θ)dϵ                               θ  ∇θℓ(z;θ(D)),                      (1)
+S03:Z017 | whereHθ= 1       Pn
+S03:Z018 |                n    i=1∇2θℓ(z   i;θ(D))        denotestheHessianofthetrainingloss1 [13]. Therefore,wecan
+S03:Z019 | usetheinfluencefunctiontodirectlyapproximatetheleave-one-outinfluence                        Ψout ofasamplezi∈D
+S03:Z020 | asΨoutinf (ˆz,z  i):=−     1nΨinf(ˆz,z  i). Inaddition,forz̸∈D  wesimilarlydefinetheadd-one-ininfluence
+S03:Z021 | asΨ   ininf(ˆz,z):=      1nΨinf(ˆz,z)≈f(ˆz;θ(D∪{z}))−f(ˆz;θ(D))withzexcludedfromtheHessianH                                                                          θ.
+S03:Z022 | 4   ProblemFormulation
+S03:Z023 | ImitationLearning(IL):Theobjectiveofthisworkistounderstandhowdemonstrationdatacon-
+S03:Z024 | tributestoclosed-loopperformanceinrobotimitationlearning. Thus,weconsideraMarkovDecision
+S03:Z025 | Process⟨S,A,T,R,ρ            0⟩withstatespaceS,actionspaceA,transitionmodelT ,rewardmodelR,initial
+S03:Z026 | statedistributionρ0,andfinitehorizonH. Wetrainapolicyπθ tominimizeabehaviorcloning(BC)ob-PP
+S03:Z027 | jective,i.e.,θ=argmin θ′{Lbc(θ ′;D):=        1|D|H       ξi∈D     (s,a)∈ξ          iℓ(s,a;π         θ′)} ,usingadatasetofnexpert
+S03:Z028 | demonstrationsD={ξ         1,...,ξn}. Eachdemonstrationξi=((s   i0,ai0),...,(s    iH,aiH))consistsofastate-
+S03:Z029 | actiontrajectorywheretherobotsuccessfullycompletesthetask.Wetreatatrajectoryτ=(s   0,a0,...,sH)
+S03:Z030 | aseitherasuccessorafailure,correspondingtothebinaryreturns               R(τ)=1      andR(τ)=−1             respectively.
+S03:Z031 | Therefore,inIL,wetrainthepolicyπθtomatchthedistributionofsuccessfulbehaviorsinD,ratherthan
+S03:Z032 | directlymaximizeitsexpectedreturnJ(π   θ):=E    p(τ|π      θ)[R(τ)]       . Asaresult,thepolicy’sperformanceis
+S03:Z033 | intimatelylinkedtotherelativesuboptimalityofthedemonstrationdata—afunctionofitsqualityand
+S03:Z034 | composition—notjusttovalidationlosses,modelcapacity,orbias-variancetradeoffs. Thismakesitex-
+S03:Z035 | tremelychallengingtosystematicallyimproveperformance. Recentworksunderscorethatsimplyscal-
+S03:Z036 | ingdemonstrationcollectionmayresultindatasetsthatcontainsubstantialredundanciesandbehaviors
+S03:Z037 | thatmayactuallyharmpolicyperformance,eventhoughR(ξ     i)=1foralldemonstrationsξi∈D[42].
+S03:Z038 | RobotDataCuration:Whileseveralrecentworksproposeintuitivemeasuresofqualitytocurate
+S03:Z039 | data,wefindthatsuchheuristicscanmisalignwithhowdeepmodelsactuallylearn,sometimeseven
+S03:Z040 | worseningtest-timeperformancecomparedtorandomlychoosingsamples(see§6). Therefore,wefirst
+S03:Z041 | formallydefinerobotdatacurationastheproblemofidentifyingdemonstrationdatathatmaximizes
+S03:Z042 | thepolicy’sclosed-loopperformance. Inparticular,assumethatwehaveabasepolicy πθ trainedon
+S03:Z043 | thedemonstrationdataD. Weconsidertwosettingsthatareessentialtoapolicydebuggingtoolchain.
+S03:Z044 | The first is that ofdata filtering, where our goal is to identify and remove redundant or harmful
+S03:Z045 | demonstrationsfromDthatmaybelimitingtheperformanceofthebasepolicyπ             θ.
+S03:Z046 | Task1(Filter- k demonstrations). Let                         Ξ−k ={S⊆D||S|=k}                  denoteallpossiblek-demonstration
+S03:Z047 | subsetsofthetrainingdatasetD={ξ         1,...,ξn},wherek≤n     . Determinewhichkdemonstrationsshould
+S03:Z048 |    1 ToreducethecomputationalcostofEq.1,weuseTRAK[     2],whichleveragesrandomprojectionsanda
+S03:Z049 | Gauss-NewtonHessianapproximationforefficientinfluenceestimation. Thisalsomakestheinfluencefunction
+S03:Z050 | amenabletothenon-smooth,non-convexlossfunctionsinpracticaldeeplearningproblems,soweassumeEq.1is
+S03:Z051 | well-definedthroughoutthispaper.
+S03:Z052 |                                                             3
+
+===== PDF S. 4 =====
+S04:Z001 | Figure2:DatacurationwithCUPID.Upontrainingapolicyonasetofdemonstrationsusingbehaviorcloning,
+S04:Z002 | weevaluateitonlinetocollectclosed-looprollouttrajectoriesandestimatethepolicy’sexpectedreturn.CUPID
+S04:Z003 | ranksdemonstrationbasedontheirmeasuredinfluenceonthisperformanceestimateandselectsthetop-k. Thus,
+S04:Z004 | curatingwithCUPIDresultsinadatasetofdemonstrationsthatmoststronglyinfluencesclosed-looppolicysuccess.
+S04:Z005 | beremovedfromDtomaximizepolicyperformancewithrespecttothetaskobjectiveJ. Thatis,find
+S04:Z006 |                           S⋆=argmaxJ(π   θ)   s.t.   θ=argmin θ′  Lbc(θ ′;D\S).
+S04:Z007 |                                     S∈Ξ   −k
+S04:Z008 | Thesecondisthatofdataselection,whereweseektoguidethesubselectionofnewdemonstration
+S04:Z009 | datatomaximallyimproveourbasepolicy,givenafixedbudget.
+S04:Z010 | Task2(Select- kdemonstrations). Let                         Ξ+k ={S⊆H||S|=k}                  denoteallpossiblek-demonstration
+S04:Z011 | subsetsofaholdoutdatasetH={ξ         1,...,ξn′},wherek≤n    ′. Determinewhichkdemonstrationsshould
+S04:Z012 | beaddedtoDfromHtomaximizepolicyperformancewithrespecttothetaskobjectiveJ. Thatis,find
+S04:Z013 |                           S⋆=argmaxJ(π   θ)   s.t.   θ=argmin θ′  Lbc(θ ′;D∪S).
+S04:Z014 |                                     S∈Ξ    +k
+S04:Z015 | InTask2,weconsidertheproblemofidentifyingthemostimpactfultrajectoriesfromanewlycollected
+S04:Z016 | batchofdemonstrationsorfromanexistingpre-collecteddataset,akintoperformingqualitycontrol.
+S04:Z017 | PolicyTesting&Evaluation:TomakeprogressonTask1andTask2,weassumeaccesstoasmall
+S04:Z018 | datasetofmrolloutsDτ={τ      1,...,τm}iid∼p(τ|π          θ)ofthebasepolicyπθ alongwiththeirassociatedre-
+S04:Z019 | turns{R(τ       1),...,R(τ            m)}  toestimateJ(π   θ).Thisalignswithhowwecurrentlyevaluatepoliciesinprac-
+S04:Z020 | tice[43],despitelackingprincipledstrategiestoleverageevaluationstowardsBCpolicyimprovement.
+S04:Z021 | 5   CUPID:CuratingPerformance-InfluencingDemonstrations
+S04:Z022 | In the literature, the desiderata for curating demonstration data appears diverse and often context
+S04:Z023 | specific, with recent works valuating demonstrations upon heuristic measures of similarity [11],
+S04:Z024 | compatibility[44],uncertainty[45],andinformationgain[10].Thekeyinsightofthisworkisthat
+S04:Z025 | solvingcurationproblems,i.e.,Task1andTask2(§4),requirescausallyconnectingtrainingdatatothe
+S04:Z026 | policy’sclosed-loopperformance. Therefore,wefirstadapttechniquesfromdataattribution,asdefined
+S04:Z027 | in§3,todirectlycomputetheinfluenceofatrainingdemonstrationontheperformanceofapolicy.
+S04:Z028 | Thisallowsustouseourperformanceinfluencetodirectlycuratedatainalignmentwithourobjectives.
+S04:Z029 | 5.1   Demonstration-PerformanceInfluence
+S04:Z030 | WhileexistingdataattributionmethodscantracevalidationlossesbacktothetrainingsetDforcuration
+S04:Z031 | purposes,theBClossisnotalwaysreflectiveofapolicy’sclosed-loopperformance[46].Thus,wemust
+S04:Z032 | firstdevelopananalogousnotionoftheinfluencefunctiontocapturetheimpactofademonstration
+S04:Z033 | trajectoryontheclosed-loopperformanceofanimitationlearningpolicy. Todoso, wegroupthe          P
+S04:Z034 | BCtrainingobjectiveintotrajectory-levellossesbyintroducingℓtraj(ξ;π    θ′):= 1P             H     (s,a)∈ξ       ℓ(s,a;π         θ′),
+S04:Z035 | sothatLbc(θ ′;D)=       1|D|   ξi∈Dℓtraj(ξ i;π θ′). Wenowformallydefinetheperformanceinfluenceof
+S04:Z036 | ademonstrationastheapplicationoftheinfluencefunction(seeEq.1)onthepolicy’sexpectedreturn:
+S04:Z037 | Definition 1(Performance Influence). Let                 ξ be a demonstration of interest.  Suppose we train a
+S04:Z038 | policyπθ to minimize the perturbed BC objectiveLϵ,ξbc(θ ′;D):=L         bc(θ ′;D)+ϵℓ        traj(ξ;π    θ′). Then,
+S04:Z039 |                                                           4
+
+===== PDF S. 5 =====
+S05:Z001 |   demonstrationξ’sperformanceinfluenceisthederivativeofthepolicy’sexpectedreturn             J(π   θ)with
+S05:Z002 |   respecttotheweightϵ. Thatis,
+S05:Z003 | ϵ=0
+S05:Z004 |                            Ψπ-inf  (ξ):=   dJ(π      θ)dϵ   =−∇   θJ(π   θ)⊤H−1bc∇θℓtraj(ξ;π    θ),
+S05:Z005 |   whereH bc:=∇    2θLbc(θ;D)denotestheHessianoftheBCobjective.
+S05:Z006 |   In essence,Definition 1enables us to predictively answer the counterfactual:  “How would the
+S05:Z007 |   policy’s expected return change if we upweighted—or by negating, downweighted—the loss on a
+S05:Z008 |   demonstrationξ duringtraining?” WhileDefinition1neatlyalignswiththestandarddefinitionof
+S05:Z009 |   theinfluencefunctioninEq.1—using      J astheperformancemetricandℓtrajasthedemonstration-level
+S05:Z010 |   loss—we distinguish theperformance influencefrom the standard influence function [                     13] for two
+S05:Z011 |   keyreasons: (1)Theperformanceinfluenceattributestheoutcomeofapolicy’ssequentialdecisions
+S05:Z012 |   totime-seriesdemonstrations,whereastheexistingtechniquesdiscussedin§3onlyrelateanindividual
+S05:Z013 |   labeled prediction to a single training sample; (2) We cannot directly computeΨπ-inf    because the
+S05:Z014 |   policy’sexpectedreturnJ(π   θ)dependsontheunknowntransitiondynamicsandrewardfunction. To
+S05:Z015 |   alleviatethesechallenges,weshowthatwecandecomposetheperformanceinfluenceintoinfluence
+S05:Z016 |   scoresofindividualactionpredictions,whichwedefineastheactioninfluence.
+S05:Z017 |   Definition2(ActionInfluence).Theactioninfluenceofastate-actionpair                                    (s,a)       onateststate-action
+S05:Z018 |   pair(s       ′,a′)istheinfluenceof(s,a)onthepolicy’slog-likelihoodlogπ                              θ(a ′|s′). Thatis,
+S05:Z019 |                            Ψa-inf  ((s  ′,a′),(s,a)):=−∇              θlogπ     θ(a ′|s′)⊤H−1bc∇θℓ(s,a;π         θ).                         (2)
+S05:Z020 |   TheadvantageoftheactioninfluenceisthatwecaneasilycomputethequantitiesinEq.2giventhe
+S05:Z021 |   policyweightsθandthetrainingdemonstrationsD,e.g.,usingtheattributionmethodsdiscussedin
+S05:Z022 |   §3. However,weemphasizethatcomputingactioninfluencesoverstate-actionsamplesfromapolicy
+S05:Z023 |   rolloutτ∼p(τ|π           θ)onlytellsuswhatdemonstrationdataledtothepolicytakingthoseactions,without
+S05:Z024 |   ascribingvaluetotheresultingoutcome(e.g.,successorfailure). Wenowshowthattheperformancein-
+S05:Z025 |   fluencedecomposesintothesumofindividualactioninfluences,weightedbythetrajectoryreturnR(τ)      .
+S05:Z026 |   Proposition1.Assumethat   θ(D)=argmin      θ′Lbc(θ ′;D)    ,thatLbc istwicedifferentiableinθ,and
+S05:Z027 |   thatH      bc≻0ispositivedefinite(i.e.,θ(D)isnotasaddlepoint)                     1. Then,itholdsthat2
+S05:Z028 |                                                      R(τ)        X        X
+S05:Z029 |                        Ψπ-inf  (ξ)=E      τ∼p(τ|π          θ)H                  Ψa-inf (s ′,a′),(s,a)   .                    (3)
+S05:Z030 |                                                               (s ′,a′)∈τ(s,a)∈ξ
+S05:Z031 |   In brief, we proveProposition 1using the log-derivative trick underlying policy gradient meth-
+S05:Z032 |   ods[16,47]todecomposeΨπ-inf    intoΨa-inf   (see§D.1forproof). BecauseProposition1relatesthe
+S05:Z033 |   performanceinfluencetotheaverageactioninfluencethatademonstrationξhasontheclosed-loop
+S05:Z034 |   distributionofpolicyrollouts,Proposition1directlyprovidesamethodtoestimateΨ                              π-inf   :
+S05:Z035 |   EstimateΨπ-inf   :First,evaluatethepolicy πθ onlinetogatherasetofrolloutsDτ ={τ      1,...,τm} iid∼
+S05:Z036 |   p(τ|π      θ)andtheirassociatedreturns{R(τ       1),...,R(τ      m)} . Then, constructanempiricalestimateof
+S05:Z037 |   theperformanceinfluencebΨπ-inf    usingEq.3,byaveragingactioninfluencesacrosstherolloutsin       Dτ.
+S05:Z038 |   WeillustratetheperformanceinfluenceinFig.2andsummarizeitsestimationprocedureinAlgorithm1.
+S05:Z039 |   Algorithm1:PerformanceInfluence
+S05:Z040 | 1Input:Policyπ              θ,trainingdataD,demonstrationξ,dataattributionmethodΨ
+S05:Z041 | 2CollectrolloutsD             τ={τ      1,...,τm}iid∼p(τ|π         θ)andreturns{R(τ                      1),...,R(τ            m)}
+S05:Z042 | 3UseΨ,DtocomputeΨ                             a-inf  ((s  ′,a′),(s,a))forall(s                 ′,a′)∈D τ,(s,a)∈ξ
+S05:Z043 |                                P          R(τ    i)P
+S05:Z044 | 4EstimatebΨπ-inf  (ξ):=     1m    τi∈Dτ     H      (s ′,a′)∈τ    iP(s,a)∈ξ        Ψa-inf  ((s  ′,a′),(s,a)).
+S05:Z045 | 5Output:Estimatedperformanceinfluence    bΨπ-inf  (ξ)
+S05:Z046 |       2Notethatthefraction1/H   appearsfromtheassumptionthatalltrajectorieshaveequallength,whichwemake
+S05:Z047 |   purelyfornotationalsimplicitywithoutlossofgenerality. Wereferto§D.2forthevariablelengthcase.
+S05:Z048 |                                                                   5
+
+===== PDF S. 6 =====
+S06:Z001 | 5.2   DataCurationwithPerformanceInfluence
+S06:Z002 | In this section,  we leverage the performance influence Ψπ-inf  , which we developed in§5.1,
+S06:Z003 | to curate data towards the filtering and selection tasks (Task 1andTask 2) defined in§4.   In
+S06:Z004 | particular, we use the estimates ofΨπ-inf    to make the following first-order Taylor approximations
+S06:Z005 | on theleave-one-outandadd-one-ininfluence (as defined in§3) of a demonstration trajectory as
+S06:Z006 | Ψoutπ-inf  (ξ):=−  bΨπ-inf  (ξ)|D|    ≈J(π       θ(D\{ξ})        )−J(π        θ(D)    ),  Ψ   inπ-inf  (ξ):= bΨπ-inf  (ξ)|D|    ≈J(π       θ(D∪{ξ})        )−J(π        θ(D)    ).
+S06:Z007 | Then, weusetheleave-one-outandadd-one-ininfluencestocounterfactuallyestimatethechange
+S06:Z008 | inexpectedreturnwhenremovingoraddingasetofdemonstrationsS withalinearapproximationasPP
+S06:Z009 | ∆bJ(π   θ(D\S)     )∝    1|S|ξ∈S   Ψoutπ-inf  (ξ)    and∆bJ(π   θ(D∪S)      )∝    1|S|ξ∈S   Ψinπ-inf  (ξ)   . Asaresult,optimally
+S06:Z010 | curatingdataunderourapproximatelinearmodelonpolicyperformancesimplyentailsselectingthe
+S06:Z011 | leastinfluentialdemonstrationsfromthetrainingdataD—inthecaseofdatafiltering—orselecting
+S06:Z012 | themostinfluentialdemonstrationsfromanewsetofdemonstrationsH—inthecaseofdataselection:
+S06:Z013 | Task1: Filter-kDemonstrations                                   Task2: Select-kDemonstrations
+S06:Z014 |   S⋆out=argtop-k   {Ψ  outπ-inf  (ξ i):ξ i∈D}, (4)                S⋆in=argtop-k   {Ψ  inπ-inf  (ξ i):ξ i∈H}.  (5)
+S06:Z015 | WenotethatbylinearlyapproximatingpolicyperformancechangesusingΨπ-inf   ,weconstructwhat
+S06:Z016 | iscommonlytermeda(linear)datamodel[                             48]. AsshowninNLP[3],usingsuchfirst-orderapproxi-
+S06:Z017 | mationsfordatacurationcanoftengreatlyimprovemodelperformanceovermanualnotionsofquality.
+S06:Z018 | 5.3   AdditionalQualityMetrics
+S06:Z019 | In§5.1,weconstructedamethodtoestimate         Ψπ-inf    fromadatasetofpolicyrolloutsDτ byrelyingon
+S06:Z020 | policygradientmethods. Therefore,theestimatedperformanceinfluencebΨπ-inf    becomesincreasingly
+S06:Z021 | noisyaswereducethenumberofrolloutsmtoevaluatethepolicy—akintothehighvarianceproblem
+S06:Z022 | of theREINFORCE algorithm. To complement the analysis in§5.1, we explore the integration of a
+S06:Z023 | reward-agnostic,heuristicdemonstrationqualitymetricbasedontheactioninfluencescoresΨ                         a-inf   :
+S06:Z024 |                           X
+S06:Z025 |     Ψqual(ξ;D    τ):= 1m       (s ′,a′)∈τ     minmax(s,a)∈ξ        Ψa-inf  (s ′,a′),(s,a)  −min(s ′,a′)∈τ    max(s,a)∈ξ        Ψa-inf  (s ′,a′),(s,a)  .    (6)
+S06:Z026 |                          τ∈D τ
+S06:Z027 | WebasethequalityscoreEq.6ontheintuitionthatweshouldpenalizedemonstrationscontainingoutlier
+S06:Z028 | ornoisyinfluencescores[13,Sec.5.2],[10].Assuch,wepositthatthisheuristiccanreducevarianceon
+S06:Z029 | tasksrequiringprecisemotion,yetintroducebiasuncorrelatedwithperformanceinothersettings.Thus,
+S06:Z030 | in§6,weinvestigatewhenthequalityscorecancomplement      Ψπ-inf   tocuratedatabytakingtheirconvex
+S06:Z031 | combination,αΨ                        π-inf   +(1−α)Ψ          qual,ablatingα=1(CUPID)andα=1/2(CUPID-QUALITY).
+S06:Z032 | 6   Experiments
+S06:Z033 | WeconductaseriesofexperimentstotesttheefficacyofCUPIDalongsidestate-of-the-artbaselinesfor
+S06:Z034 | robotdatacuration. TheseexperimentstakeplaceacrossthreesimulatedtasksfromtheRoboMimic
+S06:Z035 | benchmarksuite[49]andthreereal-worldtaskswithaFrankaFR3manipulator(seeFig.4).Thesetasks
+S06:Z036 | compriseataxonomyofsettingswheredatacurationmaybenefitpolicyperformance. Foradetailed
+S06:Z037 | descriptionofourtasks,datasets,baselines,evaluationprotocol,andhardwaresetup,pleasereferto§B
+S06:Z038 | Evaluation.Westudythefilter-            k(Task1)andselect-  k(Task2)curationtaskswhereverapplicable.
+S06:Z039 | For statistical significance, we start filter-k and select-k from random∼2/3        and∼1/3        subsets in
+S06:Z040 | RoboMimic(300demonstrationspertasktotal),andrandom∼9/10       and∼4/10       subsetsonFranka
+S06:Z041 | tasks(120-160demonstrationspertasktotal),respectively. Weusetheofficialconvolutional-based
+S06:Z042 | diffusionpolicyimplementation[50]foralltaskstomeasuretheeffectofcurationonastate-of-the-art
+S06:Z043 | policyarchitecture. Detailsontheinfluencefunctioncomputationfordiffusionmodelsareprovided
+S06:Z044 | in§A.Wealsoconsidertheofficial       π0 implementation[21]forreal-worldtasks. Toreflectpractical
+S06:Z045 | constraints, we limit the rollout budget (i.e., the number of rollouts inDτ ={τ     i}mi=1  a curation
+S06:Z046 | algorithmmayuse, asdescribedin§4)to       m=100    andm=25    forsimulatedandreal-worldtasks,
+S06:Z047 | respectively.  We report policy success rates over 500 rollouts averaged over the last 10 policy
+S06:Z048 | checkpointsforsimulatedtasks,and25rolloutsperformedwiththelastcheckpointforreal-worldtasks.
+S06:Z049 |                                                             6
+
+===== PDF S. 7 =====
+S07:Z001 | Figure3:RoboMimicmixed-qualitycurationresults.Top: DataQuality.Baselinesoftenprioritizedemonstra-
+S07:Z002 | tionquality(e.g.,DemInf[10]),buthigherdemonstrationqualitydoesalwaystranslatetohigherpolicysuccess
+S07:Z003 | rates. Incontrast,CUPIDtargetsdemonstrationsthatmoststronglycontributetodownstreampolicyperformance.
+S07:Z004 | Bottom: PolicyPerformance.DiffusionpoliciestrainedondatacuratedbyCUPIDachievehighersuccessrates
+S07:Z005 | thanbaselines,despiteusingdemonstrationsofperceivedlowerquality. Althoughcombiningperformanceand
+S07:Z006 | qualitymeasures(CUPID-QUALITY)yieldsthebestpoliciesonmixed-qualitydatasets,qualitymeasurescan
+S07:Z007 | degradeperformanceinothersettings(seeFig.4). Resultsareaveragedover3randomseeds(500policiestrained
+S07:Z008 | acrosssettings). Successratesarecomputedover50rolloutsfromthelast10checkpoints(500rolloutstotal).
+S07:Z009 | Baselines.Weconsiderbaselinesfromseveralmethodologicalcategories: DemInf[                10]—applicable
+S07:Z010 | onlytofilter-k(Task1)—curatesdataoffline(i.e.,withoutrollouts)bymaximizingmutualinformation,
+S07:Z011 | promoting diverse and predictable demonstrations; Demo-SCORE [11] trains binary classifiers to
+S07:Z012 | distinguishstatesfromsuccessfulandfailedrollouts,retainingdemonstrationswithahighaveragestate
+S07:Z013 | successprobability;SuccessSimilarityisacustommethodthatranksdemonstrationsbytheiraverage
+S07:Z014 | statesimilaritytosuccessfulrollouts;Randomchoosesdemonstrationsuniformlyatrandom;Oracle
+S07:Z015 | approximatesanupperboundonperformancebycuratingdatawithprivilegedaccesstoground-truth
+S07:Z016 | demonstrationlabels,e.g.,indicatingdemonstrationquality,strategyrobustness,orotherproperties.
+S07:Z017 | 6.1   Setting1: ImprovingPolicyPerformanceinMixed-QualityRegimes
+S07:Z018 | We first study curation of mixed-quality datasets, where training on lower-quality demonstrations
+S07:Z019 | maydegradepolicyperformance[49,10]. Weusethe“Lift,”“Square,”and“Transport”tasksfrom
+S07:Z020 | RoboMimic’smulti-human(MH)tasksuite,whichprovidesground-truthqualitylabelsfordemonstra-
+S07:Z021 | tions. The“Lift”and“Square”taskscontainthreequalitytiers{“low”,“medium”,“high”},whilethe
+S07:Z022 | morecomplexbi-manual“Transport”taskcontainssixqualitytiers{“low-low”,“low-medium”,...}.
+S07:Z023 | Onhardware,wedesignthe“Figure-8”task(Fig.4(a)),wheretherobotmusttieasimplifiedcleat
+S07:Z024 | hitch—aknotthatfollowsafigure-8pattern—requiringprecisemanipulationofadeformablerope.
+S07:Z025 | RoboMimicanalysis.Fig.3presentstheRoboMimicbenchmarkresults:thetoprowshowsdataquality
+S07:Z026 | trendsforfilter-kandselect-kacrossvaryingk,whilethebottomrowreportssuccessratesofdiffusion
+S07:Z027 | policiestrainedonthecorrespondingcurateddatasets. Asexpected,wefirstobservethatDemInf—
+S07:Z028 | whichtargetsdemonstrationquality—curatesdatasetsofthehighestoverallqualitybyRoboMimic’s
+S07:Z029 | ground-truthlabelsforfilter-k(toprow,Fig.3). However,policiestrainedondatacuratedbyCUPID
+S07:Z030 | consistentlymatchoroutperformthoseofDemInf(bottomrow,Fig.3). Thisindicatesthathuman
+S07:Z031 | perceptionofdemonstrationqualitydoesnotnecessarilycorrespondtodatathatmaximizesdownstream
+S07:Z032 | policysuccess. Second,wefindthestatesimilarityheuristicsemployedbyDemo-SCOREandSuccess
+S07:Z033 | Similaritytoberelativelyineffectiveinchallengingmixed-qualityregimes,wheresuccessfulandfailed
+S07:Z034 | rolloutsexhibitsimilarstates. Lastly,CUPID-QUALITY,whichevenlybalancesdemonstrationquality
+S07:Z035 | anddownstreamperformanceimpact(§5.3),attainsthehighestpolicysuccessrates—surpassingthe
+S07:Z036 | Oraclein3/5cases,andachievinganevenhighersuccessratethantheofficialdiffusionpolicy[50]
+S07:Z037 | on“TransportMH”whileusingfewerthan(i)33%oftheoriginal300demonstrationsand(ii)10%
+S07:Z038 | ofthemodelparameters. WeprovideanextendeddiscussionoftheRoboMimicresultsin§C.1.
+S07:Z039 |                                                         7
+
+===== PDF S. 8 =====
+S08:Z001 | Figure4:Frankareal-worlddiffusionpolicyperformance.CUPID,whichcuratesdemonstrationsw.r.t.policy
+S08:Z002 | performance, improves success rates on mixed-quality datasets, identifies robust strategies, and disentangles
+S08:Z003 | spurious correlations that hinder performance. Although quality measures (e.g., DemInf,CUPID-QUALITY)
+S08:Z004 | helpinmixed-qualitysettings(Figure-8;Fig.3),theydegradeperformancewhenhigher-qualitydemonstrations
+S08:Z005 | inducebrittlestrategiesattesttime(TuckBox),orwhenqualityisnottheprimaryfactorlimitingpolicysuccess
+S08:Z006 | (Bookshelf). Overall,curatingdatabasedonperformance(CUPID)maintainsrobustnessacrossthesesettings.
+S08:Z007 | Figure-8analysis.Fig.4(a)showsdiffusionpolicyresultsonthereal-world“Figure-8”task. First,CU-
+S08:Z008 | PIDimprovesoverthebasepolicy’ssuccessrateby38%(averagedoverfilteringandselection). Second,
+S08:Z009 | asinRoboMimic,CUPID-QUALITYfurtherstrengthenscurationperformance,corroboratingtheutility
+S08:Z010 | ofqualitymetrics(Eq.6)inmixed-qualityregimes. AsshowninFig.5(a)(filtering;see§C.5forselec-
+S08:Z011 | tion),bothCUPIDandCUPID-QUALITYsuccessfullyretainhigh-qualitydemonstrations,whereasbase-
+S08:Z012 | linessuchasDemo-SCOREdiscardsomeinfavoroflower-qualitydemonstrations. Overall,training
+S08:Z013 | onlower-qualitydemonstrationsappearstoadverselyaffectpolicyperformanceonthe“Figure-8”task.
+S08:Z014 | 6.2   Setting2: IdentifyingRobustTest-timeStrategiesfromPolicyFailures
+S08:Z015 | Heterogeneousimitationlearningdatasetsmaycontainmultiplestrategiesforsolvingatask,someof
+S08:Z016 | whichcanfailunderdistributionshiftsatdeployment. Wedesignareal-world“TuckBox”task,where
+S08:Z017 | arobotmusttuckarecyclingbinunderareceptacleby(i)slidingor(ii)firstrepositioningitviapick-
+S08:Z018 | and-place(seeFig.4(b)). Thedatasetcontainsa2:1ratioofslidingtopick-and-placedemonstrations,
+S08:Z019 | making sliding the dominant strategy.  At test time, we induce an imperceptible distribution shift
+S08:Z020 | byalteringthebin’smassdistribution,renderingslidingunreliable. Inthissetting,curationaimsto
+S08:Z021 | rebalancethedatasettopromotestrategiesthataremorerobusttounforeseenshiftsatdeployment.
+S08:Z022 | TuckBoxanalysis.Fig.4(b)showsthediffusionpolicyresultson“TuckBox.” Duetothestrategyim-
+S08:Z023 | balance,thebasepolicyexclusivelyexhibitstheslidingbehavior,resultingina100%failurerateunder
+S08:Z024 | thedistributionshift. ThisimmediatelyinvalidatestheuseofDemo-SCORE,whichrequiresbothsuc-
+S08:Z025 | cessfulandfailedrollouts. Incontrast,CUPIDdoesnotrequireobservingsuccesses: bylinkingfailures
+S08:Z026 | tothedemonstrationsthatinfluencedthem,curatingwithCUPIDyieldsapolicythatexhibitsincreased
+S08:Z027 | pick-and-placebehavior,performingcomparably(84%-88%successrate)totheOracle. Incontrast,
+S08:Z028 | bothDemInfandCUPID-QUALITYincorrectlyassociatethehigher-variancepick-and-placedemonstra-
+S08:Z029 | tionswithlowerquality,resultinginmoreuniformfilteringacrossstrategies(seeFig.5(b)). Asaresult,
+S08:Z030 | policiestrainedondatacuratedbythesebaselinesdefaulttothebrittleslidingstrategyatdeployment.
+S08:Z031 | 6.3   Setting3: DisentanglingSpuriousCorrelationsinDemonstrationData
+S08:Z032 | Spuriouscorrelationsintrainingdatamaycauseapolicytorelyonnon-causalfeatures, hindering
+S08:Z033 | generalizationtovariationsintheinputortask[12]. Wedesignareal-world“Bookshelf”task,where
+S08:Z034 | a robot must extract a target book via (i) horizontal or (ii) vertical pulling motion, depending on
+S08:Z035 | whetheranotherbookisstackedabovethetargetbook. Whilebothstrategiesareequallyrepresented
+S08:Z036 | inthetrainingset,eachco-occursmorefrequentlywithacertainbackgroundcolor(seeFig.4(c)). At
+S08:Z037 | evaluation,wetestthepolicyunderslightvariationsinthenumberandpositionofdistractorbooks,while
+S08:Z038 | keepingthewhitebackgroundfixed—thecorrelateassociatedwiththehorizontalpullingbehavior.
+S08:Z039 |                                                          8
+
+===== PDF S. 9 =====
+S09:Z001 |    (a)Figure-8:Distributionofcurateddemonstrationsafterfiltering66%. Higher-qualitydemosarebetter.
+S09:Z002 |   (b)TuckBox:Distributionofcurateddemonstrationsafterfiltering66%. Pick-and-placedemosarebetter.
+S09:Z003 |        (c)Bookshelf:Distributionofcurateddemonstrationsafterfiltering50%. Balanceddataisbetter.
+S09:Z004 | Figure5:Frankadiffusionpolicycurateddatasetdistributionsforfiltering(Task1).CUPIDfiltersoutlower-
+S09:Z005 | qualitydemonstrations(Figure-8),brittlestrategies(TuckBox),andspuriouslycorrelatedexamples(Bookshelf),
+S09:Z006 | improvingpolicyperformanceacrosstasks. Whilecurationheuristicsemployedbybaselinesmaybeeffectivein
+S09:Z007 | somecases(e.g.,DemInfandCUPID-QUALITYinFigure-8),theycanleadtosuboptimalpruninginothers.
+S09:Z008 | Bookshelfanalysis.DiffusionpolicyresultsareshowninFig.4(c). Thebasepolicyachievesonly
+S09:Z009 | a44%successrate,asthepresenceofthewhitebackgroundoftencausesthepolicytoextractthetarget
+S09:Z010 | bookhorizontallydespiteanotherbookbeingstackedontop(causingittofall). Interestingly,bytrain-
+S09:Z011 | ingclassifierstodistinguishfailedfromsuccessfulstates,Demo-SCOREappearstomisattributefailure
+S09:Z012 | tothepresenceofrolloutcorrelates(thestackedbook)ratherthancausalfactors(thewhitebackground).
+S09:Z013 | Incontrast,CUPIDattainsan84%successratebyidentifyingdemonstrationsthatcausallydrivefailure—
+S09:Z014 | inthiscase,horizontalpullingmotionwithawhitebackground—enablingdatasetrebalancingthat
+S09:Z015 | mitigatestheeffectofspuriouscorrelations(seeFig.5(c)).Asin§6.2,DemInfandCUPID-QUALITYin-
+S09:Z016 | correctlyprioritizethelower-variancehorizontalpullingmotion,yieldingnegligibleperformancegains.
+S09:Z017 | 7   Discussion&Ablations
+S09:Z018 | 7.1   Howiscurationperformanceaffectedbypropertiesofthedataandthetask?
+S09:Z019 | Ourmixed-qualitycurationexperiments(Fig.3andFig.4(a))revealthatwhilecurationstrengthens
+S09:Z020 | performanceon“TransportMH”and“Figure-8”(i.e.,afractionofthedemonstrationsharmpolicy
+S09:Z021 | performance),removingalmostanydemonstrationdegradesperformanceon“SquareMH”(i.e.,all
+S09:Z022 | demonstrationsappearimportant). Incontrast,onlyabout15%ofthedatasetisnecessarytomaximize
+S09:Z023 | performanceon“LiftMH”(i.e.,thedatasetishighlyredundant)3. Theseresultsindicatethatthepoten-
+S09:Z024 | tialbenefitsofdatacurationdependonpropertiesofboththedataandthetask.Forexample,onepossible
+S09:Z025 | hypothesisisthatcurationismosteffectiveincomplex,precision-criticalsettings(e.g.,“Transport
+S09:Z026 | MH”),whereasfortaskswithgreatertoleranceforerror(e.g.,“LiftMH”),state-of-the-artpolicies[50]
+S09:Z027 | appearlesssensitiveto—andmayevenbenefitfrom—trainingonlower-qualitydemonstrations.
+S09:Z028 |    3Note thatFig. 3does notinclude select-      k curation resultsfor “Lift MH”because the base policy already
+S09:Z029 | achievesa100%successrate,leavingnofurtherroomforimprovementbyselectingadditionaldemonstrations.
+S09:Z030 |                                                          9
+
+===== PDF S. 10 =====
+S10:Z001 | 7.2   HowmanypolicyrolloutsarerequiredforeffectivecurationwithCUPID?
+S10:Z002 | CUPIDusesa     REINFORCE-styleestimatortocomputetheperformanceinfluenceofeachdemonstration
+S10:Z003 | (Eq.3)forcuration. Thus,theaccuracyofestimatedperformanceinfluencesdependsonthenumber
+S10:Z004 | ofpolicyrollouts. WhileREINFORCE[16]oftenyieldshigh-variancegradientestimatesunderlimited
+S10:Z005 | rolloutbudgets,e.g.,inreinforcementlearningcontexts[51],wehighlightthatourcurationobjectiveim-
+S10:Z006 | posesalowerfidelityrequirement:sincecurationwithCUPIDinvolvestop-         kselection(§5.2),itsuffices
+S10:Z007 | torankhelpfuldemonstrationsaboveharmfulones(requiringfewerrollouts)ratherthantoestimate
+S10:Z008 | performanceinfluenceprecisely(requiringmanyrollouts). AsshowninFig.6,therankingofdemon-
+S10:Z009 | strationsstabilizeswithapproximatelym∈[25,50]             rolloutson“LiftMH”and“SquareMH,”andm∈
+S10:Z010 | [50,100]       rolloutson“TransportMH.”Similarly,weuseonlym=25    rolloutsforourreal-worldFranka
+S10:Z011 | tasks(Fig.4). TheseresultssupportthepracticalityofCUPIDunderrealisticrolloutbudgets,while
+S10:Z012 | notingthatmorecomplextasks(e.g.,“TransportMH”)maybenefitfromagreaternumberofrollouts.
+S10:Z013 | Figure6:CUPIDablationonthenumberofpolicyrollouts.Performanceinfluences(Eq.3)convergewith
+S10:Z014 | m∈[25,50]             rolloutson“LiftMH”and“SquareMH”(yieldingsimilarqualitytrends),andm∈[50,100]             rollouts
+S10:Z015 | on“TransportMH,”validatingthepracticalapplicabilityofCUPIDunderrealisticrolloutbudgets. Curationis
+S10:Z016 | performedondiffusionpolicies. Resultsareaveragedover3randomseeds. Errorsbarsrepresentstandarderror.
+S10:Z017 | 7.3   Candatacuratedforsingle-taskpoliciesstrengthengeneralistpolicyperformance?
+S10:Z018 | InFig.7,weshowthatdatasetscuratedbyCUPIDforsingle-
+S10:Z019 | task diffusion policies can significantly improve the fine-
+S10:Z020 | tunedperformanceofageneralistVision-Language-Action
+S10:Z021 | (VLA)model,π0[21].WhileCUPIDis,inprinciple,tailored
+S10:Z022 | to the specific policy used during rollouts, it consistently
+S10:Z023 | identifieslow-quality,stochasticbehaviorsin“Figure-8”and
+S10:Z024 | unreliablestrategiesin“TuckBox”(Fig.5)—bothintrinsic
+S10:Z025 | propertiesofthedata. Filteringthesepoorerdemonstrations                Figure7:Datacuratedforsingle-taskdiffu-
+S10:Z026 | (orselectingbetterones)istherebylikelytoimprovetheper-                 sionpoliciesimprovesπ0 [21]post-training
+S10:Z027 | formanceanypolicy. Thishighlightsapromisingdirection                   performance. AdditionalresultsinFig.15.
+S10:Z028 | toalleviatethecomputationalcostofCUPIDinlarge-scale
+S10:Z029 | settings: usesmaller,single-taskpoliciestocuratedatasetsforlarger,multi-taskmodels.
+S10:Z030 | VLARobustness.Fig.7alsosuggeststhatscalingthepre-trainingofVLAmodelsdoesnotinherently
+S10:Z031 | enablethemtoleveragetheirgeneralistknowledgeto, e.g.,ignorelow-qualitybehaviorsorbrittle
+S10:Z032 | strategiesindemonstrationdata. Thatis,datacurationstillappearsimportantforVLApost-training.
+S10:Z033 | 8   Conclusion
+S10:Z034 | Inthiswork,westudytheproblemofdatacurationforrobotimitationlearning. WepresentCUPID,a
+S10:Z035 | noveldatacurationmethodthatusesinfluencefunctionstomeasurethecausalimpactofademonstration
+S10:Z036 | onthepolicy’sclosed-loopperformance. Ourresultshighlightthegeneralutilityofperformance-based
+S10:Z037 | curationfortwokeycurationtasks—filteringexistingtrainingdemonstrationsandsubselectingnew
+S10:Z038 | demonstrations—andacrossdiversecurationsettings,whereapolicy’stest-timeperformancevaries
+S10:Z039 | with the choice of training data.  Among many key problems in robotics, it is inherently difficult
+S10:Z040 | todevelopstrongintuitionsabouthowtrainingdatainfluencesdownstreampolicybehavior,andto
+S10:Z041 | delineatewhyapolicytrainedexclusivelyonexpertdemonstrationdatawouldexhibitsuboptimal
+S10:Z042 | performanceatdeployment. Wehopethisworkspurscontinuedinterestinpursuitofthesequestions.
+S10:Z043 |                                                         10
+
+===== PDF S. 11 =====
+S11:Z001 | 9   Limitations
+S11:Z002 | Curation tasks.The curation tasks considered in this work (Task 1andTask 2) aim to curate
+S11:Z003 | performance-maximizingdatasetsforaspecifiedfilteringorselectionquantityofdemonstrationsk.
+S11:Z004 | Determiningthesuitablequantityofdemonstrationstocuraterepresentsapossiblepointofextension.
+S11:Z005 | Dataproperties.Critically,futureworkshouldfurtherinvestigatehowpropertiesofthedatadictate
+S11:Z006 | theextenttowhichcurationcanimprovepolicyperformance,asdiscussedin§7.1.
+S11:Z007 | Dataexplainability.Ourmethodsfocusoncuratingexistingdemonstrationsasafirststep. However,
+S11:Z008 | future work may seek to interpret the properties of influential demonstrations to actively inform
+S11:Z009 | subsequentdatacollectionefforts—forexample,byprovidinginstructionstodatacollectors.
+S11:Z010 | Selectionmethods.WhilethegreedyselectionproceduresusedinEq.4andEq.5aretractableto
+S11:Z011 | optimizeandoftenimproveoverquality-andsimilarity-basedmeasures[3],theyignoretheinteractions
+S11:Z012 | betweendemonstrationsinthecuratedset[14,48]. Thiscantemperperformancegainswhenthesize
+S11:Z013 | ofthecuratedsetislarge. Futureworkshouldinvestigatehigher-orderapproximationsthatconsiderthe
+S11:Z014 | jointdiversityofthecurateddataset,asiscommonintheactivelearningliterature(e.g.,[52,Sec. 4.3]).
+S11:Z015 | Larger datasets.Estimating performance influences over the full demonstration dataset incurs a
+S11:Z016 | computationalcostcomparabletothatofpolicytraining. Reducingthisexpenseinlarge-scalesettings
+S11:Z017 | isanimportantfuturedirection. Forexample,onecouldapproximategroupeffects[14]viarandom
+S11:Z018 | samplingorlimitinfluenceestimationtosmallerdatasubsetsidentifiedusingcoarse-grainedheuristics.
+S11:Z019 | Estimatorvariance.Finally,althoughweobservestableperformancefromCUPIDacrosscuration
+S11:Z020 | settings,theuseoftheREINFORCEestimatormayresultinhighvarianceinfluencescores,e.g.,when
+S11:Z021 | thenumberofpolicyrolloutsissmall. Insuchsettings,variancereductiontechniques,suchasthose
+S11:Z022 | typicallyusedinreinforcementlearning[51],mayfurtherimprovethefidelityofourinfluencescores.
+S11:Z023 | Acknowledgments
+S11:Z024 | The authors would like to thankSam ParkandAndrew Ilyasfor the helpful conversations on data
+S11:Z025 | attribution,andJoeyHejnaforearly-stagedtechnicalfeedbackontheproject.ToyotaResearchInstitute
+S11:Z026 | providedfundstosupportthiswork. ThisworkwasalsosupportedbytheDARPATIAMATprogram.
+S11:Z027 | References
+S11:Z028 |  [1]  R. Grosse, J. Bae, C. Anil, N. Elhage, A. Tamkin, A. Tajdini, B. Steiner, D. Li, E. Durmus,
+S11:Z029 |       E.Perez,etal. Studyinglargelanguagemodelgeneralizationwithinfluencefunctions.arXiv
+S11:Z030 |       preprintarXiv:2308.03296,2023.
+S11:Z031 |  [2]  S.M.Park,K.Georgiev,A.Ilyas,G.Leclerc,andA.Madry. Trak: Attributingmodelbehaviorat
+S11:Z032 |       scale. InInternationalConferenceonMachineLearning,pages27074–27113.PMLR,2023.
+S11:Z033 |  [3]  L.Engstrom,A.Feldmann,andA.Madry.Dsdm:Model-awaredatasetselectionwithdatamodels.
+S11:Z034 |       InInternationalConferenceonMachineLearning,pages12491–12526.PMLR,2024.
+S11:Z035 |  [4]  K. Lee, D. Ippolito, A. Nystrom, C. Zhang, D. Eck, C. Callison-Burch, and N. Carlini.
+S11:Z036 |       Deduplicating training data makes language models better.   In S. Muresan, P. Nakov, and
+S11:Z037 |       A.Villavicencio,editors,Proceedingsofthe60thAnnualMeetingoftheAssociationforCom-
+S11:Z038 |       putational Linguistics (Volume 1:  Long Papers), pages 8424–8445, Dublin, Ireland, May
+S11:Z039 |       2022.AssociationforComputationalLinguistics.doi:10.18653/v1/2022.acl-long.577. URL
+S11:Z040 |       https://aclanthology.org/2022.acl-long.577/.
+S11:Z041 |  [5]  K. Tirumala, D. Simig, A. Aghajanyan, and A. Morcos.  D4: Improving llm pretraining via
+S11:Z042 |       documentde-duplicationanddiversification.AdvancesinNeuralInformationProcessingSystems,
+S11:Z043 |       36:53983–53995,2023.
+S11:Z044 |  [6]  A.Albalak,Y.Elazar,S.M.Xie,S.Longpre,N.Lambert,X.Wang,N.Muennighoff,B.Hou,
+S11:Z045 |       L.Pan,H.Jeong,C.Raffel,S.Chang,T.Hashimoto,andW.Y.Wang. Asurveyondataselection
+S11:Z046 |       forlanguagemodels.TransactionsonMachineLearningResearch, 2024. ISSN2835-8856.
+S11:Z047 |       URLhttps://openreview.net/forum?id=XfHWcNTSHp.
+S11:Z048 |                                                       11
+
+===== PDF S. 12 =====
+S12:Z001 | [7]  A. O’Neill, A. Rehman, A. Maddukuri, A. Gupta, A. Padalkar, A. Lee, A. Pooley, A. Gupta,
+S12:Z002 |     A.Mandlekar,A.Jain,A.Tung,A.Bewley,A.Herzog,A.Irpan,A.Khazatsky,A.Rai,A.Gupta,
+S12:Z003 |     A.Wang,A.Singh,A.Garg,A.Kembhavi,A.Xie,A.Brohan,A.Raffin,A.Sharma,A.Yavary,
+S12:Z004 |     A. Jain, A. Balakrishna, A. Wahid, B. Burgess-Limerick, B. Kim, B. Sch¨olkopf, B. Wulfe,
+S12:Z005 |     B.Ichter,C.Lu,C.Xu,C.Le,C.Finn,C.Wang,C.Xu,C.Chi,C.Huang,C.Chan,C.Agia,
+S12:Z006 |     C.Pan,C.Fu,C.Devin,D.Xu,D.Morton,D.Driess,D.Chen,D.Pathak,D.Shah,D.B¨uchler,
+S12:Z007 |     D.Jayaraman,D.Kalashnikov,D.Sadigh,E.Johns,E.Foster,F.Liu,F.Ceola,F.Xia,F.Zhao,
+S12:Z008 |     F.Stulp,G.Zhou,G.S.Sukhatme,G.Salhotra,G.Yan,G.Feng,G.Schiavi,G.Berseth,G.Kahn,
+S12:Z009 |     G.Wang,H.Su,H.-S.Fang,H.Shi,H.Bao,H.BenAmor,H.I.Christensen,H.Furuta,H.Walke,
+S12:Z010 |     H.Fang,H.Ha,I.Mordatch,I.Radosavovic,I.Leal,J.Liang,J.Abou-Chakra,J.Kim,J.Drake,
+S12:Z011 |     J.Peters,J.Schneider,J.Hsu,J.Bohg,J.Bingham,J.Wu,J.Gao,J.Hu,J.Wu,J.Wu,J.Sun,
+S12:Z012 |     J. Luo, J. Gu, J. Tan, J. Oh, J. Wu, J. Lu, J. Yang, J. Malik, J. Silv´erio, J. Hejna, J. Booher,
+S12:Z013 |     J.Tompson,J.Yang,J.Salvador,J.J.Lim,J.Han,K.Wang,K.Rao,K.Pertsch,K.Hausman,
+S12:Z014 |     K.Go,K.Gopalakrishnan,K.Goldberg,K.Byrne,K.Oslund,K.Kawaharazuka,K.Black,K.Lin,
+S12:Z015 |     K.Zhang,K.Ehsani,K.Lekkala,K.Ellis,K.Rana,K.Srinivasan,K.Fang,K.P.Singh,K.-H.
+S12:Z016 |     Zeng,K.Hatch,K.Hsu,L.Itti,L.Y.Chen,L.Pinto,L.Fei-Fei,L.Tan,L.J.Fan,L.Ott,L.Lee,
+S12:Z017 |     L.Weihs,M.Chen,M.Lepert,M.Memmel,M.Tomizuka,M.Itkina,M.G.Castro,M.Spero,
+S12:Z018 |     M.Du,M.Ahn,M.C.Yip,M.Zhang,M.Ding,M.Heo,M.K.Srirama,M.Sharma,M.J.Kim,
+S12:Z019 |     N.Kanazawa,N.Hansen,N.Heess,N.J.Joshi,N.Suenderhauf,N.Liu,N.DiPalo,N.M.M.
+S12:Z020 |     Shafiullah,O.Mees,O.Kroemer,O.Bastani,P.R.Sanketi,P.T.Miller,P.Yin,P.Wohlhart,P.Xu,
+S12:Z021 |     P.D.Fagan,P.Mitrano,P.Sermanet,P.Abbeel,P.Sundaresan,Q.Chen,Q.Vuong,R.Rafailov,
+S12:Z022 |     R.Tian,R.Doshi,R.Mart´ın-Mart´ın,R.Baijal,R.Scalise,R.Hendrix,R.Lin,R.Qian,R.Zhang,
+S12:Z023 |     R. Mendonca, R. Shah, R. Hoque, R. Julian, S. Bustamante, S. Kirmani, S. Levine, S. Lin,
+S12:Z024 |     S.Moore,S.Bahl,S.Dass,S.Sonawani,S.Song,S.Xu,S.Haldar,S.Karamcheti,S.Adebola,
+S12:Z025 |     S.Guist,S.Nasiriany,S.Schaal,S.Welker,S.Tian,S.Ramamoorthy,S.Dasari,S.Belkhale,
+S12:Z026 |     S.Park,S.Nair,S.Mirchandani,T.Osa,T.Gupta,T.Harada,T.Matsushima,T.Xiao,T.Kollar,
+S12:Z027 |     T.Yu,T.Ding,T.Davchev,T.Z.Zhao,T.Armstrong,T.Darrell,T.Chung,V.Jain,V.Vanhoucke,
+S12:Z028 |     W. Zhan, W. Zhou, W. Burgard, X. Chen, X. Wang, X. Zhu, X. Geng, X. Liu, X. Liangwei,
+S12:Z029 |     X.Li,Y.Lu,Y.J.Ma,Y.Kim,Y.Chebotar,Y.Zhou,Y.Zhu,Y.Wu,Y.Xu,Y.Wang,Y.Bisk,
+S12:Z030 |     Y. Cho, Y. Lee, Y. Cui, Y. Cao, Y.-H. Wu, Y. Tang, Y. Zhu, Y. Zhang, Y. Jiang, Y. Li, Y. Li,
+S12:Z031 |     Y. Iwasawa, Y. Matsuo, Z. Ma, Z. Xu, Z. J. Cui, Z. Zhang, and Z. Lin. Open x-embodiment:
+S12:Z032 |     Roboticlearningdatasetsandrt-xmodels: Openx-embodimentcollaboration0. In2024IEEE
+S12:Z033 |     InternationalConferenceonRoboticsandAutomation(ICRA),pages6892–6903,2024.doi:
+S12:Z034 |     10.1109/ICRA57147.2024.10611477.
+S12:Z035 | [8]  A.Khazatsky,K.Pertsch,S.Nair,A.Balakrishna,S.Dasari,S.Karamcheti,S.Nasiriany,M.K.
+S12:Z036 |     Srirama,L.Y.Chen,K.Ellis,P.D.Fagan,J.Hejna,M.Itkina,M.Lepert,Y.J.Ma,P.T.Miller,
+S12:Z037 |     J.Wu,S.Belkhale,S.Dass,H.Ha,A.Jain,A.Lee,Y.Lee,M.Memmel,S.Park,I.Radosavovic,
+S12:Z038 |     K. Wang, A. Zhan, K. Black, C. Chi, K. B. Hatch, S. Lin, J. Lu, J. Mercat, A. Rehman, P. R.
+S12:Z039 |     Sanketi,A.Sharma,C.Simpson,Q.Vuong,H.R.Walke,B.Wulfe,T.Xiao,J.H.Yang,A.Yavary,
+S12:Z040 |     T. Z. Zhao, C. Agia, R. Baijal, M. G. Castro, D. Chen, Q. Chen, T. Chung, J. Drake, E. P.
+S12:Z041 |     Foster,J.Gao,D.A.Herrera,M.Heo,K.Hsu,J.Hu,D.Jackson,C.Le,Y.Li,R.Lin,Z.Ma,
+S12:Z042 |     A.Maddukuri,S.Mirchandani,D.Morton,T.Nguyen,A.O’Neill,R.Scalise,D.Seale,V.Son,
+S12:Z043 |     S.Tian,E.Tran,A.E.Wang,Y.Wu,A.Xie,J.Yang,P.Yin,Y.Zhang,O.Bastani,G.Berseth,
+S12:Z044 |     J.Bohg,K.Goldberg,A.Gupta,A.Gupta,D.Jayaraman,J.J.Lim,J.Malik,R.Mart´ın-Mart´ın,
+S12:Z045 |     S.Ramamoorthy,D.Sadigh,S.Song,J.Wu,M.C.Yip,Y.Zhu,T.Kollar,S.Levine,andC.Finn.
+S12:Z046 |     DROID:ALarge-ScaleIn-The-WildRobotManipulationDataset. InProceedingsofRobotics:
+S12:Z047 |     ScienceandSystems,Delft,Netherlands,July2024.doi:10.15607/RSS.2024.XX.120.
+S12:Z048 | [9]  S.Kuhar,S.Cheng,S.Chopra,M.Bronars,andD.Xu. Learningtodiscern: Imitatingheteroge-
+S12:Z049 |     neoushumandemonstrationswithpreferenceandrepresentationlearning. InJ.Tan,M.Toussaint,
+S12:Z050 |     andK.Darvish,editors,ProceedingsofThe7thConferenceonRobotLearning,volume229of
+S12:Z051 |     ProceedingsofMachineLearningResearch,pages1437–1449.PMLR,06–09Nov2023.
+S12:Z052 |                                                  12
+
+===== PDF S. 13 =====
+S13:Z001 | [10] J.Hejna,S.Mirchandani,A.Balakrishna,A.Xie,A.Wahid,J.Tompson,P.Sanketi,D.Shah,
+S13:Z002 |      C.Devin,andD.Sadigh. Robotdatacurationwithmutualinformationestimators.arXivpreprint
+S13:Z003 |      arXiv:2502.08623,2025.
+S13:Z004 | [11] A.S.Chen,A.M.Lessing,Y.Liu,andC.Finn. Curatingdemonstrationsusingonlineexperience.
+S13:Z005 |      arXivpreprintarXiv:2503.03707,2025.
+S13:Z006 | [12] P.DeHaan,D.Jayaraman,andS.Levine. Causalconfusioninimitationlearning.Advancesin
+S13:Z007 |      neuralinformationprocessingsystems,32,2019.
+S13:Z008 | [13] P. W. Koh and P. Liang.  Understanding black-box predictions via influence functions.  In
+S13:Z009 |      Internationalconferenceonmachinelearning,pages1885–1894.PMLR,2017.
+S13:Z010 | [14] P.W.W.Koh,K.-S.Ang,H.Teo,andP.S.Liang. Ontheaccuracyofinfluencefunctionsfor
+S13:Z011 |      measuringgroupeffects.Advancesinneuralinformationprocessingsystems,32,2019.
+S13:Z012 | [15] Z.HammoudehandD.Lowd.Trainingdatainfluenceanalysisandestimation:Asurvey.Machine
+S13:Z013 |      Learning,113(5):2351–2403,2024.
+S13:Z014 | [16] R.S.Sutton,D.McAllester,S.Singh,andY.Mansour. Policygradientmethodsforreinforcement
+S13:Z015 |      learningwithfunctionapproximation.Advancesinneuralinformationprocessingsystems,12,
+S13:Z016 |      1999.
+S13:Z017 | [17] A.Brohan,N.Brown,J.Carbajal,Y.Chebotar,J.Dabis,C.Finn,K.Gopalakrishnan,K.Hausman,
+S13:Z018 |      A. Herzog, J. Hsu, J. Ibarz, B. Ichter, A. Irpan, T. Jackson, S. Jesmonth, N. Joshi, R. Julian,
+S13:Z019 |      D. Kalashnikov, Y. Kuang, I. Leal, K.-H. Lee, S. Levine, Y. Lu, U. Malla, D. Manjunath,
+S13:Z020 |      I.Mordatch,O.Nachum,C.Parada,J.Peralta,E.Perez,K.Pertsch,J.Quiambao,K.Rao,M.S.
+S13:Z021 |      Ryoo, G. Salazar, P. R. Sanketi, K. Sayed, J. Singh, S. Sontakke, A. Stone, C. Tan, H. Tran,
+S13:Z022 |      V.Vanhoucke,S.Vega,Q.H.Vuong,F.Xia,T.Xiao,P.Xu,S.Xu,T.Yu,andB.Zitkovich. RT-1:
+S13:Z023 |      RoboticsTransformerforReal-WorldControlatScale. InProceedingsofRobotics: Scienceand
+S13:Z024 |      Systems,Daegu,RepublicofKorea,July2023.doi:10.15607/RSS.2023.XIX.025.
+S13:Z025 | [18] B. Zitkovich, T. Yu, S. Xu, P. Xu, T. Xiao, F. Xia, J. Wu, P. Wohlhart, S. Welker, A. Wahid,
+S13:Z026 |      Q. Vuong, V. Vanhoucke, H. Tran, R. Soricut, A. Singh, J. Singh, P. Sermanet, P. R. Sanketi,
+S13:Z027 |      G.Salazar,M.S.Ryoo,K.Reymann,K.Rao,K.Pertsch,I.Mordatch,H.Michalewski,Y.Lu,
+S13:Z028 |      S.Levine,L.Lee,T.-W.E.Lee,I.Leal,Y.Kuang,D.Kalashnikov,R.Julian,N.J.Joshi,A.Irpan,
+S13:Z029 |      B.Ichter,J.Hsu,A.Herzog,K.Hausman,K.Gopalakrishnan,C.Fu,P.Florence,C.Finn,K.A.
+S13:Z030 |      Dubey,D.Driess,T.Ding,K.M.Choromanski,X.Chen,Y.Chebotar,J.Carbajal,N.Brown,
+S13:Z031 |      A. Brohan, M. G. Arenas, and K. Han.  Rt-2: Vision-language-action models transfer web
+S13:Z032 |      knowledgetoroboticcontrol. InJ.Tan,M.Toussaint,andK.Darvish,editors,ProceedingsofThe
+S13:Z033 |      7thConferenceonRobotLearning,volume229ofProceedingsofMachineLearningResearch,
+S13:Z034 |      pages2165–2183.PMLR,06–09Nov2023.URLhttps://proceedings.mlr.press/v229/
+S13:Z035 |      zitkovich23a.html.
+S13:Z036 | [19] OctoModelTeam,D.Ghosh,H.Walke,K.Pertsch,K.Black,O.Mees,S.Dasari,J.Hejna,C.Xu,
+S13:Z037 |      J.Luo,T.Kreiman,Y.Tan,L.Y.Chen,P.Sanketi,Q.Vuong,T.Xiao,D.Sadigh,C.Finn,and
+S13:Z038 |      S.Levine. Octo: Anopen-sourcegeneralistrobotpolicy. InProceedingsofRobotics: Science
+S13:Z039 |      andSystems,Delft,Netherlands,2024.
+S13:Z040 | [20] M.J.Kim,K.Pertsch,S.Karamcheti,T.Xiao,A.Balakrishna,S.Nair,R.Rafailov,E.P.Foster,
+S13:Z041 |      P.R.Sanketi,Q.Vuong,T.Kollar,B.Burchfiel,R.Tedrake,D.Sadigh,S.Levine,P.Liang,and
+S13:Z042 |      C.Finn. Openvla: Anopen-sourcevision-language-actionmodel. InP.Agrawal,O.Kroemer,
+S13:Z043 |      andW.Burgard,editors,ProceedingsofThe8thConferenceonRobotLearning,volume270of
+S13:Z044 |      ProceedingsofMachineLearningResearch,pages2679–2713.PMLR,06–09Nov2025.
+S13:Z045 | [21] K.Black,N.Brown,D.Driess,A.Esmail,M.Equi,C.Finn,N.Fusai,L.Groom,K.Hausman,
+S13:Z046 |      B. Ichter, et al.  π0: A vision-language-action flow model for general robot control.URL
+S13:Z047 |      https://arxiv.org/abs/2410.24164,2024.
+S13:Z048 |                                                     13
+
+===== PDF S. 14 =====
+S14:Z001 | [22] A.Mandlekar,S.Nasiriany,B.Wen,I.Akinola,Y.Narang,L.Fan,Y.Zhu,andD.Fox. Mimicgen:
+S14:Z002 |      Adatagenerationsystemforscalablerobotlearningusinghumandemonstrations. InJ.Tan,
+S14:Z003 |      M.Toussaint,andK.Darvish,editors,ProceedingsofThe7thConferenceonRobotLearning,
+S14:Z004 |      volume229ofProceedingsofMachineLearningResearch,pages1820–1864.PMLR,06–09
+S14:Z005 |      Nov2023.
+S14:Z006 | [23] T.Yu, T.Xiao, J.Tompson, A.Stone, S.Wang, A.Brohan, J.Singh, C.Tan, D.M,J.Peralta,
+S14:Z007 |      K.Hausman,B.Ichter,andF.Xia. ScalingRobotLearningwithSemanticallyImaginedExperi-
+S14:Z008 |      ence. InProceedingsofRobotics: ScienceandSystems,Daegu,RepublicofKorea,July2023.
+S14:Z009 |      doi:10.15607/RSS.2023.XIX.027.
+S14:Z010 | [24] Z.Mandi,H.Bharadhwaj,V.Moens,S.Song,A.Rajeswaran,andV.Kumar. Cacti: Aframework
+S14:Z011 |      forscalablemulti-taskmulti-scenevisualimitationlearning.arXivpreprintarXiv:2212.05711,
+S14:Z012 |      2022.
+S14:Z013 | [25] L. Smith, A. Irpan, M. G. Arenas, S. Kirmani, D. Kalashnikov, D. Shah, and T. Xiao.  Steer:
+S14:Z014 |      Flexibleroboticmanipulationviadenselanguagegrounding.arXivpreprintarXiv:2411.03409,
+S14:Z015 |      2024.
+S14:Z016 | [26] M.Zawalski,W.Chen,K.Pertsch,O.Mees,C.Finn,andS.Levine.Roboticcontrolviaembodied
+S14:Z017 |      chain-of-thoughtreasoning. InP.Agrawal,O.Kroemer,andW.Burgard,editors,Proceedings
+S14:Z018 |      of The 8th Conference on Robot Learning, volume 270 ofProceedings of Machine Learning
+S14:Z019 |      Research,pages3157–3181.PMLR,06–09Nov2025.
+S14:Z020 | [27] J.Hejna,C.A.Bhateja,Y.Jiang,K.Pertsch,andD.Sadigh. Remix: Optimizingdatamixturesfor
+S14:Z021 |      largescaleimitationlearning. InP.Agrawal,O.Kroemer,andW.Burgard,editors,Proceedings
+S14:Z022 |      of The 8th Conference on Robot Learning, volume 270 ofProceedings of Machine Learning
+S14:Z023 |      Research,pages145–164.PMLR,06–09Nov2025.
+S14:Z024 | [28] S.Dass,A.Khaddaj,L.Engstrom,A.Madry,A.Ilyas,andR.Mart´ın-Mart´ın. Datamil: Selecting
+S14:Z025 |      dataforrobotimitationlearningwithdatamodels.arXivpreprintarXiv:2505.09603,2025.
+S14:Z026 | [29] H.Shah,S.M.Park,A.Ilyas,andA.Madry. Modeldiff: Aframeworkforcomparinglearning
+S14:Z027 |      algorithms. InInternationalConferenceonMachineLearning, pages30646–30688.PMLR,
+S14:Z028 |      2023.
+S14:Z029 | [30] A. Ghorbani and J. Zou. Data shapley: Equitable valuation of data for machine learning. In
+S14:Z030 |      Internationalconferenceonmachinelearning,pages2242–2251.PMLR,2019.
+S14:Z031 | [31] S.K.Choe,H.Ahn,J.Bae,K.Zhao,M.Kang,Y.Chung,A.Pratapa,W.Neiswanger,E.Strubell,
+S14:Z032 |      T. Mitamura, et al.  What is your data worth to gpt? llm-scale data valuation with influence
+S14:Z033 |      functions.arXivpreprintarXiv:2405.13954,2024.
+S14:Z034 | [32] K.Georgiev,R.Rinberg,S.M.Park,S.Garg,A.Ilyas,A.Madry,andS.Neel. Attribute-to-delete:
+S14:Z035 |      Machineunlearningviadatamodelmatching. InTheThirteenthInternationalConferenceon
+S14:Z036 |      LearningRepresentations,2025. URLhttps://openreview.net/forum?id=3vXpZpOn29.
+S14:Z037 | [33] A. Madry, A. Ilyas, L. Engstrom, S. M. Park, and K. Georgiev.   Data attribution at scale.
+S14:Z038 |      https://ml-data-tutorial.org/,2024. TutorialatICML2024.
+S14:Z039 | [34] S.Basu,P.Pope,andS.Feizi. Influencefunctionsindeeplearningarefragile. InInternational
+S14:Z040 |      Conference on Learning Representations, 2021.  URL                  https://openreview.net/forum?
+S14:Z041 |      id=xHKVVHGDOEk.
+S14:Z042 | [35] J.Bae,N.Ng,A.Lo,M.Ghassemi,andR.B.Grosse. Ifinfluencefunctionsaretheanswer,then
+S14:Z043 |      whatisthequestion?AdvancesinNeuralInformationProcessingSystems,35:17953–17967,
+S14:Z044 |      2022.
+S14:Z045 |                                                     14
+
+===== PDF S. 15 =====
+S15:Z001 | [36] A.IlyasandL.Engstrom. Magic: Near-optimaldataattributionfordeeplearning.arXivpreprint
+S15:Z002 |      arXiv:2504.16430,2025.
+S15:Z003 | [37] X. Zheng, T. Pang, C. Du, J. Jiang, and M. Lin.  Intriguing properties of data attribution on
+S15:Z004 |      diffusionmodels. InTheTwelfthInternationalConferenceonLearningRepresentations,2024.
+S15:Z005 |      URLhttps://openreview.net/forum?id=vKViCoKGcB.
+S15:Z006 | [38] K.Georgiev,J.Vendrow,H.Salman,S.M.Park,andA.Madry. Thejourney,notthedestination:
+S15:Z007 |      Howdataguidesdiffusionmodels.arXivpreprintarXiv:2312.06205,2023.
+S15:Z008 | [39] M.Xia,S.Malladi,S.Gururangan,S.Arora,andD.Chen. Less: Selectinginfluentialdatafor
+S15:Z009 |      targetedinstructiontuning. InInternationalConferenceonMachineLearning,pages54104–
+S15:Z010 |      54132.PMLR,2024.
+S15:Z011 | [40] Z.Liu,A.Karbasi,andT.Rekatsinas. Tsds: Dataselectionfortask-specificmodelfinetuning.
+S15:Z012 |      AdvancesinNeuralInformationProcessingSystems,37,2024.
+S15:Z013 | [41] L.Engstrom,A.Ilyas,B.Chen,A.Feldmann,W.Moses,andA.Madry. Optimizingmltraining
+S15:Z014 |      withmetagradientdescent.arXivpreprintarXiv:2503.13751,2025.
+S15:Z015 | [42] S. Belkhale, Y. Cui, and D. Sadigh.  Data quality in imitation learning.Advances in neural
+S15:Z016 |      informationprocessingsystems,36:80375–80395,2023.
+S15:Z017 | [43] J.A.Vincent,H.Nishimura,M.Itkina,P.Shah,M.Schwager,andT.Kollar. Howgeneralizableis
+S15:Z018 |      mybehaviorcloningpolicy? astatisticalapproachtotrustworthyperformanceevaluation.IEEE
+S15:Z019 |      RoboticsandAutomationLetters,2024.
+S15:Z020 | [44] K.Gandhi, S.Karamcheti, M.Liao, andD.Sadigh. Elicitingcompatibledemonstrationsfor
+S15:Z021 |      multi-human imitation learning. In K. Liu, D. Kulic, and J. Ichnowski, editors,Proceedings
+S15:Z022 |      of The 6th Conference on Robot Learning, volume 205 ofProceedings of Machine Learning
+S15:Z023 |      Research,pages1981–1991.PMLR,14–18Dec2023.
+S15:Z024 | [45] Y. Cui, D. Isele, S. Niekum, and K. Fujimura.  Uncertainty-aware data aggregation for deep
+S15:Z025 |      imitationlearning. In2019InternationalConferenceonRoboticsandAutomation(ICRA),pages
+S15:Z026 |      761–767.IEEE,2019.
+S15:Z027 | [46] S.Ross,G.Gordon,andD.Bagnell. Areductionofimitationlearningandstructuredpredictionto
+S15:Z028 |      no-regretonlinelearning. InProceedingsofthefourteenthinternationalconferenceonartificial
+S15:Z029 |      intelligenceandstatistics,pages627–635.JMLRWorkshopandConferenceProceedings,2011.
+S15:Z030 | [47] R.J.Williams. Simplestatisticalgradient-followingalgorithmsforconnectionistreinforcement
+S15:Z031 |      learning.Machinelearning,8:229–256,1992.
+S15:Z032 | [48] A.Ilyas,S.M.Park,L.Engstrom,G.Leclerc,andA.Madry. Datamodels: Understandingpredic-
+S15:Z033 |      tionswithdataanddatawithpredictions. InK.Chaudhuri,S.Jegelka,L.Song,C.Szepesvari,
+S15:Z034 |      G.Niu,andS.Sabato,editors,Proceedingsofthe39thInternationalConferenceonMachine
+S15:Z035 |      Learning,volume162ofProceedingsofMachineLearningResearch,pages9525–9587.PMLR,
+S15:Z036 |      17–23Jul2022.
+S15:Z037 | [49] A. Mandlekar, D. Xu, J. Wong, S. Nasiriany, C. Wang, R. Kulkarni, L. Fei-Fei, S. Savarese,
+S15:Z038 |      Y. Zhu, and R. Mart´ın-Mart´ın. What matters in learning from offline human demonstrations
+S15:Z039 |      forrobotmanipulation. InA.Faust,D.Hsu,andG.Neumann,editors,Proceedingsofthe5th
+S15:Z040 |      ConferenceonRobotLearning,volume164ofProceedingsofMachineLearningResearch,pages
+S15:Z041 |      1678–1690.PMLR,08–11Nov2022.
+S15:Z042 | [50] C.Chi,Z.Xu,S.Feng,E.Cousineau,Y.Du,B.Burchfiel,R.Tedrake,andS.Song. Diffusion
+S15:Z043 |      policy: Visuomotorpolicylearningviaactiondiffusion.TheInternationalJournalofRobotics
+S15:Z044 |      Research,page02783649241273668,2023.
+S15:Z045 |                                                      15
+
+===== PDF S. 16 =====
+S16:Z001 | [51] E.Greensmith,P.L.Bartlett,andJ.Baxter. Variancereductiontechniquesforgradientestimates
+S16:Z002 |      inreinforcementlearning.JournalofMachineLearningResearch,5(Nov):1471–1530,2004.
+S16:Z003 | [52]B.Settles.ActiveLearning. Morgan&ClaypoolPublishers,2012.
+S16:Z004 | [53] J.Ho, A.Jain, andP.Abbeel. Denoisingdiffusionprobabilisticmodels.Advancesinneural
+S16:Z005 |      informationprocessingsystems,33:6840–6851,2020.
+S16:Z006 | [54] Y.Song,J.Sohl-Dickstein,D.P.Kingma,A.Kumar,S.Ermon,andB.Poole. Score-basedgenera-
+S16:Z007 |      tivemodelingthroughstochasticdifferentialequations. InInternationalConferenceonLearning
+S16:Z008 |      Representations,2021. URLhttps://openreview.net/forum?id=PxTIG12RRHS.
+S16:Z009 | [55] J.Lin,L.Tao,M.Dong,andC.Xu. Diffusionattributionscore: Evaluatingtrainingdatainfluence
+S16:Z010 |      indiffusionmodel. InTheThirteenthInternationalConferenceonLearningRepresentations,
+S16:Z011 |      2025. URLhttps://openreview.net/forum?id=kuutidLf6R.
+S16:Z012 | [56] J.Martens. Newinsightsandperspectivesonthenaturalgradientmethod.JournalofMachine
+S16:Z013 |      Learning Research, 21(146):1–76, 2020.   URL   http://jmlr.org/papers/v21/17-678.
+S16:Z014 |      html.
+S16:Z015 | [57] B.K.Mlodozeniec,R.Eschenhagen,J.Bae,A.Immer,D.Krueger,andR.E.Turner. Influence
+S16:Z016 |      functions for scalable data attribution in diffusion models.  InThe Thirteenth International
+S16:Z017 |      Conference on Learning Representations, 2025.  URL                  https://openreview.net/forum?
+S16:Z018 |      id=esYrEndGsr.
+S16:Z019 | [58] T.Xie,H.Li,A.Bai,andC.-J.Hsieh. Dataattributionfordiffusionmodels: Timestep-induced
+S16:Z020 |      biasininfluenceestimation.TransactionsonMachineLearningResearch,2024.ISSN2835-8856.
+S16:Z021 |      URLhttps://openreview.net/forum?id=P3Lyun7CZs.
+S16:Z022 | [59] W. B. Johnson, J. Lindenstrauss, et al. Extensions of lipschitz mappings into a hilbert space.
+S16:Z023 |      Contemporarymathematics,26(189-206):1,1984.
+S16:Z024 | [60] O.Khatib.Aunifiedapproachformotionandforcecontrolofrobotmanipulators:Theoperational
+S16:Z025 |      spaceformulation.IEEEJournalonRoboticsandAutomation,3(1):43–53,2003.
+S16:Z026 | [61] E.J.Hu,Y.Shen,P.Wallis,Z.Allen-Zhu,Y.Li,S.Wang,L.Wang,W.Chen,etal.Lora:Low-rank
+S16:Z027 |      adaptationoflargelanguagemodels.ICLR,1(2):3,2022.
+S16:Z028 | [62] C.Agia,R.Sinha,J.Yang,Z.Cao,R.Antonova,M.Pavone,andJ.Bohg. Unpackingfailure
+S16:Z029 |      modesofgenerativepolicies: Runtimemonitoringofconsistencyandprogress. InP.Agrawal,
+S16:Z030 |      O.Kroemer,andW.Burgard,editors,ProceedingsofThe8thConferenceonRobotLearning,
+S16:Z031 |      volume270ofProceedingsofMachineLearningResearch,pages689–723.PMLR,06–09Nov
+S16:Z032 |      2025.
+S16:Z033 | [63] Y.Dai,J.Lee,N.Fazeli,andJ.Chai. Racer: Richlanguage-guidedfailurerecoverypoliciesfor
+S16:Z034 |      imitationlearning.arXivpreprintarXiv:2409.14674,2024.
+S16:Z035 | [64] R.Sinha,A.Elhafsi,C.Agia,M.Foutter,E.Schmerling,andM.Pavone. Real-TimeAnomaly
+S16:Z036 |      Detection and Reactive Planning with Large Language Models. InProceedings of Robotics:
+S16:Z037 |      ScienceandSystems,Delft,Netherlands,July2024.doi:10.15607/RSS.2024.XX.114.
+S16:Z038 | [65] K.He,X.Zhang,S.Ren,andJ.Sun.Deepresiduallearningforimagerecognition.InProceedings
+S16:Z039 |      oftheIEEEconferenceoncomputervisionandpatternrecognition,pages770–778,2016.
+S16:Z040 | [66] M.Oquab,T.Darcet,T.Moutakanni,H.Vo,M.Szafraniec,V.Khalidov,P.Fernandez,D.Haziza,
+S16:Z041 |      F.Massa,A.El-Nouby,etal. Dinov2: Learningrobustvisualfeatureswithoutsupervision.arXiv
+S16:Z042 |      preprintarXiv:2304.07193,2023.
+S16:Z043 |                                                      16
+
+===== PDF S. 17 =====
+S17:Z001 | AppendixOverview–CuratingDatayourRobotLoveswithInfluenceFunctions
+S17:Z002 | The appendix offers additional detailsw.r.t.the implementation ofCUPID(§A), the experiments
+S17:Z003 | conducted(§B),alongwithextendedresultsandanalysis(§C),andfinally,supportingderivationsfor
+S17:Z004 | ourdatacurationmethods(§D).Videosandcodearemadeavailableat:https://cupid-curation.github.io.
+S17:Z005 | AppendixA   ImplementationDetails                                                                               18
+S17:Z006 |     A.1   InfluenceFunctionsforDiffusionPolicies. . . . . . . . . . . . . . . . . . . . . .    18
+S17:Z007 |     A.2   CUPIDHyperparameters. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    19
+S17:Z008 |     A.3   CombiningScoreFunctions. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    19
+S17:Z009 | AppendixB   ExperimentalSetup                                                                                       20
+S17:Z010 |     B.1   HardwareSetup. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    20
+S17:Z011 |     B.2   PolicyArchitectures. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    20
+S17:Z012 |     B.3   Tasks&Datasets. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    21
+S17:Z013 |     B.4   BaselineDetails. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    21
+S17:Z014 | AppendixC  AdditionalResults&Analysis                                                                  22
+S17:Z015 |     C.1   ExtendedDiscussiononRoboMimicResults(§7.1)  . . . . . . . . . . . . . . . . .    22
+S17:Z016 |     C.2   AblationonNumberofPolicyRolloutsinRoboMimic(§7.2) . . . . . . . . . . . .    23
+S17:Z017 |     C.3   AdditionalDataQualityResultsinRoboMimic. . . . . . . . . . . . . . . . . . . .    24
+S17:Z018 |     C.4   DataFilteringCurationDistributionsinFrankaReal-World. . . . . . . . . . . . .    24
+S17:Z019 |     C.5   DataSelectionCurationDistributionsinFrankaReal-World. . . . . . . . . . . . .    25
+S17:Z020 |     C.6   AdditionalResultsforFrankaπ            0: CuratedDatasetTransfer(§7.3). . . . . . . . . .    25
+S17:Z021 | AppendixD   Derivations                                                                                                     26
+S17:Z022 |     D.1   ProofofProposition1. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    26
+S17:Z023 |     D.2   DerivationofPerformanceInfluenceforVariableLengthTrajectories. . . . . . . .    27
+S17:Z024 |                                                               17
+
+===== PDF S. 18 =====
+S18:Z001 | A   ImplementationDetails
+S18:Z002 | A.1   InfluenceFunctionsforDiffusionPolicies
+S18:Z003 | Foreaseofreferenceinthissection,werestatethedefinitionoftheactioninfluence(Definition2)and
+S18:Z004 | thepropositionestablishingperformanceinfluence(Proposition1),bothoriginallyintroducedin§5.
+S18:Z005 | RestatementofDefinition2.Theactioninfluenceofastate-actionpair                         (s,a)       onateststate-action
+S18:Z006 | pair(s       ′,a′)istheinfluenceof(s,a)onthepolicy’slog-likelihoodlogπ                              θ(a ′|s′). Thatis,
+S18:Z007 |                         Ψa-inf  ((s  ′,a′),(s,a)):=−∇              θlogπ     θ(a ′|s′)⊤H−1bc∇θℓ(s,a;π         θ).
+S18:Z008 | RestatementofProposition1. Assumethat      θ(D)=argmin      θ′Lbc(θ ′;D)    , thatLbc istwicediffer-
+S18:Z009 | entiableinθ,andthatHbc≻0    ispositivedefinite(i.e.,θ(D)       isnotasaddlepoint)1. Then,itholds
+S18:Z010 | that                                               R(τ)       X        X
+S18:Z011 |                     Ψπ-inf  (ξ)=E      τ∼p(τ|π          θ)H                   Ψa-inf (s ′,a′),(s,a)   .
+S18:Z012 |                                                            (s ′,a′)∈τ(s,a)∈ξ
+S18:Z013 | whereΨ π-inf  (ξ)istheperformanceinfluenceofademonstrationξ(asintroducedinDefinition1).
+S18:Z014 | ComputingtheActionInfluence
+S18:Z015 | AlthoughProposition1providesacleanmechanismtoattributepolicyperformancetoitstrainingdata
+S18:Z016 | byleveraginginfluencescoresonactionlog-likelihoods, computing∇θlogπ     θ(a ′|s′)(intheaction
+S18:Z017 | influenceΨa-inf   )fordiffusion-basedpolicyarchitecturesisnontrivialduetotheiterativedenoising
+S18:Z018 | process[53,54]. Instead,variousworksoutsideroboticsproposetoapproximatethelog-likelihood
+S18:Z019 | withthedenoisinglossℓ(s  ′,a′;π θ)forthepurposeofdataattribution[38],becausethedenoisinglossis
+S18:Z020 | proportionatetothevariationallowerboundonlogπ     θ(a ′|s′). In§6,weapplyasimilarapproximation
+S18:Z021 | toperformdataattributiononstate-of-the-artdiffusionpolicies[50],whichwedescribebelow.
+S18:Z022 | Diffusion Policy:Consider the standard diffusion policy architecture [         50].  An actiona:=a       0 is
+S18:Z023 | generatedbyiterativelydenoisinganinitiallyrandomactionaT∼N(0,1)        overT stepsasaT,...,a0
+S18:Z024 | usinganoisepredictionnetworkϵθ,whereaidenotesthegeneratedactionatthei-thdenoisingiteration.
+S18:Z025 | Followingtheimitationlearningsettingdescribedin§4,theparameters      θofthenoisepredictionnetworkPP
+S18:Z026 | ϵθ arefittotheBCobjectiveasθ=argmin θ′{Lbc(θ ′;D):=        1|D|H                     ξi∈D      (s,a)∈ξ          iℓ(s,a;π         θ′)} . Here,
+S18:Z027 | thenoisepredictionnetworkϵθ istrainedtopredictrandomnoiseϵi∼N(0,1)        addedtotheactionaat
+S18:Z028 | randomlysampledtimestepsi∼U[0,T)ofthediffusionprocessusingthelossfunctionℓdefinedas
+S18:Z029 |                             ℓ(s,a;π         θ′):=E    ϵi,i||ϵ  i−ϵ   θ′(√¯α  ia+ √1−¯α       iϵi,s,i)||       2,                              (7)
+S18:Z030 | wheretheconstants¯α                 i dependonthechosennoisescheduleofthediffusionprocess.
+S18:Z031 | InfluenceApproximations:Sincethedenoisingloss                 ℓinEq.7isproportionatetothevariationallower
+S18:Z032 | boundontheactionlog-likelihoodlogπ     θ(a|s)      ,itmayseemintuitivetosubstitute∇θlogπ     θ(a ′|s′)with
+S18:Z033 | −∇θℓ(s  ′,a′;π θ)—assuminggradientalignment—toapproximatetheactioninfluence(Eq.2)as
+S18:Z034 |                            Ψa-inf  ((s  ′,a′),(s,a))≈∇             θℓ(s  ′,a′;π θ)⊤H−1bc∇θℓ(s,a;π         θ).                            (8)
+S18:Z035 | A similar approach is taken by Georgiev et al. [38]      for attributing the generations of image-based
+S18:Z036 | diffusionmodels. However,consistentwithmorerecentresultsinthedataattributionliterature[37,55],
+S18:Z037 | wefindthisapproximationtoworkpoorlyinpractice,withhighlyinfluentialtrainingsamples(s,a)∈D
+S18:Z038 | rarelyreflectingthetest-timetransitions(s ′,a′)∈τ     overwhichtheactioninfluencesarecomputed.
+S18:Z039 | Instead,wefollowtheapproachofZhengetal.[37]     ,whichentailsreplacingbothlogπ     θ(a ′|s′)and
+S18:Z040 | ℓ(s,a;π         θ)inEq.2withasurrogate,label-agnosticoutputfunction    ℓsquare(s,a;π        θ):=E    ϵi,i[||ϵ   θ(√¯α  ia+
+S18:Z041 | √1−¯α       iϵi,s,i)||       2],makingourfinalapproximationoftheactioninfluence
+S18:Z042 |                   Ψa-inf  ((s  ′,a′),(s,a))≈∇             θℓsquare(s ′,a′;π θ)⊤H−1square∇θℓsquare(s,a;π        θ).                (9)
+S18:Z043 | Here,Hsquare=    1          P        P
+S18:Z044 |                      |D|H      ξi∈D      (s,a)∈ξ          i∇θℓsquare(s,a;π     θ)∇ θℓsquare(s,a;π     θ)⊤ istheGauss-Newton
+S18:Z045 | approximation of the Hessian—as introduced by Martens   [56]      and applied for stable and efficient
+S18:Z046 | influenceestimationin[2,35]—underthesurrogateoutputfunctionℓ                         square.
+S18:Z047 | AdditionalRemarks:Whiletheuseof               ℓsquare mayseemcounterintuitiveatfirst,itoffersthreekey
+S18:Z048 | advantagesforcomputingactioninfluences:
+S18:Z049 |                                                               18
+
+===== PDF S. 19 =====
+S19:Z001 |        1.  Leave-one-out influences (§3) computed using     ℓsquare (Eq. 9) are empirically found to
+S19:Z002 |            correlate better with actual changes in a diffusion model’s loss—i.e.,  the difference
+S19:Z003 |            ℓ(s  ′,a′;π θ(D\(s,a))         )−ℓ(s      ′,a′;π θ(D)    )—thanthosecomputedusingthelossℓ(Eq.8)[37].
+S19:Z004 |        2. Theoreticalanalysisalsoshowsthatℓsquare morecloselyalignswithadistributionalformula-
+S19:Z005 |            tionoftheleave-one-outinfluencecomparedtothelossℓ[55].Inthecaseofdiffusionpolicies,
+S19:Z006 |            this distributional formulation would seek to design Ψa-inf    such that it approximates the
+S19:Z007 |            leave-one-outdivergenceΨ       a-inf  ((s  ′,a′)),(s,a))≈D                  KL(π θ(D)    (a ′|s′)||π   θ(D\(s,a))         (a ′|s′)).
+S19:Z008 |        3.  Usingℓsquare significantlyreducesthecomputationalcostofcomputingactioninfluences
+S19:Z009 |            forpolicieswithhigh-dimensionalactionspaces,becausetheℓ2-normcollapsesthemodel’s
+S19:Z010 |            predictionintoascalar||ϵ  θ(√¯α  ia+ √1−¯α       iϵi,s,i)||       2. Asaresult,computingEq.9requires
+S19:Z011 |            onlyasinglemodelgradient∇θℓsquare pertrainingandtestsample. Incontrast,whilethe
+S19:Z012 |            techniqueproposedbyLinetal.[55]      offersamoreaccurateestimateoftheleave-one-out
+S19:Z013 |            divergenceDKL(π θ(D)    (a ′|s′)||π   θ(D\(s,a))         (a ′|s′)),itscomputationalcostscaleslinearlywith
+S19:Z014 |            thedimensionalityofthemodel’soutput,whichmaybeprohibitive.
+S19:Z015 | Accuracy-EfficiencyTradeoff:Wenotethatourapproachforcomputingtheperformanceinfluenceof
+S19:Z016 | ademonstration(Eq.3)isagnostictothechoiceofinfluenceestimationtechnique[   38,37,55,57,58],
+S19:Z017 | allowingpractitionerstotradeoffbetweenaccuracyandefficiencybasedonavailablecomputational
+S19:Z018 | resources,andenablingintegrationofimproveddataattributionmethods(e.g.,[36])inthefuture.
+S19:Z019 | A.2   CUPIDHyperparameters
+S19:Z020 | WeusethesamesetofhyperparametersforCUPIDandCUPID-QUALITYacrossallexperiments.
+S19:Z021 | Performance Influence (Eq. 3):For all tasks, we define the trajectory return to be     R(τ)=1       ifτ
+S19:Z022 | completesthetaskandR(τ)=−1             otherwise. Asaresult,everyrollouttrajectoryτ∼p(·|π           θ)provides
+S19:Z023 | informationontheutilityofeachdemonstrationtowardthepolicy’sclosed-loopperformance. Wealso
+S19:Z024 | foundCUPIDtoworkwithalternativereturndefinitions—forexample,focusingsolelyonsuccessful
+S19:Z025 | rolloutsbysettingR(τ)=0whenτfails. However,suchchoicesmayincreasesamplecomplexity.
+S19:Z026 | ActionInfluence(Eq.9):Theactioninfluencerequirescomputingthegradientofanexpectation
+S19:Z027 | ∇θℓsquare(s,a;π     θ) =∇   θEϵi,i[||ϵ   θ(√¯α  ia+  √1−¯α       iϵi,s,i)||   2].  For all tasks, we approximate the
+S19:Z028 | expectationusingabatchofB=64   samples(ϵ (b)  ,i(b)  ),whereϵ(b)  ∼N(0,1)        andi(b)  ∼U[0,T)        are
+S19:Z029 | sampledindependently.
+S19:Z030 | DataAttribution:WeleverageTRAK[          2]toefficientlycomputeactioninfluencesasdefinedinEq.9.
+S19:Z031 | First,TRAKusesrandomprojectionsP∼N(0,1)           p×d    ,wherepisthenumberofmodelparameters
+S19:Z032 | andd<<p is the specified projection dimension, to reduce the dimensionality of the gradients as
+S19:Z033 | gθ=P  ⊤∇θℓsquare whilepreservingtheirinnerproductsgθ·g θ≈∇θℓsquare·∇θℓsquare [59]. Second,
+S19:Z034 | TRAKensemblesinfluencescoresoverC independentlytrainedmodels(i.e.,fromdifferentseeds)to
+S19:Z035 | accountfornon-determinisminlearning. Inourexperiments,weusethestandardprojectiondimension
+S19:Z036 | d=4000  andminimizecomputationalcostbyusingonlyasinglepolicycheckpointC=1  ,notingthat
+S19:Z037 | ensemblingoverC>1policycheckpointsislikelytoimprovetheaccuracyofourinfluencescores.
+S19:Z038 | A.3   CombiningScoreFunctions
+S19:Z039 | Foreaseofexpositionin§5.3,weexpresstheoverallscoreofademonstrationastheconvexcombination
+S19:Z040 | ofitsperformanceinfluenceanditsqualityscoreαΨ  π-inf   +(1−α)Ψ          qual,whereα=1   andα∈[0,1)
+S19:Z041 | instantiatesCUPIDandCUPID-QUALITY,respectively.Here,weadditionallynotethattakingweighted
+S19:Z042 | combinations of score functions requires first normalizing them to equivalent scales.  Hence, our
+S19:Z043 | implementationuniformlynormalizesdemonstrationscoreswithintherange[0,1]     (i.e.,producingan
+S19:Z044 | absoluterankingofdemonstrations)foreachscorefunctionΨπ-inf    andΨqual beforecombiningthem.
+S19:Z045 | Thissimpleapproachcanbeappliedtocombineanarbitrarynumberofdemonstrationscorefunctions.
+S19:Z046 |                                                           19
+
+===== PDF S. 20 =====
+S20:Z001 |                              B   ExperimentalSetup
+S20:Z002 |                              B.1   HardwareSetup
+S20:Z003 |                              AsdepictedinFig.4, ourhardwareexperimentsinvolveaFrankaFR3manipulatorrobot. Weuse
+S20:Z004 |                              a single ZED 2 camera to capture RGB-D observations and disregard the depth information. Our
+S20:Z005 |                              image-basedpoliciesprocess256×256          downsampledRGBobservationsandpredictsequencesof
+S20:Z006 |                              end-effectorposesforthemanipulator,whicharetrackedusingoperationalspacecontrol[60].
+S20:Z007 |                              B.2   PolicyArchitectures
+S20:Z008 |                              Diffusion Policy (DP):We use the original diffusion policy implementation             4 from Chi et al. [50]     .
+S20:Z009 |                              Specifically,weusetheconvolutional-baseddiffusionpolicyarchitectureforefficiency. Forstate-based
+S20:Z010 |                              tasks(e.g.,inRoboMimic;Fig.3),actionsaregeneratedsolelyusingthenoisepredictionnetwork                   ϵθ as
+S20:Z011 |                              describedin§A.1. However,forimage-basedtasks(e.g.,onhardware;Fig.4),thepolicy                πθ contains
+S20:Z012 |                              twosetsofparametersθ=(θ   o,θa)correspondingtoaResNet-18encoderEθo andthenoiseprediction
+S20:Z013 |                              networkϵθa. Whenscoringdemonstrations,wecomputeactioninfluences(Eq.9)overallavailable
+S20:Z014 |                              policyparametersθ,notingthatonemightalsoconsiderusingasubsetoftheparameters,e.g.,thoseof
+S20:Z015 |                              thenoisepredictionnetworkoranalternativeactionhead,underreducedcomputationalbudgets.
+S20:Z016 |                              Otheroptimizations:Inpreliminaryexperiments,wefoundthattheoriginaldiffusionpolicy(a)was
+S20:Z017 |                              heavilyover-parameterizedand(b)convergedinperformancemuchearlierintrainingthanthespecified
+S20:Z018 |                              maximum number of epochs. Thus, to accelerate experimentation in RoboMimic (Fig. 3), we (a)
+S20:Z019 |                              manuallydeterminedthesmallestmodelsizethatperformedsimilarlytotheoriginalpolicyand(b)
+S20:Z020 |                              adjustedthemaximumnumberofepochstothepointwhereadditionaltrainingwouldresultinno
+S20:Z021 |                              furtherperformancegains. Importantly,wekeepthemodelsizeandtrainingepochsconsistentacross
+S20:Z022 |                              allcurationmethodsforagivenRoboMimictask. Forreal-worldhardwareexperiments,weusethe
+S20:Z023 |                              samemodelsizeandlimitthenumberoftrainingstepsto200Kacrossalltasks,similartoHejnaetal.
+S20:Z024 |                              [10]     . Allotherdiffusionpolicyhyperparametersareconsistentwiththeoriginalimplementation[50].
+S20:Z025 |                              Generalist  Robot  Policy  (π0): We  fine-tune    Physical
+S20:Z026 |                              Intelligence’sπ0 Vision-Language-Action (VLA) policy5
+S20:Z027 |                              via Low-Rank Adaptation (LoRA) [61] on the “Figure-8” and
+S20:Z028 |                              “TuckBox”tasks.Toensurethepost-trainedpolicy’sperformance
+S20:Z029 |                              issolelyaresultofthepropertiesofthecurateddatasetusedfor
+S20:Z030 |                              training,weusethestandardfine-tuningparameterconfiguration
+S20:Z031 |                              fromBlacketal.[21]      andkeepallhyperparametersfixedacross
+S20:Z032 |                              experiments(seeTable1). Wetrainedon2NVIDIARTX4090
+S20:Z033 |                              GPUs,whichtookapproximately15hoursundertheconfigura-
+S20:Z034 |                              tioninTable1. Ininitialexperiments,wefoundthattrainingfor                  Table 1:Hyperparameter configu-
+S20:Z035 |                              30Kstepswasnecessarytocompensateformismatchbetween                          rationusedforπ                 0 [21]post-training.
+S20:Z036 |                              our robot’s action space (target end-effector poses tracked via
+S20:Z037 |                              operationalspacecontrol)andtheactionspacesusedtopre-train
+S20:Z038 |                              thebaseπ0 policy(absolutejointangles). Inaddition,wefoundthatusingadescriptivepromptfor
+S20:Z039 |                              the task was necessary to yield performant policies. We kept these prompts fixed across training,
+S20:Z040 |                              evaluation,andallcurationsettings. Forthe“TuckBox”task,weusedtheinstruction“Movetheblue
+S20:Z041 |                              boxunderneaththewhiteshelf”toavoidbiasingthepolicytowardsaparticularbehaviormode(e.g.,
+S20:Z042 |                              “sliding”or“pick-and-place”). Forthe“Figure-8”task,weusedtheinstruction“Pickuptheredrope,
+S20:Z043 |                              then tie a figure 8,” where we found the two-step instruction to increase performance over shorter
+S20:Z044 |                              instructionslike“Tiethecleat.” Similartothediffusionpolicyexperiment,wefine-tuneaseparateπ0
+S20:Z045 |                              modelforeachcurationtask—filter- k(Task1)andselect-  k(Task2)—usingtheircorrespondingbase
+S20:Z046 |                              demonstrationdatasets. Wethenfine-tuneadditionalπ                 0 modelsondatasetscuratedbyourmethods.
+S20:Z047 |                                  4DP’sopen-sourceimplementation:https://github.com/real-stanford/diffusion_policy.
+S20:Z048 |                                  5π0’sopen-sourceimplementation:https://github.com/Physical-Intelligence/openpi.
+S20:Z049 | Hyperparameter       Value                                                           20
+S20:Z050 | Trainingsteps        30,000
+S20:Z051 | Batchsize            16
+S20:Z052 | Optimizer            AdamW
+S20:Z053 | Learningrateschedule Cosinedecay
+S20:Z054 | EMA                  Disabled
+S20:Z055 | Actionchunklength    50steps
+S20:Z056 | Controlfrequency     10Hz
+S20:Z057 | Imageresolution      224×224
+S20:Z058 | Observationhistory   1frame
+S20:Z059 | VLMbackboneLoRA      Rank=16,α=16
+S20:Z060 | ActionexpertLoRA     Rank=32,α=32
+
+===== PDF S. 21 =====
+S21:Z001 | B.3   Tasks&Datasets
+S21:Z002 | Here,weprovideadditionaldetailsregardingourreal-worldhardwaretasksandtheircorresponding
+S21:Z003 | datasets. WerefertoMandlekaretal.[49]fordetailsonthesimulatedRoboMimicbenchmark.
+S21:Z004 | Figure-8:Abriefdescriptionofthetaskisprovidedin§6.1. The“Figure-8”datasetcontains160
+S21:Z005 | demonstrationsevenlysplitacrossfourqualitytiers. Higherqualitydemonstrationscompletethetask
+S21:Z006 | ataconstantratewithouterrors,whilelower-qualitydemonstrationsvaryinprogressionrate[62]and
+S21:Z007 | includeretryorrecoverybehaviors. Therefore,the“Figure-8”taskintendstoreflectapracticalsetting
+S21:Z008 | wheredemonstrationsofvaryingpropertiesareintroducedduringdatacollection,whetherorganically
+S21:Z009 | ordeliberately,e.g.,toimprovepolicyrobustnesstorecoverablefailures[63]. Therefore,weexpect
+S21:Z010 | curationalgorithmsthatdistinguishdemonstrationsuponnotionsofquality(e.g.,predictability[10])
+S21:Z011 | toperformwellonthistask,whichisconsistentwithourfindingsinFig.4(a)andFig.7(a).
+S21:Z012 | TuckBox:Abriefdescriptionofthetaskisprovidedin§6.2. Asmentioned,the“TuckBox”dataset
+S21:Z013 | contains120demonstrationssplit2:1betweentwosubsets: 80demonstrationssolvethetaskbysliding
+S21:Z014 | theboxunderthereceptacle,while40demonstrationsfirstrepositiontheboxinfrontofthereceptacle
+S21:Z015 | viapick-and-place. Althoughtheslidingstrategyappearsmoresmoothandinvolvesjustasinglestep,
+S21:Z016 | itisrenderedunreliablebyimperceptibletest-timedistributionshiftstothebox’smassdistribution. As
+S21:Z017 | such,“TuckBox”standsconceptuallyoppositeto“Figure-8,”wherebyattendingtoheuristicproperties
+S21:Z018 | ofdemonstrations(e.g.,quality)mayresultinpoorcurationperformance(asshowninFig.4(b)).
+S21:Z019 | Bookshelf:Abriefdescriptionofthetaskisprovidedin§6.3. Tosummarize,therobotmustextract
+S21:Z020 | a target book that is either shelved alone—affording a simple, horizontal pulling motion—or with
+S21:Z021 | anotherbookstackedontopofit(i.e.,abookstack). Inthebookstackcase,therobotmustextractthe
+S21:Z022 | targetbookusingaverticalpullingmotion,suchthatthestackedbookdoesnotfallofftheshelfinthe
+S21:Z023 | process(seeFig.4(c)). Intotal,the“Bookshelf”datasetcontains120demonstrationssplitacrossthree
+S21:Z024 | subsets: (a)60demonstrationsfeaturethetargetbookshelvedalonewithawhitebackground,(b)20
+S21:Z025 | demonstrationsfeaturethebookstackwithawhitebackground,and(c)40demonstrationsfeaturethe
+S21:Z026 | bookstackwithadarkbackground. Allsubsetsfeaturetask-irrelevantdistractorbooksonothershelves.
+S21:Z027 | Spuriouscorrelationsintrainingdata:Althoughtheverticalpullingsolutiontothebookstackcase
+S21:Z028 | is demonstrated in scenes with both white and dark backgrounds, the disproporionate number of
+S21:Z029 | demonstrationsinsubset(a)versussubset(b)spuriouslycorrelatesthehorizontalpullingmotionwith
+S21:Z030 | thewhitebackground. Suchspuriouscorrelationsmayresultincausalconfusion[                  12],wherethepolicy
+S21:Z031 | ignoresthebookstack,attendsthewhitebackground,andexecutesthefailinghorizontalstrategy.
+S21:Z032 | Spuriouscorrelationsinrolloutdata:Like“TuckBox,”“Bookshelf”representsanotherlimitingcase
+S21:Z033 | for curating data with quality metrics [10].  However, it also presents an additional challenge for
+S21:Z034 | methodsthatseektocuratedatausingonlineexperience[11]. Forexample,approachesthatattend
+S21:Z035 | todifferencesinstatesbetweensuccessfulandfailedpolicyrolloutsmaybesusceptibletospurious
+S21:Z036 | correlationsintherolloutdata. Considerthesimplecase: ifweweretoobservesuccessfulrollouts
+S21:Z037 | whenthetargetbookisshelvedaloneandfailedrolloutswhenanotherbookisstackedabovethetarget,
+S21:Z038 | thentrainingaclassifier(i.e.,asinDemo-SCORE[11])todistinguishsuccessfulfromfailedstates
+S21:Z039 | maywronglyattributefailurestothepresenceofthestackedbook. Curatingdemonstrationswithsuch
+S21:Z040 | aclassifierwould,inturn,worsenthespuriouscorrelationinthetrainingdata. Thus,wepositthat
+S21:Z041 | handlingmorechallengingcasesofspuriouscorrelationsinreal-worlddatawillrequiremethodsthat
+S21:Z042 | causallyattributetheoutcomesofobservedtest-timeexperiencestothetrainingdata,suchasCUPID.
+S21:Z043 | B.4   BaselineDetails
+S21:Z044 | DemInf:Weusetheofficialimplementation                    6 providedbyHejnaetal.[10]     . WenotethatDemInf
+S21:Z045 | curatesdataoffline—thatis,withoutusinganypolicyrollouts—andisatpresentonlyapplicabletothe
+S21:Z046 | demonstrationfilteringsetting(i.e.,filter-k,asdefinedinTask1).
+S21:Z047 | Demo-SCORE:We construct our own implementation based on the description provided by the
+S21:Z048 | authors[11]. Givenourassumedfixedbudgetofm=100    rolloutsforRoboMimicexperiments(§6),
+S21:Z049 | wecollect25rolloutsfromC=4   policycheckpointsthroughouttraining. Wetrainthree-layerMLP
+S21:Z050 |    6DemInfopen-sourceimplementation:https://github.com/jhejna/demonstration-information.
+S21:Z051 |                                                       21
+
+===== PDF S. 22 =====
+S22:Z001 | classifierswithhiddendimensions[16,16,16]            onthefirstthreerolloutsets,andselectthebestclassifier
+S22:Z002 | viacross-validationonthelast25rollouts,asdescribedin[11]. Sincewereducetherolloutbudget
+S22:Z003 | tom=25    rolloutsforhardwareexperiments(§6),wecollect25rolloutsfromthelast     C=1   policy
+S22:Z004 | checkpoint. WethentrainasingleResNet-18encoderandthree-layerclassificationheadwithhidden
+S22:Z005 | dimensions[32,32,32]            on20oftherollouts,leaving5validationrolloutstomonitorforoverfitting. We
+S22:Z006 | trainallclassifierswithaheavydropoutof0.3   andanAdamWweightdecayof0.1   topreventoverfitting,
+S22:Z007 | inalignmentwith[11]. AlthoughChenetal.[11]      onlytestDemo-SCOREfordemonstrationfiltering,
+S22:Z008 | weextenditsusefordemonstrationselection(i.e.,select-k,asdefinedinTask2).
+S22:Z009 | SuccessSimilarity:Wedesignacustomrobotdatacurationalgorithmthat,similartoDemo-SCORE,
+S22:Z010 | valuatesdemonstrationsbasedonaheuristicmeasureofsimilarityw.r.t.successfulpolicyrollouts.
+S22:Z011 | Insteadoftrainingclassifiers,SuccessSimilaritymeasurestheaveragestate-embeddingsimilarityofa
+S22:Z012 | demonstrationw.r.t.allsuccessfulrolloutsas
+S22:Z013 |                                                                 XX
+S22:Z014 |                      S(ξ;D       τ)=− X     1(R(τ)=1)·              1H2 D ϕ(s   ′),ϕ(s)   ,
+S22:Z015 |                                     τ∈D τ                       s′∈τs∈ξ
+S22:Z016 | wheretheindicatorfunction1evaluatesto1ifrolloutτ issuccessfuland0otherwise,H istheassumed
+S22:Z017 | lengthofalldemonstrationsξ∈D  androlloutsτ∈D τ fornotationalsimplicity,ϕisthestateembedding
+S22:Z018 | function,andDisaspecifieddistancefunctionoverstateembeddings[64],suchastheMahalanobis,
+S22:Z019 | L2,orcosinedistance. Forimage-basedstates,weexperimentedwithvariousembeddingfunctions
+S22:Z020 | ϕ,includingResNet[65],DINOv2[66],andthepolicy’svisionencoder[62],andultimatelyfound
+S22:Z021 | thepolicy’svisionencodertoworkbestinRoboMimic. Theembeddingfunctionissettoidentityfor
+S22:Z022 | low-dimensionalstates(i.e.,ϕ(s)=s        ). Lastly,thedistancefunctionDischosenforcompatibilitywith
+S22:Z023 | ϕ: e.g.,L2distanceforpolicyencoderembeddingsandcosinedistanceforDINOv2embeddings.
+S22:Z024 | ComparisontoPerformanceInfluence(CUPID):OnecaninterpretSuccessSimilarityasreplacingthe
+S22:Z025 | actioninfluenceΨa-inf  ((s  ′,a′),(s,a))          (Eq.2)withastate-basedproxy  −D(ϕ(s          ′),ϕ(s))         inanattempt
+S22:Z026 | toestimatetheperformancecontributionofademonstration(Eq.3). InourRoboMimicexperiments
+S22:Z027 | (Fig.3),thisapproachperformscomparablytoDemo-SCOREand,insomecases,evenoutperforms
+S22:Z028 | it—withoutrequiringthetrainingofanyadditionalmodels. However,SuccessSimilarityperforms
+S22:Z029 | consistentlyworsethanCUPIDacrossalltasks,supportingpriorfindingsthatinfluencefunctionsoffer
+S22:Z030 | asubstantiallystrongercausalsignalthanheuristicmeasuresofsimilarity[2].
+S22:Z031 | Oracle:Foreachtask,theOraclemethodrepresentsabestattempttocuratedataassumingprivileged
+S22:Z032 | accesstoground-truthdemonstrationlabels. FortheRoboMimicand“Figure-8”tasks,theOracle
+S22:Z033 | ranksdemonstrationsindescendingorderofquality,choosinghigh-qualitydemonstrationsbefore
+S22:Z034 | low-quality demonstrations.  For the “TuckBox” task, the Oracle first chooses all demonstrations
+S22:Z035 | exhibitingthemorerobustpick-and-placestrategybeforeanydemonstrationexhibitingthemorebrittle
+S22:Z036 | slidingstrategy. Lastly,forthe“Bookshelf”task,theOraclechoosesdemonstrationstominimizethe
+S22:Z037 | effect of theknownspurious correlation (i.e., horizontal pulling motion in the presence of a white
+S22:Z038 | background), resulting in a more balanced curated dataset.  These definitions of the Oracle apply
+S22:Z039 | identicallytothefilter-k(Task1)andselect-k(Task2)curationtasksstudiedthroughoutthiswork.
+S22:Z040 | Additional baselines:We implement a number of additional custom baselines that one might try
+S22:Z041 | inpractice,suchascuratingdatabasedonpolicyloss,policyuncertainty,statediversity,andaction
+S22:Z042 | diversity. However,weexcludethemfromourexperimentsgiventheirrelativelypoorperformance.
+S22:Z043 | C   AdditionalResults&Analysis
+S22:Z044 | WepresentadditionalresultsandablationsforourRoboMimicandFrankareal-worldtasksthatwere
+S22:Z045 | cutfromthemaintextduetospaceconstraints.
+S22:Z046 | C.1   ExtendedDiscussiononRoboMimicResults(§7.1)
+S22:Z047 | Weprovideanextendeddiscussionon§7.1forourRoboMimicsimulationresults.
+S22:Z048 | PerformanceversusDataQuality:Oneofourkeyfindingsisthattheperformanceofastate-of-the-
+S22:Z049 | artpolicydoesnotstrictlycorrelatewiththeperceivedqualityofitstrainingdata. Factorssuchas
+S22:Z050 |                                                        22
+
+===== PDF S. 23 =====
+S23:Z001 | redundancy,balance,andcoverageofthedatasetallplayaroleindeterminingpolicyperformance.
+S23:Z002 | ThisisillustratedintheOraclefilter-kresults(leftthreeplotsofFig.3). Whilethetoprowshowsa
+S23:Z003 | monotonicincreaseinaveragedatasetqualityaslower-qualitydemonstrationsarefilteredout, the
+S23:Z004 | bottomrowreveals(1)aconsistentperformancedropfordiffusionpolicieson2outof3tasks,and(2)
+S23:Z005 | asexpected,performancedegradationwhentoomanydemonstrationsareremoved. Similaranalysis
+S23:Z006 | appliestotheselect-ksetting. Theseresultshighlighttwoimportantpoints: First,theimpactofdataset
+S23:Z007 | curationshouldnotbejudgedbyqualitylabelsalone,butbythedownstreamperformanceofmodels
+S23:Z008 | trainedoncurateddatasets. Second,determininghowmuchdatatocurate(i.e.,thekinfilter-kand
+S23:Z009 | select-k)remainsanotherkeychallengeforeffectivedatacurationinpractice.
+S23:Z010 | PerformanceversusTaskComplexity:WeevaluatecurationperformanceacrossthreeRoboMimic
+S23:Z011 | tasks of increasing complexity—“Lift MH,” “Square MH,” and “Transport MH.” On the simplest
+S23:Z012 | task, “Lift MH,” diffusion policies achieve 100% success despite training on all demonstrations,
+S23:Z013 | indicatingthatlow-qualitydemonstrationshaveminimalimpactandcanbesafelyfiltered. Weobserve
+S23:Z014 | asimilartrendforthemoderatelydifficult“SquareMH”task,wherethepolicybenefitsfromaccess
+S23:Z015 | to all demonstrations regardless of their quality. However, performance degrades more quickly as
+S23:Z016 | demonstrationsarefiltered,suggestingincreasedsensitivitytodataquantityduetothetask’shigher
+S23:Z017 | complexityrelativeto“LiftMH.”Finally,onthechallenging“TransportMH”task,whichrequires
+S23:Z018 | precisebi-manualcoordination,bothCUPIDandCUPID-QUALITYsignificantlyoutperformthebase
+S23:Z019 | policy. Theseresultssuggestthatcurationofmixed-qualitydatasetsismostbeneficialforcomplex,
+S23:Z020 | precision-criticaltasks,wheretrainingonlower-qualitydataismorelikelytohinderperformance.
+S23:Z021 | C.2   AblationonNumberofPolicyRolloutsinRoboMimic(§7.2)
+S23:Z022 | We conduct an ablation study in RoboMimic evaluating the quality of datasets curated byCUPID
+S23:Z023 | andCUPID-QUALITYundervaryingnumbersofrollouts,              m∈{1,5,10,25,50,100}                                 . Theresultsfor
+S23:Z024 | state-basedandimage-baseddiffusionpoliciesareshowninFig.8andFig.9,respectively. For“Lift
+S23:Z025 | MH”and“SquareMH,”performanceinfluences(Eq.3)stabilizearound  m∈[25,50]            ,yieldingquality
+S23:Z026 | trendssimilartothoseobtainedwithm=100   . For“TransportMH,”qualitytrendscontinuetoevolve
+S23:Z027 | untilapproximatelym∈[50,100]             rollouts, indicatingthatmorerolloutsarebeneficialforaccurate
+S23:Z028 | influenceestimationincomplextasksettings—wherecurationhasthegreatesteffectonperformance.
+S23:Z029 | Figure 8:RoboMimic state ablation: Data quality trends under varying number of rollouts.  Performance
+S23:Z030 | influences(Eq.3)convergearound   m∈[25,50]             rolloutsfor“LiftMH”and“SquareMH”(yieldingsimilarquality
+S23:Z031 | trends),butcontinuetoevolveuntilm∈[50,100]             rolloutsfor“TransportMH.”Curationperformedonstate-based
+S23:Z032 | diffusionpolicies. Resultsareaveragedover3randomseeds. Errorsbarsrepresentthestandarderror.
+S23:Z033 | Figure 9:RoboMimic image ablation: Data quality trends under varying number of rollouts. Performance
+S23:Z034 | influences (Eq. 3) converge around   m∈[25,50]             rollouts for “Lift MH” and “Square MH” (yielding similar
+S23:Z035 | qualitytrends),butcontinuetoevolveuntilm∈[50,100]             rolloutsfor“TransportMH.”Curationperformedon
+S23:Z036 | image-baseddiffusionpolicies. Resultsareaveragedover3randomseeds. Errorsbarsrepresentthestandarderror.
+S23:Z037 |                                                          23
+
+===== PDF S. 24 =====
+S24:Z001 | C.3   AdditionalDataQualityResultsinRoboMimic
+S24:Z002 | WeprovidefulldataqualityresultsinRoboMimic.Fig.10isidenticaltothetoprowofFig.3inthe
+S24:Z003 | maintext,butalsoincludesdataqualitytrendsforselect-kcurationon“LiftMH.”Fig.11showsdata
+S24:Z004 | qualityresultsforimage-baseddiffusionpolicies. Wedonotretrainimage-basedpoliciesoncurated
+S24:Z005 | datasets(asinthebottomrowofFig.3)duetothesubstantialcomputationalresourcesrequired.
+S24:Z006 | Figure10:RoboMimicstatedataqualityresults. Curationperformedonstate-baseddiffusionpolicies. Results
+S24:Z007 | areaveragedover3randomseeds. Errorsbarsrepresentthestandarderror.
+S24:Z008 | Figure11:RoboMimicimagedataqualityresults.Curationperformedonimage-baseddiffusionpolicies. Results
+S24:Z009 | areaveragedover3randomseeds. Errorsbarsrepresentthestandarderror.
+S24:Z010 | C.4   DataFilteringCurationDistributionsinFrankaReal-World
+S24:Z011 |           (a)Figure-8:Distributionofdemonstrationsfiltered. Filteringlower-qualitydemosisbetter.
+S24:Z012 |              (b)TuckBox:Distributionofdemonstrationsfiltered. Filteringslidingdemosisbetter.
+S24:Z013 |          (c)Bookshelf:Distributionofdemonstrationsfiltered. Filteringspuriouscorrelationsisbetter.
+S24:Z014 | Figure12:Frankadiffusionpolicy–distributionofdemonstrationsfiltered(    S⋆ inTask1).SeeFig.5for
+S24:Z015 | distributionsofthecorrespondingcurateddatasetsusedforpolicytraining.
+S24:Z016 |                                                            24
+
+===== PDF S. 25 =====
+S25:Z001 | C.5   DataSelectionCurationDistributionsinFrankaReal-World
+S25:Z002 |    (a)Figure-8:Distributionofcurateddemonstrationsafterselecting33%. Higher-qualitydemosarebetter.
+S25:Z003 |   (b)TuckBox:Distributionofcurateddemonstrationsafterselecting33%. Pick-and-placedemosarebetter.
+S25:Z004 | Figure 13:Franka diffusion policy curated dataset distributions for selection (Task 2).CUPIDselects
+S25:Z005 | higher-qualitydemonstrations(Figure-8)androbuststrategies(TuckBox),improvingpolicyperformanceacross
+S25:Z006 | tasks(seeFig.4). Whilecurationheuristicsemployedbybaselinesmaybeeffectiveinsomecases(e.g.,CUPID-
+S25:Z007 | QUALITYinFigure-8),theycanleadtosuboptimalselectioninothers.
+S25:Z008 |          (a)Figure-8:Distributionofdemonstrationsselected. Selectinghigher-qualitydemosisbetter.
+S25:Z009 |         (b)TuckBox:Distributionofdemonstrationsselected. Selectingpick-and-placedemosisbetter.
+S25:Z010 | Figure14:Frankadiffusionpolicy–distributionofdemonstrationsselected(    S⋆ inTask2).SeeFig.13for
+S25:Z011 | distributionsofthecorrespondingcurateddatasetsusedforpolicytraining.
+S25:Z012 | C.6   AdditionalResultsforFrankaπ              0: CuratedDatasetTransfer(§7.3)
+S25:Z013 | Fig.15containsthefullresultsofour    π0ablation(Fig.7),includingtheperformanceof   π0[21]trained
+S25:Z014 | ondatasetscuratedbyCUPIDandCUPID-QUALITYforboththe“Figure-8”and“TuckBox”tasks.
+S25:Z015 |                                                             25
+
+===== PDF S. 26 =====
+S26:Z001 | Figure15:Datacuratedforsingle-taskdiffusionpoliciesimproves     π0 [21]post-trainingperformance. Asin
+S26:Z002 | Fig.4,qualitymeasures(CUPID-QUALITY)maydegradeperformancewhenhigher-qualitydemonstrationsinduce
+S26:Z003 | brittlestrategiesattesttime(TuckBox),whereascuratingbasedonperformance(CUPID)isrobustacrosssettings.
+S26:Z004 | Inthisexperiment,weinvestigatetwoquestions: (1)Candatasetscuratedwithonepolicyarchitecture
+S26:Z005 | resultinincreasedperformancewhenusedtotrainanotherpolicywithadifferentarchitecture? (2)
+S26:Z006 | Howinfluentialiscurationforpoliciesthathavebeenpre-trainedonlarge-scalemulti-taskdatasets?
+S26:Z007 | Curation Transfer:Towards the first question,Fig. 15shows that datasets curated using diffusion
+S26:Z008 | policiessignificantlyincreasetheperformanceoffine-tunedπ0 policiesrelativetofine-tuningonthe
+S26:Z009 | base,uncurateddatasets. Weattributetheseresultstotwocauses: First,wefindthatboththediffusion
+S26:Z010 | policyandπ0 havesufficientcapacitytoaccuratelyfitthetrainingdatadistribution, andthus, they
+S26:Z011 | should learn a similar behavior distribution from the training data. This implies that the observed
+S26:Z012 | performancegainsinFig.15resultfromcurationtransferbetweenpolicies. Second,asthe“TuckBox”
+S26:Z013 | experimentshowsinFig.4(b),ourmethodisabletoeffectivelyidentifybehaviorsinthedemonstration
+S26:Z014 | datathatarenotrobust. Whileon-policyevaluations(i.e.,rollouts)arenecessarytoidentifysuchbrittle
+S26:Z015 | behaviors,thesearepurelypropertiesofthetrainingdemonstrationdata. Therefore,filteringoutpoor
+S26:Z016 | behaviorswillincreasetheperformanceofanypolicy. Similarly,onthehigh-precision“Figure-8”task,
+S26:Z017 | filteringoutmorenoisy,low-qualitydemonstrationsislikelytoimproveperformanceforanypolicy.
+S26:Z018 | VLARobustness:Towardsthesecondquestion,wefindthatevenwhenthebasepolicyispre-trainedon
+S26:Z019 | alarge,diverse,multi-taskdataset,curationisstillessentialtoyieldstrongfine-tunedperformance. As
+S26:Z020 | showninFig.15,      π0policiestrainedonthebasedemonstrationdatasetsareunabletoreliablycomplete
+S26:Z021 | ourtasks. Incontrast,policiestrainedoncurateddatasetsattainsignificantlyhighersuccessrates. As
+S26:Z022 | such,ourresultsindicatethatsimplytrainingVLM-basedpoliciesonmoredataandmoretasksdoes
+S26:Z023 | notstrictlyresultinpre-conditionedpoliciesthatusetheirgeneralistknowledgeto“ignore”low-quality
+S26:Z024 | behaviorsorbrittlestrategiesindemonstrationdata—i.e.,datacurationstillappearsessential.
+S26:Z025 | ConcludingRemarks:Overall,theseresultsindicatethatusingsmaller,single-taskpoliciestocurate
+S26:Z026 | individual datasets, which may then benefit a larger, multi-task policy is a promising direction to
+S26:Z027 | alleviatethecomputationalcostofapplyingourmethodtogeneralistpolicies. Still,weemphasizethat
+S26:Z028 | datasetscuratedusingourmethodarenotcompletelymodelagnostic,asthesamedemonstrationsmay
+S26:Z029 | influencedifferentmodelsindifferentways. Assuch,whileπ0 achievesahigherbaseperformance
+S26:Z030 | thanthediffusionpolicy,theπ0 policiestrainedoncurateddatasetsperformsimilarlytoorslightly
+S26:Z031 | worsethanthediffusionpolicies(forwhichthosedatasetswerecurated).
+S26:Z032 | D   Derivations
+S26:Z033 | D.1   ProofofProposition1
+S26:Z034 | Proof. Aspresentedin§3,applyingthebasicderivationoftheinfluencefunction         1 in[13]givesusthat
+S26:Z035 | ϵ=0
+S26:Z036 |                           Ψπ-inf  (ξ):=   dJ(π      θ)dϵ
+S26:Z037 |                                      =−∇   θJ(π   θ)⊤∇2θLbc(θ;D)      −1 ∇θℓtraj(ξ;π    θ).
+S26:Z038 |                                                          26
+
+===== PDF S. 27 =====
+S27:Z001 | Next,notethatthestandardlog-derivativetrickunderlyingpolicygradientmethods[16,47]tellsus
+S27:Z002 | that
+S27:Z003 |                               ∇θJ(π   θ)=E   τ∼p(τ|π          θ)R(τ)   X       ∇θlogπ     θ(a ′|s′).
+S27:Z004 |                                                                       (s ′,a′)∈τ
+S27:Z005 | Therefore,sinceL         bc andℓ      traj aredeterministicfunctionsofθ,ξ,andD,itholdsthat
+S27:Z006 |                Ψπ-inf  (ξ)=E      τ∼p(τ|π          θ)R(τ)   X    −∇θlogπ     θ(a ′|s′)⊤H−1bc∇θℓtraj(ξ;π    θ)
+S27:Z007 |                                                        (s ′,a′)∈τ
+S27:Z008 | by linearity of expectation.  Finally, by simply noting thatℓtraj(ξ;π    θ)=  1                         P
+S27:Z009 |                                                                                                      H     (s,a)∈ξ        ℓ(s,a;θ)         and
+S27:Z010 | applyingthedefinitionofΨ   a-inf   ,wehavetheresult: R(τ)
+S27:Z011 |                      Ψπ-inf  (ξ)=E      τ∼p(τ|π          θ)      X         X      Ψa-inf (s ′,a′),(s,a)   .
+S27:Z012 |                                                          H    (s ′,a′)∈τ (s,a)∈ξ
+S27:Z013 | D.2   DerivationofPerformanceInfluenceforVariableLengthTrajectories
+S27:Z014 | In§4and§5,weassumedthatalltrajectoriesinthedemonstrationdataset            DwereofanequallengthH
+S27:Z015 | fornotationalsimplicity. Here,weshowthatwithoutlossofgenerality,ouranalysisextendstothecase
+S27:Z016 | wherethelengthofdemonstrationtrajectoriesvary. Supposeeachdemonstrationξi∈DhaslengthHi,
+S27:Z017 | sothatthebasepolicyπθ minimizestheaveragelossacrossallsamplesinthedemonstrationdata,i.e.,
+S27:Z018 |                          θ=argminθ′ {˜Lbc(θ ′;D):=           1               X       X      ℓ(s,a;π         θ′)}.                      (10)
+S27:Z019 |                                                              (Pni=1 Hi)ξi∈D(s,a)∈ξ          i
+S27:Z020 | NotethattheobjectiveinEq.10isequivalenttoanunweightedBClossX
+S27:Z021 |                                           L′bc(θ ′;D):= X                    ℓ(s,a;π         θ′),
+S27:Z022 |                                                              ξi∈D(s,a)∈ξ          i
+S27:Z023 | whichdecomposesintoitsunweightedtrajectorylossesℓ′traj(ξ;π    θ′):=P(s,a)∈ξ       ℓ(s,a;π      θ′),sothat
+S27:Z024 | L′bc(θ ′,D)= Pξi∈Dℓ′traj(ξ i;π θ′).  WecanthenderiveanequivalentstatementtoProposition1forthe
+S27:Z025 | unweightedlossfunctionsthatapplieswhenthedemonstrationshavevariablelength.
+S27:Z026 | Proposition2.Assumethat   θ(D)=argmin      θ′L′bc(θ ′;D)    ,thatL′bcistwicedifferentiableinθ,andthat
+S27:Z027 | Hbc≻0ispositivedefinite(i.e.,θ(D)isnotasaddlepoint)                     1. Then,itholdsthat
+S27:Z028 |                       Ψπ-inf  (ξ)=E      τ∼p(τ|π          θ)R(τ)   X      X      Ψa-inf (s ′,a′),(s,a)   .                  (11)
+S27:Z029 |                                                               (s ′,a′)∈τ(s,a)∈ξ
+S27:Z030 | Proof. Aspresentedin§3,applyingthebasicderivationoftheinfluencefunction         1 in[13]givesusthat
+S27:Z031 | ϵ=0
+S27:Z032 |                              Ψπ-inf  (ξ):=   dJ(π      θ)dϵ
+S27:Z033 |                                            =−∇   θJ(π   θ)⊤∇2θL′bc(θ;D)      −1 ∇θℓ′traj(ξ;π    θ).
+S27:Z034 | Next,notethatthestandardlog-derivativetrickunderlyingpolicygradientmethods[16,47]tellsus
+S27:Z035 | that
+S27:Z036 |                               ∇θJ(π   θ)=E   τ∼p(τ|π          θ)R(τ)   X       ∇θlogπ     θ(a ′|s′).
+S27:Z037 |                                                                       (s ′,a′)∈τ
+S27:Z038 | Therefore,sinceL       ′bc andℓ     ′traj aredeterministicfunctionsofθ,ξ,andD,itholdsthat
+S27:Z039 |                Ψπ-inf  (ξ)=E      τ∼p(τ|π          θ)R(τ)   X    −∇θlogπ     θ(a ′|s′)⊤H−1bc∇θℓ′traj(ξ;π    θ)
+S27:Z040 |                                                        (s ′,a′)∈τ
+S27:Z041 | bylinearityofexpectation. Finally,bysimplynotingthatℓ′traj(ξ;π    θ)=P(s,a)∈ξ       ℓ(s,a;θ)            andapplying
+S27:Z042 | thedefinitionofΨ   a-inf   ,wehavetheresult:
+S27:Z043 |                                                                           X
+S27:Z044 |                       Ψπ-inf  (ξ)=E      τ∼p(τ|π          θ)R(τ)   X             Ψa-inf (s ′,a′),(s,a)   .
+S27:Z045 |                                                               (s ′,a′)∈τ(s,a)∈ξ
+S27:Z046 |                                                                  27
+

@@ -1,0 +1,104 @@
+{
+  "date": "2026-10-25",
+  "sources": {
+    "self": {
+      "path": "experiments/stack_self_imitation_20261023/RESULTS.md",
+      "url": "evidence/self.md",
+      "sha256": "a5551dfff17a240db276b10e63231bba5039124961586482b8c7da42ae089862"
+    },
+    "selfData": {
+      "path": "experiments/stack_self_imitation_20261023/analysis.json",
+      "url": "evidence/selfData.json",
+      "sha256": "493a13daf0099307618863ec45563bde65e43715079c9fbaa7288f839a158cc4"
+    },
+    "curriculum": {
+      "path": "experiments/stack_five_curriculum_20261023/RESULTS.md",
+      "url": "evidence/curriculum.md",
+      "sha256": "ad651d782f6500ea9a7c94791a1909dfa45a1397790c80e037fe18c5fd5b5cd0"
+    },
+    "curriculumData": {
+      "path": "experiments/stack_five_curriculum_20261023/final_analysis.json",
+      "url": "evidence/curriculumData.json",
+      "sha256": "dba7df0f66717e6212a6d315a199307f6a4e2040584042d4fd0c7fbbfc9a8c15"
+    },
+    "correction": {
+      "path": "experiments/stack_five_curriculum_20261023/MEASUREMENT_CORRECTION.md",
+      "url": "evidence/correction.md",
+      "sha256": "04c4b8234efd15f7b59ed6e02a2645ece093817f025fd009098e8818003a59ed"
+    },
+    "transition": {
+      "path": "experiments/stack_transition_quality_20261024/run_20261024_resumed/RESULTS.md",
+      "url": "evidence/transition.md",
+      "sha256": "57484e8d5b0be32d2996b3d515d4bb252d45d9e29a9310db9fe3c18f05dbf89a"
+    },
+    "audit": {
+      "path": "experiments/stack_transition_quality_20261024/run_20261024_resumed/FINAL_AUDIT.json",
+      "url": "evidence/audit.json",
+      "sha256": "ab1e3b9cb5eade1f0f6dceb132dc82327495ea8b28648860bc55910d16b59722"
+    },
+    "composition": {
+      "path": "experiments/stack_composition_20261023/AUSWERTUNG.md",
+      "url": "evidence/composition.md",
+      "sha256": "12bf0704e350c8fb6ace3341eef845472f2fafcb91060693688f9a8129ac0afd"
+    },
+    "phased": {
+      "path": "experiments/stack_phased_8h_20261023/REPORT_2.md",
+      "url": "evidence/phased.md",
+      "sha256": "249a7dec2922dcc69c38ac130c9dc2b33db960a6f50a752b16e6dee6b82c014c"
+    },
+    "replication": {
+      "path": "experiments/stack_replication_20261001/ERGEBNISSE.md",
+      "url": "evidence/replication.md",
+      "sha256": "c23c60ef0c1897ce2cd57c64f016a7010f36cf30b0673c2d3327958e9467bf47"
+    },
+    "lift": {
+      "path": "experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/REVIEW_20261004.md",
+      "url": "evidence/lift.md",
+      "sha256": "f05a805da632ac623cf8d9470fc6c039aebf1089599cc114faaedc2aa730c255"
+    },
+    "keynotes": {
+      "path": "literature/PAPER_KEYNOTES.md",
+      "url": "evidence/keynotes.md",
+      "sha256": "d4e098db446a7a959d54c908f54651fdd7602a473e3ac34d5386fad368e89807"
+    },
+    "relation": {
+      "path": "literature/comparisons/relation_to_our_results.md",
+      "url": "evidence/relation.md",
+      "sha256": "282b0078be2066a25da27281ba6496bfad638cac890d52a556bf9397a1ff3a2a"
+    },
+    "transition_seed1": {
+      "path": "experiments/stack_transition_quality_20261024/run_20261024_resumed/final_test/B0_seed1_reserved_final.json",
+      "url": "evidence/transition_seed1.json",
+      "sha256": "b4165133bba13f861a71aa80b0f55ca15881cdf8e44aa00d405c62d1feb23f8f"
+    },
+    "transition_seed2": {
+      "path": "experiments/stack_transition_quality_20261024/run_20261024_resumed/final_test/B0_seed2_reserved_final.json",
+      "url": "evidence/transition_seed2.json",
+      "sha256": "146523481da280f0012d309ec7bb034e6a612fb396f539e2036d607b9eaf4f95"
+    },
+    "transition_seed3": {
+      "path": "experiments/stack_transition_quality_20261024/run_20261024_resumed/final_test/B0_seed3_reserved_final.json",
+      "url": "evidence/transition_seed3.json",
+      "sha256": "a7fa2d7c47759c8dfeeb6b9e9baead77f9dd950352d052eb484734b6293bf43a"
+    },
+    "liftStatus": {
+      "path": "experiments/lift_contraction_validity_20261004/RESEARCH_STATUS.md",
+      "url": "evidence/lift-status.md",
+      "sha256": "b43bfe002ecb0e3fdf5eafe1b48143b1ea59d1ca496d65c2fd569333cddef57b"
+    }
+  },
+  "media": [
+    {
+      "path": "experiments/stack_replication_20261001/representative/direct_seed_3_start_46003.mp4",
+      "url": "media/direct_seed_3_start_46003.mp4",
+      "sha256": "540ce875bbd3f598dce6c57def3acdb65f4dfbe2dec35e1b852b4439a3cc0b6a",
+      "description": "Historical StackTwo; training seed 3; start 46003; saved states replayed; selected illustration."
+    },
+    {
+      "path": "experiments/stack_replication_20261001/representative/diffusion_seed_3_start_46003.mp4",
+      "url": "media/diffusion_seed_3_start_46003.mp4",
+      "sha256": "f996a0f1bf7f4dea256de2d99e5a098dc56fbfd3974d0990572ed0ef33f56d10",
+      "description": "Historical StackTwo; training seed 3; start 46003; saved states replayed; selected illustration."
+    }
+  ]
+}

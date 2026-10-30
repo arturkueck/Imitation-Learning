@@ -1,0 +1,123 @@
+{
+  "episodes": 800,
+  "all_frames": 339727,
+  "stats": {
+    "stack2_train": {
+      "attempts": 300,
+      "successes": 286,
+      "accepted_frames": 53438,
+      "teachers": {
+        "1": {
+          "attempts": 100,
+          "successes": 96
+        },
+        "2": {
+          "attempts": 100,
+          "successes": 96
+        },
+        "3": {
+          "attempts": 100,
+          "successes": 94
+        }
+      }
+    },
+    "stack2_valid": {
+      "attempts": 100,
+      "successes": 99,
+      "accepted_frames": 18869,
+      "teachers": {
+        "1": {
+          "attempts": 34,
+          "successes": 33
+        },
+        "2": {
+          "attempts": 33,
+          "successes": 33
+        },
+        "3": {
+          "attempts": 33,
+          "successes": 33
+        }
+      }
+    },
+    "stack3_train": {
+      "attempts": 300,
+      "successes": 154,
+      "accepted_frames": 51423,
+      "teachers": {
+        "1": {
+          "attempts": 100,
+          "successes": 43
+        },
+        "2": {
+          "attempts": 100,
+          "successes": 53
+        },
+        "3": {
+          "attempts": 100,
+          "successes": 58
+        }
+      }
+    },
+    "stack3_valid": {
+      "attempts": 100,
+      "successes": 56,
+      "accepted_frames": 18497,
+      "teachers": {
+        "1": {
+          "attempts": 34,
+          "successes": 22
+        },
+        "2": {
+          "attempts": 33,
+          "successes": 21
+        },
+        "3": {
+          "attempts": 33,
+          "successes": 13
+        }
+      }
+    }
+  },
+  "accepted_phase_counts": {
+    "(2, 'train', 0)": 5388,
+    "(2, 'train', 1)": 6259,
+    "(2, 'train', 2)": 5720,
+    "(2, 'train', 3)": 7983,
+    "(2, 'train', 4)": 5625,
+    "(2, 'train', 5)": 6454,
+    "(2, 'train', 6)": 16009,
+    "(2, 'valid', 0)": 1809,
+    "(2, 'valid', 1)": 2530,
+    "(2, 'valid', 2)": 1980,
+    "(2, 'valid', 3)": 2753,
+    "(2, 'valid', 4)": 1975,
+    "(2, 'valid', 5)": 2295,
+    "(2, 'valid', 6)": 5527,
+    "(3, 'train', 0)": 5689,
+    "(3, 'train', 1)": 6443,
+    "(3, 'train', 2)": 6162,
+    "(3, 'train', 3)": 8533,
+    "(3, 'train', 4)": 6077,
+    "(3, 'train', 5)": 6789,
+    "(3, 'train', 6)": 11730,
+    "(3, 'valid', 0)": 2089,
+    "(3, 'valid', 1)": 2229,
+    "(3, 'valid', 2)": 2241,
+    "(3, 'valid', 3)": 3260,
+    "(3, 'valid', 4)": 2163,
+    "(3, 'valid', 5)": 2406,
+    "(3, 'valid', 6)": 4109
+  },
+  "controller_events": {
+    "0": 338947,
+    "1": 390,
+    "2": 390
+  },
+  "finite": true,
+  "pre_post_continuity_exact": true,
+  "features_reconstructed": true,
+  "success_recomputed": true,
+  "split_initial_states_disjoint": true,
+  "action_teacher_check": "Collector verified20 single-frame predictions per episode with exact equality; batching-induced false alarm repaired before continuation."
+}

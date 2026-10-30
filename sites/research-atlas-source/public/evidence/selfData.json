@@ -1,0 +1,270 @@
+{
+  "episodes": 1350,
+  "stats": {
+    "A_seed1_stack2": {
+      "n": 50,
+      "success": 48,
+      "first_stack": 48,
+      "successful_xy_mean_mm": null
+    },
+    "A_seed1_stack3": {
+      "n": 100,
+      "success": 55,
+      "first_stack": 98,
+      "failed_stage2_phase6": 39,
+      "failed_lower_geometry_lost": 39,
+      "failed_stage2_phase5": 3,
+      "failed_stage1_phase6": 2,
+      "failed_stage2_phase1": 1,
+      "successful_xy_mean_mm": 2.775585025074861
+    },
+    "B_seed1_stack2": {
+      "n": 50,
+      "success": 48,
+      "first_stack": 48,
+      "successful_xy_mean_mm": null
+    },
+    "B_seed1_stack3": {
+      "n": 100,
+      "success": 56,
+      "first_stack": 98,
+      "failed_stage2_phase6": 34,
+      "failed_lower_geometry_lost": 38,
+      "failed_stage2_phase5": 7,
+      "failed_stage1_phase6": 1,
+      "failed_stage2_phase2": 1,
+      "failed_stage1_phase4": 1,
+      "successful_xy_mean_mm": 2.7933459661816786
+    },
+    "C_seed1_stack2": {
+      "n": 50,
+      "success": 48,
+      "first_stack": 48,
+      "successful_xy_mean_mm": null
+    },
+    "C_seed1_stack3": {
+      "n": 100,
+      "success": 62,
+      "first_stack": 98,
+      "failed_stage2_phase6": 35,
+      "failed_lower_geometry_lost": 34,
+      "failed_stage1_phase6": 2,
+      "failed_stage2_phase2": 1,
+      "successful_xy_mean_mm": 2.901044016851116
+    },
+    "A_seed2_stack2": {
+      "n": 50,
+      "success": 48,
+      "first_stack": 48,
+      "successful_xy_mean_mm": null
+    },
+    "A_seed2_stack3": {
+      "n": 100,
+      "success": 51,
+      "first_stack": 96,
+      "failed_stage2_phase6": 41,
+      "failed_lower_geometry_lost": 42,
+      "failed_stage2_phase4": 3,
+      "failed_stage1_phase6": 4,
+      "failed_stage2_phase1": 1,
+      "successful_xy_mean_mm": 2.9078709747441716
+    },
+    "B_seed2_stack2": {
+      "n": 50,
+      "success": 48,
+      "first_stack": 48,
+      "successful_xy_mean_mm": null
+    },
+    "B_seed2_stack3": {
+      "n": 100,
+      "success": 50,
+      "first_stack": 97,
+      "failed_stage2_phase6": 42,
+      "failed_lower_geometry_lost": 45,
+      "failed_stage2_phase4": 3,
+      "failed_stage1_phase6": 3,
+      "failed_stage2_phase1": 2,
+      "successful_xy_mean_mm": 2.945109132432394
+    },
+    "C_seed2_stack2": {
+      "n": 50,
+      "success": 48,
+      "first_stack": 48,
+      "successful_xy_mean_mm": null
+    },
+    "C_seed2_stack3": {
+      "n": 100,
+      "success": 58,
+      "first_stack": 99,
+      "failed_stage2_phase6": 39,
+      "failed_lower_geometry_lost": 40,
+      "failed_stage1_phase6": 1,
+      "failed_stage2_phase1": 1,
+      "failed_stage2_phase4": 1,
+      "successful_xy_mean_mm": 2.9137174260778513
+    },
+    "A_seed3_stack2": {
+      "n": 50,
+      "success": 49,
+      "first_stack": 49,
+      "successful_xy_mean_mm": null
+    },
+    "A_seed3_stack3": {
+      "n": 100,
+      "success": 49,
+      "first_stack": 95,
+      "failed_stage2_phase6": 46,
+      "failed_lower_geometry_lost": 39,
+      "failed_stage1_phase6": 2,
+      "failed_stage1_phase1": 3,
+      "successful_xy_mean_mm": 3.297301294793205
+    },
+    "B_seed3_stack2": {
+      "n": 50,
+      "success": 48,
+      "first_stack": 49,
+      "successful_xy_mean_mm": null
+    },
+    "B_seed3_stack3": {
+      "n": 100,
+      "success": 47,
+      "first_stack": 93,
+      "failed_stage2_phase6": 45,
+      "failed_lower_geometry_lost": 41,
+      "failed_stage1_phase6": 1,
+      "failed_stage2_phase1": 1,
+      "failed_stage1_phase1": 6,
+      "successful_xy_mean_mm": 3.2275994873177933
+    },
+    "C_seed3_stack2": {
+      "n": 50,
+      "success": 49,
+      "first_stack": 49,
+      "successful_xy_mean_mm": null
+    },
+    "C_seed3_stack3": {
+      "n": 100,
+      "success": 49,
+      "first_stack": 94,
+      "failed_stage2_phase6": 45,
+      "failed_lower_geometry_lost": 39,
+      "failed_stage1_phase6": 2,
+      "failed_stage1_phase1": 4,
+      "successful_xy_mean_mm": 3.2618278217596948
+    }
+  },
+  "models": {
+    "A_seed1": {
+      "best": {
+        "update": 10000,
+        "dev3": 34,
+        "dev2": 49
+      },
+      "elapsed": 1345.7045469284058,
+      "initial_self_mse": null
+    },
+    "B_seed1": {
+      "best": {
+        "update": 10000,
+        "dev3": 34,
+        "dev2": 49
+      },
+      "elapsed": 817.4012413024902,
+      "initial_self_mse": 8.523892029188573e-05
+    },
+    "C_seed1": {
+      "best": {
+        "update": 10000,
+        "dev3": 38,
+        "dev2": 49
+      },
+      "elapsed": 776.5090179443359,
+      "initial_self_mse": 0.0005341290961951017
+    },
+    "A_seed2": {
+      "best": {
+        "update": 3000,
+        "dev3": 29,
+        "dev2": 49
+      },
+      "elapsed": 833.7008469104767,
+      "initial_self_mse": null
+    },
+    "B_seed2": {
+      "best": {
+        "update": 10000,
+        "dev3": 30,
+        "dev2": 49
+      },
+      "elapsed": 859.3309478759766,
+      "initial_self_mse": 5.102802606415935e-05
+    },
+    "C_seed2": {
+      "best": {
+        "update": 30000,
+        "dev3": 35,
+        "dev2": 49
+      },
+      "elapsed": 790.0514359474182,
+      "initial_self_mse": 0.002160326112061739
+    },
+    "A_seed3": {
+      "best": {
+        "update": 10000,
+        "dev3": 31,
+        "dev2": 49
+      },
+      "elapsed": 797.5450956821442,
+      "initial_self_mse": null
+    },
+    "B_seed3": {
+      "best": {
+        "update": 30000,
+        "dev3": 31,
+        "dev2": 48
+      },
+      "elapsed": 811.7938873767853,
+      "initial_self_mse": 7.512241427320987e-05
+    },
+    "C_seed3": {
+      "best": {
+        "update": 30000,
+        "dev3": 32,
+        "dev2": 49
+      },
+      "elapsed": 810.9521713256836,
+      "initial_self_mse": 0.0007886374369263649
+    }
+  },
+  "paired": {
+    "C_minus_A_seed1": {
+      "gained": 8,
+      "lost": 1
+    },
+    "C_minus_B_seed1": {
+      "gained": 8,
+      "lost": 2
+    },
+    "C_minus_A_seed2": {
+      "gained": 8,
+      "lost": 1
+    },
+    "C_minus_B_seed2": {
+      "gained": 9,
+      "lost": 1
+    },
+    "C_minus_A_seed3": {
+      "gained": 2,
+      "lost": 2
+    },
+    "C_minus_B_seed3": {
+      "gained": 2,
+      "lost": 0
+    }
+  },
+  "all_successes_recomputed": true,
+  "finite": true,
+  "parent_pairing": true,
+  "original_sampler_rng_equal": true,
+  "original_dataset_unchanged": true
+}

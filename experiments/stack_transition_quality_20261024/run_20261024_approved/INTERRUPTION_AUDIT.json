@@ -1,0 +1,81 @@
+{
+  "utc": "2026-10-24T18:42:30.621085+00:00",
+  "state": "INTERRUPTED_EXTERNAL_PROCESS_EXIT_CAUSE_UNKNOWN",
+  "processes_absent": [
+    35976,
+    30588
+  ],
+  "updates": {
+    "B0_seed1": 3000,
+    "B0_seed2": 3000,
+    "B0_seed3": 3000,
+    "B_seed1": 3000,
+    "B_seed2": 3000,
+    "B_seed3": 3000
+  },
+  "checkpoint_hashes": {
+    "B0_seed1": {
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\run_20261024_approved\\training\\B0_seed1\\update3000.pth",
+      "sha256": "0d1a2fe6683cf8c41ec08a798093cc366f5090c484a25f6bd41d4fe045102f1b",
+      "update": 3000,
+      "technical_only": false
+    },
+    "B0_seed2": {
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\run_20261024_approved\\training\\B0_seed2\\update3000.pth",
+      "sha256": "b695f7b6338407827d19b1d8b268ce43fa5a6b1623300378ee890b1a423c582e",
+      "update": 3000,
+      "technical_only": false
+    },
+    "B0_seed3": {
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\run_20261024_approved\\training\\B0_seed3\\update3000.pth",
+      "sha256": "f97287a4b969aba15732e6c5a6dc5bedd20e51a6ffc73890e720808be8930f46",
+      "update": 3000,
+      "technical_only": false
+    },
+    "B_seed1": {
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\run_20261024_approved\\training\\B_seed1\\update3000.pth",
+      "sha256": "50f03b4d0c17b253dd903bcfbbd13124092796ca5a2563094e407c4ffc9a0821",
+      "update": 3000,
+      "technical_only": false
+    },
+    "B_seed2": {
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\run_20261024_approved\\training\\B_seed2\\update3000.pth",
+      "sha256": "471404b0140d4d21130cb8f6b2884a7f982487554c5bcc3c6cc0752d0c250500",
+      "update": 3000,
+      "technical_only": false
+    },
+    "B_seed3": {
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\run_20261024_approved\\training\\B_seed3\\update3000.pth",
+      "sha256": "507a46fce97c8511d11a522761fa7630cf4ad7472405ad22164dca13b1744c2c",
+      "update": 3000,
+      "technical_only": false
+    }
+  },
+  "finite_saved_losses": true,
+  "paired_saved_batches": true,
+  "verified_hashes": {
+    "code_hashes": true,
+    "input_hashes": true,
+    "native_sources": true,
+    "frozen_manifest": true
+  },
+  "incomplete_evaluations": [
+    {
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\run_20261024_approved\\evaluation_progress\\development\\B0_seed3\\update3000_f97287a4b969aba1\\full_stack4.json",
+      "attempts": 7,
+      "successes": 1,
+      "planned_attempts": 10,
+      "in_flight": null,
+      "in_progress_seed": 524007,
+      "possibly_consumed_unfinished_starts": [
+        524007
+      ]
+    }
+  ],
+  "final_tests_started": false,
+  "automatic_restart": false,
+  "deadline_unchanged": true,
+  "wake_lock_explicit_release_verified": false,
+  "wake_lock_note": "Owning process is absent; its thread-scoped request cannot persist. Systemwide powercfg query requires admin and was unavailable.",
+  "monitor_deleted": true
+}

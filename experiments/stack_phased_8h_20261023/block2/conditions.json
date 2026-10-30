@@ -1,0 +1,21 @@
+{
+  "batch": 64,
+  "sampling": "uniform phase then uniform frame within phase, with replacement",
+  "lr": 3e-05,
+  "optimizer": "AdamW weight_decay1e-6",
+  "loss": "MSE four active actions + lambda * BCE phase completion0..5",
+  "completion_lambda": 0.1,
+  "completion_positive_weights": [
+    18.383333206176758,
+    23.255556106567383,
+    19.0,
+    27.44444465637207,
+    19.516666412353516,
+    22.350000381469727,
+    50.0
+  ],
+  "threshold": 0.8,
+  "phase_labels": "reconstructed original expert",
+  "epoch_definition": "sampled frames / 27322; balanced sampling is not an ordinary epoch",
+  "test_seeds_used": false
+}

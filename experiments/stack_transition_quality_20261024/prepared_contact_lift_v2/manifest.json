@@ -1,0 +1,1814 @@
+{
+  "schema": 1,
+  "estimator": "proxy_only",
+  "original_sha256": "5222cbf96dc6218389d491fe7b99449295dcfc9bceb3bab8f8776ffff19fe6f8",
+  "action_audit_all_frames": false,
+  "train_only_normalizer": null,
+  "episodes": 240,
+  "episodes_without_accepted_window": 240,
+  "sections": [],
+  "verified_grasp": false,
+  "source_hashes": {
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215000.npz": "a68f67c7560ab46cee635d91f37527924b673a93fd979b18937f4bb070eee124",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215001.npz": "8718aaaeaf49dc6396a881527ea2ee3c429d7fdfb9d0b3102de782fe124503ad",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215002.npz": "35533371226e8e44f7b56dded6dd057ce59a8edd26958655309a94b48e521244",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215003.npz": "90a8d3a603f0b9b1e0828364755bbf638870e9b81cb362c23fa48e69be40c1bc",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215004.npz": "17e6506d3ce371f15d3d38150140f5dc569a95647d200967e705f0c03133cd56",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215005.npz": "981653294066c2b62c845ad8febfd0d46070df0b4553d22495a073cbb41876d0",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215006.npz": "057975ce4f945c76a15a210e0b72ddc890956d7d8e80b0c4af8ec45312aef350",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215007.npz": "0a2d562271730b3d8775ea215cdfa3a2fb901e773436ed0d73210d7e3bbf3914",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215008.npz": "5628d01c316c890dd6b510ccf2e85e3f8cbdcf856a5743155400c6d5ecf4ecd5",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215009.npz": "2493455c6c5fbe7dd25102b98d2b14b5903e3ce31d051c59f22d3f09217bf1f7",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215010.npz": "6a170f23c6098a1136a47d09e8c4b81ef6c6543fd8c3d06930b04d44847affde",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215011.npz": "04c477b7e5b97617fa1aa6b7e1781f0640235004d78d93f6e8ec6920dd6a7968",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215012.npz": "9908ccba82970ea22860ac3571e3e3025aeeaef074fac6fa88f8a61ee9eb9d76",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215013.npz": "04d46b44b3484130748ae56849f40f012596f8d13a05aa5945f9eda0be5e6864",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215014.npz": "3b11196fe6b4b1ff11c1916775fe69f112e376238e50b124cfee091867a3c983",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215015.npz": "df8485f9859183bfa9c2dae0d6859528429f40af632464f734cf713e4a0edabf",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215016.npz": "271fa8fccb487e3bde8f0e439f36b779cedde52fa427e8479927e1cd1eb01048",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215017.npz": "3a9206cc33821e3e9be7a4b5517d6fcab8365045f65404bad49668fa64ec368b",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215018.npz": "c1ed298b1f17896e015ffc6b8254f023a9b6d81097f7a97e59c9c5380caf7cba",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215019.npz": "422b58e3fa0a81b6bb81081e98a48af13eb5691b5cff3deb7c15b0fd220cc389",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215020.npz": "c278af927c77eb93691b3bf4c8d0c19774f9ec428deaa58f162185755340ab8f",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215021.npz": "65c0a9d10e10bb046b96cbc1e0f1bbe8355b73a5fe0ff9ad9d290505e8d672ef",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215022.npz": "1acf76d40ab683be6349770ca439f910bf15f4cad40c9ea565d3040227fb119a",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215023.npz": "f6c958691132437e4afad1f3386dd346d0e7c6761ab40061121caf2014b14b2c",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215024.npz": "73f533d7257ea15a09351ef45dbe8ab3946ee7ce1228f03b334171adc239c18d",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215025.npz": "13791dce1d27a0655d6ca4abb8cd07f0878e1984447f6e01a3a4265a7b7b8b28",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215026.npz": "2abcce21b764c14c21a3ab2b8fa90004afad2278d8fc1f67c2e4315f82822aea",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215027.npz": "325d0c3cefae7d7e0d0cc20db4192a569e9abb2fca0ad8b1c6467eee2688c17f",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215028.npz": "7038b8e06f82db0f300ad697d7e26a424ceb9b9ca8b666ed4a966b817181cc06",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215029.npz": "b11f1daa58391a7d9fc3779d15199772b7632c6ad068162e883c0f503bd93c93",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215030.npz": "c3e38acdb6f4031e77fee1362797aa10786c7d2dfd736226c545a624ab5c7af8",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215031.npz": "4a5860259f63a28039662b7bcc4453d3a48359a1825f9f4e7cbb8a9360424712",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215032.npz": "0ab8f1cd86d78d4413a06c7f304a67f79188295404e4282e2644e867f99db19c",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215033.npz": "68a80d8df87a26bb99b84a15e8f7ea6441a95dae1959af4d26fc6c80a0d780a7",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215034.npz": "68094b0b5a7dc0c2730e0b8669dac60b4577df52fa277366e55f464e53d31d86",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215035.npz": "4a642d5ca9fa7a983cb15d9dc06b7d56349a74cd2f404947f100317435e4d277",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215036.npz": "ccd5044154a98101832acf313024ccc0ae72a840b6e4ec838af9044291528d4f",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215037.npz": "0782bb256a46b2c74f334dca079b1f20a15d61ea66f6e8d47cea684b8fde6ee2",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215038.npz": "a1da380d060d3d8e4c9a90b436fe1eaa0441f9f9b9d9364b2e2264cbed9c0e6e",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215039.npz": "b866f31110eea51a0e2db1f5e56238b88bfc4f700bcbbe8891a82dfbdf89f6f7",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215040.npz": "bf8e3aaf56fac5e50af8fe7689345b094f886ae7bc2070c7cf650ec12a715337",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215041.npz": "1f980052ca93fd3cf2f071a1d231a104f1072e670135efb54cbdb4bae979df93",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215042.npz": "0110b1390b97829500e9d08568e7389486dc721e32979999b01e711c3f324093",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215043.npz": "e038247c7ecd65cb88e0647d6d199d954c1b1aed935de3a202df2199c327a27a",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215044.npz": "c358786e3f94453d6dcb4caf8eca9e0c2d026dcc5a2e81580f5cfce505ec601e",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215045.npz": "b189ffe7b2414989ceedd187e16e2bc841bdc91e1d9e9dfe602ac6449f221c8d",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215046.npz": "83eed848f58730a33f5a572fa7be784de710ad21160ef2ac974c28e079664959",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215047.npz": "7bb76b0c2acfc8bb7a7178ae66b0602df25aed70ae616a1b586ba8445629db5a",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215048.npz": "3607d0b0fdac42efce1b12f90848d1cd2bca8a95c39aacbc5c6d6d3c75afbd6b",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215049.npz": "528b292178793db38c3c5312383ab464924cb5765c48e54c539d4bdc30dbe1bb",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215050.npz": "54dce2668fc2ab7764e22c7518d7d3f1becfc3c75735a49ec6d541082869196f",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215051.npz": "714438f2372086ff84cccbe6e097ca522afc325260b3ebf76a7488764b4492f3",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215052.npz": "1f3b8cb9261db5b42fb88fcf26c58e5ee9f959500bbaca578e31e2fce4aa819e",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215053.npz": "7a294a402de8ed9979217b3ee6968b982f7e88e6d4933e33cdcad73a8f324fb0",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215054.npz": "a2156bec91ec1033b2b4faaa422ff3e7e1d235c354d574fc20d4e7d7e67ca900",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215055.npz": "a668a1c9d556c29c26ebd5073dabc003ad17c7a3c3c5229d53955cb12b139c33",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215056.npz": "4aae25d49424eb744cf2244ec6258e93310650826cbe682170b424a04770f8bd",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215057.npz": "86c999b6a6083e63470a0e5abdc69bfb89fbcbaae85555c4a33d418975661295",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215058.npz": "c3050ce47e95a672bc17199c5e259ac7b36fbb94636a1d8ab8cae6f63fbb2b2d",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215059.npz": "ec3256bcd20d3829963bfc2ffab0de8cf7526c46be7327a34b15d0a90803a974",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215060.npz": "7285b4c59f7f92070660bb557f54e77986f8e420d3ee9515618fb4614b2acfe2",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215061.npz": "89ebfae8796f20e21405688573fdb79d7c22dd8383310250af2773ec91e776d3",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215062.npz": "eb92df04271dda938130ec7fa1f752038f8667f8c310b0546da2050c892affdd",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215063.npz": "b84d8461338e8298533ca1126b608ec5f79e72d74f8f9c728ac27fee91773132",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215064.npz": "5371f6b06761cd0666916888ffbbb6ca3ba7e496f343abef190dc4326dbb2e2a",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215065.npz": "b4ed1ba6eb55abda6eca3cb3250a694ce9b169a7b96cae4b2f658825c3ab8102",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215066.npz": "9b8a1b3bc0063b01eafd01ea6c9777b1654c759c760324317fd2588e220b1b06",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215067.npz": "11ed9fb717b3904ec88218f3ed696fc1af5d94f7769605b15a7ac2c37f831985",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215068.npz": "fa506839cc6435d2ae822e8756c4490465b7915bd7c7a37f91beb36744cf1efa",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215069.npz": "974d8b6f60499fea4516987c27729568b54d2c5fabc564b158c21dc0e8b01bf2",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215070.npz": "e5fa6a3be187509e69aa895e61e2c8e6d274fb97cdaf97b9f540a7cfdaf5d8bf",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215071.npz": "cceee2060b40e8cff014f7d14dffb974019d9c0048c4b649ec1f8536f725b0f9",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215072.npz": "8040a3464c70236331a910632cddce4004dd100fe12c7ce8335c21728b080e25",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215073.npz": "6491249cbb3fb16471a299a5dbe26e27808da48344d461d65224e8015022d863",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215074.npz": "6cf127c89d42a38b4787e5272142f6fbc309d36561cd6a77e8cbfff036ed4fe6",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215075.npz": "6e5b162718426f2502c127bbad221c961b5d8265645078790d7b4c04d1913c72",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215076.npz": "fa2331229209d9213938a8f4315aed1cc9b66599b1192f84d7b0f06c2997e345",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215077.npz": "bdc763a5818a7c853f6d75e8ec303286745caad215c1a4ddadad1b7ef95ff974",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215078.npz": "9c91496313e954332177e16c0723d5956d40649f8b03fa7fc534c2f51555e830",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215079.npz": "69ae5503e76c0a6012b44b2239568b5cf3c0ed1810b2c0dbbaff99b037b17b91",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215080.npz": "adbf9189a84dc7b44a156c4ca2de7aed21a495e40f2c13169c2871ba31349491",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215081.npz": "e8a9c48338be31e6fecaed2bcb648588cd8b8df534a5cd9357c7ac5fd7bf6cc9",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215082.npz": "80ff0e9317ed08a8525bc4b7589f7a264987cad37f6dd11f018af3cf85239efb",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215083.npz": "605823c5928449be041d99442fc89616684cebbb91f74da03463b07ea5510758",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215084.npz": "2e653b1c4eab6acbecc570f4de10cbc97ea459be507e87aa0ca79277e2bbaa30",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215085.npz": "44134f629956e95fad232c20916b76cb66377ff9dbdd9fd9f23979b713c5a842",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215086.npz": "6b3835e39ebc1f00aacad82682d637975e16f2f17b65c8cb20fbaee4d4bc3c64",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215087.npz": "2f259cd3449e30d47afd78c6d2c9b058b902af20f37f65b1085af615debaaf2e",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215088.npz": "7451556a5398f398cc69b29d9cb8e8d1c996aec612d6a758b8c567ef45c7ac16",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215089.npz": "3efdfa6b1e11cb382145088b5a1836a22a85af5f4e71d7a20f9ef6b2fd157756",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215090.npz": "c4a66bfb322de98e3efd59cc26cead798449ea49765effb44cdbba0fb7a981ef",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215091.npz": "fadcbe0b017557c4278debe83d59efb3ab797a6e5c40b0ce71cd1ea49f0383cd",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215092.npz": "59d58b2a9bdae46b919ff3741599e0dc0ec35f95b82201da20ae03adcca14292",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215093.npz": "8ea6a61d916ab4b11ec604af1ccc68de02641f51d3a3770e3cf7ab774215fc00",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215094.npz": "0571a05ccfc91d869efa8a21f16812a9dea93375092f355a73a07e3877b81024",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215095.npz": "4bd40cb9ce58ce28dc9b61c05f2214b93ddf82a747d15fb83e9326b69d3fbff8",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215096.npz": "3eb59a87ae38f6bddf536cc7295eda9a1d23d6b66cd9c9b83ccdea80fde4cd2b",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215097.npz": "bf2a728489c928a7bb116404469c52fba69715dc0bf27f9eea45c020826fd20f",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215098.npz": "8d31507966486eeef1b49f9d094d0b0b0c187ef239fca520a08ea461040815ff",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215099.npz": "5aed15caebc8b096adfe35969a41fa3df0418e1da1d2473de1be4520abfbd70c",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215100.npz": "a8f788a70befaf0f3004a874d7d806a0358cb510fe6d266293840a0505b6d461",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215101.npz": "2c9a03b0e07cbf8d1a24deba1ec3878842fb57850ecadfb657f610cfdbb57461",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215102.npz": "20a941ae895aefa400a8889b47bc82248b609a549c471f660b336ae9e25f1193",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215103.npz": "7a4a17cafdda756a7e97c291207cfe7a46a9b8006e3b4daa8abcfa6c0104fb63",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215104.npz": "68e1ebcdf6158f941576283a1b4089c6ce94da6ea6ced89796bea7a4c8a4a4e2",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215105.npz": "71ee5ccb0abbfab36161f22302602e3331dc6d987b108c7203afb3c621bce50e",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215106.npz": "96ed2490d12e8ed6bf2ef0d49d603fe4312834cc6c8d411b738692616c112fc7",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215107.npz": "83d28556265b931477f416ab91e940ad354be59464f1c19488c1ba2b47f06c23",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215108.npz": "373e78981dd6b6a62d91edf7da28bbf89824af7f4e2308558508f9e63e8b290a",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215109.npz": "8aef41685d01cfbd4a1ab1b14da95caf05f141bdc0022abecd4853830194ca6a",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215110.npz": "c1ebea9bf82f871691d5dbeed0b7354c331b9ea3356455efa2831117e2c2d415",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215111.npz": "72ec8b8c34c653a89c64c4c99f5bf824568d03758e95633869f6a694e30a6e2f",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215112.npz": "ddb8edae6ddb0aea09297b321ee6bab38d228c42adb73b542f870ffb4e1f6e18",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215113.npz": "4d6ad499aa76d715a8fec9503dc22a86d56253abbc20240456761f2d61ae843d",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215114.npz": "afe0528232d0b9690667c1f74df63767155dbeba8ae7d7790608a4f4d273af83",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215115.npz": "7f58eaa4b4a94a98dbcad7ae85b29005fbf9c645ae04a514c967776c73786e5c",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215116.npz": "f1635d3b6e79f68dd9eab83f09a705f1ade357cde7b001032db4f78616798104",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215117.npz": "98a8d7704b00fa77eb8530df432bb09daca5c36a436460d8744ffb6ecbfad0df",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215118.npz": "563b932d10982943745d7ed2267369b7550712eaaa0dbf3e74847a758c7c9bbb",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215119.npz": "eb4ea2a7cd11ab94aa8fac1a7195622586b07415185b8e60d75766ec7537a86f",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220000.npz": "16f3b1065642b17430fc20777f134e2a31725b5883d7bf27ca8bd9b9b676e766",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220001.npz": "5906243e08f7ed8a6bf6a6a5cf20cfdd31f0efcf905c77fcd79194079e7d3c71",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220002.npz": "32adbdc9c8f6900fe21f3568c64ca8b19c1312f8f700219dc0f78fbbc836503e",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220003.npz": "54c8b8e6f5c06040d72000ed032581f5a42fd5e483bd3861384f1eeaf6ffc038",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220004.npz": "2d430606c855a1fb23ea70d09f7f923a0d6b7c8ec94fe3528b1c2164ae9f8a98",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220005.npz": "de9230e41c667e896f5633ed75eab0a51b86bbf5ac1d753ab3780d99e126ce7c",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220006.npz": "bb3c0d2dbb297f1a04f54efa51117b313e21768ac6bca3d7ffa7ae18412caa54",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220007.npz": "1b88a5183e4d6275bc29fbe4e56557640e51883330883f9189fe01ce80e7fe28",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220008.npz": "5fb86d2a3e82caff81f8c28dd7c3e9bb3186d9146ebe33a4163605b3db357fb3",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220009.npz": "34412e88aa8316de8e8682a460e22e46b48a88789d01aecc53cb2104b947e811",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220010.npz": "4dca064c4d06b2b1a19265f0f6e00b338a44458fc8516dd9f8a573fcbfe2c12d",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220011.npz": "f257c0c5dd148d72a3653644ef90731a456eefcb0a5db8c577fc066c2b144da5",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220012.npz": "8de5129b8e4864358919f9c9fca517cc95b2821e5913aef9652a82a365820d52",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220013.npz": "b507fc6375707562c04432edf6afc356cf48ca95adb6d135ad565cc61c3ba163",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220014.npz": "704df7bbf8eaaac6d73b1992efa2558f80b4230bdf2d2d1d662b7dd42d6d7c22",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220015.npz": "e7f428378ee8561203f863550f9a1f435293e223492bf8145055468ce6a30510",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220016.npz": "d2bc5fbff857d4dd678ac2deafea0551ba65d1ac2369a264b81dd33e4368b3e5",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220017.npz": "92f21b0018935612c8aa484bc33dc66d159adf0e08d96e6987f74e636da3eb66",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220018.npz": "4068bc99540bf62de746117928618b07cfc53ccf8950112b66798cd4fa72f91a",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220019.npz": "b600affa9e32082348b67c9f7ea5c06b85fab3387ecb44c6138624541502e3e5",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220020.npz": "ccae296fcd4b70e274d9b439c49b63528268ec1d088029005f52af2281941563",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220021.npz": "5c7ac153f8085da7a5ecc53e34e1c1af67063470015cbd7ef3ef4c0cb3acf520",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220022.npz": "684c58e90b7da18df0d35975d17a7daa1f31c5c816735de0a728378b5ea68fbb",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220023.npz": "743c8aac043f00edb6f7373105a719b17ee187ebe42c6b7ccc6faa9ce7a4ee7f",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220024.npz": "6595df2071e6b243447aa63e6d1b52ca5a7dd499e2360c26f2f3a94c47176845",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220025.npz": "2bb7e81bb66027be067e10b889832a86498e430826670012245528d769f9b749",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220026.npz": "17bb171cc4341690b072a84526a4f2cbe0305110cac02057630489ac19433b1e",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220027.npz": "85e5ae0c80dcbf43d7708cfae68e0e2ed7e297e41072e2da1714cbe67314b268",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220028.npz": "3c161523cb83b0ddc3b64c24dc21a00f706a1244ab5eab504829d2c2173c3ad2",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220029.npz": "a98f21faf65269065d5866f1ec688d4aed4982587461df9d9ce65bbbf53a515c",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220030.npz": "fc653b27fce1e627cc7ed62e167f8c918cc62cc60cd651c9c84470909bc586b9",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220031.npz": "1a8a4e6f8f438f74bf9454365c74a1e7920220f7d582fdcaac41f797fecfa539",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220032.npz": "366bf47f1d161b683d735e14e83c96c17a45faf6e5d55ebe374de19c059cb33b",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220033.npz": "7be79e79faf61f12f8a903f140ead22edb364c99f4638f89853b554404da7f55",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220034.npz": "1e291be263ccb47a0e04d17f21f858e30d2973f69ccd4522c72b6e4688a565e4",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220035.npz": "ce2a2cdb08d8ecce50c5639727dd42beb45ed2de86099c2a5544109ff282c409",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220036.npz": "d9666cabc23a3a6357559a95d9259e45e959d0748435fc0a5d2990ed2e46439e",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220037.npz": "c638d8d7a3d638e95630d891a2afc4ba2c859b54cf8fa8530d92255e5f4b255b",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220038.npz": "bd8d3f87dab027f404569c1084b269efcd33796e743fee1d6df715c02fbdfbc0",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220039.npz": "1317e0ad47fc2348b736fe37e802062e164b5b24a8292b523e7d47e067a044d7",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220040.npz": "6d491e342ae5f2be1c84a06f83dfe2c1dc89afe2163929ba55daf74dd75e7dad",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220041.npz": "944358985f3fbb58ac9166ead224c2a6cefe40926643377d4dd8379582cbbe63",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220042.npz": "7db53a507cac1187fd246a62ba67dca7b59cfde7e9ade2e0d3242f6547b6a134",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220043.npz": "68c948108c9ba8dacf3242129609078c84be878899daf84818890dbcd77c5558",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220044.npz": "1ea609c46e13559325e6a36ac789e3fa5ceb13ae04971b0cae18cf1b82ae6d1d",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220045.npz": "29fa8f584080c0ae1ee140ce703b2583d9699e4fe5bfd6a488df582a8689fc07",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220046.npz": "ae4fa49b5e213d18b03a9b98729f95ea890ef01bb12cf1a12a1a70e01d1939df",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220047.npz": "a105187b0fc20db25547d4c132bf9a6de1b28a7ce26b79f7eade92da9be4b8cf",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220048.npz": "22c291f29d682e4a50a4e419dbb9f85477e00034b7ab0173c7d4f94a71236180",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220049.npz": "838e4ce8b8d1c5e403decd366f18aabb7fdddb10c149a1ec2a490f471dc5e26a",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220050.npz": "4c7924d3290c727b32e59df606e9288eb85457ab52da19135b69b859b2c7d6ba",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220051.npz": "f322c3dcf56a0aab0854ec603ad9a7126f3d097889c0d871dd2dd65e0d65b03f",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220052.npz": "67d580be38bbe617d128ebb24aa4e8eaf036777b776dc82c48b3e3f48413ef58",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220053.npz": "b1b01814b692e3ddb84af2b283126f9d1fc0ee62d6fa034df1eb19492ffe0af2",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220054.npz": "cd2ade0a90dbe88afeb879bac732f7f069da4ba67366ce621c48e3e5c59a808b",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220055.npz": "41f3faa5434b263d19e5849a93d0466b727584abd10f542cae09649474f687c1",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220056.npz": "661675d8f8534f326b1d39115b59d713af29b19a0f0b378587d8d3b84e696fe2",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220057.npz": "6a36afd85cac40117ed9defaae6e31eab8b47bd69158866572b5145e48629b0d",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220058.npz": "1df5b4bc6aa7acc434b24aaedb1bafb9721113a8cea274aed759776fa53126e3",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220059.npz": "f635b4bfb640b38834b5c89fdbca004ab195ed0207a9eefffbf72f64b3578c9d",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220060.npz": "d92b5d70b76f997972f7ad396bca50e817b86bada6c049428aac1379029192b4",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220061.npz": "c7c531fbb634ecd8f48a10a89eb1592c0642626490bd51c1f17ba6a8e96ff111",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220062.npz": "74ce8a1f1ec099008f17d90afce425543a7098fdcf4fd1b906cf0fe2fbc5c641",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220063.npz": "8404b2e33a93ad9ccf59cb420206046b643094723c87aa73ee32ff21d8c655da",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220064.npz": "8982d22689ad4509f15ea44190110f10df8515559912439e5ebbd2fc5a1ce9c2",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220065.npz": "5cdce920a0e2f5674008575564188756bdc5c4def2d9a2bdda37729d6bddd113",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220066.npz": "6fcaf02a0c11fdc0eb5503efd4622f09a88ab5ee5b45b4dc12bcd609109b3267",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220067.npz": "e18243a06b9f56c27c6d6bd6151230d7ce8962aef366a5bf73e0bbc6a314097c",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220068.npz": "433215f26dc48622e015a2ffd3b6eb852c0d4e5bd49abf92fdadaafbeb68a331",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220069.npz": "95b895cdf8e84a9874f9fb89a014ea5732ee7194662dbdf67443754d338e485f",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220070.npz": "fbc18908c895482e7cde51526629f88968df8abf962c8aa129f9c83d1bbafb59",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220071.npz": "5e34dc46cff182cd2a8c3d662c57fd57162614679681d3cc162a8fd26edfe92e",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220072.npz": "54f56b7cae575cac5b875434366b3d8ad598f1b33b7fc514c7732fa32116333a",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220073.npz": "b5c5c537c217ba41bd3b7006407a1d2dae10de5e733090ada038d70f3faa5558",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220074.npz": "ede1b61920ac2eed0d9bdb650d7a81e4611aff2739f54be2e936f5448876244e",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220075.npz": "57a9572874f4fa4892841cfaf6aabea950e549dc1a40fda1683c737c5acee4de",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220076.npz": "25e1ec5622719f74ef1675826356283f7f8faa7e0001922f216c14bdbdb9f3af",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220077.npz": "4b6a1f0809f14ee7c9be52d87b0e008a94ff6c1bdfc977cd9a8018c09eb24819",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220078.npz": "0d2eff2fede6813ab8a3151a0f2f2183ff124083d939e3e43b83cbe10009306d",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220079.npz": "bae2e6eb2da67c8a0dad1de7d1d4df04d4922cb3ec1d73e231cabb444ab27782",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220080.npz": "b691aa767ee661d80dab4413d50a0fb60de914d5ade3d9c26f8fb7593c699fa9",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220081.npz": "624b18dffc783e9b634b6024ebcefda879ccd41c39047d2c8c38703db9d52e76",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220082.npz": "7593d18181a8003784d878a6b444c7ab13da7baa967aad9e1d43964465a0ee6c",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220083.npz": "624f215b71e8f2ee63cc32529839197bd1df8fd9124b81adcf1e89cd60b59004",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220084.npz": "8efaa5f91b1a77aeccf9f7c1dc470f25788678329417d301c1c3cdb7fe82a061",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220085.npz": "93ed48654a78aebf4411cf7037f4c9b87226213e69e1b05fa58e3d425028e320",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220086.npz": "f5d9403768bcb2af6cb0163704eb544fdf7fde2d000c8f8c0ed0813286f91c55",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220087.npz": "58185b222adac0116f8caff2b732e636d93d6c97e8aadf8292c1fcc39f37ff51",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220088.npz": "3816ecd8f6ca3c849c8eb8f964886f2c432381767f805b4552e9c48a85f432cc",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220089.npz": "b7162618a1aee2eea0c793306ee3a27e99da7ab4306ad71ce411ecc694992c6d",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220090.npz": "7daa14a981744806b3c9d71e9ac34a116b80eade15e6bf22ec056163854a621e",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220091.npz": "9aa17fbf0cb88037944b5fdd9cc1df98ccf557d942cb6ce52c7afe80005804e6",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220092.npz": "3a1d22aa6eb7a2692162389ad9a862c0e4db98f687f7edc7d369ca1d0c8275e2",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220093.npz": "ed6a478d634f4abc72be2945b87bcb707cfcbaf830014ec50d3c04ce8b7c2c65",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220094.npz": "58e3aa86511da7767e330a174ec9d8e2bae4bdf3a3e59500a15cf3a4898853ee",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220095.npz": "493f839c96a989f6d30b8fba1718bc72d0575c32fe857817525cc0070fbea388",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220096.npz": "44929dbdaf195e6413c19397a293d1aae541e18efc550009a1b0659215ef70db",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220097.npz": "6f3b8e734b5a77fb11ff6fb8c791c85594b5634226a3d529f6767d14e63d4948",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220098.npz": "a6a70f32537c56066860287660766026ab02480736709e38036d82a40e7a0e10",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220099.npz": "847bcfd3516d08e61a137730b690393c71eba5430cc514d45a1979cd36b8df11",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220100.npz": "f58849428603755e39f985b5db68907827c444a9d86eb541f81f60f09b42780c",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220101.npz": "01f67b714afa7f85d8b23e5f2c75cf8617f947031ce2fb84977c5a076fedef8f",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220102.npz": "a9b816c05dd3225f0734df7ac3da350f62820f3595ac877ca352ad9158bc3be5",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220103.npz": "da7de50138704734a60835864457c4dcf41d41c18186b7f3a54d6802a61588bf",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220104.npz": "57a65c7e72fdedeb75435f9d21f0e1bbc239bbe1109faad064b1fab44d12a2f5",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220105.npz": "738a61e754d8a316fc8678ebd5b37f1f3b1cd656fb890b7def6c74c353e39964",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220106.npz": "68356dcf2ff651904ad9c5bcbed5d24454bf754f62cd1e21141bad11e82de573",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220107.npz": "8dc4b0913e99f05fb0ccffd6e304009d1c9db19328e32af0b5b5a824c917facc",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220108.npz": "bdee852e11712138f9af2da0df9f2648eb53996c92176101abdfa28bcabc78ad",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220109.npz": "d4a81db05e66bab41e39d1849195014bc638d6532032e4af28eef886175e2358",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220110.npz": "762b5a973ed8fbe332e69d3e01b62244b35f60ae4dc1678cc37f36922cc707d1",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220111.npz": "c86deb954fbe0776a6541509a593c5dee9a0dbd93174931d1fc025b323f35796",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220112.npz": "62d4f6afa004fbc26ab82a4bbac0bb42abaf66b141c291a95369e9c0a6e7d662",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220113.npz": "747f2082775d268512b84f0e510ed03834abd6f66dd43e51682ae315bd5dc9ec",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220114.npz": "6b4ead27bd8af4e51d23f9cf5d5f51ca38e8f9f6526a6b98d85d879d6869bfcc",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220115.npz": "6c5b4b67690dc864e0f65f68782ce79b0282b01021a7d00c60620b6dc0f19d5d",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220116.npz": "1a14ba51b5881bcc164a9f21f5114b1ba1fc2958e1454a9930cb3c4dc608264d",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220117.npz": "fd7045fe1a99d23d05d8c26e084eaf04f59ff3a94e6355d3cb242c39d9f35fcd",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220118.npz": "5a24576b4b6ed46ad59bbb6be866e81271a7c32337d1d3049edac82813327099",
+    "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220119.npz": "fddf80dec12aabb481a40f5ee5fcd17d2d3d182d63b010283be626649d39fa5b"
+  },
+  "score_version": "strict_contact_lift_v1_no_clearance",
+  "score_coefficients": {
+    "continuous_preservation_constant": 0.5,
+    "quietness": 0.25,
+    "centering": 0.25
+  },
+  "excluded_score_components": [
+    "clearance: not measured"
+  ],
+  "rejections": [
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215000.npz",
+      "post_frame": 135,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215001.npz",
+      "post_frame": 143,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215002.npz",
+      "post_frame": 142,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215003.npz",
+      "post_frame": 144,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215004.npz",
+      "post_frame": 133,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215005.npz",
+      "post_frame": 143,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215006.npz",
+      "post_frame": 134,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215007.npz",
+      "post_frame": 155,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215008.npz",
+      "post_frame": 149,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215009.npz",
+      "post_frame": 165,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215010.npz",
+      "post_frame": 148,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215011.npz",
+      "post_frame": 152,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215012.npz",
+      "post_frame": 304,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215013.npz",
+      "post_frame": 201,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215016.npz",
+      "post_frame": 164,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215017.npz",
+      "post_frame": 153,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215018.npz",
+      "post_frame": 144,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215019.npz",
+      "post_frame": 147,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215020.npz",
+      "post_frame": 135,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215021.npz",
+      "post_frame": 134,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215022.npz",
+      "post_frame": 150,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215023.npz",
+      "post_frame": 148,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215024.npz",
+      "post_frame": 134,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215025.npz",
+      "post_frame": 166,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215026.npz",
+      "post_frame": 142,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215027.npz",
+      "post_frame": 142,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215028.npz",
+      "post_frame": 141,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215029.npz",
+      "post_frame": 138,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215030.npz",
+      "post_frame": 131,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215031.npz",
+      "post_frame": 143,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215032.npz",
+      "post_frame": 141,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215033.npz",
+      "post_frame": 134,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215034.npz",
+      "post_frame": 137,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215035.npz",
+      "post_frame": 132,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215036.npz",
+      "post_frame": 156,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215037.npz",
+      "post_frame": 146,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215038.npz",
+      "post_frame": 155,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215039.npz",
+      "post_frame": 137,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215040.npz",
+      "post_frame": 140,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215041.npz",
+      "post_frame": 134,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215042.npz",
+      "post_frame": 147,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215043.npz",
+      "post_frame": 137,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215044.npz",
+      "post_frame": 154,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215045.npz",
+      "post_frame": 135,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215046.npz",
+      "post_frame": 147,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215047.npz",
+      "post_frame": 153,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215048.npz",
+      "post_frame": 148,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215049.npz",
+      "post_frame": 146,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215050.npz",
+      "post_frame": 133,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215051.npz",
+      "post_frame": 150,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215052.npz",
+      "post_frame": 170,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215053.npz",
+      "post_frame": 142,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215054.npz",
+      "post_frame": 142,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215055.npz",
+      "post_frame": 150,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215056.npz",
+      "post_frame": 160,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215057.npz",
+      "post_frame": 153,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215058.npz",
+      "post_frame": 142,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215059.npz",
+      "post_frame": 140,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215060.npz",
+      "post_frame": 136,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215061.npz",
+      "post_frame": 139,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215062.npz",
+      "post_frame": 137,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215063.npz",
+      "post_frame": 145,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215064.npz",
+      "post_frame": 165,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215065.npz",
+      "post_frame": 138,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215066.npz",
+      "post_frame": 131,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215067.npz",
+      "post_frame": 140,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215068.npz",
+      "post_frame": 166,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215069.npz",
+      "post_frame": 154,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215070.npz",
+      "post_frame": 132,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215071.npz",
+      "post_frame": 136,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215072.npz",
+      "post_frame": 143,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215073.npz",
+      "post_frame": 149,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215074.npz",
+      "post_frame": 147,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215075.npz",
+      "post_frame": 141,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215076.npz",
+      "post_frame": 152,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215077.npz",
+      "post_frame": 140,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215078.npz",
+      "post_frame": 158,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215079.npz",
+      "post_frame": 136,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215080.npz",
+      "post_frame": 147,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215081.npz",
+      "post_frame": 141,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215082.npz",
+      "post_frame": 138,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215083.npz",
+      "post_frame": 139,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215084.npz",
+      "post_frame": 136,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215085.npz",
+      "post_frame": 138,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215086.npz",
+      "post_frame": 145,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215087.npz",
+      "post_frame": 136,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215088.npz",
+      "post_frame": 154,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215089.npz",
+      "post_frame": 137,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215090.npz",
+      "post_frame": 144,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215091.npz",
+      "post_frame": 153,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215092.npz",
+      "post_frame": 133,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215093.npz",
+      "post_frame": 167,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215094.npz",
+      "post_frame": 139,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215095.npz",
+      "post_frame": 141,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215096.npz",
+      "post_frame": 154,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215097.npz",
+      "post_frame": 146,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215098.npz",
+      "post_frame": 148,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215099.npz",
+      "post_frame": 141,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215100.npz",
+      "post_frame": 148,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215101.npz",
+      "post_frame": 137,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215102.npz",
+      "post_frame": 134,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215103.npz",
+      "post_frame": 158,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215104.npz",
+      "post_frame": 137,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215105.npz",
+      "post_frame": 144,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215106.npz",
+      "post_frame": 148,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215107.npz",
+      "post_frame": 134,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215108.npz",
+      "post_frame": 149,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215109.npz",
+      "post_frame": 142,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215110.npz",
+      "post_frame": 134,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215111.npz",
+      "post_frame": 136,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215112.npz",
+      "post_frame": 151,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215113.npz",
+      "post_frame": 154,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215114.npz",
+      "post_frame": 145,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215115.npz",
+      "post_frame": 132,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215117.npz",
+      "post_frame": 135,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215118.npz",
+      "post_frame": 153,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\215119.npz",
+      "post_frame": 157,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220000.npz",
+      "post_frame": 171,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220001.npz",
+      "post_frame": 139,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220002.npz",
+      "post_frame": 146,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220003.npz",
+      "post_frame": 148,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220004.npz",
+      "post_frame": 152,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220005.npz",
+      "post_frame": 144,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220005.npz",
+      "post_frame": 282,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220006.npz",
+      "post_frame": 138,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220006.npz",
+      "post_frame": 282,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220007.npz",
+      "post_frame": 139,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220008.npz",
+      "post_frame": 184,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220009.npz",
+      "post_frame": 147,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220010.npz",
+      "post_frame": 138,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220011.npz",
+      "post_frame": 141,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220012.npz",
+      "post_frame": 142,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220012.npz",
+      "post_frame": 276,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220013.npz",
+      "post_frame": 137,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220014.npz",
+      "post_frame": 139,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220014.npz",
+      "post_frame": 283,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220015.npz",
+      "post_frame": 153,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220015.npz",
+      "post_frame": 294,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220016.npz",
+      "post_frame": 162,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220016.npz",
+      "post_frame": 307,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220017.npz",
+      "post_frame": 173,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220018.npz",
+      "post_frame": 136,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220018.npz",
+      "post_frame": 279,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220019.npz",
+      "post_frame": 142,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220019.npz",
+      "post_frame": 279,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220020.npz",
+      "post_frame": 134,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220020.npz",
+      "post_frame": 280,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220021.npz",
+      "post_frame": 158,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220021.npz",
+      "post_frame": 296,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220022.npz",
+      "post_frame": 147,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220022.npz",
+      "post_frame": 285,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220023.npz",
+      "post_frame": 225,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220023.npz",
+      "post_frame": 361,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220024.npz",
+      "post_frame": 139,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220024.npz",
+      "post_frame": 284,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220025.npz",
+      "post_frame": 158,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220025.npz",
+      "post_frame": 310,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220026.npz",
+      "post_frame": 353,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220026.npz",
+      "post_frame": 498,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220027.npz",
+      "post_frame": 139,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220027.npz",
+      "post_frame": 286,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220028.npz",
+      "post_frame": 141,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220028.npz",
+      "post_frame": 280,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220029.npz",
+      "post_frame": 131,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220030.npz",
+      "post_frame": 141,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220031.npz",
+      "post_frame": 348,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220031.npz",
+      "post_frame": 794,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220032.npz",
+      "post_frame": 141,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220032.npz",
+      "post_frame": 287,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220033.npz",
+      "post_frame": 158,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220034.npz",
+      "post_frame": 228,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220034.npz",
+      "post_frame": 360,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220035.npz",
+      "post_frame": 139,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220036.npz",
+      "post_frame": 146,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220036.npz",
+      "post_frame": 279,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220037.npz",
+      "post_frame": 142,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220038.npz",
+      "post_frame": 145,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220038.npz",
+      "post_frame": 279,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220039.npz",
+      "post_frame": 141,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220040.npz",
+      "post_frame": 146,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220041.npz",
+      "post_frame": 143,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220041.npz",
+      "post_frame": 285,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220042.npz",
+      "post_frame": 135,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220043.npz",
+      "post_frame": 154,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220043.npz",
+      "post_frame": 294,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220044.npz",
+      "post_frame": 154,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220044.npz",
+      "post_frame": 305,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220045.npz",
+      "post_frame": 136,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220046.npz",
+      "post_frame": 135,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220046.npz",
+      "post_frame": 267,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220047.npz",
+      "post_frame": 146,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220047.npz",
+      "post_frame": 292,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220048.npz",
+      "post_frame": 141,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220048.npz",
+      "post_frame": 285,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220049.npz",
+      "post_frame": 131,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220050.npz",
+      "post_frame": 140,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220050.npz",
+      "post_frame": 288,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220051.npz",
+      "post_frame": 139,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220051.npz",
+      "post_frame": 277,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220052.npz",
+      "post_frame": 134,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220052.npz",
+      "post_frame": 280,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220053.npz",
+      "post_frame": 136,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220053.npz",
+      "post_frame": 279,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220054.npz",
+      "post_frame": 136,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220054.npz",
+      "post_frame": 268,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220055.npz",
+      "post_frame": 136,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220055.npz",
+      "post_frame": 273,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220056.npz",
+      "post_frame": 143,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220056.npz",
+      "post_frame": 278,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220057.npz",
+      "post_frame": 152,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220058.npz",
+      "post_frame": 133,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220059.npz",
+      "post_frame": 184,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220059.npz",
+      "post_frame": 321,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220060.npz",
+      "post_frame": 152,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220062.npz",
+      "post_frame": 137,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220062.npz",
+      "post_frame": 277,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220063.npz",
+      "post_frame": 161,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220063.npz",
+      "post_frame": 305,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220064.npz",
+      "post_frame": 149,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220064.npz",
+      "post_frame": 295,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220065.npz",
+      "post_frame": 147,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220065.npz",
+      "post_frame": 281,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220067.npz",
+      "post_frame": 143,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220067.npz",
+      "post_frame": 287,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220068.npz",
+      "post_frame": 135,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220068.npz",
+      "post_frame": 284,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220069.npz",
+      "post_frame": 172,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220069.npz",
+      "post_frame": 329,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220070.npz",
+      "post_frame": 136,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220070.npz",
+      "post_frame": 286,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220071.npz",
+      "post_frame": 134,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220071.npz",
+      "post_frame": 266,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220072.npz",
+      "post_frame": 142,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220072.npz",
+      "post_frame": 287,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220073.npz",
+      "post_frame": 135,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220073.npz",
+      "post_frame": 268,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220075.npz",
+      "post_frame": 144,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220076.npz",
+      "post_frame": 140,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220077.npz",
+      "post_frame": 140,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220077.npz",
+      "post_frame": 283,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220079.npz",
+      "post_frame": 158,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220079.npz",
+      "post_frame": 304,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220080.npz",
+      "post_frame": 136,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220081.npz",
+      "post_frame": 139,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220081.npz",
+      "post_frame": 287,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220082.npz",
+      "post_frame": 136,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220082.npz",
+      "post_frame": 267,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220083.npz",
+      "post_frame": 182,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220083.npz",
+      "post_frame": 332,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220084.npz",
+      "post_frame": 133,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220084.npz",
+      "post_frame": 276,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220085.npz",
+      "post_frame": 141,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220086.npz",
+      "post_frame": 143,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220086.npz",
+      "post_frame": 278,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220087.npz",
+      "post_frame": 141,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220087.npz",
+      "post_frame": 283,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220088.npz",
+      "post_frame": 135,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220088.npz",
+      "post_frame": 282,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220089.npz",
+      "post_frame": 184,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220089.npz",
+      "post_frame": 331,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220090.npz",
+      "post_frame": 143,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220091.npz",
+      "post_frame": 155,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220091.npz",
+      "post_frame": 300,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220092.npz",
+      "post_frame": 140,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220092.npz",
+      "post_frame": 291,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220094.npz",
+      "post_frame": 143,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220094.npz",
+      "post_frame": 299,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220095.npz",
+      "post_frame": 134,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220095.npz",
+      "post_frame": 267,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220096.npz",
+      "post_frame": 135,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220096.npz",
+      "post_frame": 282,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220097.npz",
+      "post_frame": 148,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220097.npz",
+      "post_frame": 287,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220098.npz",
+      "post_frame": 132,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220098.npz",
+      "post_frame": 274,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220099.npz",
+      "post_frame": 145,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220100.npz",
+      "post_frame": 136,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220101.npz",
+      "post_frame": 138,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220101.npz",
+      "post_frame": 279,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220102.npz",
+      "post_frame": 145,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220102.npz",
+      "post_frame": 298,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220103.npz",
+      "post_frame": 144,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220103.npz",
+      "post_frame": 276,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220104.npz",
+      "post_frame": 159,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220105.npz",
+      "post_frame": 144,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220105.npz",
+      "post_frame": 309,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220106.npz",
+      "post_frame": 143,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220106.npz",
+      "post_frame": 290,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220107.npz",
+      "post_frame": 143,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220107.npz",
+      "post_frame": 281,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220108.npz",
+      "post_frame": 135,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220108.npz",
+      "post_frame": 267,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220109.npz",
+      "post_frame": 151,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220110.npz",
+      "post_frame": 142,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220110.npz",
+      "post_frame": 286,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220111.npz",
+      "post_frame": 147,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220111.npz",
+      "post_frame": 284,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220112.npz",
+      "post_frame": 142,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220112.npz",
+      "post_frame": 296,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220113.npz",
+      "post_frame": 136,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220113.npz",
+      "post_frame": 269,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220114.npz",
+      "post_frame": 141,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220115.npz",
+      "post_frame": 147,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220115.npz",
+      "post_frame": 288,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220116.npz",
+      "post_frame": 148,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220117.npz",
+      "post_frame": 137,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220117.npz",
+      "post_frame": 290,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220119.npz",
+      "post_frame": 143,
+      "reason": "five_frame_contact_lift_missing"
+    },
+    {
+      "source": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\220119.npz",
+      "post_frame": 279,
+      "reason": "five_frame_contact_lift_missing"
+    }
+  ],
+  "production_state": "REQUIRES_COLLECTION_AND_ONLINE_EVALUATOR",
+  "missing": [
+    "native source grasp at lift and during confirmation",
+    "online transition evaluator and development-only checkpoint selection"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "relative_translation_invariance": true,
+  "identical_action_targets_across_arms": true,
+  "success_rejects_no_contact_finger_support_motion_and_bad_geometry": true,
+  "paired_resets_exact": true,
+  "scripted_expert_positive_controls_no_training_data": {
+    "2": [
+      true,
+      true,
+      true
+    ],
+    "3": [
+      true,
+      true,
+      true
+    ]
+  },
+  "restored_optimizer_next_step_exact_cpu": true
+}

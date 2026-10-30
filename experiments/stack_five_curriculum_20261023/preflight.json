@@ -1,0 +1,65 @@
+{
+  "state": "PASSED",
+  "checks": {
+    "2": {
+      "objects": 2,
+      "ids": [
+        25,
+        26
+      ],
+      "positive_metric": true,
+      "negative_metric": true
+    },
+    "3": {
+      "objects": 3,
+      "ids": [
+        25,
+        26,
+        27
+      ],
+      "positive_metric": true,
+      "negative_metric": true
+    },
+    "4": {
+      "objects": 4,
+      "ids": [
+        25,
+        26,
+        27,
+        28
+      ],
+      "positive_metric": true,
+      "negative_metric": true
+    },
+    "5": {
+      "objects": 5,
+      "ids": [
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "positive_metric": true,
+      "negative_metric": true
+    }
+  },
+  "all_three_pair_switches": true,
+  "pre_action_audit": true,
+  "real_episode": {
+    "seed": 399001,
+    "count": 5,
+    "success": true,
+    "frames": 685,
+    "initial_sha256": "2a4f911768a90ffd3643732c65dd33bf46df55dc2dce42ecbc0ba11864922985",
+    "prefix_max_run": [
+      338,
+      187,
+      187,
+      50
+    ],
+    "last_stage": 4,
+    "phase": 6,
+    "pair_switches": 3
+  }
+}

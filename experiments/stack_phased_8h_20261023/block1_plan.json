@@ -1,0 +1,15 @@
+{
+  "name": "block1",
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "lr": 0.0001,
+  "completion_lambda": 0.1,
+  "threshold": 0.8,
+  "width": 128,
+  "updates_per_round": 3000,
+  "dev_episodes": 10,
+  "train_deadline": 1792750759.732653
+}

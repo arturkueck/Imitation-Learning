@@ -1,0 +1,104 @@
+{
+  "audit": {
+    "utc": "2026-10-23T23:24:38.418926+00:00",
+    "episodes": 120,
+    "successes": {
+      "train": 27,
+      "valid": 8
+    },
+    "successful_frames": {
+      "train": 12858,
+      "valid": 3838
+    },
+    "teachers": [
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\training\\curriculum_n3_c0_seed1\\best.pth"
+    ],
+    "successful_train_phase_frames": [
+      1684,
+      1728,
+      1620,
+      2245,
+      1507,
+      1692,
+      2382
+    ],
+    "pre_action_alignment": true,
+    "all_finite": true,
+    "split_disjoint": true
+  },
+  "results": {
+    "gates\\parent_n4_seed1\\result.json": {
+      "complete": true,
+      "successes": 15,
+      "attempts": 50
+    },
+    "gates\\parent_n4_seed2\\result.json": {
+      "complete": true,
+      "successes": 13,
+      "attempts": 50
+    },
+    "gates\\parent_n4_seed3\\result.json": {
+      "complete": true,
+      "successes": 12,
+      "attempts": 50
+    },
+    "training\\curriculum_n4_c0_seed1\\development\\result.json": {
+      "complete": true,
+      "successes": 13,
+      "attempts": 50
+    },
+    "training\\curriculum_n4_c0_seed2\\development\\result.json": {
+      "complete": true,
+      "successes": 13,
+      "attempts": 50
+    },
+    "training\\curriculum_n4_c0_seed3\\development\\result.json": {
+      "complete": true,
+      "successes": 10,
+      "attempts": 50
+    },
+    "gates\\post4_seed1_first\\result.json": {
+      "complete": false,
+      "successes": 7,
+      "attempts": 22
+    }
+  },
+  "curves": {
+    "curriculum_n4_c0_seed1": [
+      {
+        "update": 10000,
+        "actor_loss": 2.8760980057995766e-05,
+        "completion_loss": 0.18299198150634766
+      },
+      {
+        "update": 30000,
+        "actor_loss": 3.710400778800249e-05,
+        "completion_loss": 0.14893966913223267
+      }
+    ],
+    "curriculum_n4_c0_seed2": [
+      {
+        "update": 10000,
+        "actor_loss": 8.40785214677453e-05,
+        "completion_loss": 0.07888667285442352
+      },
+      {
+        "update": 30000,
+        "actor_loss": 5.476672959048301e-05,
+        "completion_loss": 0.1344347596168518
+      }
+    ],
+    "curriculum_n4_c0_seed3": [
+      {
+        "update": 10000,
+        "actor_loss": 7.261177233885974e-05,
+        "completion_loss": 0.21816302835941315
+      },
+      {
+        "update": 30000,
+        "actor_loss": 8.57490231283009e-05,
+        "completion_loss": 0.2518730163574219
+      }
+    ]
+  }
+}

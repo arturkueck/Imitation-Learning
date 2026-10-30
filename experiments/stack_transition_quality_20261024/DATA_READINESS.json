@@ -1,0 +1,89 @@
+{
+  "dataset_path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\native_data_v1\\manifest.json",
+  "dataset_sha256": "f5c53a3a7605415f8beb1d165e16b1846a8e773b7c4b3230df53cccf7997080e",
+  "checks": {
+    "collection_complete": true,
+    "original_hash": true,
+    "all_native": true,
+    "train_sections": true,
+    "train_families": true,
+    "valid_sections": true,
+    "valid_families": true,
+    "teacher_diversity": true,
+    "score_dispersion": true,
+    "new_actor_signal": true,
+    "weighting_not_numerically_identical": true
+  },
+  "data_ready": true,
+  "summary": {
+    "train": {
+      "sections": 49,
+      "families": 46,
+      "teacher_sources": 3,
+      "prefix_counts": {
+        "2": 41,
+        "3": 8
+      }
+    },
+    "valid": {
+      "sections": 32,
+      "families": 30,
+      "teacher_sources": 3,
+      "prefix_counts": {
+        "2": 26,
+        "3": 6
+      }
+    }
+  },
+  "score_mean": 0.8992187714359028,
+  "score_std": 0.05767297596506084,
+  "section_weight_ess": 48.89295154496184,
+  "signals": {
+    "1": {
+      "action_mse": 0.00021724102762080903,
+      "weighted_mse": 0.00022102584510976978,
+      "new_gradient_norm": 0.05245381221175194,
+      "weighted_new_gradient_norm": 0.05286988243460655,
+      "weighting_gradient_difference": 0.0019085978856310248,
+      "phase_mse": {
+        "0": 0.0006801236463031455,
+        "1": 0.00016178170024217092,
+        "2": 2.420135947002176e-06,
+        "3": 7.403104089187538e-06
+      },
+      "sampled_frames": 512,
+      "no_optimizer_step": true
+    },
+    "2": {
+      "action_mse": 0.0003826072115482821,
+      "weighted_mse": 0.0003916450964162747,
+      "new_gradient_norm": 0.06464208662509918,
+      "weighted_new_gradient_norm": 0.06478676944971085,
+      "weighting_gradient_difference": 0.0016853086417540908,
+      "phase_mse": {
+        "0": 0.0005525680308108757,
+        "1": 0.0008710155698738116,
+        "2": 5.9970070859652446e-06,
+        "3": 6.24658214322944e-06
+      },
+      "sampled_frames": 512,
+      "no_optimizer_step": true
+    },
+    "3": {
+      "action_mse": 0.00035238356992425916,
+      "weighted_mse": 0.0003555283139614295,
+      "new_gradient_norm": 0.033880989998579025,
+      "weighted_new_gradient_norm": 0.034024182707071304,
+      "weighting_gradient_difference": 0.0012258582282811403,
+      "phase_mse": {
+        "0": 0.001314583798510796,
+        "1": 7.995867785919706e-05,
+        "2": 9.781942366463218e-07,
+        "3": 5.553855460747455e-06
+      },
+      "sampled_frames": 512,
+      "no_optimizer_step": true
+    }
+  },
+  "signal_scope": "train data only; no parameter updates or held-out selection"
+}

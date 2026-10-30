@@ -1,0 +1,553 @@
+{
+  "schema": "transition-quality-b0-b-v2-native",
+  "created_utc": "2026-10-24T11:04:16.582537+00:00",
+  "status": "READY_AWAITING_EXPLICIT_USER_GO",
+  "production_enabled": true,
+  "objective": "Next source grasp/lift while the already placed lower prefix remains continuously valid; validate full towers separately",
+  "metric_version": "strict-prefix-native-grasp-explicit-gripper-geoms-v2",
+  "arms": [
+    "B0",
+    "B"
+  ],
+  "deferred": [
+    "C: tower input residual path",
+    "new retreat phases",
+    "clearance measurement and weighting",
+    "RL"
+  ],
+  "parents": [
+    {
+      "seed": 1,
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c"
+    },
+    {
+      "seed": 2,
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8"
+    },
+    {
+      "seed": 3,
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a"
+    }
+  ],
+  "pilot": {
+    "batch_size": 64,
+    "steps": 10000,
+    "lr": 3e-05,
+    "weight_decay": 1e-06,
+    "gradient_clip": 10,
+    "original_fraction": 0.5,
+    "replay_fraction": 0.25,
+    "new_fraction": 0.25,
+    "completion_coefficient": 0.1,
+    "eval_updates": [
+      0,
+      3000,
+      10000
+    ],
+    "completion_labels": "original only; shared hidden layers can still drift",
+    "selection": "development only, parent at update0 eligible, earlier checkpoint wins exact tie",
+    "paired_sampler": "all frame ids and optimizer settings identical across B0/B; only new-pool loss weights differ",
+    "sampling": "available phase -> episode -> section -> frame, no quality oversampling",
+    "resume": "no automatic resume or retry; preserve outputs, explicit audited restore only"
+  },
+  "score": {
+    "version": "strict_contact_lift_v1_no_clearance",
+    "components": {
+      "continuous_preservation_constant": 0.5,
+      "quietness": 0.25,
+      "centering": 0.25
+    },
+    "raw_weight": "0.5 + 1.5 * Q",
+    "normalization": "sum(w*frame_mse)/sum(w) only within 16 new frames",
+    "clearance": "not measured, excluded explicitly",
+    "preservation": "preservation/contact-freedom are strict gates; preservation term is constant .5, actual quality variation is only quietness/centering"
+  },
+  "events": {
+    "release_valid_frames": 10,
+    "max_steps_to_pickup": 200,
+    "min_lift_m": 0.03,
+    "min_native_grasp_lift_frames": 5,
+    "protected_prefix_confirmation_frames": 50,
+    "action_window": "first action after release event through confirmed pickup; later50 frames only outcome metadata",
+    "terminal_or_interrupted": "reject censored and structurally damaged transitions; classify reasons",
+    "historical_contact_flags": "invalid dictionary semantics: never acceptable as verified native contacts"
+  },
+  "gates": {
+    "min_train_sections": 30,
+    "min_train_families": 20,
+    "min_valid_sections": 10,
+    "min_valid_families": 10,
+    "min_teacher_sources": 2,
+    "min_score_std": 0.02,
+    "min_new_actor_gradient_norm": 1e-10,
+    "threshold_status": "predeclared pilot engineering gates, not universal scientific constants",
+    "all_native_grasp_and_contacts": true,
+    "paired_sampling": true,
+    "family_split_disjoint": true,
+    "all_teacher_actions_verified": true,
+    "online_evaluator_required": true,
+    "checkpoint_selection_required": true,
+    "prepared_replay_identity_required": true
+  },
+  "collection": {
+    "mode": "new native collection required before production",
+    "attempts_per_height": 100,
+    "heights": [
+      3,
+      4
+    ],
+    "split": "fixed original indices0..59train and160..199valid; same original namespaces and cyclic Teachers",
+    "teacher_source": "three listed parents; no teacher chosen using historical heldout wins",
+    "new_seed_ranges": {
+      "n3": [
+        510000,
+        510199
+      ],
+      "n4": [
+        511000,
+        511199
+      ]
+    },
+    "family": "namespace+height+seed; all branches inherit same split",
+    "storage": "pre/post state, synchronized pre/post observations, native held, all finger contacts, corrected strict-prefix metrics, policy/controller state, per-frame logging; no new expert actions",
+    "fixed_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      160,
+      161,
+      162,
+      163,
+      164,
+      165,
+      166,
+      167,
+      168,
+      169,
+      170,
+      171,
+      172,
+      173,
+      174,
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183,
+      184,
+      185,
+      186,
+      187,
+      188,
+      189,
+      190,
+      191,
+      192,
+      193,
+      194,
+      195,
+      196,
+      197,
+      198,
+      199
+    ],
+    "revision": "native_data_v1/cohort_revision_v2.json: runtime-only reduction before continuation, no threshold changes"
+  },
+  "evaluation": {
+    "primary": "joint native-grasp/lift AND continuously valid lower prefix; not contact/lift proxy",
+    "development": {
+      "prepared_prefix2": [
+        520000,
+        520019
+      ],
+      "prepared_prefix3": [
+        521000,
+        521019
+      ],
+      "full_stack2": [
+        522000,
+        522009
+      ],
+      "full_stack3": [
+        523000,
+        523009
+      ],
+      "full_stack4": [
+        524000,
+        524009
+      ]
+    },
+    "confirmation": {
+      "prepared_prefix2": [
+        525000,
+        525019
+      ],
+      "prepared_prefix3": [
+        526000,
+        526019
+      ]
+    },
+    "reserved_final": {
+      "prepared_prefix2": [
+        530000,
+        530049
+      ],
+      "prepared_prefix3": [
+        531000,
+        531049
+      ],
+      "full_stack2": [
+        532000,
+        532049
+      ],
+      "full_stack3": [
+        533000,
+        533099
+      ],
+      "full_stack4": [
+        534000,
+        534099
+      ]
+    },
+    "technical_only": [
+      498001,
+      498002
+    ],
+    "prepared": "synchronized native state AND phase/steps/anchor/stage/retreat/controller state; deterministic first-step replay equality before using benchmark",
+    "full_rollout": "no teleports, same corrected metric/controller for all arms",
+    "statistics": "paired starts, every training seed, paired uncertainty; no pooled independent300 claim",
+    "promotion": "development improvement >=5 percentage points in each prepared-prefix stratum, confirmed on disjoint development, at least2/3 seeds; no more than5pp lower-height regression; descriptive pilot decision only",
+    "heldout": "freeze all selected checkpoints before once-only tests, do not optimize from them"
+  },
+  "budget": {
+    "proposed_max_wall_hours": 8,
+    "start": null,
+    "deadline": null,
+    "training_stop_hours_before_deadline": 3,
+    "phases_hours": {
+      "native_data_prepared_before_run": 0,
+      "training_and_development_max": 5,
+      "reserved_evaluation_and_report_reserved": 3
+    },
+    "note": "Eight-hour proposal after user Go; current preparation costs reported separately. No active start/deadline or approval token."
+  },
+  "source_allowlist": [
+    {
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\manifest.json",
+      "sha256": "970650c1d5aaa54e9a45c0d343296cd63269ce294a3443217cd0b7acc86efdb4",
+      "purpose": "historical audit/proxy inventory only, not verified native production data"
+    },
+    {
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\manifest.json",
+      "sha256": "efa9917c69fbde670ae6b0f73d40799b8db63c99de17ce84d2254bb49bba35e8",
+      "purpose": "historical audit/proxy inventory only, not verified native production data"
+    }
+  ],
+  "replay_manifest": {
+    "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\dataset_manifest.json",
+    "sha256": "14c1629ec7c216341233b8d37c059d3e1f673e540e8053de335b5b2a5b9a4c5e"
+  },
+  "original": {
+    "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\additional_tasks\\stack_two\\data\\image_demonstrations.hdf5",
+    "sha256": "5222cbf96dc6218389d491fe7b99449295dcfc9bceb3bab8f8776ffff19fe6f8"
+  },
+  "blocked_until": [],
+  "reserved_preparation": {
+    "source_prefix2": [
+      540000,
+      540049
+    ],
+    "source_prefix3": [
+      541000,
+      541049
+    ],
+    "only_after_all_six_models_frozen": true
+  },
+  "public_data": {
+    "mode": "AUDIT_ONLY_NOT_TRAINED",
+    "file": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\web_dataset_audit\\mimicgen_stack_three_source.hdf5",
+    "sha256": "68b9033fefe904a5575e79bdf5040c2d2d207c1bfcc939bbaec5b438a9d7fcfe",
+    "reason": "different geometry, required rotations, no compatible phase labels; separate arm needed"
+  },
+  "prepared_family_mapping": {
+    "development": "native validation sourceindices160..179, panel identifiers520000/521000; same source families in both arms, never train",
+    "confirmation": "native validation sourceindices180..199, panel identifiers525000/526000",
+    "reserved_final": "independent construction families540000/541000, fixed panel identifiers530000/531000 after all6 selected models frozen"
+  },
+  "ready_bundle": {
+    "dataset_manifest": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\frozen_native_dataset.json",
+    "dataset_manifest_sha256": "a0ed09a2568535ccd934ac4bab0ed29e614f21712b481cf760e3be3361db88f1",
+    "prepared_panels": {
+      "development": {
+        "prepared_prefix2": {
+          "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\frozen_benchmarks\\development_prepared_prefix2.json",
+          "sha256": "2865bbb60ab189394cdb9e04816d094046d8713c55dd3a39cdae4a95de674d96"
+        },
+        "prepared_prefix3": {
+          "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\frozen_benchmarks\\development_prepared_prefix3.json",
+          "sha256": "f57852c42162db4b6915ae1098068a722d701664a500a653d2a5c1663692acf6"
+        }
+      },
+      "confirmation": {
+        "prepared_prefix2": {
+          "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\frozen_benchmarks\\confirmation_prepared_prefix2.json",
+          "sha256": "be9d7cae05427892eb9931f4246680862c8cfead2a47c93387ebd4aa519a4170"
+        },
+        "prepared_prefix3": {
+          "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\frozen_benchmarks\\confirmation_prepared_prefix3.json",
+          "sha256": "cece21650e9c43aed67cd14e013474f28589f87eece7b217b275662d0a124cf3"
+        }
+      }
+    },
+    "code_hashes": {
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\transition_pilot.py": "4ff78b0c4c0cf04a2ae3af86b563c4ca638cbe060dc63f9a6a19de62cab1c032",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\native_collector.py": "6d8904396be24882aca3eedab1dc2d97e16f13c5a5beee5e7591365e8f1ee92b",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\state_replay.py": "f0e0d6af8e69647b3d41f10a92c45f8f891ac370cbcba8d4348c7e061f72975d",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\production_data.py": "adc6bbf3d98e1ed7790d9c5dd1f03f17a1fdf6fcca825a656a72f845d2475d7f",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\online_evaluation.py": "b9c5ac28aa37bcb1f6c9c5d729780dad4d76c0223145462788e078d2947349cd",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\production_train.py": "0ef6ede117b2999d76d69e34079bb1bb019f69ff810a0ba9a76127774bd2f60b",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\production_readiness.py": "de5ccdc12dbd734ffcb8514faa5ef4f82a766530e0254dccd23e2380f13d48c2",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\run_training.py": "7bc2ec404b522aa30a2ec21fe00f338b93f2b820b1fd9d5c2bac2c3c7e71c47f",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_phased_8h_20261023\\method.py": "abd0ed61d2aa694d3825a67e4ca9fbf04c2969d2e8a07ffa1ad8f92c1e1f6228",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_composition_20261023\\run.py": "4b906371eae1941465b993e4b11695f558b887232dd4aec6097cfea18edc9fa1",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\pipeline.py": "bfb5d1601ebf0496a69d54d3312a74912b0b9a1f136c9335fb777f55f888a5f7",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\runner.py": "8da7f21ebdcb077f832b2ac23c7af80359edbe4081a1185da743f6c538b38373",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\praxis\\upstream\\robosuite\\robosuite\\utils\\sim_utils.py": "117200047fa29848f84924a5f9703a185269fcb12c6995c831736e3606df1b03",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\praxis\\upstream\\robosuite\\robosuite\\controllers\\parts\\arm\\osc.py": "5258234e04d3de8dca0d48bf14bdeaad2e8ae5c41dc50a977ef6e2f7e3118d9e"
+    },
+    "readiness_report": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\DATA_READINESS.json",
+    "readiness_report_sha256": "4efcce015665f9dc13a79cdbd09e7cff2f13c447a3424e1d6d19bc5a42195648",
+    "data_source_plan_sha256": "a8875893ca5ac71430629cb8a660774a52c3fe425d275fdf591d04398fa98769",
+    "runtime_cohort_revision_sha256": "c68d5f3c6be0f97e033be935e7d73d0d0d8519d30e48522d4c65c2c6d3b98600",
+    "dependency_robosuite_version": "1.5.1",
+    "data_costs_excluded_from_future_run_but_reported_separately": true,
+    "current_approval": "NONE; technical enabled does not authorize launch",
+    "input_hashes": {
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_phased_8h_20261023\\training_arrays.npz": "92349ddfb9764883d8a676d647fb7554bc79b96f47893d9c30c89227aacecd59",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\additional_tasks\\stack_two\\data\\image_demonstrations.hdf5": "5222cbf96dc6218389d491fe7b99449295dcfc9bceb3bab8f8776ffff19fe6f8",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\dataset_manifest.json": "14c1629ec7c216341233b8d37c059d3e1f673e540e8053de335b5b2a5b9a4c5e",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120001.npz": "697f3fdc9738be8d2b83a68be9e50680353666d93806647147a6764d3aa12f12",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120003.npz": "04a47b0b6579f7f943baea708c58cddb97ba42dfd963d22887dbd561e5ce259c",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120005.npz": "6f10fb31df3cb9ee30b91dfb6d4822a6155224956e3095369529ba33294edee4",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120011.npz": "a2185ad85ab93d111ad29f535afa7899bf15a0dbebcd0365241201ec6b2d271f",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120012.npz": "c900931bc4748a8d124b01a9533c8f48132aed1c008b1d72c33611e9cea4e34c",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120013.npz": "003dd1adfcfb9ee583132f15e773c0bfac44cc9ee0e4a710c5052c7b6d80ee2a",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120015.npz": "cbe1f78f15fdb76375ac056fcb8aa168f035023b1111b512e26a4deb401ec95f",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120021.npz": "ccddea62c89b57eba17b4fb625f2b2a47a2a8e915a6cb95c34884c3bae1309e4",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120022.npz": "6c79e385c3c5341fce2aecd11ce07ceec7da012373055a049f4c26204c8d3a57",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120023.npz": "0cbbed1f1a4c594346721408cfd31c2540b96accecbf1aa7a8bed1967da651d9",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120024.npz": "320c8432abc2cd80d179ac74b155ff781e541019be3d5a029e3841f8b9251c20",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120025.npz": "baf2b780eb698fad9dbc8e32275ef6654853a83be7d60bacc159c72d753fd118",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120026.npz": "39279f19c376ebc24bc83a7c1923930e3f3c665399bef8d54bdbbcd7b52f7e51",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120029.npz": "8a89e5dd4d094713e38a9c5d69eadf65f62b74371e930fe18e71df4bc5a70b8b",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120030.npz": "9fa8342180e84607c0f5b5f7bc30ee56772e0f90731d1cd1410104b4699f5ce9",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120031.npz": "4300254dd7ad88ec78ea2f68f9000c63ef406ed1b5b7cdc45c07b7e9feda2192",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120034.npz": "4b38e39b85c31b4970e503e08eaac8ff54c99a99ab24e569a156013e78d74b1b",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120035.npz": "667fb3b832af3ff053a1cafd0a93c64ff33200ec3d560a14ca275d568d2bb239",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120036.npz": "a2b505e51a6e391299ab7936ee5e2e6cc04e150e775c9923920421ae8f24eddf",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120037.npz": "ba71a675a3064d125ba4ee374d596695b95340314c734359b8859938742cf464",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120038.npz": "78e64d9a71917d4c658b015e8a4f3adcc8f841215d7eba6988e1ae1fcd107730",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120039.npz": "2e8ea7329157be1f6b3df1c9f95cf36c37a1b6f57f86fc70e077be57fe815661",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120042.npz": "180456124b9c626b1440d4273064615b6131071ccdbd59ff4ea8889e6419f4a2",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120043.npz": "b93882cb29114ad940168f4d42c25345c5cd75876c0e2cfe0da1c3ba16078e53",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120044.npz": "edcb90af0acccb6fa906e8b489f0d7ceec5badc1477eb8b24459bc659536b8fc",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120046.npz": "284dae79b7832633c658a5978092d092fb430714747a1a6810ff0ca624c71343",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120047.npz": "ef9695cf04d29178e08005725cf8df61edf4c40fdbc3ebdeebf0d05969925069",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120048.npz": "bd225ca2117ea8766a532d3115ac974d8e5ebcec75b5dc5ba9b80d7db5ea93ff",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120049.npz": "b471a5a863f43eb32c9a3f98da932e8679d112a1c43ebe37e93e818a99791f53",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120052.npz": "084e0f3045084547d5ba083fde68603b94c7aa6f5e3fb0a248fab98edf3e3cfb",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120055.npz": "6777ecf7a9a54ec8ef4ff2138950484ee76dda0cef949fdf6e339b34d82e8a67",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120058.npz": "25cec3adba70ce99f2678b88eb42a1384e6330f970a213379fa74fe64834b447",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120059.npz": "75fc95d1df940467a69d4694cbd8c7cd95bdac47628565e487f97ebc2e6dc6b5",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120061.npz": "c56bdea6f3f3f024dbfd599e80b31e8d7c5c1a1e8bff32dc2e26572e601162cc",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120062.npz": "aeaec7f1ae25694919f714783a7af476cd7689dc6bd3116fc889aac8d79facb8",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120064.npz": "d0853bd97162e71dc90a6cf969ca66feb8c0ba1515da7a043e7e662c7e4e56e9",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120065.npz": "265a2e314421d0ba2814ab6d13df5a4ea4cc9241bb95d66a83df613760660ec8",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120067.npz": "a024dbe64a167ff23d378957fc71b1af4ced32f666394d5aa43f512345552917",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120069.npz": "a555f7d25664d32874675d5ada4e3aceaa8343b11f31892f77f49f71070ae843",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120071.npz": "61425918dc267612a04f18e8da269abf850cc226c8eda9b20dd733d7ded08367",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120072.npz": "c07445ea18bcd9b83e90b7088b6fa0741b3af2b02e963b4d4083bd2a924c52bd",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120073.npz": "d524cd52d99f398e1be2279e19e30d1bc6f18fe503bc37c39b1faa43b610a13e",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120074.npz": "311c4f04e2a39837563feee9ec8849306790f0e3ebad5669322cd5b962de302c",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120075.npz": "7f1bf48b1e13c89c3b1fe0d02fc908779e554b0798a76f29a119d9d1d771ef28",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120076.npz": "7c79ce6c96d610a9f9d0aed804e617135d1ba21a4c1424d02dbe729df7914b08",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120077.npz": "2a47406bc92eec537b22835866d3842e3dd2bbeace7b363059c032492d005846",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120079.npz": "c18d2748d4abe3b031c557cf81b409c92ba092797b9d331d0d0366d543a96f2e",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120081.npz": "48ccc14c0396cbe98afffaa131b67c132b04a30bf4b611cb5effdf1c8cd8444c",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120082.npz": "0a98b5c53444b7f6e7250bd80b1fe0e5c705e16a650ad52a57f9b584e1a4d20e",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120087.npz": "e5f09b80fef0b069697b740969c63d851fbc07edaced5a365a218d421768d32a",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120092.npz": "80dca720613bff80c18084f968cf09f6398eb5b85ac602ef1386e10f5e883685",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120094.npz": "bc2a8e3f8e5528d693a680d3defd63a62e0c197e73cbe0bc5696e90a907148ca",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120095.npz": "097ad51219b82e8c6f292a9d15a876f207e2c3efccaa6ba52641b7736698358c",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120097.npz": "97f65b6ae6cb5e0ac5df6bf8e4eb25f85a6a8e493aad6fca599bc8da2bf9177d",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120098.npz": "b19e3c9fb884ef2449d4406d16c9a2b4b613f29694e6bbd7103aade4f11459f8",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120100.npz": "80a7d57136afefc08c74937696c35858c32a504156190c2221783cc8db4748a3",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120101.npz": "ff15a0ad8f5c02f929bd649a6a6a0b5f4564acf65947b7dd850765d225f7e3a7",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120103.npz": "cdd863f164978c8bfa5764658efa1b274603215f0d76ad91938787aedb1fca93",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120104.npz": "37583d83c9359b92f7e1eb08864a955bc104d2b032390604d0b2211a262729d7",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120107.npz": "9b681934c5c0aa6b705830a686ded3bd5da270c1e6df98bf7fb42f9384a3a92b",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120108.npz": "21c7b9b10b551f970687d66b3bd9f8cc15f67c3d05ab1d3719145a95d6480da2",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120111.npz": "152e360d603f6f273f8fe521df7a457152845e9b21472dfcf3d9d81a2a46c0e5",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120113.npz": "4d6d1dc29700f6752cf10f479d40f05b39b6e3dfc7544deb205a60e71eab5268",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120114.npz": "faa3e00e7d379f7789678bcd8bd84bea7f1a660c4012b3878944c3cb824884bd",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120116.npz": "d82028e42e3f8ecb6cb6f9e3210f080926e0f5fea801645c500f4a5b86c0ce7f",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120119.npz": "9978c9c4f89b3aaea057da67d9fa0cda1ecd07bf8d1a0b37dbcc77cb747d5d5e",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120121.npz": "83b25c74a0f5fcbe4f8beb93d3ef8916afb8cc5f97c03666c31a7aabdda791c1",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120125.npz": "2f4445caea62a7e6dc9c3af2eba9d8533beb0ca19cbdbfaa2923ebca5d4bd87c",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120127.npz": "74d968fdb7b21ffdc3433d1e62009cb3ff35dfea3d5527015a1d9abb9bfe1996",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120128.npz": "8737a389d3c4140a422a015ba76bab13deb653d58df4cbe50a93f9eef0c10c10",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120129.npz": "647bff0fd521630a13f7b32e9031c3314d7789bc5118a52c322a1185924d2bb6",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120131.npz": "890a64b5c481b1d8d0f4c4f132ee6ce40c4e8716e788962a6899a1b5e1188724",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120132.npz": "a87a93e4db284ec22debe793e421c4748fc3c4736e8d2980d7fc5ce17ca617ed",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120136.npz": "b06fa6e88fbf8ccf7315370f9ba4605109852153bdeaf3e10e03af51d2d34f77",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120137.npz": "c93ef1498283b524c6d21d7d97de41bfb1024654f011e52a3475fff6714990af",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120139.npz": "8bc0761b71c455951cf84739104b3d0935fffb518618c18d6f464c66e53c90cf",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120140.npz": "e81b331e35beb24d49eddd40f8092f914fd2dee278610804926432b80f5aa804",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120141.npz": "0674b13cccc16193d1ebcad02b6616ed43dd8708e7d063b25b7425f7cf44acc4",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120143.npz": "da96c44cc0cd6edb77b3f3708375ed2fa1ee30ffe9a05f4ec3596bd29ea2114a",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120145.npz": "d03bf56084cc68a745f56d9de6c7ac27b32ea723ddc40630b7546f966e25a3a0",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120148.npz": "53207a295963ac3795a69e8ea2048e661ad371de0b40f2329198bb71559a0405",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120152.npz": "4b1e33c2a8aa0466b1bfe9231f2444277bc667fd54cd8c8773a0f364bb136131",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120153.npz": "f51bece097fb8888463f07429d778dba2775dc3e54b7a4a8873d17a6a4eb1a0e",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120155.npz": "44942a384fd6aa804e1f7c1f3cd108ebd629e6cbb703d68223f9d12aca9b8a95",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120158.npz": "c0c5f93f83a80d9fc8f7b896793a699d5e5005ee9260e87b48a623a2e93ea860",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120160.npz": "44d838d043a2f3878d56a963c6b736ef6e5bb391c03a45de29c8dff91a042a19",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120163.npz": "14a6c7911cda6a89b995c224f8ee68f119ae8919df0e856f6e4eeeef405bde23",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120167.npz": "9c7aa3385eeca7334b3263a5f88987dd3cf2115e8941987ebad55b0ac9b56e4d",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120168.npz": "6c9f96bc7b18fe19d603d102e47be3da163ce74ca714ef72a66449df8cd85c99",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120169.npz": "133d0abb5aca7f9c596cf84fce6d689c9d521c2536775201faf0aad2e99a03d6",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120173.npz": "57a8a6f53ac572ab22228222085df1e131bf677cb3ce83b2a02ecef16bbe253f",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120174.npz": "071e7dcfce605b099b84c417b1af62134d2ba023332815d2d7d935973a5c8a14",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120176.npz": "c60a647dd5960948f8f78502a4a634d3f4267911ece55097fa093ed4679e5c4d",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120178.npz": "fa8fb4bfc4a3d05409c2665b00aefb4bddf26f4b06221f1b17b252f072c01252",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120180.npz": "116691114e1956414120f26dd21f38a2d798337a223e99e8d769425ac666614c",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120182.npz": "9110d395336404b98489aed05ea8d5b40194ff8a30dde25763bfe9f1b9f0f949",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120184.npz": "3c0ef1730eebfc00c84dcccf57624f809366edf3bd86809d7883f780aa8b77f3",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120185.npz": "6f64da235a82c7daebbccaab66a1d7470bf3c4a464a5a0a15b036c9245bbb474",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120186.npz": "22a511dfda499c464ac57999b6dd8110f4c25949a89560d8199a6d57a5f4a8d2",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120188.npz": "6b42f40d3d884aafe8b3d0c5588b3df6acb68190aa799dcc4db275c669cc64f9",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120192.npz": "016d9204a9ba0bad82f49343a466d44c69f5d93b07667257b6f8b8b19aa731bb",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120193.npz": "015c117e92cc41449d65639798ab56bedadae1b5b0264cb34ade1167a80d3bbd",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120194.npz": "ad8e5807bc1567a7669597e16474250bf108d82fb3ff4b5b5c130563819290e6",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120195.npz": "60f816f677674b1c1b4edde8fbc28b9aa29da175893dd6b42c7fac9afc411372",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120199.npz": "a06aada8b8d9c5d124ff272fb010cb70f9f9d28b2c051b2edb367a23e9369778",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120200.npz": "277bfd9ae62c16601e9b8a9a6fb8cafa6101a227a303d69802c8a805184b2646",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120201.npz": "d7a0934437c91a3a56e25ec7d5eec5ae3a289f58d2c85e3d4c2dcef8565a161c",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120209.npz": "c819feb7fca2c3e2fb96f51f37eff598404ffd0d4aadd4ae635902670e06dfd0",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120210.npz": "0b16c138ae33c83be6ee98fc176b277494038723350d680ea1ce235bc31457e8",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120211.npz": "f9f19a2615adf0bcc6f4f1b3744520ebf39a78dabad4eec492bf31049a71e3c9",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120213.npz": "3ed4580792e9c34496cdd6c2b44f78472a8130a4c07e7413b8228841258436e6",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120214.npz": "200d62da8be6e81b7ad52608389e81c0f3b136b926d0edb3ca2d28a5b0975ae0",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120215.npz": "0cee6cfd9db26550e3b068c72abf58f375b220f2ce4accacb35ad3364d924df2",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120217.npz": "05080b9e4524b2642a6e1288eacec645b3aa471af4ec53430024ce079f7f9fa6",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120218.npz": "50eeece0ab37585885b88fc30783af33199b4a330897965511750ce55995e1d6",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120221.npz": "99122439de624ddd31a0bc355011586f9ee75fb8d531e2c52400cb1440907499",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120224.npz": "dd02f8cf4f8f964a234ee2b8f00f5fd4d0c73892dbbea066673de942a5f64296",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120226.npz": "0aac08b65b8914b7bf117197d9a52536c3485e524d1135bb3598a2a499f1cadf",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120231.npz": "6ca3ea816066668ab874370a80ef9b09f4cf1e860e197c094a58a409102e85fe",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120234.npz": "e50a8e58e8e77ad661d969f5ee492f64434e02c8b35921bc10fc16a53ecb6859",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120235.npz": "7f1b65dcb78dede9d36d542a3d1a727d243628783899b65fea3c4e8c4c4966e8",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120236.npz": "827be255059c07f22ec517667f7c486fb4a322a81240aadd02757f3bc2649dbd",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120237.npz": "e053df6ab3ca4f22328f22ac150961bf4ed982ac21855970e9fc975335f91cb3",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120238.npz": "4177af183623d45992d1fbd6d3f4cf03106dcd711c2223034e97422e22db52dc",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120239.npz": "1cde232819a013263c92d9a453bcff9b6dd450d5ccbb60569cf327bae61babb1",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120242.npz": "641d9ed38f49101fda67ee839ab3db42fbb0edc4314c6737141f91de55292092",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120243.npz": "7a5f564229a1d59548844c5580e780c092292b3724a4cc8e817c0dca7c073c98",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120244.npz": "f8604c233b232d5aa53d25015dc5cd113a757d4eae446eaa5f34e10aa171f373",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120245.npz": "b340445241372898c4d8e5ffb38824633d113b0381d9ac7d34ff93f6dd5d081f",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120250.npz": "8ad9a21fdaf5aba8c63bdb4a791599ad2d6dace4586a7810dd041bacfd2a3ea4",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120254.npz": "f3e05b99f73dc409182e531679aa6a4050ef146e4833e3dc34243cd244844140",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120256.npz": "9fdb2bd03d7efb399ecc2d6231ecbdaf1e0cc005053fb46ba78e643b2ba71b08",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120259.npz": "d6c3b2b07bf53d479580fa5dcbddc083ba07a850831c26e4af6bfb2d72d37452",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120261.npz": "edac49b53d202000563601855d23c5d37eb1069e9ced249dfa4589b978c7a262",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120262.npz": "ed09166d1cd26301d225e8741cf8c4bb33ec92c6ac4f20ddc0afaaa198e82922",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120263.npz": "46d2503f69815a1251f133a9dd6ebf265d93a5fe8604dffd04a126858201835a",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120265.npz": "2092c4e814613e7813c5bc14d8f64b902cf3121d62dba6d6aee28c486449d1d3",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120269.npz": "5b07d2c207c756c126a2ca71f54ef253aae9bf6acb602d073299b89dfed700f9",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120270.npz": "0e6bf2cfc34a3c082bae69c1301bee3f5472967f05dbaf86376a5f1b5a5da6c3",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120275.npz": "8ba18fa632eedd46bb61e913815560727a614dee8f64a98c4d09ddeb3404db6a",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120276.npz": "95d29493a3a73fb45a068b3fe6ac07838fc70e59ebd4bd560f2ab9203da3d178",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120277.npz": "7ad774846bd6b7bdbe1598d29180b7af9dfbabccf44532aa8e1b872d2d6dfb1e",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120279.npz": "c352a9c05847ecfa43c8e8db5c6f35b49a82d4dc068dfb6a81508bdf34785e4d",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120281.npz": "0a322d41c89bd766c7adb7782e49eb349e61c0ff3c4e23a8fd07828e6b8e5154",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120282.npz": "cb5b4b92f38b49e7b547d97cdd0866c1a98a1f913d9f87f930f8e3fcee58c0f1",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120283.npz": "1d4ffe9e6dc1dca2ea091ccaed5ee0e51ed617f78c59826dcdb5e961a3b08640",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120284.npz": "4bb4964b3400f2feaf237cf92337be02957379760c7eaf6757375065dbb5175c",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120285.npz": "3db9cf8bd4fee02e8cbe348f79f0b0565a45c1d34f65a23ea3ffe7bbe8551e9e",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120286.npz": "fd130bce82cbee68bf968b5d59ced2b801c95261abe6597a06e3771002eac8ea",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120290.npz": "980f4608acf81ecc8c4f6ac9bbbab7ea36621b45a4d3efbf5eca0a1d73c6184c",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120293.npz": "7a8c76eefb4fb842489e6a7d95166d684eb54961f121ca6149fba231a176ed76",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120294.npz": "926ece209925de8d7cda722a48c47a10bcd265bd56f07e5d6731ba21d3f0735d",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120297.npz": "7aee5bcef1ad9ddb74a91bc858eae5218bdad1ef7bde727a8c045694c52633b5",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\datasets\\stack3\\120298.npz": "ad975bb5b5b5c16c961737905aedf6ce2052c0c9bb30ef51135176eda9f16281",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a"
+    },
+    "supersedes": "READY_PLAN.json; pins cached original arrays and every replay episode as well"
+  }
+}

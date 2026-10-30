@@ -1,0 +1,728 @@
+demo_score / arXiv:2503.03707v2. PDF pages start at 1. Z = custom nonempty layout line per page, not official publication lines.
+
+===== PDF S. 1 =====
+S01:Z001 |    Curating Demonstrations using Online Experience
+S01:Z002 |                                   Annie S. Chen∗, Alec M. Lessing∗, Yuejiang Liu, Chelsea Finn
+S01:Z003 |                                                                 Stanford University
+S01:Z004 |    Abstract—Many robot demonstration datasets contain heteroge-
+S01:Z005 | neous demonstrations of varying quality. This heterogeneity may
+S01:Z006 | benefit policy pre-training, but can hinder robot performance
+S01:Z007 | when used with a final imitation learning objective. In particular,
+S01:Z008 | some strategies in the data may be less reliable than others or may
+S01:Z009 | be underrepresented in the data, leading to poor performance
+S01:Z010 | when such strategies are sampled at test time. Moreover, such
+S01:Z011 | unreliable or underrepresented strategies can be difficult even for
+S01:Z012 | people to discern, and sifting through demonstration datasets is
+S01:Z013 | time-consuming and costly. On the other hand, policy performance
+S01:Z014 | when trained on such demonstrations can reflect the reliability of
+S01:Z015 | differentstrategies.Wethusproposeforrobotstoself-curatebased
+S01:Z016 | on online robot experience (Demo-SCORE). More specifically,
+S01:Z017 | we  train  and  cross-validate  a  classifier  to  discern  successful
+S01:Z018 | policy  roll-outs  from  unsuccessful  ones  and  use  the  classifier
+S01:Z019 | to filter heterogeneous demonstration datasets. Our experiments                 Fig. 1: Human Demonstrations may be Unreliable. Human demon-
+S01:Z020 | in simulation and the real world show that Demo-SCORE can                       strations may include a wide range of strategies, not all of which
+S01:Z021 | effectively identify suboptimal demonstrations without manual                   are beneficial for the robot to learn. For example, some humans may
+S01:Z022 | curation. Notably, Demo-SCORE achieves over 15-35% higher                       try to complete the task by picking up the spoon by its edge or by
+S01:Z023 | absolute success rate in the resulting policy compared to the base              lifting it above the rack and dropping it, but these strategies may be
+S01:Z024 | policy trained with all original demonstrations.                                unreliable for imitation by a robot policy.
+S01:Z025 |                           I.  INTRODUCTION
+S01:Z026 |    Learning from demonstrations is a powerful technique for                     careful curation, robots may learn strategies that succeed in
+S01:Z027 | acquiring  a  range  of  different  robotic  manipulation  skills.              specific demonstrations but are brittle under slightly different
+S01:Z028 | Although large, diverse demonstration datasets are beneficial                   conditions, limiting their generalization and robustness. This
+S01:Z029 | for pre-training, a more selective use of demonstrations may                    motivates the need for an automated approach to selectively
+S01:Z030 | be required to achieve optimal performance. As robot learning                   curate demonstrations within a single task/dataset, allowing
+S01:Z031 | datasetsscaletoincludedemonstrationsfrommultipleoperators                       robots to learn only the most reliable and effective strategies
+S01:Z032 | across increasingly complex tasks, they naturally encompass a                   for that task.
+S01:Z033 | wide range of strategies—some of which may be challenging                          Our key insight is that when a policy is trained on het-
+S01:Z034 | for robots to replicate reliably or lack sufficient examples for                erogeneous demonstrations, its performance during rollouts
+S01:Z035 | effective learning. For example, when teaching a robot to pick                  can reveal which demonstrated strategies are most reliable.
+S01:Z036 | up a spoon, a human operator may collect demonstrations using                   Building on this observation, we present Demo-SCORE, which
+S01:Z037 | a strategy that may be unreliable for the robot to imitate, like                leverages online policy rollout experiences to automatically
+S01:Z038 | gripping the edge of the spoon head, which may be prone to                      curate reliable demonstrations. The approach begins by training
+S01:Z039 | slipping out of the robot’s grasp, as shown in Figure 1. As such,               an initial policy on the full set of demonstrations. Rollouts are
+S01:Z040 | in this paper, we study how to effectively curate demonstration                 generated from this policy and used to train a classifier that
+S01:Z041 | datasets to enable optimal policy performance.                                  approximately distinguishes successful trajectories from failed
+S01:Z042 |    Manual labeling and filtering of such data is both time-                     ones, thereby learning to separate the underlying strategies
+S01:Z043 | consuming and error-prone, especially as the scale of robot                     by  their  reliability.  One  challenge  is  that  classifier  may
+S01:Z044 | learning datasets continues to grow. Moreover, determining                      overfit to rollouts from one policy checkpoint–to address this,
+S01:Z045 | which demonstrations are unreliable can be difficult, even for                  we cross-validate its performance on rollouts from another
+S01:Z046 | human experts, as successes for most real-world tasks exist on a                checkpoint in the initial policy training run. By applying this
+S01:Z047 | spectrum of approaches with subtle variations in execution and                  classifier to the original dataset, Demo-SCORE identifies and
+S01:Z048 | contextdependence,potentiallymakingitdifficulttodescribeor                      discards unreliable examples. This method works because it
+S01:Z049 | group different strategies together. For example, when grasping                 leverages the robot’s own experience through rollouts, allowing
+S01:Z050 | objects, demonstrations might vary continuously in terms of                     it  to  assess  the  true  reliability  of  different  strategies  after
+S01:Z051 | approach angles, contact points, and force application. Without                 policy  learning.  Thus,  by  focusing  on  the  end  results  of
+S01:Z052 |   ∗Equal contribution. Correspondence to asc8@stanford.edu. Videos of real-     policy rollouts, Demo-SCORE filters demonstrations based on
+S01:Z053 | world trials at https://anniesch.github.io/demo-score/.                         practical outcomes rather than potentially misleading surface-
+
+===== PDF S. 2 =====
+S02:Z001 | level cues.                                                                       Suboptimal  Demonstrations.  Previous  works  have  at-
+S02:Z002 |    We  evaluate  Demo-SCORE  on  a  set  of  simulated  and                    tempted to tackle suboptimal demonstrations in two primary
+S02:Z003 | real-world  robotic  manipulation  tasks  with  heterogeneous                  ways. One line of research assumes access to annotations,
+S02:Z004 | demonstration mixtures that include a variety of strategies.                   such as reward [37] or ranking [9], for all collected demon-
+S02:Z005 | More specifically, our evaluation suite spans multiple tasks                   strations,  aiming  to  learn  an  optimal  policy  via  weighted
+S02:Z006 | in  Robosuite  [27]  along  with  simulated  and  real-world                   behavior cloning [40, 44] or offline reinforcement learning [25].
+S02:Z007 | ALOHA [48] with different imbalanced mixtures of higher                        However, gathering dense annotations at scale beyond sparse
+S02:Z008 | and  lower  quality  demonstrations,  and  we  evaluate  with                  binary success detection can be tedious and expensive. As
+S02:Z009 | different policy classes, including both Diffusion Policy [12].                such, another line of work seeks to learn a reward function
+S02:Z010 | ACT  [48].  Our  experiments  show  that  policies  trained  on                from  a  limited  number  of  annotations  (e.g.,  quality  [44],
+S02:Z011 | our filtered demonstrations significantly outperform the base                  confidence [34], preference [11]) and subsequently estimate the
+S02:Z012 | policies  trained  on  all  demonstrations,  leading  to  15-35%               rewards of a broader unlabeled dataset. While these methods
+S02:Z013 | higher absolute success rate. Demo-SCORE also significantly                    reduce annotation expenses, they still rely on human definitions
+S02:Z014 | outperforms prior approaches that also leverage rollout data,                  of  data  quality,  which  does  not  always  align  with  robot
+S02:Z015 | like autonomous imitation learning, achieving almost 2x lower                  capabilities or task conditions. In contrast, we leverage policy
+S02:Z016 | failure  rate.  We  additionally  provide  a  detailed  empirical              rollouts to identify suboptimal trajectories autonomously and
+S02:Z017 | analysis of the design choices of our method and show that                     only use sparse binary success/failure annotations of the data.
+S02:Z018 | it  is  robust  to  these  and  to  hyperparameter  choices.  Our              Prior works like autonomous imitation learning [1, 8, 29]
+S02:Z019 | results highlight the benefits of curating demonstration data                  and reward-conditioned policies [22, 35] also leverage policy
+S02:Z020 | and show that our simple approach to automated filtering can                   rollouts filtered by success as additional data to improve the
+S02:Z021 | significantly enhance policy performance in robot learning from                policy. Compared to the these, we find in Section V that Demo-
+S02:Z022 | demonstrations.                                                                SCORE is more effective at improving policy performance.
+S02:Z023 |                          II.  RELATED WORK                                     By grounding curation directly in the downstream task and
+S02:Z024 |                                                                                embodiment, our method provides a scalable, effective pathway
+S02:Z025 |    Behavior Cloning. Behavior cloning has traditionally been                   for filtering demonstrations.
+S02:Z026 | formulated as supervised learning from homogeneous expert                                               III.  PRELIMINARIES
+S02:Z027 | demonstrations  [2,  33,  45].  In  practice,  however,  human
+S02:Z028 | demonstrations often exhibit wide variations in strategy [42],                    We address a problem setting where we are given a dataset
+S02:Z029 | proficiency  [3],  and  preference  [19],  especially  in  large-              of N successful demonstrations,Ddemo ={τ1,...,τN}. Each
+S02:Z030 | scale datasets [7, 20, 30]. To handle such variation, recent                   demonstration τi  = {s0,a0,s1,a1,...,sT,aT}  consists  of
+S02:Z031 | methods have sought to model the distribution of actions or                    a trajectory of states and actions. These demonstrations are
+S02:Z032 | action chunks [5, 13, 16, 24, 26, 39, 46, 48] or decompose                     collectedinaMarkovDecisionProcess(MDP)characterizedby
+S02:Z033 | demonstrations into shorter sequences corresponding to distinct                (S,A,P,r), whereS andA denote the state and action spaces,
+S02:Z034 | high-level strategies [6, 28, 49]. Nonetheless, not all strategies             P is the transition dynamics,r is the reward function. The goal
+S02:Z035 | are equally optimal: some can be inefficient, overly complex,                  is to learn a policyπθ(a|s) that maximizes expected cumulative
+S02:Z036 | or brittle to perturbations, thereby hindering robust deploy-                  reward, E[R] =E[PTt=0γtr(st,at)], during deployment. We
+S02:Z037 | ment [9, 18, 21, 32, 41]. Our method addresses this issue by                   additionally have the opportunity to collect a small amount
+S02:Z038 | explicitly curating demonstration datasets.                                    of experience in the environment for further offline training,
+S02:Z039 |    Data Curation. Early efforts in data curation often rely on                 where experience is labeled with a binary indicator for success
+S02:Z040 | hand-crafted heuristics, such as near-duplicate removal [23],                  or failure.
+S02:Z041 | metadata balancing [38], and diversity expansion [15]. While                      We  assume  that  all  of  the  demonstrations  in Ddemo  are
+S02:Z042 | manual curation has shown promise in the development of                        successful (i.e. achieve reward r = 1), or equivalently that
+S02:Z043 | robot foundation models [7], it is inherently limited in its                   any unsuccessful demonstrations are thrown out. Beyond being
+S02:Z044 | ability to capture nuanced aspects of data quality. For example,               successful, motivated by the discussion above, we focus on
+S02:Z045 | the commonly used heuristic of maximizing state diversity                      settings where the demonstrations are heterogenous and differ
+S02:Z046 | has been shown not to always be beneficial [4]. Recent works                   in reliability and effectiveness. This diversity arises due to
+S02:Z047 | have instead shifted towards curating training data based on                   variations in operator styles, environmental conditions, or task
+S02:Z048 | properties derived from the learned policy. Notably, Du et al.                 execution strategies. As a result, some demonstrations may lead
+S02:Z049 | [14], Nasiriany et al. [31] leverage the embeddings of a small                 to suboptimal behaviors if modeled indiscriminately, posing a
+S02:Z050 | set of high-quality demonstrations to retrieve relevant examples               challenge for imitation learning methods that aim to model the
+S02:Z051 | from a larger candidate dataset.  Hejna et al. [17] propose to                 distribution of demonstrations. Our goal is to learn a maximally
+S02:Z052 | estimate the importance weights of subsets through the lens                    successful policy, πfinal, despite varying demonstration quality.
+S02:Z053 | of domain robustness [43]. However, estimating the quality of                     Our problem setting is a case of the autonomous imitation
+S02:Z054 | individual demonstrations within a single task remains an open                 learning (Auto-IL) problem. In autonomous imitation learn-
+S02:Z055 | challenge. Our work addresses this challenge by identifying                    ing [1, 8, 29], an initial policy π0 is trained, which is used
+S02:Z056 | and pruning suboptimal demonstrations.                                         to generate rollouts. These are processed through a filtering
+
+===== PDF S. 3 =====
+S03:Z001 | mechanism, often binary task success/failure, to generate a                     ones. The learned classifier is expected to provide plausible
+S03:Z002 | supplementary dataset. A new policy πi is then trained or fine-                 estimates of demo quality if prollout(τ|success)≈ pdemo(τ|+)
+S03:Z003 | tuned using a combination of demos and newly acquired data.                     and prollout(τ|failure) ≈ pdemo(τ|−), but in practice, we do
+S03:Z004 | The online experience is limited to far fewer trajectories than                 not have such rollout distributions nor quality labels +/−.
+S03:Z005 | the typical budget of reinforcement learning methods, making                    Thus, one key challenge is that the classifier may overfit to
+S03:Z006 | it particularly practical for real robots. In the next section, we              the rollouts it is trained on, which may not perfectly match
+S03:Z007 | will describe how we use this experience to identify how to                     the original demo distribution. In particular, at convergence
+S03:Z008 | filter the demonstrations to improve performance.                               time, even though the policy is trained to imitate the full demo
+S03:Z009 |               IV.  DEMO-SCORE DATA CURATION                                     distribution and good strategies should be much more reliable
+S03:Z010 |                                                                                 than bad ones, the policy rollouts may still contain failures near
+S03:Z011 |    In this section, we present Demo-SCORE, where we seek                        good strategies and successes near bad strategies. Overfitting
+S03:Z012 | to  filter  out  unreliable  demonstrations.  The  key  empirical               to a rollout distribution from one policy checkpoint could lead
+S03:Z013 | observation behind Demo-SCORE is that successes and failures                    to poor generalization on the demo distribution.
+S03:Z014 | in policy rollouts can reflect unreliable strategies in the training               To address this challenge of distribution shift and potential
+S03:Z015 | data that may not be easily discernible from the demonstrations                 classifier overfitting, we leverage multiple rollout distributions
+S03:Z016 | themselves, which are all labeled as successful. By focusing                    taken from different checkpoints across the initial training run
+S03:Z017 | on the outcomes of policy rollouts, Demo-SCORE can identify                     and use cross-validation. We obtain rollouts atC evenly spaced
+S03:Z018 | and filter out unreliable demonstrations that the robot policy                  checkpoints  of  the  initial  training  run,  giving {Dπ0,i}Ci=1,
+S03:Z019 | cannot replicate successfully and therefore lead to inconsistent                each  taken  at  checkpoint i ∗ K/C.  We  then  train C − 1
+S03:Z020 | policy performance.                                                             classifiers,{qϕi}C−1i=1 , on rollouts from each of the first C−1
+S03:Z021 |    Our approach consists of the following main steps: first, we                 checkpoints, and perform cross-validation with rollouts from
+S03:Z022 | train an initial policy on the full set of demonstrations. We                   the last checkpointDπ0,C as the validation set. Intuitively, the
+S03:Z023 | then use the policy to generate rollouts that are used to train                 rollout distribution changes throughout the course of training,
+S03:Z024 | a data quality classifier to distinguish between successful and                 typically being broader at the beginning and becoming narrower
+S03:Z025 | failed outcomes. This classifier is subsequently applied to the                 as the policy fits the original demonstrations. We choose to
+S03:Z026 | original dataset to perform filtering (which can be done at the                 use C spaced-out checkpoints for several reasons. First, they
+S03:Z027 | episode level or the chunk level), retaining only the reliable                  are spread apart enough to ensure that the rollout distributions
+S03:Z028 | episodes.                                                                       are distinct from each other, so a classifier that overfits to
+S03:Z029 |    Our method does not require any additional human labeling                    rollouts from a checkpoint would be less likely to be chosen
+S03:Z030 | beyond the detection of success or failure during the rollout                   through cross-validation. Second, when evaluating the initial
+S03:Z031 | phase. This lack of manual dense supervision makes Demo-                        training run, it is common to evaluate performance at several
+S03:Z032 | SCORE scalable to large, diverse demonstration datasets where                   evenly spaced checkpoints, so these online rollouts occur little
+S03:Z033 | traditional human annotation would be challenging and costly.                   additional online cost beyond evaluating the original training
+S03:Z034 | Furthermore, grounding demo curation in policy rollouts allows                  run. Other choices of checkpoints are also effective, as we find
+S03:Z035 | us to identify suboptimal demos that are difficult for human                    in our testing of variations of Demo-SCORE in Section V-D.
+S03:Z036 | annotators to recognize.                                                        Furthermore, using as few as 10 rollouts per checkpoint can
+S03:Z037 | A. Initial policy and data quality classifier training                          be sufficient, for a total of less than 100 rollouts.
+S03:Z038 |                                                                                    Each data quality classifierqϕi is trained to predict whether
+S03:Z039 |    We first train an initial policy,π0,K, on the full set of given              a state from the corresponding set of rollouts Dπ0,i is from
+S03:Z040 | demonstrations, Ddemo, for a total of K  steps. In this step,                   a successful or a failed trajectory. The classifiers are trained
+S03:Z041 | we prioritize learning a policy capable of modeling the full                    using a binary cross-entropy loss, where the input consists of
+S03:Z042 | distribution of demonstrated behaviors while avoiding mode                      the proprioceptive state st, and the output is a binary label
+S03:Z043 | collapse when presented with heterogeneous demonstrations.                      yi∈{0,1} indicating the outcome of the corresponding rollout.
+S03:Z044 | Recently proposed policy classes such as diffusion policy [12]                  For a single trajectory τ ={(st,at)}Tt=1∈Dπ0,i with label y,
+S03:Z045 | and ACT [47] have demonstrated robust performance in this                       the loss at the trajectory level is defined as:
+S03:Z046 | context, making them suitable choices for our base policy. This
+S03:Z047 | policy is trained until convergence, so that the model learns to                                    TX
+S03:Z048 | replicate the different behaviors shown in the demonstrations.                  Lϕ(τ,y) = 1T           [−ylogqϕi(y|st)−(1−y)log(1−qϕi(y|st))],
+S03:Z049 |    After the initial training phase, we generate rollouts pro-                                    t=1
+S03:Z050 | duced  by  executing  the  policy  in  the  environment,  which                 where T is the number of timesteps in the trajectory τ.
+S03:Z051 | may be rollouts obtained in the process of evaluating the                          The overall loss is then the average over all trajectories in
+S03:Z052 | initial policy at various checkpoints. We want to use these                     the rollout datasetDπ0,i:
+S03:Z053 | rollouts to train a data quality classifier that distinguishes
+S03:Z054 | between successful and failed outcomes and therefore hopefully                                                     X
+S03:Z055 | between reliable and unreliable strategies. More formally, let                                    Lϕ =  1M                    Lϕ(τj,yj),
+S03:Z056 | +  denote  reliable  demonstrations  and −  denote  unreliable                                                (τj,yj)∈Dπ0,i
+
+===== PDF S. 4 =====
+S04:Z001 | Fig. 2: Illustration of Demo-SCORE. Our method self-curates demonstrations through online robot experience in four steps: (i) train a policy
+S04:Z002 | on the full demonstration set; (ii) evaluate the policy by generating rollouts with different checkpoints; (iii) use these rollouts to train and
+S04:Z003 | cross-validate a classifier that distinguishes between success and failure trajectories; (iv) filter out unreliable demonstrations based on the
+S04:Z004 | learned classifier, retaining only ones that do not reflect policy failures for subsequent policy training.
+S04:Z005 | where M  is the number of rollouts in the training dataset,                         We can then use the filtered datasetDdemo, filt to train a new
+S04:Z006 | Dπ0,i.                                                                           policy, πfinal, either from scratch or by fine-tuning the initial
+S04:Z007 |    The classifiers are small MLPs (with two hidden layers                        policy which was trained on the full demonstration dataset. We
+S04:Z008 | with eight hidden units). We train the classifiers with large                    then apply our same trained classifier on the successful rollouts
+S04:Z009 | weight decay and dropout to prevent overfitting to the rollout                   themselves, obtainingDrollouts, filt, and we can then train on the
+S04:Z010 | distribution, although we find in Section V-D that the classifier                union ofDdemo, filt andDrollouts, filt in this last stage. By filtering
+S04:Z011 | is  robust  even  without  heavy  regularization  due  to  cross-                out unreliable demonstrations, Demo-SCORE helps ensure
+S04:Z012 | validation. The classifier checkpoint with the lowest validation                 that the policy learns the most effective strategies, ultimately
+S04:Z013 | loss is chosen as the final data quality classifier,qϕ∗ and is                   improving the performance and robustness of the learned robot
+S04:Z014 | then used in the next phase to filter the demonstrations.                        behavior. Our full method is summarized in Algorithm 1.
+S04:Z015 | B. Demonstration Filtering                                                       Algorithm 1 Demo-SCORE Summary
+S04:Z016 |    In the demonstration filtering phase, we apply the learned                      1: Input:Ddemo,C checkpoints,M rollouts,K steps
+S04:Z017 | data quality classifier to the original dataset of demonstrations,                 2: π0← Train(Ddemo)
+S04:Z018 | in the following manner: Each state st from the demonstration                      3: {Dπ0,i}Ci=1,← GenerateRollouts(π0,i∗K/C,M)
+S04:Z019 | is passed as input to the classifier, which returns the probability                4: qϕ∗ ← TrainClassifier, CrossValidate({Dπ0,i}Ci=1)
+S04:Z020 | of success. Averaged across all states in the episode, if the                      5: γ←        1      P
+S04:Z021 | probability  of  success  exceeds  a  threshold, γ,  the  demon-                             |Dπ0,i∗|     (st)∈Dπ0,i∗ qϕ∗(y = 1|st)
+S04:Z022 | stration  is  kept;  otherwise  it  is  discarded.  For  an  episode               6: Ddemo, filt,Drollouts, filt ← {τj | ¯qϕ∗(τj) > γ,τj ∈ Ddemo∪
+S04:Z023 | τ ={(st,at)}Tt=1, the average success probability is                                  Drollouts}
+S04:Z024 |                                    TiX                                             7: πfinal← UseDdemo, filt∪Drollouts, filt to re-train & fine-tune
+S04:Z025 |                   ¯qϕ∗(τ) = 1          qϕ∗(y = 1|st).                                 π
+S04:Z026 |                                T  t=1                                              8: Return πfinal
+S04:Z027 | We use the average probability of success over all states in the
+S04:Z028 | rollout training dataset Dπ0,i∗, corresponding to the training                                       V.  EXPERIMENTAL RESULTS
+S04:Z029 | set of the best classifier qϕ∗, as the threshold, e.g.
+S04:Z030 |              γ =      1           X         qϕ∗(y = 1|st),                          In this section, we aim to answer the following empirical
+S04:Z031 |                     |Dπ0,i∗|                                                     questions:
+S04:Z032 |                               (st)∈Dπ0,i∗
+S04:Z033 |                                                                                     1)  Across a range of tasks and heterogenous demonstra-
+S04:Z034 | and the filtered dataset is then:                                                        tion mixtures, does Demo-SCORE filter out unreliable
+S04:Z035 |            Ddemo, filt ={τj | ¯qϕ∗(τj)>γ,τj ∈Ddemo}.                                     demonstrations in a manner that leads to higher policy
+S04:Z036 |                                                                                          performance than training on all original demonstrations?
+S04:Z037 |    γ can be tuned further but we find this formulation to work                      2)  How does Demo-SCORE compare to prior methods that
+S04:Z038 | well empirically for all of our experiments in Section V. The                            leverage online rollouts to improve policy performance?
+S04:Z039 | probability learned by the classifier of the failures should be                     3)  What can the composition of demonstrations filtered out
+S04:Z040 | much lower than those of successes, which is why γ is an                                 by Demo-SCORE inform us about the quality of the
+S04:Z041 | effective threshold, even if the quality composition of the                              original dataset?
+S04:Z042 | dataset is imbalanced, and we find this to be the case in our                       4)  How sensitive is Demo-SCORE to method design choices
+S04:Z043 | experiments.                                                                             and hyperparameters?
+
+===== PDF S. 5 =====
+S05:Z001 |    To answer the first two questions, we describe experiments                 the orientation of the peg and socket, the arms align the peg
+S05:Z002 | for two simulated settings and then present results from several              and socket and then come together to insert them. In demos
+S05:Z003 | real-world robotic manipulation tasks with ALOHA. We then                     from PegB and PegC, when picking up the peg and socket, the
+S05:Z004 | analyze our method through ablation studies to answer the last                positioning of the arms may sometimes obscure the overhead
+S05:Z005 | two questions.                                                                camera’s view of the peg and socket during insertion, which
+S05:Z006 | A. Experimental Setup                                                         may lead to worse policy performance with this strategy.
+S05:Z007 |       a) General Experimental Setup:  We use base learning                       For the square peg task, we leverage the proficient human-
+S05:Z008 | algorithms Diffusion Policy [12] for all experiments in Ro-                   collected dataset given in the benchmark, denoted Human,
+S05:Z009 | bosuite and ACT [48] for simulated and real-world ALOHA                       collected by one human skilled at the task. Additionally, we
+S05:Z010 | experiments. Both of these policy classes have been shown to                  add demonstrations from two scripted policies: SquareA, in
+S05:Z011 | fit the distribution of heterogeneous demonstrations. We im-                  which the gripper grasps the midpoint on the side of the square,
+S05:Z012 | plement all methods on top of state-of-the-art implementations                moves the nut over the peg, and then drops the nut, SquareB,
+S05:Z013 | of these policies using the original diffusion policy codebase,               in which the gripper grasps the nut across the diagonal at the
+S05:Z014 | original ACT codebase for real-world experiments, and the                     corner of the square and then drops the nut on the peg.
+S05:Z015 | LeRobot codebase [10] for simulated ALOHA experiments.                           Although they use different strategies, all of the demon-
+S05:Z016 |       b)  Comparisons:  We evaluate Demo-SCORE along with                     strations successfully complete the task and we do not add
+S05:Z017 | the  following  prior  methods,  the  last  two  of  which  also              any  artificial  noise.  We  evaluate  our  method  on  a  variety
+S05:Z018 | leverage online rollouts to improve policy performance: (1)                   of heterogeneous data mixtures taken from a combination
+S05:Z019 | Policy trained on all original demonstrations, which we refer                 of the demonstration sources. In particular, these mixtures
+S05:Z020 | to as Base  Policy; (2) Training  loss [36], which weights                    include both even and strongly lopsided ratios of different
+S05:Z021 | demonstrations inversely proportional to the loss of the policy               demonstration  strategies,  in  order  to  represent  the  varied
+S05:Z022 | on the demonstration data. (3) Autonomous imitation learning                  potential heterogeneity in demonstration datasets.
+S05:Z023 | (Auto-IL) [1, 8, 29], where we train the policy on all original                     b) Results:  In Figure 4, we show the results of Demo-
+S05:Z024 | demonstrations  and  successful  online  rollout  episodes;  (4)              SCORE on the simulated peg insertion and square peg tasks
+S05:Z025 | Return-conditioned policies (RCP) [22, 35], which trains a                    for a variety of data mixtures. We find that on average over all
+S05:Z026 | policy with an additional input associated with return (here 1                data mixtures in both settings, Demo-SCORE improves upon
+S05:Z027 | if from a success trajectory, 0 for failure) of the state-action              training on all original demonstrations by 15-35% absolute
+S05:Z028 | pair on all demos and rollout data; For our main simulated                    success  rate.  With  filtering  by  Demo-SCORE,  the  policy
+S05:Z029 | experiments, we use 100 rollouts from C = 4 checkpoints                       achieves an average success rate of over 94% on the square
+S05:Z030 | for Demo-SCORE, and all 400 rollouts for Auto-IL and RPC                      peg and over 90% on the peg insertion task across all mixtures.
+S05:Z031 | baselines. For real-world experiments, we use 20 rollouts per                 Policies trained with Demo-SCORE have average failure rates
+S05:Z032 | checkpoint for Chocolate and Strawberry tasks and 25 for the                  that are on average over 2× lower than those of the best
+S05:Z033 | Jellybean, Sharpie, and Spoon tasks for C = 5 checkpoints                     prior method (Auto-IL) for the square task and 1.6 times
+S05:Z034 | to train the classifier. For evaluation, we measure and report                lower for the peg insertion task. Auto-IL is the second-best
+S05:Z035 | success rate and 90% confidence intervals across 256 rollouts                 method, achieving 88.2% average success rate on the square
+S05:Z036 | in simulated experiments and 30 rollouts in real.                             task and 79.9% on the peg insertion task. It improves upon
+S05:Z037 |                                                                               the base policy, as it is trained with more data from successful
+S05:Z038 | B. Simulated Experiments in Robosuite and ALOHA                               rollouts, but unreliable demonstrations are still present in the
+S05:Z039 |    We test Demo-SCORE on a bimanual peg insertion task                        dataset, which still leads to inconsistent policy performance.
+S05:Z040 | in the ALOHA [48] environment and a square peg task from                      The Training Loss comparison improves upon training on
+S05:Z041 | Robosuite [27], shown in Figure 3. In the peg insertion task, an              all original demonstrations for the peg insertion task but not
+S05:Z042 | ALOHA simulated in MuJoCo picks up a peg and a socket in                      for square peg, suggesting that unreliable strategies may not
+S05:Z043 | each hand and inserts the peg into the socket. The observation                necessarily correspond to ones that are easiest or fastest to learn.
+S05:Z044 | space for this task consists of joint positions and an overhead               Return-conditioned policies outperforms the base policy on
+S05:Z045 | RGB camera. In the square peg task, a simulated Panda arm                     both tasks but performs significantly worse than Demo-SCORE,
+S05:Z046 | is tasked with picking up a large square-shaped nut with a                    suggesting that training with the return signal is not as effective
+S05:Z047 | handle attached and inserting or dropping it on square-shaped                 in pushing the policy away from unreliable strategies as better
+S05:Z048 | peg fixed to the table. Observations for this task consist of                 curating demonstrations.
+S05:Z049 | proprioception for the robot arm and pose for the square nut.                    Qualitatively, Demo-SCORE filters out between 16% and
+S05:Z050 |       a)  Demonstration Collection:  For the peg insertion task,              67% of demonstrations for the square peg task, depending
+S05:Z051 | we collect demonstrations by scripting three policies (PegA,                  on the data mixture. We note Demo-SCORE is effective even
+S05:Z052 | PegB,  PegC)  and  saving  rollouts  in  which  the  task  was                with strongly lopsided heterogeneous mixtures, such as 200
+S05:Z053 | successfully completed. In demos from PegA, the grippers                      Human, 20 SquareA or 200 Human, 400 SquareA, showing
+S05:Z054 | pick up the peg and socket near the center of gravity of both                 that Demo-SCORE adjusts accordingly based on the dataset
+S05:Z055 | objects with both arms at natural positions. Without changing                 composition.
+
+===== PDF S. 6 =====
+S06:Z001 | Fig. 3: Tasks for Evaluation. In simulation, we evaluate Demo-SCORE on a bimanual peg insertion task in an ALOHA environment and a
+S06:Z002 | square peg task from Robosuite. In the real-world, we evaluate on four tasks with ALOHA: spoon in rack cupholder, chocolate plate transfer,
+S06:Z003 | sharpie pick up, and strawberry pick up from a cluttered scene.
+S06:Z004 | Fig. 4: Simulated Experiment Results. We report the success rates and 90% confidence intervals of the policy trained on the filtered
+S06:Z005 | demonstrations by Demo-SCORE along with prior methods leveraging online rollouts, across 256 trials for a variety of heterogeneous
+S06:Z006 | demonstration data mixtures. For example, in the square peg domain, “100 Human, 50/50 SquareA/B” indicates a demonstration dataset
+S06:Z007 | with 100 trajectories from the proficient human dataset, 50 from the SquareA script, and 50 from SquareB. Across both tasks and all data
+S06:Z008 | mixtures, Demo-SCORE matches or outperforms all other methods.
+S06:Z009 | C. Real-world Experiments                                                                                                       Base Policy     Demo-SCORE
+S06:Z010 |                                                                                             Retrieved Cup                                      70                       96
+S06:Z011 |    We test Demo-SCORE on several tasks requiring precise                                    Placed Cup                                           50                       64
+S06:Z012 | manipulation with a real-world ALOHA [48] environment,                                      Moved Cup Below Dispenser             10                       44
+S06:Z013 |                                                                                             Filled Cup                                             0                        20
+S06:Z014 | shown in Figure 3: (1) Spoon, where the robot needs to pick                                 Delivered Filled Cup                            0                        20
+S06:Z015 | up a spoon and put it in the cupholder on a rack; (2) Chocolate,                            Aggregated Score                                27                       49
+S06:Z016 | where the robot needs to transfer a chocolate bar from one                                  Full Success                                          0                        20
+S06:Z017 | plate to another; (3) Sharpie, where the robot needs to pick                         TABLE I: We report the percent success rate for each subtask in the
+S06:Z018 | up the sharpie and avoid the adjacent tape roll; (4) Strawberry,                     Jellybean task, the aggregated score (the percentage of all subtasks
+S06:Z019 | where the robot needs to pick up a strawberry from a cluttered                       completed), and the percent success rate on the full Jellybean task.
+S06:Z020 | breakfast platter; (5) Jellybean, where the robot must take a                        On this challenging task, Demo-SCORE is able to curate the data so
+S06:Z021 | cup from a dispenser, place it under the jellybean holder, add                       that the robot is able to even achieve success on the full task.
+S06:Z022 | jellybeans to the cup, and move the filled cup to the front of
+S06:Z023 | the table. The base policy trained on all demonstrations for
+S06:Z024 | the Jellynean task cannot complete the full task. Therefore, for                     the Jellybean task, we use 124 crowdsourced demonstrations
+S06:Z025 | this task alone, we break the task into five subtasks and use an                     and 100 expert demonstrations from Mirchandani et al. [30].
+S06:Z026 | aggregated subtask score — the fraction of the five subtasks                                b) Results:  In Figure 6, we show the results of Demo-
+S06:Z027 | completed in a given episode — for evaluation and classifier                         SCORE on four real-world ALOHA tasks. Across all four
+S06:Z028 | training supervision.                                                                tasks, we find that Demo-SCORE significantly improves upon
+S06:Z029 |       a) Demonstration Collection: We collect a total of 40 suc-                     the base policy, yielding 15-40% absolute improvement in
+S06:Z030 | cessful demonstrations for the Spoon task, 50 for the Chocolate                      success rate, and almost 30% on average. For the jellybean
+S06:Z031 | and Sharpie tasks, and 120 for the Strawberry task. We aim to                        task, in addition to the aggregated subtask score increasing
+S06:Z032 | reflect the diversity of demonstrations found in crowdsourced                        from 27 to 49 percent, the success rate on the long-horizon
+S06:Z033 | demonstrations,  including  a  mix  of  different  strategies.  In                   full task increases from 0 to 20 percent (details found in
+S06:Z034 | particular, for each of these tasks, we collect demonstrations                       Table I). These results underscore the benefits of carefully
+S06:Z035 | picking up the object from different grasp positions and angles,                     considering the quality of human-collected demonstrations–
+S06:Z036 | encompassing a variety of initial conditions for the objects. For                    fewer demonstrations may learn a more robust policy than
+
+===== PDF S. 7 =====
+S07:Z001 | Fig. 5: Rollout and Demo distributions on real-world tasks. For the strawberry and sharpie tasks, we show the rollout distributions at
+S07:Z002 | early and late checkpoints of the initial policy run, the composition of demonstrations kept by Demo-SCORE compared to the original
+S07:Z003 | distribution of demonstrations, and the resulting rollout distribution after filtering. The x axis represents step number in the rollout, and the y
+S07:Z004 | axis represents the first PCA component of the joint positions.
+S07:Z005 |                                                    100 Human,            100 Human,            200 Human,          200 Human,         200 Human,          200 Human,          Average
+S07:Z006 |                                                   100 SquareA         50/50 SquareA/B          20 SquareA         100 SquareA         200 SquareA        400 SquareA
+S07:Z007 | Demo-SCORE (original)                                  91.8                       93.8                       96.1                    93.4                    94.5                    96.594.4
+S07:Z008 | Demo-SCORE (chunk)                                       90.2                       91.4                       94.1                    96.1                    95.7                    93.093.4
+S07:Z009 | Demo-SCORE (trajectory)                                 93.0                       95.7                       97.3                    97.3                    96.1                    95.395.8
+S07:Z010 | Demo-SCORE (plateau checkpoints)                 92.6                       91.0                       96.9                    95.3                    94.9                    96.194.5
+S07:Z011 | Demo-SCORE (no reg)                                      94.1                       91.4                       92.2                    92.2                    96.1                    95.793.6
+S07:Z012 | Demo-SCORE (no cross-val)                             93.8                       89.1                       87.1                    84.4                    81.3                    95.388.5
+S07:Z013 | TABLE II: Variations of Demo-SCORE. We report the success rate of Demo-SCORE with different variations in the Robomimic square
+S07:Z014 | peg setting. Demo-SCORE achieves strong performance when filtering at the chunk level instead of episode level, showing that it can be
+S07:Z015 | applied at different levels of granularity. Demo-SCORE also performs well using a trajectory classifier instead of a single-step classifier.
+S07:Z016 | Using checkpoints near the performance plateau of the initial training run instead of evenly spaced checkpoints is also a good option for
+S07:Z017 | training an effective data quality classifier. Finally, we find that cross-validation and regularization are crucial for Demo-SCORE to prevent
+S07:Z018 | overfitting to the rollout distribution.
+S07:Z019 | training on all available demonstrations if curated effectively.                              that Demo-SCORE tends to filter out demonstrations where
+S07:Z020 |    In Figure 5, we show visualizations of the rollout distri-                                 the robot approaches the strawberry from above instead of
+S07:Z021 | butions and composition of demonstrations that are kept and                                   from the side, and for the sharpie task, Demo-SCORE filters
+S07:Z022 | filtered by Demo-SCORE for the Strawberry and Sharpie tasks,                                  out demonstrations where the robot grasps the sharpie by
+S07:Z023 | along with the rollout distributions for the policy after filtering                           the edge of the cap. These strategies are unreliable for the
+S07:Z024 | with Demo-SCORE. We see that the rollout distributions at                                     robot to replicate, as evidenced by the low policy success with
+S07:Z025 | different checkpoints differ slightly, which we can leverage for                              that strategy, but may be difficult for human demonstrators or
+S07:Z026 | cross-validation. As shown by the red in the visualization of                                 annotators to recognize.
+S07:Z027 | rollouts, some strategies lead to very low success rate when
+S07:Z028 | imitated by the learned policy. For the strawberry task, we find
+
+===== PDF S. 8 =====
+S08:Z001 |                                                                                                    TABLE III:Ablation on number of rollouts needed. On two simulated
+S08:Z002 |                                                                                                    tasks, Demo-SCORE achieves strong performance using as few as 10
+S08:Z003 |                                                                                                    rollouts per checkpoint for classifier training.
+S08:Z004 |              Fig. 6: Real-World Results with ALOHA. We report the success                          time-consuming. In Table III, we find that using fewer rollouts
+S08:Z005 |              rate and 90% confidence interval of the policy trained on the filtered                leads to only a small decrease in performance, suggesting
+S08:Z006 |              demonstrations by Demo-SCORE compared to training on all original                     that only a small number of rollouts are needed to train an
+S08:Z007 |              demonstrations  across  30  trials.  Demo-SCORE  improves  policy                     effective classifier. We note that other methods that leverage
+S08:Z008 |              performance almost 30% absolute success rate on average across                        online rollouts have a much larger decrease in performance
+S08:Z009 |              four real-world tasks.                                                                with fewer rollouts. Notably, with 10 rollouts per checkpoint
+S08:Z010 |                                                                                                    and fewer than 100 rollouts total, Demo-SCORE achieves 92%
+S08:Z011 |              D. Variations of Demo-SCORE                                                           average success rate across data mixtures, over 10% higher
+S08:Z012 |                                                                                                    than the next best method, Auto-IL, on the square peg task.
+S08:Z013 |                  In the following, we study particular design choices of Demo-                     Similarly, with only 10 rollouts per training checkpoint and 80
+S08:Z014 |              SCORE to understand their impact on policy performance in                             total rollouts, Demo-SCORE achieves an 87.7 % success rate,
+S08:Z015 |              the simulated Robomimic square peg domain.                                            compared to a 58.9% success rate for the base policy.
+S08:Z016 |                     a) Importance of cross-validation using multiple check-                              c) Using a trajectory classifier instead of a single-step
+S08:Z017 |              points: One key technical challenge is that the rollout distribu-                     classifier: There are several ways to design the classifier. In
+S08:Z018 |              tion may not perfectly match the original demo distribution, and                      our main experiments, we use a single-step classifier that
+S08:Z019 |              the classifier may overfit to classifying success vs failures on                      takes in the state as input and outputs a single binary label,
+S08:Z020 |              the rollouts it is trained on and fail to generalize to identifying                   and we average the output across all states in the episode to
+S08:Z021 |              unreliable  strategies  in  the  demonstrations.  Rollouts  from                      determine whether to keep the demonstration. Here we try
+S08:Z022 |              different checkpoints will have slightly different distributions,                     using a trajectory classifier (a small transformer) that takes in
+S08:Z023 |              so we use cross-validation to ensure that the chosen classifier                       the entire trajectory as input and outputs a single binary label
+S08:Z024 |              will generalize well to different sets of rollout distributions                       for the entire trajectory. Because the length of trajectory is
+S08:Z025 |              and therefore better generalize to the demo distribution. Many                        more directly correlated with the success of the trajectory than
+S08:Z026 |              strategies for choosing these checkpoints may work–instead of                         the strategy, we only use the first 100 steps of the trajectory as
+S08:Z027 |              taking evenly-spaced checkpoints, another strategy for choosing                       input to the classifier. In Table II, we find that the trajectory
+S08:Z028 |              checkpoints is to use checkpoints near the initial plateau in                         classifier is as effective as the single-step classifier on the
+S08:Z029 |              policyperformancewherethepolicyfirstlearnstofitthedemos,                              simulated square peg task, even giving slightly higher average
+S08:Z030 |              andcross-validatingonrolloutsfromthebestcheckpoint(which                              performance, showing that multiple types of classifiers may be
+S08:Z031 |              will occur later in the training run). We find that this strategy                     appropriate for Demo-SCORE.
+S08:Z032 |              is also effective for obtaining a classifier that generalizes well                          d)  Filtering at the chunk level instead of episode level:
+S08:Z033 |              to the original demo distribution, as shown in Table II. Both of                      In our main experiments, we filter at the episode level, keeping
+S08:Z034 |              these strategies work because the rollout distributions used for                      or discarding the entire demonstration based on the classifier
+S08:Z035 |              trainingandvalidatingtheclassifierwillberepresentativeofthe                           output. However, Demo-SCORE can also be applied at the
+S08:Z036 |              demonstration data but will vary, so the chosen classifier will                       chunk level, where we keep or discard individual chunks of the
+S08:Z037 |              not overfit to rollouts produced by a single policy checkpoint.                       demonstrations based on the classifier output. In Table II, we
+S08:Z038 |              We find in Table II that without cross-validation on sets of                          find that filtering at the chunk level is also very effective in our
+S08:Z039 |              rollouts from different checkpoints, Demo-SCORE performs                              simulated experiments, matching the performance of episode
+S08:Z040 |              poorly, as the classifier struggles to generalize to the demo                         filtering, showing that Demo-SCORE can be applied reliably
+S08:Z041 |              distribution.                                                                         at different levels of granularity. This is especially appealing
+S08:Z042 |                     b)  Number of rollouts needed to train an effective clas-                      for long-horizon tasks, to not discard valuable information in
+S08:Z043 |              sifier: In this ablation, we test whether using fewer rollouts,                       segments of demonstrations.
+S08:Z044 |              such as 50 or even 10, from the firstC−1 checkpoints to train                               e) Importance of classifier regularization:  Finally, we
+S08:Z045 |              the classifier, and only 50 rollouts from the last checkpoint                         ablate the effect of classifier regularization on the performance
+S08:Z046 |              for the validation set, leads to the similar performance for                          of Demo-SCORE. We test the effect of setting weight decay to
+S08:Z047 |              Demo-SCORE. This would be especially appealing for real-                              1e-4 and removing dropout on the classifier, and find that the
+S08:Z048 |              world settings where collecting rollouts may be expensive or                          performance of Demo-SCORE decreases slightly but is still
+S08:Z049 |                         Base Policy    Training Loss    RCP    Auto-IL    Demo-SCORE
+S08:Z050 | Square peg (100 rollouts)           79.9              79.2          87.1      88.2            94.4
+S08:Z051 | Square peg (50 rollouts)            79.9              79.2          85.2      83.0            92.6
+S08:Z052 | Square peg (25 rollouts)            79.9              79.2          83.8      83.3            93.2
+S08:Z053 | Square peg (10 rollouts)            79.9              79.2          81.2      81.6            92.0
+S08:Z054 | Peg insertion (100 rollouts)        58.9              71.3          61.3      79.9            90.8
+S08:Z055 | Peg insertion (50 rollouts)          58.9              71.3          59.6      74.4            88.0
+S08:Z056 | Peg insertion (25 rollouts)          58.9              71.3          56.3      70.2            89.1
+S08:Z057 | Peg insertion (10 rollouts)          58.9              71.3          58.9      67.8            87.7
+
+===== PDF S. 9 =====
+S09:Z001 | comparable when these are removed, as seen in Table II. Thus,                 [2]  Brenna  D.  Argall,  Sonia  Chernova,  Manuela  Veloso,
+S09:Z002 | the classifier is robust even without heavy regularization, due                   and Brett Browning.  A survey of robot learning from
+S09:Z003 | to cross-validation.                                                              demonstration. Robotics and Autonomous Systems, 57(5):
+S09:Z004 |                                                                                   469–483, May 2009.
+S09:Z005 |                          VI.  LIMITATIONS                                     [3]  Mark Beliaev, Andy Shih, Stefano Ermon, Dorsa Sadigh,
+S09:Z006 |    In this paper, we propose Demo-SCORE, which curates                            and Ramtin Pedarsani. Imitation Learning by Estimating
+S09:Z007 | demonstration datasets by pruning suboptimal examples esti-                       Expertise of Demonstrators. In Proceedings of the 39th
+S09:Z008 | mated from online robot experience. Our experiments on a                          International Conference on Machine Learning, pages
+S09:Z009 | variety of simulated and real-world tasks show that Demo-                         1732–1748. PMLR, June 2022.
+S09:Z010 | SCORE significantly improves the robustness of learned robot                  [4]  Suneel Belkhale, Yuchen Cui, and Dorsa Sadigh. Data
+S09:Z011 | policies compared to training on all available demonstrations                     Quality in Imitation Learning. Advances in Neural Infor-
+S09:Z012 | and to prior methods that leverage online rollouts. While we are                  mation Processing Systems, 36:80375–80395, December
+S09:Z013 | excited about the potential of Demo-SCORE, there are several                      2023.
+S09:Z014 | limitations and directions for future work that we discuss as                 [5]  Homanga Bharadhwaj, Jay Vakil, Mohit Sharma, Abhinav
+S09:Z015 | follows. First, Demo-SCORE relies on the assumption that the                      Gupta, Shubham Tulsiani, and Vikash Kumar. RoboAgent:
+S09:Z016 | policy rollouts are representative of the original demonstration                  Generalization  and  Efficiency  in  Robot  Manipulation
+S09:Z017 | distribution, which may not always be the case if the policy                      via Semantic Augmentations and Action Chunking.  In
+S09:Z018 | is incapable of modeling the full distribution of demonstrated                    2024 IEEE International Conference on Robotics and
+S09:Z019 | behaviors while avoiding mode collapse. In particular, the                        Automation (ICRA), pages 4788–4795, May 2024.
+S09:Z020 | policy may not be able to replicate all strategies shown in the               [6]  A.  Billard,  Y.  Epars,  Gordon  Cheng,  and  S.  Schaal.
+S09:Z021 | demonstrations, and so the policy rollouts may not perfectly                      Discovering imitation strategies through categorization of
+S09:Z022 | match the original demo distribution. Also, Demo-SCORE                            multi-dimensional data. In Proceedings 2003 IEEE/RSJ
+S09:Z023 | may not be effective in settings where the demonstrations are                     International Conference on Intelligent Robots and Sys-
+S09:Z024 | all so low quality or sparse that the initial policy is unable                    tems (IROS 2003) (Cat. No.03CH37453), volume 3, pages
+S09:Z025 | to successfully complete the task at all, although we find                        2398–2403 vol.3, October 2003.
+S09:Z026 | that we can sometimes address this using subtask scores, as                   [7]  Kevin Black, Noah Brown, Danny Driess, Adnan Esmail,
+S09:Z027 | done in the Jellybeans task. Lastly, Demo-SCORE may reduce                        Michael Equi, Chelsea Finn, Niccolo Fusai, Lachy Groom,
+S09:Z028 | the coverage of states for which the policy is in distribution.                   Karol Hausman, Brian Ichter, Szymon Jakubczak, Tim
+S09:Z029 | As our goal is instead to maximize final performance on a                         Jones, Liyiming Ke, Sergey Levine, Adrian Li-Bell, Mo-
+S09:Z030 | given task, we no longer aim to maximize state coverage                           hith Mothukuri, Suraj Nair, Karl Pertsch, Lucy Xiaoyang
+S09:Z031 | in demonstration curation and instead aim to maximize the                         Shi, James Tanner, Quan Vuong, Anna Walling, Haohuan
+S09:Z032 | reliability of demonstration strategy. Thus, Demo-SCORE is                        Wang, and Ury Zhilinsky.  $π_0$: A Vision-Language-
+S09:Z033 | helpful in maximizing final performance, so we recommend                          Action Flow Model for General Robot Control, November
+S09:Z034 | using it for post-training and not for pre-training stages where                  2024.
+S09:Z035 | training on wider distributions may be helpful. Our results                   [8]  Konstantinos Bousmalis, Giulia Vezzani, Dushyant Rao,
+S09:Z036 | highlight the importance of high-quality demonstrations and                       Coline Devin, Alex X Lee, Maria Bauza, Todor Davchev,
+S09:Z037 | suggest that careful curation can significantly enhance the final                 YuxiangZhou,AgrimGupta,AkhilRaju,etal. Robocat:A
+S09:Z038 | performance of learned robot policies.                                            self-improving foundation agent for robotic manipulation.
+S09:Z039 |                                                                                   arXiv preprint arXiv:2306.11706, 2023.
+S09:Z040 |                        ACKNOWLEDGMENTS                                        [9]  Daniel Brown, Wonjoon Goo, Prabhat Nagarajan, and
+S09:Z041 |    We thank Suvir Mirchandani, Jonathan Yang, Zach Witzel,                        Scott Niekum. Extrapolating Beyond Suboptimal Demon-
+S09:Z042 | Kaylee Burns, and others in the Stanford IRIS lab for support                     strations via Inverse Reinforcement Learning from Ob-
+S09:Z043 | with real-robot experiments. This work was supported in part                      servations.   In  Proceedings  of  the  36th  International
+S09:Z044 | by an NSF CAREER award and ONR grants N00014-21-1-                                Conference on Machine Learning, pages 783–792. PMLR,
+S09:Z045 | 2685 and N00014-22-1-2621. A.S. Chen acknowledges support                         May 2019.
+S09:Z046 | by the NSF GRFP and an OpenAI superalignment grant. Y.                      [10] Remi Cadene, Simon Alibert, Alexander Soare, Quentin
+S09:Z047 | Liu acknowledges support by an SNSF Postdoc fellowship.                           Gallouedec, Adil Zouitine, and Thomas Wolf. Lerobot:
+S09:Z048 |                                                                                   State-of-the-art machine learning for real-world robotics
+S09:Z049 |                             REFERENCES                                            in pytorch. https://github.com/huggingface/lerobot, 2024.
+S09:Z050 |                                                                             [11] Xingchen  Cao,  Fan-Ming  Luo,  Junyin  Ye,  Tian  Xu,
+S09:Z051 |  [1] Michael   Ahn,   Debidatta   Dwibedi,   Chelsea   Finn,                      Zhilong Zhang, and Yang Yu. Limited Preference Aided
+S09:Z052 |       Montse  Gonzalez  Arenas,  Keerthana  Gopalakrishnan,                       Imitation Learning from Imperfect Demonstrations.  In
+S09:Z053 |       Karol Hausman, Brian Ichter, Alex Irpan, Nikhil Joshi,                      Proceedings  of  the  41st  International  Conference  on
+S09:Z054 |       Ryan Julian, et al. Autort: Embodied foundation models                      Machine Learning, pages 5584–5607. PMLR, July 2024.
+S09:Z055 |       for large scale orchestration of robotic agents.   arXiv              [12] Cheng Chi, Siyuan Feng, Yilun Du, Zhenjia Xu, Eric
+S09:Z056 |       preprint arXiv:2401.12963, 2024.                                            Cousineau, Benjamin Burchfiel, and Shuran Song. Dif-
+
+===== PDF S. 10 =====
+S10:Z001 |       fusion  policy:  Visuomotor  policy  learning  via  action                 Scalise, Derick Seale, Victor Son, Stephen Tian, Emi
+S10:Z002 |       diffusion. arXiv preprint arXiv:2303.04137, 2023.                          Tran, Andrew E. Wang, Yilin Wu, Annie Xie, Jingyun
+S10:Z003 | [13] Cheng Chi, Siyuan Feng, Yilun Du, Zhenjia Xu, Eric                          Yang, Patrick Yin, Yunchu Zhang, Osbert Bastani, Glen
+S10:Z004 |       Cousineau, Benjamin Burchfiel, and Shuran Song. Dif-                       Berseth, Jeannette Bohg, Ken Goldberg, Abhinav Gupta,
+S10:Z005 |       fusion Policy: Visuomotor Policy Learning via Action                       Abhishek  Gupta,  Dinesh  Jayaraman,  Joseph  J.  Lim,
+S10:Z006 |       Diffusion.     In  Robotics:  Science  and  Systems  XIX.                  Jitendra  Malik,  Roberto  Martín-Martín,  Subramanian
+S10:Z007 |       Robotics: Science and Systems Foundation, July 2023.                       Ramamoorthy, Dorsa Sadigh, Shuran Song, Jiajun Wu,
+S10:Z008 |       ISBN 978-0-9923747-9-2.                                                    Michael C. Yip, Yuke Zhu, Thomas Kollar, Sergey Levine,
+S10:Z009 | [14] Maximilian Du, Suraj Nair, Dorsa Sadigh, and Chelsea                        and Chelsea Finn. DROID: A Large-Scale In-The-Wild
+S10:Z010 |       Finn. Behavior Retrieval: Few-Shot Imitation Learning by                   Robot Manipulation Dataset, March 2024.
+S10:Z011 |       Querying Unlabeled Datasets. In Robotics: Science and                [21] Sachit Kuhar, Shuo Cheng, Shivang Chopra, Matthew
+S10:Z012 |       Systems XIX. Robotics: Science and Systems Foundation,                     Bronars, and Danfei Xu. Learning to Discern: Imitating
+S10:Z013 |       July 2023. ISBN 978-0-9923747-9-2.                                         Heterogeneous Human Demonstrations with Preference
+S10:Z014 | [15] Jensen Gao, Annie Xie, Ted Xiao, Chelsea Finn, and                          and Representation Learning. In Proceedings of The 7th
+S10:Z015 |       Dorsa Sadigh.   Efficient Data Collection for Robotic                      Conference on Robot Learning, pages 1437–1449. PMLR,
+S10:Z016 |       Manipulation via Compositional Generalization, March                       December 2023.
+S10:Z017 |       2024.                                                                [22] Aviral Kumar, Xue Bin Peng, and Sergey Levine. Reward-
+S10:Z018 | [16] Siddhant Haldar, Zhuoran Peng, and Lerrel Pinto. BAKU:                      conditioned policies.  arXiv preprint arXiv:1912.13465,
+S10:Z019 |       An Efficient Transformer for Multi-Task Policy Learning.                   2019.
+S10:Z020 |       In  The  Thirty-eighth  Annual  Conference  on  Neural               [23] Katherine  Lee,  Daphne  Ippolito,  Andrew  Nystrom,
+S10:Z021 |       Information Processing Systems, November 2024.                             Chiyuan Zhang, Douglas Eck, Chris Callison-Burch, and
+S10:Z022 | [17] Joey Hejna, Chethan Anand Bhateja, Yichen Jiang, Karl                       Nicholas  Carlini.   Deduplicating  training  data  makes
+S10:Z023 |       Pertsch, and Dorsa Sadigh.   ReMix: Optimizing Data                        languagemodelsbetter. InProceedingsofthe60thAnnual
+S10:Z024 |       Mixtures for Large Scale Imitation Learning.   In 8th                      Meeting of the Association for Computational Linguistics
+S10:Z025 |      Annual Conference on Robot Learning, September 2024.                        (Volume 1: Long Papers), pages 8424–8445, 2022.
+S10:Z026 | [18] Sravan Jayanthi, Letian Chen, Nadya Balabanska, Van                   [24] Seungjae Lee, Yibin Wang, Haritheja Etukuru, H. Jin
+S10:Z027 |       Duong,ErikScarlatescu,EzraAmeperosa,ZulfiqarHaider                         Kim, Nur Muhammad Mahi Shafiullah, and Lerrel Pinto.
+S10:Z028 |       Zaidi, Daniel Martin, Taylor Keith Del Matto, Masahiro                     Behavior Generation with Latent Actions, March 2024.
+S10:Z029 |       Ono, and Matthew Gombolay. DROID: Learning from                      [25] Sergey Levine, Aviral Kumar, George Tucker, and Justin
+S10:Z030 |       Offline Heterogeneous Demonstrations via Reward-Policy                     Fu.  Offline Reinforcement Learning: Tutorial, Review,
+S10:Z031 |       Distillation. In 7th Annual Conference on Robot Learning,                  and Perspectives on Open Problems, November 2020.
+S10:Z032 |       August 2023.                                                         [26] Yuejiang Liu, Jubayer Ibn Hamid, Annie Xie, Yoonho
+S10:Z033 | [19] Gregory  Kahn,  Adam  Villaflor,  Vitchyr  Pong,  Pieter                    Lee, Maximilian Du, and Chelsea Finn.  Bidirectional
+S10:Z034 |       Abbeel, and Sergey Levine. Uncertainty-Aware Reinforce-                    Decoding: Improving Action Chunking via Closed-Loop
+S10:Z035 |       mentLearningforCollisionAvoidance. arXiv:1702.01182                        Resampling, December 2024.
+S10:Z036 |       [cs], February 2017.                                                 [27] Ajay  Mandlekar,  Danfei  Xu,  Josiah  Wong,  Soroush
+S10:Z037 | [20] Alexander  Khazatsky,  Karl  Pertsch,  Suraj  Nair,  Ash-                   Nasiriany, Chen Wang, Rohun Kulkarni, Li Fei-Fei, Silvio
+S10:Z038 |       win Balakrishna, Sudeep Dasari, Siddharth Karamcheti,                      Savarese, Yuke Zhu, and Roberto Martín-Martín. What
+S10:Z039 |       SoroushNasiriany,MohanKumarSrirama,LawrenceYun-                            Matters in Learning from Offline Human Demonstrations
+S10:Z040 |       liang  Chen,  Kirsty  Ellis,  Peter  David  Fagan,  Joey                   for  Robot  Manipulation.    In  Proceedings  of  the  5th
+S10:Z041 |       Hejna, Masha Itkina, Marion Lepert, Yecheng Jason Ma,                      Conference on Robot Learning, pages 1678–1690. PMLR,
+S10:Z042 |       Patrick Tree Miller, Jimmy Wu, Suneel Belkhale, Shivin                     January 2022.
+S10:Z043 |       Dass, Huy Ha, Arhan Jain, Abraham Lee, Youngwoon                     [28] Atharva Mete, Haotian Xue, Albert Wilcox, Yongxin
+S10:Z044 |       Lee, Marius Memmel, Sungjae Park, Ilija Radosavovic,                       Chen, and Animesh Garg. QueST: Self-Supervised Skill
+S10:Z045 |       Kaiyuan Wang, Albert Zhan, Kevin Black, Cheng Chi,                         Abstractions for Learning Continuous Control, September
+S10:Z046 |       Kyle Beltran Hatch, Shan Lin, Jingpei Lu, Jean Mercat,                     2024.
+S10:Z047 |       Abdul Rehman, Pannag R. Sanketi, Archit Sharma, Cody                 [29] Suvir Mirchandani, Suneel Belkhale, Joey Hejna, Evelyn
+S10:Z048 |       Simpson, Quan Vuong, Homer Rich Walke, Blake Wulfe,                        Choi, Md Sazzad Islam, and Dorsa Sadigh. So you think
+S10:Z049 |       Ted Xiao, Jonathan Heewon Yang, Arefeh Yavary, Tony Z.                     you can scale up autonomous robot data collection? arXiv
+S10:Z050 |       Zhao, Christopher Agia, Rohan Baijal, Mateo Guaman                         preprint arXiv:2411.01813, 2024.
+S10:Z051 |       Castro,DaphneChen,QiuyuChen,TrinityChung,Jaimyn                      [30] Suvir  Mirchandani,  David  D.  Yuan,  Kaylee  Burns,
+S10:Z052 |       Drake, Ethan Paul Foster, Jensen Gao, David Antonio                        Md Sazzad Islam, Tony Z. Zhao, Chelsea Finn, and Dorsa
+S10:Z053 |       Herrera, Minho Heo, Kyle Hsu, Jiaheng Hu, Donovon                          Sadigh.   RoboCrowd:  Scaling  Robot  Data  Collection
+S10:Z054 |       Jackson, Charlotte Le, Yunshuang Li, Kevin Lin, Roy                        through Crowdsourcing, November 2024.
+S10:Z055 |       Lin, Zehan Ma, Abhiram Maddukuri, Suvir Mirchandani,                 [31] Soroush Nasiriany, Tian Gao, Ajay Mandlekar, and Yuke
+S10:Z056 |       Daniel Morton, Tony Nguyen, Abigail O’Neill, Rosario                       Zhu.  Learning and Retrieval from Prior Data for Skill-
+
+===== PDF S. 11 =====
+S11:Z001 |       based Imitation Learning.   In Proceedings of The 6th                     Influence Multi-Agent Interaction.   In Proceedings of
+S11:Z002 |       Conference on Robot Learning, pages 2181–2204. PMLR,                      the 2020 Conference on Robot Learning, pages 575–588.
+S11:Z003 |       March 2023.                                                               PMLR, October 2021.
+S11:Z004 | [32] Rohan Paleja and Matthew Gombolay.  Heterogeneous                    [43] Sang Michael Xie, Hieu Pham, Xuanyi Dong, Nan Du,
+S11:Z005 |       learning from demonstration. In Proceedings of the 14th                   Hanxiao  Liu,  Yifeng  Lu,  Percy  Liang,  Quoc  V.  Le,
+S11:Z006 |      ACM/IEEE International Conference on Human-Robot                           Tengyu Ma, and Adams Wei Yu. DoReMi: Optimizing
+S11:Z007 |       Interaction, HRI ’19, pages 730–732, Daegu, Republic                      Data Mixtures Speeds Up Language Model Pretraining.
+S11:Z008 |       of Korea, January 2020. IEEE Press. ISBN 978-1-5386-                      In  Thirty-Seventh  Conference  on  Neural  Information
+S11:Z009 |       8555-6.                                                                   Processing Systems, November 2023.
+S11:Z010 | [33] Harish  Ravichandar,  Athanasios  S.  Polydoros,  Sonia              [44] HaoranXu,XianyuanZhan,HongleiYin,andHuilingQin.
+S11:Z011 |       Chernova, and Aude Billard. Recent Advances in Robot                      Discriminator-Weighted Offline Imitation Learning from
+S11:Z012 |       Learning from Demonstration. Annual Review of Control,                    Suboptimal Demonstrations. In Proceedings of the 39th
+S11:Z013 |       Robotics, and Autonomous Systems, 3(Volume 3, 2020):                      International Conference on Machine Learning, pages
+S11:Z014 |       297–330, May 2020.                                                        24725–24742. PMLR, June 2022.
+S11:Z015 | [34] Fumihiro  Sasaki  and  Ryota  Yamashina.    Behavioral               [45] Maryam Zare, Parham M. Kebria, Abbas Khosravi, and
+S11:Z016 |       Cloning from Noisy Demonstrations.  In International                      Saeid  Nahavandi.    A  Survey  of  Imitation  Learning:
+S11:Z017 |       Conference on Learning Representations, October 2020.                     Algorithms, Recent Developments, and Challenges. IEEE
+S11:Z018 | [35] Juergen Schmidhuber.   Reinforcement learning upside                       Transactions on Cybernetics, 54(12):7173–7186, Decem-
+S11:Z019 |       down: Don’t predict rewards–just map them to actions.                     ber 2024.
+S11:Z020 |       arXiv preprint arXiv:1912.02875, 2019.                              [46] Yanjie Ze, Gu Zhang, Kangning Zhang, Chenyuan Hu,
+S11:Z021 | [36] Yanyao Shen and Sujay Sanghavi.  Learning with bad                         Muhan Wang, and Huazhe Xu.   3D Diffusion Policy,
+S11:Z022 |       training data via iterative trimmed loss minimization. In                 March 2024.
+S11:Z023 |       Internationalconferenceonmachinelearning,pages5739–                 [47] Tony Z Zhao, Vikash Kumar, Sergey Levine, and Chelsea
+S11:Z024 |       5748. PMLR, 2019.                                                         Finn. Learning fine-grained bimanual manipulation with
+S11:Z025 | [37] Voot Tangkaratt, Bo Han, Mohammad Emtiyaz Khan,                            low-cost hardware.   arXiv preprint arXiv:2304.13705,
+S11:Z026 |       and Masashi Sugiyama. Variational Imitation Learning                      2023.
+S11:Z027 |       with Diverse-quality Demonstrations. In Proceedings of              [48] Tony Z. Zhao, Vikash Kumar, Sergey Levine, and Chelsea
+S11:Z028 |       the 37th International Conference on Machine Learning,                    Finn. Learning Fine-Grained Bimanual Manipulation with
+S11:Z029 |       pages 9407–9417. PMLR, November 2020.                                     Low-Cost Hardware, April 2023.
+S11:Z030 | [38] Daan van Esch, Tamar Lucassen, Sebastian Ruder, Isaac                [49] Ruijie Zheng, Ching-An Cheng, Hal Daumé Iii, Furong
+S11:Z031 |       Caswell, and Clara Rivera. Writing system and speaker                     Huang,  and  Andrey  Kolobov.     PRISE:  LLM-Style
+S11:Z032 |       metadata for 2,800+ language varieties. In Nicoletta Cal-                 Sequence Compression for Learning Temporal Action
+S11:Z033 |       zolari, Frédéric Béchet, Philippe Blache, Khalid Choukri,                 Abstractions  in  Control.   In  Proceedings  of  the  41st
+S11:Z034 |       Christopher Cieri, Thierry Declerck, Sara Goggi, Hitoshi                  International Conference on Machine Learning, pages
+S11:Z035 |       Isahara, Bente Maegaard, Joseph Mariani, Hélène Mazo,                     61267–61286. PMLR, July 2024.
+S11:Z036 |       Jan Odijk, and Stelios Piperidis, editors, Proceedings
+S11:Z037 |       of the Thirteenth Language Resources and Evaluation
+S11:Z038 |       Conference, pages 5035–5046, Marseille, France, June
+S11:Z039 |       2022. European Language Resources Association. URL
+S11:Z040 |       https://aclanthology.org/2022.lrec-1.538.
+S11:Z041 | [39] Dian Wang, Stephen Hart, David Surovik, Tarik Keleste-
+S11:Z042 |       mur, Haojie Huang, Haibo Zhao, Mark Yeatman, Jiuguang
+S11:Z043 |       Wang,  Robin  Walters,  and  Robert  Platt.   Equivariant
+S11:Z044 |       Diffusion Policy.  In 8th Annual Conference on Robot
+S11:Z045 |       Learning, September 2024.
+S11:Z046 | [40] Yunke  Wang,  Chang  Xu,  Bo  Du,  and  Honglak  Lee.
+S11:Z047 |       Learning to Weight Imperfect Demonstrations.  In Pro-
+S11:Z048 |       ceedings of the 38th International Conference on Machine
+S11:Z049 |       Learning, pages 10961–10970. PMLR, July 2021.
+S11:Z050 | [41] Yueh-Hua Wu, Nontawat Charoenphakdee, Han Bao, Voot
+S11:Z051 |       Tangkaratt, and Masashi Sugiyama. Imitation Learning
+S11:Z052 |       from Imperfect Demonstration. In Proceedings of the 36th
+S11:Z053 |       International Conference on Machine Learning, pages
+S11:Z054 |       6818–6827. PMLR, May 2019.
+S11:Z055 | [42] Annie Xie, Dylan Losey, Ryan Tolsma, Chelsea Finn,
+S11:Z056 |       and Dorsa Sadigh.  Learning Latent Representations to
+
+===== PDF S. 12 =====
+S12:Z001 |                                APPENDIX                                       C. Additional details on comparisons
+S12:Z002 | A. Training Details                                                                 a) Training Loss method description:  To compute the
+S12:Z003 |                                                                               training loss used in the training loss weighting baseline, we
+S12:Z004 |       a) Simulated ALOHA domain with ACT policy:  We train                    compute the loss using the policy from the initial training run
+S12:Z005 | every sim ACT policy for 300,000 steps and measure policy                     using all demos (the best checkpoint) for every example drawn
+S12:Z006 | success rate with 256 rollouts every 10,000 steps. The reported               from a given episode in the set of original demos. We then
+S12:Z007 | success  rate  is  the  maximum  success  rate  across  each  of              take the mean across all examples for a given episode to get a
+S12:Z008 | these evaluations. Other than extending training to 300,000                   mean training loss for that episode. For diffusion policy, we
+S12:Z009 | steps,  we  use  the  default  policy  hyperparameters  for  the              do this eight times for each episode and take the mean due
+S12:Z010 | LeRobot codebase [10] (which are based on the hyperparameter                  to stochasticity in the diffusion policy forward pass. We then
+S12:Z011 | choices in the original ACT paper). We use precisely the same                 associate a weight with each episode in the demo set by taking
+S12:Z012 | policy training procedure for initial policies, our method, and               the inverse of the mean loss for that episode. We normalize
+S12:Z013 | comparisons.                                                                  this set of weights by subtracting the minimum value and
+S12:Z014 |       b) Robosuite Domain with Diffusion Policy:  We train                    dividing by the standard deviation. Having calculated these
+S12:Z015 | all policies for 1,000 epochs. Each evaluation is done with                   episode-wise weights, we train the policy again, multiplying
+S12:Z016 | 256 rollouts. The success rate reported for each policy is                    the loss for each example by the weight associated with the
+S12:Z017 | the  maximum  success  rate  in  any  evaluation.  All  policy                episode that example came from.
+S12:Z018 | hyperparameters are the same as those in the original Diffusion               D. Additional Simulated Result Tables
+S12:Z019 | Policy paper.
+S12:Z020 |                                                                                  We provide the number of demonstrations filtered out by
+S12:Z021 | B. Additional Method Details                                                  Demo-SCOREinTableIVforthesquarepegtask,showingthat
+S12:Z022 |                                                                               Demo-SCORE adjusts the amount of demos filtered depending
+S12:Z023 |       a) Demo-SCORE Checkpoint Selection:  For our method,                    on the quality mixture of the original demonstrations. In Table,
+S12:Z024 | we collect rollouts for use by Demo-SCORE or the baselines                    V, we show that the performance of DemoSCORE on the
+S12:Z025 | using  rollouts  from  epochs  250,  500,  750,  and  the  last               square task is consistent as we vary the number of hidden units
+S12:Z026 | checkpoint. For the ALOHA Sim experiments, checkpoints                        and layers in the step classifier MLP.
+S12:Z027 | at steps 70,000, 150,000, 220,000, and 300,000 were used to
+S12:Z028 | collect rollouts. For the ablation with Demo-SCORE classifier                 E. Additional Details on Jellybean Task
+S12:Z029 | training checkpoints chosen to be at the initial plateau in policy               The subtasks of the jellybean task are:
+S12:Z030 | performance, those checkpoints are chosen from the same set                      •  retrieving the cup from the cup dispenser
+S12:Z031 | of checkpoints used for policy evaluation.                                       •  placingthecuponthetablenexttothejellybeansdispenser
+S12:Z032 |    For real-world experiments, upon training the initial policy                  •  pushing the cup underneath the spout of the jellybean
+S12:Z033 | past the optimal range, one or two rollouts were taken for                          dispenser
+S12:Z034 | a wide variety of checkpoints to determine the approximate                       •  filling the cup with jellybeans
+S12:Z035 | range of checkpoints where the policy performed best. Within                     •  moving the filled cup to the front of the table
+S12:Z036 | that range, 5 evenly spaced epochs were used for evaluation                   We provide success rates by subtask for the Jellybean task in
+S12:Z037 | and rollout collection for each policy trained on that task.                  Table I. Additionally, we define an aggreated subtask score as
+S12:Z038 | Checkpoints with poor performance (success rates less than                    the fraction of subtasks completed in an episode. For example,
+S12:Z039 | half that of the best checkpoint’s) were discarded.                           if the robot completed the first 3 of 5 subtasks in a given
+S12:Z040 |       b) Demo-SCORE Classifier Training Details: There are                    episode, that episode would get a score of 60%. As the base
+S12:Z041 | C−1 training datasets Dπ0,i for i = 1,2,...,C−1, and we                       policy trained on all demonstrations did not ever succeed on
+S12:Z042 | use C = 4 for the simulated experiments and C = 5 for real-                   the full task, this aggregated subtask score was used as the
+S12:Z043 | world experiments. For each of these, a classifier was trained.               target label to supervise classifier training for this task.
+S12:Z044 | For each classifier training run, the best checkpoint was chosen              F. Impact of Demo-SCORE Filtering on OOD Performance
+S12:Z045 | using our cross-validation metric (the unweighted binary-cross
+S12:Z046 | entropy loss of our classifier on the cross-validation set,Dπ0,C).               One potential concern is that Demo-SCORE narrows the
+S12:Z047 | Then, of the classifier runs, the best was chosen with the same               state distribution in the original dataset, which may affect
+S12:Z048 | metric. When training step classifiers, the loss was computed                 generalization capabilities. To understand this, we evaluate
+S12:Z049 | foreachstepinthedataset,andthenaveraged.Forthetrajectory                      two generalization settings in the square peg domain: (1) OOD
+S12:Z050 | classifier variation, the loss was computed across trajectories               initial conditions, and (2) different train-test splits across in-task
+S12:Z051 | in the dataset and then averaged. For the ablations without                   variations of different initial conditions.
+S12:Z052 | cross-validation, a total of 200 rollouts from the same policy                   For (1), in Table VI, we show the success rate of the square
+S12:Z053 | checkpoint (the best performing one) were used. For each                      task  policies  trained  on  each  data  split  within  a  modified
+S12:Z054 | training run, these were randomly divided into a set of 100                   environment where the xy dimensions of the region where the
+S12:Z055 | train and 100 val rollouts. All classifiers use dropout of 0.3                square nut is initialized are expanded by 50% (easy) and 100%
+S12:Z056 | and AdamW weight decay of 0.1.                                                (hard) beyond the standard environment. As the demos used
+
+===== PDF S. 13 =====
+S13:Z001 |                                                                100  Human,      100         Human,    200  Human,      200  Human,      200  Human,       200  Human,
+S13:Z002 |                                                                100 SquareA      50/50 SquareA/B       20 SquareA       100 SquareA      200 SquareA       400 SquareA
+S13:Z003 |                    Num Demos Filtered Out                            104                     93                              35                       142                     200                     400
+S13:Z004 |             TABLE IV: Number of demonstrations filtered by Demo-SCORE. Demo-SCORE is effective even with strongly lopsided heterogeneous
+S13:Z005 |             mixtures and adjusts accordingly depending on how much should be filtered from a given dataset.
+S13:Z006 |             TABLE V: Ablation on Classifier Size. For the square task, we report the average percent success rate for the across data splits when using
+S13:Z007 |             Demo-SCORE with step MLP classifiers of different sizes. For each MLP architecture, we report the number of hidden units in each hidden
+S13:Z008 |             MLP layer and the average success rate of the final Demo-SCORE policies. The main experiments used an “[8, 8]" architecture with two
+S13:Z009 |             hidden layers with 8 units each.
+S13:Z010 |             to train these policies were all from the original environment,                    in a way that harms policy generalization. Intuitively, Demo-
+S13:Z011 |             the nut’s initial position is OOD in these expanded regions                        SCORE aims to keep any data that contributes to policy success
+S13:Z012 |             relative to the datasets used to train these policies. We find that                and therefore may retain suboptimal strategies if they appear
+S13:Z013 |             Demo-SCORE (with either full episode filtering or chunk-level                      in successful rollouts. Additionally, if there are settings where
+S13:Z014 |             filtering) does not harm OOD generalization in this setting                        filtering may be overly restrictive, this can be mitigated by
+S13:Z015 |             compared to the base policy or Auto-IL and even improves                           common alternatives, e.g. reweighting. Our key contribution
+S13:Z016 |             performance whe the environment is initialized in these OOD                        is an approach for estimating the quality of a demo or chunk,
+S13:Z017 |             states.                                                                            and this score can be applied in various ways, including but
+S13:Z018 |                For (2), our goal is to test the test the policy’s generalization               not limited to filtering.
+S13:Z019 |             ability to initial conditions that are both in-distribution and
+S13:Z020 |             OOD but have mostly or only suboptimal data in some regions.
+S13:Z021 |             Specifically, we train new policies on new datasets in which
+S13:Z022 |             there is a correlation between the initial state of the nut and the
+S13:Z023 |             strategy used in each demo. We divide the initial state space of
+S13:Z024 |             the nut by the orientation of the nut, defining "even" and "odd"
+S13:Z025 |             regions corresponding to the quadrant in which the angle of
+S13:Z026 |             rotation around the z-axis of the nut falls. (In other words, if
+S13:Z027 |             the angle by which the nut is rotated around the z-axis relative
+S13:Z028 |             to its reference position falls between 0 and 90 degrees or 180
+S13:Z029 |             and 270 degrees, it is considered within the "odd" quadrant
+S13:Z030 |             region).
+S13:Z031 |                In these new datasets, we control how many Human and
+S13:Z032 |             Square A demos there are in which the nut’s initial orientation
+S13:Z033 |             is Odd or Even. Each dataset has 200 total demonstrations, 100
+S13:Z034 |             for the odd and even region. In the Even region, we vary the
+S13:Z035 |             percentage of demos that are on the Square A mode from 100%
+S13:Z036 |             to 50%, in increments of 10%. We either chose the opposite
+S13:Z037 |             ratio of modes in the Odd region or keep 50 demos from each
+S13:Z038 |             modes in the odd region. We present the success rates of the
+S13:Z039 |             policies trained on these datasets in Table VII.
+S13:Z040 |                Demo-SCORE improves performance when different ratios
+S13:Z041 |             of high-quality and suboptimal demonstrations exist for differ-
+S13:Z042 |             ent initial conditions and does not degrade performance for
+S13:Z043 |             states dominated by suboptimal demonstrations, suggesting
+S13:Z044 |             that Demo-SCORE does not filter out suboptimal data that
+S13:Z045 |             contributes to generalization success. However, in some of the
+S13:Z046 |             most extreme cases (such as one data split where 100% of
+S13:Z047 |             demos in the even region of initial state space have the Square
+S13:Z048 |             A strategy), Demo-SCORE can slightly under-perform other
+S13:Z049 |             methods. Nonetheless, these results suggest that Demo-SCORE
+S13:Z050 |             generally does not excessively narrow the state distribution
+S13:Z051 | Classifier MLP Size         Base Policy       [8, 8]      [8, 8, 8]      [16, 16]      [16, 16, 16]      [32, 32]      [32, 32, 32]
+S13:Z052 | Success Rate                    79.9           94.4           95.8              95.3                 94.4                 94.0                 95.1
+
+===== PDF S. 14 =====
+S14:Z001 |                                                                                50% Expanded XY                                                100% Expanded XY
+S14:Z002 |                  Data Split                                   Base            Auto-IL       Demo-            Demo-           Base            Auto-IL       Demo-            Demo-
+S14:Z003 |                                                               Policy                         SCORE           SCORE           Policy                          SCORE          SCORE
+S14:Z004 |                                                                                                              (chunk)                                                        (chunk)
+S14:Z005 |                  100 Human 100 SquareA                        65.2             71.9             85.9             85.9        51.6             63.3             73                72.3
+S14:Z006 |                  100 Human, 50/50 Square A/B                  66.4             77.7             88.7             85.2        54.3             64.8             74.2             72.3
+S14:Z007 |                  200 Human, 20 Square A                       89.8             90.6             92.6             92.2        80.1             80.9             83.2             82
+S14:Z008 |                  200 Human, 100 Square A                      73.4             84.8             89.1             90.6        64.5             75.4             81.3             82
+S14:Z009 |                  200 Human, 200 Square A                      75.4             87.1             93                94.5       61.7             82.4             83.4             80.5
+S14:Z010 |                  200 Human, 400 Square A                      68                76.2             94.1             94.9       54.7             65.6             83.6             84.4
+S14:Z011 |                  Average                                      73.0             81.4             90.6             90.6        61.2             72.2             79.8             78.9
+S14:Z012 | TABLE VI: OOD Evaluation of Square Task Policies. The success rates of the base policies, policies trained with Auto-IL, and two variants
+S14:Z013 | of Demo-SCORE, on OOD environments. The xy dimensions of the region in which the square nut’s initial position is sampled (uniformly)
+S14:Z014 | are expanded by 50% and 100% relative to the original environment. The demonstrations used to train the evaluated policies come from the
+S14:Z015 | original environment, and these policies are thus OOD on the modified environments. Demo-SCORE outperforms the base policy and the
+S14:Z016 | Auto-IL policy when the environment is initialized to OOD states.
+S14:Z017 |                                                                  Standard Environment                          50% Expanded XY                           100% Expanded XY
+S14:Z018 |      Data Mixture                                         Base           Auto-IL       Demo-             Base            Auto-IL       Demo-             Base           Auto-IL       Demo-
+S14:Z019 |                                                           Policy                         SCORE           Policy                          SCORE           Policy                         SCORE
+S14:Z020 |      100% SqA Even, 100% Human Odd                        54.3             62.9             69.9         57.0             56.2             63.7          46.9             49.6             51.2
+S14:Z021 |      90% SqA Even, 90% Human Odd                          59.8             63.3             78.1         57.4             60.5             71.5          50.4             52.3             62.9
+S14:Z022 |      80% SqA Even, 80% Human Odd                          66.4             73.4             86.7         62.9             68.4             80.9          53.9             56.6             68.4
+S14:Z023 |      70% SqA Even, 70% Human Odd                          69.5             83.6             91.4         68.8             75.4             89.8          62.5             60.5             78.1
+S14:Z024 |      60% SqA Even, 60% Human Odd                          67.2             78.1             88.7         64.8             77.0             86.3          57.0             67.6             70.7
+S14:Z025 |      50% SqA Even, 50% Human Odd                          67.6             76.2             91.4         65.2             71.9             85.5          57.0             62.1             75.4
+S14:Z026 |      100% SqA Even, 50% Human Odd                         45.7             56.2             52.3         43.8             49.6             51.2          43.8             40.6             39.8
+S14:Z027 |      90% SqA Even, 50% Human Odd                          48.8             60.5             69.9         44.5             61.3             65.6          41.8             48.4             52.0
+S14:Z028 |      80% SqA Even, 50% Human Odd                          61.7             68.0             85.2         60.9             64.8             79.7          53.1             53.9             66.4
+S14:Z029 |      70% SqA Even, 50% Human Odd                          63.3             69.5             78.1         59.8             64.5             75.8          53.1             58.6             64.1
+S14:Z030 |      60% SqA Even, 50% Human Odd                          67.6             76.2             89.8         65.2             77.0             86.3          59.8             69.1             71.1
+S14:Z031 | TABLE VII: Success Rates on Correlated Datasets. The success rates on the square task of base policies, Auto-IL, and Demo-SCORE
+S14:Z032 | policies when the original data mixture has a correlation between the initial orientation of the square nut and the strategy exhibited in each
+S14:Z033 | demo as described in section F. Each row corresponds to an initial data mixture and is denoted by the percentage of demos within the even
+S14:Z034 | region that are employ the Square A strategy and percentage of demos within the odd region that are Human demos (which employ the
+S14:Z035 | same strategy). We present evaluations for the standard environment, as well as OOD evaluations on a modified environments where the
+S14:Z036 | square nut’s initial xy position is initialized within a region expanded 50 or 100% relative the standard environment. Demo-SCORE generally
+S14:Z037 | outperforms the base policy and Auto-IL even when there is a correlation between initial state and demonstrated strategy and the evaluation
+S14:Z038 | environment is OOD.
+

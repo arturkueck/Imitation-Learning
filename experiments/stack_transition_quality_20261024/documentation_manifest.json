@@ -1,0 +1,68 @@
+{
+  "status": "READY_AWAITING_EXPLICIT_USER_GO",
+  "new_training_started": false,
+  "figures_visually_checked": true,
+  "synthetic_example_values": true,
+  "artifacts": {
+    "README.md": {
+      "bytes": 17493,
+      "sha256": "2e36a54eb16c546624e8f0938694684096bfd7d0e095f47dc60bf165fa432755"
+    },
+    "make_figures.py": {
+      "bytes": 9751,
+      "sha256": "4f9edf968b866796b7651172278be5f69802421346673c186ff992f0670c2e5c"
+    },
+    "illustration.json": {
+      "bytes": 341,
+      "sha256": "c249231b344c0db1ced2b19b1b751a2eb51bf5f4e1bb10db26fff3cdcc904299"
+    },
+    "figures\\01_information_flow.png": {
+      "bytes": 227229,
+      "sha256": "b8259ce2ef1f32671e775903efe996f5804fe3a96d36f9a46f67305661d284eb"
+    },
+    "figures\\01_information_flow.svg": {
+      "bytes": 14736,
+      "sha256": "df228392d327669685ee8425e390a88bdfdbf59f8a0e9667a54a2071107fc407"
+    },
+    "figures\\02_transition_window.png": {
+      "bytes": 141346,
+      "sha256": "943125eaf3776cdd3eb46237f70bd8f0491cb055c4dfd217b84a34c65f1c1ad1"
+    },
+    "figures\\02_transition_window.svg": {
+      "bytes": 13409,
+      "sha256": "7a22271b66eb9ce6255d7a491231148d6c792ffaa34e36ea0c56905a300768ce"
+    },
+    "figures\\03_weighted_transfer.png": {
+      "bytes": 135067,
+      "sha256": "7f92c6a6705f428578560ec24674d9bbf91f55ce93f5783ee45be1ffd1ebdbb6"
+    },
+    "figures\\03_weighted_transfer.svg": {
+      "bytes": 11810,
+      "sha256": "b7ba3aaf0356568011817e618c7b64a3e00b4771addee6ef8770a98d8679a9a5"
+    },
+    "TRAINING_RUN_PLAN.md": {
+      "bytes": 11595,
+      "sha256": "8507947f6ba277fdceff7afd96afbcfee98bec0f6afbd371675a3124b7ab238e"
+    },
+    "EXECUTION_READINESS.md": {
+      "bytes": 3197,
+      "sha256": "7c1c9d5768cc7a92ff89af7e1973572e4d4160c368f925068770bf5ea8ba1f4d"
+    },
+    "DATASET_REPORT.md": {
+      "bytes": 3328,
+      "sha256": "5b7f260bc21d743e1ca0bf1341d3b642c28c4cf1387d0a6a7a2cfc79a002dc09"
+    },
+    "PUBLIC_DATASET_REVIEW.md": {
+      "bytes": 4046,
+      "sha256": "64868d48920c7ab8d37d721d9c63eec01e2e65ed60e4ae038fcd658ce0eda8ce"
+    },
+    "READY_PLAN_v2.json": {
+      "bytes": 48094,
+      "sha256": "13b200a0c5d07860f79beae33f715d230da9f9b9316a83f97bcc71fe839b7ba3"
+    },
+    "START_READINESS.json": {
+      "bytes": 4372,
+      "sha256": "18892bdf8419b307ec4b04315860b3b0eaca1ee2ea7ea237e4e6f2d86357bdef"
+    }
+  }
+}

@@ -1,0 +1,475 @@
+policy_calibrated_dagger / arXiv:2609.30462v1. PDF pages start at 1. Z = custom nonempty layout line per page, not official publication lines.
+
+===== PDF S. 1 =====
+S01:Z001 |        Policy-Calibrated DAgger: Offline Calibrated Noise Injection for
+S01:Z002 |                                                         Imitation Learning
+S01:Z003 |                                                      Jenny Wang1 and George Kantor1
+S01:Z004 |    Abstract—Policies trained with imitation learning can accu-
+S01:Z005 | mulate errors over time, causing the robot to drift outside the
+S01:Z006 | training distribution. Existing methods mitigate this covariate
+S01:Z007 | shift by collecting additional data where the policy fails or is
+S01:Z008 | likely to fail. The first places the robot in unsafe conditions and
+S01:Z009 | the second requires choosing an appropriate noise distribution
+S01:Z010 | to collect new expert demonstrations under that noise. We pro-
+S01:Z011 | pose Policy-Calibrated DAgger, a method that makes use of the
+S01:Z012 | properties of recent generative policies to estimate the policy’s
+S01:Z013 | noise  offline  by  using  its  own  predicted  action  distribution.
+S01:Z014 | We measure a diffusion policy’s spread of predicted actions at
+S01:Z015 | observations along the expert trajectory and measure its closed-
+S01:Z016 | loop error relative to a recorded trajectory. To address issues
+S01:Z017 | with measuring error in a multimodal action space, we guide
+S01:Z018 | the  policy  towards  the  trajectory  during  closed-loop  control
+S01:Z019 | through  partial  denoising,  and  use  properties  of  a  diffusion           Fig. 1: Our method estimates policy error while tracking a
+S01:Z020 | model to unnormalize the measured error as if we did not guide
+S01:Z021 | it. We experiment in a scenario where a robot is tasked to reach               trajectory by making use of the probabilistic properties of
+S01:Z022 | an engine lever in a cluttered and narrow environment and                      generative policies. By sampling alongpre-recorded expert
+S01:Z023 | show results in a 3D photorealistic simulator and a 2D planar                  dataand making use of the model’s noise schedule to undo
+S01:Z024 | reacher  environment.  We  show  that  our  method  surpasses                  the  normalizing  effects  of  partial  denoising  towards  the
+S01:Z025 | policies trained with dataset aggregation without noising and                  expert distribution in closed-loop control in simulation, we
+S01:Z026 | matches the performance of the best noise level in hindsight,
+S01:Z027 | without requiring a sweep over noise levels.                                   can estimate the policy’s noise with respect to the expert
+S01:Z028 |                                                                                data. We can sampletargeted recovery trajectorieswithin
+S01:Z029 |                          I.  INTRODUCTION                                      thispolicy-calibrated noisedistribution to reduce covariate
+S01:Z030 |    Behavior cloning is a popular method that enables scalable                  shift between the policy’s visited states and the expert data.
+S01:Z031 | learning for robot manipulation [1], [2], [3], [4]. However,
+S01:Z032 | its performance is limited by compounding errors over time,                       Our key insight is that closing the gap between the state
+S01:Z033 | as small policy errors cause the state distribution to drift                   and action distributions induced by the expert and the policy
+S01:Z034 | away from the training data [5], [6]. DAgger mitigates this                    is essential for addressing covariate shift in practice. This
+S01:Z035 | covariate shift by aggregating expert data within the policy’s                 is important for long-horizon tasks requiring precise, full-
+S01:Z036 | induced  state  distribution,  yielding  a  policy  whose  errors              body maneuvers like a robot arm reaching around a narrow
+S01:Z037 | scale linearly rather than quadratically with time [5]. DAgger                 and cluttered engine room. We propose a method that uses
+S01:Z038 | reliesonalternatingcontrolbetweentheexpertandthepolicy                         the policy to adapt expert intervention data to the policy’s
+S01:Z039 | inorderfortheexperttoprovideguidancewithinthepolicy’s                          learned action distribution, without requiring the expert to
+S01:Z040 | induced state distribution. However, this makes the system                     controlanoisysystemormodifyingpolicytraining.Webuild
+S01:Z041 | unintuitive for a human expert to control.                                     on partial diffusion [12], which adds noise to a sample of
+S01:Z042 |    In practice, many methods do not set the frequency at                       the output distribution and uses the model to denoise it to
+S01:Z043 | which the expert is queried, but instead let the expert return                 a similar result. We use it to simulate policy-noise-expert
+S01:Z044 | control to the policy at their convenience [7], [8], [9]. This                 interactions probabilistically, without requiring the expert to
+S01:Z045 | enables higher quality expert data at the cost of covering                     adapt to a noisy system in the loop. Our policy-calibrated
+S01:Z046 | stateslessalignedwiththepolicy’sinducedstatedistribution.                      noise, when paired with Gaussian noise and action relabeling
+S01:Z047 | Recent success has been found by equipping human experts                       to connect augmented states back to the expert intervention,
+S01:Z048 | with teleoperation devices that track the real robot with force                trains  policies  with  better  recovery  behaviors  by  limiting
+S01:Z049 | feedback, enabling human experts to give corrective actions                    covariate shift.
+S01:Z050 | closer to the state distribution induced by the policy [10],                      We draw close comparisons to data augmentation tech-
+S01:Z051 | [11].However,thesemethodsplacetheburdenofdistribution                          niques  for  imitation  learning  that  expand  a  limited  set
+S01:Z052 | matching on the expert, which is labor-intensive.                              of  expert  demonstrations  to  cover  the  robot’s  workspace.
+S01:Z053 |   1J. Wang and G. Kantor are with Carnegie Mellon University, Pittsburgh       Covering all possible states requires compute and modeling
+S01:Z054 | PA, USA{jennyw2, gkantor}@andrew.cmu.edu                                       capacity.  In  addition,  many  approaches  require  an  oracle
+
+===== PDF S. 2 =====
+S02:Z001 | policy or additional inductive biases about the environment.                   a  model  on  an  auxiliary  task  often  enables  data-efficient
+S02:Z002 | We show that our method expands the diversity of limited                       training on the target task if the two tasks are aligned [22],
+S02:Z003 | expert  demonstrations  in  a  way  that  targets  task  failures              [23],  [24].  Also,  simulated  data  can  supplement  limited
+S02:Z004 | without needing an oracle policy or additional real-world                      real-world  training  datasets  to  increase  task  success  rate
+S02:Z005 | data collection.                                                               when co-training [25]. Iteratively fine-tuning a policy on a
+S02:Z006 |    In this work, we propose a method to estimate policy-                       continuously changing robot embodiment can increase the
+S02:Z007 | calibrated noise that reduces covariate shift between the state                efficacy of policy transfer from a data source with a large
+S02:Z008 | distributions induced by the policy and the expert. Our core                   embodiment gap [26], [27].
+S02:Z009 | contributions are as follows:                                                     Other methods use noisy data to shape what expert in-
+S02:Z010 |    •Weproposepolicy-calibrateddataaugmentations,adata                          tervention data should be collected. This can be done by
+S02:Z011 |       augmentation method that noises expert interventions                     querying the expert when a policy is uncertain [16], [17],
+S02:Z012 |       to reduce covariate shift with respect to the policy’s                   [18], [19] or by injecting noise into the expert data distribu-
+S02:Z013 |       induced  state  distribution,  generating  highly  relevant              tion [6], [28], [29]. We observe that the policy is a useful
+S02:Z014 |       recovery state-action pairs.                                             model of its own errors. We use partial diffusion to sample
+S02:Z015 |    •We extend partial denoising [12] to action chunking.                       the noise model of the policy. Partial diffusion has previously
+S02:Z016 |    •We show that our method increases data efficiency and                      been  studied  in  shared  autonomy  [12],  [30]  and  image
+S02:Z017 |       policy performance in a long-horizon, cluttered goal-                    editing [31]. Its result is bounded by some distance to the
+S02:Z018 |       reaching task. Our experiments are performed on a pho-                   original action [31]. We show that this bound lets us estimate
+S02:Z019 |       torealistic simulator of our real engine lever-reaching                  the policy’s error relative to the expert while constraining
+S02:Z020 |       task mockup and also in a 2D planar simulator that                       the policy to move similarly to the expert during trajectory
+S02:Z021 |       encapsulates the narrow passageways in the real task.                    sampling in offline simulations. In addition, we show that
+S02:Z022 |                         II.  RELATEDWORK                                       the targeted data diversity obtained by noise calibration can
+S02:Z023 |                                                                                be used to improve the policy’s robustness with local action
+S02:Z024 | A. Interactive Imitation Learning                                              augmentations without additional data collection.
+S02:Z025 |    DAgger [5] methods address the data mismatch and com-                       C. Data Augmentation for Imitation Learning
+S02:Z026 | pounding error issues in behavior cloning. In theory, DAgger                      Collecting demonstrations for imitation learning is a labor-
+S02:Z027 | at convergence will collect expert recovery actions in parts of                intensive process. Many works propose methods to expand
+S02:Z028 | the state space that the policy would visit. DART [6] shows                    expensive expert data into a wider range of data through
+S02:Z029 | that aggregating expert demonstrations within a certain noise                  data augmentations. Learned semantic localization [32] and
+S02:Z030 | level of the optimal policy reduces covariate shift. This the-                 LLM priors [33] can inform object and object configuration
+S02:Z031 | oretically mitigates the data mismatch problem. In practice,                   randomization in an environment. Certain object classes can
+S02:Z032 | the  constant  switching  between  policy  actions  and  expert                be  generated  heuristically  at  scale  [34].  In  addition,  for
+S02:Z033 | actions makes it difficult for experts to provide corrective                   a known scenario, an oracle planner in a simulated envi-
+S02:Z034 | input due to system oscillations [13]. Some methods tackle                     ronment can generate new trajectories within demonstrator-
+S02:Z035 | this data-intensive process with end-to-end automated world                    annotated  [35]  or  task-specific  [29],  [28]  precision  from
+S02:Z036 | models [14], [15], only querying the expert when the model                     the original, generate new paths around detected 3D obsta-
+S02:Z037 | is uncertain [16], [17], [18], [19], or when the state has high                cles [36], and retarget demonstrations to perturbed object
+S02:Z038 | variance[20].HG-DAgger[7]isavariantofDAggerthatlets                            configurations either in a simulator [37], [38] or in an edited
+S02:Z039 | the expert decide whether to execute policy actions or their                   3D point cloud [39]. We propose a method to expand expert
+S02:Z040 | own actions in the system. The expert is instructed to give                    demonstrations to a more diverse set of trajectories without
+S02:Z041 | corrective inputs whenever the system enters an unsafe state,                  requiring  an  oracle  policy  or  additional  inductive  biases.
+S02:Z042 | thenreturncontroltothepolicyoncethesystemissafeagain.                          Our proposed data augmentation method generates recovery
+S02:Z043 | Dataset  aggregation  methods  designed  with  human-gated                     trajectories targeting areas of the state space that the policy
+S02:Z044 | intervention tend to show strong empirical results [8], [10],                  would likely visit due to errors in following the expert data.
+S02:Z045 | [11] despite long stretches of expert actions that may move                    We  show  that  this  targeted  augmentation  generated  after
+S02:Z046 | the system far from the policy distribution. Recent work has                   calibrating with the policy’s error performs as well as using
+S02:Z047 | focused on residual interventions and providing the human                      the result of a noise level hyperparameter sweep.
+S02:Z048 | expert with force feedback to collect error intervention data
+S02:Z049 | without interrupting the current robot policy [21], [8]. This                                          III.  PRELIMINARIES
+S02:Z050 | allows the expert interventions to stay close to the policy’s                  A. Noise Injection for Robust Imitation Learning
+S02:Z051 | induced state distribution by design. However, this places the                    We aim to minimize covariate shift by optimizing the KL-
+S02:Z052 | burden of matching the policy on the expert. We propose a                      divergence  between  the  trajectories  visited  by  the  trained
+S02:Z053 | method that makes the policy adapt to the expert.                              robot policyp(ξ|π        θ)and those visited by the noised expert
+S02:Z054 | B. Learning from Suboptimal Data                                               p(ξ|π      θ∗,ψ).
+S02:Z055 |    Some  imitation  learning  methods  treat  suboptimal  data                    In  DART  [6],  the  authors  minimize  covariate  shift  by
+S02:Z056 | as  a  noisy  ground  truth  signal.  For  example,  pretraining               optimizing the KL-divergence with respect to the sufficient
+
+===== PDF S. 3 =====
+S03:Z001 | Fig. 2: Our method augments the data collected during a DAgger-style data collection loop. The policy at data collection
+S03:Z002 | roundkis trained on the base datasetD                        0, aggregated intervention dataD       1...D k and noised intervention data  ˆD1... ˆDk.
+S03:Z003 | To generate policy-calibrated noised intervention data:(a)We sample the policy open loop at every other timestep along the
+S03:Z004 | expert trajectory to estimate ˆΣt.(b)We sample blended trajectories between the policy and expert with partial denoising
+S03:Z005 | to estimateW.(c)We combine (a) and (b) to compute the policy noise per timestepΣ                                      αt .(d)We average the per-timestep
+S03:Z006 | Σαt  across all data to obtain the pooled ¯Σα. In this example, the per-timestep ellipsoidal noise estimates average to become
+S03:Z007 | more isotropic. We sample states and corrective action pairs within this local area around the expert intervention.
+S03:Z008 | statisticsψof the noise distribution. They derive an iterative                      1)Train a policy with imitation learning using some base
+S03:Z009 | algorithm to computeΣ              αk+1   to estimate the noise parameter               dataset of expert demonstrationsD                           0.
+S03:Z010 | of a Gaussian with covarianceΣ:                                                     2)Aggregate expert intervention data from thekth round
+S03:Z011 |                                                                                         of DAggerD          k into the training dataset to create the
+S03:Z012 |    ˆΣk+1  = 1                                                                           aggregate datasetD           agg,k =D   0∪D1∪...∪D    k.
+S03:Z013 |                TEp(ξ|π  θ∗,Σ αk)                                                    3)Generate augmented intervention data    ˆDk from the in-
+S03:Z014 |                   T−1X                                                                  tervention dataD       k by noising states from the recorded
+S03:Z015 |                        (π θ(s t)−π    θ∗(s t))(π θ(s t)−π    θ∗(s t))T                  expert intervention dataD       k and generating a trajectory
+S03:Z016 |                   t=0                                                                   that returns to the expert trajectory. See subsection IV-
+S03:Z017 |                                                                          (1)            D for details. This creates the aggregate augmented
+S03:Z018 |                     Σαk+1  =         α ˆΣk+1   ˆΣk+1                       (2)          dataset  ˆDagg,k = ˆD1∪ ˆD2∪...∪     ˆDk (created on the
+S03:Z019 |                                 Ttr                                                     fly in the training loop in practice).
+S03:Z020 |                                                                                     4)Co-train the policy on the aggregate datasetD               agg,k and
+S03:Z021 |    This requires querying the expert at noised statesξ∼                                 the augmented intervention data  ˆDagg,k.
+S03:Z022 | p(ξ|π      θ∗,Σ αk)in closed loop, which is labor-intensive. In                     5)Repeat steps 2-4 for the number of dataset aggregation
+S03:Z023 | addition, the estimate of the robot’s final errorαrequires                              rounds.
+S03:Z024 | hyperparameter tuning, so the process must be repeated.                             6)For  final  evaluation  statistics,  we  fine-tune  Step  1’s
+S03:Z025 |               IV.  POLICY-CALIBRATEDDAGGER                                              policyπ  0 on all rounds’ aggregate and noised datasets.
+S03:Z026 |    We  introduce  Policy-Calibrated  DAgger,  a  method  that                       To collect intervention data, we follow HG-DAgger [7]
+S03:Z027 | predicts data augmentation noise parameters that make the                        and collect expert-gated interventions. This is in contrast to
+S03:Z028 | expert demonstrations cover states closer to the final robot’s                   DAgger, which switches between the policy and the expert at
+S03:Z029 | distribution.  A  key  difference  between  our  method  and                     each timestep and may make it hard for the expert to provide
+S03:Z030 | DART [6] is that we do not inject noise into the expert’s                        demonstrations. For reproducibility in our experiments, we
+S03:Z031 | control loop—instead, we compute the sufficient statistics                       do not use human expert data but instead use a deterministic
+S03:Z032 | offline and in a simulator. This places the burden of correc-                    RRT-based oracle. The oracle uses privileged information in
+S03:Z033 | tions on the policy instead of the expert and allows the expert                  a simulator to decide when to return control back to the
+S03:Z034 | to provide clean demonstrations, uninterrupted.                                  policy based on heuristics like whether the policy’s predicted
+S03:Z035 |                                                                                  action  chunk  will  drive  the  robot  into  collision  or  if  the
+S03:Z036 | A. Method Design                                                                 policy has not yet reached the goal after a given number
+S03:Z037 |    We  present  a  method  that  uses  policy-calibrated  data                   of timesteps.
+S03:Z038 | augmentations in the DAgger training loop. We generate tar-                      B. Partial Denoising as a Learned Action Interpolator
+S03:Z039 | geted recovery trajectories that match policy failures during
+S03:Z040 | evaluation using a noise metric computed entirely offline by                        We leverage a generative policy’s properties to model its
+S03:Z041 | exploiting known noise schedules in generative models. Our                       deviation from the expert data. Because the policy may solve
+S03:Z042 | system is designed as follows, as shown in Figure 2:                             the task in a different way from the expert, making common
+
+===== PDF S. 4 =====
+S04:Z001 |                                                                                          aθ∗,t,k =√αkaθ∗,t,k−1       +√1−α     kϵ,ϵ∼N(0,I)    (5)
+S04:Z002 |                                                                                     for anoise scheduleofKstepsβ                1,...,βK andα      k := 1−β     k.
+S04:Z003 |                                                                                        The reverse diffusion process is derived as:
+S04:Z004 |                                                                                     aθ∗,t,k−1       =    1√αk(a θ∗,t,k−     βk√1−¯α       kϵθ(a θ∗,t,k,k|o   t))+σ   kz
+S04:Z005 |                                                                                                                                                                (6)
+S04:Z006 |                                                                                     where¯α            k :=Qks=1  αs,z∼N(0,I), andβ                   k are the diffusion
+S04:Z007 |                                                                                     noise schedule coefficients.
+S04:Z008 |                                                                                        Partial diffusion is performed as follows for a forward
+S04:Z009 |                                                                                     diffusion ratioβ∈[0,1]: 1) The switching timestep isk                       sw =
+S04:Z010 | Fig. 3: Empirically, performing partial denoising at lower                          ToInteger(βK), 2) We run the forward diffusion process for
+S04:Z011 | blend ratiosβresults in action chunks closer to the sampled                         ksw−1timesteps with the expert actiona               θ∗,t as input, 3)
+S04:Z012 | expert chunk. The unguided policyβ= 1.0may sometimes                                We run the reverse diffusion process for the samek        sw−1
+S04:Z013 | travel in a different direction than the sampled expert chunk.                      timesteps on the result of the second step. More details can
+S04:Z014 |                                                                                     be found in [12].
+S04:Z015 | error metrics ill-posed, we interpolate between the expert                             The  extent  to  which  the  original  action  is  preserved
+S04:Z016 | and policy actions with partial denoising. Then, we use the                         is  bounded  by  the  number  of  forward  and  reverse  diffu-
+S04:Z017 | policy’s noise schedule to recover an estimate of the policy’s                      sion  process  steps  performed.  More  formally,  as  derived
+S04:Z018 | true error with respect to the expert data.                                         in  [31],  assuming  for  the  predicted  noiseϵ        θ(a,k|o)that
+S04:Z019 |    At  states       t,  the  robot  policyπ  θ  sees  an  observation               ||ϵ  θ(a,k|o)|| ≤ K ∀a∈ Afork∈[0,K] and  actions
+S04:Z020 | ot ∈R  n and predicts actiona          θ,t ∈R  d at timestept. The                  a∈[−1,1]are normalized, then for allδ∈(0,1)with
+S04:Z021 | expert prefers the actiona          θ∗,t ∈R  d at states    t. A common             probability at least(1−δ):
+S04:Z022 | method for blending actions between an expert and a policy                          ||a  θ∗,t−ˆa     t,θ||22≤σ   2ksw(Kσ     2ksw+d+2 p−d·logδ−2logδ)
+S04:Z023 | is linear interpolation [40], [41]. With linear interpolation,                                                                                                 (7)
+S04:Z024 | the blend ratioβ∈[0,1]controls the extent to which the                              wheredis the dimensionality ofa. Empirically, it has been
+S04:Z025 | expert’s action is preserved relative to the robot action in the                    shown that a larger number of diffusion stepsk        sw results in
+S04:Z026 | blended actionˆa            t,lerp  , whereβ= 0is fully the expert action           larger differences between the original actiona     θ∗,t and the
+S04:Z027 | andβ= 1is fully the policy action:                                                  action resulting from partial diffusionˆa            t,θ [12]. See Figure 3.
+S04:Z028 |                     ˆa  t,lerp   =βa   θ,t+(1−β)a           θ∗,t                    (3)C. Extending Partial Denoising to Action Chunks
+S04:Z029 |    Linear interpolation can fail to produce a valid action even                        We extend partial denoising to action chunks−→aθ∗,t:t+H     ∈
+S04:Z030 | if  botha       θ,t  anda      θ∗,t  are  valid.  For  example,  imagine  a         Rd×H     of time horizonH. Theoretically, the method remains
+S04:Z031 | scenario where the robot must avoid an obstacle ahead of                            the same because we can flatten the−→aθ∗,t:t+H        matrix into a
+S04:Z032 | it. Also, assume thata      θ,t represents avoiding the obstacle by                 vector. In practice, this means we must request actions from
+S04:Z033 | going to the left, anda      θ∗,t represents avoiding the obstacle                  theexpertthatspansometimeintothefuture.Wecircumvent
+S04:Z034 | by going to the right. The blended actionˆa            t  atβ= 0.5                  this by processing expert data offline and leave the problem
+S04:Z035 | would crash the robot into the obstacle by going forwards.                          of expert intent inference to future work. The use of action
+S04:Z036 | A learned interpolator may project the action space in a way                        chunks means that an expert must intervene for at leastH
+S04:Z037 | thatthemiddleofthetwoactionsissemanticallymeaningful.                               time steps for the policy to be able to learn from the data.
+S04:Z038 |    We can leverage learned priors in the policyπ  θ to blend                        We discard interventions shorter thanHtimesteps.
+S04:Z039 | aθ∗,t anda      θ,t in a semantically meaningful way:                               D. Estimating Policy Calibration Parameters
+S04:Z040 |                          ˆa  t,θ =f   θ(a θ∗,t,β|o   t)                         (4)    We propose methods to empirically measure the unknown
+S04:Z041 |                                                                                     values  in  Equation  2  in  simulation,  without  requiring  an
+S04:Z042 |    Here, the policy parametersθimplicitly encode the robot                          expert in the loop.
+S04:Z043 | actiona          θ,t.                                                                  First, we estimate the unknown ˆΣk+1   in Equation 1 by
+S04:Z044 |    One  method  of  blending  with  learned  priors  is  partial                    sampling  a  segment  of  a  recorded  expert  trajectory.  We
+S04:Z045 | denoising [12], [31]. Here, we will describe partial denoising                      approximate ˆΣk+1   by sampling from the expert trajectories
+S04:Z046 | for  a  diffusion  model.  A  diffusion  model  is  a  generative                   ξ∼p(ξ|π           θ∗)instead of from the noised expert trajectories
+S04:Z047 | model with a forward diffusion process and a reverse diffu-                         ξ∼p(ξ|π           θ∗,Σ αk)because we find that it results in a  ˆΣk+1
+S04:Z048 | sion process [42]. The forward diffusion process adds noise                         close to the true value in practice. This approximation lets us
+S04:Z049 | to a sample from a data distribution and the reverse diffusion                      sample open loop, without a simulator. We set the policy’s
+S04:Z050 | process  denoises  a  noisy  input.  One  step  in  the  forward                    observations to the beginning of a trajectory segment then
+S04:Z051 | diffusion process can be written as:                                                comparethe policy’spredictedaction chunkwith theexpert’s
+
+===== PDF S. 5 =====
+S05:Z001 | future trajectory. From Equation 1,π   θ(s t)is the policy’s
+S05:Z002 | predicted action chunk andπ      θ∗(s t)is the expert trajectory.
+S05:Z003 |    We  also  estimate  the  robot’s  final  closed-loop  errorα
+S05:Z004 | from Equation 2. One method to measureαin simulation
+S05:Z005 | is to roll out the policy initialized from the expert trajectory
+S05:Z006 | then measure the accumulated error over time. However, a
+S05:Z007 | suboptimal policy tends to quickly diverge from the expert
+S05:Z008 | without supervision. This may be from the multimodality
+S05:Z009 | of the task. Large deviations make measurements like the
+S05:Z010 | L2 norm ill-posed. We instead introduce a method to retain
+S05:Z011 | some of the policy while making it more likely for sampled
+S05:Z012 | trajectories to stay close to the expert intervention. To do
+S05:Z013 | this, we simulate the equilibrium of two competing forces:
+S05:Z014 | keeping  the  trajectory  close  to  the  expert  trajectory  and
+S05:Z015 | pulling the trajectory towards the policy’s true error.                            Fig.  4:  Our  fitted  curve  for  estimatingWon  the  planar
+S05:Z016 |    Letx∈R          d represent the state error relative to the expert              reacher environment. As blend ratioβ→1, noise variance
+S05:Z017 | trajectory. From Equation 7, the measured error between a                          fractionσ             2ksw →1and thus our estimatex(σ                         2ksw)→W. We
+S05:Z018 | sample of partial diffusionˆa            t,θ and the expert dataa       θ∗,t is    measure error in terms of median step size measured from
+S05:Z019 | bounded by the maximum policy predicted noiseKscaled                               the demonstration data.
+S05:Z020 | byσ    2ksw, where the switching step in partial diffusionk          sw =
+S05:Z021 | ToInteger(βK). The noise schedule at the switching timestep                           And thus:
+S05:Z022 | of partial denoising for a diffusion model isσ   2ksw  = 1−                                               ˆΣαk+1  =   ||W||      22 ˆΣk+1 ˆΣk+1                       (14)
+S05:Z023 | ¯α  ksw ∈[0,1]. We useσ                 2ksw to model the interaction between                                         tr
+S05:Z024 | the expert and the policy:
+S05:Z025 |                ublend =σ   2ksw·u θ +(1−σ       2ksw)·u  θ∗              (8)          Since we computed ˆΣk+1   at every timestep in the expert
+S05:Z026 |    For an expertu        θ∗  and policyu  θ, we assume the expert                  data,Σ        αk+1   is a per-step measurement of error. We compute
+S05:Z027 | settles at0error and has an isotropic gainK       θ∗ >0for all                     a pooled noise measurement to reduce sample noise and also
+S05:Z028 | dimensionsd:                                                                       better match the per-round constant in DART [6]. For each
+S05:Z029 |                            uθ∗ =K   θ∗·(−x)                            (9)         ofm∈M       k+1   measurements of ˆΣk+1 :X
+S05:Z030 |                                                                                                        ¯Σk+1  =      1                    ˆΣm                 (15)
+S05:Z031 | And we assume the policy settles towards an alternate goal                                                        |Mk+1 |     m∈M   k+1
+S05:Z032 | Wwith isotropic gainK         θ >0:
+S05:Z033 |                           uθ =K   θ·(W−x)                        (10)                                      ¯Σαk+1  =  ||W||      22
+S05:Z034 |                                                                                                                        tr(  ¯Σk+1 )¯Σk+1                         (16)
+S05:Z035 |    At the equilibrium,u                            blend = 0so                        Our policy calibration method is in Figure 2.
+S05:Z036 |                  0 =σ   2ksw·u θ +(1−σ       2ksw)·u  θ∗                (11)       E. Generating Corrective Labels
+S05:Z037 |                                                                                       We generate state-action pairs within the noise distribution
+S05:Z038 |                     x=            W·σ     2ksw                                     thatencouragethepolicytoreturntotheknowndatadistribu-
+S05:Z039 |                            σ2ksw + Kθ∗                                             tion. We assume access to a heuristic algorithm that connects
+S05:Z040 |                                       Kθ (1−σ       2ksw)                   (12)   a  pair  of  nearby  states.  Action  generation  is  done  with
+S05:Z041 |    To  recover  the  unknownsWand             Kθ∗Kθ ,  we  sample  the             respect to the demonstration dataset’s velocity and accelera-
+S05:Z042 | policy deviations after rolling out a “blended” trajectory for                     tion statistics. For a perturbed starting state from our noise
+S05:Z043 | multiple blend ratios, where we compute partial denoising                          distribution, we label its action as an action chunk that starts
+S05:Z044 | with  respect  to  the  time-matched  future  expert  trajectory                   from the perturbed state and returns to the original expert
+S05:Z045 | at each timestep, then execute the resulting blend action.                         intervention trajectory. These action chunks can be generated
+S05:Z046 | We are interested in the settling state at equilibrium, so we                      cheaply  because  our  policy’s  actions  are  joint  positions.
+S05:Z047 | discard the blended trajectories that diverge from the expert                      We ensure that these generated corrective action chunks are
+S05:Z048 | trajectory. Divergence is more likely at high blend ratiosβ.                       smooth and in distribution with the original dataset. We first
+S05:Z049 | Between training iterations, we sample 13 blend ratios in                          associate the augmented state to a timestep of the associated
+S05:Z050 | [0.05, 0.90] once each and fit Equation 12. AlthoughW                              expert intervention trajectory with a monotone closest-point
+S05:Z051 | is the settling error of the current policy, not of the final                      projection. Then, we create a smooth trajectory between the
+S05:Z052 | policy, we find thatWtends to be stable across roundsk.                            augmented state and a state a few timesteps further in the
+S05:Z053 | See Figure 4.                                                                      associated expert trajectory state (computed with the median
+S05:Z054 |    AnapproximationofDART’sαwiththemeasuredsettling                                 velocity in the dataset) by rolling out a critically-damped PD
+S05:Z055 | errorWis:                                                                          controller, with accelerations clamped to those in the original
+S05:Z056 |                               α=T||W||               22                               (13)dataset’s demonstrations.
+
+===== PDF S. 6 =====
+S06:Z001 |                      Method                                     K=1                 K=2                K=3                K=4                 K=5
+S06:Z002 |                      BC (no aggregation)                                                           68.0±0.2             (1)
+S06:Z003 |                      HG-DAgger [7]                          79.9±0.5             (5)81.9±0.7             (5)83.3±1.5             (5)85.3±0.7             (5)87.3±1.0             (5)
+S06:Z004 |                      Fixed iso. noise (σ=2) [28]            81.9±0.8             (5)84.8±0.7             (5)85.1±0.3             (5)88.6±0.4             (5)89.1±0.4             (5)
+S06:Z005 |                      Fixed iso. noise (σ=4)                 82.7±0.9             (5)86.1±0.7             (5)86.3±0.5             (5)87.7±0.6             (5)89.2±0.8             (5)
+S06:Z006 |                      Fixed iso. noise (σ=8)                 83.9±0.8             (5)85.1±0.8             (5)85.1±0.8             (5)86.1±0.8             (5)87.1±0.8             (5)
+S06:Z007 |                      Fixed iso. noise (σ=12)                83.3±0.7             (5)84.8±0.6             (5)85.1±0.8             (5)84.5±1.0             (5)85.0±0.8             (5)
+S06:Z008 |                      Fixed iso. noise (σ=16)                83.2±1.3             (5)85.1±0.6             (5)83.8±0.9             (5)83.4±0.9             (5)84.8±0.8             (5)
+S06:Z009 |                      Pooled ¯Σα (Ours)                      82.0±0.6             (5)86.2±0.8             (5)86.5±0.4             (5)87.5±0.9             (5)89.3±0.5             (5)
+S06:Z010 |                      Per-step ˆΣα (Ours)                    81.6±0.9             (5)85.3±0.9             (5)85.5±0.3             (5)86.5±0.5             (5)88.5±0.8             (5)
+S06:Z011 |                      Closed-loop pooled ¯Σα (Ours)          81.6±1.0             (1)83.3±0.2             (1)85.9±0.5             (1)88.8±0.2             (1)89.3±0.7             (1)
+S06:Z012 | TABLE I: Mean±SE success rates on a 100-scenario planar reacher environment (3 evaluations per scenario). Most cells
+S06:Z013 | are averaged across 5 DAgger lineages(5). BC is trained onD    0 (500 demonstrations). To prevent sequential optimization
+S06:Z014 | errors, all policy variants are fine-tuned from BC’s 75k checkpoint for each roundK(175k total steps). We sweep over
+S06:Z015 | isotropic noise levels and calibrated noise estimated before training for the round. Darker colors denote higher success. Our
+S06:Z016 | method matches the performance of the best noise level in the hyperparameter sweep without requiring extra expert data.
+S06:Z017 |            Method                          K=1                K=2                        evaluation time can improve interactive imitation learning
+S06:Z018 |            BC (no aggregation)                  58.0±1.2             (1)                 without additional data collection.
+S06:Z019 |            HG-DAgger [7]              57.4±5.6             (3)58.1±4.0             (3)       We build our own simulator because existing benchmarks
+S06:Z020 |            Pooled ¯Σα (Ours)          68.8±4.2             (3)63.4±4.8             (3)   either lack an expert that can correct a policy from arbitrary
+S06:Z021 | TABLE II: Mean±SE success rates on a 100-scenario photo-                                 states  or  lack  the  clutter  needed  to  expose  compounding
+S06:Z022 | realisticenginelever-reachingenvironment(3evaluationsper                                 error.  We  experiment  on  an  engine  lever-reaching  task,
+S06:Z023 | scenario). Following Table I’s protocol, policy variants are                             where a UR5 manipulator arm navigates a cluttered, narrow
+S06:Z024 | fine-tuned from BC’s 75k training step checkpoint to a total                             passageway with randomized obstacles to reach an engine
+S06:Z025 | of 95k training steps. BC is trained on 500 demonstrations.                              lever. All robot joints must move precisely to avoid collision,
+S06:Z026 |                                                                                          since an end effector-based action space would be under-
+S06:Z027 |                                                                                          constrained. We recreate a real engine lever-reaching task
+S06:Z028 |                                                                                          in a photorealistic simulation by following SplatSim [44].
+S06:Z029 |                                                                                          We scan our physical experimental setup and objects with a
+S06:Z030 |                                                                                          smartphone to train Gaussian splats [45]. Then, we associate
+S06:Z031 |                                                                                          links in the robot’s URDF with points in its splat. When a
+S06:Z032 |                                                                                          URDF moves in the PyBullet [46] physics simulation, we
+S06:Z033 |                                                                                          transform the associated points in its splat. In addition, we
+S06:Z034 |                                                                                          run ablations on a 2D planar reacher environment where a 3-
+S06:Z035 | Fig.  5:  We  evaluate  our  method  in  two  cluttered  goal-                           link robot is tasked with reaching a goal end effector position
+S06:Z036 | reaching tasks with narrow passageways, where the robot                                  while  avoiding  obstacles.  Due  to  the  clutter,  the  robot’s
+S06:Z037 | often must untangle its links to make progress towards the                               embodiment often becomes the main collision obstacle in
+S06:Z038 | goal. The 3D photorealistic physics simulation recreates our                             both tasks, and the robot must sometimes take a roundabout
+S06:Z039 | real mockup. We run ablations on the 3-link planar robot.                                route to untangle its joints and links.
+S06:Z040 |                                                                                              To improve reproducibility, we use a RRT-based oracle
+S06:Z041 |                              V.  EXPERIMENTS                                             expert to generate intervention data in the loop when the
+S06:Z042 |    We conduct a series of experiments to validate our method                             evaluated policy is close to collision or stalled. We use this
+S06:Z043 | for data-efficient interactive imitation learning. Our primary                           expert for both environments. The oracle plans a path from
+S06:Z044 | research  question  is  how  our  proposed  augmentations  to                            the current state to the goal, but we execute only a fraction
+S06:Z045 | intervention data affect policy optimization given the same                              of the plan before passing control back to the policy. This
+S06:Z046 | number of expert interventions. Our augmentations are based                              emulates how a human expert drives the robot just enough
+S06:Z047 | on a diffusion model’s [43] denoising process. Specifically,                             to  return  it  to  a  safe  state  in  human-gated  DAgger.  The
+S06:Z048 | we compare policy performance among a few data collection                                oracle expert takes the optimal path under a deterministic
+S06:Z049 | and learning methods:(1)Offline Behavior Cloning (BC),                                   criterion (for example, minimum end effector arc length). In
+S06:Z050 | (2)Expert-gated data collection where the expert determines                              addition, we smooth the RRT-generated trajectory with ran-
+S06:Z051 | whentointerveneandreleasecontrolbacktothepolicy(HG-                                      dom shortcutting, trajectory optimization, corner smoothing,
+S06:Z052 | DAgger [7]),(3)(2) but with a few fixed noise levels [28],                               and speed, acceleration, and jerk limits enforced by TOPP-
+S06:Z053 | and(4)(2)  but  noised  with  our  predicted  noise  level  at                           RA [47]. The path planner constrains the generated path to
+S06:Z054 | each  round  (Ours).  Through  these  experiments,  our  aim                             match the policy’s induced pose and velocity at the handoff.
+S06:Z055 | is  to  demonstrate  that  data  augmentations  that  match  the                             We  conduct  paired  experiments  where  we  first  train  a
+S06:Z056 | distribution  of  errors  that  the  policy  will  induce  during                        diffusion policy on the base dataset of 500 demonstrations on
+
+===== PDF S. 7 =====
+S07:Z001 | randomized scenes, then iteratively collect intervention data                       Gaussian noise to the observations without changing action
+S07:Z002 | and fine-tune the policy without using any noised data. Our                         labels to simulate inaccurate signal readings.
+S07:Z003 | resultsfortheplanarreachertasksuccessratesacrossmethod                                                          VI.  CONCLUSION
+S07:Z004 | configurations  are  shown  in  Table  I.  Our  noised  policies                       We present Policy-Calibrated DAgger, a method that ap-
+S07:Z005 | are fine-tuned from a checkpoint of the BC policy on the                            plies policy-calibrated noise to data collected during iterative
+S07:Z006 | aggregate of: the base datasetD            0, intervention data up to the           imitation learning, producing more robust policies without
+S07:Z007 | given round of DAggerD           1...D K, and noise augmentations                   requiring additional expert supervision. Our method achieves
+S07:Z008 | applied to the intervention data  ˆD1... ˆDK. This means that                       higher success rates than behavior cloning and HG-DAgger,
+S07:Z009 | our noised policies are paired with the HG-DAgger results                           and matches performance with the best noise level in hind-
+S07:Z010 | that do not use noise during training or data collection. In                        sight, without an expensive hyperparameter sweep over noise
+S07:Z011 | addition, the noised policies show performance gains over                           levels with an expert in the loop. Instead, we trade expert
+S07:Z012 | HG-DAgger and BC without having access to data from a                               time for compute. We show that these trajectory data aug-
+S07:Z013 | noised policy. We present results where each policy is fine-                        mentationstargetpolicyerrorsduringevaluationtimeandthe
+S07:Z014 | tuned for the same number of steps within each environment,                         increased success rates are consistent with reduced covariate
+S07:Z015 | startingfromthesamecheckpointtrainedonthebasedataset.                               shift. We use the policy as its own measure of noise, making
+S07:Z016 |    For the planar reacher task, BC without any dataset ag-                          our method agnostic to the semantics of individual action
+S07:Z017 | gregation performs the worst at 68.0% success. The baseline                         dimensions. Policy error is ill-defined when the trajectory to
+S07:Z018 | dataaggregationmethodHG-DAgger[7]increasesthepolicy                                 measure error with respect to does not exist in the policy’s
+S07:Z019 | success rate from 79.9% to 87.3% success over five data                             representation; however, we find that this gap is small in
+S07:Z020 | collection iterations. In addition, most noised variants further                    practice. Future work could derive partial denoising for other
+S07:Z021 | increase  the  success  rate  over  usingD         k  alone.  Averaged              generative models such as flow matching models, apply our
+S07:Z022 | over rounds and paired across lineages, pooled calibrated                           method to human-in-the-loop data collection, and extend our
+S07:Z023 | noise improves on HG-DAgger by 2.8 points (t(4) = 5.75,                             method to online noise estimation.
+S07:Z024 | p= 0.005) and is equivalent within a±2point margin to the                                                          REFERENCES
+S07:Z025 | best fixed noise level chosen in hindsight (TOST,p≤0.01).                            [1]C.Chi,Z.Xu,C.Pan,E.Cousineau,B.Burchfiel,S.Feng,R.Tedrake,
+S07:Z026 |    In  the  3D  photorealistic  engine  lever-reaching  environ-                          and  S.  Song,  “Universal  manipulation  interface:  In-the-wild  robot
+S07:Z027 | ment,  we  evaluate  our  method  on  a  policy  with  image                              teachingwithoutin-the-wildrobots,”arXivpreprintarXiv:2402.10329,
+S07:Z028 | observations.Asanapproximation,noisedobservationsreuse                                    2024.
+S07:Z029 | the original image observation and only the joint position                           [2]H. Xiong, X. Xu, J. Wu, Y. Hou, J. Bohg, and S. Song, “Vision in
+S07:Z030 |                                                                                           action: Learning active perception from human demonstrations,” in
+S07:Z031 | labels are noised. In Table II, BC obtains a 58.0% success                                Conference on Robot Learning.   PMLR, 2025, pp. 5450–5463.
+S07:Z032 | rate. HG-DAgger performs similarly to BC despite additional                          [3]A.  Khazatsky,  K.  Pertsch,  S.  Nair,  A.  Balakrishna,  S.  Dasari,
+S07:Z033 | intervention  data:  most  failures  are  collisions  happening                           S. Karamcheti, S. Nasiriany, M. K. Srirama, L. Y. Chen, K. Ellis,
+S07:Z034 |                                                                                           P. Fagan, J. Hejna, M. Itkina, M. Lepert, Y. Ma, P. Miller, J. Wu,
+S07:Z035 | within the first second of the episode, so intervention cover-                            S. Belkhale, S. Dass, H. Ha, A. Jain, A. Lee, Y. Lee, M. Memmel,
+S07:Z036 | age is limited. In contrast, our proposed Pooled ¯Σα method                               S.  Park,  I.  Radosavovic,  K.  Wang,  A.  Zhan,  K.  Black,  C.  Chi,
+S07:Z037 | scores higher than both BC and HG-DAgger when it has                                      K.  B.  Hatch,  S.  Lin,  J.  Lu,  J.-P.  Mercat,  A.  Rehman,  P.  R.
+S07:Z038 |                                                                                           Sanketi,  A.  Sharma,  C.  B.  Simpson,  Q.  U.  Vuong,  H.  R.  Walke,
+S07:Z039 | access to the same intervention data.                                                     B.  Wulfe,  T.  Xiao,  J.  H.  Yang,  A.  Yavary,  T.  Zhao,  C.  Agia,
+S07:Z040 |    The optimal noise level tends to decrease as the policy                                R. Baijal, M. G. Castro, D. L. Chen, Q. Chen, T. Chung, J. Drake,
+S07:Z041 | gains competence through HG-DAgger rounds. In all five                                    E.  P.  Foster,  J.  Gao,  D.  A.  Herrera,  M.  Heo,  K.  Hsu,  J.  Hu,
+S07:Z042 |                                                                                           M.  Z.  Irshad,  D.  Jackson,  C.  Le,  Y.  Li,  K.  Lin,  R.  Lin,  Z.  Ma,
+S07:Z043 | lineage reruns (collecting intervention data from scratch and                             A. Maddukuri, S. Mirchandani, D. Morton, T. Nguyen, A. O’Neill,
+S07:Z044 | seeding policy training), the bestσis 8–16 inK= 1and is                                   R. M. Scalise, D. Seale, V. Son, S. Tian, E. Tran, A. Wang, Y. E.
+S07:Z045 | 2–4 byK= 4. Large noise levels likeσ= 12and16hurt                                         Wu,  A.  Xie,  J.  Yang,  P.  Yin,  Y.  Zhang,  O.  Bastani,  G.  Berseth,
+S07:Z046 |                                                                                           J.  Bohg,  K.  Goldberg,  A.  Gupta,  A.  Gupta,  D.  Jayaraman,  J.  J.
+S07:Z047 | the success rate in late roundsK= 4and5, while small                                      Lim,  J.  Malik,  R.  Mart’in-Mart’in,  S.  Ramamoorthy,  D.  Sadigh,
+S07:Z048 | noise levels likeσ= 2show an average 2 point increase in                                  S.   Song,   J.   Wu,   M.   C.   Yip,   Y.   Zhu,   T.   Kollar,   S.   Levine,
+S07:Z049 | successinallDAggerrounds.Ourmethodperformssimilarly                                       and  C.  Finn,  “Droid:  A  large-scale  in-the-wild  robot  manipulation
+S07:Z050 |                                                                                           dataset,”ArXiv,  vol.  abs/2403.12945,  2024.  [Online].  Available:
+S07:Z051 | to the best fixed isotropic noise ratio, but without sweeping                             https://api.semanticscholar.org/CorpusID:268531351
+S07:Z052 | over noise magnitudes. Our measured ¯Σα has a per-jointσ                             [4]T.  Tao,  M.  K.  Srirama,  J.  J.  Liu,  K.  Shaw,  and  D.  Pathak,
+S07:Z053 | of 3.9–5.1 median per-step joint displacement in 2D planar                                “Dexwild:   Dexterous   human   interactions   for   in-the-wild   robot
+S07:Z054 |                                                                                           policies,”ArXiv,  vol.  abs/2505.07813,  2025.  [Online].  Available:
+S07:Z055 | reacher, close to the best-performing isotropic noise level                               https://api.semanticscholar.org/CorpusID:278534598
+S07:Z056 | σ= 4, and has a per-jointσof 1.3–4.2 median steps in 3D                              [5]S. Ross, G. Gordon, and D. Bagnell, “A reduction of imitation learning
+S07:Z057 | engine lever-reaching in which the robot moves at similar                                 and structured prediction to no-regret online learning,” inProceedings
+S07:Z058 |                                                                                           of the fourteenth international conference on artificial intelligence and
+S07:Z059 | velocities as the 2D planar reacher environment.                                          statistics.    JMLR Workshop and Conference Proceedings, 2011, pp.
+S07:Z060 |    Another insight is that augmenting action labels may pro-                              627–635.
+S07:Z061 | vide benefit in addition to only observation augmentations.                          [6]M.  Laskey,  J.  Lee,  R.  Fox,  A.  Dragan,  and  K.  Goldberg,  “Dart:
+S07:Z062 |                                                                                           Noise injection for robust imitation learning,” inConference on robot
+S07:Z063 | Across  all  roundskin  the  planar  environment,  even  the                              learning.   PMLR, 2017, pp. 143–156.
+S07:Z064 | smallest noise level in the sweep (σ= 2) increases success                           [7]M. Kelly, C. Sidrane, K. Driggs-Campbell, and M. J. Kochenderfer,
+S07:Z065 | rate compared to HG-DAgger. This action relabeling was                                    “Hg-dagger:  Interactive  imitation  learning  with  human  experts,”  in
+S07:Z066 |                                                                                           2019 International Conference on Robotics and Automation (ICRA).
+S07:Z067 | done in addition to the common practice of applying small                                 IEEE, 2019, pp. 8077–8083.
+
+===== PDF S. 8 =====
+S08:Z001 |  [8]P. Wu, Y. Shentu, Q. Liao, D. Jin, M. Guo, K. Sreenath, X. Lin,                              [27]——, “Herd: Continuous human-to-robot evolution for learning from
+S08:Z002 |       and P. Abbeel, “Robocopilot: Human-in-the-loop interactive imitation                              human demonstration,”arXiv preprint arXiv:2212.04359, 2022.
+S08:Z003 |       learning for robot manipulation,”arXiv preprint arXiv:2503.07771,                          [28]L.Ke,J.Wang,T.Bhattacharjee,B.Boots,andS.Srinivasa,“Grasping
+S08:Z004 |       2025.                                                                                             with  chopsticks:  Combating  covariate  shift  in  model-free  imitation
+S08:Z005 |  [9]S.-W. Lee, X. Kang, and Y.-L. Kuo, “Diff-dagger: Uncertainty esti-                                  learning for fine manipulation,” in2021 IEEE International Confer-
+S08:Z006 |       mation with diffusion policy for robotic manipulation,” in2025 IEEE                               ence on Robotics and Automation (ICRA).    IEEE, 2021, pp. 6185–
+S08:Z007 |       International Conference on Robotics and Automation (ICRA).  IEEE,                                6191.
+S08:Z008 |       2025, pp. 4845–4852.                                                                       [29]A.  Zhou,  M.  J.  Kim,  L.  Wang,  P.  Florence,  and  C.  Finn,  “Nerf
+S08:Z009 | [10]J. J. Liu, Y. Li, K. Shaw, T. Tao, R. Salakhutdinov, and D. Pathak,                                 in the palm of your hand: Corrective augmentation for robotics via
+S08:Z010 |       “Factr:  Force-attending  curriculum  training  for  contact-rich  policy                         novel-view synthesis,” inProceedings of the IEEE/CVF Conference on
+S08:Z011 |       learning,”arXiv preprint arXiv:2502.17432, 2025.                                                  Computer Vision and Pattern Recognition, 2023, pp. 17907–17917.
+S08:Z012 | [11]A. Bazhenov, S. Satsevich, S. Egorov, F. Khabibullin, and D. Tset-                           [30]L. Sun, J. Ji, X. Tan, and M. Walter, “Flashback: Consistency model-
+S08:Z013 |       serukou, “Echo: An open-source, low-cost teleoperation system with                                accelerated  shared  autonomy,”  inConference  on  Robot  Learning.
+S08:Z014 |       force feedback for dataset collection in robot learning,”arXiv preprint                           PMLR, 2025, pp. 924–940.
+S08:Z015 |       arXiv:2504.07939, 2025.                                                                    [31]C. Meng, Y. He, Y. Song, J. Song, J. Wu, J.-Y. Zhu, and S. Ermon,
+S08:Z016 | [12]T.  Yoneda,  L.  Sun,  G.  Yang,  B.  Stadie,  and  M.  Walter,  “To  the                           “Sdedit: Guided image synthesis and editing with stochastic differen-
+S08:Z017 |       noise  and  back:  Diffusion  for  shared  autonomy,”arXiv  preprint                              tial equations,”arXiv preprint arXiv:2108.01073, 2021.
+S08:Z018 |       arXiv:2302.12244, 2023.                                                                    [32]O. Shorinwa, J. Tucker, A. Smith, A. Swann, T. Chen, R. Firoozi,
+S08:Z019 | [13]S. Ross, N. Melik-Barkhudarov, K. S. Shankar, A. Wendel, D. Dey,                                    M. Kennedy III, and M. Schwager, “Splat-mover: Multi-stage, open-
+S08:Z020 |       J.  A.  Bagnell,  and  M.  Hebert,  “Learning  monocular  reactive  uav                           vocabulary robotic manipulation via editable gaussian splatting,”arXiv
+S08:Z021 |       control in cluttered natural environments,”2013 IEEE International                                preprint arXiv:2405.04378, 2024.
+S08:Z022 |       Conference  on  Robotics  and  Automation,  pp.  1765–1772,  2012.                         [33]Y. Wang, Z. Xian, F. Chen, T.-H. Wang, Y. Wang, K. Fragkiadaki,
+S08:Z023 |       [Online]. Available: https://api.semanticscholar.org/CorpusID:479635                              Z. Erickson, D. Held, and C. Gan, “Robogen: Towards unleashing
+S08:Z024 | [14]A.  Yu,  Z.  Chen,  P.  Song,  Z.  Hong,  H.  Wang,  D.  Zhang,  T.  He,                            infinite data for automated robot learning via generative simulation,”
+S08:Z025 |       Y.  Ding,  and  D.  Zhang,  “Wm-dagger:  Enabling  efficient  data  ag-                           arXiv preprint arXiv:2311.01455, 2023.
+S08:Z026 |       gregation for imitation learning with world models,”arXiv preprint                         [34]J. Yang, J. J. Liu, Y. Li, Y. Khaky, K. Shaw, and D. Pathak, “Deep
+S08:Z027 |       arXiv:2604.11351, 2026.                                                                           reactive policy: Learning reactive manipulator motion planning for
+S08:Z028 | [15]X.  Zhang,  M.  Chang,  P.  Kumar,  and  S.  Gupta,  “Diffusion  meets                              dynamic environments,”arXiv preprint arXiv:2509.06953, 2025.
+S08:Z029 |       dagger: Supercharging eye-in-hand imitation learning,”arXiv preprint                       [35]H. Oh, M. Murooka, T. Motoda, R. Nakajo, and Y. Domae, “Self-
+S08:Z030 |       arXiv:2402.17768, 2024.                                                                           augmented  robot  trajectory:  efficient  imitation  learning  via  safe
+S08:Z031 | [16]A.   Haridas,   K.   Hamadeh,   and   S.   C.   B.   Dash,   “Dadagger:                             self-augmentation with demonstrator-annotated precision,”Advanced
+S08:Z032 |       Disagreement-augmented    dataset    aggregation,”  arXiv    preprint                             Robotics, pp. 1–15, 2026.
+S08:Z033 |       arXiv:2301.01348, 2023.                                                                    [36]C. Pan, L. Liang, D. Bauer, E. Cousineau, B. Burchfiel, S. Feng, and
+S08:Z034 | [17]Z.  He,  Y.  Cao,  and  M.  T.  Ciocarlie,  “Uncertainty  comes  for                                S. Song, “One demo is worth a thousand trajectories: Action-view
+S08:Z035 |       free: Human-in-the-loop policies with diffusion models,”ArXiv, vol.                               augmentation for visuomotor policies,” in9th Annual Conference on
+S08:Z036 |       abs/2503.01876,2025.[Online].Available:https://api.semanticscholar.                               Robot Learning, 2025.
+S08:Z037 |       org/CorpusID:276774935                                                                     [37]Z.  Jiang,  Y.  Xie,  K.  Lin,  Z.  Xu,  W.  Wan,  A.  Mandlekar,  L.  J.
+S08:Z038 | [18]R. Hoque, A. Balakrishna, E. R. Novoseller, A. Wilcox, D. S. Brown,                                 Fan,  and  Y.  Zhu,  “Dexmimicgen:  Automated  data  generation  for
+S08:Z039 |       and  K.  Goldberg,  “Thriftydagger:  Budget-aware  novelty  and  risk                             bimanualdexterousmanipulationviaimitationlearning,”in2025IEEE
+S08:Z040 |       gating  for  interactive  imitation  learning,”  inConference  on  Robot                          International Conference on Robotics and Automation (ICRA).  IEEE,
+S08:Z041 |       Learning,  2021.  [Online].  Available:  https://api.semanticscholar.org/                         2025, pp. 16923–16930.
+S08:Z042 |       CorpusID:237371142                                                                         [38]A. Mandlekar, S. Nasiriany, B. Wen, I. Akinola, Y. Narang, L. Fan,
+S08:Z043 | [19]S.-W. Lee and Y.-L. Kuo, “Diff-dagger: Uncertainty estimation with                                  Y.  Zhu,  and  D.  Fox,  “Mimicgen:  A  data  generation  system  for
+S08:Z044 |       diffusion policy for robotic manipulation,”2025 IEEE International                                scalable robot learning using human demonstrations,”arXiv preprint
+S08:Z045 |       Conference  on  Robotics  and  Automation  (ICRA),  pp.  4845–4852,                               arXiv:2310.17596, 2023.
+S08:Z046 |       2024.  [Online].  Available:  https://api.semanticscholar.org/CorpusID:                    [39]Z. Xue, S. Deng, Z. Chen, Y. Wang, Z. Yuan, and H. Xu, “Demogen:
+S08:Z047 |       273502160                                                                                         Synthetic demonstration generation for data-efficient visuomotor pol-
+S08:Z048 | [20]S. Singi, Z. He, A. Pan, S. Patel, G. A. Sigurdsson, R. Piramuthu,                                  icy learning,”arXiv preprint arXiv:2502.16932, 2025.
+S08:Z049 |       S.   Song,   and   M.   T.   Ciocarlie,   “Decision   making   for   human-                [40]A. Jonnavittula, S. A. Mehta, and D. P. Losey, “Sari: Shared auton-
+S08:Z050 |       in-the-loop   robotic   agents   via   uncertainty-aware   reinforcement                          omy across repeated interaction,”ACM transactions on human-robot
+S08:Z051 |       learning,”2024  IEEE  International  Conference  on  Robotics  and                                interaction, vol. 13, no. 2, pp. 1–36, 2024.
+S08:Z052 |       Automation   (ICRA),   pp.   7939–7945,   2023.   [Online].   Available:                   [41]C. Zhou, J. Yang, D. J. Weber, and Z. Erickson, “Saps: Shared auton-
+S08:Z053 |       https://api.semanticscholar.org/CorpusID:257496009                                                omy for policy steering by blending teleoperation with a pretrained
+S08:Z054 | [21]X. Xu, Y. Hou, Z. Liu, and S. Song, “Compliant residual dagger:                                     vla,”arXiv preprint arXiv:2606.15568, 2026.
+S08:Z055 |       Improving real-world contact-rich manipulation with human correc-                          [42]J.  Ho,  A.  Jain,  and  P.  Abbeel,  “Denoising  diffusion  probabilistic
+S08:Z056 |       tions,”Advances in Neural Information Processing Systems, vol. 38,                                models,”Advances in neural information processing systems, vol. 33,
+S08:Z057 |       pp. 139559–139581, 2026.                                                                          pp. 6840–6851, 2020.
+S08:Z058 | [22]J.  Li,  W.  Wang,  Y.  Peng,  C.  Shen,  Y.  Zhu,  and  Z.  Xu,  “Visual                    [43]C. Chi, Z. Xu, S. Feng, E. Cousineau, Y. Du, B. Burchfiel, R. Tedrake,
+S08:Z059 |       robotic  manipulation  with  depth-aware  pretraining,”  in2024  IEEE                             and S. Song, “Diffusion policy: Visuomotor policy learning via action
+S08:Z060 |       International  Conference  on  Robotics  and  Biomimetics  (ROBIO).                               diffusion,”The International Journal of Robotics Research, vol. 44,
+S08:Z061 |       IEEE, 2024, pp. 843–850.                                                                          no. 10-11, pp. 1684–1704, 2025.
+S08:Z062 | [23]K. Chen, E. Lim, K. Lin, Y. Chen, and H. Soh, “Don’t start from                              [44]M. N. Qureshi, S. Garg, F. Yandun, D. Held, G. Kantor, and A. Silwal,
+S08:Z063 |       scratch: Behavioral refinement via interpolant-based policy diffusion,”                           “Splatsim: Zero-shot sim2real transfer of rgb manipulation policies
+S08:Z064 |       arXiv preprint arXiv:2402.16075, 2024.                                                            using gaussian splatting,” in2025 IEEE International Conference on
+S08:Z065 | [24]Y. Tao, G. Qiao, D. Ding, and Z. Erickson, “Incremental learning for                                Robotics and Automation (ICRA).   IEEE, 2025, pp. 6502–6509.
+S08:Z066 |       robot shared autonomy,” in2025 IEEE/RSJ International Conference                           [45]B. Kerbl, G. Kopanas, T. Leimk      ¨uhler, G. Drettakiset al., “3d gaussian
+S08:Z067 |       on Intelligent Robots and Systems (IROS).   IEEE, 2025, pp. 20797–                                splatting for real-time radiance field rendering.”ACM Trans. Graph.,
+S08:Z068 |       20804.                                                                                            vol. 42, no. 4, pp. 139–1, 2023.
+S08:Z069 | [25]A. Maddukuri, Z. Jiang, L. Y. Chen, S. Nasiriany, Y. Xie, Y. Fang,                           [46]E.  Coumans  and  Y.  Bai,  “Pybullet,  a  python  module  for  physics
+S08:Z070 |       W. Huang, Z. Wang, Z. Xu, N. Chernyadevet al., “Sim-and-real co-                                  simulation for games, robotics and machine learning,” 2016.
+S08:Z071 |       training: A simple recipe for vision-based robotic manipulation,”arXiv                     [47]H. Pham and Q.-C. Pham, “A new approach to time-optimal path
+S08:Z072 |       preprint arXiv:2503.24361, 2025.                                                                  parameterization based on reachability analysis,”IEEE Transactions
+S08:Z073 | [26]X. Liu, D. Pathak, and K. M. Kitani, “Revolver: Continuous evo-                                     on Robotics, vol. 34, no. 3, pp. 645–659, 2018.
+S08:Z074 |       lutionary  models  for  robot-to-robot policy  transfer,”arXiv  preprint
+S08:Z075 |       arXiv:2202.05244, 2022.
+

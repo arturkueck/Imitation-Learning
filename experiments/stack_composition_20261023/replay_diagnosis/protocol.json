@@ -1,0 +1,83 @@
+{
+  "cases": [
+    [
+      "relative_seed1",
+      30000
+    ],
+    [
+      "relative_seed2",
+      10000
+    ],
+    [
+      "relative_seed2",
+      30000
+    ]
+  ],
+  "seeds": [
+    61000,
+    61001,
+    61002,
+    61003,
+    61004
+  ],
+  "horizon": 1000,
+  "prebuilt_settle_steps": 40,
+  "selection": "first five pre-existing development seeds, fixed before replay; videos seed61000 for each case and condition",
+  "caveat": "Prebuilt intervention changes object placement, robot/scene history and initial gripper pose versus natural transition; not an isolated causal height effect.",
+  "trace_columns": [
+    "step",
+    "stage",
+    "A_x",
+    "A_y",
+    "A_z",
+    "B_x",
+    "B_y",
+    "B_z",
+    "C_x",
+    "C_y",
+    "C_z",
+    "eef_x",
+    "eef_y",
+    "eef_z",
+    "action0",
+    "action1",
+    "action2",
+    "action3",
+    "action4",
+    "action5",
+    "action6",
+    "graspA",
+    "graspB",
+    "graspC",
+    "fingerA",
+    "fingerB",
+    "fingerC",
+    "contactAB",
+    "contactBC",
+    "valid2",
+    "valid3",
+    "velocityA0",
+    "velocityA1",
+    "velocityA2",
+    "velocityA3",
+    "velocityA4",
+    "velocityA5",
+    "velocityB0",
+    "velocityB1",
+    "velocityB2",
+    "velocityB3",
+    "velocityB4",
+    "velocityB5",
+    "velocityC0",
+    "velocityC1",
+    "velocityC2",
+    "velocityC3",
+    "velocityC4",
+    "velocityC5"
+  ],
+  "checkpoint_hashes": {
+    "relative_seed1/30000": "d245a1bcc511f007b0c6e78889bc42bf21f9e90f577e2fa2b57abfccde5d2c5c",
+    "relative_seed2/10000": "c50d17ee8eb59805bd2965ca4946216c7a52fd913b5b4359aa011445dd4fd131",
+    "relative_seed2/30000": "4a69093b269ce9237ced631871dec920e78f82ef93103c57891d1397415b28e0"
+  }
+}

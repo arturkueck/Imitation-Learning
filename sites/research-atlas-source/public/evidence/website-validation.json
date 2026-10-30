@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-25",
+  "status": "source_checks_passed",
+  "source_hashes_checked": 19,
+  "local_links_checked": 35,
+  "verified_values": [
+    "self-imitation A/B/C all seeds",
+    "five-cube curriculum versus parent all seeds",
+    "latest full and prepared panels all seeds"
+  ],
+  "method": "Reports plus archived JSON cross-check; no training or evaluation repeated",
+  "browser_qa": {
+    "desktop": "visually checked",
+    "mobile": "375 CSS px; no document horizontal overflow",
+    "animation": "start/pause and p=1 boundary passed",
+    "videos": "both decoded; 512px; durations 8.25 and 27 seconds"
+  },
+  "limitations": [
+    "Historical metric correction retained",
+    "No significance claim from three seeds",
+    "Schematic animation is not measured data",
+    "Selected identical parent pairs are not independent effect replications"
+  ],
+  "editorial_audit": "Independent source review completed; parent data condition corrected; toy-model placement terminology clarified"
+}

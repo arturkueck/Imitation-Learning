@@ -1,0 +1,6 @@
+const $=s=>document.querySelector(s);
+try{const r=await fetch('evidence/measured.json');if(!r.ok)throw Error('Messdaten fehlen');const d=await r.json();
+$('#self-chart').innerHTML='<div class="legend"><span>Türkis: Seed 1</span><span>Blau: Seed 2</span><span>Gold: Seed 3</span></div>'+Object.entries(d.self).map(([arm,values])=>`<div class="chart-row"><div class="chart-label">${{A:'A · Original',B:'B · + eigene Zweier',C:'C · + eigene Dreier'}[arm]}</div><div>${values.map(v=>`<div class="bar" style="width:${v}%"><span>${v} / 100</span></div>`).join('')}</div></div>`).join('')+'<div class="caption">Gemeinsame Skala: 0–100 %. Balken zeigen die drei Seeds einzeln.</div>';
+const keys=['full_stack2','full_stack3','full_stack4','prepared_prefix2','prepared_prefix3'];
+$('#latest-table').innerHTML='<table><thead><tr><th>Seed · je identischer B0/B-Parent</th><th>Zweier</th><th>Dreier</th><th>Vierer</th><th>P2-Erhalt</th><th>P3-Erhalt</th></tr></thead><tbody>'+d.transition.map((row,i)=>`<tr><td>${i+1}</td>${keys.map(k=>`<td>${row[k].successes} / ${row[k].attempts}</td>`).join('')}</tr>`).join('')+'</tbody></table>';
+}catch(e){$('#self-chart').textContent='Messdaten konnten nicht geladen werden. Bitte den verlinkten Bericht nutzen.';$('#latest-table').textContent='Tabelle nicht verfügbar; Werte stehen im Übergangsbericht.';console.error(e)}

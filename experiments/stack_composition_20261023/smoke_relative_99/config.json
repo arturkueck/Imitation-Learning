@@ -1,0 +1,24 @@
+{
+  "arm": "relative",
+  "seed": 99,
+  "updates": 4,
+  "batch": 8,
+  "architecture": "3 residual blocks, width 512, two frames, 16-action chunk",
+  "parameters": 1652336,
+  "optimizer": "AdamW",
+  "lr": 0.0001,
+  "weight_decay": 1e-06,
+  "schedule": "500 update warmup, cosine to 30000",
+  "ema": false,
+  "loss": "MSE all 16x7 actions",
+  "executed_slice": [
+    1,
+    3
+  ],
+  "sampling": "uniform anchors with replacement; paired RNG across arms",
+  "train_frames": 27322,
+  "dataset_sha256": "5222cbf96dc6218389d491fe7b99449295dcfc9bceb3bab8f8776ffff19fe6f8",
+  "milestones": [
+    4
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "agent_analysis_complete": true,
+  "rationale": "Lower stack geometry first lost in early second skill in all14 selected failures; reuse learned open approach as explicit retreat plus lower-lr continuation; preflight0/2 so no improvement claimed.",
+  "plan": {
+    "name": "block2",
+    "seeds": [
+      1,
+      2,
+      3
+    ],
+    "lr": 3e-05,
+    "completion_lambda": 0.1,
+    "threshold": 0.8,
+    "width": 128,
+    "updates_per_round": 3000,
+    "dev_episodes": 10,
+    "train_deadline": 1792763359.732653,
+    "parents": {
+      "1": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_phased_8h_20261023\\block1\\seed1\\best.pth",
+      "2": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_phased_8h_20261023\\block1\\seed2\\best.pth",
+      "3": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_phased_8h_20261023\\block1\\seed3\\best.pth"
+    },
+    "restore_optimizer": true,
+    "retreat": true
+  }
+}

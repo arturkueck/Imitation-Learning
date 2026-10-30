@@ -1,0 +1,15 @@
+{
+  "parent": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+  "parent_sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8",
+  "seed": 2,
+  "arm": "curriculum",
+  "height": 3,
+  "cycle": 0,
+  "planned_updates": 30000,
+  "batch": 64,
+  "lr": 3e-05,
+  "mixture": "32 original +16 earlier heights +16 new height",
+  "completion_loss": "original only",
+  "sampler": "phase/episode/frame",
+  "architecture": "unchanged PhaseNet 10 inputs"
+}

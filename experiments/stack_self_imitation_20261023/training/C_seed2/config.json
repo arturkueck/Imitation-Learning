@@ -1,0 +1,15 @@
+{
+  "arm": "C",
+  "seed": 2,
+  "parent": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_phased_8h_20261023\\final_test\\seed2.pth",
+  "parent_sha256": "df3dbbbfc6d38d2c02e419a3e4f80f1a86d860076d6c7ae58fe260fd520069d0",
+  "updates": 30000,
+  "batch": 64,
+  "lr": 3e-05,
+  "new_fraction": 0.25,
+  "new_action_mse_before_training": 0.002160326112061739,
+  "completion_loss": "original expert examples only",
+  "optimizer": "fresh identical AdamW per arm",
+  "sampling": "original phase balanced; new phase then episode then frame",
+  "retreat": true
+}

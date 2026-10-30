@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-24T00:24:28.750097+00:00",
+  "episodes": 120,
+  "successes": {
+    "train": 6,
+    "valid": 3
+  },
+  "successful_frames": {
+    "train": 3829,
+    "valid": 1901
+  },
+  "simulator_steps": 227730,
+  "pre_action_alignment": true,
+  "all_finite": true,
+  "split_disjoint": true
+}

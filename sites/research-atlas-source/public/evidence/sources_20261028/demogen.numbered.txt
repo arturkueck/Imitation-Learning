@@ -1,0 +1,843 @@
+demogen / arXiv:2502.16932v1. PDF pages start at 1. Z = custom nonempty layout line per page, not official publication lines.
+
+===== PDF S. 1 =====
+S01:Z001 |                DemoGen: Synthetic Demonstration Generation
+S01:Z002 |                     for Data-Efficient Visuomotor Policy Learning
+S01:Z003 |      Zhengrong Xue123∗, Shuying Deng1∗, Zhenyang Chen2, Yixuan Wang1, Zhecheng Yuan123, Huazhe Xu123
+S01:Z004 |                1Tsinghua University, 2Shanghai Qi Zhi Institute, 3Shanghai AI Lab,    ∗Equal contribution
+S01:Z005 |                                                            demo-generation.github.io
+S01:Z006 | Fig. 1: DemoGen is a fully synthetic approach for automatic demonstration generation. DemoGen promotes the spatial generalization ability
+S01:Z007 | of visuomotor policies and can facilitate one-shot imitation by adapting one human-collected demonstration into novel object configurations.
+S01:Z008 | DemoGen applies to various manipulation tasks and platforms and can be extended to enable additional out-of-distribution capabilities.
+S01:Z009 |    Abstract—Visuomotor  policies  have  shown  great  promise  in               such as spreading sauce on pizza [7] or making rollups with
+S01:Z010 | robotic   manipulation   but   often   require   substantial   human-           a dexterous hand [59]. More intricate, long-horizon tasks may
+S01:Z011 | collected  data  for  effective  performance.  A  key  factor  driving          necessitate thousands of demonstrations [62].
+S01:Z012 | the  high  data  demands  is  their  limited  spatial  generalization              One key factor contributing to the data-intensive nature of
+S01:Z013 | capability, which necessitates extensive data collection across dif-            these methods is their limited spatial generalization [41,43]
+S01:Z014 | ferent object configurations. In this work, we present DemoGen,
+S01:Z015 | a low-cost, fully synthetic approach for automatic demonstration                ability.  Our  empirical  study  suggests  that  visuomotor  poli-
+S01:Z016 | generation. Using only one human-collected demonstration per                    cies [7], even when coupled with pre-trained or 3D visual
+S01:Z017 | task,  DemoGen  generates  spatially  augmented  demonstrations                 encoders  [33, 39, 34, 59],  exhibit  limited  spatial  capacity,
+S01:Z018 | by adapting the demonstrated action trajectory to novel object                  typically confined to regions adjacent to the demonstrated ob-
+S01:Z019 | configurations. Visual observations are synthesized by leveraging
+S01:Z020 | 3D point clouds as the modality and rearranging the subjects                    ject configurations. Such limitation necessitates repeated data
+S01:Z021 | in the scene via 3D editing. Empirically, DemoGen significantly                 collection  with  repositioned  objects  until  the  demonstrated
+S01:Z022 | enhances policy performance across a diverse range of real-world                configurations sufficiently cover the full tabletop workspace.
+S01:Z023 | manipulation tasks, showing its applicability even in challenging               This  creates  a  paradox:  while  the  critical  actions  enabling
+S01:Z024 | scenarios  involving  deformable  objects,  dexterous  hand  end-               dexterous manipulation are concentrated in a small subset of
+S01:Z025 | effectors, and bimanual platforms. Furthermore, DemoGen can
+S01:Z026 | be extended to enable additional out-of-distribution capabilities,              contact-rich segments, a substantial portion of human effort is
+S01:Z027 | including disturbance resistance and obstacle avoidance.                        spent teaching robots to approach objects in free space.
+S01:Z028 |                           I.  INTRODUCTION                                         A potential solution to reduce redundant human effort is
+S01:Z029 |                                                                                 to replace the tedious relocate-and-recollect procedure with
+S01:Z030 |    Visuomotor policy learning  has demonstrated remarkable                      automatic demonstration generation. Recent advances such as
+S01:Z031 | competence for robotic manipulation tasks [7,61,16,59], yet                     MimicGen [32] and its subsequent extensions [20, 18,22]
+S01:Z032 | it typically demands large volumes of human-collected data.                     have proposed to generate demonstrations by segmenting the
+S01:Z033 | State-of-the-art approaches often require tens to hundreds of                   demonstrated trajectories based on object interactions. These
+S01:Z034 | demonstrations to achieve moderate success on complex tasks,                    object-centric segments are then transformed and interpolated
+
+===== PDF S. 2 =====
+S02:Z001 | into execution plans that fit desired spatially augmented object                DemoGen-generated datasets from only one human collected
+S02:Z002 | configurations. The resulting plans are then executed through                   demonstration  per  task.  To  assess  the  impact  of  DemoGen
+S02:Z003 | open-loop rollouts on the robot, termed on-robot rollouts, to                   on spatial generalization, we adhere to a rigorous evaluation
+S02:Z004 | verify their correctness and simultaneously capture the visual                  protocol  in  which  the  objects  are  placed  across  the  entire
+S02:Z005 | observations needed for policy training.                                        tabletop workspace within the end-effectors’ reach.
+S02:Z006 |    Despite their success in simulation, applying MimicGen-                         We conduct extensive real-world experiments, showing that
+S02:Z007 | style strategies to real-world environments is hindered by the                  DemoGen can be successfully deployed on both single-arm
+S02:Z008 | high costs of on-robot rollouts, which are nearly as expensive                  and bi-manual platforms, using parallel-gripper and dexterous-
+S02:Z009 | as collecting raw demonstrations. An alternative is to deploy                   hand  end-effectors,  from  both  third-person  and  egocentric
+S02:Z010 | via sim-to-real transfer [36,44,56], though bridging the sim-                   observation viewpoints, and with a range of rigid-body and
+S02:Z011 | to-real gap remains a significant challenge in robotics.                        deformable/fluid objects. Meanwhile, the cost of generating
+S02:Z012 |    In  this  work,  we  introduce  DemoGen,  a  data  generation                one demonstration trajectory with DemoGen is merely 0.01
+S02:Z013 | system that can be seamlessly plugged into the policy learning                  seconds of computation. With such minimal cost, DemoGen
+S02:Z014 | workflow in both simulated and physical worlds. Recognizing                     significantly  enhances  policy  performance,  generalizing  to
+S02:Z015 | the high cost of on-robot rollouts represents a major barrier                   un-demonstrated configurations and achieving an average of
+S02:Z016 | to practical deployment, DemoGen adopts a fully synthetic                       74.6% across 8 real-world tasks. Additionally, we demon-
+S02:Z017 | pipeline that efficiently concretizes the generated plans into                  strate that simple extensions under the DemoGen framework
+S02:Z018 | spatially augmented demonstrations ready for policy training.                   can  further  equip  imitation  learning  with  acquired  out-of-
+S02:Z019 |    For action generation, DemoGen develops the MimicGen                         distribution  generalization  capabilities  such  as  disturbance
+S02:Z020 | strategy by incorporating techniques from Task and Motion                       resistance and obstacle avoidance. The code and datasets will
+S02:Z021 | Planning (TAMP) [10,5,31], similar to the practice in the                       be  open-sourced  to  facilitate  reproducibility  of  our  results.
+S02:Z022 | recentlyreleasedSkillMimicGen[18].Specifically,wedecom-                         Please refer to the project website for robot videos.
+S02:Z023 | pose the source trajectory into motion segments moving in                                               II.  RELATED WORKS
+S02:Z024 | free space and skill segments involving on-object manipulation                  A. Visuomotor Policy Learning
+S02:Z025 | through contact. During generation, the skill segments will be                     Represented by Diffusion Policy [7] and its extensions [59,
+S02:Z026 | transformed as a whole according to the augmented object                        24,37,50,47], visuomotor policy learning refers to the imita-
+S02:Z027 | configuration, and the motion segments will be replanned via                    tionlearningmethodsthatlearntopredictactionsdirectlyfrom
+S02:Z028 | motion planning to connect the neighboring skill segments                       visual observations in an end-to-end fashion [27]. The end-to-
+S02:Z029 | after transformation.                                                           end learning objective is a two-edged sword. Its flexibility
+S02:Z030 |    With  the  processed  actions  in  hand,  a  core  challenge  is             enables  visuomotor  policies  to  learn  dexterous  skills  from
+S02:Z031 | obtaining  spatially  augmented  visual  observations  without                  humandemonstrations,extendingbeyondrigid-bodypick-and-
+S02:Z032 | relying on costly on-robot rollouts. While some recent work                     place.  However,  the  absence  of  structured  skill  primitives
+S02:Z033 | leverages vision foundation models to manipulate the appear-                    makes such policies intrinsically data-intensive.
+S02:Z034 | ance of subjects and backgrounds in robotic tasks [55,4,2],                        The conflicts between the huge data demands and the great
+S02:Z035 | these techniques are not directly applicable to modifying the                   expense of robotic data collection have driven the growing
+S02:Z036 | spatial  locations  of  objects  in  an  image,  as  2D  generative             attention to data-centric research. Such efforts include more
+S02:Z037 | models generally lack awareness of 3D spatial relationships,                    efficient data collection systems [9,6,28], collaborative gath-
+S02:Z038 | such as perspective changes [52].                                               ering of large-scale datasets [35,25], and empirical studies on
+S02:Z039 |    DemoGen employs a more straightforward strategy: it se-                      data scaling [62,29]. Instead of scaling up via pure human
+S02:Z040 | lects point clouds as the observation modality and synthesizes                  labor, DemoGen aims to show that synthetic data generation
+S02:Z041 | the augmented visual observations through 3D editing. The                       can help save much of the human effort.
+S02:Z042 | key insight is that point clouds, which inherently live in the 3D
+S02:Z043 | space, can be easily manipulated to reflect the desired spatial                 B. Data-Efficient Imitation Learning
+S02:Z044 | augmentations.  Generating  augmented  point  cloud  observa-                      Attempting to develop manipulation policies from only a
+S02:Z045 | tions is reduced to identifying clusters of points corresponding                handful  of  demonstrations,  data-efficient  imitation  learning
+S02:Z046 | to the objects or robot end-effectors and then applying the                     methods often build on the principles of Task and Motion
+S02:Z047 | same  spatial  transformations  used  in  the  generated  action                Planning (TAMP), while incorporating imitation learning to
+S02:Z048 | plans. Notably, this strategy also applies to contact-rich skill                replace  some  components  in  the  TAMP  pipeline.  A  com-
+S02:Z049 | segments,  as  parts  in  contact  are  treated  as  cohesive  clus-            mon approach is to learn the end-effector poses for picking
+S02:Z050 | ters that undergo uniform transformations. Furthermore, the                     and  placing  [60, 42, 51, 53, 17].  The  whole  trajectories
+S02:Z051 | artificially applied transformations on point clouds accurately                 are generated using motion planning toolkits [26] and then
+S02:Z052 | reflect the underlying physical processes, thereby minimizing                   executed in an open-loop manner. Some methods extend this
+S02:Z053 | the visual gap between real and synthetic observations.                         idea to more complex scenarios by learning to estimate the
+S02:Z054 |    Empirically, we manifest the effectiveness of DemoGen by                     states of manipulated objects in the environment and replaying
+S02:Z055 | evaluating the performance of visuomotor policies trained on                    demonstrated trajectory segments centered around the target
+
+===== PDF S. 3 =====
+S03:Z001 | Fig. 2: Qualitative visualization of the spatial effective range. The grid maps display discretized tabletop workspaces from a bird’s-eye
+S03:Z002 | view under different demonstration configurations. Dark green spots mark the locations where buttons are placed during the demonstrations.
+S03:Z003 | Each grid cell corresponds to a policy rollout with the button placed at that location. Blue, yellow, green, and gray grids denote successful
+S03:Z004 | executions for the Button-Large, Button-Small, both tasks, and no tasks, respectively.
+S03:Z005 | objects [23,45,11,12]. While these approaches are effective                        III.  EMPIRICAL STUDY: SPATIAL GENERALIZATION OF
+S03:Z006 | for simpler, Markovian-style tasks [46], their reliance on open-                                        VISUOMOTOR POLICIES
+S03:Z007 | loop execution limits their application to more dexterous tasks                     In this section, we present an empirical study examining the
+S03:Z008 | requiring closed-loop retrying and re-planning.                                 spatial generalization capability of visuomotor policies. We
+S03:Z009 |    In contrast, DemoGen leverages the TAMP principles for                       demonstrate how the lack of such generalization contributes
+S03:Z010 | synthetic data generation. Subsequently, the synthetic demon-                   to the data-intensive nature of learning visuomotor policies.
+S03:Z011 | strations are used to train closed-loop visuomotor policies for
+S03:Z012 | task resolution. In this way, DemoGen effectively combines                      A. Visualization of Spatial Effective Range
+S03:Z013 | the merits of both approaches.                                                      Spatial generalization refers to the ability of a policy to
+S03:Z014 |                                                                                 perform tasks involving objects placed in configurations that
+S03:Z015 | C. Data Generation for Robotic Manipulation                                     were  not  seen  during  training.  To  gain  an  intuitive  under-
+S03:Z016 |                                                                                 standing of spatial generalization, we visualize the relationship
+S03:Z017 |    Automated demonstration generation offers the opportunity                    between the spatial effective range of visuomotor policies and
+S03:Z018 | to  breed  capable  visuomotor  policies  with  significantly  re-              the spatial distribution of demonstration data.
+S03:Z019 | duced human efforts. A branch of recent works attempts to                       Tasks.  We  evaluate  a  Button-Large  task  adapted  from  the
+S03:Z020 | generate demonstrations by leveraging LLM for task decom-                       MetaWorld  [54]  benchmark,  where  the  robot  approaches  a
+S03:Z021 | position and then using planning or reinforcement learning for                  button and presses it down. The object randomization range is
+S03:Z022 | subtask resolution [48,21,49]. While this paradigm enables                      modified to a 30cm×40cm = 1200cm2 area on the table-
+S03:Z023 | data generation from the void, the resulting manipulation skills                top workspace, covering most of the end-effector’s reachable
+S03:Z024 | are often restricted by the capacity of either LLM, planning,                   space. Noticing the large size of the button makes it pressed
+S03:Z025 | or reinforcement learning.                                                      down even if the press motion does not precisely hit the center,
+S03:Z026 |    An alternative line of research is exemplified by Mimic-                     we also examine a more precision-demanding variant, Button-
+S03:Z027 | Gen [32] and its extensions [20,18,22]. Unlike generating                       Small, where the button size is reduced by a factor of 4.
+S03:Z028 | demonstrations from the void, MimicGen adapts some human-                       Policy. We adopt 3D Diffusion Policy (DP3) [59] as the stud-
+S03:Z029 | collected source demonstrations to novel object configurations                  ied policy, as our benchmarking results indicate that 3D ob-
+S03:Z030 | by synthesizing corresponding execution plans. This approach                    servations provide superior spatial generalization compared to
+S03:Z031 | is theoretically applicable to a wide range of manipulation                     2D approaches. Training details are provided in AppendixA1.
+S03:Z032 | skills  and  object  types.  For  example,  DexMimicGen  [22]                   Evaluation. To visualize the spatial effective range, we uni-
+S03:Z033 | extends MimicGen’s strategy to support bi-manual platforms                      formlysample21pointsalongeachaxiswithintheworkspace,
+S03:Z034 | equipped with dexterous hand end-effectors. However, exe-                       resulting in a total of 441 distinct button placements. Demon-
+S03:Z035 | cution plans produced by the MimicGen framework are not                         strations are generated using a scripted policy, with 4 different
+S03:Z036 | ready-to-use demonstrations in the form of observation-action                   spatial  distributions  ranging  from single  to full.  The
+S03:Z037 | pairs.Tobridgethisgap,theMimicGenfamily[32,20,18,22]                            performance of each configuration is evaluated on the 441
+S03:Z038 | relies  on  costly  on-robot  rollouts,  which  poses  significant              placements, enabling a comprehensive assessment of spatial
+S03:Z039 | challenges for the deployment on physical robots.                               generalization. The visualization result is presented in Fig.2.
+S03:Z040 |    Building  upon  MimicGen  and  its  extensions,  DemoGen
+S03:Z041 | incorporates  their  strategies  for  generating  execution  plans,             Key  findings. Overall, the spatial effective range of visuo-
+S03:Z042 | but replaces the expensive on-robot rollouts with an efficient,                 motor  policies  is  closely  tied  to  the  distribution  of  object
+S03:Z043 | fully synthetic generation process. This enables DemoGen to                     configurations  seen  in  the  demonstrations.  Specifically,  the
+S03:Z044 | generate real-world demonstrations ready for policy training                    effective range can be approximated by the union of the areas
+S03:Z045 | in a cost-effective manner.                                                     surroundingthedemonstratedobjectplacements.Thus,totrain
+
+===== PDF S. 4 =====
+S04:Z001 | a policy that generalizes well across the entire object random-
+S04:Z002 | ization range, demonstrations must cover the full workspace,
+S04:Z003 | resulting  in  substantial  data  collection  costs.  Furthermore,
+S04:Z004 | as task precision requirements increase, the effective range
+S04:Z005 | shrinks to more localized areas, necessitating a greater number
+S04:Z006 | of demonstrations to adequately cover the workspace. A more
+S04:Z007 | detailed analysis is available in AppendixB1.
+S04:Z008 | B. Benchmarking Spatial Generalization Capability
+S04:Z009 |    The  practical  manifestation  of  the  spatial  generalization
+S04:Z010 | is  reflected  in  the  number  of  demonstrations  required  for
+S04:Z011 | effective policy learning. In the following benchmarking, we
+S04:Z012 | exploretherelationshipbetweenthenumberofdemonstrations
+S04:Z013 | and policy performance to determine how many demonstra-
+S04:Z014 | tions are sufficient for effective training.
+S04:Z015 | Tasks. To suppress the occurrence of inaccurate but successful                 Fig. 3: Quantitative benchmarking on the spatial generalization
+S04:Z016 | policy rollouts, we design a Precise-Peg-Insertion task that                   capacity. We report the relationship between the agent’s performance
+S04:Z017 |                                                                                in success rates and the number of demonstrations used for training
+S04:Z018 | enforcesa strict faulttoleranceof1cmduringboth thepicking                      when different visuomotor policies and object randomization ranges
+S04:Z019 | and insertion stages, asking for millimeter-level precision. The               are adopted. The results are averaged over 3 seeds.
+S04:Z020 | peg and socket are randomized within a 40cm×20cm area,
+S04:Z021 | yieldinganeffectiveworkspaceof40cm×40cm = 1600cm2.                                                   IV.  DemoGen METHODS
+S04:Z022 | To examine the influence of object randomization, we also
+S04:Z023 | consider a half workspace, where the randomization range                          Designed  to  address  the  conflict  between  the  substantial
+S04:Z024 | is halved for both objects, and a fixed setting, where object                  data requirements of visuomotor policies and the high cost of
+S04:Z025 | positions remain fixed. More details are listed in AppendixB3.                 human-collecteddemonstrations,DemoGengeneratesspatially
+S04:Z026 | Policies.  In  addition  to  Diffusion  Policy  (DP)  [7]  and  3D             augmented observation-action pairs from a small set of source
+S04:Z027 | Diffusion Policy (DP3) [59] trained from scratch, we explore                   demonstrations. For actions, DemoGen parses the source tra-
+S04:Z028 | the potential of pre-trained visual representations to enhance                 jectory  into  object-centric  motion  and  skill  segments  and
+S04:Z029 | spatial generalization. Specifically, we replace the train-from-               applies TAMP-based adaptation. For observations, DemoGen
+S04:Z030 | scratch ResNet [19] encoder in DP with pre-trained encoders                    efficiently synthesizes the point clouds for robots and objects
+S04:Z031 | including R3M [33], DINOv2 [34], and CLIP [39]. Detailed                       using a segment-and-transform strategy.
+S04:Z032 | implementations are provided in AppendixA2.                                    A. Problem Formulation
+S04:Z033 | Demonstrations. We vary the number of demonstrations from                         A visuomotor policy π :O 7→A directly maps the visual
+S04:Z034 | 25 to 400. The object configurations are randomly sampled                      observations o∈O to the predicted actions a∈A. To train
+S04:Z035 | from a slightly larger range than the evaluation workspace to                  such a policy, a datasetD of demonstrations must be prepared.
+S04:Z036 | avoid performance degradation near workspace boundaries. A                     We define a source demonstration Ds0 ⊆ D as a trajectory
+S04:Z037 | visualization is provided in Fig.17in the appendix.                            of paired observations and actions conditioned on an initial
+S04:Z038 | Evaluation. In the full workspace, both the peg and socket                     object  configuration: Ds0   =  (d0,d1,...,dL−1|s0),  where
+S04:Z039 | are placed on 45 uniformly sampled coordinates, resulting in                   each dt = (ot,at) represents an observation-action pair, s0
+S04:Z040 | 2025 distinct configurations for evaluation. For thehalf and                   denotes the initial configuration, andL is the trajectory length.
+S04:Z041 | fixed settings, the number of evaluated configurations is225                   DemoGen is designed to augment a human-collected source
+S04:Z042 | and 1, respectively. The results are presented in Fig.3.                       demonstration by generating a new demonstration conditioned
+S04:Z043 |                                                                                on a different initial object configuration:
+S04:Z044 | Keyfindings.Thedegreeofobjectrandomizationsignificantly                                             ˆDs′0 = (ˆd0, ˆd1,..., ˆdL−1|s′0).
+S04:Z045 | influences the required demonstrations. Therefore, an effective
+S04:Z046 | evaluation protocol for visuomotor policies must incorporate                      Specifically, assuming the task involves the sequential ma-
+S04:Z047 | a sufficiently large workspace to provide enough object ran-                   nipulation of K objects {O1,O2,...,OK}, the initial object
+S04:Z048 | domization. On the other hand, both 3D representations and                     configuration s0 is defined as the set of initial poses of these
+S04:Z049 | pre-trained 2D visual encoders contribute to improved spatial                  objects: s0 ={TO10  ,TO20  ,...,TOK0  }, where TOt  denotes the
+S04:Z050 | generalization capabilities. However, none of these methods                    SE(3) transformation from the world frame to an object O at
+S04:Z051 | fundamentally resolve the spatial generalization problem. This                 time step t. The action at consists of the robot arm and robot
+S04:Z052 | indicates the agent’s spatial capacity is not inherently derived               hand commands, represented as at  = (aarmt   ,ahandt     ), where
+S04:Z053 | from the policy itself but instead develops through extensive                  aarmt   ≜AEEt    is thetargetSE(3) end-effector posein the world
+S04:Z054 | traversal of the workspace from the given demonstrations. A                    frame, and ahandt       can either be a binary signal for a parallel
+S04:Z055 | more detailed analysis is provided in AppendixB2.                              gripper’s open/close action or a higher-dimensional vector for
+
+===== PDF S. 5 =====
+S05:Z001 |                                                                                     We can easily identify the skill segments associated with
+S05:Z002 |                                                                                  a given object by checking whether the distance between the
+S05:Z003 |                                                                                  geometric center of the object’s point cloud and the robot’s
+S05:Z004 |                                                                                  end-effector falls within a predefined threshold, as illustrated
+S05:Z005 |                                                                                  by the spheres in Fig.4. The intermediate trajectories between
+S05:Z006 |                                                                                  two skill segments are classified as motion segments.
+S05:Z007 |                                                                                     Formally, we represent an interval of time stamps as τ:
+S05:Z008 |                                                                                  τ = (tstart, tstart+1, ..., tend−1, tend)⊆ (0,1,...,L−1),
+S05:Z009 |                                                                                  which  can  be  used  as  an  index  sequence  for  the  extrac-
+S05:Z010 |                                                                                  tion  of  the  corresponding  segments  from  a  sequence  of
+S05:Z011 |                                                                                  demonstrations, actions, or observations. For instance, d[τ] =
+S05:Z012 |                                                                                  (dtstart,dtstart+1,...,dtend−1,dtend)  represents  the  extracted
+S05:Z013 |                                                                                  subset  of  source  demonstration  indexed  by  τ.  Using  this
+S05:Z014 |                                                                                  notation, we parse the source demonstration into alternating
+S05:Z015 |                                                                                  motionandskillsegments according to the index sequence
+S05:Z016 |                                                                                  (τm1 ,τs1,...,τmK,τsK):
+S05:Z017 | Fig. 4: Pre-processing the source demonstration. The raw point
+S05:Z018 | cloud observations are processed by cropping, clustering, and down-                         Ds0 = (d[τm1 ],d [τs1],...,d [τmK],d [τsK]|s0).
+S05:Z019 | sampling. The source action trajectory is parsed intomotionandskill
+S05:Z020 | segments by referring to the semantic masks of manipulated objects.              C. TAMP-based Action Generation
+S05:Z021 | controlling the joints of a dexterous hand. The observation                      Adapting actions to the new configuration. The generation
+S05:Z022 | ot includes both the point cloud data and the proprioceptive                     process begins by selecting a target initial configurations′0 =
+S05:Z023 | feedback from the robot:ot = (opcd                                               {TO1′0   ,TO2′0   ,...,TOK′0   }. Under the4×4 homogeneous matrix
+S05:Z024 |                                         t   ,oarmt   ,ohandt     ), whereoarmt   representation, the spatial transformation between the target
+S05:Z025 | andohandt       reflect the current state of the end-effector, with the          and source configurations is computed as:
+S05:Z026 | same dimensionality as the corresponding actions.
+S05:Z027 |                                                                                         ∆s0 ={(TO10  )−1·TO1′0   ,...,(TOK0   )−1·TOK′0   }.
+S05:Z028 | B. Pre-processing the Source Demonstration                                          Recall that the actions consist of both robot arm and robot
+S05:Z029 | Segmented point cloud observations. To improve the prac-                         hand commands. The robot hand commands define the inter-
+S05:Z030 | tical applicability in real-world scenarios, we utilize a single-                active actions on the object, e.g., holding the flower with the
+S05:Z031 | view  RGBD  camera  for  point  cloud  acquisition.  The  raw                    gripper, or rolling up the dough with the dexterous hand. Since
+S05:Z032 | point cloud observations are first preprocessed by cropping                      they are invariant of the spatial transformation, ahandt       should
+S05:Z033 | the redundant points from the background and table surface.                      remain unchanged regardless of the object configuration:
+S05:Z034 | We assume the retained points are associated with either the                                          ˆahand
+S05:Z035 | manipulated object(s) or the robot’s end-effector. A clustering                                        t      =ahandt    ,   ∀ t,so,s′0.
+S05:Z036 | operation [14] is then applied to filter out the outlier points in                  In contrast, the robot arm commands should be spatially
+S05:Z037 | noisy real-world observations. Subsequently, the point cloud is                  equivariant to the object movements in order to adjust the
+S05:Z038 | downsampled to a fixed number of points (e.g., 512 or 1024)                      trajectory according to the altered configuration. Specifically,
+S05:Z039 | using farthest point sampling to facilitate policy learning [38].                for the motion and skill segments involving thek-th object, we
+S05:Z040 |    For the first frame of the trajectory, we employ Grounded                     adapt the robot arm commandsAEE[τmk ],AEE[τsk] following
+S05:Z041 | SAM [40] to obtain the segmentation masks for the manip-                         a TAMP-based procedure, illustrated by Fig.5.
+S05:Z042 | ulated objects from the RGB image. These masks are then
+S05:Z043 | applied to the pixel-aligned depth image and projected onto
+S05:Z044 | the 3D point cloud, as shown in Fig.4.
+S05:Z045 | Parsing the source trajectory. Following previous work [32,
+S05:Z046 | 18], we assume that the execution trajectory can be parsed
+S05:Z047 | into  a  sequence  of  object-centric  segments.  Noticing  that
+S05:Z048 | the  robot  must  initiallyapproachthe  object  in  free  space
+S05:Z049 | before engaging in on-object manipulation throughcontact,
+S05:Z050 | each object-centric segment can be further subdivided into two
+S05:Z051 | stages:motionandskill. For example, in the task illustrated
+S05:Z052 | in Fig.4, the trajectory is divided into four stages:1)                    move toFig. 5: Illustrations  for  action  generation. (Left) Actions in the
+S05:Z053 | the flower,2)        pick up the flower,3)        transfer the flower to the     motionstage are planned to connect the neighboring skill segments.
+S05:Z054 | vase, and4)            insert the flower into the vase.                          (Right) Actions in theskillstage undergo a uniform transformation.
+
+===== PDF S. 6 =====
+S06:Z001 | Fig. 6: Illustrations for synthetic visual observation generation. Objects in the to-do stage are segmented and transformed by the target
+S06:Z002 | object configurations. Objects in the doing stage are merged with the end-effector and transformed according to the proprioceptive states.
+S06:Z003 |    For the skill segments with dexterous on-object behaviors,                    It is noteworthy that we found directly replacing the current
+S06:Z004 | the spatial relations between end-effectors and objects must                     state  with  the  next  target  pose  action  (i.e., ˆoarmt    ←  ˆaarmt+1)
+S06:Z005 | remain relatively static. Thus, the entire skill segments are                    may impair performance, as the IK controllers may not always
+S06:Z006 | transformed following the corresponding objects:                                 achieve the exact target pose.
+S06:Z007 |               ˆAEE[τsk]= AEE[τsk]·(TOk0  )−1·TOk′0   .                           Synthesizing  point  cloud  observations.  To  synthesize  the
+S06:Z008 |    For the motion segments moving in free space, the goal is                     spatially augmented point clouds for the robot and objects, we
+S06:Z009 | to chain adjacent skill segments. Therefore, we plan the robot                   employ a simple segment-and-transform strategy. Apart from
+S06:Z010 | arm commands in the motion stage via motion planning:                            the target transformations, the only required information for
+S06:Z011 |                                                                                  synthesis is the segmentation masks for the K objects on the
+S06:Z012 |   ˆAEE[τmk ]= MotionPlan(ˆAEE[τsk−1][−1],  ˆAEE[τsk][0])    ,                    first frame of the source demonstration, obtained in Sec.IV-B.
+S06:Z013 | where the starting pose for motion planning is taken from                           For each object, we define 3 stages. In the to-do stage, the
+S06:Z014 | the last frame of the previous skill segment, and the ending                     object is static and unaffected by the robot, and its point cloud
+S06:Z015 | pose is from the first frame of the current skill segment. For                   is  transformed  according  to  the  initial  object  configuration
+S06:Z016 | simple uncluttered workspaces, linear interpolation suffices.                    (TOk0  )−1·TOk′0   . In the doing stage, the object is in contact
+S06:Z017 | For complex environments requiring obstacle avoidance, an                        with the robot, and its point cloud is merged with the end-
+S06:Z018 | off-the-shelf motion planning method [26] is employed.                           effector’s point cloud. In thedone stage, the object remains in
+S06:Z019 |                                                                                  its final state. These stages are easily identified by referencing
+S06:Z020 | Failure-free  action  execution.  To  ensure  the  validity  of                  the trajectory-level motion and skill segments.
+S06:Z021 | synthetic  demonstrations  without  on-robot  rollouts  to  filter                  For the robot’s end-effector, its point cloud undergoes the
+S06:Z022 | out failed trajectories, we require failure-free action execution.               same transformation as indicated by the proprioceptive states
+S06:Z023 | Unlike previous works [32,18] that rely on operational space                     (AEEt  )−1·ˆAEEt   .Giventheassumptionofacroppedworkspace,
+S06:Z024 | controllers  and  delta  end-effector  pose  control,  we  employ                thepointcloudsfortherobotandtheobjectsinthedoingstage
+S06:Z025 | inverse kinematics (IK) controllers [57] and target absolute                     can be separated by subtracting the object point clouds in the
+S06:Z026 | end-effector poses. Empirically, these adjustments are found                     to-do and done stages from the scene point cloud.
+S06:Z027 | to help minimize compounding control errors, contributing to                        A  concrete  example  of  this  process  is  shown  in  Fig.6.
+S06:Z028 | the successful execution of the generated actions.                               More  examples  of  the  synthetic  trajectories  in  real-world
+S06:Z029 | D. Fully Synthetic Observation Generation                                        experiments can be found in Fig.21in the appendix.
+S06:Z030 | Adapting proprioceptive states. The observations consist of                                    V.  EXPERIMENTS IN THE SIMULATOR
+S06:Z031 | point cloud data and proprioceptive states. Since the proprio-                   A. Effectiveness: One-Shot Imitation
+S06:Z032 | ceptive states share the same semantics with the actions, they
+S06:Z033 | should undergo the same transformation:                                             Before deploying DemoGen to the real world, we evaluate
+S06:Z034 |                   ˆohand                                                         its effectiveness in the simulator by training visuomotor poli-
+S06:Z035 |                     t      =ohandt    ,   ∀ t,so,s′0;                            cies on datasets generated by DemoGen from only one source
+S06:Z036 |                    ˆoarmt     =oarmt   ·(AEEt  )−1· ˆAEEt  .                     demonstration per task.
+
+===== PDF S. 7 =====
+S07:Z001 |              Fig. 7: Tasks for simulated evaluation on spatial generalization. Purple and sky-blue rectangles mark the workspaces for demonstration
+S07:Z002 |              generation and evaluation, respectively. The detailed sizes of these workspaces are listed in Tab.VIin the appendix.
+S07:Z003 |               TABLE I: Simulated evaluation of DemoGen for spatial generalization. We report the maximum/averaged success rates over 3 seeds.
+S07:Z004 |              Policy.  Both  in  the  simulator  and  real  world,  we  select
+S07:Z005 |              DP3  [59]  as  the  visuomotor  policy,  which  predicts  actions
+S07:Z006 |              by consuming point cloud and proprioception observations.
+S07:Z007 |              For a fair comparison, we fix the total training steps counted
+S07:Z008 |              by observation-action pairs for all evaluated settings, resulting
+S07:Z009 |              in an equal training cost regardless of the dataset size. The
+S07:Z010 |              training details are listed in AppendixA1.                                         Fig. 8: Illustration for the visual mismatch problem. As objects
+S07:Z011 |                                                                                                 move through 3D space, their appearance changes due to variations in
+S07:Z012 |              Tasks. We design 8 tasks adapted from the MetaWorld [54]                           perspective. Under the constraint of a single-view observation, syn-
+S07:Z013 |              benchmark, illustrated in Fig.7. To strengthen the significance                    thetic demonstrations consistently reflect a fixed side of the object’s
+S07:Z014 |              of  spatial  generalization,  we  modify  these  tasks  to  have                   appearanceseen inthe source demonstration.This discrepancycauses
+S07:Z015 |              enlarged object randomization ranges, as listed in AppendixF.                      a visual mismatch between the synthetic and real-captured data.
+S07:Z016 |              Generation and evaluation. We write scripted policies for
+S07:Z017 |              these tasks and prepare only 1 source demonstration per task
+S07:Z018 |              for  demonstration  generation.  We  also  produce 10  and 25
+S07:Z019 |              source demonstrations per task using the scripted policy as
+S07:Z020 |              a reference for human-collected datasets. Based on the one
+S07:Z021 |              source demonstration, we leverage DemoGen to generate 100
+S07:Z022 |              spatially augmented demonstrations for the tasks containing
+S07:Z023 |              the  spatial  randomization  of  one  object.  Since  the  tasks                   Fig. 9: Performance Saturation. We report the policy performance
+S07:Z024 |              concerning two objects have a more diverse range of object                         boost w.r.t. the increase of synthetic demonstrations over 3 seeds.
+S07:Z025 |              configurations, 200 demonstrations are generated.
+S07:Z026 |              Resultsanalysis.Theevaluationresultsforthesimulatedtasks                           tured in the real world, under the constraint of a single-view
+S07:Z027 |              are presented in Tab.I.   DemoGen significantly enhances the                       observation perspective. An illustration is provided in Fig.8.
+S07:Z028 |              policy performance compared with the source demonstration                          Performance saturation. A notable consequence of the visual
+S07:Z029 |              baseline. The policies trained on DemoGen-generated datasets                       mismatch problem is the phenomenon of performance satura-
+S07:Z030 |              also outperform those trained on 10 source demonstrations                          tion. An empirical analysis is conducted on the Pick-Cube
+S07:Z031 |              and  get  close  to 25  source  demonstrations.  This  indicates                   task. In Fig.9(a), we fix the spatial density of target object
+S07:Z032 |              DemoGen has the potential to maintain the policy performance                       configurations  in  the  synthetic  demonstrations  and  increase
+S07:Z033 |              with over 20× reduced human effort for data collection.                            their spatial coverage by adding more synthetic demonstra-
+S07:Z034 |                                                                                                 tions. The curve indicates that the performance improvement
+S07:Z035 |              B. Limitation: The Visual Mismatch Problem                                         plateaus once the spatial coverage exceeds a certain threshold.
+S07:Z036 |                                                                                                 This saturation occurs because the visual mismatch intensifies
+S07:Z037 |                 While the one-shot imitation experiment verifies the effec-                     as the distance between the source and synthetic object config-
+S07:Z038 |              tiveness of DemoGen, it also reveals its limitation: synthetic                     urations increases, making additional synthetic demonstrations
+S07:Z039 |              demonstrations generated from one source demonstration are                         ineffective.InFig.9(b),asimilarperformancesaturationeffect
+S07:Z040 |              not  as  effective  as  the  same  number  of  human-collected                     is observed when we increase the density while keeping the
+S07:Z041 |              demonstrations. We attribute the performance gap to the visual                     spatial coverage fixed. This indicates excessive demonstrations
+S07:Z042 |              mismatch between the synthetic point clouds and those cap-                         are unnecessary once they sufficiently cover the workspace.
+S07:Z043 |                Pick-Cube      Button-Small      Drawer-Close      Faucet-Open      Handle-Press       Box-Lid       Stack-Cube      Assembly        Averaged
+S07:Z044 | 1 Source          0/0                 4/4                 55/50               39/23              17/16            11/11            0/0               0/016/13
+S07:Z045 | DemoGen         76/73            92/84            100/100             95/92           100/100          100/95          79/77          86/83          91/88
+S07:Z046 | 10 Source        29/29         54    /52         100    /100       90      /89          100    /99       94    /89       44    /38       47    /45   70/68
+S07:Z047 | 25 Source        82/74         90    /84         100    /100     100      /100     100      /100  100      /100   95      /93       83    /79        94/91
+
+===== PDF S. 8 =====
+S08:Z001 |               Fig. 10: Protocol for evaluating spatial generalization. (a) Setups on the single-arm platform. (b) Illustration for the full-size evaluation
+S08:Z002 |               workspace. (c) Illustration for the generation strategy targeting the evaluated configurations along with small-range perturbations.
+S08:Z003 |               Fig. 11: Tasks for real-world evaluation on spatial generalization. Spatula-Egg and Dex-Rollup are one-stage tasks involving contact-rich
+S08:Z004 |               behaviors. Flower-Vase, Mug-Rack, Dex-Drill, and Dex-Coffee are two-stage tasks requiring precise manipulation.
+S08:Z005 |                         VI.  REAL-WORLD EXPERIMENTS: SPATIAL                                         TABLE II: A summary of real-world tasks for spatial generaliza-
+S08:Z006 |                                           GENERALIZATION                                             tion evaluation. ActD: action dimension. #Obj: number of manipu-
+S08:Z007 |                                                                                                      lated objects. #Eval: number of evaluated configurations. #GDemo:
+S08:Z008 |                  Weassessthespatialgeneralizationcapabilityofvisuomotor                              number of DemoGen-generated demonstrations.
+S08:Z009 |               policies  enhanced  by  DemoGen  across  8  real-world  tasks
+S08:Z010 |               deployed on 3 different platforms. 7 tasks are performed on
+S08:Z011 |               single-arm platforms with parallel grippers or dexterous hand
+S08:Z012 |               end-effectors. Additionally, one task is executed on a bimanual
+S08:Z013 |               humanoid. A task summary is provided in Tab.II.
+S08:Z014 |               A. Single-Arm Platforms
+S08:Z015 |               Tasks. On the Franka Panda single-arm platform, we design
+S08:Z016 |               3 tasks using the original Panda gripper and 4 tasks using an
+S08:Z017 |               Allegro dexterous hand as the end-effector. Themotionand
+S08:Z018 |               skilltrajectories of these tasks are visualized in Fig.11and the                       corresponds  to  the  maximum  reach  of  the  robot  arm.  We
+S08:Z019 |               task descriptions are provided in AppendixG. For all tasks,                            uniformly  sample  12  points  within  this  irregularly-shaped
+S08:Z020 |               a single Intel Realsense L515 camera is adopted to capture                             workspace as the coordinates for potential object configura-
+S08:Z021 |               point cloud observations, as depicted in Fig.10(a).                                    tions, with a 15cm spacing between neighboring coordinates,
+S08:Z022 |               Evaluation protocol. To evaluate spatial generalization, we                            as illustrated in Fig.10(b).
+S08:Z023 |               define a large planar evaluation workspace, the size of which                             To determine the actual evaluated configurations for each
+S08:Z024 | Task                        Platform        ActD      #Obj      #Eval      #GDemo
+S08:Z025 | Spatula-Egg          Gripper           6           1          10           270
+S08:Z026 | Flower-Vase          Gripper           7           2         4×4          432
+S08:Z027 | Mug-Rack             Gripper           7           2         4×4          432
+S08:Z028 | Dex-Cube           Dex. Hand       22          1          10           270
+S08:Z029 | Dex-Rollup        Dex. Hand       22          1          12           324
+S08:Z030 | Dex-Drill            Dex. Hand       22          2         3×3          243
+S08:Z031 | Dex-Coffee         Dex. Hand       22          2         3×3          243
+S08:Z032 | Fruit-Basket       Bimanual        14          2         4×6           72
+
+===== PDF S. 9 =====
+S09:Z001 |              TABLE III: Real-world evaluation of DemoGen for spatial generalization. For reliable evaluation, a total of 530 policy rollouts are
+S09:Z002 |              conducted on the 8 tasks. The success rate for each task is averaged on 5 repetitions for each evaluated configuration. The evaluated
+S09:Z003 |              configurations for each task are counted in Tab.II, and visualized in Fig.12.
+S09:Z004 |              Fig. 12: Spatial heatmaps for the real-world evaluation results. The success rate for each coordinate is calculated as the average across
+S09:Z005 |              all relevant trials. For example, each coordinate of the vase in the Flower-Vase task is in combination with 4 coordinates of the flower,
+S09:Z006 |              including the one appearing in the source demonstration. This results in a total of 20 trials, given 5 repetitions per combination.
+S09:Z007 |              task, we perform manual trials using kinematic teaching to                        The final generated configurations are shown in Fig.10(c).
+S09:Z008 |              confirm  the  feasibility  of  each  configuration.  For  example,                   In summary, the total number of generated demonstrations
+S09:Z009 |              in  the  Dex-Rollup  task,  the  dexterous  hand  can  reach  a                   is  calculated  as 3× (#Eval)× 9,  which  represents  the 3
+S09:Z010 |              piece  of  plasticine  placed  in  the  near-robot  corner  of  the               source demonstrations, multiplied by the number of evaluated
+S09:Z011 |              workspacewithaverticalwristangle.However,itcannotgrasp                            configurations, and further multiplied by the 9 perturbations.
+S09:Z012 |              a kettle in the same location using a horizontal wrist angle,                     The detailed counts for each task are listed in Tab.II.
+S09:Z013 |              as required in the Dex-Coffee task. We conduct trials on all                      Resultsanalysis.Theperformanceofvisuomotorpolicies[59]
+S09:Z014 |              feasible configurations and repeat the evaluations 5 times per                    trained on 3 source demonstrations and DemoGen-generated
+S09:Z015 |              configuration to ensure the reliability of the results.                           demonstrations are reported in Tab.III. Agents trained solely
+S09:Z016 |              Generation strategy. As in the simulated environments, we                         on source demonstrations exhibit severe overfitting behaviors,
+S09:Z017 |              collect only one source demonstration for each task. However,                     blindly replicating the demonstrated trajectory. In AppendixC,
+S09:Z018 |              real-worldpointcloudobservationsareoftennoisy,withissues                          we evaluate the policy performance trained on datasets con-
+S09:Z019 |              suchasflickeringholesinthepointcloudsorprojectivesmear-                           taining additional human-collected demonstrations. We found
+S09:Z020 |              ing around object outlines. Even after performing clustering                      the  spatial  effective  range  of  the  trained  policies  is  upper-
+S09:Z021 |              and downsampling during the point cloud preprocessing stage                       bounded by the sum of demonstrated configurations, aligned
+S09:Z022 |              (Sec.IV-B), the imitation learning policy can overfit to these                    with the findings in the empirical study in Sec.III.
+S09:Z023 |              irregularities if only one demonstration is provided.                                Similar to the effects of manually covering the workspace
+S09:Z024 |                 To mitigate this issue, we replay the source demonstration                     with  human-collected  demonstrations,  DemoGen-generated
+S09:Z025 |              twice and capture the corresponding point cloud observations.                     datasets enable the agents to display a more adaptive response
+S09:Z026 |              The altogether3 point cloud trajectories enrich the diversity in                  to diverse evaluated configurations, resulting in significantly
+S09:Z027 |              visual degradations and help alleviate the overfitting problem.                   higher  success  rates.  DemoGen  consistently  enhances  the
+S09:Z028 |              Since replaying twice is low-cost, we consider this approach                      performance across all the evaluated tasks. Although the per-
+S09:Z029 |              a beneficial tradeoff between efficiency and effectiveness.                       formance gains are less pronounced in the Dex-Drill and Dex-
+S09:Z030 |                 For each task, we set the generated object configurations to                   Coffee tasks, we found the policies trained on the generated
+S09:Z031 |              correspond to the evaluated configurations. However, human                        data still guide the dexterous hands to generally appropriate
+S09:Z032 |              operators cannot always place objects with perfect precision                      manipulation poses. The relatively lower performance is pri-
+S09:Z033 |              in  the  real  world,  yet  we  found  visuomotor  policies  are                  marily due to stringent precision requirements.
+S09:Z034 |              sensitive to even small deviations. Thus, we further augment                         To  further  investigate  the  generalization  capabilities  en-
+S09:Z035 |              the  generated  object  configurations  by  adding  small-range                   abled  by  DemoGen,  we  visualize  the  spatial  heatmaps  for
+S09:Z036 |              perturbations. Specifically, for each target configuration, we                    the evaluated configurations in Fig.12. The heatmaps reveal
+S09:Z037 |              generate 9 demonstrations with (±1.5cm)×(±1.5cm) pertur-                          high success rates on configurations close to the demonstrated
+S09:Z038 |              bation to mimic slight placement variations in the real world.                    ones, while the performance diminishes as the distance from
+S09:Z039 |                Spatula-Egg      Flower-Vase      Mug-Rack      Dex-Cube      Dex-Rollup      Dex-Drill      Dex-Coffee      Fruit-Basket          Averaged
+S09:Z040 | Source             10.0                  6.3                 6.3               10.0               8.3               11.1              11.1                25.011.0
+S09:Z041 | DemoGen            88.0             82.5             85.0           78.0            76.7            55.6           40.0             90.8            74.6
+
+===== PDF S. 10 =====
+S10:Z001 |              the  demonstrated  configuration  increases.  We  attribute  this
+S10:Z002 |              decline to the visual mismatch problem caused by single-view
+S10:Z003 |              observations, as previously discussed in Sec.V-B.
+S10:Z004 |                 A notable observation arises in the Dex-Rollup task, where
+S10:Z005 |              the policy trained on the DemoGen-generated dataset could
+S10:Z006 |              dynamically adjust the number of wrapping motions ranging
+S10:Z007 |              from 2  to 5  in  response  to  the  distinct  plasticity  of  every
+S10:Z008 |              hand-molded  piece  of  plasticine.  This  suggests  the  usage
+S10:Z009 |              of  DemoGen  is  not  in  conflict  with  the  resulting  agent’s
+S10:Z010 |              closed-loop re-planning capability. The intrinsic strength of
+S10:Z011 |              visuomotor policies is effectively preserved.
+S10:Z012 |              TABLE IV: The time cost for generating real-world demonstra-                     Fig. 13: Bimanual humanoid platform. (a) Egocentric observations
+S10:Z013 |              tions. The computational cost of DemoGen is measured on a single-                and bimanual manipulation. (b) The Fruit-Basket task involves the
+S10:Z014 |              process procedure. Since the synthetic generation process is highly              out-of-distribution orientations during evaluation.
+S10:Z015 |              parallelizable, it can be further accelerated using multi-processing.            the objects. Small-range perturbations are omitted in this task
+S10:Z016 |                                                                                               due to the relatively lower precision requirements.
+S10:Z017 |                                                                                                  A challenge in synthesizing point cloud observations with
+S10:Z018 |                                                                                               orientational offsets lies in the limited view provided by the
+S10:Z019 |                                                                                               single camera, which only captures the objects’ front-facing
+S10:Z020 |              Generation  cost.  We  compare  the  time  cost  of  real-world                  appearance.  To address  this  limitation,  the humanoid  robot
+S10:Z021 |              demonstration generation between MimicGen [32] and       De-                     adopts a stooping posture, enabling a near bird’s-eye view
+S10:Z022 |              moGen. We estimate MimicGen’s time cost by multiplying                           perspective. This adjustment allows for more effective point
+S10:Z023 |              the  duration  of  replaying  a  source  trajectory  by  the  num-               cloud editing to simulate full-directional yaw rotations.
+S10:Z024 |              ber  of  generated  demonstrations  and  adding  an  additional                  Results analysis. The success rates for both the source and
+S10:Z025 |              20 seconds per trajectory for human operators to reset the                       generated datasets are compared in Tab.III, and the spatial
+S10:Z026 |              object configurations. It is important to note that MimicGen                     heatmap is shown in Fig.12. The high success rate of          90.8%
+S10:Z027 |              involves continuous human intervention, while the time cost                      demonstrates the effectiveness of DemoGen on bimanual hu-
+S10:Z028 |              of DemoGen is purely computational, without the involvement                      manoid platforms and its ability to help policies generalize
+S10:Z029 |              of either the robot or human operators.                                          to out-of-distribution orientations. A more detailed analysis is
+S10:Z030 |              B. Bimanual Humanoid Platform                                                    presented in AppendixD.
+S10:Z031 |              Task.  In  addition  to  the  tasks  on  the  single-arm  platform,                    VII.  REAL-WORLD EXPERIMENTS: EXTENSIONS
+S10:Z032 |              we also designed a Fruit-Basket task on a Galaxea R1 robot,                      A. Disturbance Resistance
+S10:Z033 |              illustrated in Fig.13. The Fruit-Basket task is distinguished                       One critical advantage of visuomotor policies is their ability
+S10:Z034 |              from the previous tasks by three key features:                                   to perform closed-loop corrections under disturbances. We in-
+S10:Z035 |                 1) Bimanual manipulation. The robot simultaneously grasps                     vestigate whether a DemoGen-generated dataset, derived from
+S10:Z036 |              the basket with one arm and the banana with the other. The                       one human-collected and two replayed source demonstrations,
+S10:Z037 |              right arm then places the basket in the center of the workspace,                 can train visuomotor policies equipped with such capability.
+S10:Z038 |              while the left arm places the banana into the basket.                            Task.WeconsideraSauce-Spreadingtask(Fig.14(a))adapted
+S10:Z039 |                 2) Egocentric observation. The camera is mounted on the                       from DP [7]. Initially, the pizza crust contains a small amount
+S10:Z040 |              robot’s head [58]. While the robot’s base is immobilized in
+S10:Z041 |              this task, the first-person view opens opportunities for future
+S10:Z042 |              deployment in mobile manipulation scenarios.
+S10:Z043 |                 3)  Out-of-distribution  orientations.  Still  using  a  single
+S10:Z044 |              human-collected  demonstration,  the  banana  is  placed  with
+S10:Z045 |              orientational offsets (i.e., 45◦, 90◦, and 135◦) relative to the
+S10:Z046 |              original  demonstration  during  evaluation,  while  the  basket
+S10:Z047 |              position is randomized within a 10cm×5cm workspace.
+S10:Z048 |              Generation  strategy.  The  generation  procedure  follows  a
+S10:Z049 |              similar  approach  as  that  used  for  the  single-arm  platform.
+S10:Z050 |              Specifically,  the  human-collected  demonstration  is  replayed
+S10:Z051 |              twice, yielding 3 source demonstrations in total. DemoGen                        Fig.  14: DemoGen  for  disturbance  resistance.  (a-c)  Illustration,
+S10:Z052 |              generates synthetic demonstrations by independently adapting                     initial, and ending states of the Sauce-Spreading task. (d) Disturbance
+S10:Z053 |              the actions of both arms to the respective transformations of                    applied for quantitative evaluation. (e) Standard generation strategy.
+S10:Z054 |                 Single o-a Pair      A Trajectory      Whole Dataset
+S10:Z055 | MimicGen              2.1s                 2.1min                83.7h
+S10:Z056 | DemoGen           0.00015s              0.010s               22.0s
+
+===== PDF S. 11 =====
+S11:Z001 |              Fig. 15: Illustration for the ADR strategy.  Asynchronous transfor-
+S11:Z002 |              mations are applied to the disturbed object and the robot end-effector
+S11:Z003 |              to simulate the disturbance resistance process.
+S11:Z004 |              TABLE V: Real-world evaluation of DemoGen for disturbance                        Fig. 16:DemoGen for obstacle avoidance. (ab) Policy trained on the
+S11:Z005 |              resistance. Raw evaluation results and detailed definitions for the              source demonstration collides with the unseen obstacle. (cd) Policy
+S11:Z006 |              metrics are presented in AppendixE.                                              trained on the generated dataset could avoid diverse-shaped obstacles.
+S11:Z007 |                                                                                               demonstration data in enabling policy capabilities. The ability
+S11:Z008 |                                                                                               to resist disturbances does not emerge naturally but is acquired
+S11:Z009 |                                                                                               through targeted disturbance-involved demonstrations.
+S11:Z010 |                                                                                               B. Obstacle Avoidance
+S11:Z011 |              of sauce at its center (Fig.14(b)). The gripper maneuvers the                    Task. The ability to avoid obstacles is also imparted through
+S11:Z012 |              spoon in hand to approach the sauce center and periodically                      demonstrations  containing  obstacle-avoidance  behaviors.  To
+S11:Z013 |              spreadittocoverthepizzacrustinaspiralpattern(Fig.14(c)).                         investigate such capability, we introduce obstacles to a Teddy-
+S11:Z014 |                                                                                               Box task, where the dexterous hand grasps the teddy bear and
+S11:Z015 |              Evaluation  protocol.  During  the  sauce-spreading  process,                    transfers it into the box on the left (Fig.16(a)). Trained on
+S11:Z016 |              disturbances are introduced by shifting the pizza crust twice                    the source demonstrations without obstacles, the visuomotor
+S11:Z017 |              to the neighboring spots within the workspace. We consider 5                     policy fails to account for potential collisions, e.g., it might
+S11:Z018 |              neighboring spots (Fig.14(d)) and conduct           5 trials per spot,           knock over the coffee cup placed in the middle (Fig.16(b)).
+S11:Z019 |              resulting in 25 trials. For quantitative evaluation, we measure                  Generation strategy. To generate obstacle-involved demon-
+S11:Z020 |              thesaucecoverageonthepizzacrust.Additionally,wereporta                           strations, we augment the real-world point cloud observations
+S11:Z021 |              normalizedsaucecoveragescore,where0representsnoopera-                            by sampling points from simple geometries, such as boxes
+S11:Z022 |              tion taken, and100 corresponds to human expert performance.                      and  cones,  and  fusing  these  points  into  the  original  scene
+S11:Z023 |              Detailed calculations are provided in AppendixE.                                 (Fig.16(c)). Obstacle-avoiding trajectories are generated by
+S11:Z024 |              Generation strategies. A standard generation strategy selects                    a motion planning tool [26], ensuring collision-free actions.
+S11:Z025 |              15 intermediate spots (Fig.14(e)) observed during the distur-                    Evaluation and results analysis. For evaluation, we position
+S11:Z026 |              bance process as the initial object configurations for a standard                5 everyday objects with diverse shapes in the middle of the
+S11:Z027 |              DemoGen data generation procedure.                                               workspace (Fig.16(d)) and conduct           5 trials per object, result-
+S11:Z028 |                 To specifically enhance disturbance resistance, we propose                    ing in a total of 25 trials. The agent trained on the augmented
+S11:Z029 |              a specialized strategy named Augmentation for Disturbance                        dataset successfully bypasses obstacles in 22 out of 25 trials.
+S11:Z030 |              Resistance (ADR), illustrated in Fig.15. In ADR, the pizza                       Notably,  in  scenarios  without  obstacles,  the  agent  follows
+S11:Z031 |              crust is artificially displaced to nearby positions at certain time              the lower trajectory observed in the source demonstrations,
+S11:Z032 |              steps  to  simulate  the  disturbance.  The  robot’s  end-effector,              indicating its responsiveness to environmental variations.
+S11:Z033 |              holding the spoon, initially remains static and subsequently
+S11:Z034 |              interpolates  its  motion  to  re-approach  the  displaced  crust                                          VIII.  CONCLUSION
+S11:Z035 |              before continuing the periodic spreading motion.                                    In this work, we introduced DemoGen, a fully synthetic
+S11:Z036 |              Results analysis. Tab.Vpresents the sauce coverage and nor-                      data generation system designed to facilitate visuomotor pol-
+S11:Z037 |              malized scores for both the standard DemoGen and the ADR-                        icy  learning  by  mitigating  the  need  for  large  volumes  of
+S11:Z038 |              enhanced DemoGen strategies. The ADR strategy significantly                      human-collecteddemonstrations.ThroughTAMP-basedaction
+S11:Z039 |              outperforms the standard DemoGen, achieving performance                          adaption and 3D point cloud manipulation, DemoGen enables
+S11:Z040 |              comparable to human experts. In the video, we showcase the                       the  generation  of  spatially  augmented  demonstrations  with
+S11:Z041 |              ADR-enhanced policy is still robust under up to 5 successive                     minimal  computational  cost,  significantly  improving  spatial
+S11:Z042 |              disturbances. These findings underscore the critical role of the                 generalization and policy performance across a wide range of
+S11:Z043 |                               Sauce Coverage      Normalized Score
+S11:Z044 | Regular DemoGen                      34.2                         40.4
+S11:Z045 | DemoGen w/ ADR                      61.2                    92.3
+S11:Z046 | Initial State                        13.2                          0
+S11:Z047 | Human Expert                         65.2                        100
+
+===== PDF S. 12 =====
+S12:Z001 | real-world tasks and platforms. Furthermore, we extend De-                     [7]Cheng Chi, Siyuan Feng, Yilun Du, Zhenjia Xu, Eric
+S12:Z002 | moGen to generate demonstrations incorporating disturbance                          Cousineau, Benjamin Burchfiel, and Shuran Song.  Dif-
+S12:Z003 | resistance  and  obstacle  avoidance  behaviors,  endowing  the                     fusion  policy:  Visuomotor  policy  learning  via  action
+S12:Z004 | trained policies with the corresponding capabilities.                               diffusion. RSS, 2023.
+S12:Z005 | Limitations.Althoughwehavedemonstratedtheeffectiveness                         [8]Cheng  Chi,  Zhenjia  Xu,  Chuer  Pan,  Eric  Cousineau,
+S12:Z006 | of DemoGen, it has several limitations. First, DemoGen relies                       Benjamin  Burchfiel,  Siyuan  Feng,  Russ  Tedrake,  and
+S12:Z007 | on the availability of segmented point clouds, which limits its                     Shuran Song.  Universal manipulation interface: In-the-
+S12:Z008 | applicability in highly cluttered or unstructured environments.                     wild robot teaching without in-the-wild robots.   arXiv
+S12:Z009 | Second, DemoGen is not suitable for tasks where spatial gen-                        preprint arXiv:2402.10329, 2024.
+S12:Z010 | eralization is not required, such as in-hand reorientation [3] or              [9]Cheng  Chi,  Zhenjia  Xu,  Chuer  Pan,  Eric  Cousineau,
+S12:Z011 | push-T [15,7] with a fixed target pose. Third, the performance                      Benjamin  Burchfiel,  Siyuan  Feng,  Russ  Tedrake,  and
+S12:Z012 | of DemoGen is affected by the visual mismatch problem, as                           Shuran Song.  Universal manipulation interface: In-the-
+S12:Z013 | previously discussed in Sec.V-B.                                                    wild robot teaching without in-the-wild robots.   arXiv
+S12:Z014 |                                                                                     preprint arXiv:2402.10329, 2024.
+S12:Z015 | Future works. Future works could explore mitigating the im-                   [10]Murtaza Dalal, Ajay Mandlekar, Caelan Reed Garrett,
+S12:Z016 | pact of visual mismatch, potentially by leveraging techniques                       Ankur  Handa,  Ruslan  Salakhutdinov,  and  Dieter  Fox.
+S12:Z017 | such as contrastive learning or 3D generative models. Another                       Imitating  task  and  motion  planning  with  visuomotor
+S12:Z018 | avenue for future research is to use additional human-collected                     transformers.  In Conference on Robot Learning, pages
+S12:Z019 | demonstrations as source data, aiming to identify the optimal                       2565–2593. PMLR, 2023.
+S12:Z020 | balance between policy performance and the overall cost of                    [11]Norman Di Palo and Edward Johns. Learning multi-stage
+S12:Z021 | data collection.                                                                    tasks with one demonstration via self-replay. In Confer-
+S12:Z022 |                        ACKNOWLEDGEMENT                                              enceonRobotLearning,pages1180–1189.PMLR,2022.
+S12:Z023 |                                                                               [12]Norman Di Palo and Edward Johns.   Dinobot: Robot
+S12:Z024 |   We would like to give special thanks to Galaxea Inc. for                          manipulation  via  retrieval  and  alignment  with  vision
+S12:Z025 | providing the R1 robot and Jianning Cui, Ke Dong, Haoyin                            foundation  models.   arXiv  preprint  arXiv:2402.13181,
+S12:Z026 | Fan, and Yixiu Li for their technical support. We also thank                        2024.
+S12:Z027 | Gu Zhang, Han Zhang, and Songbo Hu for hardware setup and                     [13]Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov,
+S12:Z028 | data collection, Yifeng Zhu and Tianming Wei for discussing                         Dirk Weissenborn, Xiaohua Zhai, Thomas Unterthiner,
+S12:Z029 | the controllers in the simulator, and Widyadewi Soedarmadji                         Mostafa Dehghani, Matthias Minderer, Georg Heigold,
+S12:Z030 | for the presentation advice. Tsinghua University Dushi Pro-                         Sylvain Gelly, Jakob Uszkoreit, and Neil Houlsby.  An
+S12:Z031 | gram supports this project.                                                         image  is  worth  16x16  words:  Transformers  for  im-
+S12:Z032 |                              REFERENCES                                             age  recognition  at  scale.      In  International  Confer-
+S12:Z033 |                                                                                     ence on Learning Representations, 2021.   URLhttps:
+S12:Z034 |  [1]Kaylee Burns, Zach Witzel, Jubayer Ibn Hamid, Tianhe                            //openreview.net/forum?id=YicbFdNTTy.
+S12:Z035 |       Yu,  Chelsea  Finn,  and  Karol  Hausman.   What  makes                 [14]Martin Ester, Hans-Peter Kriegel, J      ¨org Sander, Xiaowei
+S12:Z036 |       pre-trained visual representations successful for robust                      Xu,  et  al.   A  density-based  algorithm  for  discovering
+S12:Z037 |       manipulation? arXiv preprint arXiv:2312.12444, 2023.                          clusters in large spatial databases with noise.   In kdd,
+S12:Z038 |  [2]Lawrence Yunliang Chen, Kush Hari, Karthik Dharmara-                            volume 96, pages 226–231, 1996.
+S12:Z039 |       jan,  Chenfeng  Xu,  Quan  Vuong,  and  Ken  Goldberg.                  [15]Pete  Florence,  Corey  Lynch,  Andy  Zeng,  Oscar  A
+S12:Z040 |       Mirage:Cross-embodimentzero-shotpolicytransferwith                            Ramirez, Ayzaan Wahid, Laura Downs, Adrian Wong,
+S12:Z041 |       cross-painting. arXiv preprint arXiv:2402.19249, 2024.                        Johnny  Lee,  Igor  Mordatch,  and  Jonathan  Tompson.
+S12:Z042 |  [3]Tao Chen, Jie Xu, and Pulkit Agrawal.   A system for                            Implicit behavioral cloning. In CoRL, 2022.
+S12:Z043 |       general in-hand object re-orientation. In CoRL, 2022.                   [16]Zipeng Fu, Tony Z. Zhao, and Chelsea Finn.   Mobile
+S12:Z044 |  [4]Zoey  Chen,  Sho  Kiami,  Abhishek  Gupta,  and  Vikash                         aloha: Learning bimanual mobile manipulation with low-
+S12:Z045 |       Kumar.   Genaug: Retargeting behaviors to unseen sit-                         cost whole-body teleoperation. In arXiv, 2024.
+S12:Z046 |       uations  via  generative  augmentation.     arXiv  preprint             [17]Chongkai Gao, Zhengrong Xue, Shuying Deng, Tianhai
+S12:Z047 |       arXiv:2302.06671, 2023.                                                       Liang,  Siqi  Yang,  Lin  Shao,  and  Huazhe  Xu.    Rie-
+S12:Z048 |  [5]Shuo Cheng, Caelan Reed Garrett, Ajay Mandlekar, and                            mann: Near real-time se (3)-equivariant robot manipu-
+S12:Z049 |       Danfei Xu. Nod-tamp: Multi-step manipulation planning                         lation without point cloud segmentation.  arXiv preprint
+S12:Z050 |       with neural object descriptors. In CoRL 2023 Workshop                         arXiv:2403.19460, 2024.
+S12:Z051 |       on Learning Effective Abstractions for Planning (LEAP),                 [18]Caelan Garrett, Ajay Mandlekar, Bowen Wen, and Dieter
+S12:Z052 |       2023.                                                                         Fox.  Skillmimicgen: Automated demonstration genera-
+S12:Z053 |  [6]Xuxin  Cheng,  Jialong  Li,  Shiqi  Yang,  Ge  Yang,  and                       tion for efficient skill learning and deployment.  arXiv
+S12:Z054 |       Xiaolong  Wang.    Open-television:  Teleoperation  with                      preprint arXiv:2410.18907, 2024.
+S12:Z055 |       immersive   active   visual   feedback.       arXiv   preprint          [19]Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian
+S12:Z056 |       arXiv:2407.01512, 2024.                                                       Sun.  Deep residual learning for image recognition.  In
+
+===== PDF S. 13 =====
+S13:Z001 |       Proceedings of the IEEE conference on computer vision                        and Dieter Fox.   Mimicgen: A data generation system
+S13:Z002 |       and pattern recognition, pages 770–778, 2016.                                for scalable robot learning using human demonstrations.
+S13:Z003 | [20]RyanHoque,AjayMandlekar,CaelanGarrett,KenGold-                                 arXiv preprint arXiv:2310.17596, 2023.
+S13:Z004 |       berg, and Dieter Fox.   Intervengen: Interventional data               [33]Suraj Nair, Aravind Rajeswaran, Vikash Kumar, Chelsea
+S13:Z005 |       generation for robust and data-efficient robot imitation                     Finn,  and  Abhinav  Gupta.    R3m:  A  universal  visual
+S13:Z006 |       learning. arXiv preprint arXiv:2405.01472, 2024.                             representation for robot manipulation. In Conference on
+S13:Z007 | [21]Pu Hua, Minghuan Liu, Annabella Macaluso, Yunfeng                              Robot Learning, pages 892–909. PMLR, 2023.
+S13:Z008 |       Lin, Weinan Zhang, Huazhe Xu, and Lirui Wang. Gen-                     [34]Maxime  Oquab,  Timoth      ´ee  Darcet,  Th´eo  Moutakanni,
+S13:Z009 |       sim2:Scalingrobotdatagenerationwithmulti-modaland                            Huy Vo, Marc Szafraniec, Vasil Khalidov, Pierre Fer-
+S13:Z010 |       reasoning llms. arXiv preprint arXiv:2410.03645, 2024.                       nandez, Daniel Haziza, Francisco Massa, Alaaeldin El-
+S13:Z011 | [22]ZhenyuJiang,YuqiXie,KevinLin,ZhenjiaXu,Weikang                                 Nouby, et al.   Dinov2: Learning robust visual features
+S13:Z012 |       Wan,  Ajay  Mandlekar,  Linxi  Fan,  and  Yuke  Zhu.                         without supervision.   arXiv preprint arXiv:2304.07193,
+S13:Z013 |       Dexmimicgen: Automated data generation for bimanual                          2023.
+S13:Z014 |       dexterous  manipulation  via  imitation  learning.    arXiv            [35]Abby O’Neill, Abdul Rehman, Abhiram Maddukuri, Ab-
+S13:Z015 |       preprint arXiv:2410.24185, 2024.                                             hishek Gupta, Abhishek Padalkar, Abraham Lee, Acorn
+S13:Z016 | [23]Edward Johns.  Coarse-to-fine imitation learning: Robot                        Pooley,  Agrim  Gupta,  Ajay  Mandlekar,  Ajinkya  Jain,
+S13:Z017 |       manipulation from a single demonstration. In 2021 IEEE                       et  al.   Open  x-embodiment:  Robotic  learning  datasets
+S13:Z018 |       international  conference  on  robotics  and  automation                     and rt-x models: Open x-embodiment collaboration 0.
+S13:Z019 |       (ICRA), pages 4613–4619. IEEE, 2021.                                         In 2024 IEEE International Conference on Robotics and
+S13:Z020 | [24]Tsung-Wei   Ke,   Nikolaos   Gkanatsios,   and   Katerina                      Automation (ICRA), pages 6892–6903. IEEE, 2024.
+S13:Z021 |       Fragkiadaki.  3d diffuser actor: Policy diffusion with 3d              [36]Xue   Bin   Peng,   Marcin   Andrychowicz,   Wojciech
+S13:Z022 |       scene representations. arXiv preprint arXiv:2402.10885,                      Zaremba,  and  Pieter  Abbeel.    Sim-to-real  transfer  of
+S13:Z023 |       2024.                                                                        robotic control with dynamics randomization.  In 2018
+S13:Z024 | [25]Alexander  Khazatsky,  Karl  Pertsch,  Suraj  Nair,  Ash-                      IEEE international conference on robotics and automa-
+S13:Z025 |       win   Balakrishna,   Sudeep   Dasari,   Siddharth   Karam-                   tion (ICRA), pages 3803–3810. IEEE, 2018.
+S13:Z026 |       cheti,   Soroush   Nasiriany,   Mohan   Kumar   Srirama,               [37]Aaditya Prasad, Kevin Lin, Jimmy Wu, Linqi Zhou, and
+S13:Z027 |       Lawrence Yunliang Chen, Kirsty Ellis, et al.  Droid: A                       Jeannette Bohg.  Consistency policy: Accelerated visuo-
+S13:Z028 |       large-scale in-the-wild robot manipulation dataset. arXiv                    motor policies via consistency distillation.  In Robotics:
+S13:Z029 |       preprint arXiv:2403.12945, 2024.                                             Science and Systems, 2024.
+S13:Z030 | [26]James J Kuffner and Steven M LaValle.   Rrt-connect:                     [38]Charles  R  Qi,  Hao  Su,  Kaichun  Mo,  and  Leonidas  J
+S13:Z031 |       An efficient approach to single-query path planning.  In                     Guibas.   Pointnet: Deep learning on point sets for 3d
+S13:Z032 |       Proceedings 2000 ICRA. Millennium Conference. IEEE                           classification and segmentation. In CVPR, 2017.
+S13:Z033 |       International Conference on Robotics and Automation.                   [39]Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya
+S13:Z034 |       Symposia Proceedings (Cat. No. 00CH37065), volume 2,                         Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry,
+S13:Z035 |       pages 995–1001. IEEE, 2000.                                                  Amanda  Askell,  Pamela  Mishkin,  Jack  Clark,  et  al.
+S13:Z036 | [27]Sergey Levine, Chelsea Finn, Trevor Darrell, and Pieter                        Learning  transferable  visual  models  from  natural  lan-
+S13:Z037 |       Abbeel. End-to-end training of deep visuomotor policies.                     guage supervision.  In International conference on ma-
+S13:Z038 |       Journal  of  Machine  Learning  Research,  17(39):1–40,                      chine learning, pages 8748–8763. PMLR, 2021.
+S13:Z039 |       2016.                                                                  [40]Tianhe Ren, Shilong Liu, Ailing Zeng, Jing Lin, Kun-
+S13:Z040 | [28]Jinhan Li, Yifeng Zhu, Yuqi Xie, Zhenyu Jiang, Mingyo                          chang Li, He Cao, Jiayu Chen, Xinyu Huang, Yukang
+S13:Z041 |       Seo, Georgios Pavlakos, and Yuke Zhu. Okami: Teaching                        Chen, Feng Yan, et al. Grounded sam: Assembling open-
+S13:Z042 |       humanoidrobotsmanipulationskillsthroughsinglevideo                           world models for diverse visual tasks.   arXiv preprint
+S13:Z043 |       imitation. In 8th Annual Conference on Robot Learning,                       arXiv:2401.14159, 2024.
+S13:Z044 |       2024.                                                                  [41]Vaibhav  Saxena,  Matthew  Bronars,  Nadun  Ranawaka
+S13:Z045 | [29]Fanqi Lin, Yingdong Hu, Pingyue Sheng, Chuan Wen,                              Arachchige, Kuancheng Wang, Woo Chul Shin, Soroush
+S13:Z046 |       Jiacheng You, and Yang Gao.  Data scaling laws in im-                        Nasiriany,AjayMandlekar,andDanfeiXu. Whatmatters
+S13:Z047 |       itation learning for robotic manipulation. arXiv preprint                    in learning from large-scale datasets for robot manipu-
+S13:Z048 |       arXiv:2410.18647, 2024.                                                      lation.   In CoRL 2024 Workshop on Mastering Robot
+S13:Z049 | [30]I Loshchilov.   Decoupled weight decay regularization.                         Manipulation in a World of Abundant Data, 2024. URL
+S13:Z050 |       arXiv preprint arXiv:1711.05101, 2017.                                       https://openreview.net/forum?id=oY0PQdLA6c.
+S13:Z051 | [31]Ajay Mandlekar, Caelan Reed Garrett, Danfei Xu, and                      [42]Anthony   Simeonov,   Yilun   Du,   Andrea   Tagliasac-
+S13:Z052 |       Dieter Fox. Human-in-the-loop task and motion planning                       chi,  Joshua  B  Tenenbaum,  Alberto  Rodriguez,  Pulkit
+S13:Z053 |       for imitation learning. In Conference on Robot Learning,                     Agrawal, and Vincent Sitzmann. Neural descriptor fields:
+S13:Z054 |       pages 3030–3060. PMLR, 2023.                                                 Se (3)-equivariant object representations for manipula-
+S13:Z055 | [32]Ajay Mandlekar, Soroush Nasiriany, Bowen Wen, Ire-                             tion. In 2022 International Conference on Robotics and
+S13:Z056 |       tiayo  Akinola,  Yashraj  Narang,  Linxi  Fan,  Yuke  Zhu,                   Automation (ICRA), pages 6394–6400. IEEE, 2022.
+
+===== PDF S. 14 =====
+S14:Z001 | [43]HengkaiTan,XuezhouXu,ChengyangYing,XinyiMao,                                    Karol Hausman, Chelsea Finn, and Sergey Levine. Meta-
+S14:Z002 |       Songming  Liu,  Xingxing  Zhang,  Hang  Su,  and  Jun                         world: A benchmark and evaluation for multi-task and
+S14:Z003 |       Zhu. Manibox:Enhancingspatialgraspinggeneralization                           meta reinforcement learning. In CoRL, 2020.
+S14:Z004 |       via scalable simulation data generation.  arXiv preprint               [55]Tianhe Yu, Ted Xiao, Austin Stone, Jonathan Tompson,
+S14:Z005 |       arXiv:2411.01850, 2024.                                                       Anthony Brohan, Su Wang, Jaspiar Singh, Clayton Tan,
+S14:Z006 | [44]Marcel Torne, Anthony Simeonov, Zechu Li, April Chan,                           Jodilyn Peralta, Brian Ichter, et al. Scaling robot learning
+S14:Z007 |       Tao Chen, Abhishek Gupta, and Pulkit Agrawal.  Rec-                           with semantically imagined experience.  arXiv preprint
+S14:Z008 |       onciling  reality  through  simulation:  A  real-to-sim-to-                   arXiv:2302.11550, 2023.
+S14:Z009 |       real approach for robust manipulation.   arXiv preprint                [56]Zhecheng    Yuan,    Tianming    Wei,    Shuiqi    Cheng,
+S14:Z010 |       arXiv:2403.03949, 2024.                                                       Gu Zhang, Yuanpei Chen, and Huazhe Xu.   Learning
+S14:Z011 | [45]Eugene   Valassakis,   Georgios   Papagiannis,   Norman                         to    manipulate    anywhere:    A    visual    generalizable
+S14:Z012 |       Di Palo, and Edward Johns.  Demonstrate once, imitate                         framework for reinforcement learning.   arXiv preprint
+S14:Z013 |       immediately (dome): Learning visual servoing for one-                         arXiv:2407.15815, 2024.
+S14:Z014 |       shot imitation learning. In 2022 IEEE/RSJ International                [57]Kevin Zakka. Mink: Python inverse kinematics based on
+S14:Z015 |       Conference on Intelligent Robots and Systems (IROS),                          MuJoCo, July 2024. URLhttps://github.com/kevinzakka/
+S14:Z016 |       pages 8614–8621. IEEE, 2022.                                                  mink.
+S14:Z017 | [46]Vitalis Vosylius and Edward Johns.  Instant policy: In-                  [58]Yanjie Ze, Zixuan Chen, Wenhao Wang, Tianyi Chen,
+S14:Z018 |       context  imitation  learning  via  graph  diffusion.    arXiv                 Xialin He, Ying Yuan, Xue Bin Peng, and Jiajun Wu.
+S14:Z019 |       preprint arXiv:2411.12633, 2024.                                              Generalizable humanoid manipulation with improved 3d
+S14:Z020 | [47]Dian  Wang,  Stephen  Hart,  David  Surovik,  Tarik  Ke-                        diffusion  policies.     arXiv  preprint  arXiv:2410.10803,
+S14:Z021 |       lestemur,  Haojie  Huang,  Haibo  Zhao,  Mark  Yeatman,                       2024.
+S14:Z022 |       Jiuguang Wang, Robin Walters, and Robert Platt. Equiv-                 [59]Yanjie Ze, Gu Zhang, Kangning Zhang, Chenyuan Hu,
+S14:Z023 |       ariant diffusion policy. arXiv preprint arXiv:2407.01812,                     Muhan Wang, and Huazhe Xu. 3d diffusion policy. arXiv
+S14:Z024 |       2024.                                                                         preprint arXiv:2403.03954, 2024.
+S14:Z025 | [48]Lirui Wang, Yiyang Ling, Zhecheng Yuan, Mohit Shrid-                     [60]Andy Zeng, Pete Florence, Jonathan Tompson, Stefan
+S14:Z026 |       har, Chen Bao, Yuzhe Qin, Bailin Wang, Huazhe Xu,                             Welker,  Jonathan  Chien,  Maria  Attarian,  Travis  Arm-
+S14:Z027 |       and Xiaolong Wang.  Gensim: Generating robotic sim-                           strong, Ivan Krasin, Dan Duong, Vikas Sindhwani, et al.
+S14:Z028 |       ulation tasks via large language models.  arXiv preprint                      Transporter networks: Rearranging the visual world for
+S14:Z029 |       arXiv:2310.01361, 2023.                                                       robotic manipulation. In Conference on Robot Learning,
+S14:Z030 | [49]Yufei Wang, Zhou Xian, Feng Chen, Tsun-Hsuan Wang,                              pages 726–747. PMLR, 2021.
+S14:Z031 |       Yian  Wang,  Katerina  Fragkiadaki,  Zackory  Erickson,                [61]Tony Z Zhao, Vikash Kumar, Sergey Levine, and Chelsea
+S14:Z032 |       David Held, and Chuang Gan.  Robogen: Towards un-                             Finn. Learning fine-grained bimanual manipulation with
+S14:Z033 |       leashing infinite data for automated robot learning via                       low-cost  hardware.    arXiv  preprint  arXiv:2304.13705,
+S14:Z034 |       generative simulation. arXiv preprint arXiv:2311.01455,                       2023.
+S14:Z035 |       2023.                                                                  [62]Tony Z Zhao, Jonathan Tompson, Danny Driess, Pete
+S14:Z036 | [50]Zhendong Wang, Zhaoshuo Li, Ajay Mandlekar, Zhenjia                             Florence,   Kamyar   Ghasemipour,   Chelsea   Finn,   and
+S14:Z037 |       Xu, Jiaojiao Fan, Yashraj Narang, Linxi Fan, Yuke Zhu,                        Ayzaan Wahid.   Aloha unleashed: A simple recipe for
+S14:Z038 |       Yogesh Balaji, Mingyuan Zhou, et al. One-step diffusion                       robot dexterity. arXiv preprint arXiv:2410.13126, 2024.
+S14:Z039 |       policy: Fast visuomotor policies via diffusion distillation.           [63]Haoyi Zhu, Yating Wang, Di Huang, Weicai Ye, Wanli
+S14:Z040 |       arXiv preprint arXiv:2410.21257, 2024.                                        Ouyang, and Tong He.  Point cloud matters: Rethinking
+S14:Z041 | [51]Bowen Wen, Wenzhao Lian, Kostas Bekris, and Stefan                              the  impact  of  different  observation  spaces  on  robot
+S14:Z042 |       Schaal.     You  only  demonstrate  once:  Category-level                     learning. arXiv preprint arXiv:2402.02500, 2024.
+S14:Z043 |       manipulationfromsinglevisualdemonstration. Robotics:
+S14:Z044 |       Science and Systems 2022, 2022.
+S14:Z045 | [52]Yinghao Xu, Sida Peng, Ceyuan Yang, Yujun Shen, and
+S14:Z046 |       Bolei  Zhou.    3d-aware  image  synthesis  via  learning
+S14:Z047 |       structural and textural representations.   In Proceedings
+S14:Z048 |       of  the  IEEE/CVF  conference  on  computer  vision  and
+S14:Z049 |       pattern recognition, pages 18430–18439, 2022.
+S14:Z050 | [53]Zhengrong Xue, Zhecheng Yuan, Jiashun Wang, Xueqian
+S14:Z051 |       Wang,  Yang  Gao,  and  Huazhe  Xu.   Useek:  Unsuper-
+S14:Z052 |       vised se (3)-equivariant 3d keypoints for generalizable
+S14:Z053 |       manipulation.   In 2023 IEEE International Conference
+S14:Z054 |       on Robotics and Automation (ICRA), pages 1715–1722.
+S14:Z055 |       IEEE, 2023.
+S14:Z056 | [54]Tianhe Yu, Deirdre Quillen, Zhanpeng He, Ryan Julian,
+
+===== PDF S. 15 =====
+S15:Z001 |                                APPENDIX                                        more demonstrations near the center of the workspace do not
+S15:Z002 | A. Policy Training and Implementation Details                                  significantly extend the effective range to more distant areas.
+S15:Z003 |    We select 3D Diffusion Policy (DP3) [59] as the visuomotor                     Onthewhole,thespatialgeneralizationrangeofvisuomotor
+S15:Z004 | policy  used  for  real-world  and  simulated  experiments.  We                policies  can  be  roughly  approximated  by  the  union  of  the
+S15:Z005 | compare its performance against 2D Diffusion Policy (DP) [7]                   adjacent areas around the object configurations in the provided
+S15:Z006 | in the empirical study in Sec.III. We list the training and                    demonstrations. The extent of the adjacent regions is influ-
+S15:Z007 | implementation details as follows.                                             enced by the fault tolerance level required for manipulation.
+S15:Z008 |    1) DetailsforPolicyTraining: Forafaircomparison,wefix                          2) More Analysis on the Benchmarking Results in Fig.3:
+S15:Z009 | the total training steps counted by observation-action pairs to                On visuomotor policies, we find DP3 exhibits the highest spa-
+S15:Z010 | be 2M for all evaluated settings, resulting in an equal training               tial generalization capacity compared to all 2D-based counter-
+S15:Z011 | cost regardless of the dataset size. To stabilize the training                 parts. Additionally, models utilizing CLIP and DINOv2 repre-
+S15:Z012 | process, we use AdamW [30] optimizer and set the learning                      sentations achieve competitive results, significantly surpassing
+S15:Z013 | rate to be 1e−4 with a 500 step warmup.                                        the train-from-scratch baseline. This highlights the value of
+S15:Z014 |    In real-world experiments, we use the DBSCAN [14] clus-                     pre-training on open-world vision tasks in enhancing spatial
+S15:Z015 | tering algorithm to discard the outlier points and downsample                  reasoning capabilities for robotic manipulation. Notably, while
+S15:Z016 | the number of points in the point cloud observations to 1024.                  prior studies [9,29,1,63] have emphasized the benefits of
+S15:Z017 | In the simulator, we skip the clustering stage and downsample                  3D  and  pre-trained  encoders  for  visual  generalization,  our
+S15:Z018 | the point clouds to 512 points.                                                findingsextendtheseinsightstospatialgeneralization,offering
+S15:Z019 |    We follow the notation in the Diffusion Policy [7] paper,                   a complementary perspective on encoder selection strategies.
+S15:Z020 | whereTo denotestheobservationhorizon,Tp astheactionpre-                           On object randomization range, our experiments withhalf
+S15:Z021 | diction horizon, and Ta denotes the action execution horizon.                  and fixed settings demonstrate that high precision require-
+S15:Z022 | In real-world experiments, we set To = 2, Tp = 8, Ta = 5.                      ments  alone  do  not  necessarily  produce  challenging  tasks
+S15:Z023 | We run the visuomotor policy at 10Hz. Since Ta indicates the                   unless the object positions are fully randomized. This suggests
+S15:Z024 | steps of actions executed on the robot without re-planning, our                that  precision  requirements  and  spatial  randomization  both
+S15:Z025 | horizon settings result in a closed-loop re-planning latency                   contribute to the task difficulty.
+S15:Z026 | of 0.5 seconds, responsive enough for conducting dexterous                        On the number of demonstrations, while task performance
+S15:Z027 | retrying behaviors and disturbance resistance. In the simulator,               generally improves with an increased number of demonstra-
+S15:Z028 | since the tasks are simpler, we set To = 2, Tp = 4, Ta = 3.                    tions, the effect diminishes beyond a certain threshold. For
+S15:Z029 |                                                                                instance,  in  the full  workspace  setting  with  DP3  as  the
+S15:Z030 |    2) Pre-Trained Encoders for Diffusion Policies: To replace                  policy, a50 demonstrations increase from100 to150 enhances
+S15:Z031 | the  train-from-scratch  ResNet18  [19]  visual  encoder  in  the              theperformanceby37%,buttheincreasefrom150to200only
+S15:Z032 | original  Diffusion  Policy  architecture,  we  consider  3  rep-              improves the performance by 6%. This finding also highlights
+S15:Z033 | resentative  pre-trained  encoders:  R3M  [33],  DINOv2  [34],                 the inherent difficulty in achieving near-perfect success rates
+S15:Z034 | and CLIP [39]. R3M utilizes a ResNet [19] architecture and                     in robot learning systems.
+S15:Z035 | is pre-trained on robotics-specific tasks. DINOv2 and CLIP                        3) The  Precise-Peg-Insertion  Task:   We  construct  a  T-
+S15:Z036 | employ ViT [13] architectures and are pre-trained on open-                     shaped peg, whose upper end has a cross-section of 6cm×
+S15:Z037 | world vision tasks. These encoders are widely used in previous                 6cm, and the bottom end has a cross-section of 3cm×3cm.
+S15:Z038 | works [8,29] to enhance policy performance.                                    Theholeinthegreensockethasacross-sectionof4cm×4cm.
+S15:Z039 | B. Spatial Generalization Empirical Study Details                              This shape enforces a strict fault tolerance of1cm during both
+S15:Z040 |    In Sec.III, we conducted an empirical study on the spatial                  the picking and insertion stages, asking for millimeter-level
+S15:Z041 | generalization capability of visuomotor policies. In this sec-                 precision. Both objects are randomized in a 40cm× 20cm
+S15:Z042 | tion, we provide more detailed analysis of the study’s results.                workspace in the full setting. The randomization range is
+S15:Z043 |                                                                                halved into 20cm×10cm in the half setting.
+S15:Z044 |    1) MoreAnalysisontheVisualizationResultsinFig.2:    The
+S15:Z045 | results suggest that visuomotor policies exhibit some degree of
+S15:Z046 | spatial interpolation capability. Specifically, the green-colored
+S15:Z047 | effective range in the sparse setting with 9 demonstrations
+S15:Z048 | is significantly larger than 9 times the effective range in the
+S15:Z049 | single setting. However, increased precision requirements
+S15:Z050 | would make it harder to interpolate, as indicated by comparing
+S15:Z051 | the two task variants under the sparse setting.
+S15:Z052 |    Meanwhile, extrapolation proves to be more challenging.
+S15:Z053 | Although the number of demonstrations in the dense setting                     Fig. 17: The Precise-Peg-Insertion  task. A total of 3 workspace
+S15:Z054 | is much larger than in thesparse setting, the contours of the                  sizes  is  considered.  Purple  and  sky-blue  rectangles  mark  the
+S15:Z055 | effective range remain similar across both cases. This suggests                workspaces for demonstration and evaluation, respectively.
+
+===== PDF S. 16 =====
+S16:Z001 | Fig. 18: Visualization of the policy performance trained on human-collected datasets. (Upper row) The demonstrated configurations.
+S16:Z002 | (Bottom row) The spatial heatmaps with success rates averaged on 5 trials.
+S16:Z003 | Fig. 19: Real-world comparison betweenDemoGen-generated and
+S16:Z004 | human-collected datasets. The DemoGen-generated dataset is based
+S16:Z005 | on 3 source demonstrations.
+S16:Z006 | C. Increased Human-Collected Demonstrations
+S16:Z007 |    In  Tab. III,  we  compare  the       DemoGen-generated  dataset
+S16:Z008 | against 3 human-collected source demonstrations. In Fig.19,                      Fig. 20: Raw evaluation results in the Sauce-Spreading task. (Top)
+S16:Z009 | we provide a reference on how the increase of source demon-                      Examples of the processing results for metric calculation. (Bottom)
+S16:Z010 | strations leads to the enhancement of policy performance on                      Compared with the regular DemoGen, the policy trained with the
+S16:Z011 | the Dex-Cube task. To further understand the policy capacity                     ADR  strategy  better  spreads  the  sauce  to  cover  the  crust  under
+S16:Z012 | enabled by human-collected demonstrations, we visualize the                      external disturbance.
+S16:Z013 | spatial heatmaps of human-collected datasets in Fig.18. By
+S16:Z014 | comparing  the  demonstrated  configurations  and  the  spatial                  base typically moves to a fixed point at a specific distance
+S16:Z015 | effective range of the resulting policies, we found the policy                   from the object, after which the robot conducts a standard
+S16:Z016 | capacity is upper-bounded by the demonstrated configurations.                    non-mobile manipulation process at the fixed base position.
+S16:Z017 | This is in line with the findings in the empirical study.                        E. Disturbance Resistance Experiments Details
+S16:Z018 | D. Detailed Analysis of the Bimanual Humanoid Experiment                            1) Evaluation Metrics:  The sauce coverage score is com-
+S16:Z019 |    The  orientational  augmentations  share  the  same  visual                   puted as follows. First, we distinguish between green back-
+S16:Z020 | mismatch problem as translational augmentation. The policy                       ground and red sauce in the HSV color space. The identified
+S16:Z021 | performs  as  expected  when  the  generated  orientations  are                  background is set to black, the sauce is set to red, and the
+S16:Z022 | close to the orientation in the source demonstration. As the                     rest  which  should  be  the  uncovered  crust  is  set  to  white.
+S16:Z023 | orientational  difference  increases,  we  observed  the  policy                 Second, due to the highlights on the sauce liquid, some small
+S16:Z024 | might react to the orientation in the current visual observation                 fragmented points of the sauce may be identified as the crust.
+S16:Z025 | with actions for mismatched orientations.                                        To  address  this,  we  apply  smoothing  filtering  followed  by
+S16:Z026 |    Additionally, we found the spatial generalization problem                     dilation and erosion, where the kernel size is 9×9. Finally,
+S16:Z027 | persists in mobile manipulation scenarios. This is mainly due                    the coverage is calculated as the ratio of red areas (sauce) over
+S16:Z028 | to the physical constraints of real-world environments, such                     non-black areas (sauce + uncovered crust).
+S16:Z029 | as kitchen countertops or fruit stands, as demonstrated in our                      2) Raw Evaluation Results: For quantitative evaluation, we
+S16:Z030 | experiments, where terrain limitations prevent the base from                     perform 5 repetitions for each of the 5 disturbance directions,
+S16:Z031 | approaching objects at arbitrary distances. Consequently, the                    resulting in 25 trials for both strategies.
+
+===== PDF S. 17 =====
+S17:Z001 |                            TABLE VI: Object randomization ranges in simulated tasks. All the reported sizes have the units in centimeters.
+S17:Z002 |              F. Randomization Ranges for Simulated Tasks
+S17:Z003 |                 In Fig.7, we illustrated the simulated tasks for the evalu-
+S17:Z004 |              ation on spatial generalization. To strengthen the significance
+S17:Z005 |              of spatial generalization, we enlarge the original object ran-
+S17:Z006 |              domization ranges in the MetaWorld [54] tasks. For demon-
+S17:Z007 |              stration generation, we select a slightly larger range than the
+S17:Z008 |              evaluation workspace to avoid performance degradation near
+S17:Z009 |              the workspace boundaries. The detailed workspace sizes are
+S17:Z010 |              listed in Tab.VI.
+S17:Z011 |              G. Task Descriptions for Real-World Tasks
+S17:Z012 |                 In  Fig.11,  we  illustrated  the  real-world  tasks  for  the
+S17:Z013 |              evaluation on spatial generalization. We describe these tasks
+S17:Z014 |              in the text as follows, where we mark the verbs formotion
+S17:Z015 |              andskillactions in the corresponding colors.
+S17:Z016 |                 1)  Spatula-Egg. The gripper holds a spatula in hand. The
+S17:Z017 |                      robot maneuvers the spatula to firstmovetoward the
+S17:Z018 |                      fried egg and then 1)slidebeneath the egg, 2)liftthe
+S17:Z019 |                      egg leveraging the contact with the plate’s rim, 3)carry
+S17:Z020 |                      the egg and maintain stable suspension.
+S17:Z021 |                 2)  Flower-Vase.  The  grippermovestoward  the  flower,
+S17:Z022 |                      picksit  up,reorientsit  in  the  air  whiletransferring
+S17:Z023 |                      toward the vase, and finallyinsertsit into the vase.
+S17:Z024 |                 3)  Mug-Rack. The grippermovestoward the mug,picks
+S17:Z025 |                      it up,reorientsit in the air whiletransferringtoward the
+S17:Z026 |                      rack, andhangsit onto the rack.
+S17:Z027 |                 4)  Dex-Cube. The dexterous handmovestoward the cube
+S17:Z028 |                      andgraspsup the cube.
+S17:Z029 |                 5)  Dex-Rollup. The dexterous handmovestoward a piece
+S17:Z030 |                      of plasticine andwrapsit multiple times until it is fully
+S17:Z031 |                      coiled. The required times of the wrapping motion may
+S17:Z032 |                      vary due to the distinct plasticity of every hand-molded
+S17:Z033 |                      piece of plasticine.
+S17:Z034 |                 6)  Dex-Drill. The dexterous handmovestoward the drill,
+S17:Z035 |                      graspsit up,transfersit toward the cube, and finally
+S17:Z036 |                      touchesthe cube with the drill.
+S17:Z037 |                 7)  Dex-Coffee.  The  dexterous  handmovestoward  the
+S17:Z038 |                      kettle,graspsit up,transfersit toward the coffee filter,
+S17:Z039 |                      and finallypourswater into the filter.
+S17:Z040 |              H. Visualization of DemoGen-Generated Trajectories
+S17:Z041 |                 In Fig.6, we gave a concrete example of the trajectory of
+S17:Z042 |              synthetic visual observations. We provide more examples in
+S17:Z043 |              Fig.21by showcasing the key frames of source and generated
+S17:Z044 |              demonstrations.
+S17:Z045 |                 Pick-Cube      Button-Small      Drawer-Close      Faucet-Open      Handle-Press         Box-Lid           Stack-Cube            Assembly
+S17:Z046 | Object(s)          Cube                Button                 Drawer                 Faucet                 Toaster            Box × Lid      Red × Green      Pillar × Hole
+S17:Z047 | Evaluation       40×40            40×40              15×15              30×30             20×30         (2.5×30)2        (15×15)2          (10×30)2
+S17:Z048 | DemoGen          48×48            48×48              20×20              40×40             25×40         (7.5×40)2        (20×20)2          (15×40)2
+
+===== PDF S. 18 =====
+S18:Z001 | Fig. 21: More examples of the trajectories consisting of synthetic visual observations.
+

@@ -1,0 +1,34 @@
+# Keep reproducible inputs and compact metadata; detailed run output stays local.
+**/*.json
+!/*.json
+!**/config.json
+!**/protocol.json
+!**/plan.json
+!**/*_plan.json
+!**/conditions.json
+!**/manifest.json
+!**/source_hashes.json
+!**/hashes.json
+!**/best.json
+!**/initialization.json
+!**/resume_provenance.json
+!**/technical_freeze.json
+!**/FINAL_AUDIT.json
+!**/INTERRUPTION_AUDIT.json
+!**/analysis.json
+**/*.jsonl
+**/model.xml
+/monitor.json
+/*smoke*.json
+/*SMOKE*.json
+/*process_probe*.json
+/process_independence_*.json
+/supervisor_started.json
+/interruption_windows_event.xml
+
+# Live state stays local even with root-level JSON metadata enabled above.
+/status.json
+/*_status.json
+/launch.json
+/*_launch.json
+/active_child.json

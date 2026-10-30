@@ -1,0 +1,58 @@
+{
+  "papers": [
+    {
+      "id": "policy_calibrated_dagger",
+      "name": "Policy-Calibrated DAgger",
+      "fullTitle": "Policy-Calibrated DAgger: Offline Calibrated Noise Injection for Imitation Learning",
+      "year": 2026,
+      "topic": "Robustness",
+      "innovation": "Policyabhängig kalibrierte Störungen für zusätzliche Korrekturbeispiele aus aufgezeichneten Interventionen",
+      "data": "500 Basisdemonstrationen je Simulationsumgebung; zusätzliche Interventionen eines RRT-Orakels; 2D-Reacher und photorealistische UR5-Hebelaufgabe",
+      "method": "HG-DAgger mit Diffusion Policy, partiellem Denoising, offline/in Simulation geschätztem Störmodell und synthetischen Recovery-Aktionen",
+      "venue": "arXiv-Preprint, September 2026; laut arXiv im Review für ICRA 2027, keine bestätigte Annahme",
+      "limit": "Simulationsnachweis mit privilegiertem RRT-Experten; heuristische Aktionskorrekturen und Diffusionsmodell erforderlich; kein Realroboter- oder Stack-Nachweis",
+      "version": "arXiv:2609.30462v1, 24.09.2026, 8 PDF-Seiten; lokal eingefroren am 28.10.2026. Eigene seitenlokale Layoutzeilen, keine offiziellen Publikationszeilen.",
+      "pdf": "https://arxiv.org/pdf/2609.30462v1",
+      "url": "https://arxiv.org/abs/2609.30462",
+      "status": "reviewed",
+      "topics": ["covariate shift", "corrective demonstrations", "diffusion models", "data augmentation"],
+      "bibliography": [],
+      "projectRelevance": "Eigene Einordnung: Für unsere Stack-Übergänge ist die Trennung zwischen Störzuständen und passenden Recovery-Aktionen wichtig. Dieses Verfahren erzeugt neue Aktionsziele und gewichtet nicht bloß vorhandene Erfolge. Die Gelenkpositions- und Simulationsannahmen lassen sich nicht ungeprüft auf unseren Actor übertragen.",
+      "notes": [
+        {"id":"PCDAGGER-K01","paper":"policy_calibrated_dagger","label":"Unterschied zu DART","note":"Die Störstatistik wird offline und in Simulation bestimmt. Anders als bei DART wird der Expertenregelkreis nicht verrauscht; saubere Interventionen werden nachträglich erweitert.","locators":[[3,26,34,"linke Spalte, §IV Policy-Calibrated DAgger"]]},
+        {"id":"PCDAGGER-K02","paper":"policy_calibrated_dagger","label":"Multimodale Aktionen","note":"Partielles Denoising führt die Policy zur aufgezeichneten Expertenbahn; der bekannte Rauschplan dient zur Fehlerschätzung. Lineares Mischen zweier jeweils gültiger Ausweichaktionen kann dagegen eine Kollision erzeugen.","locators":[[4,15,18,"linke Spalte, §IV-B"],[4,29,37,"linke Spalte, §IV-B: Hindernisbeispiel"]]},
+        {"id":"PCDAGGER-K03","paper":"policy_calibrated_dagger","label":"Woher die Korrekturaktionen kommen","note":"Zusätzliche Zustands-Aktions-Paare entstehen um Experteninterventionen. Ein heuristischer Verbindungsalgorithmus und ein kritisch gedämpfter PD-Regler führen gestörte Gelenkzustände zurück zur Expertenbahn; Geschwindigkeit und Beschleunigung orientieren sich an Demonstrationen.","locators":[[5,36,56,"rechte Spalte, §IV-E Generating Corrective Labels"]]},
+        {"id":"PCDAGGER-K04","paper":"policy_calibrated_dagger","label":"Vergleichsbedingungen","note":"Die Experimente verwenden zwei Simulatoren und ein privilegiertes, deterministisches RRT-Orakel statt menschlicher Korrekturen. Innerhalb einer Umgebung starten die verglichenen Varianten am selben BC-Checkpoint und erhalten gleich viele Trainingsschritte.","locators":[[3,26,37,"rechte Spalte, §IV-A: Interventionserhebung"],[6,19,39,"rechte Spalte, §V: Simulationsumgebungen"],[7,5,15,"linke Spalte, §V: gepaarter Vergleich"]]},
+        {"id":"PCDAGGER-K05","paper":"policy_calibrated_dagger","label":"Ergebnisse mit Nenner und Streuung","note":"Im 2D-Reacher erreicht gepooltes kalibriertes Rauschen nach Runde 5 89,3 ± 0,5 % gegenüber 87,3 ± 1,0 % bei HG-DAgger (Mittelwert ± Standardfehler, fünf DAgger-Linien; 100 Szenarien mit je drei Auswertungen). In der 3D-Aufgabe erreicht es nach Runde 2 63,4 ± 4,8 % gegenüber 58,1 ± 4,0 % (drei Linien).","locators":[[6,1,16,"seitenbreite Tabelle I samt Legende"],[6,17,25,"linke Spalte, Tabelle II samt Legende"]]},
+        {"id":"PCDAGGER-K06","paper":"policy_calibrated_dagger","label":"Grenzen der Übertragung","note":"Interventionen kürzer als der Aktionshorizont werden verworfen. In der 3D-Aufgabe bleiben die ursprünglichen Bilder bei verrauschten Gelenkpositionslabels unverändert. Menschliche Interventionen und andere generative Modellfamilien werden als zukünftige Arbeit genannt.","locators":[[4,28,38,"rechte Spalte, §IV-C"],[7,26,31,"linke Spalte, §V: Bildapproximation"],[7,17,23,"rechte Spalte, §VI Conclusion"]]}
+      ]
+    },
+    {
+      "id": "reward_dagger",
+      "name": "Reward-DAgger",
+      "fullTitle": "Reward-DAgger: Robot-Gated Interactive Imitation Learning with General-Purpose Progress-Based Reward Models",
+      "year": 2026,
+      "topic": "Robustness",
+      "innovation": "Zwei zeitliche Fortschrittstests lösen Expertenübernahme bei Rückschritten oder Stillstand aus",
+      "data": "Vier LIBERO-10-Lernaufgaben und vier Franka-FR3-Aufgaben; Simulationsexperte π0.5, reale menschliche Teleoperation",
+      "method": "Robometer-4B-Fortschrittssignal, kurze/lange Spearman-Zeitfenster und iterative Aggregation von Expertenkorrekturen",
+      "venue": "arXiv-Preprint, Oktober 2026; keine bestätigte Konferenzannahme in der geprüften Quelle",
+      "limit": "Reaktives Gate; Stillstandserkennung kann Sekunden benötigen. Transfer benötigt repräsentative Quellaufgaben; reale Tests nur 20 Rollouts pro Checkpoint",
+      "version": "arXiv:2610.04054v1, 02.10.2026, 11 PDF-Seiten; lokal eingefroren am 28.10.2026. Eigene seitenlokale Layoutzeilen, keine offiziellen Publikationszeilen.",
+      "pdf": "https://arxiv.org/pdf/2610.04054v1",
+      "url": "https://arxiv.org/abs/2610.04054",
+      "status": "reviewed",
+      "topics": ["corrective demonstrations", "runtime monitoring", "task progress", "knowledge transfer"],
+      "bibliography": [],
+      "projectRelevance": "Eigene Einordnung: Rückschritt und Stillstand sind getrennte Diagnosen für unsere Paarwechsel und festhängenden Phasen. Das Paper motiviert gezielte Korrekturerhebung, beweist aber weder, dass unser Turmerhaltscore ein geeignetes Fortschrittssignal ist, noch dass ein bereits einstürzender Turm rechtzeitig gerettet werden kann.",
+      "notes": [
+        {"id":"REWARD-DAGGER-K01","paper":"reward_dagger","label":"Zwei Fehlerarten","note":"Ein kurzes Zeitfenster erkennt sinkenden Fortschritt, ein längeres ausbleibenden Fortschritt. Spearman-Korrelationen erfassen die Trends; beim kurzen Fenster muss zusätzlich ein Mindestabfall vorliegen.","locators":[[3,8,35,"linke Spalte, §III-A Gating Criterion"],[3,4,20,"rechte Spalte, §III-A, Gl. (3)–(4)"]]},
+        {"id":"REWARD-DAGGER-K02","paper":"reward_dagger","label":"Korrekturen statt Reward-Optimierung","note":"Nach Auslösen des Gates übernimmt ein Experte. Seine Korrekturen werden mit dem vorhandenen Datensatz zusammengeführt und die Policy wird weitertrainiert. In den Experimenten behält der Experte die Kontrolle bis zum Episodenende; das Fortschrittssignal entscheidet über die Übernahme.","locators":[[3,22,33,"rechte Spalte, §III-B Reward-DAgger"],[6,11,17,"linke Spalte, §IV/Q3: Sammlung und Replay"]]},
+        {"id":"REWARD-DAGGER-K03","paper":"reward_dagger","label":"Modelle und Evaluationsumfang","note":"Robometer-4B liefert das Fortschrittssignal. In Simulation lernt eine Diffusion Policy mit π0.5 als eingefrorenem Experten; vier LIBERO-Aufgaben wurden gewählt, auf denen dieser häufige Fehlerzustände korrigiert. Reale Versuche nutzen vier Franka-FR3-Aufgaben und menschliche Teleoperation.","locators":[[4,26,57,"linke Spalte, §IV: Reward Model, Simulation Setup und Real Robot Setup"],[4,1,2,"rechte Spalte, Fortsetzung Real Robot Setup"]]},
+        {"id":"REWARD-DAGGER-K04","paper":"reward_dagger","label":"Transfer ist nicht parameterfrei","note":"Die Übertragung eines auf nur einer Aufgabe gewählten Gates ist nicht durchgehend zuverlässig. Gemeinsame Auswahl auf mehreren Quellaufgaben verbessert die Stabilität. Die abschließende Konfiguration wird auf LIBERO-Aufgaben 0, 1, 5 und 8 ausgewählt und anschließend unverändert eingesetzt.","locators":[[5,29,50,"rechte Spalte, §IV/Q2: Transferergebnisse"],[6,4,10,"linke Spalte, §IV/Q3: feste Konfiguration"]]},
+        {"id":"REWARD-DAGGER-K05","paper":"reward_dagger","label":"Stack-Ergebnis und Testgrenze","note":"Beim realen Zweier-Stack steigt der autonome Erfolg von 65 % auf 80 % über zwei Lernrunden. Jeder reale Checkpoint wird mit 20 Rollouts bewertet. Stack, Pick und Put haben genaue oder ähnliche Beispiele im Trainingsbestand des Fortschrittsmodells; sie sind daher kein Nachweis vollständig ungesehener Aufgaben.","locators":[[6,15,21,"rechte Spalte, Tabelle III: Stack-Zeilen"],[7,2,13,"linke Spalte, Real-robot Tasks: Datenüberlappung und Testumfang"]]},
+        {"id":"REWARD-DAGGER-K06","paper":"reward_dagger","label":"Reaktive Erkennung und Messgrenze","note":"Stillstand kann mehrere Sekunden bestehen, bevor das lange Gate auslöst. Das Verfahren reagiert auf erkennbare Fehler, statt sie vorab zu verhindern. Die gemessene Detektionslatenz nutzt außerdem die mittlere Auslösezeit als Ersatzmaß, nicht den Abstand zu einem exakt annotierten Fehlerbeginn.","locators":[[8,42,57,"linke Spalte, Limitations and Future Work"],[4,17,23,"rechte Spalte, Q1: Latency"]]}
+      ]
+    }
+  ]
+}

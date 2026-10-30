@@ -1,0 +1,57 @@
+{
+  "utc": "2026-10-24T11:11:39.555598+00:00",
+  "status": "CONCEPT_AND_TECHNICAL_CORE_VALIDATED_NOT_PRODUCTION_READY",
+  "agents": [
+    "transition_concept_audit",
+    "transition_implementation"
+  ],
+  "root_independent_unit_tests": 17,
+  "unit_tests_passed": true,
+  "production_train_flag_blocked_verified": true,
+  "production_enabled": false,
+  "long_training_started": false,
+  "native_smoke": {
+    "seed": 498002,
+    "count": 3,
+    "frames": 314,
+    "complete_success": true,
+    "collector_schema": "native_v2_forward_synchronized",
+    "restored_position_max_error_m": 0.0,
+    "restored_contacts_and_grasp_verified": true,
+    "censored": false,
+    "native_grasp_measured": true,
+    "technical_only": true,
+    "excluded_from_training_and_eval": true,
+    "parent_sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c",
+    "gripper_type": "dict",
+    "finger_contact_uses_explicit_geometry": true,
+    "any_native_grasp": true,
+    "any_finger_contact": true,
+    "accepted_technical_sections": 0,
+    "technical_sections_never_training_data": true
+  },
+  "paid_smoke_steps_per_arm": 3,
+  "smoke_data": "superseded proxy, technical loss/serialization test only; not scientific efficacy",
+  "historical_action_audit_episodes": 240,
+  "strict_historical_accepted_sections": 0,
+  "outstanding": [
+    "new synchronized native collection frozen with family splits",
+    "all quality/data/signal gates pass",
+    "independent online evaluator and checkpoint selection implemented and tested",
+    "prepared-state replay identity established",
+    "run deadline and supervisor activated",
+    "Sequencer.pair and complete robot/OSC internal state for identical prepared replay"
+  ],
+  "artifact_sha256": {
+    "README.md": "9e33f45cfd0d972b92f2170f8c6145e126cde62c7c655e4e43287d8d62b024cc",
+    "TRAINING_RUN_PLAN.md": "e1205c5a9b1cd33f0d82bd6f18622dc0d405671a2540cc9319846fbbf9a58782",
+    "training_plan.json": "a8875893ca5ac71430629cb8a660774a52c3fe425d275fdf591d04398fa98769",
+    "transition_pilot.py": "0561c8f01ec59792802b1cf17a0da8e0fa9b8c107d132923a04b3ab2cae57e6c",
+    "native_collector.py": "e653d4f1769a2b1c414723407c51248b9938039a8c60f35ff338a620f5e6cd78",
+    "enrich_grasp.py": "3ca5b55dfa3a9bb09eca72190b71a76d40dce189be223c86068891ae74aa7b06",
+    "test_transition_pilot.py": "2409a4b3b44c5001abcf1e2c0d20ba7d70055e47fdf69f4369f94716965a2213",
+    "AUDIT_FINDINGS.md": "e45143877679024dc8b2c97afff6185ebf9e07dab5040cb0e7d9e4496a3ee3d9",
+    "AUDIT_SIGNOFF.md": "4d38f8c4bed3ae6b4ddad361ec47a049a6d2d1f13cdc9f096997084f4db0aa63",
+    "IMPLEMENTATION_VALIDATION.md": "0d12df1b9ba01283364e387861ae7903c48c062a3c498e138c9b43269f58c6ef"
+  }
+}

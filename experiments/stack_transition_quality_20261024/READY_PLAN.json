@@ -1,0 +1,390 @@
+{
+  "schema": "transition-quality-b0-b-v2-native",
+  "created_utc": "2026-10-24T11:04:16.582537+00:00",
+  "status": "READY_AWAITING_EXPLICIT_USER_GO",
+  "production_enabled": true,
+  "objective": "Next source grasp/lift while the already placed lower prefix remains continuously valid; validate full towers separately",
+  "metric_version": "strict-prefix-native-grasp-explicit-gripper-geoms-v2",
+  "arms": [
+    "B0",
+    "B"
+  ],
+  "deferred": [
+    "C: tower input residual path",
+    "new retreat phases",
+    "clearance measurement and weighting",
+    "RL"
+  ],
+  "parents": [
+    {
+      "seed": 1,
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c"
+    },
+    {
+      "seed": 2,
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8"
+    },
+    {
+      "seed": 3,
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a"
+    }
+  ],
+  "pilot": {
+    "batch_size": 64,
+    "steps": 10000,
+    "lr": 3e-05,
+    "weight_decay": 1e-06,
+    "gradient_clip": 10,
+    "original_fraction": 0.5,
+    "replay_fraction": 0.25,
+    "new_fraction": 0.25,
+    "completion_coefficient": 0.1,
+    "eval_updates": [
+      0,
+      3000,
+      10000
+    ],
+    "completion_labels": "original only; shared hidden layers can still drift",
+    "selection": "development only, parent at update0 eligible, earlier checkpoint wins exact tie",
+    "paired_sampler": "all frame ids and optimizer settings identical across B0/B; only new-pool loss weights differ",
+    "sampling": "available phase -> episode -> section -> frame, no quality oversampling",
+    "resume": "no automatic resume or retry; preserve outputs, explicit audited restore only"
+  },
+  "score": {
+    "version": "strict_contact_lift_v1_no_clearance",
+    "components": {
+      "continuous_preservation_constant": 0.5,
+      "quietness": 0.25,
+      "centering": 0.25
+    },
+    "raw_weight": "0.5 + 1.5 * Q",
+    "normalization": "sum(w*frame_mse)/sum(w) only within 16 new frames",
+    "clearance": "not measured, excluded explicitly",
+    "preservation": "preservation/contact-freedom are strict gates; preservation term is constant .5, actual quality variation is only quietness/centering"
+  },
+  "events": {
+    "release_valid_frames": 10,
+    "max_steps_to_pickup": 200,
+    "min_lift_m": 0.03,
+    "min_native_grasp_lift_frames": 5,
+    "protected_prefix_confirmation_frames": 50,
+    "action_window": "first action after release event through confirmed pickup; later50 frames only outcome metadata",
+    "terminal_or_interrupted": "reject censored and structurally damaged transitions; classify reasons",
+    "historical_contact_flags": "invalid dictionary semantics: never acceptable as verified native contacts"
+  },
+  "gates": {
+    "min_train_sections": 30,
+    "min_train_families": 20,
+    "min_valid_sections": 10,
+    "min_valid_families": 10,
+    "min_teacher_sources": 2,
+    "min_score_std": 0.02,
+    "min_new_actor_gradient_norm": 1e-10,
+    "threshold_status": "predeclared pilot engineering gates, not universal scientific constants",
+    "all_native_grasp_and_contacts": true,
+    "paired_sampling": true,
+    "family_split_disjoint": true,
+    "all_teacher_actions_verified": true,
+    "online_evaluator_required": true,
+    "checkpoint_selection_required": true,
+    "prepared_replay_identity_required": true
+  },
+  "collection": {
+    "mode": "new native collection required before production",
+    "attempts_per_height": 100,
+    "heights": [
+      3,
+      4
+    ],
+    "split": "fixed original indices0..59train and160..199valid; same original namespaces and cyclic Teachers",
+    "teacher_source": "three listed parents; no teacher chosen using historical heldout wins",
+    "new_seed_ranges": {
+      "n3": [
+        510000,
+        510199
+      ],
+      "n4": [
+        511000,
+        511199
+      ]
+    },
+    "family": "namespace+height+seed; all branches inherit same split",
+    "storage": "pre/post state, synchronized pre/post observations, native held, all finger contacts, corrected strict-prefix metrics, policy/controller state, per-frame logging; no new expert actions",
+    "fixed_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      160,
+      161,
+      162,
+      163,
+      164,
+      165,
+      166,
+      167,
+      168,
+      169,
+      170,
+      171,
+      172,
+      173,
+      174,
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183,
+      184,
+      185,
+      186,
+      187,
+      188,
+      189,
+      190,
+      191,
+      192,
+      193,
+      194,
+      195,
+      196,
+      197,
+      198,
+      199
+    ],
+    "revision": "native_data_v1/cohort_revision_v2.json: runtime-only reduction before continuation, no threshold changes"
+  },
+  "evaluation": {
+    "primary": "joint native-grasp/lift AND continuously valid lower prefix; not contact/lift proxy",
+    "development": {
+      "prepared_prefix2": [
+        520000,
+        520019
+      ],
+      "prepared_prefix3": [
+        521000,
+        521019
+      ],
+      "full_stack2": [
+        522000,
+        522009
+      ],
+      "full_stack3": [
+        523000,
+        523009
+      ],
+      "full_stack4": [
+        524000,
+        524009
+      ]
+    },
+    "confirmation": {
+      "prepared_prefix2": [
+        525000,
+        525019
+      ],
+      "prepared_prefix3": [
+        526000,
+        526019
+      ]
+    },
+    "reserved_final": {
+      "prepared_prefix2": [
+        530000,
+        530049
+      ],
+      "prepared_prefix3": [
+        531000,
+        531049
+      ],
+      "full_stack2": [
+        532000,
+        532049
+      ],
+      "full_stack3": [
+        533000,
+        533099
+      ],
+      "full_stack4": [
+        534000,
+        534099
+      ]
+    },
+    "technical_only": [
+      498001,
+      498002
+    ],
+    "prepared": "synchronized native state AND phase/steps/anchor/stage/retreat/controller state; deterministic first-step replay equality before using benchmark",
+    "full_rollout": "no teleports, same corrected metric/controller for all arms",
+    "statistics": "paired starts, every training seed, paired uncertainty; no pooled independent300 claim",
+    "promotion": "development improvement >=5 percentage points in each prepared-prefix stratum, confirmed on disjoint development, at least2/3 seeds; no more than5pp lower-height regression; descriptive pilot decision only",
+    "heldout": "freeze all selected checkpoints before once-only tests, do not optimize from them"
+  },
+  "budget": {
+    "proposed_max_wall_hours": 8,
+    "start": null,
+    "deadline": null,
+    "training_stop_hours_before_deadline": 3,
+    "phases_hours": {
+      "native_data_prepared_before_run": 0,
+      "training_and_development_max": 5,
+      "reserved_evaluation_and_report_reserved": 3
+    },
+    "note": "Eight-hour proposal after user Go; current preparation costs reported separately. No active start/deadline or approval token."
+  },
+  "source_allowlist": [
+    {
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n3_cycle0\\manifest.json",
+      "sha256": "970650c1d5aaa54e9a45c0d343296cd63269ce294a3443217cd0b7acc86efdb4",
+      "purpose": "historical audit/proxy inventory only, not verified native production data"
+    },
+    {
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\datasets\\curriculum_n4_cycle0\\manifest.json",
+      "sha256": "efa9917c69fbde670ae6b0f73d40799b8db63c99de17ce84d2254bb49bba35e8",
+      "purpose": "historical audit/proxy inventory only, not verified native production data"
+    }
+  ],
+  "replay_manifest": {
+    "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\dataset_manifest.json",
+    "sha256": "14c1629ec7c216341233b8d37c059d3e1f673e540e8053de335b5b2a5b9a4c5e"
+  },
+  "original": {
+    "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\additional_tasks\\stack_two\\data\\image_demonstrations.hdf5",
+    "sha256": "5222cbf96dc6218389d491fe7b99449295dcfc9bceb3bab8f8776ffff19fe6f8"
+  },
+  "blocked_until": [],
+  "reserved_preparation": {
+    "source_prefix2": [
+      540000,
+      540049
+    ],
+    "source_prefix3": [
+      541000,
+      541049
+    ],
+    "only_after_all_six_models_frozen": true
+  },
+  "public_data": {
+    "mode": "AUDIT_ONLY_NOT_TRAINED",
+    "file": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\web_dataset_audit\\mimicgen_stack_three_source.hdf5",
+    "sha256": "68b9033fefe904a5575e79bdf5040c2d2d207c1bfcc939bbaec5b438a9d7fcfe",
+    "reason": "different geometry, required rotations, no compatible phase labels; separate arm needed"
+  },
+  "prepared_family_mapping": {
+    "development": "native validation sourceindices160..179, panel identifiers520000/521000; same source families in both arms, never train",
+    "confirmation": "native validation sourceindices180..199, panel identifiers525000/526000",
+    "reserved_final": "independent construction families540000/541000, fixed panel identifiers530000/531000 after all6 selected models frozen"
+  },
+  "ready_bundle": {
+    "dataset_manifest": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\frozen_native_dataset.json",
+    "dataset_manifest_sha256": "a0ed09a2568535ccd934ac4bab0ed29e614f21712b481cf760e3be3361db88f1",
+    "prepared_panels": {
+      "development": {
+        "prepared_prefix2": {
+          "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\frozen_benchmarks\\development_prepared_prefix2.json",
+          "sha256": "2865bbb60ab189394cdb9e04816d094046d8713c55dd3a39cdae4a95de674d96"
+        },
+        "prepared_prefix3": {
+          "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\frozen_benchmarks\\development_prepared_prefix3.json",
+          "sha256": "f57852c42162db4b6915ae1098068a722d701664a500a653d2a5c1663692acf6"
+        }
+      },
+      "confirmation": {
+        "prepared_prefix2": {
+          "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\frozen_benchmarks\\confirmation_prepared_prefix2.json",
+          "sha256": "be9d7cae05427892eb9931f4246680862c8cfead2a47c93387ebd4aa519a4170"
+        },
+        "prepared_prefix3": {
+          "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\frozen_benchmarks\\confirmation_prepared_prefix3.json",
+          "sha256": "cece21650e9c43aed67cd14e013474f28589f87eece7b217b275662d0a124cf3"
+        }
+      }
+    },
+    "code_hashes": {
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\transition_pilot.py": "4ff78b0c4c0cf04a2ae3af86b563c4ca638cbe060dc63f9a6a19de62cab1c032",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\native_collector.py": "6d8904396be24882aca3eedab1dc2d97e16f13c5a5beee5e7591365e8f1ee92b",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\state_replay.py": "f0e0d6af8e69647b3d41f10a92c45f8f891ac370cbcba8d4348c7e061f72975d",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\production_data.py": "adc6bbf3d98e1ed7790d9c5dd1f03f17a1fdf6fcca825a656a72f845d2475d7f",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\online_evaluation.py": "b9c5ac28aa37bcb1f6c9c5d729780dad4d76c0223145462788e078d2947349cd",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\production_train.py": "0ef6ede117b2999d76d69e34079bb1bb019f69ff810a0ba9a76127774bd2f60b",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\production_readiness.py": "de5ccdc12dbd734ffcb8514faa5ef4f82a766530e0254dccd23e2380f13d48c2",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\run_training.py": "7572de9b3967885e46ecf6f9cc6d51bc1b27a0f1adfb7cf9175f2fadc37a5a74",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_phased_8h_20261023\\method.py": "abd0ed61d2aa694d3825a67e4ca9fbf04c2969d2e8a07ffa1ad8f92c1e1f6228",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_composition_20261023\\run.py": "4b906371eae1941465b993e4b11695f558b887232dd4aec6097cfea18edc9fa1",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\pipeline.py": "bfb5d1601ebf0496a69d54d3312a74912b0b9a1f136c9335fb777f55f888a5f7",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_five_curriculum_20261023\\runner.py": "8da7f21ebdcb077f832b2ac23c7af80359edbe4081a1185da743f6c538b38373",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\praxis\\upstream\\robosuite\\robosuite\\utils\\sim_utils.py": "117200047fa29848f84924a5f9703a185269fcb12c6995c831736e3606df1b03",
+      "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\praxis\\upstream\\robosuite\\robosuite\\controllers\\parts\\arm\\osc.py": "5258234e04d3de8dca0d48bf14bdeaad2e8ae5c41dc50a977ef6e2f7e3118d9e"
+    },
+    "readiness_report": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\DATA_READINESS.json",
+    "readiness_report_sha256": "4efcce015665f9dc13a79cdbd09e7cff2f13c447a3424e1d6d19bc5a42195648",
+    "data_source_plan_sha256": "a8875893ca5ac71430629cb8a660774a52c3fe425d275fdf591d04398fa98769",
+    "runtime_cohort_revision_sha256": "c68d5f3c6be0f97e033be935e7d73d0d0d8519d30e48522d4c65c2c6d3b98600",
+    "dependency_robosuite_version": "1.5.1",
+    "data_costs_excluded_from_future_run_but_reported_separately": true,
+    "current_approval": "NONE; technical enabled does not authorize launch"
+  }
+}

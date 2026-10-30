@@ -1,0 +1,111 @@
+{
+  "created_utc": "2026-10-24T17:31:27.422773+00:00",
+  "status": "READY_AWAITING_EXPLICIT_USER_GO",
+  "ready_plan_sha256": "13b200a0c5d07860f79beae33f715d230da9f9b9316a83f97bcc71fe839b7ba3",
+  "no_production_training_started": true,
+  "no_release_file_created": true,
+  "episodes": 200,
+  "data_summary": {
+    "train": {
+      "sections": 49,
+      "families": 46,
+      "teacher_sources": 3,
+      "prefix_counts": {
+        "2": 41,
+        "3": 8
+      }
+    },
+    "valid": {
+      "sections": 32,
+      "families": 30,
+      "teacher_sources": 3,
+      "prefix_counts": {
+        "2": 26,
+        "3": 6
+      }
+    }
+  },
+  "score_std": 0.05767297596506084,
+  "signal": {
+    "1": {
+      "action_mse": 0.00021724102762080903,
+      "weighted_mse": 0.00022102584510976978,
+      "new_gradient_norm": 0.05245381221175194,
+      "weighted_new_gradient_norm": 0.05286988243460655,
+      "weighting_gradient_difference": 0.0019085978856310248,
+      "phase_mse": {
+        "0": 0.0006801236463031455,
+        "1": 0.00016178170024217092,
+        "2": 2.420135947002176e-06,
+        "3": 7.403104089187538e-06
+      },
+      "sampled_frames": 512,
+      "no_optimizer_step": true
+    },
+    "2": {
+      "action_mse": 0.0003826072115482821,
+      "weighted_mse": 0.0003916450964162747,
+      "new_gradient_norm": 0.06464208662509918,
+      "weighted_new_gradient_norm": 0.06478676944971085,
+      "weighting_gradient_difference": 0.0016853086417540908,
+      "phase_mse": {
+        "0": 0.0005525680308108757,
+        "1": 0.0008710155698738116,
+        "2": 5.9970070859652446e-06,
+        "3": 6.24658214322944e-06
+      },
+      "sampled_frames": 512,
+      "no_optimizer_step": true
+    },
+    "3": {
+      "action_mse": 0.00035238356992425916,
+      "weighted_mse": 0.0003555283139614295,
+      "new_gradient_norm": 0.033880989998579025,
+      "weighted_new_gradient_norm": 0.034024182707071304,
+      "weighting_gradient_difference": 0.0012258582282811403,
+      "phase_mse": {
+        "0": 0.001314583798510796,
+        "1": 7.995867785919706e-05,
+        "2": 9.781942366463218e-07,
+        "3": 5.553855460747455e-06
+      },
+      "sampled_frames": 512,
+      "no_optimizer_step": true
+    }
+  },
+  "prepared_panels": {
+    "development": {
+      "prepared_prefix2": {
+        "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\frozen_benchmarks\\development_prepared_prefix2.json",
+        "sha256": "2865bbb60ab189394cdb9e04816d094046d8713c55dd3a39cdae4a95de674d96"
+      },
+      "prepared_prefix3": {
+        "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\frozen_benchmarks\\development_prepared_prefix3.json",
+        "sha256": "f57852c42162db4b6915ae1098068a722d701664a500a653d2a5c1663692acf6"
+      }
+    },
+    "confirmation": {
+      "prepared_prefix2": {
+        "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\frozen_benchmarks\\confirmation_prepared_prefix2.json",
+        "sha256": "be9d7cae05427892eb9931f4246680862c8cfead2a47c93387ebd4aa519a4170"
+      },
+      "prepared_prefix3": {
+        "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\frozen_benchmarks\\confirmation_prepared_prefix3.json",
+        "sha256": "cece21650e9c43aed67cd14e013474f28589f87eece7b217b275662d0a124cf3"
+      }
+    }
+  },
+  "technical_preflights": [
+    "49 invariant tests",
+    "six models x3 technical CPU updates only",
+    "same- and cross-environment first-action/next-state/observation exact replay",
+    "native online positive grasp and contact failure paths",
+    "reserved panel technical family498003 only; no held-out starts consumed"
+  ],
+  "eight_hour_upper_bound_after_Go": true,
+  "training_updates_per_model": 10000,
+  "ready_plan": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\READY_PLAN_v2.json",
+  "native_technical_smoke": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_transition_quality_20261024\\NATIVE_TECHNICAL_SMOKE.json",
+  "technical_only_updates_per_model": 3,
+  "production_training_started": false
+}

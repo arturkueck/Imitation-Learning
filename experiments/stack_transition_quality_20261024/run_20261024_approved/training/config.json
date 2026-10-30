@@ -1,0 +1,14 @@
+{
+  "technical_only": false,
+  "planned_updates": 10000,
+  "models": [
+    "B0_seed1",
+    "B_seed1",
+    "B0_seed2",
+    "B_seed2",
+    "B0_seed3",
+    "B_seed3"
+  ],
+  "loss": "0.50 original +0.25 replay +0.25 normalized weighted new +0.1 original BCE",
+  "paired_samples": true
+}

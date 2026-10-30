@@ -1,0 +1,76 @@
+{
+  "status": "PREPARING",
+  "teachers": [
+    {
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_phased_8h_20261023\\final_test\\seed1.pth",
+      "sha256": "7281e43f8fcfdb2d7d493374c08e1f0591437291178ab18b95f5a2b07ddfb629",
+      "selection": {
+        "update": 327000,
+        "round": 41,
+        "dev3": 0.6,
+        "dev2": 1.0,
+        "selection": "lexicographic dev3, then dev2, earlier checkpoint on tie"
+      }
+    },
+    {
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_phased_8h_20261023\\final_test\\seed2.pth",
+      "sha256": "df3dbbbfc6d38d2c02e419a3e4f80f1a86d860076d6c7ae58fe260fd520069d0",
+      "selection": {
+        "update": 285000,
+        "round": 40,
+        "dev3": 0.8,
+        "dev2": 1.0,
+        "selection": "lexicographic dev3, then dev2, earlier checkpoint on tie"
+      }
+    },
+    {
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_phased_8h_20261023\\final_test\\seed3.pth",
+      "sha256": "f644b75d81f893d52f25317031b741be829dd8f2ccdf7a74c47d3c5c03692ee6",
+      "selection": {
+        "update": 102000,
+        "round": 2,
+        "dev3": 0.7,
+        "dev2": 1.0,
+        "selection": "lexicographic dev3, then dev2, earlier checkpoint on tie"
+      }
+    }
+  ],
+  "collection": {
+    "three_train": [
+      120000,
+      120299
+    ],
+    "three_valid": [
+      120300,
+      120399
+    ],
+    "two_train": [
+      121000,
+      121299
+    ],
+    "two_valid": [
+      121300,
+      121399
+    ]
+  },
+  "dev": [
+    122000,
+    122049
+  ],
+  "final3": [
+    125000,
+    125099
+  ],
+  "final2": [
+    126000,
+    126049
+  ],
+  "updates_per_arm": 30000,
+  "batch": 64,
+  "new_fraction": 0.25,
+  "lr": 3e-05,
+  "deadline": 1792796986.0752964,
+  "maximum_hours": 8,
+  "seed_change": "Original proposed90000 etc appear in older causal diagnosis; new120000-series registered for this pilot",
+  "original_dataset_sha256": "5222cbf96dc6218389d491fe7b99449295dcfc9bceb3bab8f8776ffff19fe6f8"
+}

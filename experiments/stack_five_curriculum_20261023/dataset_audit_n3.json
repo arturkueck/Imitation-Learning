@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-23T22:24:43.792336+00:00",
+  "episodes": 120,
+  "successes": {
+    "train": 52,
+    "valid": 10
+  },
+  "successful_frames": {
+    "train": 17069,
+    "valid": 3336
+  },
+  "all_finite": true,
+  "pre_action_alignment": true,
+  "split_disjoint": true,
+  "source_hashes_verified": true
+}

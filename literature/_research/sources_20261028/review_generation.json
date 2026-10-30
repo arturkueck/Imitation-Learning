@@ -1,0 +1,108 @@
+{
+  "papers": [
+    {
+      "id": "demogen",
+      "name": "DemoGen",
+      "fullTitle": "DemoGen: Synthetic Demonstration Generation for Data-Efficient Visuomotor Policy Learning",
+      "authors": ["Zhengrong Xue", "Shuying Deng", "Zhenyang Chen", "Yixuan Wang", "Zhecheng Yuan", "Huazhe Xu"],
+      "year": 2025,
+      "topic": "Data & cameras",
+      "innovation": "Synthetische räumliche Variation von Aktionsbahnen und Punktwolken aus wenigen Demonstrationen",
+      "data": "Simulation und acht reale Aufgaben auf drei Plattformen; reale Ausgangsbewegung zweimal zusätzlich abgespielt, um drei Punktwolkenaufnahmen zu erhalten",
+      "method": "Kontaktsegmente objektbezogen transformieren, freie Bewegungen neu planen und 3D-Beobachtungen editieren; anschließend visuomotorische Policy trainieren",
+      "venue": "arXiv 2025, Preprint; hier geprüft: v1",
+      "limit": "Segmentierte Punktwolken nötig; synthetische Ansichten können von realen abweichen. Die räumlichen Generierungsbereiche sind gezielt auf die evaluierten Konfigurationen ausgerichtet.",
+      "version": "arXiv:2502.16932v1, 24.02.2025, 18 PDF-Seiten. Seiten ab erster PDF-Seite; Zeilen aus eingefrorener Layout-Lesefassung, keine offiziellen Publikationszeilen.",
+      "pdf": "https://arxiv.org/pdf/2502.16932v1",
+      "url": "https://arxiv.org/abs/2502.16932v1",
+      "status": "reviewed",
+      "topics": ["synthetic demonstrations", "spatial generalization", "point clouds", "motion planning"],
+      "bibliography": [],
+      "projectRelevance": "Eigene Einordnung: DemoGen motiviert einen kontrollierten Vergleich zusätzlicher räumlicher Zustandsabdeckung mit bloßem Weitertraining. Die Methode liefert jedoch strukturiert erzeugte Aktionsziele und Punktwolken; ihr Erfolg belegt weder die Wirksamkeit unserer Qualitätsgewichte noch eine direkte Übertragbarkeit auf den bisherigen 10D-Actor.",
+      "notes": [
+        {
+          "id": "DEMOGEN-K01", "paper": "demogen", "label": "Kontaktsegmente und freie Bewegung",
+          "note": "DemoGen trennt kontaktbezogene Fertigkeitssegmente von freien Bewegungen. Erstere werden mit der neuen Objektkonfiguration transformiert; die verbindenden Bewegungen werden durch Bewegungsplanung neu erzeugt.",
+          "locators": [[2, 19, 29, "linke Spalte, Einleitung: Aktionsgenerierung"]]
+        },
+        {
+          "id": "DEMOGEN-K02", "paper": "demogen", "label": "Synthetische Beobachtungen",
+          "note": "Die Beobachtungen entstehen durch 3D-Editing segmentierter Punktwolken. Objekt- und Greifercluster erhalten dieselben räumlichen Transformationen wie der Aktionsplan; während des Kontakts werden zusammengehörige Teile gemeinsam transformiert.",
+          "locators": [[2, 39, 53, "linke Spalte, Einleitung: Punktwolkengenerierung"]]
+        },
+        {
+          "id": "DEMOGEN-K03", "paper": "demogen", "label": "Was eine Ausgangsdemonstration bedeutet",
+          "note": "Für reale Aufgaben wird eine menschliche Ausgangsbewegung zweimal abgespielt und erneut beobachtet. Damit stehen drei Punktwolkenverläufe mit unterschiedlichem Sensorrauschen zur Verfügung; die reale Versuchsbasis ist nicht nur eine einzelne Aufnahme.",
+          "locators": [[9, 16, 29, "linke Spalte, §VI-A, Generation strategy"]]
+        },
+        {
+          "id": "DEMOGEN-K04", "paper": "demogen", "label": "Realer Versuchsumfang und Ergebnis",
+          "note": "Acht reale Aufgaben auf drei Plattformen werden untersucht. Tabelle III berichtet 530 Rollouts und fünf Wiederholungen je Konfiguration; der Aufgabenmittelwert steigt von 11,0 % mit Quelldaten auf 74,6 % mit DemoGen-Daten. Das ist kein Ergebnis für unsere Stapelpolicy.",
+          "locators": [[8, 8, 13, "linke Spalte, §VI: Versuchsübersicht"], [9, 1, 3, "seitenbreit oben, Beschriftung Tabelle III"], [9, 39, 41, "seitenbreite Tabelle III; Tabellenzeilen stehen in der Extraktion am Seitenende"]]
+        },
+        {
+          "id": "DEMOGEN-K05", "paper": "demogen", "label": "Reichweite der Generalisierungsaussage",
+          "note": "Die synthetischen Objektkonfigurationen werden gezielt an den später evaluierten Positionen erzeugt und um kleine Positionsstörungen erweitert. Die Arbeit prüft damit räumliche Übertragung aus wenigen menschlichen Vorlagen, nicht einen Test ohne synthetische Abdeckung der Zielpositionen.",
+          "locators": [[9, 30, 38, "linke Spalte, §VI-A, Generation strategy"]]
+        },
+        {
+          "id": "DEMOGEN-K06", "paper": "demogen", "label": "Grenzen der Datengenerierung",
+          "note": "Die Autoren nennen segmentierte Punktwolken als Voraussetzung, Grenzen in stark unstrukturierten Szenen und Abweichungen zwischen synthetischen und realen Ansichten. Aufgaben ohne Bedarf an räumlicher Generalisierung sind nicht der geeignete Einsatzbereich.",
+          "locators": [[12, 5, 13, "linke Spalte, Limitations"]]
+        }
+      ]
+    },
+    {
+      "id": "psd_quality",
+      "name": "PSD Data Quality",
+      "fullTitle": "An Efficient Metric for Data Quality Measurement in Imitation Learning",
+      "authors": ["Noushad Sojib", "Sajay Arthanat", "Momotaz Begum"],
+      "year": 2026,
+      "topic": "Data & cameras",
+      "innovation": "Offline-Rangfolge von Demonstrationen anhand spektraler Leistung ihrer Endeffektorbahnen",
+      "data": "RoboMimic-MH und Layman2, jeweils Can und Square; zusätzlich Mikrowellenaufgabe mit Demonstrationen von fünf älteren Erwachsenen",
+      "method": "DFT/PSD je kartesischer Positionsdimension, Summation zum Trajektorienscore, hohe Scores entfernen und Policy auf verbleibenden Daten trainieren",
+      "venue": "arXiv 2026, Preprint; hier geprüft: v2",
+      "limit": "Bewegungsqualität ist kein semantisches Erfolgsmaß. Nicht jede getestete Aufgabe profitiert; kleine reale Studie mit fünf Personen und einer Aufgabe.",
+      "version": "arXiv:2605.01544v2, 07.09.2026, 8 PDF-Seiten. Titelseite nennt drei Autoren. Seiten ab erster PDF-Seite; Zeilen aus eingefrorener Layout-Lesefassung.",
+      "pdf": "https://arxiv.org/pdf/2605.01544v2",
+      "url": "https://arxiv.org/abs/2605.01544v2",
+      "status": "reviewed",
+      "topics": ["data quality", "demonstration filtering", "spectral analysis", "non-expert demonstrations"],
+      "bibliography": [],
+      "projectRelevance": "Eigene Einordnung: Der PSD-Score ist eine mögliche kostengünstige Vergleichsgröße für unseren Qualitätsscore. Er sollte gegen Turmerhalt und vollständigen Aufgabenerfolg validiert werden. Glatte Fehlbewegungen sowie notwendige Korrekturen dürfen nicht allein aufgrund ihrer Glätte bewertet werden; eine Überlegenheit auf unseren Übergängen ist nicht nachgewiesen.",
+      "notes": [
+        {
+          "id": "PSD-K01", "paper": "psd_quality", "label": "Eingangssignal und Score",
+          "note": "Die Methode verwendet kartesische Endeffektorpositionen. Spektrale Leistungen werden über die drei Koordinaten und Frequenzen zum Trajektorienscore W summiert. Das Ranking benötigt weder Policytraining noch Interaktion mit der Umgebung.",
+          "locators": [[4, 24, 26, "linke Spalte, §IV: Offline-Berechnung"], [4, 27, 49, "linke Spalte, §IV-A/B: Trajektoriendarstellung und Spektralzerlegung"]]
+        },
+        {
+          "id": "PSD-K02", "paper": "psd_quality", "label": "Filterregel",
+          "note": "Kleinere W-Werte erhalten den besseren Rang. Ein frei festgelegter Anteil der Demonstrationen mit den höchsten Scores wird entfernt; die übrigen Daten bilden den neuen Trainingssatz. Dies ist eine Filterung ganzer Trajektorien, keine Gewichtung einzelner Übergänge.",
+          "locators": [[4, 1, 15, "rechte Spalte, §IV-C: Demonstration Ranking and Evaluation"]]
+        },
+        {
+          "id": "PSD-K03", "paper": "psd_quality", "label": "Vergleichsbedingungen",
+          "note": "Can und Square werden mit RoboMimic-MH und Layman2 untersucht. Die Vergleichsverfahren verwenden dieselbe diffusionsbasierte Architektur und dieselben Trainingsparameter; Ergebnisse werden über drei Seeds berichtet. Die Haupttabelle entfernt 50 % der Demonstrationen.",
+          "locators": [[4, 39, 55, "rechte Spalte, §V-A: Datensätze"], [5, 14, 26, "linke Spalte, §V-A: Filterung und Training"], [6, 5, 6, "seitenbreit, Beschriftung Tabelle II"]]
+        },
+        {
+          "id": "PSD-K04", "paper": "psd_quality", "label": "Ergebnis mit Gegenbeispiel",
+          "note": "Tabelle II berichtet über die acht Bedingungen einen Mittelwert von 0,74 gegenüber 0,58 ohne Filterung. Der Vorteil ist nicht universell: Bei bildbasiertem RoboMimic-Square beträgt der PSD-Wert 0,85 gegenüber 0,87 ungefiltert.",
+          "locators": [[6, 27, 36, "seitenbreite Tabelle II; Tabellenzeilen am Ende der Textextraktion"]]
+        },
+        {
+          "id": "PSD-K05", "paper": "psd_quality", "label": "Reale Studie und Umfang",
+          "note": "Fünf ältere Erwachsene liefern Demonstrationen für eine Mikrowellenaufgabe. Nach π0.5-Finetuning und 20 Rollouts je untersuchter Einstellung steigt der Personenmittelwert von 15 % ungefiltert auf 38 % mit PSD-Filterung; dabei bleiben 60 % der Demonstrationen erhalten.",
+          "locators": [[5, 27, 45, "linke Spalte, §V-A.2: Nutzerstudie und Finetuning"], [6, 20, 26, "linke Spalte: Auswertung; rechte Spalte: Tabelle IV"]]
+        },
+        {
+          "id": "PSD-K06", "paper": "psd_quality", "label": "Glätte ist keine Erfolgsgarantie",
+          "note": "Die Autoren unterscheiden Bewegungsineffizienz von semantischem Aufgabenerfolg und räumen ausdrücklich glatte, aber erfolglose Demonstrationen ein. Der Score erfasst deshalb nicht direkt, ob eine Aufgabe korrekt abgeschlossen wurde.",
+          "locators": [[7, 1, 15, "linke Spalte, §VI-C: Discussion"], [4, 7, 20, "linke Spalte, §IV: Definition und bewusste Abgrenzung des Scores"]]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "complete": true,
+  "rows": [
+    {
+      "seed": 63004,
+      "count": 3,
+      "success": true,
+      "frames": 319,
+      "first_stack_step": 141,
+      "initial_sha256": "9ec9c77a9022dad2914b1653acb0a215ef0ddb58cc3b51631fa2d3a27ff7ebe6",
+      "teacher": 1,
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\smoke_data\\stack3\\63004.npz"
+    },
+    {
+      "seed": 63005,
+      "count": 3,
+      "success": true,
+      "frames": 310,
+      "first_stack_step": 139,
+      "initial_sha256": "d71ba6c3606c3164d4dc442ffbc09b32a1bb9a95b9e4ec3a374af25479fa89c6",
+      "teacher": 2,
+      "split": "train",
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\smoke_data\\stack3\\63005.npz"
+    }
+  ]
+}

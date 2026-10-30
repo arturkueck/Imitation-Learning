@@ -1,0 +1,306 @@
+{
+  "groups": [
+    {
+      "case": "relative_seed1",
+      "update": 30000,
+      "height_cm": 0,
+      "n": 5,
+      "success": 2,
+      "grasp": 3,
+      "lift": 3,
+      "near": 3,
+      "placed": 2,
+      "release": 2,
+      "target_displaced": 0
+    },
+    {
+      "case": "relative_seed1",
+      "update": 30000,
+      "height_cm": 1,
+      "n": 5,
+      "success": 3,
+      "grasp": 3,
+      "lift": 3,
+      "near": 3,
+      "placed": 3,
+      "release": 3,
+      "target_displaced": 0
+    },
+    {
+      "case": "relative_seed1",
+      "update": 30000,
+      "height_cm": 2,
+      "n": 5,
+      "success": 0,
+      "grasp": 3,
+      "lift": 3,
+      "near": 3,
+      "placed": 0,
+      "release": 0,
+      "target_displaced": 0
+    },
+    {
+      "case": "relative_seed1",
+      "update": 30000,
+      "height_cm": 3,
+      "n": 5,
+      "success": 0,
+      "grasp": 3,
+      "lift": 3,
+      "near": 2,
+      "placed": 0,
+      "release": 0,
+      "target_displaced": 0
+    },
+    {
+      "case": "relative_seed1",
+      "update": 30000,
+      "height_cm": 4,
+      "n": 5,
+      "success": 0,
+      "grasp": 2,
+      "lift": 2,
+      "near": 1,
+      "placed": 0,
+      "release": 0,
+      "target_displaced": 1
+    },
+    {
+      "case": "relative_seed2",
+      "update": 10000,
+      "height_cm": 0,
+      "n": 5,
+      "success": 2,
+      "grasp": 3,
+      "lift": 3,
+      "near": 3,
+      "placed": 2,
+      "release": 2,
+      "target_displaced": 1
+    },
+    {
+      "case": "relative_seed2",
+      "update": 10000,
+      "height_cm": 1,
+      "n": 5,
+      "success": 2,
+      "grasp": 4,
+      "lift": 4,
+      "near": 4,
+      "placed": 3,
+      "release": 2,
+      "target_displaced": 2
+    },
+    {
+      "case": "relative_seed2",
+      "update": 10000,
+      "height_cm": 2,
+      "n": 5,
+      "success": 0,
+      "grasp": 4,
+      "lift": 4,
+      "near": 3,
+      "placed": 2,
+      "release": 2,
+      "target_displaced": 2
+    },
+    {
+      "case": "relative_seed2",
+      "update": 10000,
+      "height_cm": 3,
+      "n": 5,
+      "success": 0,
+      "grasp": 4,
+      "lift": 3,
+      "near": 2,
+      "placed": 1,
+      "release": 1,
+      "target_displaced": 2
+    },
+    {
+      "case": "relative_seed2",
+      "update": 10000,
+      "height_cm": 4,
+      "n": 5,
+      "success": 0,
+      "grasp": 4,
+      "lift": 3,
+      "near": 2,
+      "placed": 1,
+      "release": 1,
+      "target_displaced": 2
+    },
+    {
+      "case": "relative_seed2",
+      "update": 30000,
+      "height_cm": 0,
+      "n": 5,
+      "success": 4,
+      "grasp": 4,
+      "lift": 4,
+      "near": 4,
+      "placed": 4,
+      "release": 4,
+      "target_displaced": 0
+    },
+    {
+      "case": "relative_seed2",
+      "update": 30000,
+      "height_cm": 1,
+      "n": 5,
+      "success": 1,
+      "grasp": 4,
+      "lift": 3,
+      "near": 3,
+      "placed": 2,
+      "release": 1,
+      "target_displaced": 3
+    },
+    {
+      "case": "relative_seed2",
+      "update": 30000,
+      "height_cm": 2,
+      "n": 5,
+      "success": 0,
+      "grasp": 4,
+      "lift": 3,
+      "near": 2,
+      "placed": 0,
+      "release": 0,
+      "target_displaced": 2
+    },
+    {
+      "case": "relative_seed2",
+      "update": 30000,
+      "height_cm": 3,
+      "n": 5,
+      "success": 0,
+      "grasp": 3,
+      "lift": 2,
+      "near": 1,
+      "placed": 0,
+      "release": 0,
+      "target_displaced": 2
+    },
+    {
+      "case": "relative_seed2",
+      "update": 30000,
+      "height_cm": 4,
+      "n": 5,
+      "success": 0,
+      "grasp": 2,
+      "lift": 1,
+      "near": 0,
+      "placed": 0,
+      "release": 0,
+      "target_displaced": 1
+    }
+  ],
+  "paired_vs_zero": [
+    {
+      "case": "relative_seed1",
+      "update": 30000,
+      "height_cm": 0,
+      "lost": 0,
+      "gained": 0
+    },
+    {
+      "case": "relative_seed1",
+      "update": 30000,
+      "height_cm": 1,
+      "lost": 0,
+      "gained": 1
+    },
+    {
+      "case": "relative_seed1",
+      "update": 30000,
+      "height_cm": 2,
+      "lost": 2,
+      "gained": 0
+    },
+    {
+      "case": "relative_seed1",
+      "update": 30000,
+      "height_cm": 3,
+      "lost": 2,
+      "gained": 0
+    },
+    {
+      "case": "relative_seed1",
+      "update": 30000,
+      "height_cm": 4,
+      "lost": 2,
+      "gained": 0
+    },
+    {
+      "case": "relative_seed2",
+      "update": 10000,
+      "height_cm": 0,
+      "lost": 0,
+      "gained": 0
+    },
+    {
+      "case": "relative_seed2",
+      "update": 10000,
+      "height_cm": 1,
+      "lost": 1,
+      "gained": 1
+    },
+    {
+      "case": "relative_seed2",
+      "update": 10000,
+      "height_cm": 2,
+      "lost": 2,
+      "gained": 0
+    },
+    {
+      "case": "relative_seed2",
+      "update": 10000,
+      "height_cm": 3,
+      "lost": 2,
+      "gained": 0
+    },
+    {
+      "case": "relative_seed2",
+      "update": 10000,
+      "height_cm": 4,
+      "lost": 2,
+      "gained": 0
+    },
+    {
+      "case": "relative_seed2",
+      "update": 30000,
+      "height_cm": 0,
+      "lost": 0,
+      "gained": 0
+    },
+    {
+      "case": "relative_seed2",
+      "update": 30000,
+      "height_cm": 1,
+      "lost": 3,
+      "gained": 0
+    },
+    {
+      "case": "relative_seed2",
+      "update": 30000,
+      "height_cm": 2,
+      "lost": 4,
+      "gained": 0
+    },
+    {
+      "case": "relative_seed2",
+      "update": 30000,
+      "height_cm": 3,
+      "lost": 4,
+      "gained": 0
+    },
+    {
+      "case": "relative_seed2",
+      "update": 30000,
+      "height_cm": 4,
+      "lost": 4,
+      "gained": 0
+    }
+  ]
+}

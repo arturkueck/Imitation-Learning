@@ -1,0 +1,102 @@
+{
+  "state": "COMPLETED",
+  "wall_seconds": 2328.718154668808,
+  "training_and_checkpoint_seconds": 345.84380054473877,
+  "completed_evaluation_episodes": 760,
+  "paired_initial_hashes_match": true,
+  "diagnostics": [
+    {
+      "run": "raw_seed1",
+      "evaluation": "dev3_30000",
+      "n": 5,
+      "first_stack": 2,
+      "grasp_third_among_switched": 1,
+      "lift_third_among_switched": 1,
+      "success": 0
+    },
+    {
+      "run": "raw_seed2",
+      "evaluation": "dev3_30000",
+      "n": 5,
+      "first_stack": 3,
+      "grasp_third_among_switched": 2,
+      "lift_third_among_switched": 2,
+      "success": 0
+    },
+    {
+      "run": "raw_seed3",
+      "evaluation": "dev3_30000",
+      "n": 5,
+      "first_stack": 5,
+      "grasp_third_among_switched": 4,
+      "lift_third_among_switched": 2,
+      "success": 0
+    },
+    {
+      "run": "relative_seed1",
+      "evaluation": "dev3_30000",
+      "n": 20,
+      "first_stack": 16,
+      "grasp_third_among_switched": 16,
+      "lift_third_among_switched": 12,
+      "success": 0
+    },
+    {
+      "run": "relative_seed1",
+      "evaluation": "test3",
+      "n": 100,
+      "first_stack": 80,
+      "grasp_third_among_switched": 76,
+      "lift_third_among_switched": 62,
+      "success": 0
+    },
+    {
+      "run": "relative_seed2",
+      "evaluation": "dev3_10000",
+      "n": 20,
+      "first_stack": 17,
+      "grasp_third_among_switched": 8,
+      "lift_third_among_switched": 3,
+      "success": 0
+    },
+    {
+      "run": "relative_seed2",
+      "evaluation": "dev3_30000",
+      "n": 20,
+      "first_stack": 17,
+      "grasp_third_among_switched": 15,
+      "lift_third_among_switched": 6,
+      "success": 0
+    },
+    {
+      "run": "relative_seed2",
+      "evaluation": "test3",
+      "n": 100,
+      "first_stack": 81,
+      "grasp_third_among_switched": 42,
+      "lift_third_among_switched": 33,
+      "success": 0
+    },
+    {
+      "run": "relative_seed3",
+      "evaluation": "dev3_30000",
+      "n": 5,
+      "first_stack": 4,
+      "grasp_third_among_switched": 2,
+      "lift_third_among_switched": 2,
+      "success": 0
+    }
+  ],
+  "final_dev2": {
+    "raw": [
+      0.5,
+      0.6,
+      0.65
+    ],
+    "relative": [
+      0.8,
+      0.85,
+      0.7
+    ]
+  }
+}

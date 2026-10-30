@@ -94,3 +94,34 @@ experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/recor
 /sites/sites/
 /sites/*.tar.gz
 /output/Ruecksprache_Imitation_Learning_Paket.zip
+
+# Local compiler caches and Sites deployment staging
+experiments/**/numba_cache/
+/sites/research-atlas-editorial/
+/tmp/editorial-write-check.txt
+/sites/research-atlas-update/check.txt
+outputs/**/*.inspect.ndjson
+
+# Generated simulator snapshots, repeated development evaluations and live state.
+# Keep configs, manifests, learning curves, selected checkpoints' metadata,
+# final evaluations, analyses, source snapshots and experiment protocols tracked.
+experiments/**/*.pkl
+experiments/**/dev[0-9]*.json
+experiments/**/dev_[0-9]*.json
+experiments/**/status.json
+experiments/**/*_status.json
+experiments/**/launch.json
+experiments/**/*_launch.json
+experiments/**/host_launch.json
+experiments/**/launcher_pid.txt
+experiments/**/callback.json
+experiments/**/worker.started.json
+experiments/**/preparation.started.json
+experiments/**/active_child.json
+
+# Working copies of the canonical Atlas and one-off editing helpers
+/sites/research-atlas-update/
+/tmp/check-editorial.py
+/tmp/editorial-copy.py
+/tmp/remove-cube-demo.py
+outputs/**/preview.png
