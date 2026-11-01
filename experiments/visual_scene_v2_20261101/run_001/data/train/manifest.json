@@ -1,0 +1,40 @@
+{
+  "split": "train",
+  "count": 12000,
+  "seed": 6200001,
+  "count_histogram": [
+    605,
+    2218,
+    2297,
+    2294,
+    2347,
+    2239
+  ],
+  "kind_histogram": [
+    6287,
+    2719,
+    2284,
+    710
+  ],
+  "elapsed_seconds": 259.3436794281006,
+  "rejections": {
+    "layout_changed": 71,
+    "stack_collapsed": 184,
+    "fell_or_outside": 4,
+    "placement": 24,
+    "not_settled": 13,
+    "robot_object_contact": 2
+  },
+  "files": {
+    "active.npy": "4fcda54516fd7f3e7511b85ee7fcffa6c1eb28e6d4b4ee73b8b6ddb662830660",
+    "count.npy": "6d7f020c4c73c79fba1b9d82b0ffdab4134c1381fb808dcace3f00ecf65fc901",
+    "family.npy": "e48d31e98368b3475b74e69e2bf2fd5f238d71a521f08d2faa95a61f48bec7dc",
+    "images.npy": "3709105b9a74f725d21179e0bc34e9cc0e3540dfbe69e2d0686147d750701368",
+    "kind.npy": "55aadc0bfa928dcf00bcf66a72ed00832662d53a5b374845931b88f2d291aef5",
+    "positions.npy": "33d4fa9695fa7dfd4cd59240863599eb7f51e932707177a67f5ab561f653ff1a",
+    "rays.npy": "6c5b7ee20a31627ef581eba0ef2e71f114efdc0de58fe124d048dd7441682e72",
+    "rotations.npy": "534b731bde3f72712a62de745facc65e3b57c024d8592e6d337ecf3af77560c5",
+    "sizes.npy": "1acc925012bc466124ff7429c2f544328f5012de2e446aaf6c7cdae3117563a2",
+    "visibility.npy": "937ef4443870d99e30a480fafedbb196fe38205aa18ef6bee140a3419240f149"
+  }
+}

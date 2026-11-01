@@ -14,3 +14,6 @@ Beenden: Strg+C. Bei belegtem Port in PowerShell `$env:PORT=4175` setzen und ern
 Für serverseitigen Paperimport und die Research-API: Abhängigkeiten installieren und `npm run dev` verwenden. `npm run start:server` erhält den bisherigen Wrangler-Start für einen vorhandenen Produktionsbuild. Lokale API-Speicherung ist von der veröffentlichten privaten Website getrennt.
 
 Alternativ funktioniert `npm start` auch direkt im Repository-Stamm oder im Ordner `sites`. Beide leiten auf denselben lokalen Research Atlas weiter; `npm install` ist dafür nicht erforderlich.
+
+
+Modell-Trainings: http://127.0.0.1:4173/trainings.html. Lokal werden die registrierten Trainingsdateien alle15Sekunden abgefragt. Die private gehostete Website zeigt einen ausdrücklich datierten Export-Snapshot. Details: TRAINING_MONITOR.md.

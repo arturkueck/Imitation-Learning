@@ -1,0 +1,29 @@
+{
+  "started": "2026-10-31T23:10:05.230048+00:00",
+  "started_unix": 1793488205.2300484,
+  "deadline_unix": 1793524205.2300484,
+  "hours": 10,
+  "smoke": false,
+  "lr": 0.0003,
+  "weight_decay": 0.01,
+  "batch": 32,
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "images": 128,
+  "train_shapes": "cubes_only",
+  "validation_seed": 7000000,
+  "test_seeds": [
+    8000000,
+    8000001
+  ],
+  "replay_shards": 8,
+  "updates_per_cycle": 100,
+  "train_probe": 512,
+  "validation": 512,
+  "gradient_clip": 10,
+  "loss": "normalized_xyz_mse",
+  "source_sha256": "1a3ee5e6570a4194fff27de42d07d6d2092b6f7e1afb826d3e20de0da61dfa03"
+}

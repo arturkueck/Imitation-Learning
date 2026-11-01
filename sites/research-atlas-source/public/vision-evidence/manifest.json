@@ -1,0 +1,119 @@
+{
+  "updatedAt": "2026-11-01T12:44:15.820Z",
+  "files": [
+    {
+      "name": "vision-assessment.md",
+      "source": "experiments/visual_scene_v2_20261101/ASSESSMENT.md",
+      "source_sha256": "e7afadb33fb40bdbe818b9df1eea3c78dd0d38e6de2af59491f26c59479f3e70",
+      "published_sha256": "e7afadb33fb40bdbe818b9df1eea3c78dd0d38e6de2af59491f26c59479f3e70"
+    },
+    {
+      "name": "training-loss.png",
+      "source": "experiments/visual_scene_v2_20261101/run_001/loss.png",
+      "source_sha256": "788a0151094bcc400606f4c9dbe8012ffabc550b66d40cf8d948879babd9a48f",
+      "published_sha256": "788a0151094bcc400606f4c9dbe8012ffabc550b66d40cf8d948879babd9a48f"
+    },
+    {
+      "name": "ensemble-results.json",
+      "source": "experiments/visual_scene_v2_20261101/uncertainty_001/results.json",
+      "source_sha256": "a62517c7f9f91b3207f491c02f8c56862ee3ca6bf1f24d2bbe3b5202bc121534",
+      "published_sha256": "3e448ca228c02d225e14ccc0ea57ee7ecff3e4ca582d2ecfd5e782f40f06abc9"
+    },
+    {
+      "name": "ensemble-report.md",
+      "source": "experiments/visual_scene_v2_20261101/uncertainty_001/README.md",
+      "source_sha256": "bca7c0246908c221b4deed8dea4d58037cec54d0f5d5d7dfa38f790d75e4230e",
+      "published_sha256": "bca7c0246908c221b4deed8dea4d58037cec54d0f5d5d7dfa38f790d75e4230e"
+    },
+    {
+      "name": "ensemble.png",
+      "source": "experiments/visual_scene_v2_20261101/uncertainty_001/fixed_wrist_uncertainty.png",
+      "source_sha256": "a60fc703c06907282df2f2d8298070b23978515096e322a21b2bf2982f38396a",
+      "published_sha256": "a60fc703c06907282df2f2d8298070b23978515096e322a21b2bf2982f38396a"
+    },
+    {
+      "name": "rgb-results.json",
+      "source": "experiments/visual_scene_v2_20261101/image_consistency_001/results.json",
+      "source_sha256": "75810f365c034612c4ef565d77e6c3adabd0f28089ebe2d6a35234f88aed606e",
+      "published_sha256": "d95219b7db9c9a9f30eb95b2a245e71a6d873c79a277d271125e002a58f4d2a0"
+    },
+    {
+      "name": "rgb-report.md",
+      "source": "experiments/visual_scene_v2_20261101/image_consistency_001/QUALITY.md",
+      "source_sha256": "d03e2b1e84323d98c596ccfcd86e0dbab3b80d7cd0abfb9d28edbdbf70855d78",
+      "published_sha256": "d03e2b1e84323d98c596ccfcd86e0dbab3b80d7cd0abfb9d28edbdbf70855d78"
+    },
+    {
+      "name": "rgb-comparison.png",
+      "source": "experiments/visual_scene_v2_20261101/image_consistency_001/fixed_wrist_comparison.png",
+      "source_sha256": "188e505354b92704e5ff5339e651ca1d8419666e3778d1741902de56d597b1e6",
+      "published_sha256": "188e505354b92704e5ff5339e651ca1d8419666e3778d1741902de56d597b1e6"
+    },
+    {
+      "name": "reference-results.json",
+      "source": "experiments/visual_scene_v2_20261101/reference_consistency_002/results.json",
+      "source_sha256": "8373b589e44ff434c56eac109d8a5c7fc4866fcace2e5552811d60c515b0e2d8",
+      "published_sha256": "cac64b14fae6bfe3caae2f97624b73a608886c4f5efe50fc395e662fbd2de419"
+    },
+    {
+      "name": "reference-report.md",
+      "source": "experiments/visual_scene_v2_20261101/reference_consistency_002/README.md",
+      "source_sha256": "8dec821b872600208834222f9e77d76a60aae89f2b4be8266ecc45d660ccbee3",
+      "published_sha256": "8dec821b872600208834222f9e77d76a60aae89f2b4be8266ecc45d660ccbee3"
+    },
+    {
+      "name": "reference-examples.png",
+      "source": "experiments/visual_scene_v2_20261101/reference_consistency_002/reference_examples.png",
+      "source_sha256": "36c78f15ca4f3ef65620189e83b8a2cb84df1c8b530b93fa999c48ca54442b20",
+      "published_sha256": "36c78f15ca4f3ef65620189e83b8a2cb84df1c8b530b93fa999c48ca54442b20"
+    },
+    {
+      "name": "active-view-report.md",
+      "source": "experiments/active_view_20261101/README.md",
+      "source_sha256": "812020afce2a8dd6da290671836d7577305a1fec3f7d945944071e977af567e9",
+      "published_sha256": "812020afce2a8dd6da290671836d7577305a1fec3f7d945944071e977af567e9"
+    },
+    {
+      "name": "active-view-results.json",
+      "source": "experiments/active_view_20261101/reference_demo_002/report.json",
+      "source_sha256": "cdf0e9100792256aa2fa3067567ac4e9c74a83dcc8f475ba431cfb7d44d5c803",
+      "published_sha256": "98a27bfb749ab82580944106e4167b8df7628704f1e6c81ff69847f5262c4a5f"
+    },
+    {
+      "name": "active-view.gif",
+      "source": "experiments/active_view_20261101/reference_demo_002/motion.gif",
+      "source_sha256": "aab262900901c361ec02e142c870226c2474a03cb68e94bcd8b3984eea1edc8b",
+      "published_sha256": "aab262900901c361ec02e142c870226c2474a03cb68e94bcd8b3984eea1edc8b"
+    },
+    {
+      "name": "refinement-plan.json",
+      "source": "experiments/visual_scene_v2_20261101/refinement_001/locked_plan.json",
+      "source_sha256": "a46cca9c0074c31e31614aa110440585ce323c196721620c16eac96f91b54a84",
+      "published_sha256": "076c6a6fecd9c65061571a53964a95f48c0fcd8a625c70b25036e195e42d8e66"
+    },
+    {
+      "name": "refinement-results.json",
+      "source": "experiments/visual_scene_v2_20261101/refinement_001/results.json",
+      "source_sha256": "345087589024b4526d727a8f19e7cc4c110a97b28636cb5f0d76b4a642a64892",
+      "published_sha256": "f0f19d16d84036546475b6624f5f01cf6d938597448acb1530d2a09d183a53a0"
+    },
+    {
+      "name": "refinement-quality.png",
+      "source": "experiments/visual_scene_v2_20261101/refinement_001/paired_quality.png",
+      "source_sha256": "5adc883475a50ee9ada8bba8a71df32187111923c13babdb1bee25ef9224d2d2",
+      "published_sha256": "5adc883475a50ee9ada8bba8a71df32187111923c13babdb1bee25ef9224d2d2"
+    },
+    {
+      "name": "refinement-examples.png",
+      "source": "experiments/visual_scene_v2_20261101/refinement_001/best_worst_examples.png",
+      "source_sha256": "caa1e97dfed887006f71452337f997de8900c293d7e822f5be4ed5546abbfc4d",
+      "published_sha256": "caa1e97dfed887006f71452337f997de8900c293d7e822f5be4ed5546abbfc4d"
+    },
+    {
+      "name": "refinement-report.md",
+      "source": "experiments/visual_scene_v2_20261101/refinement_001/README.md",
+      "source_sha256": "53a00cdf3146819203b8dac2576e88d1078cf00c158b63ac907a47a78e30e7c0",
+      "published_sha256": "53a00cdf3146819203b8dac2576e88d1078cf00c158b63ac907a47a78e30e7c0"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "device": "cuda",
+  "results": [
+    {
+      "seed": 1,
+      "arm": "fixed",
+      "best_update": 600,
+      "validation_mse": 0.056563958525657654
+    },
+    {
+      "seed": 1,
+      "arm": "fixed_wrist",
+      "best_update": 600,
+      "validation_mse": 0.01913112650314967
+    },
+    {
+      "seed": 2,
+      "arm": "fixed",
+      "best_update": 600,
+      "validation_mse": 0.13820485273996988
+    },
+    {
+      "seed": 2,
+      "arm": "fixed_wrist",
+      "best_update": 600,
+      "validation_mse": 0.020103909075260162
+    }
+  ],
+  "development_only": true,
+  "note": "Same frozen training configuration; additional train/validation logging, no endtests.",
+  "elapsed_seconds": 7.5513596534729
+}

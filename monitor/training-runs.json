@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 1,
+  "runs": [
+    {
+      "id": "vision-scene-v2-run1",
+      "category": "vision",
+      "method": "supervised",
+      "title": "Szenenwahrnehmung V2 · Nachtlauf 1",
+      "kind": "training",
+      "directory": "experiments/visual_scene_v2_20261101/run_001",
+      "config": "config.json",
+      "parameters": 904112,
+      "description": "Vision-Training mit 0–5 Würfeln und Quadern, verstreuten und gestapelten Szenen, kalibrierten Kameras und Verdeckungslabels. Drei gepaarte Seeds, zwei Kameravarianten.",
+      "artifacts": [
+        {
+          "name": "loss.png",
+          "file": "loss.png",
+          "kind": "plot",
+          "label": "Gesamter Trainings- und Validation-Loss"
+        },
+        {
+          "name": "components.png",
+          "file": "loss_components.png",
+          "kind": "plot",
+          "label": "Einzelne Loss-Komponenten"
+        },
+        {
+          "name": "config.json",
+          "file": "config.json",
+          "kind": "document",
+          "label": "Eingefrorene Laufkonfiguration"
+        },
+        {
+          "name": "dataset.json",
+          "file": "data/generation_report.json",
+          "kind": "document",
+          "label": "Datengenerierung und Ausschlüsse"
+        },
+        {
+          "name": "evaluation.json",
+          "file": "test_repair_001/results.json",
+          "label": "Korrigierte Schlussprüfung · eingefrorene Modelle",
+          "kind": "document"
+        },
+        {
+          "name": "evaluation-summary.json",
+          "file": "test_repair_001/summary.json",
+          "label": "Zusammenfassung der Schlussprüfung",
+          "kind": "document"
+        }
+      ],
+      "architecture": [
+        [
+          "CNN",
+          "6 Conv-Schichten; Kanäle 32 → 64 → 128; ReLU"
+        ],
+        [
+          "Räumliche Merkmale",
+          "1.200 Tokens × 128 Merkmale, kalibrierte Kamerastrahlen"
+        ],
+        [
+          "Transformer",
+          "3 Decoderblöcke; 4 Attentionköpfe; GELU; Dropout 0,1"
+        ],
+        [
+          "Objektausgabe",
+          "5 Slots × 16 Rohwerte: Detektion, Position, Größe, Rotation und Sichtbarkeit"
+        ]
+      ],
+      "geometryIndex": "geometry/index.json",
+      "results": "test_repair_001/results.json"
+    },
+    {
+      "id": "vision-scene-v2",
+      "category": "vision",
+      "method": "supervised",
+      "title": "Szenenwahrnehmung · 0–5 Objekte",
+      "kind": "design",
+      "directory": "experiments/visual_scene_v2_20261101",
+      "config": "PROPOSED_CONFIG.json",
+      "parameters": 904112,
+      "description": "Geplanter Mehr-Objekt-Versuch mit Würfeln, Quadern, Stapeln und Verdeckungen. Noch kein Training gestartet.",
+      "artifacts": [
+        {
+          "name": "overlay-demo.png",
+          "file": "overlay_demo/overlay.png",
+          "label": "3D-Vergleich · Illustration",
+          "kind": "demo"
+        },
+        {
+          "name": "plan.md",
+          "file": "PLAN.md",
+          "label": "Trainingsplan",
+          "kind": "document"
+        }
+      ],
+      "architecture": [
+        [
+          "CNN",
+          "6 Conv-Schichten; Kanäle 32 → 64 → 128; ReLU"
+        ],
+        [
+          "Räumliche Merkmale",
+          "1.200 Tokens × 128 Merkmale, kalibrierte Kamerastrahlen"
+        ],
+        [
+          "Transformer",
+          "3 Decoderblöcke; 4 Attentionköpfe; GELU; Dropout 0,1"
+        ],
+        [
+          "Objektausgabe",
+          "5 Slots × 16 Rohwerte: Detektion, Position, Größe, Rotation und Sichtbarkeit"
+        ]
+      ]
+    },
+    {
+      "id": "vision-night-v1",
+      "category": "vision",
+      "method": "supervised",
+      "title": "Würfel-Lokalisierung · Nachtlauf V1",
+      "kind": "training",
+      "directory": "experiments/visual_overnight_20261101/run_003",
+      "config": "config.json",
+      "parameters": 212614,
+      "description": "Zwei farblich zugeordnete Würfel, drei gepaarte Seeds und zwei Kameravarianten. Auf Nutzerwunsch abgebrochen; keine Abschlusstests.",
+      "artifacts": [
+        {
+          "name": "loss.png",
+          "file": "loss.png",
+          "label": "Trainings- und Validation-Loss",
+          "kind": "plot"
+        },
+        {
+          "name": "cameras.png",
+          "file": "camera_preview.png",
+          "label": "Drei Kameraansichten",
+          "kind": "image"
+        }
+      ],
+      "architecture": [
+        [
+          "Eingabe",
+          "3 Ansichten × RGB × 128 × 128 Pixel"
+        ],
+        [
+          "CNN",
+          "3 Conv-Schichten; 3 → 16 → 32 → 32 Kanäle; ReLU"
+        ],
+        [
+          "Pooling / Fusion",
+          "Average Pooling auf 4×4; 1.536 kombinierte Merkmale"
+        ],
+        [
+          "Kopf",
+          "Linear 1.536 → 128 + ReLU → 6 lineare XYZ-Ausgaben"
+        ]
+      ]
+    },
+    {
+      "id": "vision-pilot-v1",
+      "category": "vision",
+      "method": "supervised",
+      "title": "Kameravergleich · erster Pilot",
+      "kind": "completed",
+      "directory": "experiments/visual_cube_transfer_20261031",
+      "config": "MODEL_METADATA.json",
+      "parameters": 212614,
+      "description": "Abgeschlossener 64×64-Pilot mit zwei Seeds. Die vollständigen Loss-Kurven stammen aus einem separaten Diagnoselauf; Endtests aus run_002.",
+      "curves": "diagnostic_001/curves.json",
+      "results": "run_002/results.json",
+      "artifacts": [
+        {
+          "name": "loss.png",
+          "file": "diagnostic_001/training_validation_loss.png",
+          "label": "Diagnose-Losskurven",
+          "kind": "plot"
+        },
+        {
+          "name": "report.md",
+          "file": "MODEL_AND_RESULTS.md",
+          "label": "Modell und Ergebnisse",
+          "kind": "document"
+        }
+      ],
+      "architecture": [
+        [
+          "Eingabe",
+          "3 Ansichten × RGB × 64 × 64 Pixel"
+        ],
+        [
+          "CNN",
+          "3 Conv-Schichten; 16 / 32 / 32 Kanäle; ReLU"
+        ],
+        [
+          "Kopf",
+          "1.536 → 128 + ReLU → 6 lineare Koordinaten"
+        ]
+      ]
+    }
+  ]
+}

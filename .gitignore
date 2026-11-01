@@ -125,3 +125,30 @@ experiments/**/active_child.json
 /tmp/editorial-copy.py
 /tmp/remove-cube-demo.py
 outputs/**/preview.png
+
+# Isolated source checkout for the private training dashboard
+/sites/research-training-editor/
+
+# Isolated Sites checkouts and deployment archive for the vision research update
+/sites/research-refinement-20261101/
+/sites/research-refinement-editor/
+/sites/research-vision-editor/
+/sites/research-vision-20261101.tar.gz
+
+# Vision experiments: bulk diagnostics, smoke runs and transient process state.
+# Retain source snapshots, configs, manifests, curves, results and selected figures.
+/experiments/visual_overnight_20261101/smoke_*/
+/experiments/visual_scene_v2_20261101/smoke_*/
+/experiments/visual_scene_v2_20261101/run_001/geometry/
+/experiments/visual_cube_transfer_20261031/write_smoke.json
+/experiments/visual_overnight_20261101/run_*/runtime.json
+/experiments/visual_overnight_20261101/run_*/supervisor.json
+/experiments/visual_overnight_20261101/run_*/supervisor_exit.json
+/experiments/visual_scene_v2_20261101/run_*/runtime.json
+/experiments/visual_scene_v2_20261101/run_*/supervisor.json
+/experiments/visual_scene_v2_20261101/run_*/supervisor_exit.json
+/experiments/visual_scene_v2_20261101/preflight_*/progress.json
+/experiments/visual_scene_v2_20261101/run_001/test_repair_001/progress_results.json
+/experiments/visual_scene_v2_20261101/refinement_001/website_*.jpg
+/experiments/active_view_20261101/reference_demo_001/motion.gif
+/experiments/active_view_20261101/reference_demo_002/motion.gif

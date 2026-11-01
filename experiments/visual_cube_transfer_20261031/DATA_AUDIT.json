@@ -1,0 +1,22 @@
+{
+  "train": {
+    "scenes": 512,
+    "minimum_aspect_ratio": 1.0,
+    "maximum_aspect_ratio": 1.0
+  },
+  "valid": {
+    "scenes": 128,
+    "minimum_aspect_ratio": 1.0,
+    "maximum_aspect_ratio": 1.0
+  },
+  "test_cube": {
+    "scenes": 128,
+    "minimum_aspect_ratio": 1.0,
+    "maximum_aspect_ratio": 1.0
+  },
+  "test_cuboid": {
+    "scenes": 128,
+    "minimum_aspect_ratio": 1.5009643651238638,
+    "maximum_aspect_ratio": 2.3231345648263693
+  }
+}

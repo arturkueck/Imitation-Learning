@@ -1,0 +1,146 @@
+{
+  "training_started": false,
+  "neural_optimizer_updates": 0,
+  "geometric_objective_calls": 20636,
+  "plan_sha256": "a46cca9c0074c31e31614aa110440585ce323c196721620c16eac96f91b54a84",
+  "checkpoint_sha256": {
+    "fixed_wrist_seed1_best.pth": "0ed05865066ffddc1c10c93a858c20ff5e50a1111040517905205e45aa1bb301",
+    "fixed_wrist_seed2_best.pth": "d725b61dd42281c7d0c7f13c082f414c8259abe0e09cddb6f32025dc1b21e629",
+    "fixed_wrist_seed3_best.pth": "8016d6ea77d937fa306b800d3fac011d243711566a8befe3b57d73e1d25022b5"
+  },
+  "development": {
+    "objects": 25,
+    "scenes": 8,
+    "improved_over_1mm": 9,
+    "worsened_over_1mm": 9,
+    "essentially_unchanged": 7,
+    "updated_scenes": 8,
+    "ambiguous_scenes": 1,
+    "recall10_before": 0.925,
+    "recall10_after": 0.95,
+    "position_before_mean_mm": 4.292975319623947,
+    "position_after_mean_mm": 4.345082997074683,
+    "corner_before_mean_mm": 6.757041761585898,
+    "corner_after_mean_mm": 6.280924072035257,
+    "size_before_mean_mm": 3.380353271961212,
+    "size_after_mean_mm": 2.9609614389397,
+    "paired_position_delta_bootstrap95_mm": [
+      -1.2819817665003024,
+      1.963739311535683
+    ]
+  },
+  "evaluation": {
+    "objects": 60,
+    "scenes": 16,
+    "improved_over_1mm": 15,
+    "worsened_over_1mm": 24,
+    "essentially_unchanged": 21,
+    "updated_scenes": 14,
+    "ambiguous_scenes": 2,
+    "recall10_before": 0.975,
+    "recall10_after": 0.925,
+    "position_before_mean_mm": 4.584853199124336,
+    "position_after_mean_mm": 4.7222304900074334,
+    "corner_before_mean_mm": 7.9531661042723725,
+    "corner_after_mean_mm": 7.274330356986604,
+    "size_before_mean_mm": 3.0144003267089525,
+    "size_after_mean_mm": 2.9292043853178322,
+    "paired_position_delta_bootstrap95_mm": [
+      -1.9863417676873751,
+      2.031364650814905
+    ]
+  },
+  "by_kind": {
+    "0": {
+      "objects": 14,
+      "scenes": 4,
+      "improved_over_1mm": 2,
+      "worsened_over_1mm": 6,
+      "essentially_unchanged": 6,
+      "updated_scenes": 4,
+      "ambiguous_scenes": 0,
+      "recall10_before": 1.0,
+      "recall10_after": 0.875,
+      "position_before_mean_mm": 2.9235542246273587,
+      "position_after_mean_mm": 4.194867373051106,
+      "corner_before_mean_mm": 8.893829914760127,
+      "corner_after_mean_mm": 8.080606091044384,
+      "size_before_mean_mm": 3.0361073187419345,
+      "size_after_mean_mm": 3.129874346513456,
+      "paired_position_delta_bootstrap95_mm": [
+        0.30740469534352427,
+        3.2917821663388454
+      ]
+    },
+    "1": {
+      "objects": 14,
+      "scenes": 4,
+      "improved_over_1mm": 5,
+      "worsened_over_1mm": 5,
+      "essentially_unchanged": 4,
+      "updated_scenes": 3,
+      "ambiguous_scenes": 1,
+      "recall10_before": 0.9,
+      "recall10_after": 0.825,
+      "position_before_mean_mm": 8.524518047060285,
+      "position_after_mean_mm": 6.83214278916672,
+      "corner_before_mean_mm": 12.443583375393017,
+      "corner_after_mean_mm": 10.608023417177995,
+      "size_before_mean_mm": 4.747777606759753,
+      "size_after_mean_mm": 4.68334141121345,
+      "paired_position_delta_bootstrap95_mm": [
+        -8.497252081721536,
+        5.087473768033022
+      ]
+    },
+    "2": {
+      "objects": 15,
+      "scenes": 4,
+      "improved_over_1mm": 5,
+      "worsened_over_1mm": 5,
+      "essentially_unchanged": 5,
+      "updated_scenes": 3,
+      "ambiguous_scenes": 1,
+      "recall10_before": 1.0,
+      "recall10_after": 1.0,
+      "position_before_mean_mm": 3.870503612359365,
+      "position_after_mean_mm": 4.033922305851468,
+      "corner_before_mean_mm": 6.380010638153762,
+      "corner_after_mean_mm": 5.949453869210729,
+      "size_before_mean_mm": 2.8005329251289366,
+      "size_after_mean_mm": 2.7305590056491766,
+      "paired_position_delta_bootstrap95_mm": [
+        -2.5878408352092412,
+        3.524427661157436
+      ]
+    },
+    "3": {
+      "objects": 17,
+      "scenes": 4,
+      "improved_over_1mm": 3,
+      "worsened_over_1mm": 8,
+      "essentially_unchanged": 6,
+      "updated_scenes": 4,
+      "ambiguous_scenes": 0,
+      "recall10_before": 1.0,
+      "recall10_after": 1.0,
+      "position_before_mean_mm": 3.3388603504966285,
+      "position_after_mean_mm": 4.026285443624967,
+      "corner_before_mean_mm": 4.868589448346583,
+      "corner_after_mean_mm": 5.03395295681894,
+      "size_before_mean_mm": 1.757743339328205,
+      "size_after_mean_mm": 1.4946386721268006,
+      "paired_position_delta_bootstrap95_mm": [
+        -0.11383114297212628,
+        1.514158745149
+      ]
+    }
+  },
+  "limitations": [
+    "small balanced fresh simulation pilot, not real-world validation",
+    "no objects added/removed; count correction not implemented",
+    "ambiguity flag is heuristic, not a calibrated probability",
+    "paired errors lock baseline GT identities; recall is independently rematched"
+  ],
+  "elapsed_seconds": 346.51502108573914
+}

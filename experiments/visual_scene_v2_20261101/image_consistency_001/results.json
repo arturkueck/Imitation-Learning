@@ -1,0 +1,1126 @@
+{
+  "training_started": false,
+  "optimizer_updates": 0,
+  "model_inference_calls": 0,
+  "dataset": "same 2000 validation scenes, same disjoint calibration/held families; no reserved tests",
+  "calibration_max_reprojection_residual_pixels": 1.0271877948245014e-05,
+  "results": {
+    "fixed": {
+      "selected_recipe": "hybrid25",
+      "calibration_recipe_objectives": {
+        "hybrid25": 259,
+        "hybrid50": 245,
+        "hybrid75": 225
+      },
+      "budgets": {
+        "5pct": {
+          "ensemble": {
+            "predictions": 2842,
+            "flagged": 142,
+            "bad": 243,
+            "detected_bad": 90,
+            "accepted_bad": 153,
+            "flagged_bad_fraction": 0.37037037037037035,
+            "accepted_bad_fraction": 0.056666666666666664
+          },
+          "corner": {
+            "predictions": 2842,
+            "flagged": 142,
+            "bad": 243,
+            "detected_bad": 86,
+            "accepted_bad": 157,
+            "flagged_bad_fraction": 0.35390946502057613,
+            "accepted_bad_fraction": 0.05814814814814815
+          },
+          "size": {
+            "predictions": 2842,
+            "flagged": 142,
+            "bad": 243,
+            "detected_bad": 82,
+            "accepted_bad": 161,
+            "flagged_bad_fraction": 0.3374485596707819,
+            "accepted_bad_fraction": 0.05962962962962963
+          },
+          "image": {
+            "predictions": 2842,
+            "flagged": 142,
+            "bad": 243,
+            "detected_bad": 77,
+            "accepted_bad": 166,
+            "flagged_bad_fraction": 0.3168724279835391,
+            "accepted_bad_fraction": 0.061481481481481484
+          },
+          "hybrid25": {
+            "predictions": 2842,
+            "flagged": 142,
+            "bad": 243,
+            "detected_bad": 93,
+            "accepted_bad": 150,
+            "flagged_bad_fraction": 0.38271604938271603,
+            "accepted_bad_fraction": 0.05555555555555555
+          },
+          "hybrid50": {
+            "predictions": 2842,
+            "flagged": 142,
+            "bad": 243,
+            "detected_bad": 87,
+            "accepted_bad": 156,
+            "flagged_bad_fraction": 0.35802469135802467,
+            "accepted_bad_fraction": 0.057777777777777775
+          },
+          "hybrid75": {
+            "predictions": 2842,
+            "flagged": 142,
+            "bad": 243,
+            "detected_bad": 81,
+            "accepted_bad": 162,
+            "flagged_bad_fraction": 0.3333333333333333,
+            "accepted_bad_fraction": 0.06
+          },
+          "hybrid_vs_ensemble_cluster_bootstrap95": [
+            -0.009135591070522576,
+            0.039478031532575925
+          ]
+        },
+        "10pct": {
+          "ensemble": {
+            "predictions": 2842,
+            "flagged": 284,
+            "bad": 243,
+            "detected_bad": 130,
+            "accepted_bad": 113,
+            "flagged_bad_fraction": 0.5349794238683128,
+            "accepted_bad_fraction": 0.044175136825645035
+          },
+          "corner": {
+            "predictions": 2842,
+            "flagged": 284,
+            "bad": 243,
+            "detected_bad": 103,
+            "accepted_bad": 140,
+            "flagged_bad_fraction": 0.42386831275720166,
+            "accepted_bad_fraction": 0.054730258014073496
+          },
+          "size": {
+            "predictions": 2842,
+            "flagged": 284,
+            "bad": 243,
+            "detected_bad": 102,
+            "accepted_bad": 141,
+            "flagged_bad_fraction": 0.41975308641975306,
+            "accepted_bad_fraction": 0.055121188428459734
+          },
+          "image": {
+            "predictions": 2842,
+            "flagged": 284,
+            "bad": 243,
+            "detected_bad": 119,
+            "accepted_bad": 124,
+            "flagged_bad_fraction": 0.4897119341563786,
+            "accepted_bad_fraction": 0.04847537138389367
+          },
+          "hybrid25": {
+            "predictions": 2842,
+            "flagged": 284,
+            "bad": 243,
+            "detected_bad": 124,
+            "accepted_bad": 119,
+            "flagged_bad_fraction": 0.5102880658436214,
+            "accepted_bad_fraction": 0.04652071931196247
+          },
+          "hybrid50": {
+            "predictions": 2842,
+            "flagged": 284,
+            "bad": 243,
+            "detected_bad": 124,
+            "accepted_bad": 119,
+            "flagged_bad_fraction": 0.5102880658436214,
+            "accepted_bad_fraction": 0.04652071931196247
+          },
+          "hybrid75": {
+            "predictions": 2842,
+            "flagged": 284,
+            "bad": 243,
+            "detected_bad": 126,
+            "accepted_bad": 117,
+            "flagged_bad_fraction": 0.5185185185185185,
+            "accepted_bad_fraction": 0.045738858483189995
+          },
+          "hybrid_vs_ensemble_cluster_bootstrap95": [
+            -0.06668067226890756,
+            0.02
+          ]
+        },
+        "20pct": {
+          "ensemble": {
+            "predictions": 2842,
+            "flagged": 568,
+            "bad": 243,
+            "detected_bad": 173,
+            "accepted_bad": 70,
+            "flagged_bad_fraction": 0.7119341563786008,
+            "accepted_bad_fraction": 0.030782761653474055
+          },
+          "corner": {
+            "predictions": 2842,
+            "flagged": 568,
+            "bad": 243,
+            "detected_bad": 129,
+            "accepted_bad": 114,
+            "flagged_bad_fraction": 0.5308641975308642,
+            "accepted_bad_fraction": 0.05013192612137203
+          },
+          "size": {
+            "predictions": 2842,
+            "flagged": 568,
+            "bad": 243,
+            "detected_bad": 144,
+            "accepted_bad": 99,
+            "flagged_bad_fraction": 0.5925925925925926,
+            "accepted_bad_fraction": 0.04353562005277045
+          },
+          "image": {
+            "predictions": 2842,
+            "flagged": 568,
+            "bad": 243,
+            "detected_bad": 137,
+            "accepted_bad": 106,
+            "flagged_bad_fraction": 0.5637860082304527,
+            "accepted_bad_fraction": 0.04661389621811785
+          },
+          "hybrid25": {
+            "predictions": 2842,
+            "flagged": 568,
+            "bad": 243,
+            "detected_bad": 167,
+            "accepted_bad": 76,
+            "flagged_bad_fraction": 0.6872427983539094,
+            "accepted_bad_fraction": 0.03342128408091469
+          },
+          "hybrid50": {
+            "predictions": 2842,
+            "flagged": 568,
+            "bad": 243,
+            "detected_bad": 160,
+            "accepted_bad": 83,
+            "flagged_bad_fraction": 0.6584362139917695,
+            "accepted_bad_fraction": 0.036499560246262094
+          },
+          "hybrid75": {
+            "predictions": 2842,
+            "flagged": 568,
+            "bad": 243,
+            "detected_bad": 149,
+            "accepted_bad": 94,
+            "flagged_bad_fraction": 0.6131687242798354,
+            "accepted_bad_fraction": 0.04133685136323659
+          },
+          "hybrid_vs_ensemble_cluster_bootstrap95": [
+            -0.0739170692431562,
+            0.02351009974437368
+          ]
+        }
+      },
+      "by_arrangement": {
+        "0": {
+          "ensemble": {
+            "predictions": 1172,
+            "flagged": 117,
+            "bad": 84,
+            "detected_bad": 60,
+            "accepted_bad": 24,
+            "flagged_bad_fraction": 0.7142857142857143,
+            "accepted_bad_fraction": 0.022748815165876776
+          },
+          "corner": {
+            "predictions": 1172,
+            "flagged": 117,
+            "bad": 84,
+            "detected_bad": 54,
+            "accepted_bad": 30,
+            "flagged_bad_fraction": 0.6428571428571429,
+            "accepted_bad_fraction": 0.02843601895734597
+          },
+          "size": {
+            "predictions": 1172,
+            "flagged": 117,
+            "bad": 84,
+            "detected_bad": 46,
+            "accepted_bad": 38,
+            "flagged_bad_fraction": 0.5476190476190477,
+            "accepted_bad_fraction": 0.03601895734597156
+          },
+          "image": {
+            "predictions": 1172,
+            "flagged": 117,
+            "bad": 84,
+            "detected_bad": 59,
+            "accepted_bad": 25,
+            "flagged_bad_fraction": 0.7023809523809523,
+            "accepted_bad_fraction": 0.023696682464454975
+          },
+          "hybrid25": {
+            "predictions": 1172,
+            "flagged": 117,
+            "bad": 84,
+            "detected_bad": 65,
+            "accepted_bad": 19,
+            "flagged_bad_fraction": 0.7738095238095238,
+            "accepted_bad_fraction": 0.01800947867298578
+          },
+          "hybrid50": {
+            "predictions": 1172,
+            "flagged": 117,
+            "bad": 84,
+            "detected_bad": 62,
+            "accepted_bad": 22,
+            "flagged_bad_fraction": 0.7380952380952381,
+            "accepted_bad_fraction": 0.02085308056872038
+          },
+          "hybrid75": {
+            "predictions": 1172,
+            "flagged": 117,
+            "bad": 84,
+            "detected_bad": 64,
+            "accepted_bad": 20,
+            "flagged_bad_fraction": 0.7619047619047619,
+            "accepted_bad_fraction": 0.018957345971563982
+          }
+        },
+        "1": {
+          "ensemble": {
+            "predictions": 824,
+            "flagged": 82,
+            "bad": 63,
+            "detected_bad": 33,
+            "accepted_bad": 30,
+            "flagged_bad_fraction": 0.5238095238095238,
+            "accepted_bad_fraction": 0.04043126684636118
+          },
+          "corner": {
+            "predictions": 824,
+            "flagged": 82,
+            "bad": 63,
+            "detected_bad": 25,
+            "accepted_bad": 38,
+            "flagged_bad_fraction": 0.3968253968253968,
+            "accepted_bad_fraction": 0.05121293800539083
+          },
+          "size": {
+            "predictions": 824,
+            "flagged": 82,
+            "bad": 63,
+            "detected_bad": 33,
+            "accepted_bad": 30,
+            "flagged_bad_fraction": 0.5238095238095238,
+            "accepted_bad_fraction": 0.04043126684636118
+          },
+          "image": {
+            "predictions": 824,
+            "flagged": 82,
+            "bad": 63,
+            "detected_bad": 32,
+            "accepted_bad": 31,
+            "flagged_bad_fraction": 0.5079365079365079,
+            "accepted_bad_fraction": 0.04177897574123989
+          },
+          "hybrid25": {
+            "predictions": 824,
+            "flagged": 82,
+            "bad": 63,
+            "detected_bad": 31,
+            "accepted_bad": 32,
+            "flagged_bad_fraction": 0.49206349206349204,
+            "accepted_bad_fraction": 0.0431266846361186
+          },
+          "hybrid50": {
+            "predictions": 824,
+            "flagged": 82,
+            "bad": 63,
+            "detected_bad": 32,
+            "accepted_bad": 31,
+            "flagged_bad_fraction": 0.5079365079365079,
+            "accepted_bad_fraction": 0.04177897574123989
+          },
+          "hybrid75": {
+            "predictions": 824,
+            "flagged": 82,
+            "bad": 63,
+            "detected_bad": 35,
+            "accepted_bad": 28,
+            "flagged_bad_fraction": 0.5555555555555556,
+            "accepted_bad_fraction": 0.03773584905660377
+          }
+        },
+        "2": {
+          "ensemble": {
+            "predictions": 658,
+            "flagged": 66,
+            "bad": 93,
+            "detected_bad": 32,
+            "accepted_bad": 61,
+            "flagged_bad_fraction": 0.34408602150537637,
+            "accepted_bad_fraction": 0.10304054054054054
+          },
+          "corner": {
+            "predictions": 658,
+            "flagged": 66,
+            "bad": 93,
+            "detected_bad": 31,
+            "accepted_bad": 62,
+            "flagged_bad_fraction": 0.3333333333333333,
+            "accepted_bad_fraction": 0.10472972972972973
+          },
+          "size": {
+            "predictions": 658,
+            "flagged": 66,
+            "bad": 93,
+            "detected_bad": 28,
+            "accepted_bad": 65,
+            "flagged_bad_fraction": 0.3010752688172043,
+            "accepted_bad_fraction": 0.1097972972972973
+          },
+          "image": {
+            "predictions": 658,
+            "flagged": 66,
+            "bad": 93,
+            "detected_bad": 25,
+            "accepted_bad": 68,
+            "flagged_bad_fraction": 0.26881720430107525,
+            "accepted_bad_fraction": 0.11486486486486487
+          },
+          "hybrid25": {
+            "predictions": 658,
+            "flagged": 66,
+            "bad": 93,
+            "detected_bad": 34,
+            "accepted_bad": 59,
+            "flagged_bad_fraction": 0.3655913978494624,
+            "accepted_bad_fraction": 0.09966216216216216
+          },
+          "hybrid50": {
+            "predictions": 658,
+            "flagged": 66,
+            "bad": 93,
+            "detected_bad": 35,
+            "accepted_bad": 58,
+            "flagged_bad_fraction": 0.3763440860215054,
+            "accepted_bad_fraction": 0.09797297297297297
+          },
+          "hybrid75": {
+            "predictions": 658,
+            "flagged": 66,
+            "bad": 93,
+            "detected_bad": 29,
+            "accepted_bad": 64,
+            "flagged_bad_fraction": 0.3118279569892473,
+            "accepted_bad_fraction": 0.10810810810810811
+          }
+        },
+        "3": {
+          "ensemble": {
+            "predictions": 188,
+            "flagged": 19,
+            "bad": 3,
+            "detected_bad": 3,
+            "accepted_bad": 0,
+            "flagged_bad_fraction": 1.0,
+            "accepted_bad_fraction": 0.0
+          },
+          "corner": {
+            "predictions": 188,
+            "flagged": 19,
+            "bad": 3,
+            "detected_bad": 3,
+            "accepted_bad": 0,
+            "flagged_bad_fraction": 1.0,
+            "accepted_bad_fraction": 0.0
+          },
+          "size": {
+            "predictions": 188,
+            "flagged": 19,
+            "bad": 3,
+            "detected_bad": 3,
+            "accepted_bad": 0,
+            "flagged_bad_fraction": 1.0,
+            "accepted_bad_fraction": 0.0
+          },
+          "image": {
+            "predictions": 188,
+            "flagged": 19,
+            "bad": 3,
+            "detected_bad": 3,
+            "accepted_bad": 0,
+            "flagged_bad_fraction": 1.0,
+            "accepted_bad_fraction": 0.0
+          },
+          "hybrid25": {
+            "predictions": 188,
+            "flagged": 19,
+            "bad": 3,
+            "detected_bad": 3,
+            "accepted_bad": 0,
+            "flagged_bad_fraction": 1.0,
+            "accepted_bad_fraction": 0.0
+          },
+          "hybrid50": {
+            "predictions": 188,
+            "flagged": 19,
+            "bad": 3,
+            "detected_bad": 3,
+            "accepted_bad": 0,
+            "flagged_bad_fraction": 1.0,
+            "accepted_bad_fraction": 0.0
+          },
+          "hybrid75": {
+            "predictions": 188,
+            "flagged": 19,
+            "bad": 3,
+            "detected_bad": 3,
+            "accepted_bad": 0,
+            "flagged_bad_fraction": 1.0,
+            "accepted_bad_fraction": 0.0
+          }
+        }
+      },
+      "occluded": {
+        "ensemble": {
+          "predictions": 718,
+          "flagged": 72,
+          "bad": 43,
+          "detected_bad": 17,
+          "accepted_bad": 26,
+          "flagged_bad_fraction": 0.3953488372093023,
+          "accepted_bad_fraction": 0.04024767801857585
+        },
+        "image": {
+          "predictions": 718,
+          "flagged": 72,
+          "bad": 43,
+          "detected_bad": 7,
+          "accepted_bad": 36,
+          "flagged_bad_fraction": 0.16279069767441862,
+          "accepted_bad_fraction": 0.05572755417956656
+        },
+        "hybrid25": {
+          "predictions": 718,
+          "flagged": 72,
+          "bad": 43,
+          "detected_bad": 14,
+          "accepted_bad": 29,
+          "flagged_bad_fraction": 0.32558139534883723,
+          "accepted_bad_fraction": 0.04489164086687306
+        }
+      },
+      "well_visible": {
+        "ensemble": {
+          "predictions": 2066,
+          "flagged": 207,
+          "bad": 142,
+          "detected_bad": 69,
+          "accepted_bad": 73,
+          "flagged_bad_fraction": 0.4859154929577465,
+          "accepted_bad_fraction": 0.0392684238838085
+        },
+        "image": {
+          "predictions": 2066,
+          "flagged": 207,
+          "bad": 142,
+          "detected_bad": 65,
+          "accepted_bad": 77,
+          "flagged_bad_fraction": 0.45774647887323944,
+          "accepted_bad_fraction": 0.04142011834319527
+        },
+        "hybrid25": {
+          "predictions": 2066,
+          "flagged": 207,
+          "bad": 142,
+          "detected_bad": 69,
+          "accepted_bad": 73,
+          "flagged_bad_fraction": 0.4859154929577465,
+          "accepted_bad_fraction": 0.0392684238838085
+        }
+      },
+      "shared_error_subset": {
+        "definition": "support=3, spread<=3mm, bad position/FP",
+        "count": 18,
+        "hybrid_flagged": 0,
+        "ensemble_flagged": 0
+      },
+      "unknown_image_evidence_fraction": 0.018296973961998593
+    },
+    "fixed_wrist": {
+      "selected_recipe": "hybrid25",
+      "calibration_recipe_objectives": {
+        "hybrid25": 181,
+        "hybrid50": 175,
+        "hybrid75": 170
+      },
+      "budgets": {
+        "5pct": {
+          "ensemble": {
+            "predictions": 2861,
+            "flagged": 143,
+            "bad": 219,
+            "detected_bad": 81,
+            "accepted_bad": 138,
+            "flagged_bad_fraction": 0.3698630136986301,
+            "accepted_bad_fraction": 0.05077262693156733
+          },
+          "corner": {
+            "predictions": 2861,
+            "flagged": 143,
+            "bad": 219,
+            "detected_bad": 80,
+            "accepted_bad": 139,
+            "flagged_bad_fraction": 0.365296803652968,
+            "accepted_bad_fraction": 0.051140544518027964
+          },
+          "size": {
+            "predictions": 2861,
+            "flagged": 143,
+            "bad": 219,
+            "detected_bad": 75,
+            "accepted_bad": 144,
+            "flagged_bad_fraction": 0.3424657534246575,
+            "accepted_bad_fraction": 0.052980132450331126
+          },
+          "image": {
+            "predictions": 2861,
+            "flagged": 143,
+            "bad": 219,
+            "detected_bad": 74,
+            "accepted_bad": 145,
+            "flagged_bad_fraction": 0.3378995433789954,
+            "accepted_bad_fraction": 0.05334805003679176
+          },
+          "hybrid25": {
+            "predictions": 2861,
+            "flagged": 143,
+            "bad": 219,
+            "detected_bad": 77,
+            "accepted_bad": 142,
+            "flagged_bad_fraction": 0.3515981735159817,
+            "accepted_bad_fraction": 0.05224429727740986
+          },
+          "hybrid50": {
+            "predictions": 2861,
+            "flagged": 143,
+            "bad": 219,
+            "detected_bad": 76,
+            "accepted_bad": 143,
+            "flagged_bad_fraction": 0.3470319634703196,
+            "accepted_bad_fraction": 0.05261221486387049
+          },
+          "hybrid75": {
+            "predictions": 2861,
+            "flagged": 143,
+            "bad": 219,
+            "detected_bad": 75,
+            "accepted_bad": 144,
+            "flagged_bad_fraction": 0.3424657534246575,
+            "accepted_bad_fraction": 0.052980132450331126
+          },
+          "hybrid_vs_ensemble_cluster_bootstrap95": [
+            -0.046165803108808294,
+            0.005001903553299491
+          ]
+        },
+        "10pct": {
+          "ensemble": {
+            "predictions": 2861,
+            "flagged": 286,
+            "bad": 219,
+            "detected_bad": 126,
+            "accepted_bad": 93,
+            "flagged_bad_fraction": 0.5753424657534246,
+            "accepted_bad_fraction": 0.03611650485436893
+          },
+          "corner": {
+            "predictions": 2861,
+            "flagged": 286,
+            "bad": 219,
+            "detected_bad": 103,
+            "accepted_bad": 116,
+            "flagged_bad_fraction": 0.4703196347031963,
+            "accepted_bad_fraction": 0.04504854368932039
+          },
+          "size": {
+            "predictions": 2861,
+            "flagged": 286,
+            "bad": 219,
+            "detected_bad": 93,
+            "accepted_bad": 126,
+            "flagged_bad_fraction": 0.4246575342465753,
+            "accepted_bad_fraction": 0.04893203883495146
+          },
+          "image": {
+            "predictions": 2861,
+            "flagged": 286,
+            "bad": 219,
+            "detected_bad": 99,
+            "accepted_bad": 120,
+            "flagged_bad_fraction": 0.4520547945205479,
+            "accepted_bad_fraction": 0.04660194174757282
+          },
+          "hybrid25": {
+            "predictions": 2861,
+            "flagged": 286,
+            "bad": 219,
+            "detected_bad": 119,
+            "accepted_bad": 100,
+            "flagged_bad_fraction": 0.54337899543379,
+            "accepted_bad_fraction": 0.038834951456310676
+          },
+          "hybrid50": {
+            "predictions": 2861,
+            "flagged": 286,
+            "bad": 219,
+            "detected_bad": 116,
+            "accepted_bad": 103,
+            "flagged_bad_fraction": 0.5296803652968036,
+            "accepted_bad_fraction": 0.04
+          },
+          "hybrid75": {
+            "predictions": 2861,
+            "flagged": 286,
+            "bad": 219,
+            "detected_bad": 110,
+            "accepted_bad": 109,
+            "flagged_bad_fraction": 0.502283105022831,
+            "accepted_bad_fraction": 0.04233009708737864
+          },
+          "hybrid_vs_ensemble_cluster_bootstrap95": [
+            -0.0795205105023023,
+            0.010478241288070704
+          ]
+        },
+        "20pct": {
+          "ensemble": {
+            "predictions": 2861,
+            "flagged": 572,
+            "bad": 219,
+            "detected_bad": 166,
+            "accepted_bad": 53,
+            "flagged_bad_fraction": 0.7579908675799086,
+            "accepted_bad_fraction": 0.023154215814766274
+          },
+          "corner": {
+            "predictions": 2861,
+            "flagged": 572,
+            "bad": 219,
+            "detected_bad": 126,
+            "accepted_bad": 93,
+            "flagged_bad_fraction": 0.5753424657534246,
+            "accepted_bad_fraction": 0.04062909567496723
+          },
+          "size": {
+            "predictions": 2861,
+            "flagged": 572,
+            "bad": 219,
+            "detected_bad": 115,
+            "accepted_bad": 104,
+            "flagged_bad_fraction": 0.5251141552511416,
+            "accepted_bad_fraction": 0.045434687636522496
+          },
+          "image": {
+            "predictions": 2861,
+            "flagged": 572,
+            "bad": 219,
+            "detected_bad": 123,
+            "accepted_bad": 96,
+            "flagged_bad_fraction": 0.5616438356164384,
+            "accepted_bad_fraction": 0.04193971166448231
+          },
+          "hybrid25": {
+            "predictions": 2861,
+            "flagged": 572,
+            "bad": 219,
+            "detected_bad": 151,
+            "accepted_bad": 68,
+            "flagged_bad_fraction": 0.6894977168949772,
+            "accepted_bad_fraction": 0.029707295762341632
+          },
+          "hybrid50": {
+            "predictions": 2861,
+            "flagged": 572,
+            "bad": 219,
+            "detected_bad": 142,
+            "accepted_bad": 77,
+            "flagged_bad_fraction": 0.6484018264840182,
+            "accepted_bad_fraction": 0.03363914373088685
+          },
+          "hybrid75": {
+            "predictions": 2861,
+            "flagged": 572,
+            "bad": 219,
+            "detected_bad": 131,
+            "accepted_bad": 88,
+            "flagged_bad_fraction": 0.5981735159817352,
+            "accepted_bad_fraction": 0.03844473569244211
+          },
+          "hybrid_vs_ensemble_cluster_bootstrap95": [
+            -0.12197062084257206,
+            -0.017234073641145535
+          ]
+        }
+      },
+      "by_arrangement": {
+        "0": {
+          "ensemble": {
+            "predictions": 1188,
+            "flagged": 119,
+            "bad": 65,
+            "detected_bad": 55,
+            "accepted_bad": 10,
+            "flagged_bad_fraction": 0.8461538461538461,
+            "accepted_bad_fraction": 0.009354536950420954
+          },
+          "corner": {
+            "predictions": 1188,
+            "flagged": 119,
+            "bad": 65,
+            "detected_bad": 50,
+            "accepted_bad": 15,
+            "flagged_bad_fraction": 0.7692307692307693,
+            "accepted_bad_fraction": 0.01403180542563143
+          },
+          "size": {
+            "predictions": 1188,
+            "flagged": 119,
+            "bad": 65,
+            "detected_bad": 45,
+            "accepted_bad": 20,
+            "flagged_bad_fraction": 0.6923076923076923,
+            "accepted_bad_fraction": 0.018709073900841908
+          },
+          "image": {
+            "predictions": 1188,
+            "flagged": 119,
+            "bad": 65,
+            "detected_bad": 51,
+            "accepted_bad": 14,
+            "flagged_bad_fraction": 0.7846153846153846,
+            "accepted_bad_fraction": 0.013096351730589336
+          },
+          "hybrid25": {
+            "predictions": 1188,
+            "flagged": 119,
+            "bad": 65,
+            "detected_bad": 56,
+            "accepted_bad": 9,
+            "flagged_bad_fraction": 0.8615384615384616,
+            "accepted_bad_fraction": 0.00841908325537886
+          },
+          "hybrid50": {
+            "predictions": 1188,
+            "flagged": 119,
+            "bad": 65,
+            "detected_bad": 56,
+            "accepted_bad": 9,
+            "flagged_bad_fraction": 0.8615384615384616,
+            "accepted_bad_fraction": 0.00841908325537886
+          },
+          "hybrid75": {
+            "predictions": 1188,
+            "flagged": 119,
+            "bad": 65,
+            "detected_bad": 56,
+            "accepted_bad": 9,
+            "flagged_bad_fraction": 0.8615384615384616,
+            "accepted_bad_fraction": 0.00841908325537886
+          }
+        },
+        "1": {
+          "ensemble": {
+            "predictions": 824,
+            "flagged": 82,
+            "bad": 63,
+            "detected_bad": 37,
+            "accepted_bad": 26,
+            "flagged_bad_fraction": 0.5873015873015873,
+            "accepted_bad_fraction": 0.03504043126684636
+          },
+          "corner": {
+            "predictions": 824,
+            "flagged": 82,
+            "bad": 63,
+            "detected_bad": 31,
+            "accepted_bad": 32,
+            "flagged_bad_fraction": 0.49206349206349204,
+            "accepted_bad_fraction": 0.0431266846361186
+          },
+          "size": {
+            "predictions": 824,
+            "flagged": 82,
+            "bad": 63,
+            "detected_bad": 28,
+            "accepted_bad": 35,
+            "flagged_bad_fraction": 0.4444444444444444,
+            "accepted_bad_fraction": 0.04716981132075472
+          },
+          "image": {
+            "predictions": 824,
+            "flagged": 82,
+            "bad": 63,
+            "detected_bad": 29,
+            "accepted_bad": 34,
+            "flagged_bad_fraction": 0.4603174603174603,
+            "accepted_bad_fraction": 0.04582210242587601
+          },
+          "hybrid25": {
+            "predictions": 824,
+            "flagged": 82,
+            "bad": 63,
+            "detected_bad": 34,
+            "accepted_bad": 29,
+            "flagged_bad_fraction": 0.5396825396825397,
+            "accepted_bad_fraction": 0.03908355795148248
+          },
+          "hybrid50": {
+            "predictions": 824,
+            "flagged": 82,
+            "bad": 63,
+            "detected_bad": 36,
+            "accepted_bad": 27,
+            "flagged_bad_fraction": 0.5714285714285714,
+            "accepted_bad_fraction": 0.03638814016172507
+          },
+          "hybrid75": {
+            "predictions": 824,
+            "flagged": 82,
+            "bad": 63,
+            "detected_bad": 34,
+            "accepted_bad": 29,
+            "flagged_bad_fraction": 0.5396825396825397,
+            "accepted_bad_fraction": 0.03908355795148248
+          }
+        },
+        "2": {
+          "ensemble": {
+            "predictions": 661,
+            "flagged": 66,
+            "bad": 87,
+            "detected_bad": 28,
+            "accepted_bad": 59,
+            "flagged_bad_fraction": 0.3218390804597701,
+            "accepted_bad_fraction": 0.09915966386554621
+          },
+          "corner": {
+            "predictions": 661,
+            "flagged": 66,
+            "bad": 87,
+            "detected_bad": 18,
+            "accepted_bad": 69,
+            "flagged_bad_fraction": 0.20689655172413793,
+            "accepted_bad_fraction": 0.11596638655462185
+          },
+          "size": {
+            "predictions": 661,
+            "flagged": 66,
+            "bad": 87,
+            "detected_bad": 18,
+            "accepted_bad": 69,
+            "flagged_bad_fraction": 0.20689655172413793,
+            "accepted_bad_fraction": 0.11596638655462185
+          },
+          "image": {
+            "predictions": 661,
+            "flagged": 66,
+            "bad": 87,
+            "detected_bad": 16,
+            "accepted_bad": 71,
+            "flagged_bad_fraction": 0.1839080459770115,
+            "accepted_bad_fraction": 0.11932773109243698
+          },
+          "hybrid25": {
+            "predictions": 661,
+            "flagged": 66,
+            "bad": 87,
+            "detected_bad": 27,
+            "accepted_bad": 60,
+            "flagged_bad_fraction": 0.3103448275862069,
+            "accepted_bad_fraction": 0.10084033613445378
+          },
+          "hybrid50": {
+            "predictions": 661,
+            "flagged": 66,
+            "bad": 87,
+            "detected_bad": 26,
+            "accepted_bad": 61,
+            "flagged_bad_fraction": 0.2988505747126437,
+            "accepted_bad_fraction": 0.10252100840336134
+          },
+          "hybrid75": {
+            "predictions": 661,
+            "flagged": 66,
+            "bad": 87,
+            "detected_bad": 23,
+            "accepted_bad": 64,
+            "flagged_bad_fraction": 0.26436781609195403,
+            "accepted_bad_fraction": 0.10756302521008404
+          }
+        },
+        "3": {
+          "ensemble": {
+            "predictions": 188,
+            "flagged": 19,
+            "bad": 4,
+            "detected_bad": 4,
+            "accepted_bad": 0,
+            "flagged_bad_fraction": 1.0,
+            "accepted_bad_fraction": 0.0
+          },
+          "corner": {
+            "predictions": 188,
+            "flagged": 19,
+            "bad": 4,
+            "detected_bad": 3,
+            "accepted_bad": 1,
+            "flagged_bad_fraction": 0.75,
+            "accepted_bad_fraction": 0.005917159763313609
+          },
+          "size": {
+            "predictions": 188,
+            "flagged": 19,
+            "bad": 4,
+            "detected_bad": 3,
+            "accepted_bad": 1,
+            "flagged_bad_fraction": 0.75,
+            "accepted_bad_fraction": 0.005917159763313609
+          },
+          "image": {
+            "predictions": 188,
+            "flagged": 19,
+            "bad": 4,
+            "detected_bad": 3,
+            "accepted_bad": 1,
+            "flagged_bad_fraction": 0.75,
+            "accepted_bad_fraction": 0.005917159763313609
+          },
+          "hybrid25": {
+            "predictions": 188,
+            "flagged": 19,
+            "bad": 4,
+            "detected_bad": 3,
+            "accepted_bad": 1,
+            "flagged_bad_fraction": 0.75,
+            "accepted_bad_fraction": 0.005917159763313609
+          },
+          "hybrid50": {
+            "predictions": 188,
+            "flagged": 19,
+            "bad": 4,
+            "detected_bad": 3,
+            "accepted_bad": 1,
+            "flagged_bad_fraction": 0.75,
+            "accepted_bad_fraction": 0.005917159763313609
+          },
+          "hybrid75": {
+            "predictions": 188,
+            "flagged": 19,
+            "bad": 4,
+            "detected_bad": 3,
+            "accepted_bad": 1,
+            "flagged_bad_fraction": 0.75,
+            "accepted_bad_fraction": 0.005917159763313609
+          }
+        }
+      },
+      "occluded": {
+        "ensemble": {
+          "predictions": 719,
+          "flagged": 72,
+          "bad": 43,
+          "detected_bad": 21,
+          "accepted_bad": 22,
+          "flagged_bad_fraction": 0.4883720930232558,
+          "accepted_bad_fraction": 0.03400309119010819
+        },
+        "image": {
+          "predictions": 719,
+          "flagged": 72,
+          "bad": 43,
+          "detected_bad": 9,
+          "accepted_bad": 34,
+          "flagged_bad_fraction": 0.20930232558139536,
+          "accepted_bad_fraction": 0.05255023183925812
+        },
+        "hybrid25": {
+          "predictions": 719,
+          "flagged": 72,
+          "bad": 43,
+          "detected_bad": 17,
+          "accepted_bad": 26,
+          "flagged_bad_fraction": 0.3953488372093023,
+          "accepted_bad_fraction": 0.0401854714064915
+        }
+      },
+      "well_visible": {
+        "ensemble": {
+          "predictions": 2069,
+          "flagged": 207,
+          "bad": 103,
+          "detected_bad": 52,
+          "accepted_bad": 51,
+          "flagged_bad_fraction": 0.5048543689320388,
+          "accepted_bad_fraction": 0.027389903329752954
+        },
+        "image": {
+          "predictions": 2069,
+          "flagged": 207,
+          "bad": 103,
+          "detected_bad": 30,
+          "accepted_bad": 73,
+          "flagged_bad_fraction": 0.2912621359223301,
+          "accepted_bad_fraction": 0.03920515574650913
+        },
+        "hybrid25": {
+          "predictions": 2069,
+          "flagged": 207,
+          "bad": 103,
+          "detected_bad": 45,
+          "accepted_bad": 58,
+          "flagged_bad_fraction": 0.4368932038834951,
+          "accepted_bad_fraction": 0.031149301825993556
+        }
+      },
+      "shared_error_subset": {
+        "definition": "support=3, spread<=3mm, bad position/FP",
+        "count": 19,
+        "hybrid_flagged": 0,
+        "ensemble_flagged": 0
+      },
+      "unknown_image_evidence_fraction": 0.006990562740300594
+    }
+  },
+  "data_sha256": {
+    "data\\validation\\active.npy": "f29a9c981f3d890fdb6e5f42b263b83e3bfa5136b356da6fefe0a403b583aca6",
+    "data\\validation\\count.npy": "1404c925fb2698f53723bfd7b81665a272a73362490d798cb253d45d4ce57dfe",
+    "data\\validation\\family.npy": "e47bdf76506c2672f0439d67919d09ebda2b1b1626e80e5093506d6381c8f296",
+    "data\\validation\\images.npy": "c7f9dd6e086312e21fad81d8a128414187846145219f44a87e4727e00083d852",
+    "data\\validation\\kind.npy": "d7252c8fb7fd624e880d5d0dc984b1ca5265bce6fcddea4970780ba444409132",
+    "data\\validation\\positions.npy": "ff8b18d088730f0174f4b8c9a74c60cd6be68674cbfcacd4e67593e556d413e9",
+    "data\\validation\\rays.npy": "b213518684fc7c8e1208b2886f01501b6233e6f6f5f42afb89b1c0840f327b5a",
+    "data\\validation\\rotations.npy": "f420897cc06f228450efcee81a2da90e0f8f58084c5d191a77bf80dae94f69a7",
+    "data\\validation\\sizes.npy": "38f2c9890d185137a6e562b09b2f92f08bd4127b0364d260ffa2109338122274",
+    "data\\validation\\visibility.npy": "849ad5f48a6a69e8309c3c81732ee63041723daa276c25eab0a0a2145e651f67"
+  },
+  "prediction_sha256": {
+    "fixed_seed1_predictions.npz": "916f42890680f8736e667693e8e14806f2e70221e0b59a5407715091225c686d",
+    "fixed_seed2_predictions.npz": "239901c72a414b54dd9b0f1110c5d129b135474d0bb51420674fccd3e8702c26",
+    "fixed_seed3_predictions.npz": "053e461181a37997ab4a7199513e7df670517167b1973066c65002a93c8604dc",
+    "fixed_wrist_seed1_predictions.npz": "ecce998ce22812ab4b4cdda34f07b6b45d9654ba3b80e42dce92d0151f19bf17",
+    "fixed_wrist_seed2_predictions.npz": "e720ea74667a2fe3c7caad2bd2f16a74f0cc9fadb308372d086859080eb70baa",
+    "fixed_wrist_seed3_predictions.npz": "f7ea784f662676798eaf6c42133209ccd5762fc9fa0a8c3c681d13dbb632caf2"
+  },
+  "source_sha256": "89c69dff3838acc901589787a2f653a3aa393a9a45f548dcc8c5d1131fe2158a",
+  "limitations": [
+    "existing validation used for checkpoint selection; exploratory only",
+    "no saved exact robot/object masks; dark/neutral pixels unknown, bright-neutral heuristic can fail",
+    "predicted boxes z-buffer each other; real unpredicted occluders are not modeled",
+    "equal-budget curves use held score quantiles without labels; not deployed thresholds",
+    "RGB scoring detects disagreement, not guaranteed correctness or collision-free space"
+  ],
+  "elapsed_seconds": 117.03792905807495
+}

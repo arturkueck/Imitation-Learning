@@ -1,0 +1,22 @@
+{
+  "iid/fixed": {
+    "position_mm": 5.949571499785752,
+    "count_accuracy": 0.9635,
+    "recall_10mm": 0.8851545545193267
+  },
+  "iid/fixed_wrist": {
+    "position_mm": 5.1077158576523995,
+    "count_accuracy": 0.9665,
+    "recall_10mm": 0.9188808727784621
+  },
+  "ood/fixed": {
+    "position_mm": 17.431895971354542,
+    "count_accuracy": 0.6002604166666666,
+    "recall_10mm": 0.2589180250413418
+  },
+  "ood/fixed_wrist": {
+    "position_mm": 14.921427738531357,
+    "count_accuracy": 0.6653645833333334,
+    "recall_10mm": 0.35364989369241673
+  }
+}

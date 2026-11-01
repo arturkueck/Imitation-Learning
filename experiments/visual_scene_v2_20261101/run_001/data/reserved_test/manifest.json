@@ -1,0 +1,39 @@
+{
+  "split": "reserved_test",
+  "count": 2000,
+  "seed": 8201001,
+  "count_histogram": [
+    112,
+    366,
+    391,
+    374,
+    372,
+    385
+  ],
+  "kind_histogram": [
+    1052,
+    459,
+    370,
+    119
+  ],
+  "elapsed_seconds": 33.9166693687439,
+  "rejections": {
+    "placement": 6,
+    "layout_changed": 17,
+    "stack_collapsed": 30,
+    "fell_or_outside": 2,
+    "not_settled": 2
+  },
+  "files": {
+    "active.npy": "79db58f4b9cb502157f513869cf47303bb8395ab5fb897ac8d0db9e968cb8011",
+    "count.npy": "d5f788cd6dfcfc1115d5b07f84598a8c82420b5e2dc2167f2bee1d691e99805e",
+    "family.npy": "8d213bbc1453aa82b25729600b9e92a6a082317449ef85690cda9f1fbd94e68b",
+    "images.npy": "d5baa2b2252cf46ddb533e46e9c9ed15e9df83318964a7cff630d4397d813cd6",
+    "kind.npy": "3d765cdbf46063b81fc4c8691db367832fa44dbdaee59a761158b610f05359ef",
+    "positions.npy": "edcce9ccadc103059ca1e2bdc68857e045c0cdd548dfe7a8171fe7f81750d31a",
+    "rays.npy": "9dd043e84e0ab635577747ca43543d8f655589d9c14f19afb55bc1b9deba5019",
+    "rotations.npy": "2b41e41f2230c1afa2a3d7c4a021b888c503eaa7966f4c398fc237cf60c80785",
+    "sizes.npy": "89d044d6878ffa376940c321df179438bbf7dde168da6f451cacd34e9f26e179",
+    "visibility.npy": "cd3f8c83586033f91f587cbcadb2e7e8205c427ec488ba5a98e4c7b1a2624ce9"
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "status": "prepared",
+  "task": "calibrated_rgb_observable_object_set_prediction",
+  "objects": {
+    "min": 0,
+    "max": 5,
+    "empty_scene_fraction": 0.05,
+    "count_1_to_5_each_fraction": 0.19,
+    "cube_fraction": 0.5,
+    "cuboid_fraction": 0.5
+  },
+  "nonempty_scene_fractions": {
+    "scattered": 0.35,
+    "mixed_free_and_stacked": 0.3,
+    "towers": 0.25,
+    "walls_and_bridges": 0.1
+  },
+  "data_targets_subject_to_benchmark": {
+    "train_families": 12000,
+    "validation_families": 2000,
+    "reserved_test_families_min": 2000
+  },
+  "images": {
+    "views": 3,
+    "height": 160,
+    "width": 160,
+    "channels": 3,
+    "depth_input": false,
+    "calibration_input": true,
+    "instance_masks_input": false
+  },
+  "architecture": {
+    "parameters_verified": 904112,
+    "backbone_channels": [
+      32,
+      64,
+      128
+    ],
+    "convolutions": 6,
+    "backbone_activation": "ReLU",
+    "tokens": 1200,
+    "dimension": 128,
+    "object_slots": 5,
+    "decoder_layers": 3,
+    "attention_heads": 4,
+    "feedforward_dimension": 256,
+    "decoder_activation": "GELU",
+    "dropout": 0.1,
+    "raw_outputs_per_slot": 16
+  },
+  "paired_seeds": [
+    1,
+    2,
+    3
+  ],
+  "camera_arms": [
+    "two_fixed",
+    "two_fixed_plus_wrist"
+  ],
+  "optimization": {
+    "optimizer": "AdamW",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "effective_batch_size": 32,
+    "planned_microbatch": 16,
+    "gradient_accumulation": 2,
+    "gradient_clip": 1.0,
+    "maximum_epochs": 100,
+    "warmup_epochs": 5,
+    "schedule": "cosine",
+    "early_stop_pair_patience_epochs": 15,
+    "relative_validation_improvement": 0.005
+  },
+  "loss_weights_initial": {
+    "detection": 1.0,
+    "position": 5.0,
+    "size": 1.0,
+    "symmetry_aware_rotation": 0.5,
+    "visibility": 0.25
+  },
+  "observability": {
+    "minimum_visible_fraction_any_available_camera": 0.05,
+    "fully_hidden_pose_supervision": false
+  },
+  "total_wall_time_target_hours": 10,
+  "geometry_validation": {
+    "every_epochs": 5,
+    "also_at": [
+      "initialization",
+      "last_complete_epoch",
+      "best_checkpoint"
+    ],
+    "fixed_validation_scenes": 12,
+    "rotating_validation_scenes": 4,
+    "gt_color": "cyan",
+    "prediction_color": "orange",
+    "alpha": 0.3,
+    "world_alignment": "none",
+    "views": [
+      "oblique",
+      "top",
+      "side"
+    ],
+    "metrics": [
+      "position_mm",
+      "size_mm",
+      "symmetry_aware_rotation_deg",
+      "oriented_3d_iou",
+      "matched_corner_mm",
+      "missing_objects",
+      "extra_objects"
+    ],
+    "reserved_test_scenes_during_training": false
+  },
+  "implemented": [
+    "architecture_prototype",
+    "forward_shape_check",
+    "unavailable_camera_invariance_check",
+    "cuboid_geometry_comparison",
+    "transparent_3d_overlay_renderer",
+    "analytic_geometry_checks",
+    "explicitly_synthetic_overlay_demo"
+  ],
+  "required_before_training": [
+    "physical_scene_generator",
+    "calibrated_ray_grid_validation",
+    "visibility_labels",
+    "family_disjoint_split_audit",
+    "matching_and_symmetry_losses",
+    "tiny_set_overfit",
+    "memory_and_throughput_benchmark",
+    "exact_resume_check",
+    "frozen_feasible_budget",
+    "trainer_with_graceful_stop_and_monitor",
+    "geometry_validation_epoch_hook_and_prediction_export"
+  ],
+  "started": "2026-11-01T00:26:37Z",
+  "started_unix": 1793529020.9746172,
+  "deadline_unix": 1793529920.9746172,
+  "loss": "weighted detection / position / size / rotation / visibility",
+  "dataset": {
+    "train": 12000,
+    "validation": 2000,
+    "test": 2000,
+    "ood": 512
+  },
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "preflight": {
+    "passed": true,
+    "initial": {
+      "loss": 2.68237566947937,
+      "position_mm": 100.45691680908203,
+      "count_accuracy": 0.25
+    },
+    "final": {
+      "loss": 0.09486611187458038,
+      "position_mm": 4.5293684005737305,
+      "count_accuracy": 0.90625
+    },
+    "updates": 950,
+    "seconds_per_update": 0.1109323857959948,
+    "exact_resume": true,
+    "generation_scenes": 48,
+    "generation_seconds": 1.3303170204162598,
+    "rejections": {
+      "stack_collapsed": 1
+    },
+    "projection_segmentation_checks": "passed_for_every_visible_object",
+    "peak_gpu_gib": 0.6824917793273926,
+    "diagnostic_learning_rate": 0.001,
+    "production_learning_rate": 0.0003
+  },
+  "estimated_epoch_seconds": 499.19573608197663,
+  "detection_background_weight": 1.0,
+  "microbatch": 16,
+  "checkpoint_selection": "Mean of the four available arrangement-stratum validation losses; overall validation loss plotted separately",
+  "matching_cost": "5 * normalized position L1 + normalized size L1 - detection probability; symmetry-aware rotation in training loss",
+  "reserved_seeds": [
+    8201001,
+    8201002
+  ],
+  "smoke": false,
+  "training_enabled": false,
+  "repair_only": true
+}

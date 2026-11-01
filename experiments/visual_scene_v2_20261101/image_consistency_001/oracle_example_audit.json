@@ -1,0 +1,185 @@
+{
+  "purpose": "Post-hoc qualitative diagnosis only. GT geometry not used by evaluated rankers; not a new benchmark or heuristic selection.",
+  "examples": [
+    {
+      "scene": 1694,
+      "category": "Zus\u00e4tzlich erkannt",
+      "predicted_image_score": 0.48038683034576757,
+      "correct_geometry_image_score": 0.45583333333333337,
+      "correct_geometry_background_contradiction": 0.9,
+      "correct_geometry_views": [
+        {
+          "valid": true,
+          "visible_pixels": 69,
+          "projected_pixels": 69,
+          "predicted_visible_fraction": 1.0,
+          "evidence_fraction": 0.782608695652174,
+          "edge_error": 0.0,
+          "background_contradiction": 0.0
+        },
+        {
+          "valid": true,
+          "visible_pixels": 78,
+          "projected_pixels": 78,
+          "predicted_visible_fraction": 1.0,
+          "evidence_fraction": 0.8717948717948718,
+          "edge_error": 0.0,
+          "background_contradiction": 0.0
+        },
+        {
+          "valid": true,
+          "visible_pixels": 170,
+          "projected_pixels": 170,
+          "predicted_visible_fraction": 1.0,
+          "evidence_fraction": 0.9,
+          "edge_error": 0.035,
+          "background_contradiction": 0.9
+        }
+      ]
+    },
+    {
+      "scene": 1445,
+      "category": "Zus\u00e4tzlich erkannt",
+      "predicted_image_score": 0.3445769626580418,
+      "correct_geometry_image_score": 0.444562693498452,
+      "correct_geometry_background_contradiction": 0.8854489164086687,
+      "correct_geometry_views": [
+        {
+          "valid": true,
+          "visible_pixels": 110,
+          "projected_pixels": 110,
+          "predicted_visible_fraction": 1.0,
+          "evidence_fraction": 0.18181818181818182,
+          "edge_error": 0.0,
+          "background_contradiction": 0.0
+        },
+        {
+          "valid": true,
+          "visible_pixels": 112,
+          "projected_pixels": 112,
+          "predicted_visible_fraction": 1.0,
+          "evidence_fraction": 0.19642857142857142,
+          "edge_error": 0.0,
+          "background_contradiction": 0.0
+        },
+        {
+          "valid": true,
+          "visible_pixels": 646,
+          "projected_pixels": 646,
+          "predicted_visible_fraction": 1.0,
+          "evidence_fraction": 0.9256965944272446,
+          "edge_error": 0.011029411764705883,
+          "background_contradiction": 0.8854489164086687
+        }
+      ]
+    },
+    {
+      "scene": 441,
+      "category": "Gemeinsamer Fehler \u00fcbersehen",
+      "predicted_image_score": 0.5041777683982323,
+      "correct_geometry_image_score": 0.4816030896213262,
+      "correct_geometry_background_contradiction": 0.9496402877697842,
+      "correct_geometry_views": [
+        {
+          "valid": true,
+          "visible_pixels": 76,
+          "projected_pixels": 76,
+          "predicted_visible_fraction": 1.0,
+          "evidence_fraction": 0.35526315789473684,
+          "edge_error": 0.0,
+          "background_contradiction": 0.013157894736842105
+        },
+        {
+          "valid": true,
+          "visible_pixels": 92,
+          "projected_pixels": 93,
+          "predicted_visible_fraction": 0.989247311827957,
+          "evidence_fraction": 0.33695652173913043,
+          "edge_error": 0.0,
+          "background_contradiction": 0.021739130434782608
+        },
+        {
+          "valid": true,
+          "visible_pixels": 278,
+          "projected_pixels": 278,
+          "predicted_visible_fraction": 1.0,
+          "evidence_fraction": 0.9496402877697842,
+          "edge_error": 0.040697674418604654,
+          "background_contradiction": 0.9496402877697842
+        }
+      ]
+    },
+    {
+      "scene": 1671,
+      "category": "Unn\u00f6tig zur\u00fcckgestellt",
+      "predicted_image_score": 0.5976054911573786,
+      "correct_geometry_image_score": 0.5046504838171505,
+      "correct_geometry_background_contradiction": 0.9969135802469136,
+      "correct_geometry_views": [
+        {
+          "valid": true,
+          "visible_pixels": 153,
+          "projected_pixels": 153,
+          "predicted_visible_fraction": 1.0,
+          "evidence_fraction": 0.39215686274509803,
+          "edge_error": 0.0,
+          "background_contradiction": 0.0
+        },
+        {
+          "valid": true,
+          "visible_pixels": 181,
+          "projected_pixels": 182,
+          "predicted_visible_fraction": 0.9945054945054945,
+          "evidence_fraction": 0.7955801104972375,
+          "edge_error": 0.0,
+          "background_contradiction": 0.0
+        },
+        {
+          "valid": true,
+          "visible_pixels": 1296,
+          "projected_pixels": 1296,
+          "predicted_visible_fraction": 1.0,
+          "evidence_fraction": 0.9992283950617284,
+          "edge_error": 0.037162162162162164,
+          "background_contradiction": 0.9969135802469136
+        }
+      ]
+    },
+    {
+      "scene": 1975,
+      "category": "Unn\u00f6tig zur\u00fcckgestellt",
+      "predicted_image_score": 0.5472125786936907,
+      "correct_geometry_image_score": 0.5074074074074074,
+      "correct_geometry_background_contradiction": 1.0,
+      "correct_geometry_views": [
+        {
+          "valid": true,
+          "visible_pixels": 126,
+          "projected_pixels": 126,
+          "predicted_visible_fraction": 1.0,
+          "evidence_fraction": 0.9047619047619048,
+          "edge_error": 0.006944444444444444,
+          "background_contradiction": 0.031746031746031744
+        },
+        {
+          "valid": true,
+          "visible_pixels": 134,
+          "projected_pixels": 134,
+          "predicted_visible_fraction": 1.0,
+          "evidence_fraction": 0.8955223880597015,
+          "edge_error": 0.0,
+          "background_contradiction": 0.022388059701492536
+        },
+        {
+          "valid": true,
+          "visible_pixels": 392,
+          "projected_pixels": 392,
+          "predicted_visible_fraction": 1.0,
+          "evidence_fraction": 1.0,
+          "edge_error": 0.0375,
+          "background_contradiction": 1.0
+        }
+      ]
+    }
+  ]
+}

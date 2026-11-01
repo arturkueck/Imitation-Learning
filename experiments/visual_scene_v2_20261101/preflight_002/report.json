@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "initial": {
+    "loss": 2.68237566947937,
+    "position_mm": 100.45691680908203,
+    "count_accuracy": 0.25
+  },
+  "final": {
+    "loss": 0.09486611187458038,
+    "position_mm": 4.5293684005737305,
+    "count_accuracy": 0.90625
+  },
+  "updates": 950,
+  "seconds_per_update": 0.1109323857959948,
+  "exact_resume": true,
+  "generation_scenes": 48,
+  "generation_seconds": 1.3303170204162598,
+  "rejections": {
+    "stack_collapsed": 1
+  },
+  "projection_segmentation_checks": "passed_for_every_visible_object",
+  "peak_gpu_gib": 0.6824917793273926,
+  "diagnostic_learning_rate": 0.001,
+  "production_learning_rate": 0.0003
+}

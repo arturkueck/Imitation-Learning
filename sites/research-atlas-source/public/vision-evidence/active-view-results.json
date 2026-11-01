@@ -1,0 +1,50 @@
+{
+  "training_started": false,
+  "optimizer_updates": 0,
+  "backend": "explicit simulator-reference geometry",
+  "camera_housing": "configured proxy; not a measured real mount",
+  "camera_mount_included": true,
+  "collision_shapes": 15,
+  "self_collision_pairs": 81,
+  "initial_clearance_lower_bound_m": 0.019685571249573326,
+  "world_margin_m": 0.01,
+  "self_margin_m": 0.002,
+  "locked_gripper_positions": [
+    0.02077498473282443,
+    -0.02077498473282443
+  ],
+  "unknown_map_rejected": true,
+  "visual_map": {
+    "free_cells": 4385,
+    "possible_occupied_cells": 159,
+    "unknown_cells": 32696,
+    "start_valid": false,
+    "rejection_reason": "unknown_space",
+    "blocked_pair": [
+      "robot0_link0_collision",
+      "unknown_space"
+    ],
+    "calibration": "simulator-known static background depth and known robot mask; foreground from RGB differences"
+  },
+  "native_robot_world_penetrations": 0,
+  "candidate_count": 15,
+  "tested_candidates": [
+    {
+      "score": 0.4173182902188123,
+      "clearance_lower_bound_m": 0.019988482424148586,
+      "reachable": true,
+      "camera": [
+        -0.01652402003634914,
+        -0.16885674093399355,
+        1.0310713605318873
+      ]
+    }
+  ],
+  "selected_score": 0.4173182902188123,
+  "waypoints": 2,
+  "playback_samples": 100,
+  "collision_checks": 1150,
+  "elapsed_seconds": 17.167229652404785,
+  "execution": "kinematic simulation, no hardware or torque controller",
+  "active_view_gain": "heuristic prediction, not measured neural-model improvement"
+}

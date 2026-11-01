@@ -1,0 +1,46 @@
+{
+  "development_seed": 9301101,
+  "evaluation_seed": 9301102,
+  "development_scenes_per_kind": 2,
+  "evaluation_scenes_per_kind": 4,
+  "kinds": [
+    "scattered",
+    "mixed",
+    "tower",
+    "wall"
+  ],
+  "min_objects": 2,
+  "max_scene_attempts": 1000,
+  "camera_variant": "fixed_wrist",
+  "model_seeds": [
+    1,
+    2,
+    3
+  ],
+  "config": {
+    "position_bound_m": 0.02,
+    "log_size_bound": 0.18,
+    "rotation_bound_rad": 0.175,
+    "silhouette_weight": 0.65,
+    "edge_weight": 0.35,
+    "prior_weight": 0.02,
+    "physical_weight": 0.05,
+    "pixel_stride": 2,
+    "soft_boundary_pixels": 1.0,
+    "stage_maxfun": 240,
+    "stage_maxiter": 12,
+    "reference_threshold": 8,
+    "minimum_gain": 0.005,
+    "ambiguity_loss_gap": 0.01,
+    "ambiguity_position_m": 0.005
+  },
+  "metrics": [
+    "paired position error",
+    "paired corner RMSE",
+    "size MAE",
+    "recall at 10mm",
+    "worsened objects"
+  ],
+  "updates": "geometric parameters only; no neural optimizer",
+  "selection": "all eligible scenes in deterministic order until each kind quota; no selection by model error"
+}

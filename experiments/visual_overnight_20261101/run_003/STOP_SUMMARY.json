@@ -1,0 +1,41 @@
+{
+  "last_complete_cycle": 249,
+  "models": [
+    {
+      "seed": 1,
+      "arm": "fixed",
+      "updates": 24900
+    },
+    {
+      "seed": 1,
+      "arm": "fixed_wrist",
+      "updates": 24900
+    },
+    {
+      "seed": 2,
+      "arm": "fixed",
+      "updates": 24900
+    },
+    {
+      "seed": 2,
+      "arm": "fixed_wrist",
+      "updates": 24900
+    },
+    {
+      "seed": 3,
+      "arm": "fixed",
+      "updates": 24900
+    },
+    {
+      "seed": 3,
+      "arm": "fixed_wrist",
+      "updates": 24900
+    }
+  ],
+  "supervisor_exit": {
+    "returncode": 0,
+    "reason": null,
+    "time": "2026-10-31T23:33:43.569127+00:00"
+  },
+  "endtests_present": false
+}

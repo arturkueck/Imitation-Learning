@@ -1,0 +1,28 @@
+{
+  "supervisor": {
+    "pid": 19912,
+    "worker_pid": 25256,
+    "deadline_unix": 1793528797.1121414,
+    "started": "2026-11-01T00:26:55Z"
+  },
+  "independence": {
+    "pid": 19912,
+    "query_ok": true,
+    "in_job": false,
+    "time": "2026-11-01T00:26:55.666367+00:00"
+  },
+  "verified_training_step": 131,
+  "verified_epoch": 1,
+  "verified_at": "2026-11-01T00:35:20Z",
+  "checkpoint_files": [
+    "fixed_seed1_best.pth",
+    "fixed_seed2_best.pth",
+    "fixed_seed3_best.pth",
+    "fixed_wrist_seed1_best.pth",
+    "fixed_wrist_seed2_best.pth",
+    "fixed_wrist_seed3_best.pth",
+    "latest.pth"
+  ],
+  "geometry_artifacts": 288,
+  "monitor_run_id": "vision-scene-v2-run1"
+}
