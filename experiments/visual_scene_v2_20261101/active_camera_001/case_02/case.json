@@ -1,0 +1,109 @@
+{
+  "scene_index": 18,
+  "kind": 2,
+  "status": "captured",
+  "target_group": 2,
+  "support_before": 1,
+  "spread_before_mm": 0.0,
+  "source": "explicit simulator-reference collision geometry",
+  "training_started": false,
+  "target_match_after": 2,
+  "accepted": false,
+  "target_gt_index": 1,
+  "target_error_before_mm": 3.8044185638427734,
+  "target_error_after_mm": 38.90965270996094,
+  "target_error_policy_mm": 3.8044185638427734,
+  "support_after": 2,
+  "spread_after_mm": 9.182147026062012,
+  "candidate_count": 6,
+  "camera_distance_m": 0.2126473550160323,
+  "camera_before": {
+    "position": [
+      -0.05537444236072513,
+      0.017986297356941947,
+      1.1227496659114893
+    ],
+    "rotation": [
+      [
+        -0.004876136508873086,
+        0.9885705437078695,
+        -0.15068013606932856
+      ],
+      [
+        -0.9998712593491538,
+        -0.007123379516089212,
+        -0.014377836826320253
+      ],
+      [
+        -0.015286857763496253,
+        0.15059062911547416,
+        0.9884780090635914
+      ]
+    ]
+  },
+  "camera_after": {
+    "position": [
+      0.0785372524680904,
+      -0.11069084252133611,
+      1.019169990027971
+    ],
+    "rotation": [
+      [
+        -0.3888818259808252,
+        0.7839048729808635,
+        0.48400834242673174
+      ],
+      [
+        -0.775013405885089,
+        0.005696477009799916,
+        -0.6319191173307452
+      ],
+      [
+        -0.4981216178005232,
+        -0.6208548141607102,
+        0.6053215291175892
+      ]
+    ]
+  },
+  "playback_samples": 139,
+  "collision_checks": 1249,
+  "native_penetrations": 0,
+  "scene_metrics": {
+    "fixed": {
+      "before": {
+        "observed_gt": 3,
+        "predicted_groups": 3,
+        "unmatched_gt": 0,
+        "false_positives": 0,
+        "matched_mean_position_mm": 3.867746194203695,
+        "recall10": 1.0
+      },
+      "after": {
+        "observed_gt": 3,
+        "predicted_groups": 4,
+        "unmatched_gt": 0,
+        "false_positives": 1,
+        "matched_mean_position_mm": 38.45879872639974,
+        "recall10": 0.0
+      }
+    },
+    "fixed_wrist": {
+      "before": {
+        "observed_gt": 3,
+        "predicted_groups": 3,
+        "unmatched_gt": 0,
+        "false_positives": 0,
+        "matched_mean_position_mm": 4.305868307749431,
+        "recall10": 1.0
+      },
+      "after": {
+        "observed_gt": 3,
+        "predicted_groups": 3,
+        "unmatched_gt": 1,
+        "false_positives": 1,
+        "matched_mean_position_mm": 29.565932273864746,
+        "recall10": 0.0
+      }
+    }
+  }
+}

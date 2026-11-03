@@ -1,0 +1,33 @@
+{
+  "parameters": 904112,
+  "optimizer_updates": 3,
+  "replayed_resume_suffix_updates": 1,
+  "trained_model_promoted": false,
+  "effective_scene_batch": 32,
+  "microbatch": 4,
+  "paired_contexts": 2,
+  "fp32": true,
+  "losses": [
+    0.3416890958324075,
+    0.329565679654479,
+    0.27498523937538266
+  ],
+  "parameter_max_delta": 0.00020051002502441406,
+  "seconds_per_update": [
+    1.4282819999789353,
+    0.6147207999892998,
+    0.5913472000102047
+  ],
+  "median_seconds_per_update": 0.6147207999892998,
+  "partial_epoch_and_accumulation_resume": {
+    "exact": true,
+    "weight_max_difference": 0.0,
+    "optimizer_max_difference": 0.0,
+    "offset": 16
+  },
+  "fixed_probe_loss": 0.345822811126709,
+  "fixed_probe_seconds": 0.06014700001105666,
+  "probe_families": 8,
+  "peak_cuda_allocated_gib": 0.3452267646789551,
+  "peak_cuda_reserved_gib": 0.517578125
+}

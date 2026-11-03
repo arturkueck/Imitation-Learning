@@ -1,0 +1,39 @@
+{
+  "name": "04_kamera_holdout",
+  "split": "test_camera_ood",
+  "family": [
+    9511001,
+    7
+  ],
+  "objects": 2,
+  "captures": 2,
+  "original_set_error_before_mm": 10.941670417785645,
+  "original_set_error_after_mm": 8.08099627494812,
+  "error_reduction_mm": 2.8606741428375244,
+  "gif": "04_kamera_holdout\\comparison.gif",
+  "poster": "04_kamera_holdout\\poster.png",
+  "frames_written": 38,
+  "duration_ms": 12175,
+  "sha256": "535a4b37322f917effa88103d06c02d18e633acb6942cc2a62c0ef80be87d563",
+  "replay_checks": [
+    {
+      "max_rgb_channel_difference": 0,
+      "saved_wrist_max_channel_difference": 0,
+      "recorded_score_max_difference_mm": 0.0,
+      "history": [
+        0,
+        3
+      ]
+    },
+    {
+      "max_rgb_channel_difference": 0,
+      "saved_wrist_max_channel_difference": 0,
+      "recorded_score_max_difference_mm": 0.0,
+      "history": [
+        0,
+        3,
+        5
+      ]
+    }
+  ]
+}

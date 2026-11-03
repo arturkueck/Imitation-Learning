@@ -1,0 +1,377 @@
+{
+  "need": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1703,
+    "positives": 1703,
+    "n": 6000,
+    "precision": null,
+    "recall": 0.0,
+    "brier": 0.1978684663772583,
+    "reliability": [
+      {
+        "low": 0.0,
+        "n": 934,
+        "probability": 0.022210944443941116,
+        "positive_fraction": 0.20021413276231265
+      },
+      {
+        "low": 0.1,
+        "n": 808,
+        "probability": 0.1640760600566864,
+        "positive_fraction": 0.23886138613861385
+      },
+      {
+        "low": 0.2,
+        "n": 2310,
+        "probability": 0.2514856457710266,
+        "positive_fraction": 0.2329004329004329
+      },
+      {
+        "low": 0.30000000000000004,
+        "n": 890,
+        "probability": 0.3369457423686981,
+        "positive_fraction": 0.29775280898876405
+      },
+      {
+        "low": 0.4,
+        "n": 458,
+        "probability": 0.45155906677246094,
+        "positive_fraction": 0.44541484716157204
+      },
+      {
+        "low": 0.5,
+        "n": 439,
+        "probability": 0.5426856279373169,
+        "positive_fraction": 0.4920273348519362
+      },
+      {
+        "low": 0.6000000000000001,
+        "n": 142,
+        "probability": 0.6352564692497253,
+        "positive_fraction": 0.6126760563380281
+      },
+      {
+        "low": 0.7000000000000001,
+        "n": 16,
+        "probability": 0.7248342037200928,
+        "positive_fraction": 0.75
+      },
+      {
+        "low": 0.8,
+        "n": 0,
+        "probability": null,
+        "positive_fraction": null
+      },
+      {
+        "low": 0.9,
+        "n": 3,
+        "probability": 0.9534891247749329,
+        "positive_fraction": 0.3333333333333333
+      }
+    ]
+  },
+  "helpful": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 2669,
+    "positives": 2669,
+    "n": 15000,
+    "precision": null,
+    "recall": 0.0,
+    "brier": 0.14704512059688568,
+    "reliability": [
+      {
+        "low": 0.0,
+        "n": 4291,
+        "probability": 0.037037935107946396,
+        "positive_fraction": 0.12234910277324633
+      },
+      {
+        "low": 0.1,
+        "n": 4056,
+        "probability": 0.15032266080379486,
+        "positive_fraction": 0.14571005917159763
+      },
+      {
+        "low": 0.2,
+        "n": 3501,
+        "probability": 0.24715003371238708,
+        "positive_fraction": 0.1802342187946301
+      },
+      {
+        "low": 0.30000000000000004,
+        "n": 2154,
+        "probability": 0.34405550360679626,
+        "positive_fraction": 0.2678737233054782
+      },
+      {
+        "low": 0.4,
+        "n": 796,
+        "probability": 0.439449667930603,
+        "positive_fraction": 0.3341708542713568
+      },
+      {
+        "low": 0.5,
+        "n": 183,
+        "probability": 0.535661518573761,
+        "positive_fraction": 0.39344262295081966
+      },
+      {
+        "low": 0.6000000000000001,
+        "n": 19,
+        "probability": 0.614483118057251,
+        "positive_fraction": 0.3684210526315789
+      },
+      {
+        "low": 0.7000000000000001,
+        "n": 0,
+        "probability": null,
+        "positive_fraction": null
+      },
+      {
+        "low": 0.8,
+        "n": 0,
+        "probability": null,
+        "positive_fraction": null
+      },
+      {
+        "low": 0.9,
+        "n": 0,
+        "probability": null,
+        "positive_fraction": null
+      }
+    ]
+  },
+  "gain_mae_mm": 3.8346047401428223,
+  "gain_rmse_mm": 6.254796504974365,
+  "gain_negative_candidates": 11033,
+  "gain_positive_candidates": 2669,
+  "per_seed": {
+    "1": {
+      "need": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1703,
+        "positives": 1703,
+        "n": 6000,
+        "precision": null,
+        "recall": 0.0,
+        "brier": 0.19928330183029175,
+        "reliability": [
+          {
+            "low": 0.0,
+            "n": 973,
+            "probability": 0.02259325608611107,
+            "positive_fraction": 0.20246659815005139
+          },
+          {
+            "low": 0.1,
+            "n": 910,
+            "probability": 0.16179455816745758,
+            "positive_fraction": 0.23076923076923078
+          },
+          {
+            "low": 0.2,
+            "n": 2181,
+            "probability": 0.25085824728012085,
+            "positive_fraction": 0.2347546996790463
+          },
+          {
+            "low": 0.30000000000000004,
+            "n": 914,
+            "probability": 0.3376118838787079,
+            "positive_fraction": 0.31072210065645517
+          },
+          {
+            "low": 0.4,
+            "n": 420,
+            "probability": 0.4553838074207306,
+            "positive_fraction": 0.4119047619047619
+          },
+          {
+            "low": 0.5,
+            "n": 458,
+            "probability": 0.541499137878418,
+            "positive_fraction": 0.5305676855895196
+          },
+          {
+            "low": 0.6000000000000001,
+            "n": 113,
+            "probability": 0.6308093667030334,
+            "positive_fraction": 0.5663716814159292
+          },
+          {
+            "low": 0.7000000000000001,
+            "n": 24,
+            "probability": 0.7324528098106384,
+            "positive_fraction": 0.7083333333333334
+          },
+          {
+            "low": 0.8,
+            "n": 4,
+            "probability": 0.8569767475128174,
+            "positive_fraction": 0.5
+          },
+          {
+            "low": 0.9,
+            "n": 3,
+            "probability": 0.9840100407600403,
+            "positive_fraction": 0.3333333333333333
+          }
+        ]
+      },
+      "gain_mae_mm": 3.830047369003296
+    },
+    "2": {
+      "need": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1703,
+        "positives": 1703,
+        "n": 6000,
+        "precision": null,
+        "recall": 0.0,
+        "brier": 0.19735433161258698,
+        "reliability": [
+          {
+            "low": 0.0,
+            "n": 900,
+            "probability": 0.020925570279359818,
+            "positive_fraction": 0.19555555555555557
+          },
+          {
+            "low": 0.1,
+            "n": 691,
+            "probability": 0.1643265336751938,
+            "positive_fraction": 0.23444283646888567
+          },
+          {
+            "low": 0.2,
+            "n": 2319,
+            "probability": 0.25254324078559875,
+            "positive_fraction": 0.2319965502371712
+          },
+          {
+            "low": 0.30000000000000004,
+            "n": 988,
+            "probability": 0.3369850814342499,
+            "positive_fraction": 0.2935222672064777
+          },
+          {
+            "low": 0.4,
+            "n": 507,
+            "probability": 0.4509536921977997,
+            "positive_fraction": 0.4319526627218935
+          },
+          {
+            "low": 0.5,
+            "n": 435,
+            "probability": 0.5424615144729614,
+            "positive_fraction": 0.4896551724137931
+          },
+          {
+            "low": 0.6000000000000001,
+            "n": 139,
+            "probability": 0.6375451683998108,
+            "positive_fraction": 0.6546762589928058
+          },
+          {
+            "low": 0.7000000000000001,
+            "n": 17,
+            "probability": 0.7318210601806641,
+            "positive_fraction": 0.7647058823529411
+          },
+          {
+            "low": 0.8,
+            "n": 2,
+            "probability": 0.8763616681098938,
+            "positive_fraction": 0.0
+          },
+          {
+            "low": 0.9,
+            "n": 2,
+            "probability": 0.9690709114074707,
+            "positive_fraction": 0.5
+          }
+        ]
+      },
+      "gain_mae_mm": 3.847588300704956
+    },
+    "3": {
+      "need": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1703,
+        "positives": 1703,
+        "n": 6000,
+        "precision": null,
+        "recall": 0.0,
+        "brier": 0.1994789093732834,
+        "reliability": [
+          {
+            "low": 0.0,
+            "n": 1010,
+            "probability": 0.024101098999381065,
+            "positive_fraction": 0.20594059405940593
+          },
+          {
+            "low": 0.1,
+            "n": 845,
+            "probability": 0.16048991680145264,
+            "positive_fraction": 0.24378698224852072
+          },
+          {
+            "low": 0.2,
+            "n": 2223,
+            "probability": 0.25181299448013306,
+            "positive_fraction": 0.23346828609986506
+          },
+          {
+            "low": 0.30000000000000004,
+            "n": 877,
+            "probability": 0.33776453137397766,
+            "positive_fraction": 0.2919042189281642
+          },
+          {
+            "low": 0.4,
+            "n": 417,
+            "probability": 0.4515079855918884,
+            "positive_fraction": 0.44364508393285373
+          },
+          {
+            "low": 0.5,
+            "n": 431,
+            "probability": 0.5464429259300232,
+            "positive_fraction": 0.48491879350348027
+          },
+          {
+            "low": 0.6000000000000001,
+            "n": 148,
+            "probability": 0.6396104097366333,
+            "positive_fraction": 0.5945945945945946
+          },
+          {
+            "low": 0.7000000000000001,
+            "n": 39,
+            "probability": 0.7351124286651611,
+            "positive_fraction": 0.6410256410256411
+          },
+          {
+            "low": 0.8,
+            "n": 7,
+            "probability": 0.8256877064704895,
+            "positive_fraction": 0.8571428571428571
+          },
+          {
+            "low": 0.9,
+            "n": 3,
+            "probability": 0.9782360196113586,
+            "positive_fraction": 0.3333333333333333
+          }
+        ]
+      },
+      "gain_mae_mm": 3.863802909851074
+    }
+  }
+}

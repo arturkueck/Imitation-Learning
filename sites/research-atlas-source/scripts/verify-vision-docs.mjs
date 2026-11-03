@@ -15,6 +15,14 @@ for(const file of manifest.files){
 const data=JSON.parse(await fs.readFile(path.join(root,'vision-research-data.json'),'utf8'));
 if(data.refinement?.training_started!==false||data.refinement?.neural_optimizer_updates!==0)throw Error('Missing zero-training evidence');
 for(const file of ['refinement-results.json','refinement-report.md','refinement-quality.png','refinement-examples.png'])await fs.access(path.join(root,'vision-evidence',file));
+if(data.activeCamera){
+ if(data.activeCamera.training_started!==false||data.activeCamera.neural_optimizer_updates!==0)throw Error('Invalid camera-test training status');
+ for(const file of ['active-camera-results.json','active-camera-report.md','active-camera-quality.png','active-camera-images.png','active-camera-motion.gif'])await fs.access(path.join(root,'vision-evidence',file));
+}
+if(data.plannedTraining){
+ if(data.plannedTraining.config.training_enabled!==false||data.plannedTraining.heads.trained!==false)throw Error('Planned V3 unexpectedly enabled/trained');
+ for(const file of ['v3-plan.md','v3-config.json','v3-data-contract.md','v3-request-schema.json','v3-request-example.jsonl'])await fs.access(path.join(root,'vision-evidence',file));
+}
 const snapshot=JSON.parse(await fs.readFile(path.join(root,'training-data/index.json'),'utf8'));
 for(const run of snapshot.runs)for(const artifact of run.artifacts)await fs.access(path.join(root,artifact.url));
 console.log(`Documentation verified: ${manifest.files.length} hashed reports/figures; ${snapshot.runs.length} training runs; refinement complete.`);

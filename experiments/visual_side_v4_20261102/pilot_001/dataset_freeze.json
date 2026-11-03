@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "main_eligible": true,
+  "counts": {
+    "train": 1000,
+    "validation": 256
+  },
+  "family_overlap": 0,
+  "history_overlap": 0,
+  "content_overlap": 0,
+  "replay_count": 333,
+  "replay_role": "historical_training_only",
+  "current_run_protected_families": 0,
+  "dataset_seals": {
+    "train": "0d8601e566f216e2d02a73c4fd4718281a236f2490586a8962b603b4575ed8da",
+    "validation": "122746d2baec9aec255eb3fcc909baf314eef6f80faaa08d4d2272a454eedeb7"
+  },
+  "protocol_sha256": "cd217a3a7e801958744443e35f61f8a2977cbde10c50d773afde9a40676476bf"
+}

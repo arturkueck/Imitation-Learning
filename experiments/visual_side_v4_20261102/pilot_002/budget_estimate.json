@@ -1,0 +1,27 @@
+{
+  "10": {
+    "variants": 2,
+    "seeds": 3,
+    "epochs": 10,
+    "updates": 45000,
+    "optimizer_hours": 8.264155000142637
+  },
+  "20": {
+    "variants": 2,
+    "seeds": 3,
+    "epochs": 20,
+    "updates": 90000,
+    "optimizer_hours": 16.528310000285273
+  },
+  "40": {
+    "variants": 2,
+    "seeds": 3,
+    "epochs": 40,
+    "updates": 180000,
+    "optimizer_hours": 33.05662000057055
+  },
+  "data_generation_same_three_pose_pilot_hours": 1.5269205749997734,
+  "seven_pose_raw_array_gib": 50.76363682746887,
+  "seven_pose_naive_compressed_gib": 14.459286956116557,
+  "caveat": "Not an end-to-end quote: full bank search, all seeds, validation, heads, plotting and tests not benchmarked. Compressed storage is a rough extrapolation including duplicate blocked slots."
+}

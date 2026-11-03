@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "run_id": "run_001",
+  "status": "completed",
+  "training_complete": true,
+  "validation_complete": true,
+  "workers": [
+    {
+      "pid": 89740,
+      "create_time": 1793577217.5146332
+    },
+    {
+      "pid": 88820,
+      "create_time": 1793577217.647833
+    }
+  ],
+  "artifacts": {
+    "metrics": {
+      "path": "results.json",
+      "sha256": "01668ad8c6008c6acd9751a6aa30253426e001a24aebc47f81e5c4ff0e4e3855"
+    },
+    "curves": {
+      "path": "loss.png",
+      "sha256": "061d92bf97d0adfaf28bf304ee3f6a5e0675ba3efa3f3550678c803abdc62735"
+    },
+    "checkpoint_manifest": {
+      "path": "checkpoint_hashes.json",
+      "sha256": "e2cbe0d21e731facb8ebcb0bbf17197a812ea6bdb94d027cb3c05b10e1571dd8"
+    }
+  }
+}

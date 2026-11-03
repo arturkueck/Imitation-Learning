@@ -1,0 +1,120 @@
+{
+  "checkpoint_hashes": {
+    "latest.pth": true,
+    "M1_seed1_best.pth": true,
+    "M1_seed2_best.pth": true,
+    "M1_seed3_best.pth": true,
+    "M2_seed1_best.pth": true,
+    "M2_seed2_best.pth": true,
+    "M2_seed3_best.pth": true
+  },
+  "frozen_source_hashes": {
+    "experiments/visual_active_v3_20261101/train_v3.py": true,
+    "experiments/visual_active_v3_20261101/data_v3.py": true,
+    "experiments/visual_active_v3_20261101/physical_setup.py": true,
+    "experiments/visual_active_v3_20261101/model_v3.py": true,
+    "experiments/visual_active_v3_20261101/request_heads.py": true,
+    "experiments/visual_active_v3_20261101/preflight_v3.py": true,
+    "experiments/visual_active_v3_20261101/deadline_guard.py": true,
+    "experiments/visual_active_v3_20261101/monitor_check.py": true,
+    "experiments/visual_active_v3_20261101/completion_gate.py": true,
+    "experiments/visual_active_v3_20261101/session.json": true,
+    "experiments/visual_active_v3_20261101/PLAN.md": true,
+    "experiments/visual_active_v3_20261101/FOLLOWUP.md": true,
+    "experiments/visual_active_v3_20261101/PREPARATION_NOTES.md": true,
+    "experiments/visual_scene_v2_20261101/scene_data.py": true,
+    "experiments/visual_scene_v2_20261101/learning.py": true,
+    "experiments/visual_scene_v2_20261101/model_prototype.py": true,
+    "experiments/visual_scene_v2_20261101/compare_geometry.py": true,
+    "experiments/visual_scene_v2_20261101/preflight.py": true,
+    "praxis/src/active_view/collision.py": true,
+    "praxis/src/active_view/geometry.py": true,
+    "praxis/src/active_view/capture_requests.py": true,
+    "experiments/visual_overnight_20261101/night.py": true,
+    "experiments/visual_scene_v2_20261101/run_001/selection.json": true,
+    "experiments/visual_active_v3_20261101/independent_bootstrap.py": true,
+    "experiments/visual_active_v3_20261101/launch_wmi.ps1": true
+  },
+  "data": {
+    "train": {
+      "families": 12000,
+      "seed": 9364001,
+      "hashes": {
+        "active.npy": true,
+        "camera_positions.npy": true,
+        "camera_rotations.npy": true,
+        "count.npy": true,
+        "family.npy": true,
+        "images.npy": true,
+        "joint_positions.npy": true,
+        "kind.npy": true,
+        "pose_ids.npy": true,
+        "positions.npy": true,
+        "rays.npy": true,
+        "robot_fraction.npy": true,
+        "rotations.npy": true,
+        "sizes.npy": true,
+        "visibility.npy": true
+      }
+    },
+    "validation": {
+      "families": 2000,
+      "seed": 9365001,
+      "hashes": {
+        "active.npy": true,
+        "camera_positions.npy": true,
+        "camera_rotations.npy": true,
+        "count.npy": true,
+        "family.npy": true,
+        "images.npy": true,
+        "joint_positions.npy": true,
+        "kind.npy": true,
+        "pose_ids.npy": true,
+        "positions.npy": true,
+        "rays.npy": true,
+        "robot_fraction.npy": true,
+        "rotations.npy": true,
+        "sizes.npy": true,
+        "visibility.npy": true
+      }
+    }
+  },
+  "family_overlap": 0,
+  "variant_means": {
+    "M1": 0.11654085396547313,
+    "M2": 0.10222286074191911
+  },
+  "selected": "M2",
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "resume": {
+    "epoch": 33.717333333333336,
+    "sampler_position": 0,
+    "steps": {
+      "1/M1": 12644,
+      "1/M2": 12644,
+      "2/M1": 12644,
+      "2/M2": 12644,
+      "3/M1": 12644,
+      "3/M2": 12644
+    },
+    "optimizer_states": {
+      "1/M1": 76,
+      "1/M2": 76,
+      "2/M1": 76,
+      "2/M2": 76,
+      "3/M1": 76,
+      "3/M2": 76
+    },
+    "rng_present": true,
+    "verified_full_sampler_resume": false,
+    "reason": "Partial epoch checkpoint was overwritten by validate(...), which defaults sampler_position=0. No validated high-level resume entrypoint; do not pretend exact continuation."
+  },
+  "continuation": false,
+  "perception_frozen": true,
+  "explanation": "Late M2 validation remains nonconverged in seeds1/2, but seed3 regresses at 33/33.717 while probe stays near .10; M1 seed3 also regresses. This is mixed residual learning/instability, not proof that all seeds merely need longer. Full sampler resume is unverified. Freeze validation-selected checkpoints for separate head phase.",
+  "tests_before_decision": false
+}

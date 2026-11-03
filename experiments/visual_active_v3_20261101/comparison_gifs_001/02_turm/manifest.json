@@ -1,0 +1,39 @@
+{
+  "name": "02_turm",
+  "split": "test_iid",
+  "family": [
+    9510001,
+    4
+  ],
+  "objects": 3,
+  "captures": 2,
+  "original_set_error_before_mm": 27.72012922498915,
+  "original_set_error_after_mm": 27.06597338782416,
+  "error_reduction_mm": 0.6541558371649856,
+  "gif": "02_turm\\comparison.gif",
+  "poster": "02_turm\\poster.png",
+  "frames_written": 38,
+  "duration_ms": 12175,
+  "sha256": "47af68f4057ccfbe7e7a3fe77d5b95fb91cd1685e087468e3da3ed9316bb5dc8",
+  "replay_checks": [
+    {
+      "max_rgb_channel_difference": 0,
+      "saved_wrist_max_channel_difference": 0,
+      "recorded_score_max_difference_mm": 0.0,
+      "history": [
+        0,
+        3
+      ]
+    },
+    {
+      "max_rgb_channel_difference": 0,
+      "saved_wrist_max_channel_difference": 0,
+      "recorded_score_max_difference_mm": 0.0,
+      "history": [
+        0,
+        3,
+        4
+      ]
+    }
+  ]
+}

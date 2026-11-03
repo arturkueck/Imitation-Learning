@@ -1,0 +1,23 @@
+{
+  "journals_verified": 13000,
+  "production": {
+    "observations": {
+      "requested": 45000,
+      "planned": 44691,
+      "captured": 44691,
+      "blocked": 309
+    },
+    "policy": {
+      "decision": 4000
+    }
+  },
+  "technical_repair_smoke_policy": {
+    "requested": 41,
+    "decision": 48,
+    "planned": 41,
+    "captured": 41,
+    "evaluated": 41
+  },
+  "production_learned_extra_captures": 0,
+  "note": "Coverage journal captures are offline label generation; they are NOT learned policy extra captures. All negative/blocked candidate records retained."
+}

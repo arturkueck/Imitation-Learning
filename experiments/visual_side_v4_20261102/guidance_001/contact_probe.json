@@ -1,0 +1,55 @@
+{
+  "index": 140,
+  "bank": 11,
+  "segment": 1,
+  "alpha": 1.0,
+  "q": [
+    -2.3951508592914443,
+    2.43996003119472,
+    0.434419323386115,
+    -2.3163655907055545,
+    1.2619578527736683,
+    2.472124757161115,
+    2.9627968675616705
+  ],
+  "replay": {
+    "geometry_attempt": 1,
+    "resettling_error": null,
+    "discarded_resettling_difference_m": 9.536743172944284e-08,
+    "restored_difference_m": 0.0,
+    "appearance": "same seed and matched dimensions/material configuration; illumination state was not serialized in original sample"
+  },
+  "contacts": [
+    {
+      "a": "table_collision",
+      "b": "robot0_link5_collision",
+      "distance": -0.009477194482625184
+    },
+    {
+      "a": "vision_2_g0",
+      "b": "gripper0_right_finger1_collision",
+      "distance": -0.014310584938238065
+    },
+    {
+      "a": "gripper0_right_finger1_pad_collision",
+      "b": "vision_2_g0",
+      "distance": -0.01113681675296927
+    },
+    {
+      "a": "gripper0_right_finger1_pad_collision",
+      "b": "vision_2_g0",
+      "distance": -0.008419301670186069
+    },
+    {
+      "a": "gripper0_right_finger1_pad_collision",
+      "b": "vision_2_g0",
+      "distance": -0.01130354877099625
+    }
+  ],
+  "checker": {
+    "valid": false,
+    "reason": "joint_limit",
+    "clearance": -Infinity,
+    "pair": []
+  }
+}

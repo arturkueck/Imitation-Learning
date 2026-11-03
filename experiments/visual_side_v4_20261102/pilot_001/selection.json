@@ -1,0 +1,563 @@
+{
+  "models": [
+    {
+      "seed": 1,
+      "variant": "A",
+      "file": "experiments/visual_side_v4_20261102/pilot_001/checkpoints/A1_best.pth",
+      "sha256": "980b62676c9eedfb43276dae75012a57fa0184505383cf6bf96249aa7dd4d983",
+      "epoch": 10,
+      "updates": 420,
+      "validation": {
+        "loss": 0.2172691653209545,
+        "balanced_loss": 0.19474238545128905,
+        "contexts": {
+          "initial": {
+            "loss": 0.17908329843633908,
+            "balanced_loss": 0.1607173986255567,
+            "components": {
+              "position": 0.006796453526476398,
+              "size": 0.04820416422444396,
+              "rotation": 0.05107031823717989,
+              "visibility": 0.023713258578936802,
+              "detection": 0.06543339151721739
+            },
+            "stratum_losses": {
+              "0": 0.36189631322951205,
+              "2": 0.08107970884771316,
+              "1": 0.13174989408898083,
+              "3": 0.06814367833602078
+            },
+            "before_set_error_mm": 12.00964943257471,
+            "after_set_error_mm": 12.00964943257471,
+            "assignment_position_mm": 5.3691190396606085,
+            "count_accuracy": 0.90234375,
+            "recall_at_10mm": 0.8777777777777778,
+            "observable_objects": 720,
+            "newly_visible_objects": 0,
+            "families": 256,
+            "families_with_extra_view": 0
+          },
+          "old": {
+            "loss": 0.1857378820352622,
+            "balanced_loss": 0.1658556321493592,
+            "components": {
+              "position": 0.007647674028703477,
+              "size": 0.04783074574515922,
+              "rotation": 0.05213390654535033,
+              "visibility": 0.017549348117427144,
+              "detection": 0.0692144744534744
+            },
+            "stratum_losses": {
+              "0": 0.37788075085251266,
+              "2": 0.08177757470614531,
+              "1": 0.13973319774959236,
+              "3": 0.06403100528918645
+            },
+            "before_set_error_mm": 12.00964943257471,
+            "after_set_error_mm": 12.89371658707969,
+            "assignment_position_mm": 5.865043894528334,
+            "count_accuracy": 0.90234375,
+            "recall_at_10mm": 0.8638888888888889,
+            "observable_objects": 720,
+            "newly_visible_objects": 0,
+            "families": 256,
+            "families_with_extra_view": 254
+          },
+          "side": {
+            "loss": 0.2869863154912622,
+            "balanced_loss": 0.25765412557895123,
+            "components": {
+              "position": 0.017602319887373596,
+              "size": 0.05115281429607421,
+              "rotation": 0.056226763714221306,
+              "visibility": 0.017838150153693277,
+              "detection": 0.11524898316656618
+            },
+            "stratum_losses": {
+              "0": 0.5475591382614018,
+              "2": 0.16439590474905133,
+              "1": 0.20994845503292076,
+              "3": 0.10871300427243114
+            },
+            "before_set_error_mm": 12.00964943257471,
+            "after_set_error_mm": 24.587872994892923,
+            "assignment_position_mm": 11.098152475016457,
+            "count_accuracy": 0.86328125,
+            "recall_at_10mm": 0.5416666666666666,
+            "observable_objects": 720,
+            "newly_visible_objects": 0,
+            "families": 256,
+            "families_with_extra_view": 234
+          }
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "variant": "B",
+      "file": "experiments/visual_side_v4_20261102/pilot_001/checkpoints/B1_best.pth",
+      "sha256": "3cc03034e7380e6ac4c7ac27ae7bab6e53792b5d94d7f0a17c5bf1651185ad6a",
+      "epoch": 10,
+      "updates": 420,
+      "validation": {
+        "loss": 0.19935110734659625,
+        "balanced_loss": 0.17962655927584534,
+        "contexts": {
+          "initial": {
+            "loss": 0.19232037047120798,
+            "balanced_loss": 0.17345922995304547,
+            "components": {
+              "position": 0.008001249319931958,
+              "size": 0.050192164941108786,
+              "rotation": 0.05263083922909573,
+              "visibility": 0.025160766279441305,
+              "detection": 0.06951634659708361
+            },
+            "stratum_losses": {
+              "0": 0.397955600606352,
+              "2": 0.08011226528384663,
+              "1": 0.1340853166413691,
+              "3": 0.08168373728061423
+            },
+            "before_set_error_mm": 12.816425160885167,
+            "after_set_error_mm": 12.816425160885167,
+            "assignment_position_mm": 5.508057538856068,
+            "count_accuracy": 0.88671875,
+            "recall_at_10mm": 0.8638888888888889,
+            "observable_objects": 720,
+            "newly_visible_objects": 0,
+            "families": 256,
+            "families_with_extra_view": 0
+          },
+          "old": {
+            "loss": 0.20070826475171089,
+            "balanced_loss": 0.18132620364476187,
+            "components": {
+              "position": 0.008912265253457008,
+              "size": 0.050368663360131904,
+              "rotation": 0.05313597158237826,
+              "visibility": 0.018451316160735587,
+              "detection": 0.07459745805499551
+            },
+            "stratum_losses": {
+              "0": 0.4115411186380064,
+              "2": 0.08196789917366748,
+              "1": 0.14615568992413694,
+              "3": 0.08564010684323661
+            },
+            "before_set_error_mm": 12.816425160885167,
+            "after_set_error_mm": 13.590684044081717,
+            "assignment_position_mm": 6.193815260787861,
+            "count_accuracy": 0.890625,
+            "recall_at_10mm": 0.8472222222222222,
+            "observable_objects": 720,
+            "newly_visible_objects": 0,
+            "families": 256,
+            "families_with_extra_view": 254
+          },
+          "side": {
+            "loss": 0.20502468681686992,
+            "balanced_loss": 0.18409424422972862,
+            "components": {
+              "position": 0.009319255706941476,
+              "size": 0.050289383878407534,
+              "rotation": 0.05313848360674456,
+              "visibility": 0.01808394507770572,
+              "detection": 0.07704879570155754
+            },
+            "stratum_losses": {
+              "0": 0.4280331235216331,
+              "2": 0.08269979991623527,
+              "1": 0.1447475204688751,
+              "3": 0.080896533012171
+            },
+            "before_set_error_mm": 12.816425160885167,
+            "after_set_error_mm": 14.244716017460451,
+            "assignment_position_mm": 6.363329495280939,
+            "count_accuracy": 0.89453125,
+            "recall_at_10mm": 0.8305555555555556,
+            "observable_objects": 720,
+            "newly_visible_objects": 0,
+            "families": 256,
+            "families_with_extra_view": 234
+          }
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "variant": "A",
+      "file": "experiments/visual_side_v4_20261102/pilot_001/checkpoints/A2_best.pth",
+      "sha256": "fa554e5be51942419c8f750dbad53853f2d226e68f80922038f9b96f892a12d9",
+      "epoch": 5,
+      "updates": 210,
+      "validation": {
+        "loss": 0.2807178475340007,
+        "balanced_loss": 0.25432925979082516,
+        "contexts": {
+          "initial": {
+            "loss": 0.19725215840445998,
+            "balanced_loss": 0.1756369147435257,
+            "components": {
+              "position": 0.007690750106121413,
+              "size": 0.06008768615720328,
+              "rotation": 0.05749377136817202,
+              "visibility": 0.024270570271255565,
+              "detection": 0.06389619274523284
+            },
+            "stratum_losses": {
+              "0": 0.3997422485907562,
+              "2": 0.11957292654249188,
+              "1": 0.10874672245347139,
+              "3": 0.07448576138738323
+            },
+            "before_set_error_mm": 11.331934321811422,
+            "after_set_error_mm": 11.331934321811422,
+            "assignment_position_mm": 6.087750194654518,
+            "count_accuracy": 0.93359375,
+            "recall_at_10mm": 0.85,
+            "observable_objects": 720,
+            "newly_visible_objects": 0,
+            "families": 256,
+            "families_with_extra_view": 0
+          },
+          "old": {
+            "loss": 0.19851117800901008,
+            "balanced_loss": 0.1760137864637911,
+            "components": {
+              "position": 0.007848645782360109,
+              "size": 0.060022499070328195,
+              "rotation": 0.05673824234690983,
+              "visibility": 0.01818061094490986,
+              "detection": 0.06633117379988107
+            },
+            "stratum_losses": {
+              "0": 0.4087237068169537,
+              "2": 0.12042861863632094,
+              "1": 0.10343716259707104,
+              "3": 0.07146565780481871
+            },
+            "before_set_error_mm": 11.331934321811422,
+            "after_set_error_mm": 11.079289702535608,
+            "assignment_position_mm": 6.302777915604528,
+            "count_accuracy": 0.9453125,
+            "recall_at_10mm": 0.8444444444444444,
+            "observable_objects": 720,
+            "newly_visible_objects": 0,
+            "families": 256,
+            "families_with_extra_view": 254
+          },
+          "side": {
+            "loss": 0.4463902061885321,
+            "balanced_loss": 0.41133707816515874,
+            "components": {
+              "position": 0.04555370177695295,
+              "size": 0.06260202463454334,
+              "rotation": 0.07070090525667183,
+              "visibility": 0.018574305981928774,
+              "detection": 0.11602564617260214
+            },
+            "stratum_losses": {
+              "0": 0.6857476609665228,
+              "2": 0.3273906742295178,
+              "1": 0.41867520057624485,
+              "3": 0.2135347768883495
+            },
+            "before_set_error_mm": 11.331934321811422,
+            "after_set_error_mm": 35.388815527021265,
+            "assignment_position_mm": 13.686265539166122,
+            "count_accuracy": 0.8671875,
+            "recall_at_10mm": 0.35138888888888886,
+            "observable_objects": 720,
+            "newly_visible_objects": 0,
+            "families": 256,
+            "families_with_extra_view": 234
+          }
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "variant": "B",
+      "file": "experiments/visual_side_v4_20261102/pilot_001/checkpoints/B2_best.pth",
+      "sha256": "e2bba5b00f160231baf6046bd084039f48bb7c4affe29577333051288d8696c9",
+      "epoch": 9,
+      "updates": 378,
+      "validation": {
+        "loss": 0.1974913981257013,
+        "balanced_loss": 0.17710598410970965,
+        "contexts": {
+          "initial": {
+            "loss": 0.18934740206096734,
+            "balanced_loss": 0.1699798738602957,
+            "components": {
+              "position": 0.007938578921312,
+              "size": 0.05870981208863668,
+              "rotation": 0.05328750581247732,
+              "visibility": 0.024284289144816285,
+              "detection": 0.05822987068313523
+            },
+            "stratum_losses": {
+              "0": 0.3645695843180092,
+              "2": 0.12190981383447523,
+              "1": 0.11587246229420557,
+              "3": 0.07756763499449282
+            },
+            "before_set_error_mm": 10.70936964576443,
+            "after_set_error_mm": 10.70936964576443,
+            "assignment_position_mm": 5.790033471927549,
+            "count_accuracy": 0.93359375,
+            "recall_at_10mm": 0.8638888888888889,
+            "observable_objects": 720,
+            "newly_visible_objects": 0,
+            "families": 256,
+            "families_with_extra_view": 0
+          },
+          "old": {
+            "loss": 0.19750770634566095,
+            "balanced_loss": 0.17738091466167663,
+            "components": {
+              "position": 0.008564079300413141,
+              "size": 0.058630979765439406,
+              "rotation": 0.053315662778913975,
+              "visibility": 0.018274952991760074,
+              "detection": 0.0648297595234908
+            },
+            "stratum_losses": {
+              "0": 0.3817291590161795,
+              "2": 0.12669610487623745,
+              "1": 0.11913824265921545,
+              "3": 0.08196015209507417
+            },
+            "before_set_error_mm": 10.70936964576443,
+            "after_set_error_mm": 11.50756742277493,
+            "assignment_position_mm": 6.615088942014047,
+            "count_accuracy": 0.9375,
+            "recall_at_10mm": 0.8347222222222223,
+            "observable_objects": 720,
+            "newly_visible_objects": 0,
+            "families": 256,
+            "families_with_extra_view": 254
+          },
+          "side": {
+            "loss": 0.20561908597047562,
+            "balanced_loss": 0.18395716380715663,
+            "components": {
+              "position": 0.009277454293624032,
+              "size": 0.059325273759895936,
+              "rotation": 0.05602538550738245,
+              "visibility": 0.018859779724607506,
+              "detection": 0.0671789025200269
+            },
+            "stratum_losses": {
+              "0": 0.3953749723709216,
+              "2": 0.12776246836844396,
+              "1": 0.13545786981668437,
+              "3": 0.07723334467257648
+            },
+            "before_set_error_mm": 10.70936964576443,
+            "after_set_error_mm": 12.598944216151722,
+            "assignment_position_mm": 6.722376467570367,
+            "count_accuracy": 0.921875,
+            "recall_at_10mm": 0.8125,
+            "observable_objects": 720,
+            "newly_visible_objects": 0,
+            "families": 256,
+            "families_with_extra_view": 234
+          }
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "variant": "A",
+      "file": "experiments/visual_side_v4_20261102/pilot_001/checkpoints/A3_best.pth",
+      "sha256": "474267c58987d1281b62dbd592b685d010753fe8b2a48298d1bdcf1789a6a2d8",
+      "epoch": 10,
+      "updates": 420,
+      "validation": {
+        "loss": 0.2435236786086629,
+        "balanced_loss": 0.2272876922202757,
+        "contexts": {
+          "initial": {
+            "loss": 0.18297733580510567,
+            "balanced_loss": 0.16960105882280435,
+            "components": {
+              "position": 0.008563431241782382,
+              "size": 0.030045343126403168,
+              "rotation": 0.05404505267506465,
+              "visibility": 0.024466816768835997,
+              "detection": 0.07697560805536341
+            },
+            "stratum_losses": {
+              "0": 0.37186091485240974,
+              "2": 0.06995255663664407,
+              "1": 0.1260860269522351,
+              "3": 0.1105047368499286
+            },
+            "before_set_error_mm": 12.510071976901964,
+            "after_set_error_mm": 12.510071976901964,
+            "assignment_position_mm": 5.690572125205846,
+            "count_accuracy": 0.9140625,
+            "recall_at_10mm": 0.8708333333333333,
+            "observable_objects": 720,
+            "newly_visible_objects": 0,
+            "families": 256,
+            "families_with_extra_view": 0
+          },
+          "old": {
+            "loss": 0.17996719674297879,
+            "balanced_loss": 0.1657799443270837,
+            "components": {
+              "position": 0.008907448787795147,
+              "size": 0.03002007237955695,
+              "rotation": 0.05528288913774304,
+              "visibility": 0.01831798212515423,
+              "detection": 0.07318893992669473
+            },
+            "stratum_losses": {
+              "0": 0.3631801868062592,
+              "2": 0.07659578441291467,
+              "1": 0.12152508755256845,
+              "3": 0.10181871853659258
+            },
+            "before_set_error_mm": 12.510071976901964,
+            "after_set_error_mm": 12.69160225611801,
+            "assignment_position_mm": 5.9534305873891,
+            "count_accuracy": 0.91015625,
+            "recall_at_10mm": 0.8541666666666666,
+            "observable_objects": 720,
+            "newly_visible_objects": 0,
+            "families": 256,
+            "families_with_extra_view": 254
+          },
+          "side": {
+            "loss": 0.36762650327790425,
+            "balanced_loss": 0.3464820735109391,
+            "components": {
+              "position": 0.03145699053129647,
+              "size": 0.0376757969497703,
+              "rotation": 0.0715878750779666,
+              "visibility": 0.019536794441592065,
+              "detection": 0.13198761654712143
+            },
+            "stratum_losses": {
+              "0": 0.5941572681994434,
+              "2": 0.24715283385617054,
+              "1": 0.3008179349020462,
+              "3": 0.24380025708609643
+            },
+            "before_set_error_mm": 12.510071976901964,
+            "after_set_error_mm": 34.31217415939706,
+            "assignment_position_mm": 18.25801742191838,
+            "count_accuracy": 0.84765625,
+            "recall_at_10mm": 0.22777777777777777,
+            "observable_objects": 720,
+            "newly_visible_objects": 0,
+            "families": 256,
+            "families_with_extra_view": 234
+          }
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "variant": "B",
+      "file": "experiments/visual_side_v4_20261102/pilot_001/checkpoints/B3_best.pth",
+      "sha256": "35d639e1fa9dcba24b7c0dd86ae4545f9de5d18a28c507b8506051fa43f102b2",
+      "epoch": 10,
+      "updates": 420,
+      "validation": {
+        "loss": 0.18813069217473335,
+        "balanced_loss": 0.17234329596107967,
+        "contexts": {
+          "initial": {
+            "loss": 0.18577564453431705,
+            "balanced_loss": 0.1699957909552205,
+            "components": {
+              "position": 0.008793554348812904,
+              "size": 0.029586162767373025,
+              "rotation": 0.05431250884430483,
+              "visibility": 0.02652106597633974,
+              "detection": 0.07843518445588415
+            },
+            "stratum_losses": {
+              "0": 0.3637016464403869,
+              "2": 0.08700515441415081,
+              "1": 0.13535442816404006,
+              "3": 0.09392193480230429
+            },
+            "before_set_error_mm": 12.320444857787031,
+            "after_set_error_mm": 12.320444857787031,
+            "assignment_position_mm": 6.020099010050549,
+            "count_accuracy": 0.921875,
+            "recall_at_10mm": 0.8583333333333333,
+            "observable_objects": 720,
+            "newly_visible_objects": 0,
+            "families": 256,
+            "families_with_extra_view": 0
+          },
+          "old": {
+            "loss": 0.18149064519218427,
+            "balanced_loss": 0.16625947015426734,
+            "components": {
+              "position": 0.009508584360446548,
+              "size": 0.02839223382761702,
+              "rotation": 0.05568376029259525,
+              "visibility": 0.019164009026553686,
+              "detection": 0.07292260653957783
+            },
+            "stratum_losses": {
+              "0": 0.3518453820198155,
+              "2": 0.09059411145341523,
+              "1": 0.12880400765094568,
+              "3": 0.09379437949289293
+            },
+            "before_set_error_mm": 12.320444857787031,
+            "after_set_error_mm": 12.665321337183315,
+            "assignment_position_mm": 6.703000495525507,
+            "count_accuracy": 0.93359375,
+            "recall_at_10mm": 0.825,
+            "observable_objects": 720,
+            "newly_visible_objects": 0,
+            "families": 256,
+            "families_with_extra_view": 254
+          },
+          "side": {
+            "loss": 0.19712578679769877,
+            "balanced_loss": 0.18077462677375117,
+            "components": {
+              "position": 0.009970641378458822,
+              "size": 0.028973674357985146,
+              "rotation": 0.05800882328185253,
+              "visibility": 0.01963758311148922,
+              "detection": 0.08438509471125144
+            },
+            "stratum_losses": {
+              "0": 0.3819980630417181,
+              "2": 0.09330284130281781,
+              "1": 0.14615366144007017,
+              "3": 0.10164394131039872
+            },
+            "before_set_error_mm": 12.320444857787031,
+            "after_set_error_mm": 13.205057133493636,
+            "assignment_position_mm": 7.015833413043711,
+            "count_accuracy": 0.92578125,
+            "recall_at_10mm": 0.8375,
+            "observable_objects": 720,
+            "newly_visible_objects": 0,
+            "families": 256,
+            "families_with_extra_view": 234
+          }
+        }
+      }
+    }
+  ],
+  "variant_means": {
+    "A": 0.22545311248746328,
+    "B": 0.17635861311554488
+  },
+  "selected_variant": "B",
+  "selection_split": "validation",
+  "side_gate_passed": true
+}

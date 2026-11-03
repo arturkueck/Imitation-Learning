@@ -1,0 +1,39 @@
+{
+  "name": "05_lange_duenne_quader",
+  "split": "test_geometry_ood",
+  "family": [
+    9512001,
+    1
+  ],
+  "objects": 4,
+  "captures": 2,
+  "original_set_error_before_mm": 42.83369000752767,
+  "original_set_error_after_mm": 52.353187084198,
+  "error_reduction_mm": -9.519497076670328,
+  "gif": "05_lange_duenne_quader\\comparison.gif",
+  "poster": "05_lange_duenne_quader\\poster.png",
+  "frames_written": 37,
+  "duration_ms": 12050,
+  "sha256": "c65062a587ee1b828fe60367dd1e3700ea8280a138726534811ee1288d4ef793",
+  "replay_checks": [
+    {
+      "max_rgb_channel_difference": 0,
+      "saved_wrist_max_channel_difference": 0,
+      "recorded_score_max_difference_mm": 0.0,
+      "history": [
+        0,
+        4
+      ]
+    },
+    {
+      "max_rgb_channel_difference": 0,
+      "saved_wrist_max_channel_difference": 0,
+      "recorded_score_max_difference_mm": 0.0,
+      "history": [
+        0,
+        4,
+        5
+      ]
+    }
+  ]
+}

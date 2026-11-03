@@ -1,0 +1,285 @@
+{
+  "status": "prepared",
+  "training_enabled": true,
+  "task": "camera_pose_robust_perception_with_persistent_image_requests",
+  "paired_seeds": [
+    1,
+    2,
+    3
+  ],
+  "frozen_reference": "experiments/visual_scene_v2_20261101/run_001/selection.json",
+  "objects": {
+    "minimum": 0,
+    "maximum": 5,
+    "count_probabilities": [
+      0.05,
+      0.19,
+      0.19,
+      0.19,
+      0.19,
+      0.19
+    ],
+    "cube_fraction": 0.5,
+    "cuboid_fraction": 0.5
+  },
+  "arrangements_nonempty": {
+    "scattered": 0.25,
+    "mixed": 0.25,
+    "tower": 0.35,
+    "wall_bridge": 0.15
+  },
+  "data_families": {
+    "train": 12000,
+    "model_validation": 2000,
+    "request_train": 4000,
+    "request_validation": 500,
+    "request_threshold_calibration": 500,
+    "test_iid": 2000,
+    "test_camera_ood": 1000,
+    "test_geometry_ood": 1000
+  },
+  "data_pilot_families": 1000,
+  "poses_per_family": 6,
+  "pose_bands": {
+    "original": 1,
+    "near": 2,
+    "medium": 2,
+    "oblique": 1
+  },
+  "candidate_camera_distance_bands_m": {
+    "near": [
+      0.01,
+      0.04
+    ],
+    "medium": [
+      0.04,
+      0.12
+    ],
+    "oblique": [
+      0.12,
+      0.22
+    ]
+  },
+  "camera_admissibility": "whole-arm collision check plus fixed-camera robot occlusion evaluation; no random unchecked camera placement",
+  "inputs": {
+    "rgb_resolution": [
+      160,
+      160
+    ],
+    "depth": false,
+    "camera_rays": true,
+    "unknown_object_geometry": false,
+    "oracle_object_masks": false,
+    "empty_reference_required": false
+  },
+  "models": {
+    "M0": "frozen V2",
+    "M1": "V2 fine-tune, 2 fixed + 1 wrist, 904112 parameters",
+    "M2": "implemented variable-view history: 2 fixed + 0..3 wrist, shared role embeddings, 904112 parameters",
+    "request_heads": "untrained prototype: observed 23->64->32->1, candidate 42->128->64->2, GELU"
+  },
+  "optimization": {
+    "optimizer": "AdamW",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "effective_batch_size": 32,
+    "microbatch_initial": 4,
+    "gradient_accumulation": 8,
+    "gradient_clip": 1.0,
+    "maximum_epochs": 60,
+    "warmup_epochs": 3,
+    "schedule": "cosine",
+    "early_stop_patience_epochs": 10,
+    "precision_initial": "FP32"
+  },
+  "loss_weights_initial": {
+    "detection": 1.0,
+    "position": 5.0,
+    "size": 1.0,
+    "symmetry_aware_rotation": 0.5,
+    "visibility_role": 0.25
+  },
+  "request_training": {
+    "after_perception_is_frozen": true,
+    "split_by_scene_family": true,
+    "recompute_labels_per_frozen_perception_revision": true,
+    "maximum_epochs": 30,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "batch_size": 256,
+    "early_stop_patience_epochs": 5,
+    "helpful_min_gain_equivalent_mm": 2.0,
+    "need_loss": "BCEWithLogits",
+    "gain_loss": "SmoothL1(beta=0.1), gain divided by 20mm",
+    "helpful_loss": "BCEWithLogits",
+    "initial_weights": [
+      1.0,
+      1.0,
+      0.5
+    ],
+    "calibrate_request_thresholds": true
+  },
+  "maximum_extra_captures": 2,
+  "pose_contract": {
+    "frame_id": "robot_base",
+    "optical_frame": "opencv_x_right_y_down_z_forward",
+    "position_unit": "metre",
+    "quaternion_order": "wxyz",
+    "save_desired_planned_actual_separately": true,
+    "actual_pose_tolerance_m_proposed": 0.003,
+    "actual_angle_tolerance_rad_proposed": 0.035
+  },
+  "history": {
+    "same_scene_revision_required": true,
+    "static_scene_initially": true,
+    "max_wrist_images": 3,
+    "real_scene_freshness_policy": "must be measured and configured before hardware use"
+  },
+  "geometry_plots": {
+    "every_epochs": 5,
+    "also_at": [
+      "epoch_zero",
+      "best",
+      "final"
+    ],
+    "fixed_validation_scenes": 16,
+    "ground_truth_color": "cyan",
+    "prediction_color": "orange",
+    "no_posthoc_alignment": true
+  },
+  "capture_request_logging": "praxis/src/active_view/capture_requests.py",
+  "hardware_execution_enabled": false,
+  "wall_time_hours": null,
+  "benchmark_required_before_training": true,
+  "started": "2026-11-01T23:31:20+00:00",
+  "started_unix": 1793575880.0,
+  "deadline_unix": 1793633480.0,
+  "perception_training_end_unix": 1793604680.0,
+  "dataset": {
+    "train": 12000,
+    "validation": 2000
+  },
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "variants": [
+    "M1",
+    "M2"
+  ],
+  "data_seeds": {
+    "train": 9364001,
+    "validation": 9365001
+  },
+  "smoke": false,
+  "pilot_report": {
+    "passed": true,
+    "families": 1000,
+    "elapsed_seconds": 243.57535314559937,
+    "counts": [
+      57,
+      185,
+      201,
+      188,
+      198,
+      171
+    ],
+    "kinds": [
+      294,
+      231,
+      330,
+      145
+    ],
+    "rejections": {
+      "insufficient_object_safe_original": 18,
+      "placement": 2,
+      "layout_changed": 7,
+      "insufficient_object_safe_medium": 3,
+      "insufficient_object_safe_oblique": 18,
+      "stack_collapsed": 25
+    },
+    "pose_bands": {
+      "original": 1,
+      "near": 22,
+      "medium": 26,
+      "oblique": 8
+    },
+    "seconds_per_family": 0.24357535314559936,
+    "source": "sim_reference_collision_certificates",
+    "optimizer_updates": 0,
+    "seed": 9363001,
+    "robot_fraction_mean": [
+      0.10586335938796401,
+      0.11234913407887022,
+      0.18515816424041986
+    ],
+    "protocol": "grey-bright shapes, disjoint camera holdout IDs, geometry OOD length .13..16m width .018..024m"
+  },
+  "preflight": {
+    "passed": true,
+    "parameters": 904112,
+    "original_forward_max_difference": 0.0,
+    "unavailable_view_mask": true,
+    "prefix_only": true,
+    "benchmark": {
+      "M1": {
+        "initial_loss": 0.36215198691934347,
+        "final_loss": 0.12086358293890953,
+        "seconds_per_update": 0.2279746929804484,
+        "exact_resume": true,
+        "maximum_parameter_difference": 0.0
+      },
+      "M2": {
+        "initial_loss": 1.7747218944132328,
+        "final_loss": 1.1997483260929585,
+        "seconds_per_update": 0.23515055576960245,
+        "exact_resume": true,
+        "maximum_parameter_difference": 0.0
+      }
+    },
+    "native_motion_samples": 204,
+    "peak_gpu_gib": 0.21792173385620117,
+    "elapsed_seconds": 33.23055291175842,
+    "scope": "sim-reference collision checks, no hardware safety or active-view quality proof"
+  },
+  "checkpoint_selection": "balanced arrangement model-validation loss; reserved tests untouched",
+  "reserved_seeds": {
+    "request_train": 9366001,
+    "request_validation": 9367001,
+    "request_calibration": 9368001,
+    "test_iid": 9369001,
+    "test_camera_ood": 9371001,
+    "test_geometry_ood": 9372001
+  },
+  "source_hashes": {
+    "experiments/visual_active_v3_20261101/train_v3.py": "0c9db847298c892a36696678b08e0e08ef532396022ea58e44bf8cc8625a7c1f",
+    "experiments/visual_active_v3_20261101/data_v3.py": "a9f42d485df30628494fe270b28d2f49659d8d4ef7ca6ee98c9e49d1c24e6f9c",
+    "experiments/visual_active_v3_20261101/physical_setup.py": "b20f6cbad249422cc13b0ffd3e55cb492c4c9af4f09f65bb01d4d2e053526858",
+    "experiments/visual_active_v3_20261101/model_v3.py": "e1960950e600c90e3056ab994d14ff39e69d27cad80cd53c845a4e571bf5e7b9",
+    "experiments/visual_active_v3_20261101/request_heads.py": "99b044c41c76fc523b29c896eb5152c9453c11b134ecd6acd1cca2488e459425",
+    "experiments/visual_active_v3_20261101/preflight_v3.py": "4ec32c43fbec910badae4d83e44424f33b0df31eb8052f4e5ee84dcf8bb879fd",
+    "experiments/visual_active_v3_20261101/deadline_guard.py": "ecf31496350a580ec2de32ba4ca72b934e2016727f5e90ab48d5d408d0ee29f2",
+    "experiments/visual_active_v3_20261101/monitor_check.py": "705a8c2ab0d6b5b97caa0b8c5d4c0f42dcbc00b53f3e35d7f603cc7c4fe0863f",
+    "experiments/visual_active_v3_20261101/completion_gate.py": "cd69dbeef419bee30c2eb5eac55523543a2825494e44182f86290f31ad96264e",
+    "experiments/visual_active_v3_20261101/session.json": "de17c48d8e8e18029c68708b533ab20d9ce979b78cce743652f5a8fcf39d86d4",
+    "experiments/visual_active_v3_20261101/PLAN.md": "2fe170b8d4924981de46ddce897ec07d2553bfafa89a997c47012ba3a0788eec",
+    "experiments/visual_active_v3_20261101/FOLLOWUP.md": "ea725613ce8c9eb733511b59ee42d1d1683e320ce1a045d52651f44e6f291023",
+    "experiments/visual_active_v3_20261101/PREPARATION_NOTES.md": "0c7bbb72d90219711b20b6cc7f8d252b10a26e52d056e55e237c69dd18b5eb26",
+    "experiments/visual_scene_v2_20261101/scene_data.py": "293f76dc1f8f836ca53f66798e5c35882f6cf2fe02dec08fad78b739092b9177",
+    "experiments/visual_scene_v2_20261101/learning.py": "3a3f5b9ed685aa5c07e1c071203de60e440cb007f9ace81bbcbfa62792fc9e8c",
+    "experiments/visual_scene_v2_20261101/model_prototype.py": "7a4d577d29c889c17ccdd79e35e87964905ce01025f1759ad914327b43bbfc17",
+    "experiments/visual_scene_v2_20261101/compare_geometry.py": "f350f4aa1abae14a0c12dcb41cb6b26263e347fd3fb9917977c47f211ced9a53",
+    "experiments/visual_scene_v2_20261101/preflight.py": "826ca7ea54486e9bdd030e760758bd1dbc64819ed5405dd4c85ec9cb2c174459",
+    "praxis/src/active_view/collision.py": "9f57054968ba6d3f2de701c5d7dbac971c834fb635810e74a319cba335dbd19a",
+    "praxis/src/active_view/geometry.py": "fff62257ccfbdd802af11a6b86f6bad40930e9f359280dbc0f5325925eaf0a41",
+    "praxis/src/active_view/capture_requests.py": "e63aca493abc4c1a85effdd7b296dc3b9da358cf8c49ecf518c1e6af9056e2bf",
+    "experiments/visual_overnight_20261101/night.py": "1a3ee5e6570a4194fff27de42d07d6d2092b6f7e1afb826d3e20de0da61dfa03",
+    "experiments/visual_scene_v2_20261101/run_001/selection.json": "6b3a9ca8a10baba9d41447adaf2f95369faca5888384c62e504f367d06bc8d6c",
+    "experiments/visual_active_v3_20261101/independent_bootstrap.py": "83200434467cc8f4def83e4a5079da93e7306fc3079c543b522772034324a9a3",
+    "experiments/visual_active_v3_20261101/launch_wmi.ps1": "8f702bbf37e5a7cc70baf848921d49fd51e4e10d8445b255535f84c5c1ae3b5e"
+  },
+  "technical_launch_repair": "WMI base Python with breakaway after rejected job-bound launch; zero main optimizer updates before repair",
+  "source_snapshot": "source_retry_001"
+}

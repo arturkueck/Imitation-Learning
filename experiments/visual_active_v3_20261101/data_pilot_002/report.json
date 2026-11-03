@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "families": 1000,
+  "elapsed_seconds": 243.57535314559937,
+  "counts": [
+    57,
+    185,
+    201,
+    188,
+    198,
+    171
+  ],
+  "kinds": [
+    294,
+    231,
+    330,
+    145
+  ],
+  "rejections": {
+    "insufficient_object_safe_original": 18,
+    "placement": 2,
+    "layout_changed": 7,
+    "insufficient_object_safe_medium": 3,
+    "insufficient_object_safe_oblique": 18,
+    "stack_collapsed": 25
+  },
+  "pose_bands": {
+    "original": 1,
+    "near": 22,
+    "medium": 26,
+    "oblique": 8
+  },
+  "seconds_per_family": 0.24357535314559936,
+  "source": "sim_reference_collision_certificates",
+  "optimizer_updates": 0,
+  "seed": 9363001,
+  "robot_fraction_mean": [
+    0.10586335938796401,
+    0.11234913407887022,
+    0.18515816424041986
+  ],
+  "protocol": "grey-bright shapes, disjoint camera holdout IDs, geometry OOD length .13..16m width .018..024m"
+}

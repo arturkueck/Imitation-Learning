@@ -1,0 +1,157 @@
+{
+  "status": "design_only",
+  "training_enabled": false,
+  "training_started": false,
+  "optimizer_updates": 0,
+  "task": "camera_pose_robust_perception_with_persistent_image_requests",
+  "paired_seeds": [
+    1,
+    2,
+    3
+  ],
+  "frozen_reference": "experiments/visual_scene_v2_20261101/run_001/selection.json",
+  "objects": {
+    "minimum": 0,
+    "maximum": 5,
+    "count_probabilities": [
+      0.05,
+      0.19,
+      0.19,
+      0.19,
+      0.19,
+      0.19
+    ],
+    "cube_fraction": 0.5,
+    "cuboid_fraction": 0.5
+  },
+  "arrangements_nonempty": {
+    "scattered": 0.25,
+    "mixed": 0.25,
+    "tower": 0.35,
+    "wall_bridge": 0.15
+  },
+  "data_families": {
+    "train": 12000,
+    "model_validation": 2000,
+    "request_train": 4000,
+    "request_validation": 500,
+    "request_threshold_calibration": 500,
+    "test_iid": 2000,
+    "test_camera_ood": 1000,
+    "test_geometry_ood": 1000
+  },
+  "data_pilot_families": 1000,
+  "poses_per_family": 6,
+  "pose_bands": {
+    "original": 1,
+    "near": 2,
+    "medium": 2,
+    "oblique": 1
+  },
+  "candidate_camera_distance_bands_m": {
+    "near": [
+      0.01,
+      0.04
+    ],
+    "medium": [
+      0.04,
+      0.12
+    ],
+    "oblique": [
+      0.12,
+      0.22
+    ]
+  },
+  "camera_admissibility": "whole-arm collision check plus fixed-camera robot occlusion evaluation; no random unchecked camera placement",
+  "inputs": {
+    "rgb_resolution": [
+      160,
+      160
+    ],
+    "depth": false,
+    "camera_rays": true,
+    "unknown_object_geometry": false,
+    "oracle_object_masks": false,
+    "empty_reference_required": false
+  },
+  "models": {
+    "M0": "frozen V2",
+    "M1": "V2 fine-tune, 2 fixed + 1 wrist, 904112 parameters",
+    "M2": "planned history variant, 2 fixed + 0..3 wrist, shared weights and same 3 role embeddings, expected 904112 parameters",
+    "request_heads": "untrained prototype: observed 23->64->32->1, candidate 42->128->64->2, GELU"
+  },
+  "optimization": {
+    "optimizer": "AdamW",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "effective_batch_size": 32,
+    "microbatch_initial": 4,
+    "gradient_accumulation": 8,
+    "gradient_clip": 1,
+    "maximum_epochs": 60,
+    "warmup_epochs": 3,
+    "schedule": "cosine",
+    "early_stop_patience_epochs": 10,
+    "precision_initial": "FP32"
+  },
+  "loss_weights_initial": {
+    "detection": 1,
+    "position": 5,
+    "size": 1,
+    "symmetry_aware_rotation": 0.5,
+    "visibility_role": 0.25
+  },
+  "request_training": {
+    "after_perception_is_frozen": true,
+    "split_by_scene_family": true,
+    "recompute_labels_per_frozen_perception_revision": true,
+    "maximum_epochs": 30,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "batch_size": 256,
+    "early_stop_patience_epochs": 5,
+    "helpful_min_gain_equivalent_mm": 2,
+    "need_loss": "BCEWithLogits",
+    "gain_loss": "SmoothL1(beta=0.1), gain divided by 20mm",
+    "helpful_loss": "BCEWithLogits",
+    "initial_weights": [
+      1,
+      1,
+      0.5
+    ],
+    "calibrate_request_thresholds": true
+  },
+  "maximum_extra_captures": 2,
+  "pose_contract": {
+    "frame_id": "robot_base",
+    "optical_frame": "opencv_x_right_y_down_z_forward",
+    "position_unit": "metre",
+    "quaternion_order": "wxyz",
+    "save_desired_planned_actual_separately": true,
+    "actual_pose_tolerance_m_proposed": 0.003,
+    "actual_angle_tolerance_rad_proposed": 0.035
+  },
+  "history": {
+    "same_scene_revision_required": true,
+    "static_scene_initially": true,
+    "max_wrist_images": 3,
+    "real_scene_freshness_policy": "must be measured and configured before hardware use"
+  },
+  "geometry_plots": {
+    "every_epochs": 5,
+    "also_at": [
+      "epoch_zero",
+      "best",
+      "final"
+    ],
+    "fixed_validation_scenes": 16,
+    "ground_truth_color": "cyan",
+    "prediction_color": "orange",
+    "no_posthoc_alignment": true
+  },
+  "capture_request_logging": "praxis/src/active_view/capture_requests.py",
+  "hardware_execution_enabled": false,
+  "wall_time_hours": null,
+  "benchmark_required_before_training": true
+}

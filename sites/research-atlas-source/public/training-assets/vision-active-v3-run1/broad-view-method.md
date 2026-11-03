@@ -1,0 +1,11 @@
+# Großer Perspektivwechsel · neue geometrische Demo
+
+Die drei M2-Modelle sind eingefroren. Ein aus ihren Vorhersagen abgeleiteter Zielbereich erhält einen geometrisch ausgewählten breiten Blickwechsel:41,6cm Kameraversetzung und62,6Grad Änderung der Ziel-Blickrichtung. Keine Sollobjektposition wird als Fokus verwendet. Gelenkgrenzen, Selbstkollisionen, Gehäuse/Halterung und die ganzen Wege wurden mit expliziter Simulatorreferenz geprüft;62 gerenderte Zustände zusätzlich geprüft, keine native Roboter-Umwelt-Durchdringung.
+
+Das neue Bild ist noch kein Vorteil: Satzfehler12,43→26,14mm-äq. (Position/Ecken/fehlende und zusätzliche Objekte). Grün ist die diagnostisch neu berechnete Schätzung und wird nicht als produktiv akzeptierte Verbesserung ausgegeben. Das größere Posegebiet liegt außerhalb des bisherigen V3-Gitters. Keine Gewichte wurden verändert, kein Training gestartet.
+
+Die rein visuelle Planung wurde getrennt geprüft und blockiert: initial_arm_volume_unverified / unknown_space. Die im Prototyp aus RGB-Differenzen und bekannten statischen Hintergrundtiefen erstellte Karte belegt nicht den gesamten Arm-Startbereich. Für diesen Backend wurden keine Bewegungen freigegeben. Die erfolgreiche Referenzbahn wird niemals als rein visuell freigesichert dargestellt.
+
+Nächster Ablauf: feste Kameras müssen Startarm und anfänglichen Bewegungskorridor abdecken. Unbekannte und möglicherweise belegte Voxel bleiben gesperrt. Aus einer bereits verifizierten Pose kann eine kleine Aufklärungsbewegung mit vollständig geprüftem Weg vorgeschlagen werden. Danach neue reale/gerenderte Bilder integrieren, aktuelle Kartenrevision erzeugen und erst dann einen größeren Zielweg neu prüfen. Das ist mit inspect_or_probe vorbereitet; eine erfolgreiche vollständige visuelle Aufklärungsfahrt wurde hier noch nicht nachgewiesen. Ohne bekannte metrische Tiefengrenzen/Mehrblickrekonstruktion macht bloßes RGB-Hintergrundaussehen Raum nicht zuverlässig frei.
+
+Der Blickplaner bevorzugt größere Kamerabasis und Blickwinkel, keinen beliebigen zusätzlichen Gelenkweg. Der gewählte Blick ist der bestbewertete unter begrenzt geprüften Kandidaten, kein mathematisches globales Maximum. Die beobachtete aktuelle Modellverschlechterung bleibt erhalten und ist Motivation für spätere gezielte Lernfälle, kein Anlass für testgetriebene Optimierung in diesem Versuch.

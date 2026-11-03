@@ -1,0 +1,16 @@
+{
+  "ground_truth_count": 0,
+  "prediction_count": 0,
+  "matching_gate_m": 0.1,
+  "pairs": [],
+  "missing_gt_indices": [],
+  "extra_prediction_indices": [],
+  "precision_at_matching_gate": null,
+  "recall_at_matching_gate": null,
+  "recall_position_10mm": null,
+  "scene_iou_score": null,
+  "note": "Scene IoU score is matched per-object IoU sum / max counts, not union-of-scene-volume IoU. Missing/extra objects lower this score.",
+  "unobservable_gt_indices": [],
+  "total_physical_objects": 0,
+  "ground_truth_count_definition": "Observable ground truth objects for the available camera views"
+}

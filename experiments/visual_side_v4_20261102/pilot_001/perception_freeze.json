@@ -1,0 +1,23 @@
+{
+  "selected_variant": "B",
+  "side_gate_passed": true,
+  "models": [
+    {
+      "seed": 1,
+      "file": "experiments/visual_side_v4_20261102/pilot_001/checkpoints/B1_best.pth",
+      "sha256": "3cc03034e7380e6ac4c7ac27ae7bab6e53792b5d94d7f0a17c5bf1651185ad6a"
+    },
+    {
+      "seed": 2,
+      "file": "experiments/visual_side_v4_20261102/pilot_001/checkpoints/B2_best.pth",
+      "sha256": "e2bba5b00f160231baf6046bd084039f48bb7c4affe29577333051288d8696c9"
+    },
+    {
+      "seed": 3,
+      "file": "experiments/visual_side_v4_20261102/pilot_001/checkpoints/B3_best.pth",
+      "sha256": "35d639e1fa9dcba24b7c0dd86ae4545f9de5d18a28c507b8506051fa43f102b2"
+    }
+  ],
+  "selection_sha256": "afdb6bfe9e000fa128eea9964fe5969ebedf1382eb927502c0ce93c0a8207747",
+  "protocol_sha256": "cd217a3a7e801958744443e35f61f8a2977cbde10c50d773afde9a40676476bf"
+}

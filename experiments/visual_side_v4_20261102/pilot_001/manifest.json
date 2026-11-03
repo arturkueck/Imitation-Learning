@@ -1,0 +1,32 @@
+{
+  "pilot_only": true,
+  "main_training_authorized": false,
+  "seed": 94140201,
+  "families": 200,
+  "per_family_slots": [
+    "initial",
+    "near",
+    "requested"
+  ],
+  "requested_families": [
+    "right",
+    "left",
+    "base",
+    "elevated",
+    "difficult"
+  ],
+  "full_six_candidate_bank": false,
+  "maximum_side_search_seconds": 4,
+  "simulation_reference_only": true,
+  "source_hashes": {
+    "experiments\\visual_side_v4_20261102\\pilot.py": "5b55243e8bcc29857cd149733e1b0316132dddeb2f84183ace539320477c5055",
+    "experiments\\visual_side_v4_20261102\\PLAN.md": "503d6418588c9e779b4efc189b2a979f60f4c810527dcfc6ed17bb6c52f00ed2",
+    "praxis\\src\\active_view\\side_views.py": "8a2aed429d567d15a5e1100ea7ba75d3f83375c2cd2c20180f4813cfc1d2ec01",
+    "praxis\\src\\active_view\\collision.py": "9f57054968ba6d3f2de701c5d7dbac971c834fb635810e74a319cba335dbd19a",
+    "praxis\\src\\active_view\\planner.py": "6b560fb33cabc1ba0ea702ddf977f62b68b6e6ac5c4f9b97c393266860eee5e5",
+    "experiments\\visual_active_v3_20261101\\data_v3.py": "a9f42d485df30628494fe270b28d2f49659d8d4ef7ca6ee98c9e49d1c24e6f9c",
+    "experiments\\visual_active_v3_20261101\\model_v3.py": "e1960950e600c90e3056ab994d14ff39e69d27cad80cd53c845a4e571bf5e7b9",
+    "experiments\\visual_active_v3_20261101\\physical_setup.py": "b20f6cbad249422cc13b0ffd3e55cb492c4c9af4f09f65bb01d4d2e053526858",
+    "experiments\\visual_scene_v2_20261101\\learning.py": "3a3f5b9ed685aa5c07e1c071203de60e440cb007f9ace81bbcbfa62792fc9e8c"
+  }
+}

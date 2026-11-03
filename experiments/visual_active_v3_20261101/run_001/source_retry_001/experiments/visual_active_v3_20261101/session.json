@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "authorization": "User go: okay, dann starte erstmal so.",
+  "start_at": "2026-11-01T23:31:20+00:00",
+  "start_berlin": "2026-11-02T00:31:20+01:00",
+  "deadline": "2026-11-02T15:31:20+00:00",
+  "deadline_berlin": "2026-11-02T16:31:20+01:00",
+  "maximum_total_hours": 16,
+  "scope": "Implementation, preflight, simulation data, cube/cuboid perception training, validation and bounded followup share this deadline",
+  "agent_check_interval_hours": 2,
+  "hardware_execution_enabled": false,
+  "status": "implementation_and_preflight"
+}

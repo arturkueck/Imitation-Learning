@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:research-atlas:capture-request:v1",
+  "title": "Desired camera image request (operational inputs only)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "request_id",
+    "episode_id",
+    "scene_revision",
+    "source_observation_ids",
+    "desired_camera_pose",
+    "reason",
+    "target_scope",
+    "target_track_ids",
+    "model_revision",
+    "calibration_id",
+    "created_at",
+    "example_only"
+  ],
+  "properties": {
+    "request_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "episode_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scene_revision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_observation_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "desired_camera_pose": {
+      "$ref": "#/$defs/camera_pose"
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target_scope": {
+      "enum": [
+        "scene",
+        "objects"
+      ]
+    },
+    "target_track_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "model_revision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "calibration_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "example_only": {
+      "type": "boolean"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "target_scope": {
+            "const": "objects"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "target_track_ids": {
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "camera_pose": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "position_m",
+        "quaternion_wxyz",
+        "frame_id",
+        "optical_frame"
+      ],
+      "properties": {
+        "position_m": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "number"
+          }
+        },
+        "quaternion_wxyz": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          }
+        },
+        "frame_id": {
+          "const": "robot_base"
+        },
+        "optical_frame": {
+          "const": "opencv_x_right_y_down_z_forward"
+        }
+      },
+      "description": "R_base_camera maps OpenCV optical coordinates to robot_base. Unit quaternion and finite values are additionally checked in Python."
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "main_eligible": false,
+  "counts": {
+    "development": 4
+  },
+  "family_overlap": 0,
+  "history_overlap": 0,
+  "content_overlap": 0,
+  "replay_count": 0,
+  "replay_role": "historical_training_only",
+  "dataset_seals": {
+    "development": "af4c7e3733d0b00fda1811e7161a09c0f3b83f5798d4d6a89393bb4b38959c48"
+  },
+  "protocol_sha256": "22b54c2afafc19092df1986b6ef690c72dc71c7684cc2ac7a8d25afb481be61c",
+  "forward_passed": true,
+  "loss": 0.10119548564155896,
+  "optimizer_updates": 0,
+  "weights_promoted": false,
+  "main_training_eligible": false
+}

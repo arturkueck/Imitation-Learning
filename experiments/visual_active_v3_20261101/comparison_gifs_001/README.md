@@ -1,0 +1,9 @@
+# Blickwechsel und drei Boxfarben
+
+Cyan: echte Simulationsgeometrie. Orange: erste Vorhersage. Grün: nach tatsächlichem zusätzlichem Handkamerabild erneut berechnete Vorhersage. Zentren und Boxen sind unverändert in Weltkoordinaten, ohne räumliche Registrierung oder künstliche Vergrößerung der Fehler. Orange bleibt während des gesamten GIFs stehen; Grün erscheint erst nach einer Aufnahme.
+
+Quelle: followup_smoke_repair001, ausdrücklich erzwungener technischer Aufnahmetest mit nicht reservierten Seeds. Die kalibrierte Produktionspolicy blieb deaktiviert. Diese GIFs zeigen deshalb keinen erfolgreichen autonomen Nachschauzyklus. Die dargestellten Bewegungen sind jetzt aus den gespeicherten Gelenkposen rekonstruierte kinematische Abläufe; vor dem Rendern wurden die ganzen Wege mit Selbst-/Umwelt-/Kamerageometrie erneut geprüft. Simulatorreferenz, kein Realroboter und kein Beleg rein visueller Sicherheit.
+
+Die drei eingefrorenen M2-Checkpoints wurden gehasht. Vorhersagen wurden im Inferenzmodus mit tatsächlichen gespeicherten Handbildern und nachgerenderten festen Ansichten berechnet. Der Replay-Abgleich erlaubt nur die bereits dokumentierte minimale Rasterrundung. Scores müssen bis auf höchstens0,05 äquivalente mm zum gespeicherten technischen Fall passen; tatsächliche Differenzen stehen im Manifest.
+
+*Satzfehler* ist ein Fehlermaß in äquivalenten Millimetern: Position plus0,25×Eckenfehler mit Strafen für fehlende und zusätzliche Objekte. Es ist keine reine Positions-MAE. Verbesserungen und Verschlechterungen sind enthalten. Die fünf Fälle sind illustrative Beispiele, keine repräsentative Erfolgsquote. Keine Gewichte, Policy, Trainingsdaten oder früheren Resultate wurden geändert. manifest.json und scene_comparison.json enthalten Quellen, Posen, Vorhersagen und Auditdaten.

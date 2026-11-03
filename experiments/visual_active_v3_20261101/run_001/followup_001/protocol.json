@@ -1,0 +1,93 @@
+{
+  "perception_variant": "M2",
+  "perception_seeds": [
+    1,
+    2,
+    3
+  ],
+  "head_seeds": [
+    1,
+    2,
+    3
+  ],
+  "head_epochs_maximum": 30,
+  "request_counts": {
+    "request_train": 4000,
+    "request_validation": 500,
+    "request_calibration": 500
+  },
+  "test_counts": {
+    "test_iid": 2000,
+    "test_camera_ood": 1000,
+    "test_geometry_ood": 1000
+  },
+  "need_threshold_error_mm": 5.0,
+  "helpful_gain_mm": 2.0,
+  "gain_normalizer_mm": 20.0,
+  "capture_cost_mm": 1.0,
+  "time_cost_mm_per_second": 0.2,
+  "assumed_joint_speed_rad_per_second": 0.5,
+  "normalization": "request_train only",
+  "maximum_extra_images": 2,
+  "observation_features": [
+    "focus_x",
+    "focus_y",
+    "focus_z",
+    "size_x",
+    "size_y",
+    "size_z",
+    "rotation6d_0",
+    "rotation6d_1",
+    "rotation6d_2",
+    "rotation6d_3",
+    "rotation6d_4",
+    "rotation6d_5",
+    "existence_score",
+    "seed_support_fraction",
+    "position_std_x",
+    "position_std_y",
+    "position_std_z",
+    "fixed0_visibility",
+    "fixed1_visibility",
+    "wrist_any_visibility",
+    "history_length",
+    "rgb_inconsistency_or_minus_one",
+    "predicted_object_focus_present"
+  ],
+  "candidate_features": [
+    "camera_x",
+    "camera_y",
+    "camera_z",
+    "camera_rotation6d_0",
+    "camera_rotation6d_1",
+    "camera_rotation6d_2",
+    "camera_rotation6d_3",
+    "camera_rotation6d_4",
+    "camera_rotation6d_5",
+    "focus_direction_x",
+    "focus_direction_y",
+    "focus_direction_z",
+    "focus_distance",
+    "joint_motion_norm",
+    "fixed0_expected_robot_occlusion",
+    "fixed1_expected_robot_occlusion",
+    "calibration_valid",
+    "capture_cost",
+    "candidate_valid"
+  ],
+  "future_image_nn_inputs": false,
+  "oracle_robot_fraction_nn_input": false,
+  "oracle_geometry_nn_input": false,
+  "planner": "sim_reference conservative whole path",
+  "candidate_proposal": "object-independent seeded pose bands",
+  "blocked_candidate_gain": "masked, no invented label",
+  "bootstrap_seed": 9814201,
+  "hardware": false,
+  "start_unix": 1793606539.415139,
+  "deadline_unix": 1793628139.415139,
+  "source_hashes": {
+    "followup_core.py": "ce1535cb261d6b2c1383f421dfb68864ada714d909b6e103d0785bbcf40f2811",
+    "followup_v3.py": "43bc3e11352efb4d451f94187e0fdec848e90a87cf6dfbb156445967a1bc8235",
+    "request_heads.py": "99b044c41c76fc523b29c896eb5152c9453c11b134ecd6acd1cca2488e459425"
+  }
+}

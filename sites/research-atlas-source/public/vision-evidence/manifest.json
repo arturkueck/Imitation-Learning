@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-01T12:44:15.820Z",
+  "updatedAt": "2026-11-02T23:24:22.208Z",
   "files": [
     {
       "name": "vision-assessment.md",
@@ -114,6 +114,78 @@
       "source": "experiments/visual_scene_v2_20261101/refinement_001/README.md",
       "source_sha256": "53a00cdf3146819203b8dac2576e88d1078cf00c158b63ac907a47a78e30e7c0",
       "published_sha256": "53a00cdf3146819203b8dac2576e88d1078cf00c158b63ac907a47a78e30e7c0"
+    },
+    {
+      "name": "active-camera-results.json",
+      "source": "experiments/visual_scene_v2_20261101/active_camera_001/results.json",
+      "source_sha256": "f7ac1d02cee28550181c9948a372fc86f5d5a54e22f90db722341c95b547ac83",
+      "published_sha256": "296b35bed27ef7b6a6476b75a2c4df995a852f219e59120a74020dc4ebb3958a"
+    },
+    {
+      "name": "active-camera-plan.json",
+      "source": "experiments/visual_scene_v2_20261101/active_camera_001/locked_plan.json",
+      "source_sha256": "1aa02e30d73580ed25c6de12c6001d7384fda171da3b20bb717010e08bc91031",
+      "published_sha256": "fa64b700db063348c9b7259873873eea602ff70477ec4e7cd1419fc91dd67911"
+    },
+    {
+      "name": "active-camera-report.md",
+      "source": "experiments/visual_scene_v2_20261101/active_camera_001/README.md",
+      "source_sha256": "da4876f5d74676afc375c4c0c62eaee4f010fb0a4e67ccee9843fb0821d17dee",
+      "published_sha256": "da4876f5d74676afc375c4c0c62eaee4f010fb0a4e67ccee9843fb0821d17dee"
+    },
+    {
+      "name": "active-camera-quality.png",
+      "source": "experiments/visual_scene_v2_20261101/active_camera_001/quality.png",
+      "source_sha256": "1688ff0b165c78c906914e7df3dafb99dfdd7befce3d4600de3a355d637d143c",
+      "published_sha256": "1688ff0b165c78c906914e7df3dafb99dfdd7befce3d4600de3a355d637d143c"
+    },
+    {
+      "name": "active-camera-images.png",
+      "source": "experiments/visual_scene_v2_20261101/active_camera_001/case_00/wrist_before_after.png",
+      "source_sha256": "c5bc254e92d81ff8a9e30691bff5fea3f076af5f0d7a348a0e20451765498ee3",
+      "published_sha256": "c5bc254e92d81ff8a9e30691bff5fea3f076af5f0d7a348a0e20451765498ee3"
+    },
+    {
+      "name": "active-camera-motion.gif",
+      "source": "experiments/visual_scene_v2_20261101/active_camera_001/case_00/motion.gif",
+      "source_sha256": "e7991fa33aaf4dce4f197e1adf1f9aff90307f6e1ba6b4b2741c7bb048b4be6a",
+      "published_sha256": "e7991fa33aaf4dce4f197e1adf1f9aff90307f6e1ba6b4b2741c7bb048b4be6a"
+    },
+    {
+      "name": "v3-plan.md",
+      "source": "experiments/visual_active_v3_20261101/PLAN.md",
+      "source_sha256": "2fe170b8d4924981de46ddce897ec07d2553bfafa89a997c47012ba3a0788eec",
+      "published_sha256": "2fe170b8d4924981de46ddce897ec07d2553bfafa89a997c47012ba3a0788eec"
+    },
+    {
+      "name": "v3-config.json",
+      "source": "experiments/visual_active_v3_20261101/PROPOSED_CONFIG.json",
+      "source_sha256": "697d49944fe7920e4f249a92ffdabd5d86674d1f4893ff27c5a3d3afefad8a55",
+      "published_sha256": "e0aa9883e01b33b4c7da301d1f65acb15542d22545b484ae9a19e890356951d9"
+    },
+    {
+      "name": "v3-heads.json",
+      "source": "experiments/visual_active_v3_20261101/model_info.json",
+      "source_sha256": "57e3c792cb30936411ef0064fc5ce01374fd31dc37b5fd704b3f8c446bbf38b9",
+      "published_sha256": "1d962bebde59a177b202226bfce0e5e17128e00cffe45bbcfb3d9f2b75d05e26"
+    },
+    {
+      "name": "v3-request-schema.json",
+      "source": "experiments/visual_active_v3_20261101/capture-request.schema.json",
+      "source_sha256": "99ce8c7aac8933c956a0ae99564ac793a62dbfca590d17f379feead49e43a02e",
+      "published_sha256": "04b747db46fc947217104e1d355a52b7bb82f12fdf8c9d70196e825635aed28b"
+    },
+    {
+      "name": "v3-data-contract.md",
+      "source": "experiments/visual_active_v3_20261101/DATA_CONTRACT.md",
+      "source_sha256": "dda3c575cfe05c6bd78894f8e6b2a6a735a7a9b7708d14e56f3b9bed42c49b27",
+      "published_sha256": "dda3c575cfe05c6bd78894f8e6b2a6a735a7a9b7708d14e56f3b9bed42c49b27"
+    },
+    {
+      "name": "v3-request-example.jsonl",
+      "source": "experiments/visual_active_v3_20261101/example/capture_requests.jsonl",
+      "source_sha256": "48361e14317836a5bb60a6e51c9fd1db8f319cca124aa7bea14ef0d4a1b7ca8b",
+      "published_sha256": "48361e14317836a5bb60a6e51c9fd1db8f319cca124aa7bea14ef0d4a1b7ca8b"
     }
   ]
 }

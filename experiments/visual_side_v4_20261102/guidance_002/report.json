@@ -1,0 +1,128 @@
+{
+  "training_started": false,
+  "optimizer_updates": 0,
+  "completed": true,
+  "comparison": {
+    "right": {
+      "attempted": 40,
+      "before": 12,
+      "after": 28
+    },
+    "left": {
+      "attempted": 40,
+      "before": 5,
+      "after": 24
+    },
+    "base": {
+      "attempted": 40,
+      "before": 0,
+      "after": 27
+    },
+    "elevated": {
+      "attempted": 40,
+      "before": 13,
+      "after": 37
+    },
+    "difficult": {
+      "attempted": 40,
+      "before": 17,
+      "after": 31
+    }
+  },
+  "total_before": 47,
+  "total_after": 147,
+  "bank_entries": 26,
+  "bank_seconds": 315.13065229999484,
+  "validation_seconds": 606.0114269001351,
+  "elapsed_seconds": 921.14207920013,
+  "independent_full_path_audits": 17,
+  "audited_groups": [
+    [
+      "elevated",
+      "wall"
+    ],
+    [
+      "base",
+      "tower"
+    ],
+    [
+      "difficult",
+      "mixed"
+    ],
+    [
+      "right",
+      "wall"
+    ],
+    [
+      "left",
+      "tower"
+    ],
+    [
+      "elevated",
+      "tower"
+    ],
+    [
+      "elevated",
+      "mixed"
+    ],
+    [
+      "left",
+      "scattered"
+    ],
+    [
+      "difficult",
+      "wall"
+    ],
+    [
+      "right",
+      "mixed"
+    ],
+    [
+      "base",
+      "mixed"
+    ],
+    [
+      "left",
+      "mixed"
+    ],
+    [
+      "right",
+      "tower"
+    ],
+    [
+      "base",
+      "scattered"
+    ],
+    [
+      "difficult",
+      "tower"
+    ],
+    [
+      "right",
+      "scattered"
+    ],
+    [
+      "left",
+      "wall"
+    ]
+  ],
+  "native_replay_states": 3447,
+  "native_robot_world_penetrations": 0,
+  "maximum_axis_error_deg": 2.9534794038906855,
+  "mean_axis_error_deg": 0.6724852028375453,
+  "refined_views": 116,
+  "examples": {
+    "elevated": 1,
+    "base": 3,
+    "difficult": 4,
+    "right": 7,
+    "left": 9
+  },
+  "rejections": {
+    "swept_object": 550,
+    "no_target_centred_refinement": 40,
+    "sightline_occluded": 23,
+    "wrong_side": 1
+  },
+  "scope": "Paired development-set simulation reference validation, no blind-test/perception-quality or visual-free-space claim"
+}

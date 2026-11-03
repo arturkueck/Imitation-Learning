@@ -1,0 +1,20 @@
+{
+  "trained": false,
+  "optimizer_updates": 0,
+  "need_parameters": 3649,
+  "candidate_parameters": 13890,
+  "total_parameters": 17539,
+  "output_shapes": {
+    "need_image_logit": [
+      2
+    ],
+    "gain": [
+      2,
+      6
+    ],
+    "helpful_logit": [
+      2,
+      6
+    ]
+  }
+}

@@ -43,7 +43,15 @@ if(refine){
  for(const [file,name] of [['results.json','refinement-results.json'],['paired_quality.png','refinement-quality.png'],['best_worst_examples.png','refinement-examples.png']])await artifact(`experiments/visual_scene_v2_20261101/refinement_001/${file}`,name);
  try{await artifact('experiments/visual_scene_v2_20261101/refinement_001/README.md','refinement-report.md');}catch(e){if(e.code!=='ENOENT')throw e;}
 }
-const data={updatedAt:new Date().toISOString(),training:{epochs:91,updatesPerModel:34125,seeds:3,models:6,parameters:904112,
+let activeCamera=null;
+try{activeCamera=await read(path.join(vision,'active_camera_001/results.json'));}catch(e){if(e.code!=='ENOENT')throw e;}
+if(activeCamera){
+ for(const [file,name] of [['results.json','active-camera-results.json'],['locked_plan.json','active-camera-plan.json'],['README.md','active-camera-report.md'],['quality.png','active-camera-quality.png'],['case_00/wrist_before_after.png','active-camera-images.png'],['case_00/motion.gif','active-camera-motion.gif']])await artifact(`experiments/visual_scene_v2_20261101/active_camera_001/${file}`,name);
+}
+const proposed=path.join(root,'experiments/visual_active_v3_20261101');
+const plannedTraining={config:await read(path.join(proposed,'PROPOSED_CONFIG.json')),heads:await read(path.join(proposed,'model_info.json'))};
+for(const [file,name] of [['PLAN.md','v3-plan.md'],['PROPOSED_CONFIG.json','v3-config.json'],['model_info.json','v3-heads.json'],['capture-request.schema.json','v3-request-schema.json'],['DATA_CONTRACT.md','v3-data-contract.md'],['example/capture_requests.jsonl','v3-request-example.jsonl']])await artifact(`experiments/visual_active_v3_20261101/${file}`,name);
+const data={updatedAt:new Date().toISOString(),activeCamera,plannedTraining,training:{epochs:91,updatesPerModel:34125,seeds:3,models:6,parameters:904112,
  correctedTest:[{panel:'2.000 IID-Szenen',camera:'Fest',position:5.95,count:.9635,recall:.8852},{panel:'2.000 IID-Szenen',camera:'Fest + Hand',position:5.11,count:.9665,recall:.9189},{panel:'512 veränderte Quaderszenen',camera:'Fest',position:17.43,count:.6003,recall:.2589},{panel:'512 veränderte Quaderszenen',camera:'Fest + Hand',position:14.92,count:.6654,recall:.3537}]},
  ensemble:await read(path.join(vision,'uncertainty_001/results.json')),rgb:await read(path.join(vision,'image_consistency_001/results.json')),
  reference:await read(path.join(vision,'reference_consistency_002/results.json')),

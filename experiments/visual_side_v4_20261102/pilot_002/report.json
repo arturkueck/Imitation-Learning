@@ -1,0 +1,113 @@
+{
+  "pilot_completed": true,
+  "main_training_started": false,
+  "promoted_model": false,
+  "families_requested": 200,
+  "valid_samples": 200,
+  "stages": {
+    "blocked": 153,
+    "captured": 47
+  },
+  "counts": {
+    "5": 37,
+    "4": 39,
+    "3": 44,
+    "2": 37,
+    "1": 32,
+    "0": 11
+  },
+  "kinds": {
+    "tower": 58,
+    "wall": 24,
+    "mixed": 54,
+    "scattered": 64
+  },
+  "shape_counts": {
+    "standard": 182,
+    "long_thin": 18
+  },
+  "view_families": {
+    "right": {
+      "attempted": 40,
+      "captured": 12
+    },
+    "left": {
+      "attempted": 40,
+      "captured": 5
+    },
+    "base": {
+      "attempted": 40,
+      "captured": 0
+    },
+    "elevated": {
+      "attempted": 40,
+      "captured": 13
+    },
+    "difficult": {
+      "attempted": 40,
+      "captured": 17
+    }
+  },
+  "data_seconds": 108.53329200000735,
+  "bank_seconds": 71.88719820001279,
+  "seconds_per_family": 0.1832304689999728,
+  "compressed_bytes_per_family": 221793.445,
+  "raw_array_bytes_per_family": 778672.0,
+  "peak_process_rss_gib": 1.7753219604492188,
+  "calibration_max_projection_px": 6.733812259085425e-05,
+  "maximum_axis_error_deg": 29.45897571366084,
+  "data_scope": "One assigned bank candidate plus near/initial; static/self paths prechecked, analytical swept per-scene object exclusion, native replay states",
+  "bank_entries": 10,
+  "static_signature": "f9787efa5336972af5138a03c49c76f8c28a1a44c43a7eb04bde91886f46c5d6",
+  "source_probe": "pilot_001 ended early due per-scene search throughput bottleneck; artifacts retained",
+  "rejected_settlements": {
+    "placement": 1,
+    "not_settled": 1,
+    "stack_collapsed": 2
+  },
+  "numerical": {
+    "parameters": 904112,
+    "optimizer_updates": 3,
+    "replayed_resume_suffix_updates": 1,
+    "trained_model_promoted": false,
+    "effective_scene_batch": 32,
+    "microbatch": 4,
+    "paired_contexts": 2,
+    "fp32": true,
+    "losses": [
+      0.3416890958324075,
+      0.329565679654479,
+      0.27498523937538266
+    ],
+    "parameter_max_delta": 0.00020051002502441406,
+    "seconds_per_update": [
+      1.4282819999789353,
+      0.6147207999892998,
+      0.5913472000102047
+    ],
+    "median_seconds_per_update": 0.6147207999892998,
+    "partial_epoch_and_accumulation_resume": {
+      "exact": true,
+      "weight_max_difference": 0.0,
+      "optimizer_max_difference": 0.0,
+      "offset": 16
+    },
+    "fixed_probe_loss": 0.345822811126709,
+    "fixed_probe_seconds": 0.06014700001105666,
+    "probe_families": 8,
+    "peak_cuda_allocated_gib": 0.3452267646789551,
+    "peak_cuda_reserved_gib": 0.517578125
+  },
+  "elapsed_seconds": 112.07331869998598,
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 5070",
+    "torch": "2.11.0+cu128"
+  },
+  "limitations": [
+    "No V4 efficacy/generalization claim",
+    "No full six-candidate bank benchmark",
+    "Reference geometry only, not visual safety",
+    "Long/thin sampled scattered only",
+    "Bank permits target offset within FoV instead of 3-degree exact aim"
+  ]
+}

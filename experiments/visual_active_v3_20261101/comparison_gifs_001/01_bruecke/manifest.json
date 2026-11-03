@@ -1,0 +1,39 @@
+{
+  "name": "01_bruecke",
+  "split": "test_iid",
+  "family": [
+    9510001,
+    0
+  ],
+  "objects": 4,
+  "captures": 2,
+  "original_set_error_before_mm": 5.193810939788818,
+  "original_set_error_after_mm": 4.475166281064351,
+  "error_reduction_mm": 0.7186446587244669,
+  "gif": "01_bruecke\\comparison.gif",
+  "poster": "01_bruecke\\poster.png",
+  "frames_written": 33,
+  "duration_ms": 11550,
+  "sha256": "52cbac7f961de2d991b7a2b9b97eceb6d6c4f5d3b6fa95bd28ccac908f560869",
+  "replay_checks": [
+    {
+      "max_rgb_channel_difference": 0,
+      "saved_wrist_max_channel_difference": 0,
+      "recorded_score_max_difference_mm": 0.0,
+      "history": [
+        0,
+        2
+      ]
+    },
+    {
+      "max_rgb_channel_difference": 0,
+      "saved_wrist_max_channel_difference": 0,
+      "recorded_score_max_difference_mm": 0.0,
+      "history": [
+        0,
+        2,
+        5
+      ]
+    }
+  ]
+}

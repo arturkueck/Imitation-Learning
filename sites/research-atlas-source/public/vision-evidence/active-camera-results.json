@@ -1,0 +1,1185 @@
+{
+  "training_started": false,
+  "neural_optimizer_updates": 0,
+  "checkpoint_sha256": {
+    "fixed_seed1_best.pth": "c5df2809272325a167102ae7733af189500f36506e03ca822e010e912e4ae520",
+    "fixed_seed2_best.pth": "72da1a656503899513b93e9ebc7900d595068f4c8c4501434fc011a5a6015327",
+    "fixed_seed3_best.pth": "5dfcbcd93e2771b17765c098c27d3e9e0cb45bdf0edb52e87cab684920625bb0",
+    "fixed_wrist_seed1_best.pth": "0ed05865066ffddc1c10c93a858c20ff5e50a1111040517905205e45aa1bb301",
+    "fixed_wrist_seed2_best.pth": "d725b61dd42281c7d0c7f13c082f414c8259abe0e09cddb6f32025dc1b21e629",
+    "fixed_wrist_seed3_best.pth": "8016d6ea77d937fa306b800d3fac011d243711566a8befe3b57d73e1d25022b5"
+  },
+  "plan_sha256": "1aa02e30d73580ed25c6de12c6001d7384fda171da3b20bb717010e08bc91031",
+  "source_sha256": {
+    "experiments\\visual_scene_v2_20261101\\active_camera_test.py": "3e8c6d9564b309fc5266e8cce96d069deda262b6eead213e849e44cb64b31eb0",
+    "experiments\\visual_scene_v2_20261101\\scene_data.py": "293f76dc1f8f836ca53f66798e5c35882f6cf2fe02dec08fad78b739092b9177",
+    "praxis\\src\\active_view\\collision.py": "9f57054968ba6d3f2de701c5d7dbac971c834fb635810e74a319cba335dbd19a",
+    "praxis\\src\\active_view\\planner.py": "6b560fb33cabc1ba0ea702ddf977f62b68b6e6ac5c4f9b97c393266860eee5e5",
+    "praxis\\src\\active_view\\geometry.py": "fff62257ccfbdd802af11a6b86f6bad40930e9f359280dbc0f5325925eaf0a41"
+  },
+  "screened_scenes": 61,
+  "summary": {
+    "triggered_cases": 7,
+    "captured": 7,
+    "not_captured": 0,
+    "matched_target_pairs": 4,
+    "accepted_updates": 0,
+    "baseline_known_targets": 4,
+    "before_target_mean_mm": 14.902407169342041,
+    "before_target_paired_mean_mm": 14.902407169342041,
+    "raw_after_target_mean_mm": 37.807055950164795,
+    "policy_target_mean_mm": 14.902407169342041,
+    "raw_improved_over_1mm": 0,
+    "raw_worsened_over_1mm": 4,
+    "accepted_but_worsened_over_1mm": 0,
+    "accepted_uncertainty_decreases": 0,
+    "target_missing_after": 0,
+    "initial_false_target": 3,
+    "total_motion_samples": 1119,
+    "native_robot_world_penetrations": 0
+  },
+  "cases": [
+    {
+      "scene_index": 2,
+      "kind": 2,
+      "status": "captured",
+      "target_group": 4,
+      "support_before": 1,
+      "spread_before_mm": 0,
+      "source": "explicit simulator-reference collision geometry",
+      "training_started": false,
+      "target_match_after": 1,
+      "accepted": false,
+      "target_gt_index": -1,
+      "target_error_before_mm": null,
+      "target_error_after_mm": null,
+      "target_error_policy_mm": null,
+      "support_after": 2,
+      "spread_after_mm": 20.731420516967773,
+      "candidate_count": 8,
+      "camera_distance_m": 0.13190068388109746,
+      "camera_before": {
+        "position": [
+          -0.08149778343502287,
+          -0.000912306915554988,
+          1.0916346521875806
+        ],
+        "rotation": [
+          [
+            0.021520625596439247,
+            0.9970061653377994,
+            -0.07426687654905187
+          ],
+          [
+            -0.99973847184618,
+            0.022035342413895653,
+            0.00611813659249999
+          ],
+          [
+            0.007736315957870166,
+            0.07411578754298305,
+            0.9972196345100115
+          ]
+        ]
+      },
+      "camera_after": {
+        "position": [
+          -0.12028849210190684,
+          0.11433884688903004,
+          1.0405441161154858
+        ],
+        "rotation": [
+          [
+            -0.31361036218580385,
+            0.6836229977493989,
+            -0.6590205897222113
+          ],
+          [
+            -0.8943124086352486,
+            0.020618567910365482,
+            0.4469677733554655
+          ],
+          [
+            0.3191455099021543,
+            0.7295440162220836,
+            0.6049063331655927
+          ]
+        ]
+      },
+      "playback_samples": 151,
+      "collision_checks": 1379,
+      "native_penetrations": 0,
+      "scene_metrics": {
+        "fixed": {
+          "before": {
+            "observed_gt": 4,
+            "predicted_groups": 4,
+            "unmatched_gt": 0,
+            "false_positives": 0,
+            "matched_mean_position_mm": 3.7108319997787476,
+            "recall10": 1
+          },
+          "after": {
+            "observed_gt": 4,
+            "predicted_groups": 5,
+            "unmatched_gt": 0,
+            "false_positives": 1,
+            "matched_mean_position_mm": 12.64280080795288,
+            "recall10": 0.5
+          }
+        },
+        "fixed_wrist": {
+          "before": {
+            "observed_gt": 4,
+            "predicted_groups": 5,
+            "unmatched_gt": 0,
+            "false_positives": 1,
+            "matched_mean_position_mm": 3.688447579741478,
+            "recall10": 1
+          },
+          "after": {
+            "observed_gt": 4,
+            "predicted_groups": 8,
+            "unmatched_gt": 1,
+            "false_positives": 5,
+            "matched_mean_position_mm": 25.113882700602215,
+            "recall10": 0.25
+          }
+        }
+      }
+    },
+    {
+      "scene_index": 7,
+      "kind": 1,
+      "status": "captured",
+      "target_group": 4,
+      "support_before": 1,
+      "spread_before_mm": 0,
+      "source": "explicit simulator-reference collision geometry",
+      "training_started": false,
+      "target_match_after": 5,
+      "accepted": false,
+      "target_gt_index": -1,
+      "target_error_before_mm": null,
+      "target_error_after_mm": null,
+      "target_error_policy_mm": null,
+      "support_after": 1,
+      "spread_after_mm": 0,
+      "candidate_count": 6,
+      "camera_distance_m": 0.20951427326715902,
+      "camera_before": {
+        "position": [
+          -0.06555752438538336,
+          -0.01548804546668107,
+          1.1115010979071236
+        ],
+        "rotation": [
+          [
+            -0.05579336561217679,
+            0.9926163109397533,
+            -0.10770310863674934
+          ],
+          [
+            -0.9984249574809138,
+            -0.056103306530991215,
+            0.0001525631799121005
+          ],
+          [
+            -0.005891063817358606,
+            0.10754198367448456,
+            0.9941830903382212
+          ]
+        ]
+      },
+      "camera_after": {
+        "position": [
+          0.08638437633187816,
+          -0.11615871213276857,
+          1.0081797236320147
+        ],
+        "rotation": [
+          [
+            -0.41092663086159253,
+            0.7099082321848086,
+            0.5719874176281994
+          ],
+          [
+            -0.8319948010326977,
+            -0.03551228434818543,
+            -0.553645670727164
+          ],
+          [
+            -0.3727250395442974,
+            -0.7033983078858019,
+            0.605232901749474
+          ]
+        ]
+      },
+      "playback_samples": 233,
+      "collision_checks": 1633,
+      "native_penetrations": 0,
+      "scene_metrics": {
+        "fixed": {
+          "before": {
+            "observed_gt": 4,
+            "predicted_groups": 4,
+            "unmatched_gt": 0,
+            "false_positives": 0,
+            "matched_mean_position_mm": 2.1162316501140594,
+            "recall10": 1
+          },
+          "after": {
+            "observed_gt": 4,
+            "predicted_groups": 5,
+            "unmatched_gt": 0,
+            "false_positives": 1,
+            "matched_mean_position_mm": 14.362337827682495,
+            "recall10": 0.25
+          }
+        },
+        "fixed_wrist": {
+          "before": {
+            "observed_gt": 4,
+            "predicted_groups": 5,
+            "unmatched_gt": 0,
+            "false_positives": 1,
+            "matched_mean_position_mm": 2.124680772423744,
+            "recall10": 1
+          },
+          "after": {
+            "observed_gt": 4,
+            "predicted_groups": 6,
+            "unmatched_gt": 0,
+            "false_positives": 2,
+            "matched_mean_position_mm": 34.178521156311035,
+            "recall10": 0
+          }
+        }
+      }
+    },
+    {
+      "scene_index": 18,
+      "kind": 2,
+      "status": "captured",
+      "target_group": 2,
+      "support_before": 1,
+      "spread_before_mm": 0,
+      "source": "explicit simulator-reference collision geometry",
+      "training_started": false,
+      "target_match_after": 2,
+      "accepted": false,
+      "target_gt_index": 1,
+      "target_error_before_mm": 3.8044185638427734,
+      "target_error_after_mm": 38.90965270996094,
+      "target_error_policy_mm": 3.8044185638427734,
+      "support_after": 2,
+      "spread_after_mm": 9.182147026062012,
+      "candidate_count": 6,
+      "camera_distance_m": 0.2126473550160323,
+      "camera_before": {
+        "position": [
+          -0.05537444236072513,
+          0.017986297356941947,
+          1.1227496659114893
+        ],
+        "rotation": [
+          [
+            -0.004876136508873086,
+            0.9885705437078695,
+            -0.15068013606932856
+          ],
+          [
+            -0.9998712593491538,
+            -0.007123379516089212,
+            -0.014377836826320253
+          ],
+          [
+            -0.015286857763496253,
+            0.15059062911547416,
+            0.9884780090635914
+          ]
+        ]
+      },
+      "camera_after": {
+        "position": [
+          0.0785372524680904,
+          -0.11069084252133611,
+          1.019169990027971
+        ],
+        "rotation": [
+          [
+            -0.3888818259808252,
+            0.7839048729808635,
+            0.48400834242673174
+          ],
+          [
+            -0.775013405885089,
+            0.005696477009799916,
+            -0.6319191173307452
+          ],
+          [
+            -0.4981216178005232,
+            -0.6208548141607102,
+            0.6053215291175892
+          ]
+        ]
+      },
+      "playback_samples": 139,
+      "collision_checks": 1249,
+      "native_penetrations": 0,
+      "scene_metrics": {
+        "fixed": {
+          "before": {
+            "observed_gt": 3,
+            "predicted_groups": 3,
+            "unmatched_gt": 0,
+            "false_positives": 0,
+            "matched_mean_position_mm": 3.867746194203695,
+            "recall10": 1
+          },
+          "after": {
+            "observed_gt": 3,
+            "predicted_groups": 4,
+            "unmatched_gt": 0,
+            "false_positives": 1,
+            "matched_mean_position_mm": 38.45879872639974,
+            "recall10": 0
+          }
+        },
+        "fixed_wrist": {
+          "before": {
+            "observed_gt": 3,
+            "predicted_groups": 3,
+            "unmatched_gt": 0,
+            "false_positives": 0,
+            "matched_mean_position_mm": 4.305868307749431,
+            "recall10": 1
+          },
+          "after": {
+            "observed_gt": 3,
+            "predicted_groups": 3,
+            "unmatched_gt": 1,
+            "false_positives": 1,
+            "matched_mean_position_mm": 29.565932273864746,
+            "recall10": 0
+          }
+        }
+      }
+    },
+    {
+      "scene_index": 36,
+      "kind": 0,
+      "status": "captured",
+      "target_group": 4,
+      "support_before": 1,
+      "spread_before_mm": 0,
+      "source": "explicit simulator-reference collision geometry",
+      "training_started": false,
+      "target_match_after": 3,
+      "accepted": false,
+      "target_gt_index": 3,
+      "target_error_before_mm": 8.767725944519043,
+      "target_error_after_mm": 16.46024513244629,
+      "target_error_policy_mm": 8.767725944519043,
+      "support_after": 1,
+      "spread_after_mm": 0,
+      "candidate_count": 16,
+      "camera_distance_m": 0.19007845835102397,
+      "camera_before": {
+        "position": [
+          -0.050267275618612134,
+          0.010827357810811983,
+          1.1436838581835862
+        ],
+        "rotation": [
+          [
+            0.027597354737411706,
+            0.9764785282338959,
+            -0.21384122593564264
+          ],
+          [
+            -0.9995935757466592,
+            0.028487137698026632,
+            0.0010799591558477706
+          ],
+          [
+            0.007146281375798438,
+            0.21372451165913275,
+            0.9768678333216627
+          ]
+        ]
+      },
+      "camera_after": {
+        "position": [
+          0.05843266749410687,
+          0.12479400299961058,
+          1.0372613676996472
+        ],
+        "rotation": [
+          [
+            0.3507828203927628,
+            0.8894529295826379,
+            0.2929588690826046
+          ],
+          [
+            -0.6720848024077624,
+            0.021267926332131648,
+            0.7401686927194686
+          ],
+          [
+            0.6521145844786903,
+            -0.4565316652395439,
+            0.6052482196122442
+          ]
+        ]
+      },
+      "playback_samples": 122,
+      "collision_checks": 1222,
+      "native_penetrations": 0,
+      "scene_metrics": {
+        "fixed": {
+          "before": {
+            "observed_gt": 4,
+            "predicted_groups": 4,
+            "unmatched_gt": 0,
+            "false_positives": 0,
+            "matched_mean_position_mm": 6.064837217330933,
+            "recall10": 1
+          },
+          "after": {
+            "observed_gt": 4,
+            "predicted_groups": 5,
+            "unmatched_gt": 0,
+            "false_positives": 1,
+            "matched_mean_position_mm": 9.102606654167175,
+            "recall10": 0.75
+          }
+        },
+        "fixed_wrist": {
+          "before": {
+            "observed_gt": 4,
+            "predicted_groups": 5,
+            "unmatched_gt": 1,
+            "false_positives": 2,
+            "matched_mean_position_mm": 3.738468130429586,
+            "recall10": 0.75
+          },
+          "after": {
+            "observed_gt": 4,
+            "predicted_groups": 8,
+            "unmatched_gt": 0,
+            "false_positives": 4,
+            "matched_mean_position_mm": 24.98783540725708,
+            "recall10": 0
+          }
+        }
+      }
+    },
+    {
+      "scene_index": 43,
+      "kind": 1,
+      "status": "captured",
+      "target_group": 5,
+      "support_before": 1,
+      "spread_before_mm": 0,
+      "source": "explicit simulator-reference collision geometry",
+      "training_started": false,
+      "target_match_after": 9,
+      "accepted": false,
+      "target_gt_index": -1,
+      "target_error_before_mm": null,
+      "target_error_after_mm": null,
+      "target_error_policy_mm": null,
+      "support_after": 1,
+      "spread_after_mm": 0,
+      "candidate_count": 12,
+      "camera_distance_m": 0.17964891450934573,
+      "camera_before": {
+        "position": [
+          -0.07863847083891443,
+          -0.010236784266205952,
+          1.1077296603180466
+        ],
+        "rotation": [
+          [
+            -0.04935230421165454,
+            0.9948585523617616,
+            -0.08843534848497348
+          ],
+          [
+            -0.9987812198197786,
+            -0.04910066050371481,
+            0.005019967471225496
+          ],
+          [
+            0.0006519235488381334,
+            0.08857531219678164,
+            0.9960692692101927
+          ]
+        ]
+      },
+      "camera_after": {
+        "position": [
+          -0.1333964298155127,
+          -0.14699651369106823,
+          1.0049090650039665
+        ],
+        "rotation": [
+          [
+            0.30778126404410105,
+            0.8818735019779043,
+            -0.357169175619397
+          ],
+          [
+            -0.7011328474945653,
+            -0.04354553618172918,
+            -0.7116997375598824
+          ],
+          [
+            -0.6431822631786227,
+            0.4694708859853505,
+            0.6049079794022822
+          ]
+        ]
+      },
+      "playback_samples": 182,
+      "collision_checks": 1475,
+      "native_penetrations": 0,
+      "scene_metrics": {
+        "fixed": {
+          "before": {
+            "observed_gt": 5,
+            "predicted_groups": 5,
+            "unmatched_gt": 0,
+            "false_positives": 0,
+            "matched_mean_position_mm": 10.294808149337769,
+            "recall10": 0.8
+          },
+          "after": {
+            "observed_gt": 5,
+            "predicted_groups": 6,
+            "unmatched_gt": 0,
+            "false_positives": 1,
+            "matched_mean_position_mm": 17.56242709159851,
+            "recall10": 0.4
+          }
+        },
+        "fixed_wrist": {
+          "before": {
+            "observed_gt": 5,
+            "predicted_groups": 6,
+            "unmatched_gt": 0,
+            "false_positives": 1,
+            "matched_mean_position_mm": 9.547120761871337,
+            "recall10": 0.6
+          },
+          "after": {
+            "observed_gt": 5,
+            "predicted_groups": 10,
+            "unmatched_gt": 1,
+            "false_positives": 6,
+            "matched_mean_position_mm": 24.13299560546875,
+            "recall10": 0
+          }
+        }
+      }
+    },
+    {
+      "scene_index": 55,
+      "kind": 3,
+      "status": "captured",
+      "target_group": 2,
+      "support_before": 3,
+      "spread_before_mm": 16.03697395324707,
+      "source": "explicit simulator-reference collision geometry",
+      "training_started": false,
+      "target_match_after": 2,
+      "accepted": false,
+      "target_gt_index": 2,
+      "target_error_before_mm": 12.932805061340332,
+      "target_error_after_mm": 40.81425094604492,
+      "target_error_policy_mm": 12.932805061340332,
+      "support_after": 1,
+      "spread_after_mm": 0,
+      "candidate_count": 14,
+      "camera_distance_m": 0.2036048107481658,
+      "camera_before": {
+        "position": [
+          -0.05985441683485317,
+          -0.02834836342114792,
+          1.1327272136968103
+        ],
+        "rotation": [
+          [
+            -0.022008503203680863,
+            0.9862215900222872,
+            -0.163959144791141
+          ],
+          [
+            -0.999618948351979,
+            -0.01897448242890387,
+            0.020048119917729007
+          ],
+          [
+            0.016660848790322605,
+            0.16433789700024756,
+            0.9862633886174215
+          ]
+        ]
+      },
+      "camera_after": {
+        "position": [
+          -0.06251667965889918,
+          -0.20518275773598396,
+          1.0318439727508673
+        ],
+        "rotation": [
+          [
+            0.3317682418105447,
+            0.8833022688911565,
+            -0.331220373011191
+          ],
+          [
+            -0.6880027187782667,
+            -0.013663780910753709,
+            -0.7255794650105072
+          ],
+          [
+            -0.6454317103146163,
+            0.4686047405468232,
+            0.6031811539308828
+          ]
+        ]
+      },
+      "playback_samples": 159,
+      "collision_checks": 1441,
+      "native_penetrations": 0,
+      "scene_metrics": {
+        "fixed": {
+          "before": {
+            "observed_gt": 5,
+            "predicted_groups": 5,
+            "unmatched_gt": 0,
+            "false_positives": 0,
+            "matched_mean_position_mm": 6.276091003417969,
+            "recall10": 0.8
+          },
+          "after": {
+            "observed_gt": 5,
+            "predicted_groups": 6,
+            "unmatched_gt": 0,
+            "false_positives": 1,
+            "matched_mean_position_mm": 6.902988314628601,
+            "recall10": 0.8
+          }
+        },
+        "fixed_wrist": {
+          "before": {
+            "observed_gt": 5,
+            "predicted_groups": 5,
+            "unmatched_gt": 0,
+            "false_positives": 0,
+            "matched_mean_position_mm": 6.3924009799957275,
+            "recall10": 0.8
+          },
+          "after": {
+            "observed_gt": 5,
+            "predicted_groups": 9,
+            "unmatched_gt": 2,
+            "false_positives": 6,
+            "matched_mean_position_mm": 36.42845026652018,
+            "recall10": 0
+          }
+        }
+      }
+    },
+    {
+      "scene_index": 57,
+      "kind": 1,
+      "status": "captured",
+      "target_group": 3,
+      "support_before": 3,
+      "spread_before_mm": 23.766510009765625,
+      "source": "explicit simulator-reference collision geometry",
+      "training_started": false,
+      "target_match_after": 7,
+      "accepted": false,
+      "target_gt_index": 4,
+      "target_error_before_mm": 34.104679107666016,
+      "target_error_after_mm": 55.04407501220703,
+      "target_error_policy_mm": 34.104679107666016,
+      "support_after": 1,
+      "spread_after_mm": 0,
+      "candidate_count": 6,
+      "camera_distance_m": 0.20122495768287021,
+      "camera_before": {
+        "position": [
+          -0.06850519155625401,
+          -0.01954339441859857,
+          1.1215349879142376
+        ],
+        "rotation": [
+          [
+            -0.04739252841658714,
+            0.9864094622829152,
+            -0.15732234732869815
+          ],
+          [
+            -0.9988744064420703,
+            -0.04711105831927542,
+            0.005519813315507521
+          ],
+          [
+            -0.0019668261954757515,
+            0.15740686421743616,
+            0.9875318783168211
+          ]
+        ]
+      },
+      "camera_after": {
+        "position": [
+          -0.007997547584702926,
+          -0.1897606997077938,
+          1.0328987786340014
+        ],
+        "rotation": [
+          [
+            0.22127890041468118,
+            0.9436103360568819,
+            -0.24624212051938735
+          ],
+          [
+            -0.6518430723351998,
+            -0.044695292214904925,
+            -0.7570356265740921
+          ],
+          [
+            -0.7253525055308443,
+            0.32802723140074685,
+            0.6051957354275423
+          ]
+        ]
+      },
+      "playback_samples": 133,
+      "collision_checks": 1331,
+      "native_penetrations": 0,
+      "scene_metrics": {
+        "fixed": {
+          "before": {
+            "observed_gt": 5,
+            "predicted_groups": 5,
+            "unmatched_gt": 0,
+            "false_positives": 0,
+            "matched_mean_position_mm": 6.5840349197387695,
+            "recall10": 0.8
+          },
+          "after": {
+            "observed_gt": 5,
+            "predicted_groups": 5,
+            "unmatched_gt": 0,
+            "false_positives": 0,
+            "matched_mean_position_mm": 14.293728065490722,
+            "recall10": 0.6
+          }
+        },
+        "fixed_wrist": {
+          "before": {
+            "observed_gt": 5,
+            "predicted_groups": 5,
+            "unmatched_gt": 0,
+            "false_positives": 0,
+            "matched_mean_position_mm": 11.819186782836914,
+            "recall10": 0.6
+          },
+          "after": {
+            "observed_gt": 5,
+            "predicted_groups": 8,
+            "unmatched_gt": 2,
+            "false_positives": 5,
+            "matched_mean_position_mm": 25.12068239847819,
+            "recall10": 0
+          }
+        }
+      }
+    }
+  ],
+  "screening": [
+    {
+      "scene": 0,
+      "triggered": false,
+      "predicted_groups": 4,
+      "kind": 1
+    },
+    {
+      "scene": 2,
+      "triggered": true,
+      "predicted_groups": 5,
+      "kind": 2
+    },
+    {
+      "scene": 3,
+      "triggered": false,
+      "predicted_groups": 3,
+      "kind": 1
+    },
+    {
+      "scene": 4,
+      "triggered": false,
+      "predicted_groups": 5,
+      "kind": 2
+    },
+    {
+      "scene": 5,
+      "triggered": false,
+      "predicted_groups": 5,
+      "kind": 0
+    },
+    {
+      "scene": 6,
+      "triggered": false,
+      "predicted_groups": 3,
+      "kind": 3
+    },
+    {
+      "scene": 7,
+      "triggered": true,
+      "predicted_groups": 5,
+      "kind": 1
+    },
+    {
+      "scene": 8,
+      "triggered": false,
+      "predicted_groups": 2,
+      "kind": 0
+    },
+    {
+      "scene": 9,
+      "triggered": false,
+      "predicted_groups": 4,
+      "kind": 0
+    },
+    {
+      "scene": 11,
+      "triggered": false,
+      "predicted_groups": 2,
+      "kind": 1
+    },
+    {
+      "scene": 12,
+      "triggered": false,
+      "predicted_groups": 4,
+      "kind": 1
+    },
+    {
+      "scene": 14,
+      "triggered": false,
+      "predicted_groups": 2,
+      "kind": 1
+    },
+    {
+      "scene": 15,
+      "triggered": false,
+      "predicted_groups": 3,
+      "kind": 3
+    },
+    {
+      "scene": 16,
+      "triggered": false,
+      "predicted_groups": 5,
+      "kind": 3
+    },
+    {
+      "scene": 18,
+      "triggered": true,
+      "predicted_groups": 3,
+      "kind": 2
+    },
+    {
+      "scene": 19,
+      "triggered": false,
+      "predicted_groups": 3,
+      "kind": 1
+    },
+    {
+      "scene": 20,
+      "triggered": false,
+      "predicted_groups": 5,
+      "kind": 3
+    },
+    {
+      "scene": 22,
+      "triggered": false,
+      "predicted_groups": 3,
+      "kind": 1
+    },
+    {
+      "scene": 23,
+      "triggered": false,
+      "predicted_groups": 4,
+      "kind": 1
+    },
+    {
+      "scene": 24,
+      "triggered": false,
+      "predicted_groups": 2,
+      "kind": 2
+    },
+    {
+      "scene": 25,
+      "triggered": false,
+      "predicted_groups": 5,
+      "kind": 2
+    },
+    {
+      "scene": 26,
+      "triggered": false,
+      "predicted_groups": 5,
+      "kind": 3
+    },
+    {
+      "scene": 27,
+      "triggered": false,
+      "predicted_groups": 3,
+      "kind": 2
+    },
+    {
+      "scene": 28,
+      "triggered": false,
+      "predicted_groups": 2,
+      "kind": 0
+    },
+    {
+      "scene": 29,
+      "triggered": false,
+      "predicted_groups": 3,
+      "kind": 2
+    },
+    {
+      "scene": 30,
+      "triggered": false,
+      "predicted_groups": 5,
+      "kind": 3
+    },
+    {
+      "scene": 31,
+      "triggered": false,
+      "predicted_groups": 3,
+      "kind": 2
+    },
+    {
+      "scene": 32,
+      "triggered": false,
+      "predicted_groups": 4,
+      "kind": 1
+    },
+    {
+      "scene": 35,
+      "triggered": false,
+      "predicted_groups": 4,
+      "kind": 0
+    },
+    {
+      "scene": 36,
+      "triggered": true,
+      "predicted_groups": 5,
+      "kind": 0
+    },
+    {
+      "scene": 38,
+      "triggered": false,
+      "predicted_groups": 3,
+      "kind": 0
+    },
+    {
+      "scene": 39,
+      "triggered": false,
+      "predicted_groups": 3,
+      "kind": 0
+    },
+    {
+      "scene": 40,
+      "triggered": false,
+      "predicted_groups": 5,
+      "kind": 1
+    },
+    {
+      "scene": 41,
+      "triggered": false,
+      "predicted_groups": 2,
+      "kind": 2
+    },
+    {
+      "scene": 42,
+      "triggered": false,
+      "predicted_groups": 3,
+      "kind": 2
+    },
+    {
+      "scene": 43,
+      "triggered": true,
+      "predicted_groups": 6,
+      "kind": 1
+    },
+    {
+      "scene": 44,
+      "triggered": false,
+      "predicted_groups": 3,
+      "kind": 3
+    },
+    {
+      "scene": 45,
+      "triggered": false,
+      "predicted_groups": 3,
+      "kind": 2
+    },
+    {
+      "scene": 47,
+      "triggered": false,
+      "predicted_groups": 5,
+      "kind": 0
+    },
+    {
+      "scene": 50,
+      "triggered": false,
+      "predicted_groups": 3,
+      "kind": 0
+    },
+    {
+      "scene": 52,
+      "triggered": false,
+      "predicted_groups": 3,
+      "kind": 1
+    },
+    {
+      "scene": 53,
+      "triggered": false,
+      "predicted_groups": 3,
+      "kind": 1
+    },
+    {
+      "scene": 54,
+      "triggered": false,
+      "predicted_groups": 3,
+      "kind": 0
+    },
+    {
+      "scene": 55,
+      "triggered": true,
+      "predicted_groups": 5,
+      "kind": 3
+    },
+    {
+      "scene": 56,
+      "triggered": false,
+      "predicted_groups": 2,
+      "kind": 1
+    },
+    {
+      "scene": 57,
+      "triggered": true,
+      "predicted_groups": 5,
+      "kind": 1
+    },
+    {
+      "scene": 58,
+      "triggered": false,
+      "predicted_groups": 4,
+      "kind": 0
+    },
+    {
+      "scene": 59,
+      "triggered": false,
+      "predicted_groups": 4,
+      "kind": 0
+    },
+    {
+      "scene": 61,
+      "triggered": false,
+      "predicted_groups": 4,
+      "kind": 1
+    },
+    {
+      "scene": 62,
+      "triggered": false,
+      "predicted_groups": 2,
+      "kind": 0
+    },
+    {
+      "scene": 63,
+      "triggered": false,
+      "predicted_groups": 2,
+      "kind": 0
+    },
+    {
+      "scene": 66,
+      "triggered": false,
+      "predicted_groups": 2,
+      "kind": 0
+    },
+    {
+      "scene": 67,
+      "triggered": false,
+      "predicted_groups": 2,
+      "kind": 2
+    },
+    {
+      "scene": 68,
+      "triggered": false,
+      "predicted_groups": 4,
+      "kind": 0
+    },
+    {
+      "scene": 69,
+      "triggered": false,
+      "predicted_groups": 5,
+      "kind": 0
+    },
+    {
+      "scene": 72,
+      "triggered": false,
+      "predicted_groups": 2,
+      "kind": 2
+    },
+    {
+      "scene": 73,
+      "triggered": false,
+      "predicted_groups": 4,
+      "kind": 2
+    },
+    {
+      "scene": 74,
+      "triggered": false,
+      "predicted_groups": 3,
+      "kind": 1
+    },
+    {
+      "scene": 77,
+      "triggered": false,
+      "predicted_groups": 5,
+      "kind": 0
+    },
+    {
+      "scene": 78,
+      "triggered": false,
+      "predicted_groups": 3,
+      "kind": 1
+    },
+    {
+      "scene": 79,
+      "triggered": false,
+      "predicted_groups": 3,
+      "kind": 0
+    }
+  ],
+  "limitations": [
+    "small triggered-case pilot, not representative all-scene accuracy",
+    "known simulator collision geometry; camera-only world not demonstrated",
+    "new wrist poses outside tiny training jitter may cause distribution shift",
+    "all three views recaptured; fixed-only models control changed robot occlusions",
+    "target matching/acceptance heuristic can be wrong; no uncertainty correctness guarantee",
+    "scene recall uses common GT set observable in original three views, for both camera variants",
+    "raw error means condition on matched pairs; missing targets reported separately",
+    "kinematic, static scene, no real hardware/dynamic tracking"
+  ],
+  "elapsed_seconds": 162.83886122703552
+}

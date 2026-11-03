@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "families": 1000,
+  "elapsed_seconds": 248.38552832603455,
+  "counts": [
+    57,
+    185,
+    201,
+    188,
+    198,
+    171
+  ],
+  "kinds": [
+    294,
+    231,
+    330,
+    145
+  ],
+  "rejections": {
+    "insufficient_object_safe_original": 23,
+    "placement": 2,
+    "layout_changed": 7,
+    "insufficient_object_safe_oblique": 14,
+    "stack_collapsed": 27,
+    "insufficient_object_safe_medium": 2,
+    "robot_object_contact": 1
+  },
+  "pose_bands": {
+    "original": 1,
+    "near": 22,
+    "medium": 26,
+    "oblique": 8
+  },
+  "seconds_per_family": 0.24838552832603455,
+  "source": "sim_reference_collision_certificates",
+  "optimizer_updates": 0,
+  "seed": 9363001,
+  "robot_fraction_mean": [
+    0.10592580078914761,
+    0.11215943359956146,
+    0.18515553391724826
+  ]
+}

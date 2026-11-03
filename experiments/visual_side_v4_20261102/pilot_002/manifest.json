@@ -1,0 +1,18 @@
+{
+  "pilot_only": true,
+  "main_training_authorized": false,
+  "seed": 94140202,
+  "families": 200,
+  "view_strategy": "frozen_predicted_focus_seeded_static_motion_bank",
+  "full_six_candidate_bank": false,
+  "bank_focus_tolerance": "whole focus sphere within calibrated FoV; actual optical offset reported, not constrained to 3 degrees",
+  "source_hashes": {
+    "experiments\\visual_active_v3_20261101\\data_v3.py": "a9f42d485df30628494fe270b28d2f49659d8d4ef7ca6ee98c9e49d1c24e6f9c",
+    "experiments\\visual_side_v4_20261102\\pilot.py": "5b55243e8bcc29857cd149733e1b0316132dddeb2f84183ace539320477c5055",
+    "experiments\\visual_side_v4_20261102\\pilot_bank.py": "2818af3b71a1078b2cc14305a445bd605afcbebfe807d9d3ca0a62ad375dcc23",
+    "experiments\\visual_side_v4_20261102\\PLAN.md": "503d6418588c9e779b4efc189b2a979f60f4c810527dcfc6ed17bb6c52f00ed2",
+    "experiments\\visual_side_v4_20261102\\report_pilot.py": "f20f23b5fed2fbefc97dd4a961603b40a604eead31bbe3e382415e5b71d4be5e",
+    "praxis\\src\\active_view\\collision.py": "9f57054968ba6d3f2de701c5d7dbac971c834fb635810e74a319cba335dbd19a",
+    "praxis\\src\\active_view\\geometry.py": "fff62257ccfbdd802af11a6b86f6bad40930e9f359280dbc0f5325925eaf0a41"
+  }
+}

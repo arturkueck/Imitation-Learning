@@ -1,0 +1,37 @@
+{
+  "result": {
+    "stage": "blocked",
+    "reason": "requested_side_view_unreachable_or_uncertified",
+    "audit": {
+      "direction": "base",
+      "settings": {
+        "distances_m": [
+          0.22,
+          0.28,
+          0.35,
+          0.42
+        ],
+        "heights_above_focus_m": [
+          0.07,
+          0.11,
+          0.15
+        ],
+        "minimum_camera_world_z": 0.92,
+        "maximum_elevation_deg": 25.0,
+        "maximum_axis_error_deg": 3.0,
+        "maximum_seconds": 90.0,
+        "maximum_path_attempts": 4
+      },
+      "proposed": 36,
+      "ik_valid": 0,
+      "path_attempts": 0,
+      "rejections": {
+        "ik_limits_self_or_environment": 36
+      },
+      "source": "reference",
+      "elapsed_seconds": 0.875
+    }
+  },
+  "training_started": false,
+  "direction": "base"
+}

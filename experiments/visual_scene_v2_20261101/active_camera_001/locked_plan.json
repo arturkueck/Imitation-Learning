@@ -1,0 +1,27 @@
+{
+  "scene_seed": 9841101,
+  "max_screened_scenes": 80,
+  "target_triggered_scenes": 8,
+  "min_objects": 2,
+  "trigger": "support<3 OR spread>15.5mm; threshold frozen from uncertainty_001 fixed_wrist",
+  "spread_threshold_mm": 15.5,
+  "max_candidates": 18,
+  "paths_tried": 3,
+  "path_seconds": 4.0,
+  "path_nodes": 150,
+  "acceptance": "match within 50mm; support=3; previously full-support: spread decreases >=20%; previously missing support: spread<=15.5mm; no truth use",
+  "acceptance_ratio": 0.8,
+  "association_gate_m": 0.05,
+  "model_seeds": [
+    1,
+    2,
+    3
+  ],
+  "camera_variants": [
+    "fixed",
+    "fixed_wrist"
+  ],
+  "execution": "kinematic simulation only; native robot-world contact audit",
+  "collision_backend": "explicit simulator-reference geometry, not camera-only free space",
+  "optimizer_updates": 0
+}

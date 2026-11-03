@@ -1,0 +1,30 @@
+{
+  "versions": {
+    "torch": "2.11.0+cu128",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "mujoco": "3.2.3",
+    "Pillow": "12.3.0",
+    "matplotlib": "3.11.2",
+    "psutil": "7.2.2"
+  },
+  "source_hashes": {
+    "experiments\\visual_side_v4_20261102\\pilot.py": "2bf8c0723eb6c990235e8ed1586fcb97a2a3c02c4a7000f07df72271a020ae9d",
+    "experiments\\visual_side_v4_20261102\\pilot_bank.py": "2818af3b71a1078b2cc14305a445bd605afcbebfe807d9d3ca0a62ad375dcc23",
+    "experiments\\visual_side_v4_20261102\\paired_learning.py": "c38e33e352af09e2ddcb738c6ab42ba63282aab1fc2e5bf4c822971311832792",
+    "experiments\\visual_side_v4_20261102\\test_pilot.py": "3fdf7209ab99e329ff140bd0143488f6654d0f0d9700149c8428c7779b0742b8",
+    "experiments\\visual_side_v4_20261102\\report_pilot.py": "0a9cbefecdfdb9b2908439354763974ccdbcac01a6c9e954dceee41d70720405",
+    "experiments\\visual_side_v4_20261102\\finalize_pilot.py": "ad6f641bac00467ee153aa9275fd56b46f93a7f44fc14b67a7a084c954fd84c3",
+    "experiments\\visual_active_v3_20261101\\data_v3.py": "a9f42d485df30628494fe270b28d2f49659d8d4ef7ca6ee98c9e49d1c24e6f9c",
+    "experiments\\visual_active_v3_20261101\\physical_setup.py": "b20f6cbad249422cc13b0ffd3e55cb492c4c9af4f09f65bb01d4d2e053526858",
+    "experiments\\visual_active_v3_20261101\\model_v3.py": "e1960950e600c90e3056ab994d14ff39e69d27cad80cd53c845a4e571bf5e7b9",
+    "experiments\\visual_active_v3_20261101\\followup_core.py": "ce1535cb261d6b2c1383f421dfb68864ada714d909b6e103d0785bbcf40f2811",
+    "experiments\\visual_scene_v2_20261101\\learning.py": "3a3f5b9ed685aa5c07e1c071203de60e440cb007f9ace81bbcbfa62792fc9e8c",
+    "experiments\\visual_scene_v2_20261101\\preflight.py": "826ca7ea54486e9bdd030e760758bd1dbc64819ed5405dd4c85ec9cb2c174459",
+    "experiments\\visual_scene_v2_20261101\\scene_data.py": "293f76dc1f8f836ca53f66798e5c35882f6cf2fe02dec08fad78b739092b9177",
+    "experiments\\visual_scene_v2_20261101\\model_prototype.py": "7a4d577d29c889c17ccdd79e35e87964905ce01025f1759ad914327b43bbfc17",
+    "experiments\\visual_scene_v2_20261101\\ensemble_uncertainty.py": "66b99672afff90fee434f386c1b411d9974881c208563f03235a9f7d8bc9ff70"
+  },
+  "reason": "Use one common Hungarian assignment for geometric and contextual visibility losses; prior double-assignment benchmark preserved in parent directory.",
+  "main_training_started": false
+}

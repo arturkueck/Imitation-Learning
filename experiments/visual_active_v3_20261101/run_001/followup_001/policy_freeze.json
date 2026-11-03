@@ -1,0 +1,22 @@
+{
+  "time": "2026-11-02T08:40:41.153159+00:00",
+  "threshold": {
+    "need": 1.01,
+    "gain": 1000000000.0,
+    "helpful": 1.01,
+    "n": 0,
+    "harm": 0,
+    "utility": 0.0,
+    "eligible": false
+  },
+  "perception_parent_hashes": {
+    "M2_seed1_best.pth": "ef343e83bb2bb3dd9fe5fc8b90153ddc8fffad0e110fae6869c80b4901613973",
+    "M2_seed2_best.pth": "e9ab11b3c54bc9e523e0c9868cdb65e101ca823131a622e8e745d9df00011d40",
+    "M2_seed3_best.pth": "827b7536c4ebf124a16152f532e6e25d552b3861a71afe5056ecdd4aa6803116"
+  },
+  "head_hashes": {
+    "heads_seed1_best.pth": "4be55c6973bd84b56e58418b090bf4bbce777de069692490018e7a35dd20746d",
+    "heads_seed2_best.pth": "29d20bfd489e60f4cc730190c45d093cd83a80d2b7e13d33ff90de519eac845d",
+    "heads_seed3_best.pth": "215b99a2c701d5c45243ad29030096f8e2fa286d83542263e5289cc8d5d6f5e5"
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "status": "prepared",
+  "task": "V4 RGB cuboid perception with inspected side views",
+  "paired_seeds": [
+    1,
+    2,
+    3
+  ],
+  "variants": [
+    "A",
+    "B"
+  ],
+  "parameters": 904112,
+  "optimization": {
+    "optimizer": "AdamW",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "effective_batch_size": 32,
+    "microbatch": 4,
+    "paired_contexts": 2,
+    "maximum_epochs": 10,
+    "warmup_epochs": 3,
+    "gradient_clip": 1.0,
+    "precision": "FP32",
+    "early_stop_pair_patience": 8
+  },
+  "selection": {
+    "split": "validation",
+    "metric": "balanced_common_context_loss",
+    "never_use_tests": true,
+    "common_update_budget": true
+  },
+  "geometry_holdout": {
+    "train_long_length": [
+      0.13,
+      0.16
+    ],
+    "train_long_width": [
+      0.018,
+      0.024
+    ],
+    "test_long_length": [
+      0.18,
+      0.21
+    ],
+    "test_long_width": [
+      0.014,
+      0.017
+    ],
+    "long_fraction": 0.15,
+    "long_arrangements": "scattered_only"
+  },
+  "camera_holdout": {
+    "roi": {
+      "x": [
+        0.04,
+        0.07
+      ],
+      "abs_y_min": 0.25,
+      "z": [
+        0.9,
+        1.14
+      ],
+      "guard": 0.02
+    },
+    "ancestor_training_observations_in_roi": {
+      "experiments/visual_scene_v2_20261101/run_001/data/train": 0,
+      "experiments/visual_active_v3_20261101/run_001/data/train": 0
+    },
+    "scope": "new wrist views; initial/fixed context shared; every non-camera-test split excludes guarded ROI"
+  },
+  "geometry_plots": {
+    "every_epochs": 5,
+    "fixed_validation_families": 16,
+    "colors": {
+      "truth": "cyan",
+      "initial": "orange",
+      "updated": "green"
+    }
+  },
+  "history": {
+    "maximum_wrist_images": 3,
+    "max_extra_images": 2
+  },
+  "downstream_heads": {
+    "status": "separate_phase_after_perception_freeze",
+    "reserved_splits": [
+      "request_train",
+      "request_validation",
+      "calibration"
+    ],
+    "endtests_not_for_training": true
+  },
+  "loss": "BCE + 5\u00d7position + size + 0.5\u00d7symmetry rotation + 0.25\u00d7visibility; paired contexts",
+  "data_counts": {
+    "train": 18000,
+    "validation": 2000,
+    "request_train": 4000,
+    "request_validation": 1000,
+    "calibration": 1000,
+    "test_iid": 2000,
+    "test_camera": 1000,
+    "test_geometry": 1000
+  },
+  "replay": {
+    "count": 6000,
+    "role": "historical perception training only"
+  },
+  "lineage": {
+    "unique_historical_families": 105060,
+    "reserved_namespaces": 305,
+    "history_sha256": "f91418afa2d449a68accc2bbb2bdc6d17fe53236bc8409f5ba80d980b2e2e995"
+  }
+}

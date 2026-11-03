@@ -1,0 +1,170 @@
+{
+  "training_started": false,
+  "neural_optimizer_updates": 0,
+  "checkpoint_sha256": {
+    "fixed_seed1_best.pth": "c5df2809272325a167102ae7733af189500f36506e03ca822e010e912e4ae520",
+    "fixed_seed2_best.pth": "72da1a656503899513b93e9ebc7900d595068f4c8c4501434fc011a5a6015327",
+    "fixed_seed3_best.pth": "5dfcbcd93e2771b17765c098c27d3e9e0cb45bdf0edb52e87cab684920625bb0",
+    "fixed_wrist_seed1_best.pth": "0ed05865066ffddc1c10c93a858c20ff5e50a1111040517905205e45aa1bb301",
+    "fixed_wrist_seed2_best.pth": "d725b61dd42281c7d0c7f13c082f414c8259abe0e09cddb6f32025dc1b21e629",
+    "fixed_wrist_seed3_best.pth": "8016d6ea77d937fa306b800d3fac011d243711566a8befe3b57d73e1d25022b5"
+  },
+  "plan_sha256": "5a0bfb7a62d6271b456491c8e2efc9ae112b71b24ee9f24a7c1ba5e77f1a0b18",
+  "screened_scenes": 2,
+  "summary": {
+    "triggered_cases": 1,
+    "captured": 1,
+    "not_captured": 0,
+    "matched_target_pairs": 0,
+    "accepted_updates": 0,
+    "baseline_known_targets": 0,
+    "before_target_mean_mm": null,
+    "before_target_paired_mean_mm": null,
+    "raw_after_target_mean_mm": null,
+    "policy_target_mean_mm": null,
+    "raw_improved_over_1mm": 0,
+    "raw_worsened_over_1mm": 0,
+    "accepted_but_worsened_over_1mm": 0,
+    "accepted_uncertainty_decreases": 0,
+    "target_missing_after": 0,
+    "initial_false_target": 1,
+    "total_motion_samples": 151,
+    "native_robot_world_penetrations": 0
+  },
+  "cases": [
+    {
+      "scene_index": 2,
+      "kind": 2,
+      "status": "captured",
+      "target_group": 4,
+      "support_before": 1,
+      "spread_before_mm": 0.0,
+      "source": "explicit simulator-reference collision geometry",
+      "training_started": false,
+      "target_match_after": 1,
+      "accepted": false,
+      "target_gt_index": -1,
+      "target_error_before_mm": null,
+      "target_error_after_mm": null,
+      "target_error_policy_mm": null,
+      "support_after": 2,
+      "spread_after_mm": 20.731420516967773,
+      "candidate_count": 8,
+      "camera_distance_m": 0.13190068388109746,
+      "camera_before": {
+        "position": [
+          -0.08149778343502287,
+          -0.000912306915554988,
+          1.0916346521875806
+        ],
+        "rotation": [
+          [
+            0.021520625596439247,
+            0.9970061653377994,
+            -0.07426687654905187
+          ],
+          [
+            -0.99973847184618,
+            0.022035342413895653,
+            0.00611813659249999
+          ],
+          [
+            0.007736315957870166,
+            0.07411578754298305,
+            0.9972196345100115
+          ]
+        ]
+      },
+      "camera_after": {
+        "position": [
+          -0.12028849210190684,
+          0.11433884688903004,
+          1.0405441161154858
+        ],
+        "rotation": [
+          [
+            -0.31361036218580385,
+            0.6836229977493989,
+            -0.6590205897222113
+          ],
+          [
+            -0.8943124086352486,
+            0.020618567910365482,
+            0.4469677733554655
+          ],
+          [
+            0.3191455099021543,
+            0.7295440162220836,
+            0.6049063331655927
+          ]
+        ]
+      },
+      "playback_samples": 151,
+      "collision_checks": 1379,
+      "native_penetrations": 0,
+      "scene_metrics": {
+        "fixed": {
+          "before": {
+            "observed_gt": 4,
+            "predicted_groups": 4,
+            "unmatched_gt": 0,
+            "false_positives": 0,
+            "matched_mean_position_mm": 3.7108319997787476,
+            "recall10": 1.0
+          },
+          "after": {
+            "observed_gt": 4,
+            "predicted_groups": 5,
+            "unmatched_gt": 0,
+            "false_positives": 1,
+            "matched_mean_position_mm": 12.64280080795288,
+            "recall10": 0.5
+          }
+        },
+        "fixed_wrist": {
+          "before": {
+            "observed_gt": 4,
+            "predicted_groups": 5,
+            "unmatched_gt": 0,
+            "false_positives": 1,
+            "matched_mean_position_mm": 3.688447579741478,
+            "recall10": 1.0
+          },
+          "after": {
+            "observed_gt": 4,
+            "predicted_groups": 8,
+            "unmatched_gt": 1,
+            "false_positives": 5,
+            "matched_mean_position_mm": 25.113882700602215,
+            "recall10": 0.25
+          }
+        }
+      }
+    }
+  ],
+  "screening": [
+    {
+      "scene": 0,
+      "triggered": false,
+      "predicted_groups": 4,
+      "kind": 1
+    },
+    {
+      "scene": 2,
+      "triggered": true,
+      "predicted_groups": 5,
+      "kind": 2
+    }
+  ],
+  "limitations": [
+    "small triggered-case pilot, not representative all-scene accuracy",
+    "known simulator collision geometry; camera-only world not demonstrated",
+    "new wrist poses outside tiny training jitter may cause distribution shift",
+    "all three views recaptured; fixed-only models control changed robot occlusions",
+    "target matching/acceptance heuristic can be wrong; no uncertainty correctness guarantee",
+    "scene recall uses common GT set observable in original three views, for both camera variants",
+    "raw error means condition on matched pairs; missing targets reported separately",
+    "kinematic, static scene, no real hardware/dynamic tracking"
+  ],
+  "elapsed_seconds": 26.15010643005371
+}

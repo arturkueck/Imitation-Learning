@@ -1,0 +1,48 @@
+{
+  "time": "2026-11-02T07:35:45.416276+00:00",
+  "models": [
+    {
+      "seed": 1,
+      "arm": "M1",
+      "selected_epoch": 32,
+      "updates_paid": 12644,
+      "sha256": "79f0735e8ca2e1431475c84a7390d0475b39709222df8321b0317a119fe6af0c"
+    },
+    {
+      "seed": 1,
+      "arm": "M2",
+      "selected_epoch": 33.717333333333336,
+      "updates_paid": 12644,
+      "sha256": "ef343e83bb2bb3dd9fe5fc8b90153ddc8fffad0e110fae6869c80b4901613973"
+    },
+    {
+      "seed": 2,
+      "arm": "M1",
+      "selected_epoch": 31,
+      "updates_paid": 12644,
+      "sha256": "ce2035a1e911d718260fc5a062cd9739d22bc31cf9003197c0b99390444dc4e8"
+    },
+    {
+      "seed": 2,
+      "arm": "M2",
+      "selected_epoch": 33.717333333333336,
+      "updates_paid": 12644,
+      "sha256": "e9ab11b3c54bc9e523e0c9868cdb65e101ca823131a622e8e745d9df00011d40"
+    },
+    {
+      "seed": 3,
+      "arm": "M1",
+      "selected_epoch": 31,
+      "updates_paid": 12644,
+      "sha256": "051130249c804e94f2640cb97a88d6e84ae5b8a232f224b9a1ab5eb09fd9b4d3"
+    },
+    {
+      "seed": 3,
+      "arm": "M2",
+      "selected_epoch": 32,
+      "updates_paid": 12644,
+      "sha256": "827b7536c4ebf124a16152f532e6e25d552b3861a71afe5056ecdd4aa6803116"
+    }
+  ],
+  "selection_only": "model_validation_no_end_tests"
+}

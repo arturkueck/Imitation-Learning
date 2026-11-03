@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "sample_hashes_verified": 200,
+  "unique_families": 200,
+  "all_availability_masks_verified": true,
+  "original_checkpoint_hashes_unchanged": true,
+  "unit_tests_passed": 6,
+  "common_assignment_test": true,
+  "versions": {
+    "torch": "2.11.0+cu128",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "mujoco": "3.2.3",
+    "Pillow": "12.3.0",
+    "matplotlib": "3.11.2",
+    "psutil": "7.2.2"
+  },
+  "main_training_started": false
+}

@@ -134,6 +134,8 @@ outputs/**/preview.png
 /sites/research-refinement-editor/
 /sites/research-vision-editor/
 /sites/research-vision-20261101.tar.gz
+/sites/research-active-camera-20261101.tar.gz
+/sites/research-vision-v3-plan-20261102.tar.gz
 
 # Vision experiments: bulk diagnostics, smoke runs and transient process state.
 # Retain source snapshots, configs, manifests, curves, results and selected figures.
@@ -152,3 +154,58 @@ outputs/**/preview.png
 /experiments/visual_scene_v2_20261101/refinement_001/website_*.jpg
 /experiments/active_view_20261101/reference_demo_001/motion.gif
 /experiments/active_view_20261101/reference_demo_002/motion.gif
+
+# V3 bulk data, weights and temporary process state remain local.
+/experiments/visual_active_v3_20261101/run_*/data/
+/experiments/visual_active_v3_20261101/run_*/observations/
+/experiments/visual_active_v3_20261101/run_*/checkpoints/
+/experiments/visual_active_v3_20261101/run_*/geometry/
+/experiments/visual_active_v3_20261101/data_pilot_*/families/
+/experiments/visual_active_v3_20261101/data_pilot_*/sample_*.npz
+/experiments/visual_active_v3_20261101/smoke_*/
+/experiments/visual_active_v3_20261101/*guard*.lock
+/experiments/visual_active_v3_20261101/registered_processes.lock
+
+/sites/research-v3-results-gifs-20261102.tar.gz
+
+/sites/research-v3-interactive-20261102.tar.gz
+
+/sites/research-v3-interactive-fix-20261102.tar.gz
+
+/sites/research-broad-view-20261102.tar.gz
+
+/sites/research-side-views-20261102.tar.gz
+/sites/research-camera-guidance-20261103.tar.gz
+# Local cross-run vision data ownership database; retain on disk.
+monitor/vision-data-claims.sqlite*
+monitor/vision-namespace/
+# Vision revisions: generated datasets and transient runtime state stay local.
+/monitor/dashboard_process.json
+/experiments/visual_active_v3_20261101/**/data/
+/experiments/visual_active_v3_20261101/**/observations/
+/experiments/visual_active_v3_20261101/**/geometry/
+/experiments/visual_active_v3_20261101/**/followup_smoke*/
+/experiments/visual_active_v3_20261101/**/*runtime*.json
+/experiments/visual_active_v3_20261101/**/monitor_state.json
+/experiments/visual_active_v3_20261101/registered_processes.json
+/experiments/visual_active_v3_20261101/*wmi_proof.json
+/experiments/visual_active_v3_20261101/deadline_guard_independence.json
+/experiments/visual_active_v3_20261101/website_live.jpg
+/experiments/visual_active_v3_20261101/*.zip
+/experiments/visual_side_v4_20261102/**/data/
+/experiments/visual_side_v4_20261102/**/geometry/
+/experiments/visual_side_v4_20261102/**/captures/
+/experiments/visual_side_v4_20261102/test_tmp*/
+/experiments/visual_side_v4_20261102/STOP_REQUESTED
+/experiments/visual_edge_refine_v1_20261103/smoke_*/
+/experiments/visual_active_v3_20261101/**/policy/
+/experiments/visual_active_v3_20261101/**/*_frozen_benchmark_rows.json
+/experiments/visual_active_v3_20261101/**/progress.json
+/experiments/visual_active_v3_20261101/**/phase.json
+/experiments/visual_active_v3_20261101/**/*independence.json
+/experiments/visual_side_v4_20261102/**/*.sqlite*
+/experiments/visual_active_v3_20261101/**/monitor/state.json
+/experiments/visual_active_v3_20261101/**/launch_retry*.json
+/experiments/visual_side_v4_20261102/**/*.lock
+/experiments/visual_side_v4_20261102/**/*runtime.json
+/experiments/visual_side_v4_20261102/**/monitor_state.json

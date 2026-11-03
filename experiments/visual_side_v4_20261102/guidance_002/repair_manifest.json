@@ -1,0 +1,22 @@
+{
+  "training_started": false,
+  "optimizer_updates": 0,
+  "validation_only": true,
+  "source": "pilot_002 same 200 development families",
+  "source_families_sha256": "cc09601aef021a4b7ea28fdeedd68f9ab67d0da60a3943928aabde5a38a56700",
+  "focuses_sha256": "957fba41d1e32668d7266b894ee86f424f0ed8813a35a75d1964fef897d3f80a",
+  "changes": [
+    "all preserved pose seeds instead of three per family",
+    "128-piece conservative envelopes instead of 32",
+    "target-centred FK-verified wrist refinement",
+    "explicit base-family search"
+  ],
+  "source_hashes": {
+    "experiments\\visual_side_v4_20261102\\guidance_validate.py": "bc9b120e71649622e73424de89f5be0cbab543a3c7e45d5e1e1e0c895af6a41f",
+    "experiments\\visual_side_v4_20261102\\guidance_probe.py": "22acf64350b57ce6dd337a18e73dd9d663b67317efb76477388f4f98c682e655",
+    "praxis\\src\\active_view\\camera_guidance.py": "b447fe760c4f197e9c91e10f8849cf71ec0cbb0f2763f73b5eea98a1bac97b29",
+    "praxis\\src\\active_view\\collision.py": "9f57054968ba6d3f2de701c5d7dbac971c834fb635810e74a319cba335dbd19a",
+    "praxis\\src\\active_view\\side_views.py": "8a2aed429d567d15a5e1100ea7ba75d3f83375c2cd2c20180f4813cfc1d2ec01",
+    "experiments\\visual_side_v4_20261102\\pilot_bank.py": "2818af3b71a1078b2cc14305a445bd605afcbebfe807d9d3ca0a62ad375dcc23"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "scientific_success": false,
+  "recommended_gate_outcome": "review_only",
+  "reason": "Heads trained and tests evaluated; calibration gate failed, learned active policy disabled with zero final captures.",
+  "finished": "2026-11-02T09:31:31.324706+00:00",
+  "worker_exit": {
+    "returncode": 0,
+    "reason": null,
+    "finished_unix": 1793610164.4114254
+  },
+  "artifacts": {
+    "FOLLOWUP_REVIEW.md": "65f58fdb1e6516bfd4e754a4c2607f999d2d746eb3dfbd710f30193fbcb7b1eb",
+    "followup_001/results.json": "61b925457a474bfd2dcdd8bf6eb7896e8fff29afced7560264245a18d907b9ae",
+    "followup_001/final_audit.json": "744703f6127a8c64f4cc654c3ade0fdc6b53da7cda16b7a59754a87c4920a254",
+    "followup_001/journal_audit.json": "e311c54beb91f2e3fcd3207f5b2ab0ace4513c6e825eb82f1a2b533cf62a1671",
+    "followup_001/policy_freeze.json": "1448eb5d0d708a3115f60efa07f09c5adffac18d0ec22474bf12d9f179094390",
+    "followup_001/phase.json": "285749db5c799abeaf677a2c7c832b541a028cafa2ab65a1e62d629e7173a21a",
+    "followup_001/head_curves.json": "553f327bf09e11f3e1709d4e18aaffa0f31bdcb4e11d2c4775f73b7e46bd9b95",
+    "followup_001/head_loss.png": "03a1b2a33237a4c3b9cebc88612401e6f8785352f1c4a24e89b4c23cd8709e1e"
+  },
+  "preserved_originals": true,
+  "no_further_training_or_tuning": true
+}

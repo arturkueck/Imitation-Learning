@@ -1,0 +1,44 @@
+[
+  {
+    "family": "left",
+    "index": 9,
+    "frames": 39,
+    "baseline_m": 0.39748221489555,
+    "angle_deg": 65.38747109274703,
+    "elevation_deg": 19.351198486928133,
+    "axis_error_deg": 1.8730856430815577,
+    "initial_set_error_mm": 6.181042035420735,
+    "updated_set_error_mm": 11.911550045013428,
+    "update_adopted": false,
+    "training_started": false,
+    "geometry_backend": "sim_reference"
+  },
+  {
+    "family": "right",
+    "index": 7,
+    "frames": 48,
+    "baseline_m": 0.3247875452550219,
+    "angle_deg": 54.672568179739464,
+    "elevation_deg": 16.787700601659395,
+    "axis_error_deg": 0.026119159968327706,
+    "initial_set_error_mm": 6.238195737202962,
+    "updated_set_error_mm": 51.39606316884359,
+    "update_adopted": false,
+    "training_started": false,
+    "geometry_backend": "sim_reference"
+  },
+  {
+    "family": "base",
+    "index": 3,
+    "frames": 77,
+    "baseline_m": 0.2836039461912174,
+    "angle_deg": 35.91979728735725,
+    "elevation_deg": 29.23531713049323,
+    "axis_error_deg": 0.033976334101826815,
+    "initial_set_error_mm": 9.644751262664796,
+    "updated_set_error_mm": 54.70635255177816,
+    "update_adopted": false,
+    "training_started": false,
+    "geometry_backend": "sim_reference"
+  }
+]

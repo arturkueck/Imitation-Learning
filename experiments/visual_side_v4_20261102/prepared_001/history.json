@@ -1,0 +1,17 @@
+{
+  "family_artifacts": 357,
+  "role_observations": {
+    "development": 31523,
+    "perception_train": 24000,
+    "model_validation": 4000,
+    "calibration": 548,
+    "request_train": 4096,
+    "request_validation": 548,
+    "test": 33124
+  },
+  "unique_families": 105056,
+  "reserved_seed_namespaces": 295,
+  "ambiguous_historical_families": 5112,
+  "legacy_scope": "V1 image-only logs reserve seed/index namespaces; content fingerprints cover family-bearing V2/V3/pilot datasets. V2 starts from random initialization, V3 is the actual warm-start chain.",
+  "registry_sha256": "8c599b5e0240726a8debad1fd8d4ecd68155a912de68ea90cff263e27e340558"
+}

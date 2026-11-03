@@ -1,0 +1,31 @@
+{
+  "project_id": "appgprj_6ad93375cfa4819190fd6f1d9e225173",
+  "commit_sha": "9dab6bc50a76df81e8a0fe2aa73baf8224a01290",
+  "deployment_id": "appgdep_6ae91c5f6d088191b2c683d8e6a73ef9",
+  "version_id": "appgprj_6ad93375cfa4819190fd6f1d9e225173~appgver_033e61633dc88191904a934cf4d8371d",
+  "status": "succeeded",
+  "url": "https://imitation-learning-research-artur.dearkoala257.chatgpt.site",
+  "browser_verified": {
+    "new_comparison_options": 3,
+    "selected": "comparison-09_fuehrung_links.gif",
+    "canvas_loaded": true,
+    "auto_rotation": true,
+    "camera_overlay": true,
+    "gif_complete": true,
+    "dimensions": [
+      1200,
+      750
+    ],
+    "base_comparison_locally_verified": true
+  },
+  "validation": {
+    "families": 200,
+    "actually_captured": 147,
+    "previous_captures": 47,
+    "coverage_gate_passed": true,
+    "python_tests": 21,
+    "javascript_tests": 9,
+    "checkpoint_hashes_unchanged": true
+  },
+  "training_started": false
+}

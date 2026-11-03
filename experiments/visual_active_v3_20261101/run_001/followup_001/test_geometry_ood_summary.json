@@ -1,0 +1,45 @@
+{
+  "families": 1000,
+  "mean_error_reduction_mm": 0.0,
+  "paired_family_bootstrap95": [
+    0.0,
+    0.0
+  ],
+  "seed_metrics": {
+    "1": {
+      "initial_mm": 71.44132742490768,
+      "final_mm": 71.44132742490768,
+      "missing_before": 288,
+      "missing_after": 288,
+      "extra_before": 1395,
+      "extra_after": 1395
+    },
+    "2": {
+      "initial_mm": 66.72782864058813,
+      "final_mm": 66.72782864058813,
+      "missing_before": 327,
+      "missing_after": 327,
+      "extra_before": 1207,
+      "extra_after": 1207
+    },
+    "3": {
+      "initial_mm": 71.90143598941168,
+      "final_mm": 71.90143598941168,
+      "missing_before": 352,
+      "missing_after": 352,
+      "extra_before": 1459,
+      "extra_after": 1459
+    }
+  },
+  "captures": 0,
+  "accepted": 0,
+  "harmful_accepted": 0,
+  "harmful_upper95": 1.0,
+  "blocked": 0,
+  "mean_extra": 0.0,
+  "max_extra": 0,
+  "mean_planned_seconds": 0.0,
+  "fixed_motion_only_reduction_mm": null,
+  "additional_wrist_beyond_fixed_reduction_mm": null,
+  "note": "Kinematic simulation, simulator-reference geometry safety; no real visual free-space guarantee; ordered reserved grid candidates, not arbitrary new camera domain."
+}

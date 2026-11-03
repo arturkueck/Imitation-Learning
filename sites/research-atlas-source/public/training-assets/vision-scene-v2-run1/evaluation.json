@@ -1,0 +1,291 @@
+{
+  "status": "repaired_test_evaluation_complete",
+  "training_updates": 0,
+  "selection_unchanged": true,
+  "selection": [
+    {
+      "seed": 1,
+      "arm": "fixed",
+      "selected_epoch": 90,
+      "updates_paid": 34125,
+      "sha256": "c5df2809272325a167102ae7733af189500f36506e03ca822e010e912e4ae520"
+    },
+    {
+      "seed": 1,
+      "arm": "fixed_wrist",
+      "selected_epoch": 88,
+      "updates_paid": 34125,
+      "sha256": "0ed05865066ffddc1c10c93a858c20ff5e50a1111040517905205e45aa1bb301"
+    },
+    {
+      "seed": 2,
+      "arm": "fixed",
+      "selected_epoch": 88,
+      "updates_paid": 34125,
+      "sha256": "72da1a656503899513b93e9ebc7900d595068f4c8c4501434fc011a5a6015327"
+    },
+    {
+      "seed": 2,
+      "arm": "fixed_wrist",
+      "selected_epoch": 89,
+      "updates_paid": 34125,
+      "sha256": "d725b61dd42281c7d0c7f13c082f414c8259abe0e09cddb6f32025dc1b21e629"
+    },
+    {
+      "seed": 3,
+      "arm": "fixed",
+      "selected_epoch": 87,
+      "updates_paid": 34125,
+      "sha256": "5dfcbcd93e2771b17765c098c27d3e9e0cb45bdf0edb52e87cab684920625bb0"
+    },
+    {
+      "seed": 3,
+      "arm": "fixed_wrist",
+      "selected_epoch": 87,
+      "updates_paid": 34125,
+      "sha256": "8016d6ea77d937fa306b800d3fac011d243711566a8befe3b57d73e1d25022b5"
+    }
+  ],
+  "reports": {
+    "reserved_test": {
+      "samples": 2000,
+      "original_black_images": true,
+      "physical_arrays_exactly_equal": true,
+      "original_observed_objects": 0,
+      "repaired_observed_objects": 5683
+    },
+    "reserved_ood": {
+      "samples": 512,
+      "original_black_images": true,
+      "physical_arrays_exactly_equal": true,
+      "original_observed_objects": 0,
+      "repaired_observed_objects": 1411
+    }
+  },
+  "tests": {
+    "1/fixed": {
+      "loss": 0.11980117335915566,
+      "components": {
+        "position": 0.0064629612397402525,
+        "size": 0.013519562646746636,
+        "rotation": 0.10056056174635887,
+        "visibility": 0.0025986599843890873,
+        "detection": 0.023036859221116174
+      },
+      "balanced_loss": 0.1095710349746167,
+      "stratum_losses": {
+        "0": 0.12656138704898467,
+        "1": 0.11201777000767472,
+        "2": 0.12461643392169798,
+        "3": 0.0750885489201095
+      },
+      "assignment_position_mm": 5.957419407235554,
+      "count_accuracy": 0.9675,
+      "recall_at_10mm": 0.8831603026570474
+    },
+    "1/fixed_wrist": {
+      "loss": 0.10590575984120369,
+      "components": {
+        "position": 0.0047529694093391296,
+        "size": 0.013166526820510626,
+        "rotation": 0.09110536080598831,
+        "visibility": 0.012639673325000331,
+        "detection": 0.020261787309224018
+      },
+      "balanced_loss": 0.09894636623762074,
+      "stratum_losses": {
+        "0": 0.10998238464852816,
+        "1": 0.09437170368669989,
+        "2": 0.11957414719225788,
+        "3": 0.07185722942299702
+      },
+      "assignment_position_mm": 4.982577560703855,
+      "count_accuracy": 0.969,
+      "recall_at_10mm": 0.9234559211683969
+    },
+    "2/fixed": {
+      "loss": 0.12527532094717025,
+      "components": {
+        "position": 0.006649895140901208,
+        "size": 0.014335240330547094,
+        "rotation": 0.09948347145318985,
+        "visibility": 0.0027430662139668128,
+        "detection": 0.027263102938886733
+      },
+      "balanced_loss": 0.11455291907019137,
+      "stratum_losses": {
+        "0": 0.13122904556360762,
+        "1": 0.11274998667112233,
+        "2": 0.14044526117174205,
+        "3": 0.07378738287429348
+      },
+      "assignment_position_mm": 6.13309514003647,
+      "count_accuracy": 0.9645,
+      "recall_at_10mm": 0.8766496568713708
+    },
+    "2/fixed_wrist": {
+      "loss": 0.10969781473279,
+      "components": {
+        "position": 0.004831424117088318,
+        "size": 0.013187023859471082,
+        "rotation": 0.09090643194317817,
+        "visibility": 0.01268046030413825,
+        "detection": 0.023730339486035517
+      },
+      "balanced_loss": 0.1006338260967866,
+      "stratum_losses": {
+        "0": 0.12083832126734034,
+        "1": 0.078516135325002,
+        "2": 0.1277143148302629,
+        "3": 0.07546653296454113
+      },
+      "assignment_position_mm": 4.914980193323103,
+      "count_accuracy": 0.9725,
+      "recall_at_10mm": 0.9259194087629773
+    },
+    "3/fixed": {
+      "loss": 0.12643629443645477,
+      "components": {
+        "position": 0.0061382580753415825,
+        "size": 0.013976126901805401,
+        "rotation": 0.10713933566212654,
+        "visibility": 0.002698143008296029,
+        "detection": 0.027524674686254
+      },
+      "balanced_loss": 0.10690768156573134,
+      "stratum_losses": {
+        "0": 0.1461278102130491,
+        "1": 0.10599052575711071,
+        "2": 0.11797018010622344,
+        "3": 0.057542210186542084
+      },
+      "assignment_position_mm": 5.758199952085232,
+      "count_accuracy": 0.9585,
+      "recall_at_10mm": 0.8956537040295619
+    },
+    "3/fixed_wrist": {
+      "loss": 0.12080739682912826,
+      "components": {
+        "position": 0.00564438721165061,
+        "size": 0.014659211531281472,
+        "rotation": 0.08987778717279435,
+        "visibility": 0.012138364655897021,
+        "detection": 0.02995276410650695
+      },
+      "balanced_loss": 0.12087552059795925,
+      "stratum_losses": {
+        "0": 0.1213177164357878,
+        "1": 0.10282423090360134,
+        "2": 0.14314096422261885,
+        "3": 0.11621917082982905
+      },
+      "assignment_position_mm": 5.42558981893024,
+      "count_accuracy": 0.958,
+      "recall_at_10mm": 0.9072672884040119
+    },
+    "ood/1/fixed": {
+      "loss": 1.112924363464117,
+      "components": {
+        "position": 0.04027034481987357,
+        "size": 0.17745623644441366,
+        "rotation": 0.20115743530914187,
+        "visibility": 0.000505372805037041,
+        "detection": 0.6334113478660583
+      },
+      "balanced_loss": 1.112924363464117,
+      "stratum_losses": {
+        "0": 1.112924363464117
+      },
+      "assignment_position_mm": 17.054820400446886,
+      "count_accuracy": 0.6171875,
+      "recall_at_10mm": 0.26860382707299785
+    },
+    "ood/1/fixed_wrist": {
+      "loss": 0.8875124994665384,
+      "components": {
+        "position": 0.03414885757956654,
+        "size": 0.18255380634218454,
+        "rotation": 0.19606743613258004,
+        "visibility": 0.0012866529777966207,
+        "detection": 0.4358590333722532
+      },
+      "balanced_loss": 0.8875124994665384,
+      "stratum_losses": {
+        "0": 0.8875124994665384
+      },
+      "assignment_position_mm": 14.631948930502444,
+      "count_accuracy": 0.67578125,
+      "recall_at_10mm": 0.34727143869596033
+    },
+    "ood/2/fixed": {
+      "loss": 1.203566463664174,
+      "components": {
+        "position": 0.0415030040894635,
+        "size": 0.18030063062906265,
+        "rotation": 0.2128352834843099,
+        "visibility": 0.0006126570810920384,
+        "detection": 0.7091800039634109
+      },
+      "balanced_loss": 1.203566463664174,
+      "stratum_losses": {
+        "0": 1.203566463664174
+      },
+      "assignment_position_mm": 17.675656224631993,
+      "count_accuracy": 0.53515625,
+      "recall_at_10mm": 0.2565556343019135
+    },
+    "ood/2/fixed_wrist": {
+      "loss": 0.7588255237787962,
+      "components": {
+        "position": 0.03236388659570366,
+        "size": 0.1827852469868958,
+        "rotation": 0.1863111392594874,
+        "visibility": 0.0012273355405341135,
+        "detection": 0.3207584369229153
+      },
+      "balanced_loss": 0.7588255237787962,
+      "stratum_losses": {
+        "0": 0.7588255237787962
+      },
+      "assignment_position_mm": 14.458242954133167,
+      "count_accuracy": 0.70703125,
+      "recall_at_10mm": 0.3649893692416726
+    },
+    "ood/3/fixed": {
+      "loss": 1.024253036826849,
+      "components": {
+        "position": 0.04131215228699148,
+        "size": 0.18081980990245938,
+        "rotation": 0.20942022930830717,
+        "visibility": 0.0002879575340557494,
+        "detection": 0.532090345164761
+      },
+      "balanced_loss": 1.024253036826849,
+      "stratum_losses": {
+        "0": 1.024253036826849
+      },
+      "assignment_position_mm": 17.565211288984745,
+      "count_accuracy": 0.6484375,
+      "recall_at_10mm": 0.2515946137491141
+    },
+    "ood/3/fixed_wrist": {
+      "loss": 1.1291612461209297,
+      "components": {
+        "position": 0.036138733150437474,
+        "size": 0.18030934920534492,
+        "rotation": 0.2026008414104581,
+        "visibility": 0.0016229134798777523,
+        "detection": 0.6664520925842226
+      },
+      "balanced_loss": 1.1291612461209297,
+      "stratum_losses": {
+        "0": 1.1291612461209297
+      },
+      "assignment_position_mm": 15.67409133095846,
+      "count_accuracy": 0.61328125,
+      "recall_at_10mm": 0.3486888731396173
+    }
+  },
+  "original_results_preserved": true,
+  "elapsed_seconds": 118.93449258804321
+}

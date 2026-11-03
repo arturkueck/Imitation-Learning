@@ -1,0 +1,10 @@
+{
+  "source": "guidance_001",
+  "verified_rows": 138,
+  "discarded_invalid_resume_rows": [
+    138,
+    139
+  ],
+  "route_endpoint_contract_verified": true,
+  "technical_fix": "explicit route concatenation for both numpy and list inputs; exact stored-scene replay"
+}

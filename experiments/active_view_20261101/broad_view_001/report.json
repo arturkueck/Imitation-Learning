@@ -1,0 +1,57 @@
+{
+  "training_started": false,
+  "optimizer_updates": 0,
+  "geometry_backend": "sim_reference",
+  "camera_change": {
+    "baseline_m": 0.4161858130986748,
+    "angle_deg": 62.56135289792793
+  },
+  "initial_set_error_mm": 12.427119678921171,
+  "updated_set_error_mm": 26.139516088697643,
+  "native_robot_world_penetrations": 0,
+  "rendered_states_checked": 62,
+  "whole_path_checks": 635,
+  "visual_gate": {
+    "stage": "blocked",
+    "reason": "initial_arm_volume_unverified",
+    "detail": "unknown_space"
+  },
+  "focus_source": "median and radius of predicted boxes, not true object positions",
+  "checkpoint_hashes": {
+    "M2_seed1_best.pth": "ef343e83bb2bb3dd9fe5fc8b90153ddc8fffad0e110fae6869c80b4901613973",
+    "M2_seed2_best.pth": "e9ab11b3c54bc9e523e0c9868cdb65e101ca823131a622e8e745d9df00011d40",
+    "M2_seed3_best.pth": "827b7536c4ebf124a16152f532e6e25d552b3861a71afe5056ecdd4aa6803116"
+  },
+  "planning": {
+    "settings": {
+      "minimum_baseline_m": 0.2,
+      "minimum_angle_deg": 35.0,
+      "target_angle_deg": 70.0,
+      "radii_m": [
+        0.36,
+        0.46
+      ],
+      "elevations_rad": [
+        0.45,
+        0.8,
+        1.1
+      ],
+      "max_proposals": 48,
+      "maximum_seconds": 100.0,
+      "maximum_path_attempts": 6
+    },
+    "proposed": 48,
+    "ik_valid": 23,
+    "path_attempts": 1,
+    "rejections": {
+      "ik_limits_self_or_environment": 13,
+      "insufficient_view_change": 12
+    },
+    "planning_source": "reference",
+    "elapsed_seconds": 7.639999999984866
+  },
+  "elapsed_seconds": 19.237444400787354,
+  "policy": "geometric demo only; learned production policy unchanged",
+  "update_adopted": false,
+  "update_reason": "diagnostic raw recomputation; learned production policy remains disabled"
+}

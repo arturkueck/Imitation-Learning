@@ -1,0 +1,61 @@
+{
+  "training_started": false,
+  "optimizer_updates": 0,
+  "geometry_backend": "sim_reference",
+  "direction": "right",
+  "camera_change": {
+    "baseline_m": 0.4860150423162525,
+    "angle_deg": 91.86458395398373
+  },
+  "camera_elevation_deg": 15.86924271751396,
+  "optical_axis_error_deg": 0.1740878010194963,
+  "distance_to_focus_m": 0.3635816691426537,
+  "initial_set_error_mm": 12.427119678921171,
+  "updated_set_error_mm": 18.22761736975776,
+  "native_robot_world_penetrations": 0,
+  "rendered_states_checked": 74,
+  "whole_path_checks": 920,
+  "visual_gate": {
+    "stage": "blocked",
+    "reason": "initial_arm_volume_unverified",
+    "detail": "unknown_space"
+  },
+  "focus_source": "most uncertain predicted group; actual target pose not used in planning",
+  "checkpoint_hashes": {
+    "M2_seed1_best.pth": "ef343e83bb2bb3dd9fe5fc8b90153ddc8fffad0e110fae6869c80b4901613973",
+    "M2_seed2_best.pth": "e9ab11b3c54bc9e523e0c9868cdb65e101ca823131a622e8e745d9df00011d40",
+    "M2_seed3_best.pth": "827b7536c4ebf124a16152f532e6e25d552b3861a71afe5056ecdd4aa6803116"
+  },
+  "planning": {
+    "direction": "right",
+    "settings": {
+      "distances_m": [
+        0.22,
+        0.28,
+        0.35,
+        0.42
+      ],
+      "heights_above_focus_m": [
+        0.07,
+        0.11,
+        0.15
+      ],
+      "minimum_camera_world_z": 0.92,
+      "maximum_elevation_deg": 25.0,
+      "maximum_axis_error_deg": 3.0,
+      "maximum_seconds": 90.0,
+      "maximum_path_attempts": 4
+    },
+    "proposed": 36,
+    "ik_valid": 17,
+    "path_attempts": 1,
+    "rejections": {
+      "ik_limits_self_or_environment": 19
+    },
+    "source": "reference",
+    "elapsed_seconds": 9.780999999988126
+  },
+  "elapsed_seconds": 22.078286170959473,
+  "policy": "geometric demo only; learned production policy unchanged",
+  "update_adopted": false
+}

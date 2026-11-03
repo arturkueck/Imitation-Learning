@@ -81,7 +81,7 @@ export async function localTrainingRequest(req,res,pathname,root){
   const artifact=[...(entry?.artifacts||[]),...extraArtifacts].find(a=>a.name===name);
   if(!artifact){res.writeHead(404).end();return true}
   const file=inside(inside(root,entry.directory),artifact.file),bytes=await fs.readFile(file);
-  res.writeHead(200,{'Content-Type':name.endsWith('.png')?'image/png':name.endsWith('.json')?'application/json; charset=utf-8':'text/plain; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});res.end(req.method==='HEAD'?undefined:bytes);return true;
+  res.writeHead(200,{'Content-Type':name.endsWith('.png')?'image/png':name.endsWith('.gif')?'image/gif':name.endsWith('.json')?'application/json; charset=utf-8':'text/plain; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});res.end(req.method==='HEAD'?undefined:bytes);return true;
  }catch{res.writeHead(503,{'Content-Type':'application/json'}).end(JSON.stringify({error:'Trainingsdaten vorübergehend nicht lesbar'}));return true}
 }
 export async function exportSnapshot(root,publicRoot){

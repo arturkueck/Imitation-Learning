@@ -1,0 +1,213 @@
+{
+  "created_unix": 1793644118.1348062,
+  "elapsed_seconds": 50.51717925071716,
+  "cases": [
+    {
+      "name": "01_bruecke",
+      "split": "test_iid",
+      "family": [
+        9510001,
+        0
+      ],
+      "objects": 4,
+      "captures": 2,
+      "original_set_error_before_mm": 5.193810939788818,
+      "original_set_error_after_mm": 4.475166281064351,
+      "error_reduction_mm": 0.7186446587244669,
+      "gif": "01_bruecke\\comparison.gif",
+      "poster": "01_bruecke\\poster.png",
+      "frames_written": 33,
+      "duration_ms": 11550,
+      "sha256": "52cbac7f961de2d991b7a2b9b97eceb6d6c4f5d3b6fa95bd28ccac908f560869",
+      "replay_checks": [
+        {
+          "max_rgb_channel_difference": 0,
+          "saved_wrist_max_channel_difference": 0,
+          "recorded_score_max_difference_mm": 0.0,
+          "history": [
+            0,
+            2
+          ]
+        },
+        {
+          "max_rgb_channel_difference": 0,
+          "saved_wrist_max_channel_difference": 0,
+          "recorded_score_max_difference_mm": 0.0,
+          "history": [
+            0,
+            2,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "name": "02_turm",
+      "split": "test_iid",
+      "family": [
+        9510001,
+        4
+      ],
+      "objects": 3,
+      "captures": 2,
+      "original_set_error_before_mm": 27.72012922498915,
+      "original_set_error_after_mm": 27.06597338782416,
+      "error_reduction_mm": 0.6541558371649856,
+      "gif": "02_turm\\comparison.gif",
+      "poster": "02_turm\\poster.png",
+      "frames_written": 38,
+      "duration_ms": 12175,
+      "sha256": "47af68f4057ccfbe7e7a3fe77d5b95fb91cd1685e087468e3da3ed9316bb5dc8",
+      "replay_checks": [
+        {
+          "max_rgb_channel_difference": 0,
+          "saved_wrist_max_channel_difference": 0,
+          "recorded_score_max_difference_mm": 0.0,
+          "history": [
+            0,
+            3
+          ]
+        },
+        {
+          "max_rgb_channel_difference": 0,
+          "saved_wrist_max_channel_difference": 0,
+          "recorded_score_max_difference_mm": 0.0,
+          "history": [
+            0,
+            3,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "name": "03_turm_verschlechterung",
+      "split": "test_iid",
+      "family": [
+        9510001,
+        5
+      ],
+      "objects": 3,
+      "captures": 1,
+      "original_set_error_before_mm": 5.6004982524447975,
+      "original_set_error_after_mm": 6.290491845872666,
+      "error_reduction_mm": -0.6899935934278698,
+      "gif": "03_turm_verschlechterung\\comparison.gif",
+      "poster": "03_turm_verschlechterung\\poster.png",
+      "frames_written": 17,
+      "duration_ms": 7475,
+      "sha256": "a10226107c89929b764f069c7f8212d25b4b2a4ca7882223b417f094fa32c86a",
+      "replay_checks": [
+        {
+          "max_rgb_channel_difference": 0,
+          "saved_wrist_max_channel_difference": 0,
+          "recorded_score_max_difference_mm": 0.0,
+          "history": [
+            0,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "name": "04_kamera_holdout",
+      "split": "test_camera_ood",
+      "family": [
+        9511001,
+        7
+      ],
+      "objects": 2,
+      "captures": 2,
+      "original_set_error_before_mm": 10.941670417785645,
+      "original_set_error_after_mm": 8.08099627494812,
+      "error_reduction_mm": 2.8606741428375244,
+      "gif": "04_kamera_holdout\\comparison.gif",
+      "poster": "04_kamera_holdout\\poster.png",
+      "frames_written": 38,
+      "duration_ms": 12175,
+      "sha256": "535a4b37322f917effa88103d06c02d18e633acb6942cc2a62c0ef80be87d563",
+      "replay_checks": [
+        {
+          "max_rgb_channel_difference": 0,
+          "saved_wrist_max_channel_difference": 0,
+          "recorded_score_max_difference_mm": 0.0,
+          "history": [
+            0,
+            3
+          ]
+        },
+        {
+          "max_rgb_channel_difference": 0,
+          "saved_wrist_max_channel_difference": 0,
+          "recorded_score_max_difference_mm": 0.0,
+          "history": [
+            0,
+            3,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "name": "05_lange_duenne_quader",
+      "split": "test_geometry_ood",
+      "family": [
+        9512001,
+        1
+      ],
+      "objects": 4,
+      "captures": 2,
+      "original_set_error_before_mm": 42.83369000752767,
+      "original_set_error_after_mm": 52.353187084198,
+      "error_reduction_mm": -9.519497076670328,
+      "gif": "05_lange_duenne_quader\\comparison.gif",
+      "poster": "05_lange_duenne_quader\\poster.png",
+      "frames_written": 37,
+      "duration_ms": 12050,
+      "sha256": "c65062a587ee1b828fe60367dd1e3700ea8280a138726534811ee1288d4ef793",
+      "replay_checks": [
+        {
+          "max_rgb_channel_difference": 0,
+          "saved_wrist_max_channel_difference": 0,
+          "recorded_score_max_difference_mm": 0.0,
+          "history": [
+            0,
+            4
+          ]
+        },
+        {
+          "max_rgb_channel_difference": 0,
+          "saved_wrist_max_channel_difference": 0,
+          "recorded_score_max_difference_mm": 0.0,
+          "history": [
+            0,
+            4,
+            5
+          ]
+        }
+      ]
+    }
+  ],
+  "checkpoint_hashes": {
+    "M2_seed1_best.pth": "ef343e83bb2bb3dd9fe5fc8b90153ddc8fffad0e110fae6869c80b4901613973",
+    "M2_seed2_best.pth": "e9ab11b3c54bc9e523e0c9868cdb65e101ca823131a622e8e745d9df00011d40",
+    "M2_seed3_best.pth": "827b7536c4ebf124a16152f532e6e25d552b3861a71afe5056ecdd4aa6803116"
+  },
+  "source": "experiments\\visual_active_v3_20261101\\run_001\\followup_smoke_repair001",
+  "source_case_hashes": {
+    "test_iid": "cfd59f55ddf12a0b8373d03d4b94150ec5e3128c168e894d9e99f3e4926e4c9e",
+    "test_camera_ood": "cb9f5cc5484f0de668c2b38ade51f264de9a7dadb978aba678ba2e841f8517ca",
+    "test_geometry_ood": "00369729c32c29f7bdc27156976a87205219fdfbf6e3083b77b553c7e7e48c57"
+  },
+  "colors": {
+    "truth": "#23d9eb",
+    "initial": "#ff9b42",
+    "updated": "#67e889"
+  },
+  "training": false,
+  "policy_changed": false,
+  "selection": "illustrative purposive selection; includes improvements and regressions",
+  "production_policy": "disabled; zero learned production captures",
+  "motion": "post-hoc kinematic reconstruction, paths rechecked using sim_reference",
+  "generator_source_sha256": "1b78dae77d979bff22465f17167ce1ac2e1f928ca407ae8669ab177381f7ca0b"
+}

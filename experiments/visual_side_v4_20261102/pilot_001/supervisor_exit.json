@@ -1,0 +1,14 @@
+{
+  "returncode": 0,
+  "time_unix": 1793678761.5767293,
+  "deadline_unix": 1793703600.0,
+  "status": {
+    "time": "2026-11-03T04:05:57.104204+00:00",
+    "heartbeat_unix": 1793678757.104204,
+    "pid": 45356,
+    "stage": "complete",
+    "training_started": true,
+    "step": 420,
+    "reason": "paired perception phase complete; no claim about active policy"
+  }
+}
