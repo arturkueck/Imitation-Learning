@@ -1,0 +1,7 @@
+# Generated local development data; preserve on disk, do not stage accidentally.
+smoke_*/
+active_smoke_*/
+benchmark_*/
+test_tmp*/
+*.log
+__pycache__/
