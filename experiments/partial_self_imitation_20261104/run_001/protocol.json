@@ -1,0 +1,60 @@
+{
+  "schema": "partial-self-imitation-v1",
+  "created_unix": 1793779625.8631692,
+  "deadline": 1793790425.8631692,
+  "user_authorization": "2026-11-04: Kannst du diesen Versuch direkt starten?",
+  "updates": 5000,
+  "batch": 64,
+  "lr": 3e-05,
+  "weight_decay": 1e-06,
+  "parents": [
+    {
+      "seed": 1,
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c"
+    },
+    {
+      "seed": 2,
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8"
+    },
+    {
+      "seed": 3,
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a"
+    }
+  ],
+  "arms": {
+    "A": "100% original actor data",
+    "B": "75% original +25% successful own episodes",
+    "C": "75% original +25% union of successful episodes and confirmed failed-episode sections",
+    "D": "Same exact samples as C; normalized outcome-quality weights within 25% own-data component"
+  },
+  "completion": "Same 48 original examples in all arms; coefficient0.1",
+  "sampling": "Own data: phase, episode, section, frame balanced. C/D identical draws.",
+  "quality": "0.5+0.25*clip(1-displacement/8mm)+0.25*clip(1-alignment/9mm), same outcome-window rule for all own data",
+  "partial_rule": "First pair:10 release frames+50 continuously valid contact-free outcome frames; next pickup:existing strict native extractor",
+  "selection": "Fixed final update5000, no test-based checkpoint selection",
+  "test_seeds": [
+    2026110500,
+    2026110549
+  ],
+  "technical_seed": 2026110490,
+  "additional_collection": {
+    "attempts": 240,
+    "train": 180,
+    "valid": 60,
+    "seed_start": 2026100000,
+    "teacher_assignment": "cyclic index modulo3 fixed before outcomes",
+    "reason": "Existing corpus has only3 verified failed train families; retain strict gates"
+  },
+  "scope": "Fixed-data low-dimensional simulation pilot; not RL, visual-policy training or real hardware",
+  "wall_clock_cap_seconds": 10800,
+  "automatic_restart": false,
+  "software": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "torch": "2.11.0+cu128",
+    "numpy": "2.5.2",
+    "gpu": "NVIDIA GeForce RTX 5070"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "deadline_berlin": "2026-11-08T12:00:00+01:00",
+  "phase_hours": [5, 3, 3],
+  "pilot_families": 60,
+  "target_rate": 0.1,
+  "gamma": 0.995,
+  "horizon": 1000,
+  "control_every": 30,
+  "seed_bases": {"breadth": 3160700000, "deep1": 3160800000, "deep2": 3160900000, "smoke": 3161000000},
+  "directions": {
+    "einzelschritt_anflug": {"group": "Einzelaktion", "probe": [2, 0, 5], "frames": 1, "question": "Wie oft entscheidet eine einzelne aufgezeichnete Aktion beim Anflug auf den dritten Würfel über den stabilen Dreierturm?"},
+    "einzelschritt_greifen": {"group": "Einzelaktion", "probe": [1, 2, 5], "frames": 1, "question": "Enthält die erste Greifphase einzelne nachahmenswerte Aktionen, die den späteren Turmerfolg ändern?"},
+    "abschnitt_transport": {"group": "Bewegungsabschnitt", "probe": [1, 4, 5], "frames": 20, "question": "Verändert ein kurzer imitierbarer Bewegungsabschnitt beim ersten Transport den späteren Turmerfolg?"},
+    "abschnitt_ablage": {"group": "Bewegungsabschnitt", "probe": [2, 5, 0], "frames": 20, "question": "Verändert ein kurzer imitierbarer Abschnitt beim Absenken des dritten Würfels den stabilen Abschluss?"}
+  }
+}

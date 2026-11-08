@@ -1,0 +1,51 @@
+{
+  "schema": "retreat-gate-development-v1",
+  "authorization": "2026-11-04: Okay after proposed frozen-model controller comparison",
+  "scope": "Fresh paired development rollouts. No training, checkpoint selection, old endtest access or real hardware.",
+  "seeds": [
+    2026110700,
+    2026110719
+  ],
+  "technical_seed": 2026110600,
+  "model_seeds": [
+    1,
+    2,
+    3
+  ],
+  "arms": [
+    "baseline",
+    "guarded"
+  ],
+  "gate": {
+    "margin_m": 0.02,
+    "consecutive_frames": 3,
+    "geometry": "All gripper contact geoms; exact world Z box extents, conservative bounding spheres for meshes; all protected cube collision boxes",
+    "other_conditions": "Prefix valid, no tower finger contact, learned phase0 completion",
+    "motion": "Same learned phase0 head until gate; phase time and cached anchor preserved",
+    "retreat_timeout_frames": 200
+  },
+  "episode_horizon": 1000,
+  "wall_clock_cap_seconds": 1800,
+  "automatic_retry": false,
+  "parents": [
+    {
+      "seed": 1,
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed1.pth",
+      "sha256": "dd479893fbcd1fae61982503e4dccc99c2d0dfa0f8816bf1403873544602053c"
+    },
+    {
+      "seed": 2,
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed2.pth",
+      "sha256": "753073f7a8d843ac5ecaea4f6f84f881607bed5bb896024a87820ab74d177fa8"
+    },
+    {
+      "seed": 3,
+      "path": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_self_imitation_20261023\\final_test\\C_seed3.pth",
+      "sha256": "11594b3d9df0f2c8f6aac675f97dc523e753943adbffb52fc3612699cfc26e7a"
+    }
+  ],
+  "created_unix": 1793789075.1909213,
+  "deadline": 1793790875.1909213,
+  "success": "50 consecutive existing strict native full-tower-valid post-action frames",
+  "limitations": "Vertical separation gate does not certify future trajectory collision clearance. Privileged simulator geometry. A controller comparison, not improved neural weights."
+}

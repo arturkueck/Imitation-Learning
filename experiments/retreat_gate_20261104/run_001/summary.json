@@ -1,0 +1,74 @@
+{
+  "1": {
+    "baseline": {
+      "attempts": 20,
+      "successes": 11,
+      "confirmed_next_pickups": 4,
+      "timeouts": 0,
+      "continuous_prefix": 1,
+      "switched": 18,
+      "retreat_frames_median": 1.0
+    },
+    "guarded": {
+      "attempts": 20,
+      "successes": 18,
+      "confirmed_next_pickups": 17,
+      "timeouts": 0,
+      "continuous_prefix": 8,
+      "switched": 18,
+      "retreat_frames_median": 12.5
+    },
+    "paired": {
+      "won": 7,
+      "lost": 0
+    }
+  },
+  "2": {
+    "baseline": {
+      "attempts": 20,
+      "successes": 9,
+      "confirmed_next_pickups": 5,
+      "timeouts": 0,
+      "continuous_prefix": 1,
+      "switched": 17,
+      "retreat_frames_median": 1.0
+    },
+    "guarded": {
+      "attempts": 20,
+      "successes": 17,
+      "confirmed_next_pickups": 17,
+      "timeouts": 0,
+      "continuous_prefix": 8,
+      "switched": 17,
+      "retreat_frames_median": 13.0
+    },
+    "paired": {
+      "won": 8,
+      "lost": 0
+    }
+  },
+  "3": {
+    "baseline": {
+      "attempts": 20,
+      "successes": 9,
+      "confirmed_next_pickups": 6,
+      "timeouts": 0,
+      "continuous_prefix": 1,
+      "switched": 17,
+      "retreat_frames_median": 1.0
+    },
+    "guarded": {
+      "attempts": 20,
+      "successes": 15,
+      "confirmed_next_pickups": 14,
+      "timeouts": 0,
+      "continuous_prefix": 7,
+      "switched": 17,
+      "retreat_frames_median": 13.0
+    },
+    "paired": {
+      "won": 6,
+      "lost": 0
+    }
+  }
+}
