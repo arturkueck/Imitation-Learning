@@ -1,0 +1,134 @@
+% ========================================================================================
+% © 2026 Technische Universität Braunschweig – Stabsstelle für Presse und Kommunikation
+% Autoren: Veronika Hille
+% ========================================================================================
+
+\NeedsTeXFormat{LaTeX2e}%
+\ProvidesPackage{tubsCD/cdGeometry}[2025/05/06 Geometry Options of the Corporate Design]%
+
+% ===================================================================================
+%
+% This is the geometry definition file.
+% All geometries that are created for the corporate design, are collected here
+% for a better overview.
+% (Would you search for the gaussian layout geometry in senderspace?)
+%
+% ===================================================================================
+% Required Packages:
+
+\RequirePackage[%
+  automark,            % Kapitel->\leftmark, Abschnitt->\rightmark
+  headsepline=false,   % keine Linien im Header
+  markcase=upper       % evtl. Großschreibung der Markentexte
+]{scrlayer-scrpage}%
+
+% ===================================================================================
+% Geometry for Gauss Layout:
+
+% gauss pages can only be used in combination with the sigil
+% this way, the actually usable space for text (or gauss boxes) is equal to the
+% communication space. Hence, the geometric top and bottom must be defined
+\pgfmathsetmacro{\gaussgeotop}{\senderspaceheight}%
+\pgfmathsetmacro{\gaussgeobottom}{\borderwidth}%
+
+% If the sigil is placed on the bottom, the geometric origins must be inverted
+\ifboolexpr{%
+test {\ifdefstring{\tubs@tubanner}{bottomleft}} or
+test {\ifdefstring{\tubs@tubanner}{bottomright}}%
+}{%
+    \pgfmathsetmacro{\gaussgeotop}{\borderwidth}%
+    \pgfmathsetmacro{\gaussgeobottom}{\senderspaceheight-5*\borderwidth} %TODO temp add addition for maybe correct spacing
+}{}%
+
+\newcommand{\tuGaussGeometry}{%
+    \newgeometry{%
+        top=\gaussgeotop mm,%
+        bottom=\gaussgeobottom mm,%
+        left=\borderwidth mm,%
+        right=\borderwidth mm,%
+        noheadfoot%
+    }%
+    % the focus is on the gauss layout. usually only one page
+    % so page numbering and other stylings are not wanted
+    \thispagestyle{empty}%
+}%
+
+% ===================================================================================
+% Geometry for Plain Pages with Sigil:
+
+% While technically, the usable space is identical to the one the gauss layout uses,
+% practically it is forbidden to have anything besides colors and images too close
+% to the sigil. In other words, plain pages that use text, have de facto less
+% text space as we move the text are slightly away to conform to the cd toolbox
+% rules.
+\pgfmathsetmacro{\sigilgeotop}{\senderspaceheight + \borderwidth}%
+\pgfmathsetmacro{\sigilgeobottom}{\borderwidth}%
+\pgfmathsetmacro{\sigilgeoside}{\borderwidth}%
+
+% If the sigil is placed on the bottom, the geometric origins must be inverted
+\ifboolexpr{%
+test {\ifdefstring{\tubs@tubanner}{bottomleft}} or
+test {\ifdefstring{\tubs@tubanner}{bottomright}}%
+}{%
+    \pgfmathsetmacro{\sigilgeotop}{\borderwidth}%
+    \pgfmathsetmacro{\sigilgeobottom}{\senderspaceheight + 1.25*\borderwidth} % just a tiny bit more distance to senderspace looks better
+}{}%
+
+\newcommand{\tuSigilGeometry}{%
+    \newgeometry{%
+        top=\sigilgeotop mm,%
+        bottom=\sigilgeobottom mm,%
+        left=\sigilgeoside mm,%
+        right=\sigilgeoside mm,%
+        includehead,%
+        includefoot,%
+        % TODO fix basic layout
+        % and then do specific template layouts
+    }%
+    \setlength\parindent{0mm}%
+}%
+
+% ===================================================================================
+% Geometry for Plain Pages without any TU markings:
+
+% Officially there is no mention of truely plain pages (that is, pages without
+% the TU sigil somewhere) in the cd toolbox.
+% However, we know that most users of the TUBS LaTeX CD templates use them
+% for submissions of different kinds. Submissions are special in the regard that
+% usually only the titlepage is set in some kind of TU Braunschweig layout and the
+% following pages are individually designed.
+% The old templates provided a default design and we strive to do the same with the
+% new version.
+% The layout provided here does not follow any special guidelines and is
+% of course free to be edited and can be overwritten by everyone to their liking.
+
+\newcommand{\tuPlainGeometry}{%
+
+    % Page borders definition
+    \newgeometry{%
+        top=30mm,%
+        bottom=25mm,%
+        left=30mm,%
+        right=30mm,%
+        bindingoffset=\tubs@bindingoffset mm%
+    }%
+
+    % Header and Footer Definitions
+
+    \clearpairofpagestyles   % alle Kopf-/Fußfelder löschen
+    
+    %— 1) Außen: Seitenzahl
+    \lehead{\pagemark}   % Even‐Pages left = Außen bei geraden
+    \rohead{\pagemark}   % Odd‐Pages  right = Außen bei ungeraden
+
+    %— 2) Innen: Kapitel/Abschnitt
+    \rehead{\leftmark}   % Even‐Pages right = Innen bei geraden
+    \lohead{\rightmark}  % Odd‐Pages  left  = Innen bei ungeraden
+    
+    \setkomafont{pagehead}{\scshape}    % SmallCaps für alle Kopftexte
+    \setkomafont{pagenumber}{\scshape}  % SmallCaps für Seitenzahl
+    
+    % Kopfzeile auch auf Kapitelstartseiten, insofern definiert
+    \pagestyle{scrheadings}%
+    \ifdefined\chapterpagestyle \renewcommand*{\chapterpagestyle}{scrheadings}\else\fi%
+}%

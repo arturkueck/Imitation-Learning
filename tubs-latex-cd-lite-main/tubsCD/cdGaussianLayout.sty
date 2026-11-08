@@ -1,0 +1,324 @@
+% ========================================================================================
+% © 2026 Technische Universität Braunschweig – Stabsstelle für Presse und Kommunikation
+% Autoren: Veronika Hille
+% ========================================================================================
+
+\NeedsTeXFormat{LaTeX2e}%
+\ProvidesPackage{tubsCD/cdGaussianLayout}[2025/03/17 Gauss Layout for most Pages of the Corporate Design]%
+
+% ===================================================================================
+% This is the gaussian layout style definition file.
+% The gaussian layout is defined in the cd-toolbox at
+% https://www.tu-braunschweig.de/presse/corporate-design/cd-toolbox/gestaltungsprinzipien/gaussraster
+%
+% In short, these are the following components that define the gaussian layout
+% - the communication space is divided in 8 segments for portrait pages, 6 for landscape
+% - the segment size is calculated by the gaussian sum formula
+% - the smallest segment is across the senderspace
+% - segments must be filled with a picture or a tu color
+% - if filled with color, tones below 40% get black lettering, above white
+%
+% this file aims at defining all settings for the gaussian layout
+% However, the final page is assembled in the tubscd.cls file
+%
+% ===================================================================================
+% Packages:
+
+\RequirePackage{pgf} % math calculations
+\RequirePackage{tikz} % drawing and positioning objects
+\usetikzlibrary{calc} % Required for coordinate calculations
+\RequirePackage{xstring} % string matching and editing
+\RequirePackage{ifthen} % logic
+
+% ===================================================================================
+% Definitions of gauss values:
+% mostly dependent on paperlayout
+% or positioning of sigil banner
+
+%define the number of gauss boxes so the variable can be reused
+\newcommand{\numberOfGaussBoxes}{8}%
+\ifboolexpr{%
+    test {\ifdefstring{\tubs@paperformat}{landscape}}%
+    }{%
+        \renewcommand{\numberOfGaussBoxes}{6}%
+    }%
+
+% define the gaussian factor depending on the paper format
+\newcommand{\gaussianFactor}{}%
+\ifdefstring{\tubs@paperformat}{portrait}{%
+    % TODO: what about custom formats?
+    \pgfmathsetmacro{\gaussianFactor}{\communicationspaceheight / 36}%
+}{%
+    \pgfmathsetmacro{\gaussianFactor}{\communicationspaceheight / 21}%
+}%
+
+%define the end points (and zero) for the gauss boxes. the size depends on the senderspace
+\pgfmathsetmacro{\gaussBoxEndZ}{0}%
+\ifboolexpr{%
+    test {\ifdefstring{\tubs@tubanner}{topleft}} or
+    test {\ifdefstring{\tubs@tubanner}{topright}}%
+}{%
+    % normal order is difficult as with the gauss factor we only get the increasingly larger distances from zero
+    % so we need to invert the order and get the length of the box (previous factor multiplication - current factor multiplication)
+    % and additionally add the space of the boxes hat have come before (+ gaussBoxX)
+    %
+    % furthermore, for landscapes, the box ends need to be calculated with different factors...
+    \ifdefstring{\tubs@paperformat}{portrait}{%
+        \pgfmathsetmacro{\gaussBoxEndA}{(\gaussianFactor * 36) - (\gaussianFactor * 28)}%
+        \pgfmathsetmacro{\gaussBoxEndB}{(\gaussianFactor * 28) - (\gaussianFactor * 21) + \gaussBoxEndA}%
+        \pgfmathsetmacro{\gaussBoxEndC}{(\gaussianFactor * 21) - (\gaussianFactor * 15) + \gaussBoxEndB}%
+        \pgfmathsetmacro{\gaussBoxEndD}{(\gaussianFactor * 15) - (\gaussianFactor * 10) + \gaussBoxEndC}%
+        \pgfmathsetmacro{\gaussBoxEndE}{(\gaussianFactor * 10) - (\gaussianFactor * 6)  + \gaussBoxEndD}%
+        \pgfmathsetmacro{\gaussBoxEndF}{(\gaussianFactor * 6)  - (\gaussianFactor * 3)  + \gaussBoxEndE}%
+        \pgfmathsetmacro{\gaussBoxEndG}{(\gaussianFactor * 3)  - (\gaussianFactor * 1)  + \gaussBoxEndF}%
+        \pgfmathsetmacro{\gaussBoxEndH}{(\gaussianFactor * 1)                           + \gaussBoxEndG}%
+    }{%
+        \pgfmathsetmacro{\gaussBoxEndA}{(\gaussianFactor * 21) - (\gaussianFactor * 15)}%
+        \pgfmathsetmacro{\gaussBoxEndB}{(\gaussianFactor * 15) - (\gaussianFactor * 10) + \gaussBoxEndA}%
+        \pgfmathsetmacro{\gaussBoxEndC}{(\gaussianFactor * 10) - (\gaussianFactor * 6)  + \gaussBoxEndB}%
+        \pgfmathsetmacro{\gaussBoxEndD}{(\gaussianFactor * 6)  - (\gaussianFactor * 3)  + \gaussBoxEndC}%
+        \pgfmathsetmacro{\gaussBoxEndE}{(\gaussianFactor * 3)  - (\gaussianFactor * 1)  + \gaussBoxEndD}%
+        \pgfmathsetmacro{\gaussBoxEndF}{(\gaussianFactor * 1)  - (\gaussianFactor * 0)  + \gaussBoxEndE}%
+        % 0 gauss boxes. only here for completeness sake
+        \pgfmathsetmacro{\gaussBoxEndG}{(\gaussianFactor * 0)  - (\gaussianFactor * 0)  + \gaussBoxEndF}%
+        \pgfmathsetmacro{\gaussBoxEndH}{(\gaussianFactor * 0)                           + \gaussBoxEndG}%
+    }%
+}{%
+    %reverse order is easy created by gauss formula
+    \pgfmathsetmacro{\gaussBoxEndA}{\gaussianFactor * 1}%
+    \pgfmathsetmacro{\gaussBoxEndB}{\gaussianFactor * 3}%
+    \pgfmathsetmacro{\gaussBoxEndC}{\gaussianFactor * 6}%
+    \pgfmathsetmacro{\gaussBoxEndD}{\gaussianFactor * 10}%
+    \pgfmathsetmacro{\gaussBoxEndE}{\gaussianFactor * 15}%
+    \pgfmathsetmacro{\gaussBoxEndF}{\gaussianFactor * 21}%
+    % here, the additional boxes can be simply ignored in landscape mode
+    \pgfmathsetmacro{\gaussBoxEndG}{\gaussianFactor * 28}%
+    \pgfmathsetmacro{\gaussBoxEndH}{\gaussianFactor * 36}%
+}%
+
+% mapping function to map position number of gauss box to coordinates
+\newcommand{\gaussBoxIssuer}[1]{%
+    \ifnumcomp{#1}{=}{0}{\gaussBoxEndZ}{}%
+    \ifnumcomp{#1}{=}{1}{\gaussBoxEndA}{}%
+    \ifnumcomp{#1}{=}{2}{\gaussBoxEndB}{}%
+    \ifnumcomp{#1}{=}{3}{\gaussBoxEndC}{}%
+    \ifnumcomp{#1}{=}{4}{\gaussBoxEndD}{}%
+    \ifnumcomp{#1}{=}{5}{\gaussBoxEndE}{}%
+    \ifnumcomp{#1}{=}{6}{\gaussBoxEndF}{}%
+    \ifnumcomp{#1}{=}{7}{\gaussBoxEndG}{}%
+    \ifnumcomp{#1}{=}{8}{\gaussBoxEndH}{}%
+}%
+
+% make a counter to assure all previous gauss boxes have been defined by user
+\newcounter{previousGaussBoxReach}%
+\setcounter{previousGaussBoxReach}{0}%
+% define the test here because it needs to be checked at runtime when a new gausspage is made
+% and at the end of the document to ensure the last gauss page is fully finished
+% this concrete test ensures that if we start a new gauss page, the previous one is either
+% 0 (for init), 8 (for portrait) or 6 (for landscape)
+\newcommand{\checkPreviousGaussBoxReach}{%
+        \ifboolexpr{test {\ifnumcomp{\thepreviousGaussBoxReach}{=}{0}} or
+                    test {\ifnumcomp{\thepreviousGaussBoxReach}{=}{\numberOfGaussBoxes}}%
+        }{}{%
+            \ClassWarning{tubscd}{Somewhere before this line is a page with gauss layout that is missing segments (8 for portrait mode, 6 for landscape)}%
+        }%
+        \setcounter{previousGaussBoxReach}{0}%
+}%
+
+% repeat check at end of document again
+\AtEndDocument{\checkPreviousGaussBoxReach}%
+
+% ===================================================================================
+% More Definitions:
+% Mostly wrappings for the gauss boxes that are the same for both img and text boxes
+
+% predefine variables as that cannot be done during command call
+\newcommand{\letterColor}{white}% standard color for letters unless overwritten
+\newcommand{\supposedWidthMM}{0mm}% goal width of segment in mm
+\newcommand{\supposedHeightMM}{0mm}% goal height of segment in mm
+\newcommand{\isWidth}{0pt}% current width in pt
+\newcommand{\isHeight}{0pt}% current height in pt
+\newcommand{\gaussBegin}{}% starting segment number
+\newcommand{\gaussEnd}{}% ending segment number
+\newcommand{\boxYShift}{}% shift from top page down to position of segment
+\newcommand{\textBoxYShift}{}% similar to boxyshift, except with extra space for border within segment for text
+\pgfmathsetmacro{\textBoxXShift}{2*\borderwidth}% shift from left page border to text start (outer border + border within segment)
+\newsavebox{\tempbox}% temp spaceholder for segment before content is added
+% TODO is this fine for a4 paper still?
+% \pgfmathsetmacro{\twInMM}{(\paperwidth * 0.352778) - 2 * \borderwidth}% the paperwidth in mm
+\pgfmathsetmacro{\twInMM}{(\paperwidth / 1mm) - 2 * \borderwidth}% the paperwidth in mm
+
+% beginning wrapper for gauss box
+% makes sure parameters are correct, do some pre formatting
+\newcommand{\gaussBoxBegin}[2]{%
+    % make sure arguments for box circumference are sensible
+    \ifnumcomp{#1}{>}{#2}{%
+        \ClassWarning{tubscd}{Gaussian Boxes cannot be defined from high (#1) to low (#2). Please switch arguments}%
+    }%
+    \ifnumcomp{#1}{=}{1}{%
+        % the first segment denotes the start of a gauss page. do geometry and layout accordingly
+        \newpage%
+        \tuGaussGeometry%
+        \sffamily % it is not specified to use sans font here, but due to the usage of the gauss layout on posters etc, the sf font is probably the default wanted font
+        % make sure previous gauss page is finished before starting a new one
+        \checkPreviousGaussBoxReach%
+    }{}%
+    % make sure box number does not go above 8 (or 6 in landscape mode)
+    \ifnumcomp{#2}{>}{\numberOfGaussBoxes}{%
+        \ClassWarning{tubscd}{Gauss box not defined beyond \numberOfGaussBoxes (landscape mode has only 6)}%
+    }{}%
+    % make sure counter is correct and updated
+    \ifnumcomp{#1-1}{=}{\thepreviousGaussBoxReach}{ % -1 due to starting "at the bottom of the previous box"
+        \setcounter{previousGaussBoxReach}{#2}%
+    }{%
+        \ClassWarning{tubscd}{At least one gauss box before #1 not defined. Please define in order}%
+    }%
+    % define beginning and end of box
+    % the size of each gauss box depends on its distance to the senderspace, which needs to be regarded in the calculation
+    % this is done beforehand in the fuction gaussboxissuer
+    \renewcommand{\gaussBegin}{\gaussBoxIssuer{#1-1}}%
+    \renewcommand{\gaussEnd}{\gaussBoxIssuer{#2}}%
+    \pgfmathsetmacro{\gaussSize}{\gaussEnd-\gaussBegin + 0.1mm} % make size just a hint bigger, so there are no "no real overlap" artefacts
+    \pgfmathsetmacro{\boxYShift}{\gaussBegin + \gaussgeotop}%
+}%
+
+% ending wrapper for gauss box
+% do some post formatting
+\newcommand{\gaussBoxEnd}[1]{%
+% each gauss page has the sigil. HOWEVER, the sigil always needs to be placed on top of the boxes. Because of this, we now test if we have drawn the last box, and if that is the case, add the sigil
+    \ifnumcomp{#1}{=}{\numberOfGaussBoxes}{%
+        \drawSenderID%
+        \drawDivisionLine%
+        \drawBanner%
+        \newpage%
+        \rmfamily%
+        \tuPlainGeometry%
+    }{}%
+}%
+
+% ===================================================================================
+% Define the two different gauss boxes (img and txt):
+
+% Gauss box for texts
+\newcommand{\gaussBoxTxt}[5]{%
+% #1 begin span
+% #2 end span
+% #3 bg color
+% #4 alignment
+% #5 scale, cropped, content text
+    \gaussBoxBegin{#1}{#2}%
+    % differentiate the two use types of the gauss box (color+text/img)
+    \ifboolexpr{test {\IfSubStr{#3}{20}} or test {\IfSubStr{#3}{40}}}{%
+                    \renewcommand{\letterColor}{tuBlack}%
+                }{%
+                    \renewcommand{\letterColor}{tuWhite}%
+                }%
+    % add some border within the textbox
+    \pgfmathsetmacro{\textBoxYShift}{\boxYShift + \borderwidth}%
+    % add extra border for first gauss box so it wont collide with sigil
+    \ifnumcomp{#1}{=}{1}{\pgfmathsetmacro{\textBoxYShift}{\textBoxYShift + \borderwidth}}{}%
+    % dont add border if gauss box is singular 8th segment because its shifted outside otherwise
+    \ifnumcomp{#1}{=}{8}{\pgfmathsetmacro{\textBoxYShift}{\boxYShift + 0.25*\borderwidth}}{}%
+    \pgfmathsetmacro{\innerTWInMM}{\twInMM - 2*\borderwidth}%
+    \pgfmathsetmacro{\innerTHInMM}{\gaussSize - 2*\borderwidth}%
+    % create segment
+    \begin{tikzpicture}[remember picture, overlay]%
+        % draw rectangle
+        \fill[#3] (current page.north west) ++ (\borderwidth mm,-\boxYShift mm)%
+            rectangle ++(\twInMM mm, -\gaussSize mm);%
+        % draw text
+        \node[color=\letterColor,%
+              anchor=north west,%
+              xshift=\textBoxXShift mm,%
+              yshift=-\textBoxYShift mm,%
+              % align=#4,%
+              inner sep=0pt,%
+              ]%
+              at (current page.north west)%
+                {%
+                    \begin{minipage}[t][\innerTHInMM mm][t]{\innerTWInMM mm} % align|height|typeset the contents top–to–bottom|width
+                        \IfSubStr{#4}{left}{\raggedright}{}%
+                        \IfSubStr{#4}{center}{\centering}{}%
+                        \IfSubStr{#4}{right}{\raggedleft}{}%
+                        #5%
+                    \end{minipage}%
+                };%
+    \end{tikzpicture}%
+    \gaussBoxEnd{#2}%
+}%
+
+% Gauss box for images
+\newcommand{\gaussBoxImg}[4]{%
+% #1 begin span
+% #2 end span
+% #3 scale, cropped
+% #4 image path
+    \gaussBoxBegin{#1}{#2}%
+    \renewcommand{\supposedWidthMM}{\twInMM mm}%
+    \renewcommand{\supposedHeightMM}{\gaussSize mm}%
+    \IfSubStr{#3}{cropped}{%
+        % cropping images is not trivial because we need to know how much to crop and the user can give a random image. so the crop amount needs to be calculated
+        % math ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        % first, lets get the current width and height of the image
+        \sbox{\tempbox}{\includegraphics{#4}}%
+        \newdimen\imagewidth\settowidth{\imagewidth}{\usebox{\tempbox}}%
+        \newdimen\imageheight\settoheight{\imageheight}{\usebox{\tempbox}}%
+        \renewcommand{\isWidth}{\the\imagewidth}% redefining dimension variables vor more comfortable use
+        \renewcommand{\isHeight}{\the\imageheight}% redefining dimension variables vor more comfortable use
+        % then the supposed image lengths need to be scaled from mm to pt because this is how we got the dim variables (and my calculation breaks when i try it the other way)
+        \pgfmathsetmacro{\supposedWidthPT}{\supposedWidthMM * 2.8346456693}%
+        \pgfmathsetmacro{\supposedHeightPT}{\supposedHeightMM * 2.8346456693}%
+        % finally, we can calculate
+        % for this, we check how much scaling we need for width and height to fill out our supposed frame
+        \pgfmathsetmacro{\neededWidthScale}{\supposedWidthPT / \isWidth}%
+        \pgfmathsetmacro{\neededHeightScale}{\supposedHeightPT / \isHeight}%
+        % then we scale the opposing dimension with it so we can see the overflow later
+        \pgfmathsetmacro{\scaledWidth}{\isWidth * \neededHeightScale}%
+        \pgfmathsetmacro{\scaledHeight}{\isHeight * \neededWidthScale}%
+        % now we can check that either width or height will overflow the supposed values in their scaled form
+        % should this happen, we can now determine the cut values
+        % in words: "the amount we want to trim away is what remains when we remove the amount we need from the one we have available in the scaled form. this result needs to be divided by two because we want to trim evenly on both sides such that the center of the image remains. the final result needs to be scaled back to the original image scale so that the image can be displayed propperly"
+        \pgfmathsetmacro{\widthCut}{ifthenelse(\scaledWidth > \supposedWidthPT, %
+                                        ((\scaledWidth - \supposedWidthPT) / 2) / \neededHeightScale, %
+                                        0)}%
+        \pgfmathsetmacro{\heightCut}{ifthenelse(\scaledHeight > \supposedHeightPT, %
+                                        ((\scaledHeight - \supposedHeightPT) / 2) / \neededWidthScale, %
+                                        0)}%
+        % math end ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        % create cropped segment
+        \begin{tikzpicture}[remember picture, overlay]%
+            \node[anchor=north west,%
+                  inner sep=0pt,%
+                  xshift=\borderwidth mm,%
+                  yshift=-\boxYShift mm%
+                  ]%
+                  at (current page.north west) {%
+                    \includegraphics[%
+                        width=\supposedWidthMM,%
+                        height=\supposedHeightMM,%
+                        trim=\widthCut pt \heightCut pt \widthCut pt \heightCut pt,%
+                        clip,%
+                    ]{#4}%
+            };%
+        \end{tikzpicture}%
+    }{\IfSubStr{#3}{scaled}{%
+        % create scaled segment
+        \begin{tikzpicture}[remember picture, overlay]%
+            \node[anchor=north west,%
+                  inner sep=0pt,%
+                  xshift=\borderwidth mm,%
+                  yshift=-\boxYShift mm%
+                  ]%
+                  at (current page.north west) {%
+                    \includegraphics[%
+                        width=\supposedWidthMM,%
+                        height=\supposedHeightMM,%
+                ]{#4}%
+            };%
+        \end{tikzpicture}%
+    }{%
+        % Argument #5 contains something different.
+        \ClassWarning{tubscd}{Attempted to load image in gauss box without specification of argument 4 if image is cropped or scaled. Specification needed}%
+    }}%
+    \gaussBoxEnd{#2}%
+}%

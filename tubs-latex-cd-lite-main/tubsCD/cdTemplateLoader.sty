@@ -1,0 +1,59 @@
+% ========================================================================================
+% © 2026 Technische Universität Braunschweig – Stabsstelle für Presse und Kommunikation
+% Autoren: Veronika Hille
+% ========================================================================================
+
+\NeedsTeXFormat{LaTeX2e}%
+\ProvidesPackage{tubsCD/cdTemplateLoader}[2025/03/18 Integration for Templates in the CD]%
+
+% ===================================================================================
+% This is the template loader definition file.
+% It loads the template that is wanted in the class call.
+%
+% However, the final page is assembled in the tubscd.cls file.
+%
+% ===================================================================================
+
+\ifboolexpr{test {\ifdefstring{\tubs@template}{Bachelorarbeit}} or %
+            test {\ifdefstring{\tubs@template}{bachelorthesis}}}{%
+    \input{templates/Abschlussarbeiten/Bachelorarbeit}%
+}{\ifboolexpr{test {\ifdefstring{\tubs@template}{Masterarbeit}} or %
+              test {\ifdefstring{\tubs@template}{masterthesis}}}{%
+    \input{templates/Abschlussarbeiten/Masterarbeit}%
+}{\ifboolexpr{test {\ifdefstring{\tubs@template}{Dissertation}} or %
+              test {\ifdefstring{\tubs@template}{dissertation}}}{%
+    \input{templates/Abschlussarbeiten/Dissertation}%
+}{\ifboolexpr{test {\ifdefstring{\tubs@template}{StandardAbgabe}} or %
+              test {\ifdefstring{\tubs@template}{defaultsubmission}}}{%
+    \input{templates/Abschlussarbeiten/StandardAbgabe}%
+}{\ifdefstring{\tubs@template}{Broschuere}{%
+    \input{templates/Flyer_und_Broschueren/Broschuere}%
+}{\ifdefstring{\tubs@template}{Flyer}{%
+    \input{templates/Flyer_und_Broschueren/Flyer}%
+}{\ifdefstring{\tubs@template}{BriefbogenDigital}{%
+    \input{templates/Geschaeftsausstattung/BriefbogenDigital}%
+}{\ifdefstring{\tubs@template}{BriefbogenStandard}{%
+    \input{templates/Geschaeftsausstattung/BriefbogenStandard}%
+}{\ifdefstring{\tubs@template}{FaxbogenUndKurzbrief}{%
+    \input{templates/Geschaeftsausstattung/FaxbogenUndKurzbrief}%
+}{\ifdefstring{\tubs@template}{Grusskarte}{%
+    \input{templates/Geschaeftsausstattung/Grusskarte}%
+}{\ifdefstring{\tubs@template}{Visitenkarte}{%
+    \input{templates/Geschaeftsausstattung/Visitenkarte}%
+}{\ifdefstring{\tubs@template}{Aushang}{%
+    \input{templates/Plakate/Aushang}%
+}{\ifdefstring{\tubs@template}{PosterUndWissPlakat}{%
+    \input{templates/Plakate/PosterUndWissPlakat}%
+}{\ifdefstring{\tubs@template}{Veranstaltungsplakat}{%
+    \input{templates/Plakate/Veranstaltungsplakat}%
+}{\ifboolexpr{test {\ifdefstring{\tubs@template}{Praesentation}} or %
+              test {\ifdefstring{\tubs@template}{presentation}} or %
+              test {\ifdefstring{\tubs@template}{beamer}}}{%
+    \input{templates/Praesentationen/Praesentation}
+}{\ifdefstring{\tubs@template}{off}{%
+    % don't load anything
+    % but load a geometry layout
+    \tuPlainGeometry
+}{% unknown name
+    \ClassWarning{tubscd}{Attempted to load unknown template (did you use the correct spelling and caps usage?). Please refer to cdTemplateLoader.sty for all options or on how to include a custom template}%
+}}}}}}}}}}}}}}}}%

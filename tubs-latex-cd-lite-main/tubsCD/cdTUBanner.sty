@@ -1,0 +1,73 @@
+% ========================================================================================
+% © 2026 Technische Universität Braunschweig – Stabsstelle für Presse und Kommunikation
+% Autoren: Veronika Hille
+% ========================================================================================
+
+\NeedsTeXFormat{LaTeX2e}%
+\ProvidesPackage{tubsCD/cdTUBanner}[2024/09/13 TU Banner present on most Pages of the Corporate Design]%
+
+% Please note that the red line is defined in cdSenderspace, and not here
+
+% ===================================================================================
+% This is the TU Banner style definition file.
+% The TU Banner is defined in the cd-toolbox at
+% https://www.tu-braunschweig.de/presse/corporate-design/cd-toolbox/gestaltungsprinzipien/siegelband
+% and
+% https://www.tu-braunschweig.de/presse/corporate-design/cd-toolbox/basiselemente/siegel
+%
+% In short, these are the following components that define the TU Banner
+% - the banner is 3/4th in the senderspace and 1/4th in the communication space
+% - the banner may overlap colors or pictures but otherwise there is a
+% - protection zone of 1/4 banner size around the banner where no visual keys may be placed
+% - the banner always borders the paper except for in the digital letterhead (TODO numbers?)
+% - generally the logo is in tu red, but can be converted to black, should this be wished
+% - the logo position on the page can be top left, top right, bottom left or bottom right
+%   except for power point title page where it has to be top left (please refer to
+%   cdBeamer.sty)
+%
+% this file aims at defining all settings for the TU Banner
+% However, the final page is assembled in the tubscd.cls file
+%
+% ===================================================================================
+
+% scale for logo depending on doc size
+% due to conversion from svg to pdf, we need extra scaling factor 1.336
+%DIN A6 	  0.8016  % 0.60 * 1.336
+%DIN lang     0.8016  % 0.60 * 1.336
+%DIN A5 	  0.9352  % 0.70 * 1.336
+%DIN A4 	  1.336   % 1.0  * 1.336
+%DIN A3 	  1.8704  % 1.40 * 1.336
+%DIN A2 	  2.672   % 2.0  * 1.336
+%DIN A1 	  3.7408  % 2.80 * 1.336
+%DIN A0 	  5.344   % 4.0  * 1.336
+
+%TODO there is briefbogen who wants logo within paper borders. so variable for offset is needed
+
+% "TODO Weitere Logogrößen für spezifische Medien sind bei den entsprechenden Anwendungen zu finden" bedeutet ja einfach nur, dass in den dokumenten die \bannerscale überschrieben werden muss
+
+\RequirePackage{xkeyval}%
+\RequirePackage{pgf}%
+
+% Define the scale variable
+\newcommand{\bannerscale}{1.336}%
+
+\ifdefstring{\tubs@papersize}{a6paper}{\renewcommand{\bannerscale}{0.8016}}{}%
+\ifdefstring{\tubs@papersize}{langpaper}{\renewcommand{\bannerscale}{0.8016}}{}%
+\ifdefstring{\tubs@papersize}{a5paper}{\renewcommand{\bannerscale}{0.9352}}{}%
+\ifdefstring{\tubs@papersize}{a3paper}{\renewcommand{\bannerscale}{1.8704}}{}%
+\ifdefstring{\tubs@papersize}{a2paper}{\renewcommand{\bannerscale}{2.672}}{}%
+\ifdefstring{\tubs@papersize}{a1paper}{\renewcommand{\bannerscale}{3.7408}}{}%
+\ifdefstring{\tubs@papersize}{a0paper}{\renewcommand{\bannerscale}{5.344}}{}%
+\ifdefstring{\tubs@papersize}{custom}{\renewcommand{\bannerscale}{0.8016}}{}%
+
+\newcommand{\bannerlocation}{tubsCD/cdImages/TUBraunschweig_Siegel_R.pdf}%
+
+% we additionally need the width and height of the logo for the senderspace later
+\newsavebox{\bannertempbox}%
+\sbox{\bannertempbox}{\includegraphics[scale=\bannerscale]{\bannerlocation}}%
+\newdimen\bannerimagewidth\settowidth{\bannerimagewidth}{\usebox{\bannertempbox}}%
+\newdimen\bannerimageheight\settoheight{\bannerimageheight}{\usebox{\bannertempbox}}%
+% redefining dimension variables vor more comfortable use
+% in mm
+\pgfmathsetmacro{\bannerWidth}{\the\bannerimagewidth / 2.8346456693}%
+\pgfmathsetmacro{\bannerHeight}{\the\bannerimageheight / 2.8346456693}%

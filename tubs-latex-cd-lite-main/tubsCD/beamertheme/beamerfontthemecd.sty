@@ -1,0 +1,48 @@
+% ========================================================================================
+% © 2026 Technische Universität Braunschweig – Stabsstelle für Presse und Kommunikation
+% Autoren: Veronika Hille
+% ========================================================================================
+
+\ProvidesPackage{tubsCD/beamertheme/beamerfontthemecd}[2026/01/05 Fonts of the Corporate Design for Beamer]%
+\NeedsTeXFormat{LaTeX2e}%
+\RequirePackage{beamerbasecompatibility}% hook into beamer
+
+\mode<presentation>
+% because I cannot remember each time:
+% family = serif / no serif etc
+%   serif      = rmfamily
+%   sans serif = sffamily
+%   monospace  = ttfamily
+%   more?
+% series = boldness
+%   bold   = bfseries
+%   medium = mdseries
+% shape = all other styles
+%   upright    = upshape
+%   italic 	   = itshape
+%   slanted    = slshape
+%   small caps = scshape
+% size = size
+
+% Fonts for title page
+\setbeamerfont*{title}{series=\bfseries,size=\Large}%
+\setbeamerfont*{subtitle}{series=\mdseries,size=\normalsize}%
+
+% Fonts for TOC
+\setbeamerfont*{section in toc}{series=\bfseries,size=\large}%
+\setbeamerfont*{subsection in toc}{series=\mdseries,size=\normalsize}%
+
+% Fonts for header
+\setbeamerfont*{section in head/foot}{series=\mdseries,size=\tubsFontMini}%
+\setbeamerfont*{subsection in head/foot}{series=\mdseries,size=\tubsFontMini}%
+\setbeamerfont*{frametitle}{family=\sffamily,series=\bfseries,size=\Large}%
+
+% Fonts for footer
+\setbeamerfont*{footline}{series=\mdseries,size=\tubsFontMini}%
+
+% Other fonts
+\setbeamerfont*{part name}{series=\mdseries,size=\LARGE}%
+\setbeamerfont*{part title}{series=\bfseries,size=\LARGE}%
+
+\mode<all>
+\endinput

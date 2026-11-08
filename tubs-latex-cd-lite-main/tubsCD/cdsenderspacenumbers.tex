@@ -1,0 +1,201 @@
+% ========================================================================================
+% © 2026 Technische Universität Braunschweig – Stabsstelle für Presse und Kommunikation
+% Autoren: Veronika Hille
+% ===================================================================================
+% This files contains exclusively numbers specified in the cd toolbox.
+% The purpose of these numbers is to manually define the borderwidth,
+% the senderspaceheight, and the communicationspaceheight for specific
+% paper formats.
+% They have been outsourced here to make the main file less crowded.
+% ===================================================================================
+
+\ifboolexpr{%
+    test {\ifdefstring{\tubs@papersize}{a0paper}} and
+    test {\ifdefstring{\tubs@paperformat}{portrait}}
+    }{%
+        \renewcommand{\borderwidth}{32}%
+        \renewcommand{\senderspaceheight}{160}%
+        \renewcommand{\communicationspaceheight}{997}%
+    }{}%
+\ifboolexpr{%
+    test {\ifdefstring{\tubs@papersize}{a0paper}} and
+    test {\ifdefstring{\tubs@paperformat}{landscape}}
+    }{%
+        \renewcommand{\borderwidth}{32}%
+        \renewcommand{\senderspaceheight}{160}%
+        \renewcommand{\communicationspaceheight}{649}%
+    }{}%
+%
+\ifboolexpr{%
+    test {\ifdefstring{\tubs@papersize}{a1paper}} and
+    test {\ifdefstring{\tubs@paperformat}{portrait}}
+    }{%
+        \renewcommand{\borderwidth}{22}%
+        \renewcommand{\senderspaceheight}{120}%
+        \renewcommand{\communicationspaceheight}{699}%
+    }{}%
+\ifboolexpr{%
+    test {\ifdefstring{\tubs@papersize}{a1paper}} and
+    test {\ifdefstring{\tubs@paperformat}{landscape}}
+    }{%
+        \renewcommand{\borderwidth}{22}%
+        \renewcommand{\senderspaceheight}{120}%
+        \renewcommand{\communicationspaceheight}{453}%
+    }{}%
+%
+\ifboolexpr{%
+    test {\ifdefstring{\tubs@papersize}{a2paper}} and
+    test {\ifdefstring{\tubs@paperformat}{portrait}}
+    }{%
+        \renewcommand{\borderwidth}{16}%
+        \renewcommand{\senderspaceheight}{80}%
+        \renewcommand{\communicationspaceheight}{498}%
+    }{}%
+\ifboolexpr{%
+    test {\ifdefstring{\tubs@papersize}{a2paper}} and
+    test {\ifdefstring{\tubs@paperformat}{landscape}}
+    }{%
+        \renewcommand{\borderwidth}{16}%
+        \renewcommand{\senderspaceheight}{80}%
+        \renewcommand{\communicationspaceheight}{324}%
+    }{}%
+%
+\ifboolexpr{%
+    test {\ifdefstring{\tubs@papersize}{a3paper}} and
+    test {\ifdefstring{\tubs@paperformat}{portrait}}
+    }{%
+        \renewcommand{\borderwidth}{11}%
+        \renewcommand{\senderspaceheight}{60}%
+        \renewcommand{\communicationspaceheight}{349}%
+    }{}%
+\ifboolexpr{%
+    test {\ifdefstring{\tubs@papersize}{a3paper}} and
+    test {\ifdefstring{\tubs@paperformat}{landscape}}
+    }{%
+        \renewcommand{\borderwidth}{11}%
+        \renewcommand{\senderspaceheight}{60}%
+        \renewcommand{\communicationspaceheight}{226}%
+    }{}%
+%
+\ifboolexpr{%
+    test {\ifdefstring{\tubs@papersize}{a4paper}} and
+    test {\ifdefstring{\tubs@paperformat}{portrait}}
+    }{%
+        \renewcommand{\borderwidth}{8}%
+        \renewcommand{\senderspaceheight}{40}%
+        \renewcommand{\communicationspaceheight}{249}%
+    }{}%
+\ifboolexpr{
+    test {\ifdefstring{\tubs@papersize}{a4paper}} and
+    test {\ifdefstring{\tubs@paperformat}{landscape}}
+    }{%
+        \renewcommand{\borderwidth}{8}%
+        \renewcommand{\senderspaceheight}{40}%
+        \renewcommand{\communicationspaceheight}{162}%
+    }{}%
+%
+\ifboolexpr{%
+    test {\ifdefstring{\tubs@papersize}{a5paper}} and
+    test {\ifdefstring{\tubs@paperformat}{portrait}}
+    }{%
+        \renewcommand{\borderwidth}{5.5}%
+        \renewcommand{\senderspaceheight}{30}%
+        \renewcommand{\communicationspaceheight}{174.5}%
+    }{}%
+\ifboolexpr{%
+    test {\ifdefstring{\tubs@papersize}{a5paper}} and
+    test {\ifdefstring{\tubs@paperformat}{landscape}}
+    }{%
+        \renewcommand{\borderwidth}{5.5}%
+        \renewcommand{\senderspaceheight}{30}%
+        \renewcommand{\communicationspaceheight}{112.5}%
+    }{}%
+%
+\ifboolexpr{%
+    test {\ifdefstring{\tubs@papersize}{langpaper}} and
+    test {\ifdefstring{\tubs@paperformat}{portrait}}
+    }{%
+        \renewcommand{\borderwidth}{5}%
+        \renewcommand{\senderspaceheight}{30}%
+        \renewcommand{\communicationspaceheight}{175}%
+    }{}%
+\ifboolexpr{%
+    test {\ifdefstring{\tubs@papersize}{langpaper}} and
+    test {\ifdefstring{\tubs@paperformat}{landscape}}
+    }{%
+        \renewcommand{\borderwidth}{5}%
+        \renewcommand{\senderspaceheight}{30}%
+        \renewcommand{\communicationspaceheight}{112.5}%
+    }{}%
+%
+\ifboolexpr{%
+    test {\ifdefstring{\tubs@papersize}{a6paper}} and
+    test {\ifdefstring{\tubs@paperformat}{portrait}}
+    }{%
+        \renewcommand{\borderwidth}{5}%
+        \renewcommand{\senderspaceheight}{25}%
+        \renewcommand{\communicationspaceheight}{118}%
+    }{}%
+\ifboolexpr{%
+    test {\ifdefstring{\tubs@papersize}{a6paper}} and
+    test {\ifdefstring{\tubs@paperformat}{landscape}}
+    }{%
+        \renewcommand{\borderwidth}{5}%
+        \renewcommand{\senderspaceheight}{25}%
+        \renewcommand{\communicationspaceheight}{75}%
+    }{}%
+%
+\ifboolexpr{%
+    test {\ifdefstring{\tubs@papersize}{a7paper}} and
+    test {\ifdefstring{\tubs@paperformat}{portrait}}
+    }{%
+        \renewcommand{\borderwidth}{4}%
+        \renewcommand{\senderspaceheight}{21}%
+        \renewcommand{\communicationspaceheight}{80}%
+    }{}%
+\ifboolexpr{%
+    test {\ifdefstring{\tubs@papersize}{a7paper}} and
+    test {\ifdefstring{\tubs@paperformat}{landscape}}
+    }{%
+        \renewcommand{\borderwidth}{4}%
+        \renewcommand{\senderspaceheight}{21}%
+        \renewcommand{\communicationspaceheight}{60}% % this is a guesstimate as the toolbox does not specify
+    }{}%
+
+% Declare options for custom and poster
+% TODO do we even need special poster sizes? they are usually A norm or custom anyway
+\ifboolexpr{%
+    test {\ifdefstring{\tubs@papersize}{poster}} and
+    test {\ifdefstring{\tubs@paperformat}{portrait}}
+    }{%
+        % rescale from 1/7th to 1/11th as specified in toolbox
+        \pgfmathsetmacro{\senderspaceheight}{(\senderspaceheight / 7 ) * 11}%
+        \pgfmathsetmacro{\communicationspaceheight}{(\communicationspaceheight / 7 ) * 11}%
+    }{}%
+%
+\ifboolexpr{%
+    test {\ifdefstring{\tubs@papersize}{poster}} and
+    test {\ifdefstring{\tubs@paperformat}{landscape}}
+    }{%
+        % rescale from 1/5th to 1/11th as specified in toolbox
+        \pgfmathsetmacro{\senderspaceheight}{(\senderspaceheight / 5 ) * 11}%
+        \pgfmathsetmacro{\communicationspaceheight}{(\communicationspaceheight / 5 ) * 11}%
+    }{}%
+%
+\ifboolexpr{%
+    test {\ifdefstring{\tubs@papersize}{custom}} and
+    test {\ifdefstring{\tubs@paperformat}{portrait}}
+    }{%
+        \pgfmathsetmacro{\senderspaceheight}{(\paperheight/1mm) / 7}%
+        \pgfmathsetmacro{\borderwidth}{\senderspaceheight / 5}% approximated by other values
+        \pgfmathsetmacro{\communicationspaceheight}{(\paperheight/1mm) - \senderspaceheight - \borderwidth}% approximated by remaining mm
+    }{}%
+%
+\ifboolexpr{%
+    test {\ifdefstring{\tubs@papersize}{custom}} and
+    test {\ifdefstring{\tubs@paperformat}{landscape}}
+    }{%
+        \pgfmathsetmacro{\senderspaceheight}{(\paperheight/1mm) / 5}
+        \pgfmathsetmacro{\borderwidth}{\senderspaceheight / 5}% approximated by other values
+        \pgfmathsetmacro{\communicationspaceheight}{(\paperheight/1mm) - \senderspaceheight - \borderwidth}% approximated by remaining mm
+    }{}%

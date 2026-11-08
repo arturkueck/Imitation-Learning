@@ -1,0 +1,255 @@
+% ========================================================================================
+% © 2026 Technische Universität Braunschweig – Stabsstelle für Presse und Kommunikation
+% Autoren: Veronika Hille, Henry Behrend
+% ========================================================================================
+
+\NeedsTeXFormat{LaTeX2e}[2024-11-01]
+\ProvidesExplPackage{tubsCD/cdModuleLayout}{2026-10-11}{}{Module Layout for Scientific Posters of the Corporate Design}
+
+\RequirePackage{tikz}
+\RequirePackage{xcolor}
+
+% Resets the charcode of the space character to its normal value temporarily, so that we don't have to type ~ everywhere
+% in the error messages.
+\char_set_catcode_space:n { `\ }
+\msg_new:nnn {tubsCD/cdModuleLayout} {tooManyBoxes} {You have created more boxes than specified in the argument list.}
+\msg_new:nnn {tubsCD/cdModuleLayout} {notEnoughBoxes} {You have created less boxes than specified in the argument list.}
+\msg_new:nnn {tubsCD/cdModuleLayout} {unexpected} {Read an unexpected token, this is not supposed to happen! \\ Please contact the package authors.}
+\char_set_catcode_ignore:n { `\ }
+
+% The calculated size of flexible boxes.
+\dim_new:N \l_cdml_flexsize_dim
+% The number of flexible boxes requested in the argument to <lineup> and
+% <stackup>.
+\int_new:N \l_cdml_flexcount_int
+
+% The computed width of the next box.
+\dim_new:N \l_cdml_boxwidth_dim
+% The computed height of the next box.
+\dim_new:N \l_cdml_boxheight_dim
+% The number of boxes inside a given <stackup> or <lineup>. Used for
+% calculating the spacing.
+\int_new:N \l_cdml_boxcount_int
+
+% The amount of vertical/horizontal space inserted between items in <stackup>
+% and <lineup>.
+\dim_new:N \l_cdml_boxgap_dim
+
+% The distance from a box's outer edge to its content.
+\dim_new:N \l_cdml_boxsep_dim
+
+% The layout width, i.e. the width of the outermost <lineup> or <stackup>.
+\dim_new:N \l_cdml_layoutwidth_dim
+\dim_set_eq:NN \l_cdml_layoutwidth_dim \c_max_dim
+
+% The layout height, i.e. the height of the outermost <lineup> or <stackup>.
+\dim_new:N \l_cdml_layoutheight_dim
+\dim_set_eq:NN \l_cdml_layoutheight_dim \c_max_dim
+
+% These are used to denote the type of the box:
+% - If the box was specified using the 'fr' unit, it is flexible,
+% - otherwhise, the boxed is rigid (it has a fixed size).
+\quark_new:N \q_cdml_flexible
+\quark_new:N \q_cdml_rigid
+
+% Holds the parsed argument to <lineup> and <stackup>. It contains a pair
+% of tokens for each box to be constructed: The first token holds the type of
+% the box (either flexible or rigid) and the second holds the value (for
+% flexible boxes, this is the number of equal-size parts, and for rigid ones,
+% this is a simple length, i.e. 3cm or 100pt).
+\seq_new:N \l_cdml_specs_seq
+
+% Used in the argument to <lineup> and <stackup> to designate a flexible
+% box.
+\regex_const:Nn \c_cdml_flex_regex { \A([1-9]\d*)\h*fr\Z }
+
+% Goes through the <spec>s and does the following things:
+%   - Verifies that the format is correct (the assignment fails if the <spec> is
+%     not a valid dimension)
+%   - Determines the space available for flexible boxes
+%   - Counts the # of flexible boxes requested
+\cs_new_protected:Npn \cdml_parse_spec:n #1 {%
+  \regex_extract_once:NnNTF \c_cdml_flex_regex {#1} \l_tmpa_seq {%
+    \tl_set:Nx \l_tmpa_tl {\seq_item:Nn \l_tmpa_seq {2}}%
+    \seq_put_right:Nn \l_cdml_specs_seq \q_cdml_flexible%
+    \seq_put_right:Nx \l_cdml_specs_seq \l_tmpa_tl%
+    \int_add:Nn \l_cdml_flexcount_int {\l_tmpa_tl}%
+  }{%
+    \seq_put_right:Nn \l_cdml_specs_seq \q_cdml_rigid%
+    \seq_put_right:Nn \l_cdml_specs_seq {#1}%
+    \dim_sub:Nn \l_cdml_flexsize_dim {#1}%
+  }%
+  \int_incr:N \l_cdml_boxcount_int%
+}
+
+% Nested <stackup>s and <lineup>s will automatically get wrapped in a box.
+% But we don't want this at the top level, so we just initialize some variables
+% here. We do the automatic wrapping so that the user doesn't have to put
+% everything into a box explicitly, keeping the 'syntax' simpler.
+\cs_new_protected:Nn \cdml_outerbeginbox: {%
+  \dim_set:Nn \l_cdml_boxwidth_dim {\dim_min:nn \l_cdml_layoutwidth_dim \hsize}%
+  \dim_set:Nn \l_cdml_boxheight_dim {\dim_min:nn \l_cdml_layoutheight_dim \vsize}%
+}
+\cs_new_protected:Nn \cdml_outerendbox: {%
+  \ignorespacesafterend%
+}
+
+\cs_new_eq:NN \cdml_beginbox: \cdml_outerbeginbox:
+\cs_new_eq:NN \cdml_endbox: \cdml_outerendbox:
+
+% When we construct a new box, we want to do update some data structures. But
+% since boxes are created (mostly) using the <module> environment, the code
+% would get executed inside a group and so the changes made would only be
+% local to that group. We solve this via an \aftergroup
+% (or \group_insert_after:N), which delays the execution of this code until
+% after the group ends. So this command here will be executed at the end of each
+% box.
+\cs_new_protected:Nn \cdml_afterbox: {%
+  \seq_pop_left:NN \l_cdml_specs_seq \l_tmpa_tl%
+  \seq_pop_left:NN \l_cdml_specs_seq \l_tmpa_tl%
+  \int_decr:N \l_cdml_boxcount_int%
+}
+
+% Aliases for the internally used dimensions
+\ProvideDocumentCommand{\layoutwidth}{}{\l_cdml_layoutwidth_dim}
+\ProvideDocumentCommand{\layoutheight}{}{\l_cdml_layoutheight_dim}
+\ProvideDocumentCommand{\modulegap}{}{\l_cdml_boxgap_dim}
+\ProvideDocumentCommand{\modulesep}{}{\l_cdml_boxsep_dim}
+
+\ProvideDocumentEnvironment{module}{ O{tuWhite} s }{%
+  \cdml_beginbox:%
+  \group_begin:%
+  
+  \hbox to\l_cdml_boxwidth_dim\bgroup%
+  \tikz[overlay] \fill[#1] (0,0) rectangle (\l_cdml_boxwidth_dim,\l_cdml_boxheight_dim);%
+  \hspace \l_cdml_boxsep_dim%
+  
+  \vbox to\l_cdml_boxheight_dim\bgroup%
+  \vspace \l_cdml_boxsep_dim%
+  
+  \hsize=\dimexpr\l_cdml_boxwidth_dim - 2\l_cdml_boxsep_dim\relax%
+  \vsize=\dimexpr\l_cdml_boxheight_dim - 2\l_cdml_boxsep_dim\relax%
+  \dim_set_eq:NN \linewidth \hsize%
+  \dim_set_eq:NN \textwidth \hsize%
+  \dim_set_eq:NN \textheight \vsize%
+  
+  \cs_set_eq:NN \cdml_beginbox: \cdml_outerbeginbox:%
+  \cs_set_eq:NN \cdml_endbox: \cdml_outerendbox:%
+  \dim_set_eq:NN \l_cdml_boxsep_dim \c_zero_dim%
+
+  \noindent%
+  \ignorespaces%
+}{%
+  \vfill\vspace \l_cdml_boxsep_dim%
+  \egroup%
+  
+  \hfill\hspace \l_cdml_boxsep_dim%
+  \egroup%
+  
+  \group_end:%
+  \cdml_endbox:%
+}
+
+\ProvideDocumentEnvironment{lineup}{ >{\TrimSpaces} >{\SplitList{,}} m }{%
+  \cdml_beginbox:%
+  \hbox to\l_cdml_boxwidth_dim\bgroup%
+
+  \dim_set_eq:NN \l_cdml_flexsize_dim \l_cdml_boxwidth_dim%
+  \int_zero:N \l_cdml_flexcount_int%
+  \int_zero:N \l_cdml_boxcount_int%
+  \seq_clear:N \l_cdml_specs_seq%
+  \ProcessList{#1}{\cdml_parse_spec:n}%
+
+  \int_compare:nNnT \l_cdml_flexcount_int > {0} {%
+    \dim_set:Nn \l_cdml_flexsize_dim {(\l_cdml_flexsize_dim - (\l_cdml_boxgap_dim * (\l_cdml_boxcount_int - 1))) / \l_cdml_flexcount_int}%
+  }%
+
+  \renewcommand{\cdml_beginbox:}{%
+    \seq_if_empty:NTF \l_cdml_specs_seq {%
+      \msg_error:nn {tubsCD/cdModuleLayout} {tooManyBoxes}%
+    }{%
+      \seq_pop_left:NN \l_cdml_specs_seq \l_tmpa_tl%
+      \tl_if_eq:NNTF \q_cdml_flexible \l_tmpa_tl {%
+        \seq_get_left:NN \l_cdml_specs_seq \l_tmpa_tl%
+        \dim_set:Nn \l_cdml_boxwidth_dim {\l_cdml_flexsize_dim * \l_tmpa_tl}%
+      }{%
+        \tl_if_eq:NNTF \q_cdml_rigid \l_tmpa_tl {%
+          \seq_get_left:NN \l_cdml_specs_seq \l_tmpa_tl%
+          \dim_set:Nn \l_cdml_boxwidth_dim \l_tmpa_tl%
+        }{%
+          \msg_error:nn {tubsCD/cdModuleLayout} {unexpected}%
+        }%
+      }%
+      \group_insert_after:N \cdml_afterbox:%
+    }%
+  }%
+
+  \renewcommand{\cdml_endbox:}{%
+    \int_compare:nNnT \l_cdml_boxcount_int > {1} {%
+      % Allow the glue to stretch and shrink a tiny bit to avoid underfull/overfull boxes due to rounding errors.
+      \hskip \l_cdml_boxgap_dim plus .1pt minus .1pt%
+    }%
+    \ignorespacesafterend%
+  }%
+
+  \ignorespaces%
+}{%
+  \int_compare:nNnT \l_cdml_boxcount_int > {0} {%
+    \msg_warning:nn {tubsCD/cdModuleLayout} {notEnoughBoxes}%
+  }%
+  \egroup%
+  \cdml_endbox:%
+  \ignorespacesafterend%
+}
+
+\ProvideDocumentEnvironment{stackup}{ >{\TrimSpaces} >{\SplitList{,}} m }{%
+  \cdml_beginbox:%
+  \par\vbox to\l_cdml_boxheight_dim\bgroup%
+
+  \dim_set_eq:NN \l_cdml_flexsize_dim \l_cdml_boxheight_dim%
+  \int_zero:N \l_cdml_flexcount_int%
+  \int_zero:N \l_cdml_boxcount_int%
+  \seq_clear:N \l_cdml_specs_seq%
+  \ProcessList{#1}{\cdml_parse_spec:n}%
+
+  \int_compare:nNnT \l_cdml_flexcount_int > {0} {%
+    \dim_set:Nn \l_cdml_flexsize_dim {(\l_cdml_flexsize_dim - (\l_cdml_boxgap_dim * (\l_cdml_boxcount_int - 1))) / \l_cdml_flexcount_int}%
+  }%
+
+  \renewcommand{\cdml_beginbox:}{%
+    \seq_if_empty:NTF \l_cdml_specs_seq {%
+      \msg_error:nn {tubsCD/cdModuleLayout} {tooManyBoxes}%
+    }{%
+      \seq_pop_left:NN \l_cdml_specs_seq \l_tmpa_tl%
+      \tl_if_eq:NNTF \q_cdml_flexible \l_tmpa_tl {%
+        \seq_pop_left:NN \l_cdml_specs_seq \l_tmpa_tl%
+        \dim_set:Nn \l_cdml_boxheight_dim {\l_cdml_flexsize_dim * \l_tmpa_tl}%
+      }{%
+        \tl_if_eq:NNTF \q_cdml_rigid \l_tmpa_tl {%
+          \seq_pop_left:NN \l_cdml_specs_seq \l_tmpa_tl%
+          \dim_set:Nn \l_cdml_boxheight_dim \l_tmpa_tl%
+        }{%
+          \msg_error:nn {tubsCD/cdModuleLayout} {unexpected}%
+        }%
+      }%
+      \group_insert_after:N \cdml_afterbox:%
+    }%
+    \nointerlineskip%
+  }%
+
+  \renewcommand{\cdml_endbox:}{%
+    \int_compare:nNnT \l_cdml_boxcount_int > {1} {%
+      % Allow the glue to stretch and shrink a tiny bit to avoid underfull/overfull boxes due to rounding errors.
+      \vskip \l_cdml_boxgap_dim plus .1pt minus .1pt%
+    }%
+    \ignorespacesafterend%
+  }%
+
+  \ignorespaces%
+}{%
+  \int_compare:nNnT \l_cdml_boxcount_int > {0} {%
+    \msg_warning:nn {tubsCD/cdModuleLayout} {notEnoughBoxes}%
+  }%
+  \egroup%
+  \cdml_endbox:%
+}

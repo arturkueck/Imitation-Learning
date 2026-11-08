@@ -1,0 +1,104 @@
+% ========================================================================================
+% © 2026 Technische Universität Braunschweig – Stabsstelle für Presse und Kommunikation
+% Autoren: Veronika Hille
+% ========================================================================================
+
+\NeedsTeXFormat{LaTeX2e}%
+\ProvidesPackage{tubsCD/cdFonts}[2025/04/03 Fonts of the Corporate Design]%
+
+% IMPORTANT: use LuaLaTeX as compiler!
+
+% ===================================================================================
+% This is the font style definition file.
+% The fonts are defined in the cd-toolbox at
+% https://www.tu-braunschweig.de/presse/corporate-design/cd-toolbox/basiselemente/schrift
+%
+% In short, these are the following components that define the fonts
+% - use nexus
+% - otherwise use arial
+% itemization is done using rectangles
+%
+% Notes:
+% - the later part of this file contains some custom definitions for the templates,
+%   which are compliant with, but not defined by, the CD toolbox.
+%
+% this file aims at defining all settings for the fonts, and will actually set them
+%
+% ===================================================================================
+
+\RequirePackage{fontspec} % load after \LoadClass
+
+% Font for math to ensure compability for all equations
+\RequirePackage{lmodern}%
+
+\ifdefstring{\tubs@font}{nexus}{%
+    \setmainfont[%
+    Path=./tubsCD/fonts/Nexus/,%
+        BoldFont = {NexusSerifPro-Bold.otf},%
+        ItalicFont = {NexusSerifPro-Italic.otf},%
+        BoldItalicFont = {NexusSerifPro-BoldItalic.otf},%
+        SlantedFeatures = {FakeSlant=0.2},%
+        SlantedFont = {NexusSerifPro-Regular.otf}%
+    ]{NexusSerifPro-Regular.otf}%
+    %
+    % \setsansfont[%
+    % Path = ./tubsCD/fonts/Nexus/,%
+    %     UprightFont = {NexusSansPro-Regular.otf},
+    %     BoldFont = {NexusSansPro-Bold.otf},%
+    %     ItalicFont = {NexusSansPro-Italic.otf},%
+    %     BoldItalicFont = {NexusSansPro-BoldItalic.otf},%
+    %     SlantedFeatures = {FakeSlant=0.2},%
+    %     SlantedFont = {NexusSansPro-Regular.otf}%
+    % ]{NexusSansPro-Regular.otf}%
+}{%
+\ifdefstring{\tubs@font}{arial}{%
+    \setmainfont[%
+    Path=./tubsCD/fonts/Arial/,%
+        BoldFont = {Arial-Bold.ttf},%
+        ItalicFont = {Arial-Italic.ttf},%
+        BoldItalicFont = {Arial-BoldItalic.ttf},%
+        SlantedFeatures = {FakeSlant=0.2},%
+        SlantedFont = {Arial-Regular.ttf}%
+    ]{Arial-Regular.ttf}%
+    % TODO idk if there exists a sansfont? or a serif one for main
+    \setsansfont[%
+    Path=./tubsCD/fonts/Arial/,%
+        BoldFont = {Arial-Bold.ttf},%
+        ItalicFont = {Arial-Italic.ttf},%
+        BoldItalicFont = {Arial-BoldItalic.ttf},%
+        SlantedFeatures = {FakeSlant=0.2},%
+        SlantedFont = {Arial-Regular.ttf}%
+    ]{Arial-Regular.ttf}%
+    \ClassWarning{tubscd}{Arial does not support all font styles like slanted AND italic. Please use Nexus if possible}%
+}{%
+% ===================================================================================
+% Everything below this line is not specified in the CD toolbox.
+% However, I deem it useful as some lecturers demand certain fonts (like times new
+% roman).
+% Additionally, because we provide non-CD-toolbox-defined templates for submissions,
+% we define some further font settings like custom sizes for headlines below.
+
+% tnr as short handle for "Times New Roman" because we cannot handle spaces
+% TeX Gyre Termes is a clone of Times
+\ifdefstring{\tubs@font}{tnr}{%
+    \setmainfont{TeX Gyre Termes}%
+    \setsansfont{TeX Gyre Termes}%
+    \setmonofont{TeX Gyre Termes}%
+    \ClassWarning{tubscd}{"Times New Roman" does not support all font styles like slanted AND italic. Please use Nexus if possible}%
+}{%
+    \setmainfont{\tubs@font}%
+    \ClassWarning{tubscd}{Unknown font \tubs@font . Attempting to load but no promises}%
+}}}%
+
+% Define some custom font sizes
+\newcommand{\tubsFontMini}{\fontsize{4}{5}\selectfont}%
+\newcommand{\tubsFontgiant}{\fontsize{31}{37}\selectfont}%
+\newcommand{\tubsFontGiant}{\fontsize{40}{48}\selectfont}%
+\newcommand{\tubsFontGIANT}{\fontsize{50}{60}\selectfont}%
+
+% Additional pretty formatting for chapters, sections, ....
+% chapter is not always defined so needs an extra check
+% \ifdefined\chapter \setkomafont{chapter}{\tubsFontgiant\bfseries}\else\fi%
+% \setkomafont{section}{\LARGE\bfseries}%
+% \setkomafont{subsection}{\Large\bfseries}%
+% \setkomafont{subsubsection}{\large\bfseries}%

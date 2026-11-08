@@ -1,0 +1,228 @@
+% ========================================================================================
+% © 2026 Technische Universität Braunschweig – Stabsstelle für Presse und Kommunikation
+% Autoren: Veronika Hille, Henry Behrend
+% ========================================================================================
+
+\ProvidesPackage{tubsCD/beamertheme/beamerouterthemecd}[2026/01/07 Outer Theme for Beamer in TUBS Corporate Design]%
+\NeedsTeXFormat{LaTeX2e}%
+\RequirePackage{beamerbasecompatibility}% hook into beamer
+
+\mode<presentation>
+
+% ===================================================================================
+% Define titlepage:
+
+% Definition of titlepage environment (of theme cd)
+% the title page is designed to be a gauss page with
+% - fixed sigil position
+% - fixed gauss segment combinations (1-2,3-5,6)
+% - an image in the top segment
+% - the presentation title
+% - an optional subtitle
+% - presenter name and date
+% - with a freely chosen background color
+% - the last segment is colored in tuRed
+\defbeamertemplate*{title page}{cd}{%
+    \gaussBoxImg{1}{2}{\myTitleImgDisplayStyle}{\myTitleImg}%
+    \gaussBoxTxt{3}{5}{\myTitleBackgroundColor}{left}{%
+        {%
+        \setlength{\leftskip}{2mm}%
+        \vspace*{2mm}%
+        \textbf{\Large\myTitle}%
+        
+        {\large\mySubtitle}%
+        \vfill%
+        {\small\myName, \mySubmissionDate}%
+        \par%
+        }%
+    }%
+    \gaussBoxTxt{6}{6}{tuRed}{center}{}%
+}%
+
+% ===================================================================================
+% Definition of part page:
+
+% This is not in the cd toolbox but taken from the old templates
+% and simplified.
+% It creates a slide with the number of the current part and its title
+% underlayed in gray
+\defbeamertemplate*{part page}{cd}{%
+    \begin{centering}%
+        {%
+        \usebeamerfont{part name}%
+        \ifdefstring{\tubs@language}{german}{Teil }{Part }~\insertromanpartnumber}%
+        \vskip1em%
+        \par%
+        \begin{beamercolorbox}[sep=8pt,center]{part title}%
+            \usebeamerfont{part title}\insertpart%
+            \par%
+        \end{beamercolorbox}%
+    \end{centering}%
+}%
+
+% ===================================================================================
+% Hide navigation symbols in bottom right corner:
+\setbeamertemplate{navigation symbols}{}%
+
+% ===================================================================================
+% Define a new environment for highlight frames:
+
+% I know the old templates did it with a frame option but I couldn't
+% get that to run, so instead a new environment it is
+% It changes:
+% - the color template to highlight
+% - increase the depth of the header
+% - also change the navigation color to highlight
+
+\def\headlinecolor{}%
+\def\headlinedepth{}%
+
+\newenvironment{highlightframe}[1]{%
+    \def\headlinecolor{highlight}%
+    \def\headlinedepth{4}%
+    \setbeamercolor{section in head/foot}{parent=highlight}%
+    \setbeamercolor{subsection in head/foot}{parent=highlight}%
+    \begin{frame}[environment=highlightframe]{#1}
+}{%
+    \end{frame}%
+    \setbeamercolor{section in head/foot}{parent=palette primary}%
+    \setbeamercolor{subsection in head/foot}{parent=palette primary}%
+    \def\headlinecolor{}% reset color
+}%
+
+% ===================================================================================
+% Header:
+
+% The header consists of three parts:
+% - 1: top right corner: section navigation
+% - 2: below: subsection navigation
+% - 3: see further below
+
+% Definition of header (part 1&2: section navigations)
+\defbeamertemplate*{headline}{cd}{%
+    \leavevmode%
+    %
+    % decide on color theme
+    \ifdefstring{\headlinecolor}{}{%
+        \def\headlinecolor{palette primary}%
+    }{}%
+    %
+    % -- Section row -----------------------------------------------  
+    \begin{beamercolorbox}[%
+        wd=\paperwidth, % color complete width of slide
+        ht=1.6mm,       % distance of box above text
+        dp=0.6mm,       % distance of box below text
+    ]{\headlinecolor}%
+        \usebeamerfont{section in head/foot}%
+        % add navigation bar for sections
+        \insertsectionnavigationhorizontal%
+            {\dimexpr\paperwidth-\borderwidth mm-\borderwidth mm\relax}% navigation bar has full width to work with
+            {\hskip20pt plus1filll}% old template magic to push entries togehter
+            {}% -
+    \end{beamercolorbox}%
+    \vskip-0.1mm% shift up so gray backdrop overlaps propperly
+    %
+    % -- Subsection row --------------------------------------------
+    % This will be empty if the current section has no subsections
+    \begin{beamercolorbox}[%
+        wd=\paperwidth, % color complete width of slide
+        ht=1.6mm,       % distance of box above text
+        dp=1mm,         % distance of box below text
+    ]{\headlinecolor}%
+        \usebeamerfont{subsection in head/foot}%
+        % add navigation bar for subsections
+        \insertsubsectionnavigationhorizontal%
+            {\dimexpr\paperwidth-\borderwidth mm-\borderwidth mm\relax}% navigation bar has full width to work with
+            {\hskip20pt plus1filll}% old template magic to push entries togehter
+            {}% -
+    \end{beamercolorbox}%
+    \vskip-1.7mm% shift up so gray backdrop overlaps propperly
+}
+
+% define space between navigationhorizontal entries
+\setbeamertemplate{section in head/foot}{%
+    \hspace*{\borderwidth mm}%
+    \insertsectionhead%
+}%
+\setbeamertemplate{subsection in head/foot}{%
+    \hspace*{\borderwidth mm}%
+    \insertsubsectionhead%
+}%
+
+% Definition of header (part 3: frame title)
+\defbeamertemplate*{frametitle}{cd}{%
+
+    % decide on color theme and depth
+    \ifdefstring{\headlinecolor}{}{%
+        \def\headlinecolor{palette primary}%
+        \def\headlinedepth{2}%
+    }{}%
+    
+    \vskip-0.25mm% shift up so gray backdrop overlaps propperly
+    \begin{beamercolorbox}[%
+        wd=\paperwidth, %
+        ht=\headlinedepth ex,         % height above baseline
+        dp=1ex,         % depth below baseline
+        leftskip=2em,
+        rightskip=2em,
+    ]{\headlinecolor}
+        \usebeamerfont{frametitle}%
+        \insertframetitle%
+    \end{beamercolorbox}%
+}%
+% ===================================================================================
+% Footer:
+
+% the footer is designed to be similar to the senderspace with the
+% following unique settings:
+% - sigil is on the bottom left (note: on the title page it is topleft)
+% - sigil is a bit smaller
+% - date, autor, slide number, title are in the senderspace
+\setbeamertemplate{footline}{%
+    % ensure hmode to avoid funky placement due to inadequade user input end
+    \leavevmode%
+    
+    % because gauss page uses different input values, they need to be recalculated for the footer
+    
+    % new banner values
+    \renewcommand{\bannerAnchor}{south west}%
+    \pgfmathsetmacro{\bannerscale}{0.6*\bannerscale}%
+    \pgfmathsetmacro{\bannerYShift}{0.25*\senderspaceheight}%
+    % new senderID values
+    \renewcommand{\senderAnchor}{south east}%
+    \pgfmathsetmacro{\senderYShift}{1.5*\borderwidth}%
+    \pgfmathsetlengthmacro{\senderIDboxHeight}{0.625*\senderspaceheight mm - 1 * \borderwidth mm}%
+    % new division line values
+    \pgfmathsetmacro{\lineLength}{-(\paperwidth * 0.352778 + \borderwidth)}%
+    \pgfmathsetmacro{\lineXShift}{0}%
+    \pgfmathsetmacro{\lineYShift}{0.625*\senderspaceheight}%
+
+    % draw line, banner and sender id in footer
+    \drawDivisionLine%
+    \drawBanner%
+    \drawSenderID%
+
+    % define how much space is usable for author, date etc.
+    \pgfmathsetmacro{\footerTextWidth}{(\the\paperwidth / 2.8346456693) - 1.5 * \bannerWidth}%
+
+    % place text in senderspace
+    \begin{tikzpicture}[remember picture,overlay]%
+        % place date, author and frame number first
+        \node[anchor=north west] at ([xshift=26mm,yshift=10.5mm]current page.south west) {%
+            \usebeamerfont{footline}%
+            \mySubmissionDate~| %
+            \myName~| %
+            \ifdefstring{\tubs@language}{german}{Folie }{Slide }\insertframenumber\ifdefstring{\tubs@language}{german}{ von }{ of }\inserttotalframenumber%
+        };%
+        % place title below
+        \node[anchor=north west] at ([xshift=26mm,yshift=8.6mm]current page.south west) {%
+            \parbox{\footerTextWidth mm}{%
+                \usebeamerfont{footline}%
+                \myTitle%
+            }%
+        };%
+  \end{tikzpicture}%
+}%
+
+\mode<all>
+\endinput

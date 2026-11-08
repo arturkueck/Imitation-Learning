@@ -1,0 +1,64 @@
+% ========================================================================================
+% © 2026 Technische Universität Braunschweig – Stabsstelle für Presse und Kommunikation
+% Autoren: Veronika Hille
+% ========================================================================================
+
+\ProvidesPackage{tubsCD/beamertheme/beamercolorthemecd}[2026/01/06 Colors of the Corporate Design for Beamer]%
+\NeedsTeXFormat{LaTeX2e}%
+\RequirePackage{beamerbasecompatibility}% hook into beamer
+
+\mode<presentation>
+
+% TODO correct colors for navigation bar in top right corner (current red, shaded gray/black) (dont forget highlightframe)
+
+% ===================================================================================
+% Definition of header colors:
+
+% define common header background
+\setbeamercolor{palette primary}{bg=tuBlack20,fg=tuBlack}% for the top headline bar
+
+% upcoming section names
+\setbeamercolor{section in head/foot}{parent=palette primary}%
+\setbeamercolor{subsection in head/foot}{parent=palette primary}%
+% past section names
+\setbeamercolor{section in head/foot shaded}{parent=palette primary,fg=tuBlack80}%
+\setbeamercolor{subsection in head/foot shaded}{parent=palette primary,fg=tuBlack80}%
+% name of section on current frame
+\setbeamercolor{section in head/foot current}{parent=palette primary,fg=tuRed}%
+\setbeamercolor{subsection in head/foot current}{parent=palette primary,fg=tuRed}%
+% frame title
+\setbeamercolor{frametitle}{parent=palette primary,fg=tuBlack}%
+
+% special colors for highlight slides
+\setbeamercolor{highlight}{bg=tuRed,fg=white}%
+
+% ===================================================================================
+% Other colors:
+
+% part page
+\setbeamercolor{part title}{bg=tuBlack20}%
+
+% structure elements (section markers, item markers, etc.)
+\setbeamercolor{structure}{fg=tuBlack}%
+
+% classic text colors
+\setbeamercolor{normal text}{fg=tuBlack}%
+\setbeamercolor{alerted text}{fg=tuDarkRed}%
+\setbeamercolor{example text}{fg=tuDarkGreen}%
+% extension for color boxes
+\setbeamercolor{block title}{fg=tuDarkBlue,bg=tuDarkBlue40}%
+\setbeamercolor{block title alerted}{fg=tuDarkRed,bg=tuDarkRed40}%
+\setbeamercolor{block title example}{fg=tuDarkGreen,bg=tuDarkGreen40}%
+\setbeamercolor{block body}{bg=tuDarkBlue20}%
+\setbeamercolor{block body alerted}{bg=tuDarkRed20}%
+\setbeamercolor{block body example}{bg=tuDarkGreen20}%
+
+% ===================================================================================
+% Fixes:
+
+% Fix color of structure environment for normal box
+\AtBeginEnvironment{block}{\setbeamercolor{structure}{fg=tuDarkBlue}}%
+\AtEndEnvironment{block}{\setbeamercolor{structure}{fg=tuBlack}}%
+
+\mode<all>
+\endinput

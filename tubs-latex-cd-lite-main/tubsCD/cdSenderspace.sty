@@ -1,0 +1,177 @@
+% ========================================================================================
+% © 2026 Technische Universität Braunschweig – Stabsstelle für Presse und Kommunikation
+% Autoren: Veronika Hille, Henry Behrend
+% ========================================================================================
+
+\NeedsTeXFormat{LaTeX2e}%
+\ProvidesPackage{tubsCD/cdSenderspace}[2025/03/17 Sender Space of the Corporate Design]%
+
+% ===================================================================================
+% This is the senderspace style definition file.
+% The senderspace is defined in the cd-toolbox at
+% https://www.tu-braunschweig.de/presse/corporate-design/cd-toolbox/gestaltungsprinzipien/absenderverhalten
+%
+% In short, these are the following components that define the senderspace
+% - the page is divided in two parts: sender and communication space
+% - the tu logo is shown (for this we use cdTUBanner.sty, please refer there)
+% - they can be divided by a red line
+% - in the senderspace the insitute can show its name or logo
+% - note that there will also be custom options for posters and another custom layout
+%   that need to be included
+%
+% this file aims at defining all settings for the senderspace
+% However, the final page is assembled in the tubscd.cls file
+%
+% ===================================================================================
+% Packages:
+
+\RequirePackage{pgf} % for sum formula
+
+% ===================================================================================
+% Declare Sender identification:
+
+% first we want to declare the size of the sender id box
+% in height it is bordered by 1x bordersize on top as well as on bottom
+\pgfmathsetlengthmacro{\senderIDboxHeight}{\senderspaceheight mm - 2 * \borderwidth mm}%
+% in width it is bordered by 1x bordersize on the non logo side as well as 1x bordersize plus logo width on the logo side
+\pgfmathsetlengthmacro{\senderIDboxWidth}{(\paperwidth  - \bannerWidth mm - 2 * \borderwidth mm}%
+
+\newcommand{\senderID}%
+
+\setlength{\fboxrule}{0pt}%
+\newcommand{\myInstitute}[2]{%
+% #1 img path
+% #2 text
+    \ifthenelse{\equal{#2}{}}{%
+        \ifthenelse{\equal{#1}{}}{%
+             % Both variables are empty.
+             % Do nothing (Empty sender ID allowed
+        }{%
+            % No text given but img
+            \renewcommand{\senderID}{%
+                \includegraphics[width=\senderIDboxWidth, height=\senderIDboxHeight, keepaspectratio]{#1}%
+                }%
+        }%
+    }{%
+        \ifthenelse{\equal{#1}{}}{}{%
+            % both variables are filled. choosing text
+            \ClassWarning{tubscd}{Institute defined as logo and text for usage in sender space. Using text}%
+        }%
+        % no img given but text
+        \renewcommand{\senderID}{%
+            \begin{minipage}[t][\senderIDboxHeight][c]{\senderIDboxWidth}%
+                \flushR%
+                \textbf{%
+                    \sffamily\color{tuRed} % red is a must, the rest is not defined as such in the toolbox but suggested there
+                    \begin{tabular}{l}% have to use tabular here because the text will be placed by tikz and this is THE ONLY WAY to have line breaks in tikz without using a specified width (which we don't have bc it's given by user text)
+                    #2%
+                    \end{tabular}%
+                }%
+            \end{minipage}%
+        }%
+    }%
+}%
+
+% ===================================================================================
+% Defining variables for correct corner alignment:
+
+\newcommand{\bannerAnchor}{} % corner from which the banner is placed on paper
+\newcommand{\senderAnchor}{} % corner from which the senderID is placed on paper (across of banner)
+\pgfmathsetmacro{\bannerYShift}{} % banner must be located between senderspace and com space
+\pgfmathsetmacro{\bannerXShift}{-0.15} % small offset to fix display
+\pgfmathsetmacro{\senderYShift}{} % senderID must adhere to border rules
+\pgfmathsetmacro{\senderXShift}{} % senderID must adhere to border rules
+\pgfmathsetmacro{\lineYShift}{\senderspaceheight - 0.1} % is located between sender and com space
+                                                        % tiny shift needed for pretty alignment
+\pgfmathsetmacro{\lineXShift}{\borderwidth} % x shift for line is needed for option skipborder
+\pgfmathsetmacro{\lineLength}{\paperwidth * 0.352778 + \borderwidth} % length of division line
+\newcommand{\flushR}{} % helper variable that moves senderID right-ish
+
+\ifdefstring{\tubs@tubanner}{topleft}{%
+    \renewcommand{\bannerAnchor}{north west}%
+    \renewcommand{\senderAnchor}{north east}%
+    \pgfmathsetmacro{\bannerYShift}{-\senderspaceheight+0.75*\bannerHeight}%
+    \pgfmathsetmacro{\senderYShift}{-\borderwidth}%
+    \pgfmathsetmacro{\senderXShift}{-\borderwidth}%
+    \pgfmathsetmacro{\lineYShift}{-\lineYShift}%
+    \pgfmathsetmacro{\lineXShift}{-\lineXShift + 0.9}%
+    \pgfmathsetmacro{\lineLength}{-\lineLength}%
+    \renewcommand{\flushR}{\hfill}%
+}{\ifdefstring{\tubs@tubanner}{topright}{%
+    \renewcommand{\bannerAnchor}{north east}%
+    \renewcommand{\senderAnchor}{north west}%
+    \pgfmathsetmacro{\bannerYShift}{-\senderspaceheight+0.75*\bannerHeight}%
+    \pgfmathsetmacro{\senderYShift}{-\borderwidth}%
+    \pgfmathsetmacro{\senderXShift}{\borderwidth}%
+    \pgfmathsetmacro{\lineYShift}{-\lineYShift}%
+    \pgfmathsetmacro{\bannerXShift}{+0.15}%
+}{\ifdefstring{\tubs@tubanner}{bottomleft}{%
+    \renewcommand{\bannerAnchor}{south west}%
+    \renewcommand{\senderAnchor}{south east}%
+    \pgfmathsetmacro{\bannerYShift}{\senderspaceheight-0.75*\bannerHeight}%
+    \pgfmathsetmacro{\senderYShift}{\borderwidth}%
+    \pgfmathsetmacro{\senderXShift}{-\borderwidth}%
+    \pgfmathsetmacro{\lineXShift}{-\lineXShift + 0.9}%
+    \pgfmathsetmacro{\lineLength}{-\lineLength}%
+    \renewcommand{\flushR}{\hfill}%
+}{\ifdefstring{\tubs@tubanner}{bottomright}{%
+    \renewcommand{\bannerAnchor}{south east}%
+    \renewcommand{\senderAnchor}{south west}%
+    \pgfmathsetmacro{\bannerYShift}{\senderspaceheight-0.75*\bannerHeight}%
+    \pgfmathsetmacro{\senderYShift}{\borderwidth}%
+    \pgfmathsetmacro{\senderXShift}{\borderwidth}%
+    \pgfmathsetmacro{\bannerXShift}{+0.15}%
+}{%tu banner not specified or off
+}}}}%
+
+% we have defined above the coordinates for a skipborder drawing of the line
+% now we need to discern between fullpage and off
+\ifdefstring{\tubs@redDivisionLine}{fullpage}{%
+    % in fullpage mode, the line is not shifted on the x axis, so the value is reset
+    \pgfmathsetmacro{\lineXShift}{0}%
+}%
+{\ifdefstring{\tubs@redDivisionLine}{skipborder}{%
+    % skipborder mode, is defined above
+}{%
+    % all other cases are interpreted as line off.
+    % the line is not drawn which equals a length of 0
+    \pgfmathsetmacro{\lineLength}{0}%
+}}%
+
+% ===================================================================================
+% Define drawing functions:
+
+\newcommand{\drawBanner}{%
+        \begin{tikzpicture}[remember picture, overlay]%
+            \node [anchor=\bannerAnchor, inner sep=0pt] at (current page.\bannerAnchor) [yshift=\bannerYShift mm, xshift=\bannerXShift mm
+            ] {%
+                \includegraphics[scale=\bannerscale]{\bannerlocation}%
+            };%
+        \end{tikzpicture}%
+}%
+
+\newcommand{\drawSenderID}{%
+    \begin{tikzpicture}[remember picture, overlay]%
+        \node[anchor=\senderAnchor, inner sep=0pt] at (current page.\senderAnchor)[yshift=\senderYShift mm, xshift=\senderXShift mm] (box) {%
+                \senderID%
+            };%
+    \end{tikzpicture}%
+}%
+
+\pgfmathsetmacro{\lineThickness}{\bannerHeight / 64}% as the value is not defined anywhere in the toolbox, i chose some value for division line thickness i found good looking
+\newcommand{\drawDivisionLine}{%
+    \begin{tikzpicture}[remember picture, overlay]%
+        \draw[line width=\lineThickness mm, color=tuRed, inner sep=0pt]%
+        ([xshift=\lineXShift mm, yshift=\lineYShift mm]current page.\senderAnchor) -- ++(\lineLength mm, 0);%
+    \end{tikzpicture}%
+}%
+
+% one combination command for use on white paper
+\newcommand{\drawSigil}[1]{%
+    \tuSigilGeometry%
+    \drawSenderID%
+    \drawDivisionLine%
+    \drawBanner%
+    #1%
+    \tuPlainGeometry%
+}%

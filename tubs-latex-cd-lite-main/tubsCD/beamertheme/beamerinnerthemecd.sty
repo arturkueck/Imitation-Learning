@@ -1,0 +1,58 @@
+% ========================================================================================
+% © 2026 Technische Universität Braunschweig – Stabsstelle für Presse und Kommunikation
+% Autoren: Veronika Hille
+% ========================================================================================
+
+\ProvidesPackage{tubsCD/beamertheme/beamerinnerthemecd}[2026/01/06 Inner Theme for Beamer in TUBS Corporate Design]%
+\NeedsTeXFormat{LaTeX2e}%
+\RequirePackage{beamerbasecompatibility}% hook into beamer
+
+\mode<presentation>
+
+% Definition of itemize items look
+\defbeamertemplate*{itemize item}{cd}{\rule[0.15em]{0.3em}{0.3em}}%
+\defbeamertemplate*{itemize subitem}{cd}{\rule[0.17em]{0.25em}{0.25em}}%
+\defbeamertemplate*{itemize subsubitem}{cd}{\rule[0.19em]{0.2em}{0.2em}}%
+\defbeamertemplate*{itemize subsubsubitem}{cd}{\textperiodcentered}%
+
+% Definition of itemize items in TOC (same values, but no subsubsubsection)
+\defbeamertemplate{section in toc}{cd}{%
+    \leavevmode%
+    \normalsize%
+    \hbox{\rule[0.15em]{0.3em}{0.3em}}% size of rectangle
+    \kern1.25ex%                        distance rectangle-text
+    \inserttocsection%
+    \par%
+}%
+\defbeamertemplate{subsection in toc}{cd}{%
+    \leavevmode%
+    \leftskip=5.5mm%                      indent of item to the right
+    \hbox{\rule[0.17em]{0.25em}{0.25em}}% size of rectangle
+    \kern1ex%                             distance rectangle-text
+    \inserttocsubsection%
+    \par%
+}%
+\defbeamertemplate{subsubsection in toc}{cd}{%
+    \leavevmode%
+    \normalsize%
+    \leftskip=11mm%                     indent of item to the right
+    \hbox{\rule[0.19em]{0.2em}{0.2em}}% size of rectangle
+    \kern0.75ex%                        distance rectangle-text
+    \inserttocsubsubsection%
+    \par%
+}%
+
+% Adjust left margins for nested lists for consistent indentation
+\setlength{\leftmargini}{1.3em}%
+\setlength{\leftmarginii}{1.3em}%
+\setlength{\leftmarginiii}{1.3em}%
+\setlength{\leftmarginiv}{1.3em}%
+
+% Load previously defined itemize settings
+\setbeamertemplate{sections/subsections in toc}[cd]%
+
+% Numbered captions for figures and tables
+\setbeamertemplate{caption}[numbered]%
+
+\mode<all>
+\endinput

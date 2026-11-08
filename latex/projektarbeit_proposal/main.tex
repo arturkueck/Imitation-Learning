@@ -1,0 +1,79 @@
+% !TeX program = lualatex
+% Compile twice from tubs-latex-cd-lite-main (the TU class uses relative asset paths):
+% lualatex ../latex/projektarbeit_proposal/main.tex
+% In the TU Overleaf project, use this file as main.tex and select LuaLaTeX.
+% TU template: © 2025 Technische Universität Braunschweig – Stabsstelle für Presse und Kommunikation
+\documentclass[basedocumentclass=scrartcl,font=nexus,papersize=a4paper,
+    fontsize=11,sideoption=oneside,language=english,tubanner=topleft,
+    redDivisionLine=fullpage,template=off]{tubsCD/tubscd}
+\setsansfont[Path=./tubsCD/fonts/Nexus/,BoldFont=NexusSansPro-Bold.otf,
+    ItalicFont=NexusSansPro-Italic.otf,BoldItalicFont=NexusSansPro-BoldItalic.otf]
+    {NexusSansPro-Regular.otf}
+\myInstitute{}{}
+\usepackage{hyperref}
+\hypersetup{hidelinks,pdftitle={Self-Imitation Learning for Robotic Cube Stacking},
+    pdfauthor={Artur Kück},pdflang={en}}
+\newcommand{\blockheading}[1]{\par\medskip\noindent{\sffamily\large\bfseries #1}\par\nobreak\smallskip}
+\newcommand{\milestone}[3]{\par\medskip\noindent{\sffamily\bfseries #1\quad #2}\hfill{\small\itshape #3}\par\nobreak}
+\newcommand{\projectheader}[1]{\noindent{\small\sffamily #1\hfill Artur Kück}\par\medskip}
+\begin{document}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\drawSigil{%
+\thispagestyle{empty}%
+\par\noindent\hfill\begin{minipage}[t]{.88\linewidth}
+\projectheader{Project proposal}
+
+{\LARGE\sffamily\bfseries Self-Imitation Learning for Robotic Cube Stacking\par}
+\blockheading{Objective}
+Can a robot learn a more reliable final placement by imitating selected movements from its own attempts? I will test whether weighting these movements improves the success rate of a simulated three-cube stacking policy trained by behavior cloning (BC). In a preliminary study, switching between learned controllers for 20 steps during placement changed the final outcome in only 8 of 1,549 starting configurations. This raises a practical question: how often does the robot generate a movement worth imitating?
+\blockheading{State of the art}
+Oh et al. [1] introduced self-imitation learning to reinforce an agent's own past actions when their return exceeds its value estimate. Critic Regularized Regression [2] uses an action-value estimate to weight the imitation of recorded actions. More recently, Q-Planning [3] used a critic to choose actions for a frozen robot policy at deployment. Here, the critic acts during training: its judgments determine how strongly the policy imitates its own placement attempts.
+\blockheading{Self-imitation learning objective}
+The policy will collect its own 20-step placement segments using bounded variation in its movement commands. I hypothesize that giving more weight to segments that rescue a failing placement will improve stacking success over uniformly replaying the same data. Replaying from identical simulator states will let me measure how much room there is for improvement and whether a learned critic identifies those opportunities.
+\blockheading{Research plan and evaluation}
+For each sampled state, I will compare the recorded movement with the frozen BC policy and then let that policy finish both trials. I will count rescued and lost stacks separately. Starting from the same model, I will train three variants on original demonstrations and identical self-generated segments: uniform replay, weighting by the measured outcome difference, and weighting by the critic's estimate. Training budgets and data order will match. I will evaluate all variants and the frozen baseline on the same unseen starts across three training seeds. Success requires the full tower to remain stable for 50 consecutive simulation steps.
+\blockheading{References}{\footnotesize
+\noindent\href{https://proceedings.mlr.press/v80/oh18b.html}{[1] Oh et al. (2018). Self-Imitation Learning. ICML.}\par
+\noindent\href{https://papers.neurips.cc/paper_files/paper/2020/hash/588cb956d6bbe67078f29f8de420a13d-Abstract.html}{[2] Wang et al. (2020). Critic Regularized Regression. NeurIPS.}\par
+\noindent\href{https://arxiv.org/abs/2608.21204}{[3] Giridhar et al. (2026). Beyond Imitation: Self-Improving Robot Policies via Off-Policy Q-Planning. arXiv preprint.}\par
+}
+\end{minipage}\hfill\null\par}
+\drawSigil{%
+\thispagestyle{empty}%
+\par\noindent\hfill\begin{minipage}[t]{.88\linewidth}
+\projectheader{Project schedule}
+{\LARGE\sffamily\bfseries Work plan and milestones\par}
+\medskip Three months from the project start. I and II denote the first and second halves of each month.
+\par\bigskip
+\noindent\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[x=1.5cm,y=.51cm,font=\small\sffamily]
+\foreach \x/\m in {1/1,3/2,5/3}{\node at (\x,1.85) {Month \m};}
+\foreach \x/\halfname in {0.5/I,1.5/II,2.5/I,3.5/II,4.5/I,5.5/II}{\node at (\x,1) {\halfname};}
+\foreach \x in {0,...,6}{\draw[black!22] (\x,.55)--(\x,-6.5);}
+
+\node[anchor=east] at (-.15,0) {Literature and protocol}; \fill[tuBlue] (0.04,-0.23) rectangle (0.96,0.23);
+\node[anchor=east] at (-.15,-1) {Collect and replay segments}; \fill[tuBlue] (0.04,-1.23) rectangle (1.96,-0.77);
+\node[anchor=east] at (-.15,-2) {Train and validate critic}; \fill[tuBlue] (2.04,-2.23) rectangle (2.96,-1.77);
+\node[anchor=east] at (-.15,-3) {Train self-imitation policies}; \fill[tuBlue] (2.04,-3.23) rectangle (3.96,-2.77);
+\node[anchor=east] at (-.15,-4) {Evaluate on held-out starts}; \fill[tuBlue] (4.04,-4.23) rectangle (4.96,-3.77);
+\node[anchor=east] at (-.15,-5) {Write, revise and submit}; \fill[tuBlue] (3.04,-5.23) rectangle (5.96,-4.77);
+\node[anchor=east,font=\small\bfseries] at (-.15,-6) {Milestones};
+\node at (0.5,-6) {M1};
+\node at (1.5,-6) {M2};
+\node at (3.5,-6) {M3};
+\node at (4.5,-6) {M4};
+\node at (5.5,-6) {M5};
+\end{tikzpicture}}\par\bigskip
+\milestone{M1}{Protocol fixed}{Month 1, midpoint}
+Specify the exploration bounds, data splits, success criterion and training budget. Verify that replay reproduces the baseline outcome from the same state.
+\milestone{M2}{Dataset frozen}{End of month 1}
+Archive the paired segments and report how often the alternative rescues or loses a stack. If rescues are rare, quantify the attainable gain and retain that limitation in the evaluation.
+\milestone{M3}{Models frozen}{End of month 2}
+Assess critic rankings on separate start families. Save all three BC variants for each training seed before opening the final test set.
+\milestone{M4}{Evaluation complete}{Month 3, midpoint}
+Report paired success-rate differences against uniform replay and the frozen baseline, with results by training seed.
+\milestone{M5}{Project submitted}{End of month 3}
+Deliver the report, experiment protocol and scripts needed to reproduce the comparisons.
+\end{minipage}\hfill\null\par}
+\end{document}

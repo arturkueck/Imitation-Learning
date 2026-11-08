@@ -1,0 +1,168 @@
+% ========================================================================================
+% © 2026 Technische Universität Braunschweig – Stabsstelle für Presse und Kommunikation
+% Autoren: Veronika Hille
+% ===================================================================================
+% This files contains exclusively numbers specified in the cd toolbox.
+% The purpose of these numbers is to manually define the borderwidth,
+% the senderspaceheight, and the communicationspaceheight for specific
+% paper formats.
+% They have been outsourced here to make the main file less crowded.
+% Note:
+% - We do not differ between "infotext" and "infotext aufzählung" as they always
+%   have the same value and thus need not be disscerned
+% - The Zeilenabstand value is also always the same and is set therefore in tubs.cls
+% TODO: herausfinden was ist copytext und wo muss der eingebaut werden
+% ===================================================================================
+
+\newcommand{\headlinebiggerfontsize}{0}%
+\newcommand{\headlinesmallerfontsize}{0}%
+\newcommand{\subheadlinefontsize}{0}%
+\newcommand{\institutefontsize}{0}%
+\newcommand{\posternormaltextfontsize}{0}%
+\newcommand{\postercopytextfontsize}{0}%
+
+\ifboolexpr{test {\ifdefstring{\tubs@papersize}{a0paper}}%
+    }{%
+    \ifboolexpr{test {\ifdefstring{\tubs@font}{nexus}}%
+        }{%
+            \renewcommand{\headlinebiggerfontsize}{270}%
+            \renewcommand{\headlinesmallerfontsize}{180}%
+            \renewcommand{\subheadlinefontsize}{90}%
+            \renewcommand{\institutefontsize}{60}%
+            \renewcommand{\posternormaltextfontsize}{60}%
+            \renewcommand{\postercopytextfontsize}{40}%
+        }{%
+            \renewcommand{\headlinebiggerfontsize}{240}%
+            \renewcommand{\headlinesmallerfontsize}{180}%
+            \renewcommand{\subheadlinefontsize}{80}%
+            \renewcommand{\institutefontsize}{60}%
+            \renewcommand{\posternormaltextfontsize}{60}%
+            \renewcommand{\postercopytextfontsize}{36}%
+        }%
+    }{}%
+%
+\ifboolexpr{test {\ifdefstring{\tubs@papersize}{a1paper}}%
+    }{%
+    \ifboolexpr{test {\ifdefstring{\tubs@font}{nexus}}%
+        }{%
+            \renewcommand{\headlinebiggerfontsize}{190}%
+            \renewcommand{\headlinesmallerfontsize}{130}%
+            \renewcommand{\subheadlinefontsize}{60}%
+            \renewcommand{\institutefontsize}{40}%
+            \renewcommand{\posternormaltextfontsize}{40}%
+            \renewcommand{\postercopytextfontsize}{25}%
+        }{%
+            \renewcommand{\headlinebiggerfontsize}{170}%
+            \renewcommand{\headlinesmallerfontsize}{120}%
+            \renewcommand{\subheadlinefontsize}{54}%
+            \renewcommand{\institutefontsize}{35}%
+            \renewcommand{\posternormaltextfontsize}{35}%
+            \renewcommand{\postercopytextfontsize}{23}%
+        }%
+    }{}%
+%
+\ifboolexpr{test {\ifdefstring{\tubs@papersize}{a2paper}}%
+    }{%
+    \ifboolexpr{test {\ifdefstring{\tubs@font}{nexus}}%
+        }{%
+            \renewcommand{\headlinebiggerfontsize}{135}%
+            \renewcommand{\headlinesmallerfontsize}{90}%
+            \renewcommand{\subheadlinefontsize}{45}%
+            \renewcommand{\institutefontsize}{28}%
+            \renewcommand{\posternormaltextfontsize}{28}%
+            \renewcommand{\postercopytextfontsize}{18}%
+        }{%
+            \renewcommand{\headlinebiggerfontsize}{120}%
+            \renewcommand{\headlinesmallerfontsize}{90}%
+            \renewcommand{\subheadlinefontsize}{45}%
+            \renewcommand{\institutefontsize}{24}%
+            \renewcommand{\posternormaltextfontsize}{24}%
+            \renewcommand{\postercopytextfontsize}{16}%
+        }%
+    }{}%
+%
+\ifboolexpr{test {\ifdefstring{\tubs@papersize}{a3paper}}%
+    }{%
+    \ifboolexpr{test {\ifdefstring{\tubs@font}{nexus}}%
+        }{%
+            \renewcommand{\headlinebiggerfontsize}{90}%
+            \renewcommand{\headlinesmallerfontsize}{60}%
+            \renewcommand{\subheadlinefontsize}{30}%
+            \renewcommand{\institutefontsize}{20}%
+            \renewcommand{\posternormaltextfontsize}{20}%
+            \renewcommand{\postercopytextfontsize}{13}%
+        }{%
+            \renewcommand{\headlinebiggerfontsize}{80}%
+            \renewcommand{\headlinesmallerfontsize}{57}%
+            \renewcommand{\subheadlinefontsize}{24}%
+            \renewcommand{\institutefontsize}{18}%
+            \renewcommand{\posternormaltextfontsize}{18}%
+            \renewcommand{\postercopytextfontsize}{12}%
+        }%
+    }{}%
+%
+
+% TODO nachfragen ob es nicht auch A4 Plakate geben sollte und wenn ja, was da die schriftgrößen sind
+
+% \ifboolexpr{test {\ifdefstring{\tubs@papersize}{a4paper}}
+%     }{%
+%     \ifboolexpr{test {\ifdefstring{\tubs@font}{nexus}}
+%         }{%
+%             \renewcommand{\headlinebiggerfontsize}{}%
+%             \renewcommand{\headlinesmallerfontsize}{}%
+%             \renewcommand{\subheadlinefontsize}{}%
+%             \renewcommand{\institutefontsize}{}%
+%             \renewcommand{\posternormaltextfontsize}{}%
+%             \renewcommand{\postercopytextfontsize}{}%
+%         }{%
+%             \renewcommand{\headlinebiggerfontsize}{}%
+%             \renewcommand{\headlinesmallerfontsize}{}%
+%             \renewcommand{\subheadlinefontsize}{}%
+%             \renewcommand{\institutefontsize}{}%
+%             \renewcommand{\posternormaltextfontsize}{}%
+%             \renewcommand{\postercopytextfontsize}{}%
+%         }%
+%    }{}%
+%
+
+\ifboolexpr{%
+    test {\ifdefstring{\headlinefontsize}{0}}%
+    }{%
+        \ClassWarning{tubscd}{Attempted to load poster with invalid paper size (outside A0-A3). Cannot load specific fontsizes but otherwise this is fine.}%
+    }{}%
+
+% define line distances (zeilenabstände)
+\pgfmathsetmacro{\ZAheadlinebiggerfontsize}{\headlinebiggerfontsize * 1.10}%
+\pgfmathsetmacro{\ZAheadlinesmallerfontsize}{\headlinesmallerfontsize * 1.10}%
+\pgfmathsetmacro{\ZAsubheadlinefontsize}{\subheadlinefontsize * 1.20}%
+\pgfmathsetmacro{\ZAinstitutefontsize}{\institutefontsize * 1.20}%
+\pgfmathsetmacro{\ZAposternormaltextfontsize}{\posternormaltextfontsize * 1.30}%
+\pgfmathsetmacro{\ZApostercopytextfontsize}{\postercopytextfontsize * 1.40}%
+
+% define fonts
+\newcommand{\tubsFontHeadline}{%
+    \vspace*{\borderwidth mm}% headlines get extra leading space due to toolbox definition
+    \fontsize{\headlinebiggerfontsize}{\ZAheadlinebiggerfontsize}%
+    \selectfont%
+}%
+\newcommand{\tubsFontHeadlineSmall}{%
+    \vspace*{\borderwidth mm}% headlines get extra leading space due to toolbox definition
+    \fontsize{\headlinesmallerfontsize}{\ZAheadlinesmallerfontsize}%
+    \selectfont%
+}%
+\newcommand{\tubsFontSubheadline}{%
+    \fontsize{\subheadlinefontsize}{\ZAsubheadlinefontsize}%
+    \selectfont%
+}%
+\newcommand{\tubsFontInstitute}{%
+    \fontsize{\institutefontsize}{\ZAinstitutefontsize}%
+    \selectfont%
+}%
+\newcommand{\tubsFontNormalsizePoster}{%
+    \fontsize{\posternormaltextfontsize}{\ZAposternormaltextfontsize}%
+    \selectfont%
+}%
+\newcommand{\tubsFontCopytext}{%
+    \fontsize{\postercopytextfontsize}{\ZApostercopytextfontsize}%
+    \selectfont%
+}%
