@@ -8,7 +8,7 @@ import psutil
 import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
-spec = importlib.util.spec_from_file_location('v3_completion_gate', ROOT / 'experiments/visual_active_v3_20261101/completion_gate.py')
+spec = importlib.util.spec_from_file_location('v3_completion_gate', ROOT / 'experiments/vision/visual_active_v3_20261101/completion_gate.py')
 gate = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(gate)
 

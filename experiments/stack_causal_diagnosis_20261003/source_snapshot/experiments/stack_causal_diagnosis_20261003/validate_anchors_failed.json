@@ -1,7 +1,0 @@
-{
-  "stage": "validate_anchors",
-  "cause": "Traceback (most recent call last):\n  File \"C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_causal_diagnosis_20261003\\evaluate.py\", line 211, in <module>\n    else:execute(arg.stage)\n         ^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_causal_diagnosis_20261003\\evaluate.py\", line 187, in execute\n    s=91000+int(d['name'].split('_')[-1]);ob,meta,initial=restore(env,f,d,k,s)\n                                                          ^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_causal_diagnosis_20261003\\evaluate.py\", line 67, in restore\n    assert position_error<.002,('Invalid Expert replay position',d['name'],k,errors)\n           ^^^^^^^^^^^^^^^^^^^\nAssertionError: ('Invalid Expert replay position', 'demo_22', 58, {'robot0_eef_pos': 0.004884470728186761, 'robot0_eef_quat': 0.004895349553287964, 'robot0_gripper_qpos': 0.0003611855805127698, 'object': 0.0010265060277839938})\n",
-  "attempt": "pure_prefix_replay_v2",
-  "superseded_by": "anchor_preflight_v3/complete.json",
-  "policy_failure": false
-}

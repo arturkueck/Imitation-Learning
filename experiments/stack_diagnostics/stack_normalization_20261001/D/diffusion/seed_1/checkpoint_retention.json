@@ -1,0 +1,35 @@
+{
+  "policy": "retain final update 30000; hashes of intermediate and duplicate checkpoints preserved",
+  "records": [
+    {
+      "path": "D\\diffusion\\seed_1\\runs\\stack_normalization_D_diffusion_seed_1\\20261002013044\\last.pth",
+      "sha256": "17f0f2520461347ae1667d0ee52cdd84729224a345d578ec3cfdb00219c2e7d8",
+      "bytes": 1050615609,
+      "retained": false
+    },
+    {
+      "path": "D\\diffusion\\seed_1\\runs\\stack_normalization_D_diffusion_seed_1\\20261002013044\\last_bak.pth",
+      "sha256": "17f0f2520461347ae1667d0ee52cdd84729224a345d578ec3cfdb00219c2e7d8",
+      "bytes": 1050615609,
+      "retained": false
+    },
+    {
+      "path": "D\\diffusion\\seed_1\\runs\\stack_normalization_D_diffusion_seed_1\\20261002013044\\models\\model_epoch_100.pth",
+      "sha256": "edf34986e3c3b198ad14c85b0c6e7b0b756ba44c526220a9fa932be9d3110350",
+      "bytes": 1050661447,
+      "retained": false
+    },
+    {
+      "path": "D\\diffusion\\seed_1\\runs\\stack_normalization_D_diffusion_seed_1\\20261002013044\\models\\model_epoch_200.pth",
+      "sha256": "62a76a891544616357a188c28700c7c7bd5910de1dcf4746875bab3edeed6689",
+      "bytes": 1050661447,
+      "retained": false
+    },
+    {
+      "path": "D\\diffusion\\seed_1\\runs\\stack_normalization_D_diffusion_seed_1\\20261002013044\\models\\model_epoch_300.pth",
+      "sha256": "c89b4514b40d369615fba9bff43a6100cca534c732b843caed4be86e41bb24c8",
+      "bytes": 1050661447,
+      "retained": true
+    }
+  ]
+}

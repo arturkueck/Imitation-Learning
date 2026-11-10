@@ -63,7 +63,7 @@ Sinnvolle nächste Untersuchung wäre ein kontrollierter Vergleich von reiner Po
 
 ```powershell
 & .\praxis\.venv\Scripts\python.exe -m pytest praxis/tests/test_box_refinement.py -q -p no:cacheprovider
-& .\praxis\.venv\Scripts\python.exe experiments/visual_scene_v2_20261101/refinement_experiment.py --name refinement_002
+& .\praxis\.venv\Scripts\python.exe experiments/vision/visual_scene_v2_20261101/refinement_experiment.py --name refinement_002
 ```
 
 Bestehende Ergebnisse werden nicht überschrieben. Fünf neue Tests bestanden: Parametergrenzen, Verdeckung, konsistente Projektion, erfolgreiche synthetische Positionskorrektur und leere Vorhersage. Kein Hardwaretest und keine Behauptung realer Montagefähigkeit.

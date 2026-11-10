@@ -4,7 +4,7 @@ Stand: 1. Oktober 2026. **Keine neue Methode, kein Training und keine neue Evalu
 
 ## C: Projektbefunde
 
-Die Basis ist die [Trainingsseed-Replikation](../../experiments/stack_replication_20261001/ERGEBNISSE.md), ihr [Protokoll](../../experiments/stack_replication_20261001/protocol.json) und der in [next_research_direction.md](../../next_research_direction.md) zusammengefasste Stand. Rahmenziel: [Projektbeschreibung](../../Projektarbeit%20Themenvorschlag%20--%20Artur.md). Die Berichte sind Projektevidenz und keine peer-reviewten Literaturquellen. Es wurde kein unabhängiger erneuter Simulator-/Checkpointlauf vorgenommen.
+Die Basis ist die [Trainingsseed-Replikation](../../experiments/stack_diagnostics/stack_replication_20261001/ERGEBNISSE.md), ihr [Protokoll](../../experiments/stack_diagnostics/stack_replication_20261001/protocol.json) und der in [next_research_direction.md](../../next_research_direction.md) zusammengefasste Stand. Rahmenziel: [Projektbeschreibung](../../Projektarbeit%20Themenvorschlag%20--%20Artur.md). Die Berichte sind Projektevidenz und keine peer-reviewten Literaturquellen. Es wurde kein unabhängiger erneuter Simulator-/Checkpointlauf vorgenommen.
 
 | Projekt-ID | Dokumentierter Befund C | Primärer lokaler Beleg |
 |---|---|---|
@@ -12,7 +12,7 @@ Die Basis ist die [Trainingsseed-Replikation](../../experiments/stack_replicatio
 | OUR-02 | 200 erfolgreiche programmierte Demos; 180 Training, 20 Validation; 27322 Trainingsanker | Protokoll: `train_demos`, `valid_demos`, `training_frames`; keine menschlichen PH-Demos |
 | OUR-03 | Zwei Stateframes, je 15 Merkmale; absolute A-/B-Positionen, EEF-Position, Quaternion und Gripperpositionen | Projektstand; `direct_common.py`, `ORDER`/`flatten` |
 | OUR-04 | Direct: Residual-MLP, acht Blöcke, Breite 2048, Output 16×7 mit Tanh; Aktions-MSE. Diffusion: UNet, Epsilon-Ziel, zehn DDIM-Schritte | Direct-Code; Protokoll und Replikationsbericht; finale Konfigurationen |
-| OUR-05 | Chunkindex 0 entspricht t−1; Indizes 1 und 2 werden ausgeführt, danach Replanning. Diffusion wird vor der Evaluation auf zwei Aktionen gesetzt | `balance_common.py`, Fensterbildung; `direct_common.py`, `chunk[1:3]`; [evaluate_replication.py](../../experiments/stack_followup_20261001/scripts/evaluate_replication.py), Laufzeitoverride; Protokoll `executed_action_slice` |
+| OUR-05 | Chunkindex 0 entspricht t−1; Indizes 1 und 2 werden ausgeführt, danach Replanning. Diffusion wird vor der Evaluation auf zwei Aktionen gesetzt | `balance_common.py`, Fensterbildung; `direct_common.py`, `chunk[1:3]`; [evaluate_replication.py](../../experiments/stack_diagnostics/stack_followup_20261001/scripts/evaluate_replication.py), Laufzeitoverride; Protokoll `executed_action_slice` |
 | OUR-06 | Gleiche 30000 Updates, Batch 8, 240000 Trainingsfenster je Modell; Rohobservations unnormalisiert | Eingefrorenes Protokoll; Replikationsbericht Trainingskontrolle |
 | OUR-07 | Direct: 28/40, 30/40, 31/40 stabile Stacks; Mittel 74,2 %, Stichproben-SD 3,8 Prozentpunkte über drei Trainingsseeds | Replikationsbericht Ergebnis je Trainingsseed |
 | OUR-08 | Diffusion: 0/40 je Trainingsseed, 0/120 insgesamt; drei Trainingsreplikate mit denselben vierzig Starts | Replikationsbericht; keine 120 unabhängigen Trainingsreplikate |
@@ -24,11 +24,11 @@ Die Basis ist die [Trainingsseed-Replikation](../../experiments/stack_replicatio
 
 Für OUR-04: Parameterzahlen laut Replikationsbericht Direct 67467376, Diffusion 65648903. Nahe Parameterzahl bedeutet keine identische Architektur. Direct ist strukturell einfacher, aber kein kleines Netz.
 
-Für OUR-05: Die gespeicherte [Diffusionskonfiguration für Seed 2](../../experiments/stack_replication_20261001/diffusion/seed_2/config.json) enthält `action_horizon: 8`. Der Evaluationscode überschreibt dieses Feld im geladenen Checkpoint auf `2`, bevor die Policy erzeugt wird. Der Vergleich verwendet deshalb zwei ausgeführte Aktionen, obwohl die unveränderte Konfigurationsdatei acht nennt. Gespeicherte Konfiguration und Laufzeitverhalten sind hier getrennte Belege.
+Für OUR-05: Die gespeicherte [Diffusionskonfiguration für Seed 2](../../experiments/stack_diagnostics/stack_replication_20261001/diffusion/seed_2/config.json) enthält `action_horizon: 8`. Der Evaluationscode überschreibt dieses Feld im geladenen Checkpoint auf `2`, bevor die Policy erzeugt wird. Der Vergleich verwendet deshalb zwei ausgeführte Aktionen, obwohl die unveränderte Konfigurationsdatei acht nennt. Gespeicherte Konfiguration und Laufzeitverhalten sind hier getrennte Belege.
 
 Unser stabiler Stack verlangt die ursprüngliche Success-Bedingung mit Kontakt und freigegebenem Würfel über zusätzliche 40 Frames / 2 Sekunden bei 20 Hz. Expert-ähnliche Vollhöhe und Grenzreaktion sind Diagnosen, keine notwendigen Endbedingungen. Die einzelnen Phasenindikatoren sind nicht zwingend ein verschachtelter Funnel.
 
-**Zusatzkontext mit begrenztem Status:** [diffusion_failure_analysis.md](../../experiments/stack_replication_20261001/diffusion_failure_analysis.md) bezeichnet sich beim Lesen als Zwischenstand mit noch nicht vollständig abgeschlossener Closed-Loop-Matrix. Seine schwache/uneinheitlich gerichtete Transportverteilung wird hier nicht als abgeschlossene kausale Erklärung oder neue finale Erfolgsstudie übernommen.
+**Zusatzkontext mit begrenztem Status:** [diffusion_failure_analysis.md](../../experiments/stack_diagnostics/stack_replication_20261001/diffusion_failure_analysis.md) bezeichnet sich beim Lesen als Zwischenstand mit noch nicht vollständig abgeschlossener Closed-Loop-Matrix. Seine schwache/uneinheitlich gerichtete Transportverteilung wird hier nicht als abgeschlossene kausale Erklärung oder neue finale Erfolgsstudie übernommen.
 
 ## A/B/C: Konkrete Literaturverknüpfungen
 

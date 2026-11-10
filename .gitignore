@@ -77,16 +77,16 @@ experiments/**/*.tmp
 
 # Detailed simulator trajectories remain local; result_summary.json retains
 # metadata and SHA256. Keep protocols, analyses and frozen source snapshots.
-experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/clearance_filter_001/result.json
-experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/error_margin_001/result.json
-experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/external_proxy_001/result.json
-experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/local_response_001/result.json
-experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/mechanism_AB_001/result.json
-experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/mechanism_AB_002/result.json
-experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/mechanism_action7_001/result.json
-experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/mechanism_correction_001/result.json
-experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/mechanism_domain_001/result.json
-experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/recorded_response_001/result.json
+experiments/stack_diagnostics/lift_contraction_validity_20261004/supervised_6h_20261004_0904/clearance_filter_001/result.json
+experiments/stack_diagnostics/lift_contraction_validity_20261004/supervised_6h_20261004_0904/error_margin_001/result.json
+experiments/stack_diagnostics/lift_contraction_validity_20261004/supervised_6h_20261004_0904/external_proxy_001/result.json
+experiments/stack_diagnostics/lift_contraction_validity_20261004/supervised_6h_20261004_0904/local_response_001/result.json
+experiments/stack_diagnostics/lift_contraction_validity_20261004/supervised_6h_20261004_0904/mechanism_AB_001/result.json
+experiments/stack_diagnostics/lift_contraction_validity_20261004/supervised_6h_20261004_0904/mechanism_AB_002/result.json
+experiments/stack_diagnostics/lift_contraction_validity_20261004/supervised_6h_20261004_0904/mechanism_action7_001/result.json
+experiments/stack_diagnostics/lift_contraction_validity_20261004/supervised_6h_20261004_0904/mechanism_correction_001/result.json
+experiments/stack_diagnostics/lift_contraction_validity_20261004/supervised_6h_20261004_0904/mechanism_domain_001/result.json
+experiments/stack_diagnostics/lift_contraction_validity_20261004/supervised_6h_20261004_0904/recorded_response_001/result.json
 
 # Local Sites checkout, setup staging and deployment packages
 /sites/research-workspace/
@@ -100,7 +100,7 @@ experiments/**/numba_cache/
 /sites/research-atlas-editorial/
 /tmp/editorial-write-check.txt
 /sites/research-atlas-update/check.txt
-outputs/**/*.inspect.ndjson
+output/**/*.inspect.ndjson
 
 # Generated simulator snapshots, repeated development evaluations and live state.
 # Keep configs, manifests, learning curves, selected checkpoints' metadata,
@@ -124,7 +124,7 @@ experiments/**/active_child.json
 /tmp/check-editorial.py
 /tmp/editorial-copy.py
 /tmp/remove-cube-demo.py
-outputs/**/preview.png
+output/paper-tabelle/preview.png
 
 # Isolated source checkout for the private training dashboard
 /sites/research-training-editor/
@@ -139,32 +139,32 @@ outputs/**/preview.png
 
 # Vision experiments: bulk diagnostics, smoke runs and transient process state.
 # Retain source snapshots, configs, manifests, curves, results and selected figures.
-/experiments/visual_overnight_20261101/smoke_*/
-/experiments/visual_scene_v2_20261101/smoke_*/
-/experiments/visual_scene_v2_20261101/run_001/geometry/
-/experiments/visual_cube_transfer_20261031/write_smoke.json
-/experiments/visual_overnight_20261101/run_*/runtime.json
-/experiments/visual_overnight_20261101/run_*/supervisor.json
-/experiments/visual_overnight_20261101/run_*/supervisor_exit.json
-/experiments/visual_scene_v2_20261101/run_*/runtime.json
-/experiments/visual_scene_v2_20261101/run_*/supervisor.json
-/experiments/visual_scene_v2_20261101/run_*/supervisor_exit.json
-/experiments/visual_scene_v2_20261101/preflight_*/progress.json
-/experiments/visual_scene_v2_20261101/run_001/test_repair_001/progress_results.json
-/experiments/visual_scene_v2_20261101/refinement_001/website_*.jpg
-/experiments/active_view_20261101/reference_demo_001/motion.gif
-/experiments/active_view_20261101/reference_demo_002/motion.gif
+/experiments/vision/visual_overnight_20261101/smoke_*/
+/experiments/vision/visual_scene_v2_20261101/smoke_*/
+/experiments/vision/visual_scene_v2_20261101/run_001/geometry/
+/experiments/vision/visual_cube_transfer_20261031/write_smoke.json
+/experiments/vision/visual_overnight_20261101/run_*/runtime.json
+/experiments/vision/visual_overnight_20261101/run_*/supervisor.json
+/experiments/vision/visual_overnight_20261101/run_*/supervisor_exit.json
+/experiments/vision/visual_scene_v2_20261101/run_*/runtime.json
+/experiments/vision/visual_scene_v2_20261101/run_*/supervisor.json
+/experiments/vision/visual_scene_v2_20261101/run_*/supervisor_exit.json
+/experiments/vision/visual_scene_v2_20261101/preflight_*/progress.json
+/experiments/vision/visual_scene_v2_20261101/run_001/test_repair_001/progress_results.json
+/experiments/vision/visual_scene_v2_20261101/refinement_001/website_*.jpg
+/experiments/camera_planning/active_view_20261101/reference_demo_001/motion.gif
+/experiments/camera_planning/active_view_20261101/reference_demo_002/motion.gif
 
 # V3 bulk data, weights and temporary process state remain local.
-/experiments/visual_active_v3_20261101/run_*/data/
-/experiments/visual_active_v3_20261101/run_*/observations/
-/experiments/visual_active_v3_20261101/run_*/checkpoints/
-/experiments/visual_active_v3_20261101/run_*/geometry/
-/experiments/visual_active_v3_20261101/data_pilot_*/families/
-/experiments/visual_active_v3_20261101/data_pilot_*/sample_*.npz
-/experiments/visual_active_v3_20261101/smoke_*/
-/experiments/visual_active_v3_20261101/*guard*.lock
-/experiments/visual_active_v3_20261101/registered_processes.lock
+/experiments/vision/visual_active_v3_20261101/run_*/data/
+/experiments/vision/visual_active_v3_20261101/run_*/observations/
+/experiments/vision/visual_active_v3_20261101/run_*/checkpoints/
+/experiments/vision/visual_active_v3_20261101/run_*/geometry/
+/experiments/vision/visual_active_v3_20261101/data_pilot_*/families/
+/experiments/vision/visual_active_v3_20261101/data_pilot_*/sample_*.npz
+/experiments/vision/visual_active_v3_20261101/smoke_*/
+/experiments/vision/visual_active_v3_20261101/*guard*.lock
+/experiments/vision/visual_active_v3_20261101/registered_processes.lock
 
 /sites/research-v3-results-gifs-20261102.tar.gz
 
@@ -181,31 +181,35 @@ monitor/vision-data-claims.sqlite*
 monitor/vision-namespace/
 # Vision revisions: generated datasets and transient runtime state stay local.
 /monitor/dashboard_process.json
-/experiments/visual_active_v3_20261101/**/data/
-/experiments/visual_active_v3_20261101/**/observations/
-/experiments/visual_active_v3_20261101/**/geometry/
-/experiments/visual_active_v3_20261101/**/followup_smoke*/
-/experiments/visual_active_v3_20261101/**/*runtime*.json
-/experiments/visual_active_v3_20261101/**/monitor_state.json
-/experiments/visual_active_v3_20261101/registered_processes.json
-/experiments/visual_active_v3_20261101/*wmi_proof.json
-/experiments/visual_active_v3_20261101/deadline_guard_independence.json
-/experiments/visual_active_v3_20261101/website_live.jpg
-/experiments/visual_active_v3_20261101/*.zip
-/experiments/visual_side_v4_20261102/**/data/
-/experiments/visual_side_v4_20261102/**/geometry/
-/experiments/visual_side_v4_20261102/**/captures/
-/experiments/visual_side_v4_20261102/test_tmp*/
-/experiments/visual_side_v4_20261102/STOP_REQUESTED
-/experiments/visual_edge_refine_v1_20261103/smoke_*/
-/experiments/visual_active_v3_20261101/**/policy/
-/experiments/visual_active_v3_20261101/**/*_frozen_benchmark_rows.json
-/experiments/visual_active_v3_20261101/**/progress.json
-/experiments/visual_active_v3_20261101/**/phase.json
-/experiments/visual_active_v3_20261101/**/*independence.json
-/experiments/visual_side_v4_20261102/**/*.sqlite*
-/experiments/visual_active_v3_20261101/**/monitor/state.json
-/experiments/visual_active_v3_20261101/**/launch_retry*.json
-/experiments/visual_side_v4_20261102/**/*.lock
-/experiments/visual_side_v4_20261102/**/*runtime.json
-/experiments/visual_side_v4_20261102/**/monitor_state.json
+/experiments/vision/visual_active_v3_20261101/**/data/
+/experiments/vision/visual_active_v3_20261101/**/observations/
+/experiments/vision/visual_active_v3_20261101/**/geometry/
+/experiments/vision/visual_active_v3_20261101/**/followup_smoke*/
+/experiments/vision/visual_active_v3_20261101/**/*runtime*.json
+/experiments/vision/visual_active_v3_20261101/**/monitor_state.json
+/experiments/vision/visual_active_v3_20261101/registered_processes.json
+/experiments/vision/visual_active_v3_20261101/*wmi_proof.json
+/experiments/vision/visual_active_v3_20261101/deadline_guard_independence.json
+/experiments/vision/visual_active_v3_20261101/website_live.jpg
+/experiments/vision/visual_active_v3_20261101/*.zip
+/experiments/vision/visual_side_v4_20261102/**/data/
+/experiments/vision/visual_side_v4_20261102/**/geometry/
+/experiments/vision/visual_side_v4_20261102/**/captures/
+/experiments/vision/visual_side_v4_20261102/test_tmp*/
+/experiments/vision/visual_side_v4_20261102/STOP_REQUESTED
+/experiments/vision/visual_edge_refine_v1_20261103/smoke_*/
+/experiments/vision/visual_active_v3_20261101/**/policy/
+/experiments/vision/visual_active_v3_20261101/**/*_frozen_benchmark_rows.json
+/experiments/vision/visual_active_v3_20261101/**/progress.json
+/experiments/vision/visual_active_v3_20261101/**/phase.json
+/experiments/vision/visual_active_v3_20261101/**/*independence.json
+/experiments/vision/visual_side_v4_20261102/**/*.sqlite*
+/experiments/vision/visual_active_v3_20261101/**/monitor/state.json
+/experiments/vision/visual_active_v3_20261101/**/launch_retry*.json
+/experiments/vision/visual_side_v4_20261102/**/*.lock
+/experiments/vision/visual_side_v4_20261102/**/*runtime.json
+/experiments/vision/visual_side_v4_20261102/**/monitor_state.json
+
+# Isolated Sites publication checkout and deploy archive; canonical source stays tracked.
+/sites/research-actor-critic-editor/
+/sites/research-actor-critic-20261104.tar.gz

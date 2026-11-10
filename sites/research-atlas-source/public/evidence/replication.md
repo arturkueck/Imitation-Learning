@@ -20,7 +20,7 @@ Drei unabhängige Trainingsinitialisierungen je Modellklasse, jeweils 30.000 Gra
 
 Die drei Trainingsseeds sind die Replikate. Die 40 identischen Startzustände innerhalb eines Modells sind gepaarte Aufgabenfälle; sie erhöhen nicht die Anzahl unabhängiger Trainingsreplikate. Bei n=3 werden keine Signifikanzbehauptungen oder scheingenauen Konfidenzintervalle angegeben.
 
-![Erfolg je Trainingsseed](<C:/Users/artur/Desktop/Programmieren/IT/Imitation Learning/experiments/stack_replication_20261001/seed_success.png>)
+![Erfolg je Trainingsseed](../../../../experiments/stack_diagnostics/stack_replication_20261001/seed_success.png)
 
 ## Rollout-Phasen
 
@@ -43,7 +43,7 @@ Der 3-cm-Bereich verlangt XY-Abstand <3 cm und B−A-Höhe >3,2 cm. Positionieru
 
 ## Variation der Startzustände
 
-![Gleiche 40 Startzustände, drei Trainingsseeds](<C:/Users/artur/Desktop/Programmieren/IT/Imitation Learning/experiments/stack_replication_20261001/start_state_success.png>)
+![Gleiche 40 Startzustände, drei Trainingsseeds](../../../../experiments/stack_diagnostics/stack_replication_20261001/start_state_success.png)
 
 - **diffusion: Von allen drei Seeds gelöst: 0/40**. Starts: keine.
 - **diffusion: Seedabhängig: 0/40**. Starts: keine.
@@ -66,9 +66,9 @@ Vollständige Erfolgsanteile je Start sind in `analysis.json` unter `start_state
 
 Die gespeicherten Direkt-Rollouts enthalten drei nachvollziehbare Beispiele: Start 46000 ist seedabhängig, 46003 wird von allen drei Seeds gelöst, 46005 von keinem. Die Zustands-/Aktionsplots und vier Videos liegen unter `representative`; die Videos spielen gespeicherte Simulatorzustände ab und sind keine zusätzlichen Evaluationen. Das Seed-3-Modellpaar auf Start 46003 zeigt zusätzlich beide Modellklassen bei identischen Anfangsbedingungen.
 
-![Seedabhängiger Start 46000](<C:/Users/artur/Desktop/Programmieren/IT/Imitation Learning/experiments/stack_replication_20261001/representative/direct_start_46000.png>)
+![Seedabhängiger Start 46000](../../../../experiments/stack_diagnostics/stack_replication_20261001/representative/direct_start_46000.png)
 
-![Modellvergleich: Trainingsseed 3, Start 46003](<C:/Users/artur/Desktop/Programmieren/IT/Imitation Learning/experiments/stack_replication_20261001/representative/model_pair_seed_3_start_46003.png>)
+![Modellvergleich: Trainingsseed 3, Start 46003](../../../../experiments/stack_diagnostics/stack_replication_20261001/representative/model_pair_seed_3_start_46003.png)
 
 Im gezeigten Diffusion-Rollout wird der Würfel wiederholt nur teilweise angehoben und später verloren; schwache XY-Aktionen und wechselnde Gripperbefehle erreichen das Ziel nicht. Das Direktmodell erreicht hier keine Expert-Vollhöhe, steuert aber gezielt zum Ziel und gibt den Würfel stabil frei. Dieses Beispiel veranschaulicht die Trajektorien und ersetzt keine Auswertung über die Trainingsseeds.
 
@@ -87,11 +87,11 @@ Im gezeigten Diffusion-Rollout wird der Würfel wiederholt nur teilweise angehob
 
 Grenzreaktion = ‖ΔXYZ-Vorhersage‖ / ‖ΔXYZ-Expert‖ zwischen den gepaarten Grenzframes; zusätzlich ist die Projektion auf den Expert-Sprung gespeichert. Beginn verlangt XY-Aktionsnorm >0,25 und Zielrichtungs-Cosinus >0,5 für drei Frames. Früh: früher als −2 Frames; pünktlich: ±2 Frames; spät: >2 Frames. Das begrenzte Fenster kann früheren Beginn nur linkszensiert erfassen. Stabiler Transport: +6 bis +10 Frames.
 
-![Lift–Transport-Profile je Trainingsseed](<C:/Users/artur/Desktop/Programmieren/IT/Imitation Learning/experiments/stack_replication_20261001/boundary_profiles.png>)
+![Lift–Transport-Profile je Trainingsseed](../../../../experiments/stack_diagnostics/stack_replication_20261001/boundary_profiles.png)
 
 ## Offline ↔ Closed Loop
 
-![Explorative Zusammenhänge auf Trainingsseed-Ebene](<C:/Users/artur/Desktop/Programmieren/IT/Imitation Learning/experiments/stack_replication_20261001/offline_rollout.png>)
+![Explorative Zusammenhänge auf Trainingsseed-Ebene](../../../../experiments/stack_diagnostics/stack_replication_20261001/offline_rollout.png)
 
 | Metrik | Gepoolt (n=6) | Direkt (n=3) | Diffusion (n=3) |
 |---|---:|---:|---:|

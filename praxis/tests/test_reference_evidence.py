@@ -4,7 +4,7 @@ import sys
 import numpy as np
 import pytest
 
-sys.path.insert(0,str(Path(__file__).resolve().parents[2]/'experiments/visual_scene_v2_20261101'))
+sys.path.insert(0,str(Path(__file__).resolve().parents[2]/'experiments/vision/visual_scene_v2_20261101'))
 import reference_evidence as evidence
 from reference_capture import segmentation_labels,mask_metric,verify_scene,verify_rgb_pair
 

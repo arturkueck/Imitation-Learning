@@ -1,0 +1,16 @@
+{
+  "training_seed": 1,
+  "effects": {
+    "direct": {
+      "observation_effect": 0.03750000000000003,
+      "action_effect": 0.03750000000000003,
+      "interaction": 0.025000000000000022
+    },
+    "diffusion": {
+      "observation_effect": 0.025,
+      "action_effect": -0.025,
+      "interaction": -0.05
+    }
+  },
+  "interpretation": "descriptive only; min_max action transformation nearly identity"
+}

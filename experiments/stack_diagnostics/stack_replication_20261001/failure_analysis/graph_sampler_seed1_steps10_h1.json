@@ -1,0 +1,51 @@
+{
+  "seed": 1,
+  "steps": 10,
+  "parity": [
+    {
+      "panel_index": 0,
+      "max_abs_error": 0.0,
+      "rng_state_equal": true
+    },
+    {
+      "panel_index": 9,
+      "max_abs_error": 0.0,
+      "rng_state_equal": true
+    },
+    {
+      "panel_index": 10,
+      "max_abs_error": 0.0,
+      "rng_state_equal": true
+    },
+    {
+      "panel_index": 20,
+      "max_abs_error": 0.0,
+      "rng_state_equal": true
+    },
+    {
+      "panel_index": 100,
+      "max_abs_error": 0.0,
+      "rng_state_equal": true
+    },
+    {
+      "panel_index": 209,
+      "max_abs_error": 0.0,
+      "rng_state_equal": true
+    },
+    {
+      "panel_index": 210,
+      "max_abs_error": 0.0,
+      "rng_state_equal": true
+    },
+    {
+      "panel_index": 419,
+      "max_abs_error": 0.0,
+      "rng_state_equal": true
+    }
+  ],
+  "seconds_per_chunk": {
+    "native": 0.08120000000053551,
+    "graph": 0.03289999999979045
+  },
+  "operation": "same native DDIM operations; scalar timestep CUDA copies precomputed; initial torch.randn outside capture; cloned action slice; no model, sampler, precision or RNG changes"
+}

@@ -2,7 +2,7 @@
 from pathlib import Path
 import sys
 import numpy as np
-sys.path.insert(0,str(Path(__file__).resolve().parents[2]/'experiments/visual_scene_v2_20261101'))
+sys.path.insert(0,str(Path(__file__).resolve().parents[2]/'experiments/vision/visual_scene_v2_20261101'))
 import box_refinement as module
 from test_image_consistency import camera,box
 

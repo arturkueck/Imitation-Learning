@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "no_training_or_rollout_performed": true,
+  "configuration_only_data_and_output_changed": true,
+  "train_demos": 180,
+  "valid_demos": 20,
+  "train_frames": 17423,
+  "valid_frames": 1854,
+  "actual_dataset_transform_max_error": 0.0,
+  "metric_positive_negative_checks_passed": true,
+  "observation_statistics_exact_C": true,
+  "seed": 1
+}

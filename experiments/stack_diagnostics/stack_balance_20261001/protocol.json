@@ -1,0 +1,96 @@
+{
+  "source_checkpoint": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_followup_20261001\\state_scheduler_fixed\\runs\\stack_two_state_scheduler_fixed\\20261001133241\\models\\model_epoch_300.pth",
+  "source_sha256": "a2c2cca1cd087409261402f3b95f7b6592961e6aac92c276c72657dd436343f4",
+  "dataset_sha256": "5222cbf96dc6218389d491fe7b99449295dcfc9bceb3bab8f8776ffff19fe6f8",
+  "gradient_updates": 5000,
+  "batch_size": 8,
+  "seed": 1,
+  "initial_optimizer_steps": 30000,
+  "continuation_schedule": {
+    "type": "cosine_restart",
+    "initial_lr": 0.0001,
+    "warmup_steps": 500,
+    "num_cycles": 0.5,
+    "total_steps": 5000
+  },
+  "optimizer": "restore AdamW moments from source",
+  "ema": "restore source EMA weights; restore optimization_step=30000 inferred from optimizer",
+  "event_criterion": {
+    "B_z_gt": 0.98,
+    "gripper_action_gt": 0,
+    "xy_action_norm_gt": 0.25,
+    "goal_cosine_gt": 0.85,
+    "eef_B_distance_lt": 0.012,
+    "previous_3_xy_norm_lt": 0.12,
+    "next_3_xy_norm_gt": 0.25
+  },
+  "window_offsets": [
+    -6,
+    8
+  ],
+  "critical_mass": 0.5,
+  "uniform_critical_mass": 0.09882146255764586,
+  "training_frames": 27322,
+  "critical_frames": 2700,
+  "other_frames": 24622,
+  "inference_action_horizon": 2,
+  "ddim_steps": 10,
+  "observation_horizon": 2,
+  "prediction_horizon": 16,
+  "offline": {
+    "train_demos": 180,
+    "valid_demos": 20,
+    "boundary_offsets": [
+      -10,
+      30
+    ],
+    "draws": 3,
+    "significant_xy_norm": 0.25,
+    "significant_goal_cosine": 0.5,
+    "sustained_steps": 3
+  },
+  "rollouts": {
+    "seeds": [
+      46000,
+      46001,
+      46002,
+      46003,
+      46004,
+      46005,
+      46006,
+      46007,
+      46008,
+      46009,
+      46010,
+      46011,
+      46012,
+      46013,
+      46014,
+      46015,
+      46016,
+      46017,
+      46018,
+      46019
+    ],
+    "horizon": 500,
+    "tail_steps": 40,
+    "lift_metric_B_z_gt": 0.88,
+    "full_lift_end_B_z_ge": 1.045,
+    "full_lift_end_EEF_z_ge": 1.049,
+    "sustained_full_lift_steps": 3,
+    "transport_velocity_gt": 0.02,
+    "transport_goal_cosine_gt": 0.5,
+    "transport_sustained_steps": 3,
+    "transport_requires_grasp": true,
+    "distance_offsets_steps": [
+      10,
+      20,
+      40
+    ]
+  },
+  "common_random_numbers": true,
+  "checkpoint_selection": "final_update_5000_only",
+  "data_unchanged": true,
+  "black_image_demos_documented": 62,
+  "black_image_transport_frames": 1266
+}

@@ -1,5 +1,16 @@
 # Plan A implementation and experiment protocol
 
+## Orientierung im gesamten Praxisbereich
+
+Diese Anleitung dokumentiert den ursprünglichen Plan-A-Lift-Vergleich.
+Weitere Bausteine: [Quellcode](src/README.md),
+[BC-Erweiterungen](src/robomimic_ext/README.md),
+[Simulationsaufgaben](src/task_extensions/README.md) und
+[Kameraplanung](src/active_view/README.md).
+[Tests](tests/README.md), [Konfigurationen](configs/README.md) und
+[Ergebniszusammenfassungen](reports/README.md) haben eigene Einstiege.
+Spätere Versuchsreihen sind unter [experiments/](../experiments/README.md) dokumentiert.
+
 This directory contains a robomimic 0.5 research extension for the official
 Lift proficient-human low-dimensional dataset. The tracked algorithm code is
 in `src/robomimic_ext`; downloaded datasets, upstream checkouts, virtual

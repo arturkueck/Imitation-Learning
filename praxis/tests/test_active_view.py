@@ -4,7 +4,7 @@ import sys,time
 import numpy as np
 import pytest
 ROOT=Path(__file__).resolve().parents[2]
-sys.path.insert(0,str(ROOT/'praxis/src'));sys.path.insert(0,str(ROOT/'experiments/visual_scene_v2_20261101'))
+sys.path.insert(0,str(ROOT/'praxis/src'));sys.path.insert(0,str(ROOT/'experiments/vision/visual_scene_v2_20261101'))
 from scene_data import Generator
 from active_view.geometry import Box,convex_gap,Hull,hull_data
 from active_view.collision import World,ArmChecker,reference_world

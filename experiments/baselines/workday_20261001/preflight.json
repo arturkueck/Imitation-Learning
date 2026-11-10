@@ -1,0 +1,17 @@
+{
+  "state": "VALIDATED",
+  "demos": 200,
+  "attempts": 203,
+  "train_demos": 180,
+  "valid_demos": 20,
+  "length_min_median_max": [
+    132,
+    147.0,
+    310
+  ],
+  "architectures_smoke_tested": 4,
+  "video_layout": "4-view 768x768",
+  "tail_seconds": 2,
+  "checkpoint_interval_epochs": 50,
+  "deadline_hours": 6.5
+}

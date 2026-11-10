@@ -16,7 +16,7 @@ bleiben erhalten; `.gitignore` wirkt auf neue, noch nicht versionierte Dateien.
 Status- und Ergebnisdateien werden nicht pauschal ausgeschlossen.
 
 Zehn große `result.json`-Dateien der Session
-`experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/`
+`experiments/stack_diagnostics/lift_contraction_validity_20261004/supervised_6h_20261004_0904/`
 enthalten detaillierte Simulator-Trajektorien. Diese konkreten Dateien sind
 in `.gitignore` aufgeführt und bleiben unverändert auf dem lokalen Rechner.
 Jeweils daneben enthält `result_summary.json` alle ursprünglichen Felder außer

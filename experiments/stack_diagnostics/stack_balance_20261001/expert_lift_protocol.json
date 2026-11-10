@@ -1,0 +1,12 @@
+{
+  "type": "additional evaluation only",
+  "train_changed": false,
+  "demos": "all 20 validation demos",
+  "start": "stored state at frozen event(d)",
+  "initial_observation": "exact expert history k-1,k",
+  "horizon": 120,
+  "tail": 40,
+  "seed": "81000 + demo suffix",
+  "interventions": false,
+  "reset_caveat": "Simulator state restored; controller internal memory is reinitialized identically for all models. After first action observations come from the environment."
+}

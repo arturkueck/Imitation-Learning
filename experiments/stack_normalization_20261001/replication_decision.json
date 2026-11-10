@@ -1,5 +1,0 @@
-{
-  "threshold": 8,
-  "qualified_variants": [],
-  "rule": "For each variant with >=8/40 stable diffusion stacks (20 percentage points above 0/40 baseline), train BOTH model classes additionally with seeds 2 and 3; no selection between qualifying variants"
-}

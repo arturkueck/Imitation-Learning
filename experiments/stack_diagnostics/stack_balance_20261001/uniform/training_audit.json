@@ -1,0 +1,19 @@
+{
+  "initial": {
+    "raw_weight_sha256": "a2c2cca1cd087409261402f3b95f7b6592961e6aac92c276c72657dd436343f4",
+    "optimizer_steps": 30000,
+    "ema_optimization_step": 30000,
+    "raw_vs_source_equal": true,
+    "ema_vs_source_equal": true
+  },
+  "final_optimizer_steps": 35000,
+  "final_ema_step": 35000,
+  "gradient_updates": 5000,
+  "samples": 40000,
+  "critical_samples": 3898,
+  "sampling_seed": 1,
+  "noise_seed": 1,
+  "effective_critical_mass": 0.09745,
+  "final_checkpoint_sha256": "8ef12495138ba266c18532e4b3b24da7b583e3ccf998b1b87e4c89e89bf59ac5",
+  "elapsed_seconds": 231.14100000000326
+}

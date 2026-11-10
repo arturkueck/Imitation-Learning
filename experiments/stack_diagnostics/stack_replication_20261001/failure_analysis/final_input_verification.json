@@ -1,0 +1,45 @@
+{
+  "checkpoints_unchanged": 6,
+  "data_unchanged": true,
+  "validation_observations_verified": 420,
+  "expert_chunk_positions_verified": 6720,
+  "noise_identity_unchanged": true,
+  "weights": [
+    {
+      "model": "diffusion",
+      "seed": 1,
+      "checkpoint": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_followup_20261001\\state_scheduler_fixed\\runs\\stack_two_state_scheduler_fixed\\20261001133241\\models\\model_epoch_300.pth",
+      "sha256": "a2c2cca1cd087409261402f3b95f7b6592961e6aac92c276c72657dd436343f4"
+    },
+    {
+      "model": "diffusion",
+      "seed": 2,
+      "checkpoint": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_replication_20261001\\diffusion\\seed_2\\runs\\stack_diffusion_replication_seed_2\\20261001200719\\models\\model_epoch_300.pth",
+      "sha256": "00f0d2ea89449c5fdb5d59c49a84cea5bbb4af04c2329fbd0d9e6c8eea0377f9"
+    },
+    {
+      "model": "diffusion",
+      "seed": 3,
+      "checkpoint": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_replication_20261001\\diffusion\\seed_3\\runs\\stack_diffusion_replication_seed_3\\20261001205819\\models\\model_epoch_300.pth",
+      "sha256": "4bbad0fa429b490ce7e607fe5dd1be04fcb8753aab75c5c235a3afe442a80d0b"
+    },
+    {
+      "model": "direct",
+      "seed": 1,
+      "checkpoint": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_direct_20261001\\model_final.pth",
+      "sha256": "9b08ea5febc5a37fa92eb2595c29fa7b0cab6e5501dd218b81d2798a9faf7bec"
+    },
+    {
+      "model": "direct",
+      "seed": 2,
+      "checkpoint": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_replication_20261001\\direct\\seed_2\\model_final.pth",
+      "sha256": "8824b1a4fd78d71fc8f53054aad0e572383b86f8b0afc06d0220b88d5e444897"
+    },
+    {
+      "model": "direct",
+      "seed": 3,
+      "checkpoint": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_replication_20261001\\direct\\seed_3\\model_final.pth",
+      "sha256": "d1ef2e7bceef2c1470440c12253eb579c6c41573829449cf3c3781247db6ec58"
+    }
+  ]
+}

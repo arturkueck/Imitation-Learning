@@ -113,7 +113,7 @@ def test_decision_scores_are_preserved_and_invalid_probability_rejected(tmp_path
 
 
 def test_request_head_shapes_and_parameter_counts():
-    sys.path.insert(0,str(ROOT/'experiments/visual_active_v3_20261101'))
+    sys.path.insert(0,str(ROOT/'experiments/vision/visual_active_v3_20261101'))
     import torch
     from request_heads import RequestHeads,OBSERVATION_FEATURES,CANDIDATE_FEATURES
     model=RequestHeads().eval()

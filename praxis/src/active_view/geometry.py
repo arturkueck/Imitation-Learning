@@ -90,40 +90,6 @@ def sat_gap(a,b):
     return float(np.max(np.abs(axes@(b.center-a.center))-ra-rb))
 
 
-def _clip(poly,axis,value,less):
-    result=[]
-    for p,q in zip(poly,np.roll(poly,-1,axis=0)):
-        dp=float(p[axis]-value);dq=float(q[axis]-value)
-        pin=dp<=1e-10 if less else dp>=-1e-10;qin=dq<=1e-10 if less else dq>=-1e-10
-        if pin:result.append(p)
-        if pin!=qin:result.append(p+(q-p)*dp/(dp-dq))
-    return np.asarray(result)
-
-
-def mesh_envelopes(vertices,slabs=4):
-    """Cover a collision mesh's convex hull by tight sliced PCA-frame OBBs.
-
-    Clipping the hull faces, including edge/plane intersections, avoids the
-    unsafe shortcut of bounding just the vertices located inside a slab.
-    """
-    v=np.asarray(vertices,dtype=float);origin=v.mean(0)
-    _,_,vt=np.linalg.svd(v-origin,full_matrices=False);R=vt.T
-    if np.linalg.det(R)<0:R[:,-1]*=-1
-    local=(v-origin)@R;hull=ConvexHull(local)
-    axis=int(np.argmax(np.ptp(local,axis=0)));edges=np.linspace(local[:,axis].min(),local[:,axis].max(),slabs+1)
-    boxes=[]
-    for lo,hi in zip(edges[:-1],edges[1:]):
-        points=[]
-        for triangle in hull.simplices:
-            poly=_clip(local[triangle],axis,lo,False)
-            if len(poly):poly=_clip(poly,axis,hi,True)
-            if len(poly):points.extend(poly)
-        if not points:continue
-        points=np.array(points);low=points.min(0);high=points.max(0)
-        boxes.append((origin+((low+high)/2)@R.T,(high-low)/2+1e-7,R.copy()))
-    return boxes
-
-
 def segment_aabb_intersection(start,end,box,padding=0.):
     """Segment / oriented box intersection (closed interval)."""
     p=(np.asarray(start)-box.center)@box.rotation;v=(np.asarray(end)-np.asarray(start))@box.rotation

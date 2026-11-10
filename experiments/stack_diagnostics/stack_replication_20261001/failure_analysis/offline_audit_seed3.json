@@ -1,0 +1,188 @@
+{
+  "runs": [
+    {
+      "seed": 3,
+      "ddim_steps": 10,
+      "draws": 64,
+      "seconds": 27.625,
+      "max_error_existing": 0.004338487982749939,
+      "timesteps": [
+        90,
+        80,
+        70,
+        60,
+        50,
+        40,
+        30,
+        20,
+        10,
+        0
+      ],
+      "scheduler": {
+        "num_train_timesteps": 100,
+        "beta_start": 0.0001,
+        "beta_end": 0.02,
+        "beta_schedule": "squaredcos_cap_v2",
+        "trained_betas": null,
+        "clip_sample": true,
+        "set_alpha_to_one": true,
+        "steps_offset": 0,
+        "prediction_type": "epsilon"
+      }
+    },
+    {
+      "seed": 3,
+      "ddim_steps": 5,
+      "draws": 64,
+      "seconds": 9.343999999997322,
+      "max_error_existing": null,
+      "timesteps": [
+        80,
+        60,
+        40,
+        20,
+        0
+      ],
+      "scheduler": {
+        "num_train_timesteps": 100,
+        "beta_start": 0.0001,
+        "beta_end": 0.02,
+        "beta_schedule": "squaredcos_cap_v2",
+        "trained_betas": null,
+        "clip_sample": true,
+        "set_alpha_to_one": true,
+        "steps_offset": 0,
+        "prediction_type": "epsilon"
+      }
+    },
+    {
+      "seed": 3,
+      "ddim_steps": 20,
+      "draws": 64,
+      "seconds": 35.38999999999942,
+      "max_error_existing": null,
+      "timesteps": [
+        95,
+        90,
+        85,
+        80,
+        75,
+        70,
+        65,
+        60,
+        55,
+        50,
+        45,
+        40,
+        35,
+        30,
+        25,
+        20,
+        15,
+        10,
+        5,
+        0
+      ],
+      "scheduler": {
+        "num_train_timesteps": 100,
+        "beta_start": 0.0001,
+        "beta_end": 0.02,
+        "beta_schedule": "squaredcos_cap_v2",
+        "trained_betas": null,
+        "clip_sample": true,
+        "set_alpha_to_one": true,
+        "steps_offset": 0,
+        "prediction_type": "epsilon"
+      }
+    },
+    {
+      "seed": 3,
+      "ddim_steps": 50,
+      "draws": 64,
+      "seconds": 86.11000000000058,
+      "max_error_existing": null,
+      "timesteps": [
+        98,
+        96,
+        94,
+        92,
+        90,
+        88,
+        86,
+        84,
+        82,
+        80,
+        78,
+        76,
+        74,
+        72,
+        70,
+        68,
+        66,
+        64,
+        62,
+        60,
+        58,
+        56,
+        54,
+        52,
+        50,
+        48,
+        46,
+        44,
+        42,
+        40,
+        38,
+        36,
+        34,
+        32,
+        30,
+        28,
+        26,
+        24,
+        22,
+        20,
+        18,
+        16,
+        14,
+        12,
+        10,
+        8,
+        6,
+        4,
+        2,
+        0
+      ],
+      "scheduler": {
+        "num_train_timesteps": 100,
+        "beta_start": 0.0001,
+        "beta_end": 0.02,
+        "beta_schedule": "squaredcos_cap_v2",
+        "trained_betas": null,
+        "clip_sample": true,
+        "set_alpha_to_one": true,
+        "steps_offset": 0,
+        "prediction_type": "epsilon"
+      }
+    }
+  ],
+  "native_parity": [
+    {
+      "steps": 5,
+      "max_error": 0.0
+    },
+    {
+      "steps": 10,
+      "max_error": 0.0
+    },
+    {
+      "steps": 20,
+      "max_error": 0.0
+    },
+    {
+      "steps": 50,
+      "max_error": 0.0
+    }
+  ],
+  "seconds": 169.23399999999674
+}

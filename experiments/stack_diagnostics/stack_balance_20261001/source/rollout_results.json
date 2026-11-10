@@ -1,0 +1,622 @@
+[
+  {
+    "seed": 46000,
+    "grasp": true,
+    "lift": true,
+    "near": false,
+    "position": false,
+    "lower": false,
+    "release": false,
+    "stack": false,
+    "full_lift_end": null,
+    "transport_start": null,
+    "transport_command_start": null,
+    "transport_started": false,
+    "transport_delay_steps": null,
+    "relative_xy_distance_after_lift_end_m": {
+      "0.5": null,
+      "1.0": null,
+      "2.0": null
+    },
+    "xy_action_reversals": 10,
+    "replan_pairs": 73,
+    "first_steps": {
+      "grasp": 120,
+      "lift": 149,
+      "near": null,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    }
+  },
+  {
+    "seed": 46001,
+    "grasp": false,
+    "lift": false,
+    "near": false,
+    "position": false,
+    "lower": false,
+    "release": false,
+    "stack": false,
+    "full_lift_end": null,
+    "transport_start": null,
+    "transport_command_start": null,
+    "transport_started": false,
+    "transport_delay_steps": null,
+    "relative_xy_distance_after_lift_end_m": {
+      "0.5": null,
+      "1.0": null,
+      "2.0": null
+    },
+    "xy_action_reversals": 0,
+    "replan_pairs": 0,
+    "first_steps": {
+      "grasp": null,
+      "lift": null,
+      "near": null,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    }
+  },
+  {
+    "seed": 46002,
+    "grasp": true,
+    "lift": true,
+    "near": false,
+    "position": false,
+    "lower": false,
+    "release": false,
+    "stack": false,
+    "full_lift_end": null,
+    "transport_start": 256,
+    "transport_command_start": 260,
+    "transport_started": true,
+    "transport_delay_steps": null,
+    "relative_xy_distance_after_lift_end_m": {
+      "0.5": null,
+      "1.0": null,
+      "2.0": null
+    },
+    "xy_action_reversals": 33,
+    "replan_pairs": 151,
+    "first_steps": {
+      "grasp": 90,
+      "lift": 178,
+      "near": null,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    }
+  },
+  {
+    "seed": 46003,
+    "grasp": true,
+    "lift": true,
+    "near": true,
+    "position": false,
+    "lower": false,
+    "release": false,
+    "stack": false,
+    "full_lift_end": 472,
+    "transport_start": 442,
+    "transport_command_start": null,
+    "transport_started": true,
+    "transport_delay_steps": -30,
+    "relative_xy_distance_after_lift_end_m": {
+      "0.5": 0.057339963235781194,
+      "1.0": 0.07441984628822634,
+      "2.0": null
+    },
+    "xy_action_reversals": 1,
+    "replan_pairs": 10,
+    "first_steps": {
+      "grasp": 68,
+      "lift": 93,
+      "near": 458,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    }
+  },
+  {
+    "seed": 46004,
+    "grasp": true,
+    "lift": true,
+    "near": true,
+    "position": false,
+    "lower": false,
+    "release": false,
+    "stack": false,
+    "full_lift_end": 314,
+    "transport_start": 272,
+    "transport_command_start": 286,
+    "transport_started": true,
+    "transport_delay_steps": -42,
+    "relative_xy_distance_after_lift_end_m": {
+      "0.5": 0.055882408689459775,
+      "1.0": 0.06735882327942962,
+      "2.0": 0.021982538092638025
+    },
+    "xy_action_reversals": 23,
+    "replan_pairs": 92,
+    "first_steps": {
+      "grasp": 61,
+      "lift": 128,
+      "near": 353,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    }
+  },
+  {
+    "seed": 46005,
+    "grasp": true,
+    "lift": false,
+    "near": false,
+    "position": false,
+    "lower": false,
+    "release": false,
+    "stack": false,
+    "full_lift_end": null,
+    "transport_start": null,
+    "transport_command_start": null,
+    "transport_started": false,
+    "transport_delay_steps": null,
+    "relative_xy_distance_after_lift_end_m": {
+      "0.5": null,
+      "1.0": null,
+      "2.0": null
+    },
+    "xy_action_reversals": 0,
+    "replan_pairs": 0,
+    "first_steps": {
+      "grasp": 489,
+      "lift": null,
+      "near": null,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    }
+  },
+  {
+    "seed": 46006,
+    "grasp": true,
+    "lift": true,
+    "near": false,
+    "position": false,
+    "lower": false,
+    "release": false,
+    "stack": false,
+    "full_lift_end": null,
+    "transport_start": 264,
+    "transport_command_start": 264,
+    "transport_started": true,
+    "transport_delay_steps": null,
+    "relative_xy_distance_after_lift_end_m": {
+      "0.5": null,
+      "1.0": null,
+      "2.0": null
+    },
+    "xy_action_reversals": 34,
+    "replan_pairs": 94,
+    "first_steps": {
+      "grasp": 82,
+      "lift": 246,
+      "near": null,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    }
+  },
+  {
+    "seed": 46007,
+    "grasp": false,
+    "lift": false,
+    "near": false,
+    "position": false,
+    "lower": false,
+    "release": false,
+    "stack": false,
+    "full_lift_end": null,
+    "transport_start": null,
+    "transport_command_start": null,
+    "transport_started": false,
+    "transport_delay_steps": null,
+    "relative_xy_distance_after_lift_end_m": {
+      "0.5": null,
+      "1.0": null,
+      "2.0": null
+    },
+    "xy_action_reversals": 0,
+    "replan_pairs": 0,
+    "first_steps": {
+      "grasp": null,
+      "lift": null,
+      "near": null,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    }
+  },
+  {
+    "seed": 46008,
+    "grasp": true,
+    "lift": true,
+    "near": false,
+    "position": false,
+    "lower": false,
+    "release": false,
+    "stack": false,
+    "full_lift_end": null,
+    "transport_start": null,
+    "transport_command_start": null,
+    "transport_started": false,
+    "transport_delay_steps": null,
+    "relative_xy_distance_after_lift_end_m": {
+      "0.5": null,
+      "1.0": null,
+      "2.0": null
+    },
+    "xy_action_reversals": 2,
+    "replan_pairs": 31,
+    "first_steps": {
+      "grasp": 57,
+      "lift": 270,
+      "near": null,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    }
+  },
+  {
+    "seed": 46009,
+    "grasp": false,
+    "lift": false,
+    "near": false,
+    "position": false,
+    "lower": false,
+    "release": false,
+    "stack": false,
+    "full_lift_end": null,
+    "transport_start": null,
+    "transport_command_start": null,
+    "transport_started": false,
+    "transport_delay_steps": null,
+    "relative_xy_distance_after_lift_end_m": {
+      "0.5": null,
+      "1.0": null,
+      "2.0": null
+    },
+    "xy_action_reversals": 0,
+    "replan_pairs": 0,
+    "first_steps": {
+      "grasp": null,
+      "lift": null,
+      "near": null,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    }
+  },
+  {
+    "seed": 46010,
+    "grasp": true,
+    "lift": true,
+    "near": false,
+    "position": false,
+    "lower": false,
+    "release": false,
+    "stack": false,
+    "full_lift_end": null,
+    "transport_start": 287,
+    "transport_command_start": 272,
+    "transport_started": true,
+    "transport_delay_steps": null,
+    "relative_xy_distance_after_lift_end_m": {
+      "0.5": null,
+      "1.0": null,
+      "2.0": null
+    },
+    "xy_action_reversals": 25,
+    "replan_pairs": 89,
+    "first_steps": {
+      "grasp": 205,
+      "lift": 230,
+      "near": null,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    }
+  },
+  {
+    "seed": 46011,
+    "grasp": true,
+    "lift": true,
+    "near": false,
+    "position": false,
+    "lower": false,
+    "release": false,
+    "stack": false,
+    "full_lift_end": null,
+    "transport_start": null,
+    "transport_command_start": null,
+    "transport_started": false,
+    "transport_delay_steps": null,
+    "relative_xy_distance_after_lift_end_m": {
+      "0.5": null,
+      "1.0": null,
+      "2.0": null
+    },
+    "xy_action_reversals": 16,
+    "replan_pairs": 48,
+    "first_steps": {
+      "grasp": 64,
+      "lift": 98,
+      "near": null,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    }
+  },
+  {
+    "seed": 46012,
+    "grasp": true,
+    "lift": true,
+    "near": false,
+    "position": false,
+    "lower": false,
+    "release": false,
+    "stack": false,
+    "full_lift_end": null,
+    "transport_start": 405,
+    "transport_command_start": 400,
+    "transport_started": true,
+    "transport_delay_steps": null,
+    "relative_xy_distance_after_lift_end_m": {
+      "0.5": null,
+      "1.0": null,
+      "2.0": null
+    },
+    "xy_action_reversals": 27,
+    "replan_pairs": 80,
+    "first_steps": {
+      "grasp": 179,
+      "lift": 278,
+      "near": null,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    }
+  },
+  {
+    "seed": 46013,
+    "grasp": true,
+    "lift": true,
+    "near": false,
+    "position": false,
+    "lower": false,
+    "release": false,
+    "stack": false,
+    "full_lift_end": null,
+    "transport_start": 258,
+    "transport_command_start": 259,
+    "transport_started": true,
+    "transport_delay_steps": null,
+    "relative_xy_distance_after_lift_end_m": {
+      "0.5": null,
+      "1.0": null,
+      "2.0": null
+    },
+    "xy_action_reversals": 44,
+    "replan_pairs": 105,
+    "first_steps": {
+      "grasp": 94,
+      "lift": 199,
+      "near": null,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    }
+  },
+  {
+    "seed": 46014,
+    "grasp": true,
+    "lift": true,
+    "near": true,
+    "position": false,
+    "lower": false,
+    "release": false,
+    "stack": false,
+    "full_lift_end": null,
+    "transport_start": 338,
+    "transport_command_start": 362,
+    "transport_started": true,
+    "transport_delay_steps": null,
+    "relative_xy_distance_after_lift_end_m": {
+      "0.5": null,
+      "1.0": null,
+      "2.0": null
+    },
+    "xy_action_reversals": 37,
+    "replan_pairs": 122,
+    "first_steps": {
+      "grasp": 166,
+      "lift": 241,
+      "near": 397,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    }
+  },
+  {
+    "seed": 46015,
+    "grasp": true,
+    "lift": true,
+    "near": true,
+    "position": false,
+    "lower": false,
+    "release": false,
+    "stack": false,
+    "full_lift_end": 395,
+    "transport_start": 410,
+    "transport_command_start": null,
+    "transport_started": true,
+    "transport_delay_steps": 15,
+    "relative_xy_distance_after_lift_end_m": {
+      "0.5": 0.05760037623193033,
+      "1.0": 0.04805218693373136,
+      "2.0": 0.04106204992346494
+    },
+    "xy_action_reversals": 14,
+    "replan_pairs": 39,
+    "first_steps": {
+      "grasp": 51,
+      "lift": 258,
+      "near": 469,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    }
+  },
+  {
+    "seed": 46016,
+    "grasp": true,
+    "lift": true,
+    "near": false,
+    "position": false,
+    "lower": false,
+    "release": false,
+    "stack": false,
+    "full_lift_end": null,
+    "transport_start": null,
+    "transport_command_start": 334,
+    "transport_started": false,
+    "transport_delay_steps": null,
+    "relative_xy_distance_after_lift_end_m": {
+      "0.5": null,
+      "1.0": null,
+      "2.0": null
+    },
+    "xy_action_reversals": 14,
+    "replan_pairs": 29,
+    "first_steps": {
+      "grasp": 117,
+      "lift": 222,
+      "near": null,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    }
+  },
+  {
+    "seed": 46017,
+    "grasp": true,
+    "lift": false,
+    "near": false,
+    "position": false,
+    "lower": false,
+    "release": false,
+    "stack": false,
+    "full_lift_end": null,
+    "transport_start": null,
+    "transport_command_start": null,
+    "transport_started": false,
+    "transport_delay_steps": null,
+    "relative_xy_distance_after_lift_end_m": {
+      "0.5": null,
+      "1.0": null,
+      "2.0": null
+    },
+    "xy_action_reversals": 0,
+    "replan_pairs": 0,
+    "first_steps": {
+      "grasp": 124,
+      "lift": null,
+      "near": null,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    }
+  },
+  {
+    "seed": 46018,
+    "grasp": true,
+    "lift": false,
+    "near": false,
+    "position": false,
+    "lower": false,
+    "release": false,
+    "stack": false,
+    "full_lift_end": null,
+    "transport_start": null,
+    "transport_command_start": null,
+    "transport_started": false,
+    "transport_delay_steps": null,
+    "relative_xy_distance_after_lift_end_m": {
+      "0.5": null,
+      "1.0": null,
+      "2.0": null
+    },
+    "xy_action_reversals": 0,
+    "replan_pairs": 0,
+    "first_steps": {
+      "grasp": 62,
+      "lift": null,
+      "near": null,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    }
+  },
+  {
+    "seed": 46019,
+    "grasp": true,
+    "lift": false,
+    "near": false,
+    "position": false,
+    "lower": false,
+    "release": false,
+    "stack": false,
+    "full_lift_end": null,
+    "transport_start": null,
+    "transport_command_start": null,
+    "transport_started": false,
+    "transport_delay_steps": null,
+    "relative_xy_distance_after_lift_end_m": {
+      "0.5": null,
+      "1.0": null,
+      "2.0": null
+    },
+    "xy_action_reversals": 0,
+    "replan_pairs": 0,
+    "first_steps": {
+      "grasp": 50,
+      "lift": null,
+      "near": null,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    }
+  }
+]

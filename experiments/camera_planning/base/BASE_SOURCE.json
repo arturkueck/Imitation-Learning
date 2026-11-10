@@ -1,0 +1,42 @@
+{
+  "created_at": "2026-11-10T10:16:14.995378+00:00",
+  "entry_script": "demo.py",
+  "purpose": "Editable base copies for new runs; dated experiment sources remain unchanged",
+  "files": [
+    {
+      "file": "broad_view_demo.py",
+      "source": "experiments/camera_planning/active_view_20261101/broad_view_demo.py",
+      "source_sha256": "4ded5a22740e29a0b109315f3cdb098c7747fbccd9f8ba3d7e2be05d0f7482ed",
+      "initial_copy_sha256": "4ded5a22740e29a0b109315f3cdb098c7747fbccd9f8ba3d7e2be05d0f7482ed",
+      "adaptations": []
+    },
+    {
+      "file": "demo.py",
+      "source": "experiments/camera_planning/active_view_20261101/demo.py",
+      "source_sha256": "d721389ca700e4dcaa663dc399ee9ed97f209f01637b3c439eeea61ba04a81c3",
+      "initial_copy_sha256": "d721389ca700e4dcaa663dc399ee9ed97f209f01637b3c439eeea61ba04a81c3",
+      "adaptations": []
+    },
+    {
+      "file": "register_side_views.py",
+      "source": "experiments/camera_planning/active_view_20261101/register_side_views.py",
+      "source_sha256": "d05a54788eb02b7cc2eb7de86bbec4613803a31a7f2ddac7a819402db9372813",
+      "initial_copy_sha256": "d05a54788eb02b7cc2eb7de86bbec4613803a31a7f2ddac7a819402db9372813",
+      "adaptations": []
+    },
+    {
+      "file": "side_view_demo.py",
+      "source": "experiments/camera_planning/active_view_20261101/side_view_demo.py",
+      "source_sha256": "41826989a915818a13999b9a785e2202403a27730e9223d378fcc51273106a68",
+      "initial_copy_sha256": "41826989a915818a13999b9a785e2202403a27730e9223d378fcc51273106a68",
+      "adaptations": []
+    },
+    {
+      "file": "visual_capture.py",
+      "source": "experiments/camera_planning/active_view_20261101/visual_capture.py",
+      "source_sha256": "ad2ff82e5761c06f46e7cfbe362a408f8b1ed9c9a8cbc9e6199704c1ed55bae6",
+      "initial_copy_sha256": "ad2ff82e5761c06f46e7cfbe362a408f8b1ed9c9a8cbc9e6199704c1ed55bae6",
+      "adaptations": []
+    }
+  ]
+}

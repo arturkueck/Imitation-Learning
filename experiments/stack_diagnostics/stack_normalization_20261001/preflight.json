@@ -1,0 +1,263 @@
+{
+  "passed": true,
+  "roundtrips": [
+    {
+      "variant": "B",
+      "action_roundtrip_max_error": 7.450580596923828e-09,
+      "observation_roundtrip_max_error": {
+        "robot0_eef_pos": 5.959369020480665e-08,
+        "robot0_eef_quat": 2.9801796697093152e-08,
+        "robot0_gripper_qpos": 1.8623956474228542e-09,
+        "object": 5.959678306410865e-08
+      },
+      "finite": true
+    },
+    {
+      "variant": "C",
+      "action_roundtrip_max_error": 0.0,
+      "observation_roundtrip_max_error": {
+        "robot0_eef_pos": 5.959369020480665e-08,
+        "robot0_eef_quat": 2.9801796697093152e-08,
+        "robot0_gripper_qpos": 1.8623956474228542e-09,
+        "object": 5.959678306410865e-08
+      },
+      "finite": true
+    },
+    {
+      "variant": "D",
+      "action_roundtrip_max_error": 7.450580596923828e-09,
+      "observation_roundtrip_max_error": {
+        "robot0_eef_pos": 5.959369020480665e-08,
+        "robot0_eef_quat": 2.9801796697093152e-08,
+        "robot0_gripper_qpos": 1.8623956474228542e-09,
+        "object": 5.959678306410865e-08
+      },
+      "finite": true
+    }
+  ],
+  "train_demos": 180,
+  "valid_demos": 20,
+  "train_frames": 27322,
+  "raw_channel_statistics": [
+    {
+      "group": "observation",
+      "key": "robot0_eef_pos",
+      "channel": 0,
+      "n": 27322,
+      "min": -0.14316369893362488,
+      "max": 0.1328918242539338,
+      "mean": -0.013510007241290228,
+      "std": 0.07418013895411281
+    },
+    {
+      "group": "observation",
+      "key": "robot0_eef_pos",
+      "channel": 1,
+      "n": 27322,
+      "min": -0.13830830847869427,
+      "max": 0.1349286584680915,
+      "mean": -0.003948543766799589,
+      "std": 0.07410715875197037
+    },
+    {
+      "group": "observation",
+      "key": "robot0_eef_pos",
+      "channel": 2,
+      "n": 27322,
+      "min": 0.8213676375520979,
+      "max": 1.057878694378183,
+      "mean": 0.9222656149544294,
+      "std": 0.07904853943804208
+    },
+    {
+      "group": "observation",
+      "key": "robot0_eef_quat",
+      "channel": 0,
+      "n": 27322,
+      "min": 0.9683564143985767,
+      "max": 0.999681449607452,
+      "mean": 0.9956036396897888,
+      "std": 0.003357799975888787
+    },
+    {
+      "group": "observation",
+      "key": "robot0_eef_quat",
+      "channel": 1,
+      "n": 27322,
+      "min": -0.0561421343037975,
+      "max": 0.07993693628626602,
+      "mean": 0.0015880967138241701,
+      "std": 0.021123091666771045
+    },
+    {
+      "group": "observation",
+      "key": "robot0_eef_quat",
+      "channel": 2,
+      "n": 27322,
+      "min": -0.014437099929327915,
+      "max": 0.2451067370827955,
+      "mean": 0.08571877089845702,
+      "std": 0.030143674700047182
+    },
+    {
+      "group": "observation",
+      "key": "robot0_eef_quat",
+      "channel": 3,
+      "n": 27322,
+      "min": -0.036573690322916255,
+      "max": 0.03420372831188823,
+      "mean": -0.0006579453999036427,
+      "std": 0.007525228376398913
+    },
+    {
+      "group": "observation",
+      "key": "robot0_gripper_qpos",
+      "channel": 0,
+      "n": 27322,
+      "min": 0.018187479274990533,
+      "max": 0.03999798798965356,
+      "mean": 0.025628199426060035,
+      "std": 0.00909152549661482
+    },
+    {
+      "group": "observation",
+      "key": "robot0_gripper_qpos",
+      "channel": 1,
+      "n": 27322,
+      "min": -0.040001390963393606,
+      "max": -0.017772082333449606,
+      "mean": -0.025642060527119294,
+      "std": 0.009109583833241995
+    },
+    {
+      "group": "observation",
+      "key": "object",
+      "channel": 0,
+      "n": 27322,
+      "min": -0.12641511132245462,
+      "max": 0.13111174140116982,
+      "mean": -0.011918141381891983,
+      "std": 0.07466033506724636
+    },
+    {
+      "group": "observation",
+      "key": "object",
+      "channel": 1,
+      "n": 27322,
+      "min": -0.13247499462712117,
+      "max": 0.12924286998110196,
+      "mean": -0.007651786602079992,
+      "std": 0.07699496491357573
+    },
+    {
+      "group": "observation",
+      "key": "object",
+      "channel": 2,
+      "n": 27322,
+      "min": 0.8122235900078616,
+      "max": 0.8300000000000001,
+      "mean": 0.8197204995485845,
+      "std": 0.0010210465630645972
+    },
+    {
+      "group": "observation",
+      "key": "object",
+      "channel": 3,
+      "n": 27322,
+      "min": -0.1399584315614645,
+      "max": 0.13629922871748518,
+      "mean": -0.006004921285552953,
+      "std": 0.07548439687530084
+    },
+    {
+      "group": "observation",
+      "key": "object",
+      "channel": 4,
+      "n": 27322,
+      "min": -0.13839762730221739,
+      "max": 0.13412683132188677,
+      "mean": -0.004050027867115741,
+      "std": 0.07629602212859594
+    },
+    {
+      "group": "observation",
+      "key": "object",
+      "channel": 5,
+      "n": 27322,
+      "min": 0.817344566277018,
+      "max": 1.0553731917026974,
+      "mean": 0.8909482077834914,
+      "std": 0.08381713122771554
+    },
+    {
+      "group": "action",
+      "key": "actions",
+      "channel": 0,
+      "n": 27322,
+      "min": -1.0,
+      "max": 1.0,
+      "mean": 0.06885046266752719,
+      "std": 0.28094811560838323
+    },
+    {
+      "group": "action",
+      "key": "actions",
+      "channel": 1,
+      "n": 27322,
+      "min": -1.0,
+      "max": 1.0,
+      "mean": -0.0038033436749719774,
+      "std": 0.24214584803564637
+    },
+    {
+      "group": "action",
+      "key": "actions",
+      "channel": 2,
+      "n": 27322,
+      "min": -1.0,
+      "max": 1.0,
+      "mean": -0.06458066109564332,
+      "std": 0.4856674819771481
+    },
+    {
+      "group": "action",
+      "key": "actions",
+      "channel": 3,
+      "n": 27322,
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "std": 0.0
+    },
+    {
+      "group": "action",
+      "key": "actions",
+      "channel": 4,
+      "n": 27322,
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "std": 0.0
+    },
+    {
+      "group": "action",
+      "key": "actions",
+      "channel": 5,
+      "n": 27322,
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "std": 0.0
+    },
+    {
+      "group": "action",
+      "key": "actions",
+      "channel": 6,
+      "n": 27322,
+      "min": -1.0,
+      "max": 1.0,
+      "mean": 0.21630920137618037,
+      "std": 0.9763249097508467
+    }
+  ]
+}

@@ -53,14 +53,14 @@ for f in required:
 
 project_files=['next_research_direction.md','Projektarbeit Themenvorschlag -- Artur.md','README.md',
  'latex/plan_a/OVERVIEW_AND_LITERATURE.md','latex/plan_b/OVERVIEW_AND_LITERATURE.md','latex/plan_a/COMPARATIVE_REVIEW.md',
- 'experiments/stack_replication_20261001/ERGEBNISSE.md','experiments/stack_replication_20261001/protocol.json',
- 'experiments/stack_replication_20261001/diffusion_failure_analysis.md',
- 'experiments/stack_followup_20261001/scripts/direct_common.py','experiments/stack_followup_20261001/scripts/balance_common.py',
+ 'experiments/stack_diagnostics/stack_replication_20261001/ERGEBNISSE.md','experiments/stack_diagnostics/stack_replication_20261001/protocol.json',
+ 'experiments/stack_diagnostics/stack_replication_20261001/diffusion_failure_analysis.md',
+ 'experiments/stack_diagnostics/stack_followup_20261001/scripts/direct_common.py','experiments/stack_diagnostics/stack_followup_20261001/scripts/balance_common.py',
  'praxis/src/task_extensions/stack_expert.py','praxis/src/robomimic_ext/contraction_bc.py',
  'praxis/src/task_extensions/environments.py',
- 'experiments/stack_replication_20261001/direct/seed_2/config.json',
- 'experiments/stack_replication_20261001/diffusion/seed_2/config.json',
- 'experiments/stack_followup_20261001/scripts/evaluate_replication.py']
+ 'experiments/stack_diagnostics/stack_replication_20261001/direct/seed_2/config.json',
+ 'experiments/stack_diagnostics/stack_replication_20261001/diffusion/seed_2/config.json',
+ 'experiments/stack_diagnostics/stack_followup_20261001/scripts/evaluate_replication.py']
 project_manifest={f:{'sha256':hashlib.sha256((workspace/f).read_bytes()).hexdigest(),
  'note':'Project source, not peer-reviewed; hash at final validation'} for f in project_files}
 (root/'_research/project_manifest.json').write_text(json.dumps(project_manifest,ensure_ascii=False,indent=2),encoding='utf-8')

@@ -62,7 +62,7 @@ Aus dem Repository mit der vorhandenen Python-/MuJoCo-/robosuite-Umgebung:
 
 ```powershell
 & .\praxis\.venv\Scripts\python.exe -m pytest praxis/tests/test_active_view.py -q
-& .\praxis\.venv\Scripts\python.exe experiments/active_view_20261101/demo.py --name reference_demo_003
+& .\praxis\.venv\Scripts\python.exe experiments/camera_planning/active_view_20261101/demo.py --name reference_demo_003
 ```
 
 Die Demo legt einen neuen Ergebnisordner an; bestehende Ergebnisordner werden nicht überschrieben. Beide Befehle führen kein Modelltraining aus.

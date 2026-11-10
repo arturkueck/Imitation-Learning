@@ -87,7 +87,7 @@ Erst wenn diese Grenzen bekannt sind, über ein Training mit größerer Kamerapo
 
 ```powershell
 & .\praxis\.venv\Scripts\python.exe -m pytest praxis/tests/test_active_camera.py praxis/tests/test_active_view.py praxis/tests/test_ensemble_uncertainty.py -q -p no:cacheprovider
-& .\praxis\.venv\Scripts\python.exe experiments/visual_scene_v2_20261101/active_camera_test.py --name active_camera_002
+& .\praxis\.venv\Scripts\python.exe experiments/vision/visual_scene_v2_20261101/active_camera_test.py --name active_camera_002
 ```
 
 Bestehende Ergebnisordner werden nicht überschrieben. Sechs neue Tests bestanden: Auslösung, gemeinsam falsche Vorhersage, räumliche Zuordnung, Übernahmeregel, fehlende Nachvorhersage und aktualisierte Kamerastrahlen. Keine Hardwarefreigabe.

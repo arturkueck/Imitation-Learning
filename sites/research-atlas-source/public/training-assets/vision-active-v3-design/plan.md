@@ -176,7 +176,7 @@ Unbekannte Objektgeometrie ist zur Laufzeit keine Eingabe. Die Simulation darf s
 Mehrblick-Repräsentationen mit randomisierten Blickwinkeln werden in [Seo et al., ICML 2023](https://proceedings.mlr.press/v202/seo23a.html) untersucht. Koordinierte aktive Kamera-/Handsteuerung unter Verdeckung wird in [Cheng et al., CoRL 2018](https://proceedings.mlr.press/v87/cheng18a.html) untersucht. Beide Arbeiten motivieren die Richtung; die hier vorgeschlagenen MLPs, Schwellen und Datengrößen sind ein eigener, noch ungetesteter Entwurf und keine nachgewiesene Replikation dieser Methoden.
 
 ```powershell
-& .\praxis\.venv\Scripts\python.exe experiments/visual_active_v3_20261101/request_heads.py
+& .\praxis\.venv\Scripts\python.exe experiments/vision/visual_active_v3_20261101/request_heads.py
 & .\praxis\.venv\Scripts\python.exe -m pytest praxis/tests/test_capture_requests.py -q -p no:cacheprovider --basetemp=praxis/.cache/capture_request_tests_new
 ```
 

@@ -4,7 +4,7 @@ from pathlib import Path
 import numpy as np
 import pytest
 ROOT=Path(__file__).resolve().parents[2]
-sys.path.insert(0,str(ROOT/'experiments/visual_active_v3_20261101'))
+sys.path.insert(0,str(ROOT/'experiments/vision/visual_active_v3_20261101'))
 from model_v3 import context_arrays
 from data_v3 import object_path_free,assignment
 

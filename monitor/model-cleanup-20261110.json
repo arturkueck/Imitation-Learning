@@ -1,0 +1,175 @@
+{
+  "status": "deleted_with_user_authorization",
+  "reason": "Smoke-test weights, no explicit downstream path references found in inspected text files",
+  "files": [
+    {
+      "path": "experiments/baselines/diffusion_20261001/smoke/square_diffusion_vision/runs/square_diffusion_vision_smoke/20261001104727/last.pth",
+      "bytes": 1256512605
+    },
+    {
+      "path": "experiments/baselines/diffusion_20261001/smoke/square_diffusion_vision/runs/square_diffusion_vision_smoke/20261001104727/last_bak.pth",
+      "bytes": 1256512605
+    },
+    {
+      "path": "experiments/baselines/diffusion_20261001/smoke/square_diffusion_vision/runs/square_diffusion_vision_smoke/20261001104727/models/model_epoch_1.pth",
+      "bytes": 1256576269
+    },
+    {
+      "path": "experiments/baselines/diffusion_20261001/smoke/stack_two_diffusion_state/runs/stack_two_diffusion_state_smoke/20261001104659/last.pth",
+      "bytes": 1050614969
+    },
+    {
+      "path": "experiments/baselines/diffusion_20261001/smoke/stack_two_diffusion_state/runs/stack_two_diffusion_state_smoke/20261001104659/last_bak.pth",
+      "bytes": 1050614969
+    },
+    {
+      "path": "experiments/baselines/diffusion_20261001/smoke/stack_two_diffusion_state/runs/stack_two_diffusion_state_smoke/20261001104659/models/model_epoch_1.pth",
+      "bytes": 1050659379
+    },
+    {
+      "path": "experiments/baselines/diffusion_20261001/smoke/stack_two_diffusion_vision/runs/stack_two_diffusion_vision_smoke/20261001104619/last.pth",
+      "bytes": 1256512605
+    },
+    {
+      "path": "experiments/baselines/diffusion_20261001/smoke/stack_two_diffusion_vision/runs/stack_two_diffusion_vision_smoke/20261001104619/last_bak.pth",
+      "bytes": 1256512605
+    },
+    {
+      "path": "experiments/baselines/diffusion_20261001/smoke/stack_two_diffusion_vision/runs/stack_two_diffusion_vision_smoke/20261001104619/models/model_epoch_1.pth",
+      "bytes": 1256576269
+    },
+    {
+      "path": "experiments/baselines/square/smoke/bc/bc/20260930201529/last.pth",
+      "bytes": 135580026
+    },
+    {
+      "path": "experiments/baselines/square/smoke/bc/bc/20260930201529/last_bak.pth",
+      "bytes": 135580026
+    },
+    {
+      "path": "experiments/baselines/square/smoke/bc/bc/20260930201529/models/model_epoch_1_best_validation_0.18920621275901794.pth",
+      "bytes": 135611859
+    },
+    {
+      "path": "experiments/baselines/square/smoke/bc_rnn/bc_rnn/20260930201548/last.pth",
+      "bytes": 140214521
+    },
+    {
+      "path": "experiments/baselines/square/smoke/bc_rnn/bc_rnn/20260930201548/last_bak.pth",
+      "bytes": 140214521
+    },
+    {
+      "path": "experiments/baselines/square/smoke/bc_rnn/bc_rnn/20260930201548/models/model_epoch_1_best_validation_0.1858792006969452.pth",
+      "bytes": 140247153
+    },
+    {
+      "path": "experiments/baselines/square/smoke/bc_transformer/bc_transformer/20260930201607/last.pth",
+      "bytes": 139457148
+    },
+    {
+      "path": "experiments/baselines/square/smoke/bc_transformer/bc_transformer/20260930201607/last_bak.pth",
+      "bytes": 139457148
+    },
+    {
+      "path": "experiments/baselines/square/smoke/bc_transformer/bc_transformer/20260930201607/models/model_epoch_1_best_validation_0.32625553011894226.pth",
+      "bytes": 139498499
+    },
+    {
+      "path": "experiments/baselines/square_overnight/smoke/bc_rnn/runs/bc_rnn/resume_test/last.pth",
+      "bytes": 140214585
+    },
+    {
+      "path": "experiments/baselines/square_overnight/smoke/bc_rnn/runs/bc_rnn/resume_test/last_bak.pth",
+      "bytes": 140214585
+    },
+    {
+      "path": "experiments/baselines/square_overnight/smoke/bc_rnn/runs/bc_rnn/resume_test/models/model_epoch_51_best_validation_0.048688625916838646.pth",
+      "bytes": 140248303
+    },
+    {
+      "path": "experiments/baselines/square_overnight/smoke/bc_transformer/runs/bc_transformer/resume_test/last.pth",
+      "bytes": 139457148
+    },
+    {
+      "path": "experiments/baselines/square_overnight/smoke/bc_transformer/runs/bc_transformer/resume_test/last_bak.pth",
+      "bytes": 139457148
+    },
+    {
+      "path": "experiments/baselines/square_overnight/smoke/bc_transformer/runs/bc_transformer/resume_test/models/model_epoch_51.pth",
+      "bytes": 139482266
+    },
+    {
+      "path": "experiments/baselines/workday_20261001/smoke/square_rnn_gmm/gmm_validation_fixed/runs/square_rnn_gmm_smoke/20261001073709/last.pth",
+      "bytes": 140429289
+    },
+    {
+      "path": "experiments/baselines/workday_20261001/smoke/square_rnn_gmm/gmm_validation_fixed/runs/square_rnn_gmm_smoke/20261001073709/last_bak.pth",
+      "bytes": 140429289
+    },
+    {
+      "path": "experiments/baselines/workday_20261001/smoke/square_rnn_gmm/gmm_validation_fixed/runs/square_rnn_gmm_smoke/20261001073709/models/model_epoch_1_best_validation_5.187877893447876.pth",
+      "bytes": 140462439
+    },
+    {
+      "path": "experiments/baselines/workday_20261001/smoke/square_rnn_gmm/runs/square_rnn_gmm_smoke/20261001073318/last.pth",
+      "bytes": 140429289
+    },
+    {
+      "path": "experiments/baselines/workday_20261001/smoke/square_rnn_gmm/runs/square_rnn_gmm_smoke/20261001073318/last_bak.pth",
+      "bytes": 140429289
+    },
+    {
+      "path": "experiments/baselines/workday_20261001/smoke/square_rnn_gmm/runs/square_rnn_gmm_smoke/20261001073318/models/model_epoch_1_best_validation_61557980.0.pth",
+      "bytes": 140459729
+    },
+    {
+      "path": "experiments/baselines/workday_20261001/smoke/stack_two_state_long/runs/stack_two_state_long_smoke/20261001073305/last.pth",
+      "bytes": 4977203
+    },
+    {
+      "path": "experiments/baselines/workday_20261001/smoke/stack_two_state_long/runs/stack_two_state_long_smoke/20261001073305/last_bak.pth",
+      "bytes": 4977203
+    },
+    {
+      "path": "experiments/baselines/workday_20261001/smoke/stack_two_state_long/runs/stack_two_state_long_smoke/20261001073305/models/model_epoch_1_best_validation_0.17816314101219177.pth",
+      "bytes": 4980994
+    },
+    {
+      "path": "experiments/baselines/workday_20261001/smoke/stack_two_vision_long/runs/stack_two_vision_long_smoke/20261001073240/last.pth",
+      "bytes": 140214649
+    },
+    {
+      "path": "experiments/baselines/workday_20261001/smoke/stack_two_vision_long/runs/stack_two_vision_long_smoke/20261001073240/last_bak.pth",
+      "bytes": 140214649
+    },
+    {
+      "path": "experiments/baselines/workday_20261001/smoke/stack_two_vision_long/runs/stack_two_vision_long_smoke/20261001073240/models/model_epoch_1_best_validation_0.18645283579826355.pth",
+      "bytes": 140247579
+    },
+    {
+      "path": "experiments/baselines/workday_20261001/smoke/stack_two_vision_short/runs/stack_two_vision_short_smoke/20261001073109/last.pth",
+      "bytes": 140214649
+    },
+    {
+      "path": "experiments/baselines/workday_20261001/smoke/stack_two_vision_short/runs/stack_two_vision_short_smoke/20261001073109/last_bak.pth",
+      "bytes": 140214649
+    },
+    {
+      "path": "experiments/baselines/workday_20261001/smoke/stack_two_vision_short/runs/stack_two_vision_short_smoke/20261001073109/models/model_epoch_1_best_validation_0.18680253624916077.pth",
+      "bytes": 140247579
+    },
+    {
+      "path": "experiments/stack_diagnostics/stack_followup_20261001/smoke/runs/corrected_cpu_smoke/20261001122915/last.pth",
+      "bytes": 1050606201
+    },
+    {
+      "path": "experiments/stack_diagnostics/stack_followup_20261001/smoke/runs/corrected_cpu_smoke/20261001122915/last_bak.pth",
+      "bytes": 1050606201
+    },
+    {
+      "path": "experiments/stack_diagnostics/stack_followup_20261001/smoke/runs/corrected_cpu_smoke/20261001122915/models/model_epoch_1.pth",
+      "bytes": 1050650611
+    }
+  ],
+  "deleted_at": "2026-11-10T09:46:02.407680+00:00"
+}

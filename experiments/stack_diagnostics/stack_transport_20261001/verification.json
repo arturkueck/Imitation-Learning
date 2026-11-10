@@ -1,0 +1,145 @@
+{
+  "training_alignment_checks": 30,
+  "obs_history": "t-1,t",
+  "executed_prediction_index": 1,
+  "action_at_index_1": "a[t]",
+  "obs_normalization": "none",
+  "action_normalization": "identity",
+  "rgb_inputs": false,
+  "numeric_features_per_frame": 15,
+  "observation_frames": 2,
+  "checkpoint": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_followup_20261001\\state_scheduler_fixed\\runs\\stack_two_state_scheduler_fixed\\20261001133241\\models\\model_epoch_300.pth",
+  "checkpoint_sha256": "a2c2cca1cd087409261402f3b95f7b6592961e6aac92c276c72657dd436343f4",
+  "dataset_sha256": "5222cbf96dc6218389d491fe7b99449295dcfc9bceb3bab8f8776ffff19fe6f8",
+  "counterfactual_experiments": [
+    "target X shift, +/-4cm",
+    "held cube and EEF height jointly shifted to expert transport level"
+  ],
+  "common_noise_per_pair": true,
+  "diffusion_draws_per_observation": 3,
+  "checkpoint_weights_modified": false,
+  "dataset_modified": false,
+  "xy_controller_used": false,
+  "checked_windows": [
+    {
+      "demo": "demo_0",
+      "step": 93
+    },
+    {
+      "demo": "demo_0",
+      "step": 104
+    },
+    {
+      "demo": "demo_0",
+      "step": 115
+    },
+    {
+      "demo": "demo_1",
+      "step": 82
+    },
+    {
+      "demo": "demo_1",
+      "step": 91
+    },
+    {
+      "demo": "demo_1",
+      "step": 99
+    },
+    {
+      "demo": "demo_10",
+      "step": 84
+    },
+    {
+      "demo": "demo_10",
+      "step": 91
+    },
+    {
+      "demo": "demo_10",
+      "step": 98
+    },
+    {
+      "demo": "demo_100",
+      "step": 88
+    },
+    {
+      "demo": "demo_100",
+      "step": 100
+    },
+    {
+      "demo": "demo_100",
+      "step": 111
+    },
+    {
+      "demo": "demo_101",
+      "step": 92
+    },
+    {
+      "demo": "demo_101",
+      "step": 100
+    },
+    {
+      "demo": "demo_101",
+      "step": 108
+    },
+    {
+      "demo": "demo_102",
+      "step": 92
+    },
+    {
+      "demo": "demo_102",
+      "step": 102
+    },
+    {
+      "demo": "demo_102",
+      "step": 111
+    },
+    {
+      "demo": "demo_103",
+      "step": 85
+    },
+    {
+      "demo": "demo_103",
+      "step": 93
+    },
+    {
+      "demo": "demo_103",
+      "step": 100
+    },
+    {
+      "demo": "demo_104",
+      "step": 92
+    },
+    {
+      "demo": "demo_104",
+      "step": 100
+    },
+    {
+      "demo": "demo_104",
+      "step": 108
+    },
+    {
+      "demo": "demo_105",
+      "step": 93
+    },
+    {
+      "demo": "demo_105",
+      "step": 104
+    },
+    {
+      "demo": "demo_105",
+      "step": 114
+    },
+    {
+      "demo": "demo_106",
+      "step": 85
+    },
+    {
+      "demo": "demo_106",
+      "step": 92
+    },
+    {
+      "demo": "demo_106",
+      "step": 99
+    }
+  ]
+}

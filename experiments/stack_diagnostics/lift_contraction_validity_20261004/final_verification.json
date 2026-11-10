@@ -1,0 +1,34 @@
+{
+  "verified_unix": 1791069768.6458194,
+  "records": [
+    {
+      "result": "intervention.json",
+      "source": "experiments\\lift_contraction_validity_20261004\\source_diagnosis\\audit.py",
+      "source_hash_matches": true,
+      "original_protocol_hashes_match": true,
+      "state": "COMPLETE"
+    },
+    {
+      "result": "intervention_teacher_forced.json",
+      "source": "experiments\\lift_contraction_validity_20261004\\source_diagnosis\\audit_teacher_forced.py",
+      "source_hash_matches": true,
+      "original_protocol_hashes_match": true,
+      "state": "COMPLETE"
+    },
+    {
+      "result": "intervention_live_prefix.json",
+      "source": "experiments\\lift_contraction_validity_20261004\\source_diagnosis\\audit_live_prefix.py",
+      "source_hash_matches": true,
+      "original_protocol_hashes_match": true,
+      "state": "COMPLETE"
+    }
+  ],
+  "calibration_original_protocol_hash_matches": true,
+  "pilot_original_protocol_hash_matches": true,
+  "active_research_workers": [],
+  "training_updates": {
+    "B0": 0,
+    "B1": 0
+  },
+  "research_improvement_claim": false
+}

@@ -133,7 +133,7 @@ Setup, Befehle und Versions-Pins stehen in
 [`summarize_lift.py`](../../praxis/src/summarize_lift.py). Die Roh-Checkpoints,
 Rollout-JSONs und Logs liegen aus Platzgründen im ignorierten
 `praxis/results/`; die drei kompakten JSON-Zusammenfassungen stehen in
-[`praxis/reports/`](../../praxis/reports/). Der Gradiententest für den Zusatzverlust und der Test
+[`praxis/reports/`](../../praxis/reports). Der Gradiententest für den Zusatzverlust und der Test
 des konsistenten relativen Würfelmerkmals stehen in
 [`test_contraction.py`](../../praxis/tests/test_contraction.py).
 

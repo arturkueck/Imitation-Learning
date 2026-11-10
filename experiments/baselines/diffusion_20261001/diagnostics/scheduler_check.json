@@ -1,0 +1,17 @@
+{
+  "before": {
+    "optimizer_updates": 2,
+    "scheduler_updates": 4
+  },
+  "after": {
+    "optimizer_updates": 2,
+    "scheduler_updates": 2
+  },
+  "expected_300_epoch_schedule": {
+    "optimizer_updates": 30000,
+    "old_scheduler_updates": 36000,
+    "corrected_scheduler_updates": 30000,
+    "old_lr_minimum_epoch": 250
+  },
+  "active_process_modified": false
+}

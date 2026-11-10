@@ -1,0 +1,65 @@
+{
+  "created_at": "2026-11-10T10:16:14.693351+00:00",
+  "entry_script": "pilot.py",
+  "purpose": "Editable base copies for new runs; dated experiment sources remain unchanged",
+  "files": [
+    {
+      "file": "pilot.py",
+      "source": "experiments/self_imitation/partial_self_imitation_20261104/pilot.py",
+      "source_sha256": "d934884bf87cf61ed991e1835e6fdd19259e99bc504e706f35410b892420e953",
+      "initial_copy_sha256": "12b38778c688094ac2eebdf7543850ed54fb8cd543dabdef007b9eca2d2d10b7",
+      "adaptations": [
+        "Lokale Loss-/Collector-Kopien statt datiertem Modulordner importieren"
+      ]
+    },
+    {
+      "file": "diagnose.py",
+      "source": "experiments/self_imitation/partial_self_imitation_20261104/diagnose.py",
+      "source_sha256": "a4886866ef095264ad7fe0302bb79efbfe95d8ea7d67f03872137bff984c8115",
+      "initial_copy_sha256": "a4886866ef095264ad7fe0302bb79efbfe95d8ea7d67f03872137bff984c8115",
+      "adaptations": []
+    },
+    {
+      "file": "monitor.py",
+      "source": "experiments/self_imitation/partial_self_imitation_20261104/monitor.py",
+      "source_sha256": "952d8af0063502be7ddfa71affeb39f1a0d192c0eed1d47ff6c59d367a3d1a0d",
+      "initial_copy_sha256": "952d8af0063502be7ddfa71affeb39f1a0d192c0eed1d47ff6c59d367a3d1a0d",
+      "adaptations": []
+    },
+    {
+      "file": "supervise.py",
+      "source": "experiments/self_imitation/partial_self_imitation_20261104/supervise.py",
+      "source_sha256": "12e09279dcc46489d7c8d87569f4a05d3785b104773ee8e98c8bdba64165e780",
+      "initial_copy_sha256": "12e09279dcc46489d7c8d87569f4a05d3785b104773ee8e98c8bdba64165e780",
+      "adaptations": []
+    },
+    {
+      "file": "transition_pilot.py",
+      "source": "experiments/self_imitation/stack_transition_quality_20261024/transition_pilot.py",
+      "source_sha256": "f395a7bf8271845266da8204b6462587bfe3e6d7da9208ff1b4848ba7ea5acfb",
+      "initial_copy_sha256": "f395a7bf8271845266da8204b6462587bfe3e6d7da9208ff1b4848ba7ea5acfb",
+      "adaptations": []
+    },
+    {
+      "file": "native_collector.py",
+      "source": "experiments/self_imitation/stack_transition_quality_20261024/native_collector.py",
+      "source_sha256": "595bad088c1091151d046843fc53b6e51b3c1b74fa8f75c6f60906e990bb5e30",
+      "initial_copy_sha256": "595bad088c1091151d046843fc53b6e51b3c1b74fa8f75c6f60906e990bb5e30",
+      "adaptations": []
+    },
+    {
+      "file": "online_evaluation.py",
+      "source": "experiments/self_imitation/stack_transition_quality_20261024/online_evaluation.py",
+      "source_sha256": "b9c5ac28aa37bcb1f6c9c5d729780dad4d76c0223145462788e078d2947349cd",
+      "initial_copy_sha256": "b9c5ac28aa37bcb1f6c9c5d729780dad4d76c0223145462788e078d2947349cd",
+      "adaptations": []
+    },
+    {
+      "file": "state_replay.py",
+      "source": "experiments/self_imitation/stack_transition_quality_20261024/state_replay.py",
+      "source_sha256": "f0e0d6af8e69647b3d41f10a92c45f8f891ac370cbcba8d4348c7e061f72975d",
+      "initial_copy_sha256": "f0e0d6af8e69647b3d41f10a92c45f8f891ac370cbcba8d4348c7e061f72975d",
+      "adaptations": []
+    }
+  ]
+}

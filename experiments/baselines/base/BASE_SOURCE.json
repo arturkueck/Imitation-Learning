@@ -1,0 +1,69 @@
+{
+  "created_at": "2026-11-10T10:16:14.649305+00:00",
+  "entry_script": "train_model.py",
+  "purpose": "Editable base copies for new runs; dated experiment sources remain unchanged",
+  "files": [
+    {
+      "file": "train_model.py",
+      "source": "experiments/baselines/square/scripts/train_model.py",
+      "source_sha256": "5a6eb972a9c3bbf6f5979a22672d07f2de07ae598dba6a4e1fd7a5f04f7e68ee",
+      "initial_copy_sha256": "248df21d5112b29ffd0a3181d7cae4b0b2b3a7df30146dc7949143b5325223b6",
+      "adaptations": [
+        "Argparse und main-Guard; --help ohne Initialisierung des Trainings; Trainingslogik beibehalten"
+      ]
+    },
+    {
+      "file": "runtime.py",
+      "source": "experiments/baselines/square/scripts/runtime.py",
+      "source_sha256": "fcfd1e08a84031faf4f2c28006e7629b0c8aaa7c62cdd72cb97f6ef44cc36b05",
+      "initial_copy_sha256": "847a3e5555c95551c9f5d0bcf4c5b5848e5000c8f001234f90ba298262397032",
+      "adaptations": [
+        "Repositorywurzel fuer base/ statt square/scripts/ angepasst"
+      ]
+    },
+    {
+      "file": "evaluate.py",
+      "source": "experiments/baselines/square/scripts/evaluate.py",
+      "source_sha256": "1e40760da9518fa5613681097d7fde79fc3725d03bab103b40747492b70cc327",
+      "initial_copy_sha256": "fddda43011eddc9aea9ea62a255103fa481766b15b7d6679f3f666b31433c35c",
+      "adaptations": [
+        "Standard-Ausgabeordner ist diese Basiskopie"
+      ]
+    },
+    {
+      "file": "robustness.py",
+      "source": "experiments/baselines/square/scripts/robustness.py",
+      "source_sha256": "4205d915c57c61e299038e9414e1cab621d647f51d8ab38f90c7000fb83d5a7c",
+      "initial_copy_sha256": "4205d915c57c61e299038e9414e1cab621d647f51d8ab38f90c7000fb83d5a7c",
+      "adaptations": []
+    },
+    {
+      "file": "robustness_suite.py",
+      "source": "experiments/baselines/square/scripts/robustness_suite.py",
+      "source_sha256": "a3007319de0f4b7c9ed87d30a478fcd0a1969ab07d9359994745a8114a869c17",
+      "initial_copy_sha256": "a3007319de0f4b7c9ed87d30a478fcd0a1969ab07d9359994745a8114a869c17",
+      "adaptations": []
+    },
+    {
+      "file": "task_metrics.py",
+      "source": "experiments/baselines/square/scripts/task_metrics.py",
+      "source_sha256": "0dc0c5ddced075372aee7fb9c620d23c4469c8c0bef11f820e04339d2e0ce8f2",
+      "initial_copy_sha256": "0dc0c5ddced075372aee7fb9c620d23c4469c8c0bef11f820e04339d2e0ce8f2",
+      "adaptations": []
+    },
+    {
+      "file": "video_views.py",
+      "source": "experiments/baselines/square/scripts/video_views.py",
+      "source_sha256": "de6a86e3b71cc4dfbdef25b5784b1e719d40ece8984c1fe9b3d061b58f02ea4d",
+      "initial_copy_sha256": "de6a86e3b71cc4dfbdef25b5784b1e719d40ece8984c1fe9b3d061b58f02ea4d",
+      "adaptations": []
+    },
+    {
+      "file": "atomic_json.py",
+      "source": "experiments/baselines/square/scripts/atomic_json.py",
+      "source_sha256": "21e9e8288578069a218660190b67bf0eaab0bb86ccf63f1035c28d4b268ab5e6",
+      "initial_copy_sha256": "21e9e8288578069a218660190b67bf0eaab0bb86ccf63f1035c28d4b268ab5e6",
+      "adaptations": []
+    }
+  ]
+}

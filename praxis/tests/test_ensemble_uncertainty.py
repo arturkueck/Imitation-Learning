@@ -3,7 +3,7 @@ from pathlib import Path
 import importlib.util
 import numpy as np
 
-path=Path(__file__).resolve().parents[2]/'experiments/visual_scene_v2_20261101/ensemble_uncertainty.py'
+path=Path(__file__).resolve().parents[2]/'experiments/vision/visual_scene_v2_20261101/ensemble_uncertainty.py'
 spec=importlib.util.spec_from_file_location('ensemble_diagnostic',path)
 module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
 

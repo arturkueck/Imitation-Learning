@@ -1,7 +1,0 @@
-{
-  "state": "FAILED",
-  "test_optimizer_updates": {},
-  "pilot_optimizer_updates": 0,
-  "error": "Traceback (most recent call last):\n  File \"C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\lift_contraction_validity_20261004\\supervised_6h_20261004_0904\\gpu_preflight.py\", line 29, in main\n    cfg.algo.optim_params.policy.num_train_batches=100\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\praxis\\upstream\\robomimic\\robomimic\\config\\config.py\", line 197, in __setattr__\n    elif not hasattr(self, name) and self.is_key_locked:\n             ^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\praxis\\upstream\\robomimic\\robomimic\\config\\config.py\", line 228, in __getattr__\n    return self.__getitem__(item)\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\praxis\\upstream\\robomimic\\robomimic\\config\\config.py\", line 237, in __getitem__\n    raise RuntimeError(\"This config has been locked and '{}' is not in this config\".format(name))\nRuntimeError: This config has been locked and 'num_train_batches' is not in this config\n",
-  "elapsed_seconds": 6.5
-}

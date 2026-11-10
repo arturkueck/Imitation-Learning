@@ -58,7 +58,7 @@ Aus dem Repository, Ausgabe in einen neuen Ordner:
 
 ```powershell
 & .\praxis\.venv\Scripts\python.exe -m pytest praxis/tests/test_ensemble_uncertainty.py -q -p no:cacheprovider
-& .\praxis\.venv\Scripts\python.exe experiments/visual_scene_v2_20261101/ensemble_uncertainty.py --name uncertainty_002
+& .\praxis\.venv\Scripts\python.exe experiments/vision/visual_scene_v2_20261101/ensemble_uncertainty.py --name uncertainty_002
 ```
 
 Sieben Regressionstests bestanden: permutierte Slots, fehlende Seed-Unterstützung, große Abweichungen, gemeinsam falsche Position, gemeinsam fehlendes Objekt, Boxachsensymmetrie und entfernte falsche Detektion. Bestehende Ausgabeverzeichnisse werden nicht überschrieben.

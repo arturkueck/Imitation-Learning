@@ -64,13 +64,13 @@ Jede Bedingung hat ein eigenes Log; Fehler beenden die Suite und die Pipeline.
 Vorhandene Suite-Ergebnisse werden nicht ueberschrieben.
 
 ```powershell
-& .\praxis\.venv\Scripts\python.exe .\experiments\square\scripts\robustness_suite.py .\experiments\square_overnight\bc_rnn\final.pth bc_rnn --output-root .\experiments\square_robustness --episodes 20
+& .\praxis\.venv\Scripts\python.exe .\experiments\baselines\square\scripts\robustness_suite.py .\experiments\baselines\square_overnight\bc_rnn\final.pth bc_rnn --output-root .\experiments\baselines\square_robustness --episodes 20
 ```
 
 Fuer die beiden neuen Tasks verwendet der Trainer automatisch Horizont 1000.
 CLI-Parameter `--episodes`, `--seed`, `--horizon` und `--video-episodes` ermoeglichen
 ein anderes Rechenbudget. Die Parameter der Bedingungen stehen zentral in
-`experiments/square/scripts/robustness.py` und werden in jedem Ergebnis gespeichert.
+`experiments/baselines/square/scripts/robustness.py` und werden in jedem Ergebnis gespeichert.
 
 Die Kurztests mit wenigen Schritten unter `robustness_smoke` / `robustness_verified`
 pruefen nur die Technik. Sie sind keine aussagekraeftigen Robustheitsresultate.

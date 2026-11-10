@@ -1,0 +1,140 @@
+{
+  "method": "bc_rnn_smoke",
+  "checkpoint": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\square_overnight\\bc_rnn\\final.pth",
+  "paired_initial_states_verified": true,
+  "seed_start": 16000,
+  "conditions": [
+    {
+      "condition": "nominal",
+      "episodes": 1,
+      "success_rate": 0.0,
+      "sustained_success_rate": 0.0,
+      "object_drop_rate": 0.0,
+      "avg_return": 0.0,
+      "avg_episode_length": 26.0,
+      "success_drop_percentage_points": 0.0,
+      "episodes_with_dynamic_intervention": 0
+    },
+    {
+      "condition": "action_impulse_x",
+      "episodes": 1,
+      "success_rate": 0.0,
+      "sustained_success_rate": 0.0,
+      "object_drop_rate": 0.0,
+      "avg_return": 0.0,
+      "avg_episode_length": 26.0,
+      "success_drop_percentage_points": 0.0,
+      "episodes_with_dynamic_intervention": 1
+    },
+    {
+      "condition": "object_push_x",
+      "episodes": 1,
+      "success_rate": 0.0,
+      "sustained_success_rate": 0.0,
+      "object_drop_rate": 0.0,
+      "avg_return": 0.0,
+      "avg_episode_length": 26.0,
+      "success_drop_percentage_points": 0.0,
+      "episodes_with_dynamic_intervention": 1
+    },
+    {
+      "condition": "mass_150pct",
+      "episodes": 1,
+      "success_rate": 0.0,
+      "sustained_success_rate": 0.0,
+      "object_drop_rate": 1.0,
+      "avg_return": 0.0,
+      "avg_episode_length": 26.0,
+      "success_drop_percentage_points": 0.0,
+      "episodes_with_dynamic_intervention": 0
+    },
+    {
+      "condition": "mass_70pct",
+      "episodes": 1,
+      "success_rate": 0.0,
+      "sustained_success_rate": 0.0,
+      "object_drop_rate": 1.0,
+      "avg_return": 0.0,
+      "avg_episode_length": 26.0,
+      "success_drop_percentage_points": 0.0,
+      "episodes_with_dynamic_intervention": 0
+    },
+    {
+      "condition": "friction_50pct",
+      "episodes": 1,
+      "success_rate": 0.0,
+      "sustained_success_rate": 0.0,
+      "object_drop_rate": 0.0,
+      "avg_return": 0.0,
+      "avg_episode_length": 26.0,
+      "success_drop_percentage_points": 0.0,
+      "episodes_with_dynamic_intervention": 0
+    },
+    {
+      "condition": "controller_gain_80pct",
+      "episodes": 1,
+      "success_rate": 0.0,
+      "sustained_success_rate": 0.0,
+      "object_drop_rate": 0.0,
+      "avg_return": 0.0,
+      "avg_episode_length": 26.0,
+      "success_drop_percentage_points": 0.0,
+      "episodes_with_dynamic_intervention": 0
+    },
+    {
+      "condition": "proprio_noise_5mm",
+      "episodes": 1,
+      "success_rate": 0.0,
+      "sustained_success_rate": 0.0,
+      "object_drop_rate": 0.0,
+      "avg_return": 0.0,
+      "avg_episode_length": 26.0,
+      "success_drop_percentage_points": 0.0,
+      "episodes_with_dynamic_intervention": 0
+    },
+    {
+      "condition": "observation_delay_2steps",
+      "episodes": 1,
+      "success_rate": 0.0,
+      "sustained_success_rate": 0.0,
+      "object_drop_rate": 0.0,
+      "avg_return": 0.0,
+      "avg_episode_length": 26.0,
+      "success_drop_percentage_points": 0.0,
+      "episodes_with_dynamic_intervention": 0
+    },
+    {
+      "condition": "image_dark_50pct",
+      "episodes": 1,
+      "success_rate": 0.0,
+      "sustained_success_rate": 0.0,
+      "object_drop_rate": 0.0,
+      "avg_return": 0.0,
+      "avg_episode_length": 26.0,
+      "success_drop_percentage_points": 0.0,
+      "episodes_with_dynamic_intervention": 0
+    },
+    {
+      "condition": "image_occlusion_25pct_width",
+      "episodes": 1,
+      "success_rate": 0.0,
+      "sustained_success_rate": 0.0,
+      "object_drop_rate": 0.0,
+      "avg_return": 0.0,
+      "avg_episode_length": 26.0,
+      "success_drop_percentage_points": 0.0,
+      "episodes_with_dynamic_intervention": 0
+    },
+    {
+      "condition": "camera_shift_x_2cm",
+      "episodes": 1,
+      "success_rate": 0.0,
+      "sustained_success_rate": 0.0,
+      "object_drop_rate": 0.0,
+      "avg_return": 0.0,
+      "avg_episode_length": 26.0,
+      "success_drop_percentage_points": 0.0,
+      "episodes_with_dynamic_intervention": 0
+    }
+  ]
+}

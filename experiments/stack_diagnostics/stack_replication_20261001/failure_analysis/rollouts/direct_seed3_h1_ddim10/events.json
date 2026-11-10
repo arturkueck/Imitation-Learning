@@ -1,0 +1,2023 @@
+[
+  {
+    "start_seed": 46000,
+    "losses": [
+      {
+        "post_step_index": 119,
+        "seconds": 6.0,
+        "task_valid_release": true,
+        "cube_height_m": 0.8593032107728925,
+        "xy_distance_m": 0.002333318062624728,
+        "gripper_before": -0.9697351455688477,
+        "gripper_at_event": -0.9822562336921692,
+        "xy_before": 0.017543758054554923,
+        "xyz_before": 0.031343723769371244,
+        "xy_event_command": 0.01379651835400053,
+        "xyz_event_command": 0.026907212037479214,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 37,
+        "seconds": 1.9000000000000001,
+        "before": -0.43280476331710815,
+        "after": 0.16715571284294128,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 114,
+        "seconds": 5.75,
+        "before": 0.5549443960189819,
+        "after": -0.15132026374340057,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 43,
+      "lift": 53,
+      "near": 80,
+      "position": 88,
+      "lower": 110,
+      "release": 119,
+      "stack": 129
+    },
+    "full_lift_end": null,
+    "transport_start": 63
+  },
+  {
+    "start_seed": 46001,
+    "losses": [],
+    "gripper_switches": [],
+    "phase_first_steps": {
+      "grasp": null,
+      "lift": null,
+      "near": null,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    },
+    "full_lift_end": null,
+    "transport_start": null
+  },
+  {
+    "start_seed": 46002,
+    "losses": [
+      {
+        "post_step_index": 128,
+        "seconds": 6.45,
+        "task_valid_release": true,
+        "cube_height_m": 0.8523149260171731,
+        "xy_distance_m": 0.003228337131625386,
+        "gripper_before": -0.7055997252464294,
+        "gripper_at_event": -0.843927800655365,
+        "xy_before": 0.024182779619271403,
+        "xyz_before": 0.0498057604197314,
+        "xy_event_command": 0.021587071053780382,
+        "xyz_event_command": 0.04042703133399968,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 41,
+        "seconds": 2.1,
+        "before": -0.2483714073896408,
+        "after": 0.24550314247608185,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 124,
+        "seconds": 6.25,
+        "before": 0.024494854733347893,
+        "after": -0.08604753762483597,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 47,
+      "lift": 58,
+      "near": 90,
+      "position": 94,
+      "lower": 113,
+      "release": 128,
+      "stack": 140
+    },
+    "full_lift_end": null,
+    "transport_start": 72
+  },
+  {
+    "start_seed": 46003,
+    "losses": [
+      {
+        "post_step_index": 109,
+        "seconds": 5.5,
+        "task_valid_release": true,
+        "cube_height_m": 0.8590765897870785,
+        "xy_distance_m": 0.004725741560559025,
+        "gripper_before": -0.9848822951316833,
+        "gripper_at_event": -0.9889816045761108,
+        "xy_before": 0.04189223286143641,
+        "xyz_before": 0.04199104706779696,
+        "xy_event_command": 0.03794807360296696,
+        "xyz_event_command": 0.038193340145958654,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 31,
+        "seconds": 1.6,
+        "before": -0.11063844710588455,
+        "after": 0.4837113618850708,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 104,
+        "seconds": 5.25,
+        "before": 0.6920785903930664,
+        "after": -0.2717442810535431,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 37,
+      "lift": 47,
+      "near": 71,
+      "position": 77,
+      "lower": 101,
+      "release": 109,
+      "stack": 119
+    },
+    "full_lift_end": null,
+    "transport_start": 58
+  },
+  {
+    "start_seed": 46004,
+    "losses": [
+      {
+        "post_step_index": 130,
+        "seconds": 6.550000000000001,
+        "task_valid_release": false,
+        "cube_height_m": 0.85887605593946,
+        "xy_distance_m": 0.009542048620611742,
+        "gripper_before": -0.982343316078186,
+        "gripper_at_event": -0.9878532290458679,
+        "xy_before": 0.02721697237340967,
+        "xyz_before": 0.034111737315584534,
+        "xy_event_command": 0.024580504307523968,
+        "xyz_event_command": 0.030436309397764483,
+        "opening_at_event": true
+      },
+      {
+        "post_step_index": 471,
+        "seconds": 23.6,
+        "task_valid_release": false,
+        "cube_height_m": 0.8752853527907893,
+        "xy_distance_m": 0.047139147847053114,
+        "gripper_before": -0.9769083261489868,
+        "gripper_at_event": -0.978416919708252,
+        "xy_before": 0.018895932573226443,
+        "xyz_before": 0.019613374933956176,
+        "xy_event_command": 0.018964913217720022,
+        "xyz_event_command": 0.019796076748580707,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 34,
+        "seconds": 1.75,
+        "before": -0.20383919775485992,
+        "after": 0.2780464291572571,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 125,
+        "seconds": 6.300000000000001,
+        "before": 0.156148761510849,
+        "after": -0.5402387976646423,
+        "held_before": true,
+        "held_after": true
+      },
+      {
+        "post_step_index": 372,
+        "seconds": 18.650000000000002,
+        "before": -0.029550835490226746,
+        "after": 0.2937644422054291,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 400,
+        "seconds": 20.05,
+        "before": 0.5667121410369873,
+        "after": -0.9412553906440735,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 448,
+        "seconds": 22.450000000000003,
+        "before": -0.05522076040506363,
+        "after": 0.2557210922241211,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 466,
+        "seconds": 23.35,
+        "before": 0.8915799856185913,
+        "after": -0.9840272665023804,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 40,
+      "lift": 48,
+      "near": 92,
+      "position": 98,
+      "lower": 121,
+      "release": null,
+      "stack": null
+    },
+    "full_lift_end": null,
+    "transport_start": 57
+  },
+  {
+    "start_seed": 46005,
+    "losses": [],
+    "gripper_switches": [
+      {
+        "post_step_index": 60,
+        "seconds": 3.0500000000000003,
+        "before": -0.06155009567737579,
+        "after": 0.05650767311453819,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 81,
+        "seconds": 4.1000000000000005,
+        "before": 0.7917062640190125,
+        "after": -0.9365601539611816,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 125,
+        "seconds": 6.300000000000001,
+        "before": -0.070994071662426,
+        "after": 0.019640635699033737,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 147,
+        "seconds": 7.4,
+        "before": 0.9945700168609619,
+        "after": -0.9656341075897217,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 173,
+        "seconds": 8.700000000000001,
+        "before": -0.6170183420181274,
+        "after": 0.15432696044445038,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 264,
+        "seconds": 13.25,
+        "before": 0.6092104911804199,
+        "after": -0.7796087265014648,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 289,
+        "seconds": 14.5,
+        "before": -0.5085332989692688,
+        "after": 0.3820146918296814,
+        "held_before": false,
+        "held_after": false
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": null,
+      "lift": null,
+      "near": null,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    },
+    "full_lift_end": null,
+    "transport_start": null
+  },
+  {
+    "start_seed": 46006,
+    "losses": [
+      {
+        "post_step_index": 147,
+        "seconds": 7.4,
+        "task_valid_release": true,
+        "cube_height_m": 0.858567544655606,
+        "xy_distance_m": 0.0024953319613181396,
+        "gripper_before": -0.7670848369598389,
+        "gripper_at_event": -0.9014495611190796,
+        "xy_before": 0.049426598847803524,
+        "xyz_before": 0.04977485242973161,
+        "xy_event_command": 0.038411785827576726,
+        "xyz_event_command": 0.038750428871887906,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 41,
+        "seconds": 2.1,
+        "before": -0.3780513405799866,
+        "after": 0.05586649104952812,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 142,
+        "seconds": 7.15,
+        "before": 0.01850670762360096,
+        "after": -0.011434568092226982,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 47,
+      "lift": 57,
+      "near": 96,
+      "position": 101,
+      "lower": 121,
+      "release": 147,
+      "stack": 157
+    },
+    "full_lift_end": 74,
+    "transport_start": 75
+  },
+  {
+    "start_seed": 46007,
+    "losses": [
+      {
+        "post_step_index": 165,
+        "seconds": 8.3,
+        "task_valid_release": true,
+        "cube_height_m": 0.8580174984959933,
+        "xy_distance_m": 0.008755488713881826,
+        "gripper_before": -0.9900755286216736,
+        "gripper_at_event": -0.9923989772796631,
+        "xy_before": 0.04104389705364842,
+        "xyz_before": 0.0413796085668167,
+        "xy_event_command": 0.03781883436338013,
+        "xyz_event_command": 0.0383907837641155,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 88,
+        "seconds": 4.45,
+        "before": -0.01775274984538555,
+        "after": 0.004644243977963924,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 160,
+        "seconds": 8.05,
+        "before": 0.6410462856292725,
+        "after": -0.5364011526107788,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 94,
+      "lift": 111,
+      "near": 132,
+      "position": 137,
+      "lower": 156,
+      "release": 165,
+      "stack": 175
+    },
+    "full_lift_end": null,
+    "transport_start": 123
+  },
+  {
+    "start_seed": 46008,
+    "losses": [
+      {
+        "post_step_index": 120,
+        "seconds": 6.050000000000001,
+        "task_valid_release": true,
+        "cube_height_m": 0.8596466564503508,
+        "xy_distance_m": 0.007325083567653959,
+        "gripper_before": -0.9552551507949829,
+        "gripper_at_event": -0.9741721153259277,
+        "xy_before": 0.016467804397127486,
+        "xyz_before": 0.03156805718891257,
+        "xy_event_command": 0.010216414756490225,
+        "xyz_event_command": 0.027952447681772317,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 37,
+        "seconds": 1.9000000000000001,
+        "before": -0.5745441913604736,
+        "after": 0.1000172421336174,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 115,
+        "seconds": 5.800000000000001,
+        "before": 0.5600436925888062,
+        "after": -0.06564563512802124,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 43,
+      "lift": 50,
+      "near": 81,
+      "position": 88,
+      "lower": 111,
+      "release": 120,
+      "stack": 130
+    },
+    "full_lift_end": null,
+    "transport_start": 61
+  },
+  {
+    "start_seed": 46009,
+    "losses": [
+      {
+        "post_step_index": 132,
+        "seconds": 6.65,
+        "task_valid_release": true,
+        "cube_height_m": 0.858708029942632,
+        "xy_distance_m": 0.0025284269310119206,
+        "gripper_before": -0.9762002229690552,
+        "gripper_at_event": -0.9837821125984192,
+        "xy_before": 0.028794710563847838,
+        "xyz_before": 0.0334212376902567,
+        "xy_event_command": 0.025249027018008224,
+        "xyz_event_command": 0.02891171788660034,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 40,
+        "seconds": 2.0500000000000003,
+        "before": -0.12471634149551392,
+        "after": 0.085026815533638,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 127,
+        "seconds": 6.4,
+        "before": 0.6580212116241455,
+        "after": -0.17926448583602905,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 46,
+      "lift": 63,
+      "near": 101,
+      "position": 106,
+      "lower": 123,
+      "release": 132,
+      "stack": 141
+    },
+    "full_lift_end": null,
+    "transport_start": 78
+  },
+  {
+    "start_seed": 46010,
+    "losses": [
+      {
+        "post_step_index": 169,
+        "seconds": 8.5,
+        "task_valid_release": true,
+        "cube_height_m": 0.8590095032136217,
+        "xy_distance_m": 0.007394492424021325,
+        "gripper_before": -0.839758038520813,
+        "gripper_at_event": -0.8908310532569885,
+        "xy_before": 0.05521155584571228,
+        "xyz_before": 0.05580059914664792,
+        "xy_event_command": 0.051263924280409455,
+        "xyz_event_command": 0.05254366850684359,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 46,
+        "seconds": 2.35,
+        "before": -0.2865968942642212,
+        "after": 0.23473969101905823,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 164,
+        "seconds": 8.25,
+        "before": 0.04276004061102867,
+        "after": -0.16388466954231262,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 52,
+      "lift": 60,
+      "near": 117,
+      "position": 121,
+      "lower": 140,
+      "release": 169,
+      "stack": 179
+    },
+    "full_lift_end": 79,
+    "transport_start": 82
+  },
+  {
+    "start_seed": 46011,
+    "losses": [
+      {
+        "post_step_index": 122,
+        "seconds": 6.15,
+        "task_valid_release": true,
+        "cube_height_m": 0.8588932852277966,
+        "xy_distance_m": 0.002051348078172036,
+        "gripper_before": -0.9839118719100952,
+        "gripper_at_event": -0.9876576662063599,
+        "xy_before": 0.03524989476161942,
+        "xyz_before": 0.03673754459956783,
+        "xy_event_command": 0.03331393186434351,
+        "xyz_event_command": 0.03420356196002809,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 44,
+        "seconds": 2.25,
+        "before": -0.18994197249412537,
+        "after": 0.35442864894866943,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 117,
+        "seconds": 5.9,
+        "before": 0.20087414979934692,
+        "after": -0.6103942394256592,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 51,
+      "lift": 60,
+      "near": 85,
+      "position": 91,
+      "lower": 112,
+      "release": 122,
+      "stack": 131
+    },
+    "full_lift_end": null,
+    "transport_start": 74
+  },
+  {
+    "start_seed": 46012,
+    "losses": [
+      {
+        "post_step_index": 248,
+        "seconds": 12.450000000000001,
+        "task_valid_release": false,
+        "cube_height_m": 0.8835898421960167,
+        "xy_distance_m": 0.8399616708955405,
+        "gripper_before": -0.5875967741012573,
+        "gripper_at_event": -0.6974357962608337,
+        "xy_before": 0.5895324787088894,
+        "xyz_before": 0.7187665274551238,
+        "xy_event_command": 0.47906347906051905,
+        "xyz_event_command": 0.6328749369245292,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 41,
+        "seconds": 2.1,
+        "before": -0.4886101484298706,
+        "after": 0.23717069625854492,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 242,
+        "seconds": 12.15,
+        "before": 0.0038733130786567926,
+        "after": -0.04264543950557709,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 48,
+      "lift": 58,
+      "near": null,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    },
+    "full_lift_end": 165,
+    "transport_start": 81
+  },
+  {
+    "start_seed": 46013,
+    "losses": [
+      {
+        "post_step_index": 128,
+        "seconds": 6.45,
+        "task_valid_release": true,
+        "cube_height_m": 0.8591595442554687,
+        "xy_distance_m": 0.0034551582475267047,
+        "gripper_before": -0.9794203042984009,
+        "gripper_at_event": -0.9835778474807739,
+        "xy_before": 0.04444403849592009,
+        "xyz_before": 0.04494995716601796,
+        "xy_event_command": 0.04177777865228145,
+        "xyz_event_command": 0.042412840700704245,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 43,
+        "seconds": 2.2,
+        "before": -0.13119935989379883,
+        "after": 0.38596463203430176,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 123,
+        "seconds": 6.2,
+        "before": 0.6067733764648438,
+        "after": -0.4460543096065521,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 50,
+      "lift": 59,
+      "near": 97,
+      "position": 101,
+      "lower": 119,
+      "release": 128,
+      "stack": 138
+    },
+    "full_lift_end": 77,
+    "transport_start": 78
+  },
+  {
+    "start_seed": 46014,
+    "losses": [
+      {
+        "post_step_index": 125,
+        "seconds": 6.300000000000001,
+        "task_valid_release": true,
+        "cube_height_m": 0.8577350290399597,
+        "xy_distance_m": 0.0020448483150056454,
+        "gripper_before": -0.9739610552787781,
+        "gripper_at_event": -0.9817500114440918,
+        "xy_before": 0.02606311211220902,
+        "xyz_before": 0.03079673835088466,
+        "xy_event_command": 0.022093654505370305,
+        "xyz_event_command": 0.02622567638101704,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 40,
+        "seconds": 2.0500000000000003,
+        "before": -0.05164087563753128,
+        "after": 0.03542762249708176,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 120,
+        "seconds": 6.050000000000001,
+        "before": 0.4151443541049957,
+        "after": -0.43856823444366455,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 46,
+      "lift": 60,
+      "near": 95,
+      "position": 99,
+      "lower": 115,
+      "release": 125,
+      "stack": 135
+    },
+    "full_lift_end": null,
+    "transport_start": 75
+  },
+  {
+    "start_seed": 46015,
+    "losses": [
+      {
+        "post_step_index": 114,
+        "seconds": 5.75,
+        "task_valid_release": true,
+        "cube_height_m": 0.858778313474394,
+        "xy_distance_m": 0.0017646279967916218,
+        "gripper_before": -0.9775893688201904,
+        "gripper_at_event": -0.9840749502182007,
+        "xy_before": 0.015207377446311574,
+        "xyz_before": 0.029375913902495634,
+        "xy_event_command": 0.013003121723120015,
+        "xyz_event_command": 0.026431817897147745,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 40,
+        "seconds": 2.0500000000000003,
+        "before": -0.17618881165981293,
+        "after": 0.30058062076568604,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 109,
+        "seconds": 5.5,
+        "before": 0.06274032592773438,
+        "after": -0.5886796116828918,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 47,
+      "lift": 60,
+      "near": 80,
+      "position": 85,
+      "lower": 104,
+      "release": 114,
+      "stack": 123
+    },
+    "full_lift_end": null,
+    "transport_start": 71
+  },
+  {
+    "start_seed": 46016,
+    "losses": [
+      {
+        "post_step_index": 128,
+        "seconds": 6.45,
+        "task_valid_release": true,
+        "cube_height_m": 0.8591454424434609,
+        "xy_distance_m": 0.004502810321092865,
+        "gripper_before": -0.9734026193618774,
+        "gripper_at_event": -0.9834451675415039,
+        "xy_before": 0.027058576817751395,
+        "xyz_before": 0.03296100941690365,
+        "xy_event_command": 0.020956321109720302,
+        "xyz_event_command": 0.02659183416729286,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 45,
+        "seconds": 2.3000000000000003,
+        "before": -0.6462892293930054,
+        "after": 0.22144989669322968,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 123,
+        "seconds": 6.2,
+        "before": 0.26808834075927734,
+        "after": -0.33765965700149536,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 51,
+      "lift": 60,
+      "near": 93,
+      "position": 97,
+      "lower": 119,
+      "release": 128,
+      "stack": 138
+    },
+    "full_lift_end": null,
+    "transport_start": 77
+  },
+  {
+    "start_seed": 46017,
+    "losses": [
+      {
+        "post_step_index": 135,
+        "seconds": 6.800000000000001,
+        "task_valid_release": true,
+        "cube_height_m": 0.8582839106626209,
+        "xy_distance_m": 0.0069701430737685605,
+        "gripper_before": -0.9761421084403992,
+        "gripper_at_event": -0.9773785471916199,
+        "xy_before": 0.05254999011717425,
+        "xyz_before": 0.05479425934338587,
+        "xy_event_command": 0.0510756481879837,
+        "xyz_event_command": 0.05364132415930745,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 44,
+        "seconds": 2.25,
+        "before": -0.22715099155902863,
+        "after": 0.21591785550117493,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 130,
+        "seconds": 6.550000000000001,
+        "before": 0.3625427484512329,
+        "after": -0.6618244647979736,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 50,
+      "lift": 62,
+      "near": 104,
+      "position": 108,
+      "lower": 125,
+      "release": 135,
+      "stack": 144
+    },
+    "full_lift_end": 80,
+    "transport_start": 80
+  },
+  {
+    "start_seed": 46018,
+    "losses": [
+      {
+        "post_step_index": 111,
+        "seconds": 5.6000000000000005,
+        "task_valid_release": true,
+        "cube_height_m": 0.8577430837023486,
+        "xy_distance_m": 0.0014386107010534277,
+        "gripper_before": -0.8201667666435242,
+        "gripper_at_event": -0.8934156894683838,
+        "xy_before": 0.0480747934868404,
+        "xyz_before": 0.050084882588420004,
+        "xy_event_command": 0.035984197050337174,
+        "xyz_event_command": 0.041780150731960675,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 38,
+        "seconds": 1.9500000000000002,
+        "before": -0.405882328748703,
+        "after": 0.16643764078617096,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 106,
+        "seconds": 5.3500000000000005,
+        "before": 0.061867605894804,
+        "after": -0.33872130513191223,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 45,
+      "lift": 54,
+      "near": 77,
+      "position": 82,
+      "lower": 100,
+      "release": 111,
+      "stack": 120
+    },
+    "full_lift_end": null,
+    "transport_start": 66
+  },
+  {
+    "start_seed": 46019,
+    "losses": [
+      {
+        "post_step_index": 104,
+        "seconds": 5.25,
+        "task_valid_release": true,
+        "cube_height_m": 0.8588244242457985,
+        "xy_distance_m": 0.007039887481060664,
+        "gripper_before": -0.8362056016921997,
+        "gripper_at_event": -0.8328381776809692,
+        "xy_before": 0.07966939247399518,
+        "xyz_before": 0.08317222035774013,
+        "xy_event_command": 0.07871281329609514,
+        "xyz_event_command": 0.08194584625798097,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 37,
+        "seconds": 1.9000000000000001,
+        "before": -0.13992105424404144,
+        "after": 0.5188725590705872,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 99,
+        "seconds": 5.0,
+        "before": 0.3300023674964905,
+        "after": -0.49716079235076904,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 44,
+      "lift": 53,
+      "near": 71,
+      "position": 78,
+      "lower": 94,
+      "release": 104,
+      "stack": 114
+    },
+    "full_lift_end": null,
+    "transport_start": 63
+  },
+  {
+    "start_seed": 46020,
+    "losses": [
+      {
+        "post_step_index": 121,
+        "seconds": 6.1000000000000005,
+        "task_valid_release": true,
+        "cube_height_m": 0.8587540418046751,
+        "xy_distance_m": 0.00279264776662963,
+        "gripper_before": -0.973841667175293,
+        "gripper_at_event": -0.9797326922416687,
+        "xy_before": 0.05382992071557524,
+        "xyz_before": 0.054060155895604374,
+        "xy_event_command": 0.05177428129273244,
+        "xyz_event_command": 0.05215780695730716,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 27,
+        "seconds": 1.4000000000000001,
+        "before": -0.2530248463153839,
+        "after": 0.3091709315776825,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 116,
+        "seconds": 5.8500000000000005,
+        "before": 0.5354588627815247,
+        "after": -0.4495106041431427,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 34,
+      "lift": 43,
+      "near": 77,
+      "position": 85,
+      "lower": 112,
+      "release": 121,
+      "stack": 131
+    },
+    "full_lift_end": null,
+    "transport_start": 55
+  },
+  {
+    "start_seed": 46021,
+    "losses": [
+      {
+        "post_step_index": 134,
+        "seconds": 6.75,
+        "task_valid_release": true,
+        "cube_height_m": 0.850912962682293,
+        "xy_distance_m": 0.002815788315052977,
+        "gripper_before": -0.5669604539871216,
+        "gripper_at_event": -0.767569363117218,
+        "xy_before": 0.0412127754229754,
+        "xyz_before": 0.07739087695560579,
+        "xy_event_command": 0.01334749607118214,
+        "xyz_event_command": 0.049234906899641176,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 42,
+        "seconds": 2.15,
+        "before": -0.4445781707763672,
+        "after": 0.07632891833782196,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 130,
+        "seconds": 6.550000000000001,
+        "before": 0.11637386679649353,
+        "after": -0.0003137150779366493,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 49,
+      "lift": 58,
+      "near": 96,
+      "position": 101,
+      "lower": 117,
+      "release": 134,
+      "stack": 146
+    },
+    "full_lift_end": null,
+    "transport_start": 73
+  },
+  {
+    "start_seed": 46022,
+    "losses": [
+      {
+        "post_step_index": 110,
+        "seconds": 5.550000000000001,
+        "task_valid_release": true,
+        "cube_height_m": 0.8579729791004388,
+        "xy_distance_m": 0.007499712875585493,
+        "gripper_before": -0.9882608652114868,
+        "gripper_at_event": -0.9912360310554504,
+        "xy_before": 0.0431823081492554,
+        "xyz_before": 0.043188463213578686,
+        "xy_event_command": 0.04052595031780552,
+        "xyz_event_command": 0.04054943079674549,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 35,
+        "seconds": 1.8,
+        "before": -0.026562856510281563,
+        "after": 0.32124507427215576,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 105,
+        "seconds": 5.300000000000001,
+        "before": 0.7581750750541687,
+        "after": -0.3941068649291992,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 42,
+      "lift": 55,
+      "near": 79,
+      "position": 83,
+      "lower": 101,
+      "release": 110,
+      "stack": 120
+    },
+    "full_lift_end": null,
+    "transport_start": 66
+  },
+  {
+    "start_seed": 46023,
+    "losses": [
+      {
+        "post_step_index": 127,
+        "seconds": 6.4,
+        "task_valid_release": true,
+        "cube_height_m": 0.858730352417992,
+        "xy_distance_m": 0.0035759001981254656,
+        "gripper_before": -0.9784502387046814,
+        "gripper_at_event": -0.9859641194343567,
+        "xy_before": 0.027026448344776344,
+        "xyz_before": 0.032304245790026796,
+        "xy_event_command": 0.023221242500741493,
+        "xyz_event_command": 0.027358792249562797,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 37,
+        "seconds": 1.9000000000000001,
+        "before": -0.005536314565688372,
+        "after": 0.15726064145565033,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 122,
+        "seconds": 6.15,
+        "before": 0.584243655204773,
+        "after": -0.21467919647693634,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 43,
+      "lift": 55,
+      "near": 91,
+      "position": 97,
+      "lower": 118,
+      "release": 127,
+      "stack": 137
+    },
+    "full_lift_end": null,
+    "transport_start": 68
+  },
+  {
+    "start_seed": 46024,
+    "losses": [],
+    "gripper_switches": [
+      {
+        "post_step_index": 123,
+        "seconds": 6.2,
+        "before": -0.0038814768195152283,
+        "after": 0.03109659254550934,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 152,
+        "seconds": 7.65,
+        "before": 0.13717664778232574,
+        "after": -0.07953327894210815,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 222,
+        "seconds": 11.15,
+        "before": -0.03843843191862106,
+        "after": 0.0014868247089907527,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 251,
+        "seconds": 12.600000000000001,
+        "before": 0.2496904581785202,
+        "after": -0.017390189692378044,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 316,
+        "seconds": 15.850000000000001,
+        "before": -0.000613992044236511,
+        "after": 0.04930868744850159,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 346,
+        "seconds": 17.35,
+        "before": 0.10002080351114273,
+        "after": -0.1638164073228836,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 407,
+        "seconds": 20.400000000000002,
+        "before": -0.03878220170736313,
+        "after": 0.019555578008294106,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 437,
+        "seconds": 21.900000000000002,
+        "before": 0.18967148661613464,
+        "after": -0.13157658278942108,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 495,
+        "seconds": 24.8,
+        "before": -0.03929255157709122,
+        "after": 0.026919156312942505,
+        "held_before": false,
+        "held_after": false
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": null,
+      "lift": null,
+      "near": null,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    },
+    "full_lift_end": null,
+    "transport_start": null
+  },
+  {
+    "start_seed": 46025,
+    "losses": [],
+    "gripper_switches": [
+      {
+        "post_step_index": 137,
+        "seconds": 6.9,
+        "before": -0.03160129860043526,
+        "after": 0.02264365181326866,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 163,
+        "seconds": 8.200000000000001,
+        "before": 0.13556592166423798,
+        "after": -0.16501988470554352,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 228,
+        "seconds": 11.450000000000001,
+        "before": -0.0229675080627203,
+        "after": 0.04090149328112602,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 254,
+        "seconds": 12.75,
+        "before": 0.20170363783836365,
+        "after": -0.08696513622999191,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 322,
+        "seconds": 16.150000000000002,
+        "before": -0.020287035033106804,
+        "after": 0.05550028383731842,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 349,
+        "seconds": 17.5,
+        "before": 0.005672446917742491,
+        "after": -0.19116395711898804,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 416,
+        "seconds": 20.85,
+        "before": -0.08370047807693481,
+        "after": 0.0013280493440106511,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 443,
+        "seconds": 22.200000000000003,
+        "before": 0.11195020377635956,
+        "after": -0.10589910298585892,
+        "held_before": false,
+        "held_after": false
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": null,
+      "lift": null,
+      "near": null,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    },
+    "full_lift_end": null,
+    "transport_start": null
+  },
+  {
+    "start_seed": 46026,
+    "losses": [
+      {
+        "post_step_index": 113,
+        "seconds": 5.7,
+        "task_valid_release": true,
+        "cube_height_m": 0.8579725318044815,
+        "xy_distance_m": 0.002725853449416276,
+        "gripper_before": -0.886627197265625,
+        "gripper_at_event": -0.915956974029541,
+        "xy_before": 0.0379521902500673,
+        "xyz_before": 0.04294780508434081,
+        "xy_event_command": 0.03707425501586879,
+        "xyz_event_command": 0.040890892078307324,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 38,
+        "seconds": 1.9500000000000002,
+        "before": -0.04805348068475723,
+        "after": 0.2463061660528183,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 108,
+        "seconds": 5.45,
+        "before": 0.3226335942745209,
+        "after": -0.1976921558380127,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 44,
+      "lift": 57,
+      "near": 80,
+      "position": 85,
+      "lower": 101,
+      "release": 113,
+      "stack": 123
+    },
+    "full_lift_end": null,
+    "transport_start": 69
+  },
+  {
+    "start_seed": 46027,
+    "losses": [],
+    "gripper_switches": [
+      {
+        "post_step_index": 119,
+        "seconds": 6.0,
+        "before": -0.0606406070291996,
+        "after": 0.009375721216201782,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 147,
+        "seconds": 7.4,
+        "before": 0.34879788756370544,
+        "after": -0.07560688257217407,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 215,
+        "seconds": 10.8,
+        "before": -0.008150230161845684,
+        "after": 0.03766459971666336,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 244,
+        "seconds": 12.25,
+        "before": 0.02020561508834362,
+        "after": -0.42329141497612,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 387,
+        "seconds": 19.400000000000002,
+        "before": -0.003612086409702897,
+        "after": 0.013091322034597397,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 415,
+        "seconds": 20.8,
+        "before": 0.0384378582239151,
+        "after": -0.1031055748462677,
+        "held_before": false,
+        "held_after": false
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": null,
+      "lift": null,
+      "near": null,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    },
+    "full_lift_end": null,
+    "transport_start": null
+  },
+  {
+    "start_seed": 46028,
+    "losses": [],
+    "gripper_switches": [
+      {
+        "post_step_index": 165,
+        "seconds": 8.3,
+        "before": -0.021219991147518158,
+        "after": 0.0009095321875065565,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 192,
+        "seconds": 9.65,
+        "before": 0.040889423340559006,
+        "after": -0.14695942401885986,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 276,
+        "seconds": 13.850000000000001,
+        "before": -0.011255919001996517,
+        "after": 0.03245650604367256,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 302,
+        "seconds": 15.15,
+        "before": 0.14868277311325073,
+        "after": -0.05551031604409218,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 387,
+        "seconds": 19.400000000000002,
+        "before": -0.03634285181760788,
+        "after": 0.020008493214845657,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 413,
+        "seconds": 20.700000000000003,
+        "before": 0.27654534578323364,
+        "after": -0.018589187413454056,
+        "held_before": false,
+        "held_after": false
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": null,
+      "lift": null,
+      "near": null,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    },
+    "full_lift_end": null,
+    "transport_start": null
+  },
+  {
+    "start_seed": 46029,
+    "losses": [
+      {
+        "post_step_index": 122,
+        "seconds": 6.15,
+        "task_valid_release": true,
+        "cube_height_m": 0.85013022368716,
+        "xy_distance_m": 0.002386532357256695,
+        "gripper_before": -0.39330458641052246,
+        "gripper_at_event": -0.5882613658905029,
+        "xy_before": 0.06567538270677431,
+        "xyz_before": 0.11900057357924695,
+        "xy_event_command": 0.02515720775712004,
+        "xyz_event_command": 0.06873075329441798,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 46,
+        "seconds": 2.35,
+        "before": -0.07969923317432404,
+        "after": 0.1445169895887375,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 118,
+        "seconds": 5.95,
+        "before": 0.1872205287218094,
+        "after": -0.03055720590054989,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 53,
+      "lift": 66,
+      "near": 83,
+      "position": 91,
+      "lower": 112,
+      "release": 122,
+      "stack": 135
+    },
+    "full_lift_end": null,
+    "transport_start": 76
+  },
+  {
+    "start_seed": 46030,
+    "losses": [
+      {
+        "post_step_index": 145,
+        "seconds": 7.300000000000001,
+        "task_valid_release": true,
+        "cube_height_m": 0.857749334386281,
+        "xy_distance_m": 0.007921204334295835,
+        "gripper_before": -0.6014467477798462,
+        "gripper_at_event": -0.7693256735801697,
+        "xy_before": 0.05079663974037928,
+        "xyz_before": 0.05162860990777521,
+        "xy_event_command": 0.043543329885395776,
+        "xyz_event_command": 0.045513701647117516,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 34,
+        "seconds": 1.75,
+        "before": -0.010753009468317032,
+        "after": 0.317202091217041,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 140,
+        "seconds": 7.050000000000001,
+        "before": 0.01715320535004139,
+        "after": -0.053148943930864334,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 40,
+      "lift": 52,
+      "near": 78,
+      "position": 83,
+      "lower": 102,
+      "release": 145,
+      "stack": 155
+    },
+    "full_lift_end": null,
+    "transport_start": 63
+  },
+  {
+    "start_seed": 46031,
+    "losses": [],
+    "gripper_switches": [
+      {
+        "post_step_index": 50,
+        "seconds": 2.5500000000000003,
+        "before": -0.022190839052200317,
+        "after": 0.12409675121307373,
+        "held_before": false,
+        "held_after": false
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 57,
+      "lift": null,
+      "near": null,
+      "position": null,
+      "lower": null,
+      "release": null,
+      "stack": null
+    },
+    "full_lift_end": null,
+    "transport_start": null
+  },
+  {
+    "start_seed": 46032,
+    "losses": [
+      {
+        "post_step_index": 114,
+        "seconds": 5.75,
+        "task_valid_release": true,
+        "cube_height_m": 0.8585833030594233,
+        "xy_distance_m": 0.0009559793193322137,
+        "gripper_before": -0.9667320251464844,
+        "gripper_at_event": -0.9724019169807434,
+        "xy_before": 0.04836545267388726,
+        "xyz_before": 0.04909025192039918,
+        "xy_event_command": 0.045737161976438234,
+        "xyz_event_command": 0.04632591024479598,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 41,
+        "seconds": 2.1,
+        "before": -0.18124546110630035,
+        "after": 0.3655441701412201,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 109,
+        "seconds": 5.5,
+        "before": 0.8551307320594788,
+        "after": -0.14947763085365295,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 48,
+      "lift": 57,
+      "near": 81,
+      "position": 86,
+      "lower": 105,
+      "release": 114,
+      "stack": 123
+    },
+    "full_lift_end": null,
+    "transport_start": 70
+  },
+  {
+    "start_seed": 46033,
+    "losses": [
+      {
+        "post_step_index": 113,
+        "seconds": 5.7,
+        "task_valid_release": true,
+        "cube_height_m": 0.8587502279999915,
+        "xy_distance_m": 0.0018347780902895445,
+        "gripper_before": -0.9445130228996277,
+        "gripper_at_event": -0.9623612761497498,
+        "xy_before": 0.034409604293345684,
+        "xyz_before": 0.039208490737504646,
+        "xy_event_command": 0.031125814171071586,
+        "xyz_event_command": 0.035307948660631194,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 41,
+        "seconds": 2.1,
+        "before": -0.2977002263069153,
+        "after": 0.4292716979980469,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 108,
+        "seconds": 5.45,
+        "before": 0.1639241874217987,
+        "after": -0.334209680557251,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 48,
+      "lift": 57,
+      "near": 77,
+      "position": 82,
+      "lower": 101,
+      "release": 113,
+      "stack": 122
+    },
+    "full_lift_end": null,
+    "transport_start": 69
+  },
+  {
+    "start_seed": 46034,
+    "losses": [
+      {
+        "post_step_index": 125,
+        "seconds": 6.300000000000001,
+        "task_valid_release": true,
+        "cube_height_m": 0.8589480101609781,
+        "xy_distance_m": 0.004208516918023541,
+        "gripper_before": -0.9683348536491394,
+        "gripper_at_event": -0.9795000553131104,
+        "xy_before": 0.027600458382619472,
+        "xyz_before": 0.03655064124806662,
+        "xy_event_command": 0.02531280428747849,
+        "xyz_event_command": 0.03273689717742516,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 38,
+        "seconds": 1.9500000000000002,
+        "before": -0.25657808780670166,
+        "after": 0.30399081110954285,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 120,
+        "seconds": 6.050000000000001,
+        "before": 0.6397494077682495,
+        "after": -0.05394946038722992,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 45,
+      "lift": 60,
+      "near": 94,
+      "position": 99,
+      "lower": 116,
+      "release": 125,
+      "stack": 135
+    },
+    "full_lift_end": null,
+    "transport_start": 72
+  },
+  {
+    "start_seed": 46035,
+    "losses": [
+      {
+        "post_step_index": 142,
+        "seconds": 7.15,
+        "task_valid_release": true,
+        "cube_height_m": 0.8592353014672753,
+        "xy_distance_m": 0.0012276874940624137,
+        "gripper_before": -0.9797415137290955,
+        "gripper_at_event": -0.9877835512161255,
+        "xy_before": 0.020015195014994595,
+        "xyz_before": 0.03006150363883193,
+        "xy_event_command": 0.015542851387366698,
+        "xyz_event_command": 0.025882922226687484,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 40,
+        "seconds": 2.0500000000000003,
+        "before": -0.20990940928459167,
+        "after": 0.05948197469115257,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 137,
+        "seconds": 6.9,
+        "before": 0.579232394695282,
+        "after": -0.29590901732444763,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 47,
+      "lift": 56,
+      "near": 107,
+      "position": 114,
+      "lower": 134,
+      "release": 142,
+      "stack": 152
+    },
+    "full_lift_end": 73,
+    "transport_start": 73
+  },
+  {
+    "start_seed": 46036,
+    "losses": [],
+    "gripper_switches": [
+      {
+        "post_step_index": 34,
+        "seconds": 1.75,
+        "before": -0.5097396969795227,
+        "after": 0.1522706001996994,
+        "held_before": false,
+        "held_after": false
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 41,
+      "lift": 51,
+      "near": 83,
+      "position": 88,
+      "lower": 104,
+      "release": null,
+      "stack": null
+    },
+    "full_lift_end": null,
+    "transport_start": 65
+  },
+  {
+    "start_seed": 46037,
+    "losses": [
+      {
+        "post_step_index": 140,
+        "seconds": 7.050000000000001,
+        "task_valid_release": true,
+        "cube_height_m": 0.8573942841668786,
+        "xy_distance_m": 0.0038439923569910345,
+        "gripper_before": -0.5987082123756409,
+        "gripper_at_event": -0.8186157941818237,
+        "xy_before": 0.04362503053676774,
+        "xyz_before": 0.052908010533867955,
+        "xy_event_command": 0.019717525368991733,
+        "xyz_event_command": 0.03268095018675754,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 38,
+        "seconds": 1.9500000000000002,
+        "before": -0.040914762765169144,
+        "after": 0.48254823684692383,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 135,
+        "seconds": 6.800000000000001,
+        "before": 0.024103114381432533,
+        "after": -0.0013186634751036763,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 45,
+      "lift": 55,
+      "near": 77,
+      "position": 88,
+      "lower": 115,
+      "release": 140,
+      "stack": 151
+    },
+    "full_lift_end": null,
+    "transport_start": 68
+  },
+  {
+    "start_seed": 46038,
+    "losses": [
+      {
+        "post_step_index": 126,
+        "seconds": 6.3500000000000005,
+        "task_valid_release": true,
+        "cube_height_m": 0.8600293260979488,
+        "xy_distance_m": 0.006972205247013298,
+        "gripper_before": -0.9669331312179565,
+        "gripper_at_event": -0.9798850417137146,
+        "xy_before": 0.024760431108804888,
+        "xyz_before": 0.03356116653824796,
+        "xy_event_command": 0.01863908566529775,
+        "xyz_event_command": 0.02766993937562715,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 31,
+        "seconds": 1.6,
+        "before": -0.5280553698539734,
+        "after": 0.2853024899959564,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 121,
+        "seconds": 6.1000000000000005,
+        "before": 0.21054744720458984,
+        "after": -0.3233393430709839,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 37,
+      "lift": 49,
+      "near": 86,
+      "position": 91,
+      "lower": 119,
+      "release": 126,
+      "stack": 136
+    },
+    "full_lift_end": null,
+    "transport_start": 61
+  },
+  {
+    "start_seed": 46039,
+    "losses": [
+      {
+        "post_step_index": 169,
+        "seconds": 8.5,
+        "task_valid_release": false,
+        "cube_height_m": 0.8574830165712082,
+        "xy_distance_m": 0.02020218508464919,
+        "gripper_before": -0.2872733771800995,
+        "gripper_at_event": -0.457927405834198,
+        "xy_before": 0.0555550485595156,
+        "xyz_before": 0.05564047688506693,
+        "xy_event_command": 0.0603784323765604,
+        "xyz_event_command": 0.06116590518401034,
+        "opening_at_event": true
+      }
+    ],
+    "gripper_switches": [
+      {
+        "post_step_index": 33,
+        "seconds": 1.7000000000000002,
+        "before": -0.38773658871650696,
+        "after": 0.24727071821689606,
+        "held_before": false,
+        "held_after": false
+      },
+      {
+        "post_step_index": 164,
+        "seconds": 8.25,
+        "before": 0.012546323239803314,
+        "after": -0.0008447103318758309,
+        "held_before": true,
+        "held_after": true
+      }
+    ],
+    "phase_first_steps": {
+      "grasp": 39,
+      "lift": 49,
+      "near": 73,
+      "position": 79,
+      "lower": 99,
+      "release": null,
+      "stack": null
+    },
+    "full_lift_end": null,
+    "transport_start": 59
+  }
+]

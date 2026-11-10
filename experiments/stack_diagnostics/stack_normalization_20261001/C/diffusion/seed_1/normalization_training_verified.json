@@ -1,0 +1,9 @@
+{
+  "train_stats_match_native": true,
+  "validation_uses_train_stats": true,
+  "finite_guards_before_every_optimizer_update": true,
+  "actual_batch_transform_max_error": {
+    "train": 0.0,
+    "valid": 0.0
+  }
+}

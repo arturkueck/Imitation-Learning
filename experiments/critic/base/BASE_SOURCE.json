@@ -1,0 +1,28 @@
+{
+  "created_at": "2026-11-10T10:16:14.718864+00:00",
+  "entry_script": "run.py",
+  "purpose": "Editable base copies for new runs; dated experiment sources remain unchanged",
+  "files": [
+    {
+      "file": "run.py",
+      "source": "experiments/critic/critic_warmstart_20261104/run.py",
+      "source_sha256": "94327c0af81439ffa387eb27208d1e55a67d9c68614a5ad84e9fab21b18cedd5",
+      "initial_copy_sha256": "94327c0af81439ffa387eb27208d1e55a67d9c68614a5ad84e9fab21b18cedd5",
+      "adaptations": []
+    },
+    {
+      "file": "core.py",
+      "source": "experiments/critic/critic_warmstart_20261104/core.py",
+      "source_sha256": "6802d6e97085b0b2550e3802f26c0fd30a8d0b41064aa3dee81a78c459aa065a",
+      "initial_copy_sha256": "6802d6e97085b0b2550e3802f26c0fd30a8d0b41064aa3dee81a78c459aa065a",
+      "adaptations": []
+    },
+    {
+      "file": "config.json",
+      "source": "experiments/critic/critic_warmstart_20261104/config.json",
+      "source_sha256": "2e53ec95cc30281c9cbc816586b25ada7f5994861dc1d7a44b1a62c7a8e031b4",
+      "initial_copy_sha256": "2e53ec95cc30281c9cbc816586b25ada7f5994861dc1d7a44b1a62c7a8e031b4",
+      "adaptations": []
+    }
+  ]
+}

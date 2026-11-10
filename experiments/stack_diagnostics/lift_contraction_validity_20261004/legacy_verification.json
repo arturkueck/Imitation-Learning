@@ -1,0 +1,194 @@
+{
+  "passed": true,
+  "comparisons": {
+    "full_20": {
+      "rows_verified": 9,
+      "aggregate": {
+        "nominal": {
+          "episodes": 60,
+          "bc_successes": 23,
+          "extension_successes": 36
+        },
+        "offset_x_2cm": {
+          "episodes": 60,
+          "bc_successes": 18,
+          "extension_successes": 36
+        },
+        "impulse_x_1": {
+          "episodes": 60,
+          "bc_successes": 26,
+          "extension_successes": 38
+        }
+      },
+      "source_hashes": {
+        "praxis\\reports\\lift_ph_full_20ep_summary.json": "c15c263f19f370d4f27d585918b360c595fac1c2e22461f370e9667f91172268",
+        "praxis\\results\\final_eval\\lift_ph_bc_seed1_nominal.json": "66917b38b240f090ec335949eeb430a8ab6ffc792ef5e102363d0a8e01bce712",
+        "praxis\\results\\final_eval\\lift_ph_bc_contraction_w1_seed1_nominal.json": "7435736a5e09c6d3b074d8f6529394d096da864398078ca14e2ae2810fb1fcfd",
+        "praxis\\results\\final_eval\\lift_ph_bc_seed1_offset_x_2cm.json": "74327515ecaf823097f22140bdc2791a184503020addc37ac437abe7d3e7acb8",
+        "praxis\\results\\final_eval\\lift_ph_bc_contraction_w1_seed1_offset_x_2cm.json": "7830c69ccbcbf665ee33d0a666d875f7ff5e801475077271060dc0b75edb8de3",
+        "praxis\\results\\final_eval\\lift_ph_bc_seed1_impulse_x_1.json": "2e3be5bb897b7f65545a33127e86f96d0ef4dacf839c0f822aeff8e6e5f85dfe",
+        "praxis\\results\\final_eval\\lift_ph_bc_contraction_w1_seed1_impulse_x_1.json": "eb708fa0c4dc2d8422d483a0fa6d5e5c37580c4a8e53cef8f5b82d3064d7c4b1",
+        "praxis\\results\\final_eval\\lift_ph_bc_seed2_nominal.json": "b5b19f45ca8703cc81980b869a0f0a38d44513bd6875ae6443c8788d85874f8a",
+        "praxis\\results\\final_eval\\lift_ph_bc_contraction_w1_seed2_nominal.json": "fa78773125a6c7bebf4b62093f60c4e583367a183509c18aaf32e83443b409e2",
+        "praxis\\results\\final_eval\\lift_ph_bc_seed2_offset_x_2cm.json": "69757b06b46e2e627cc021d7ba9a6b0d4926b26533eb289251cc8a619464d4a5",
+        "praxis\\results\\final_eval\\lift_ph_bc_contraction_w1_seed2_offset_x_2cm.json": "b50a4ec5996afbc2fa61a55d890fdfdef94c0052a54ce398d5b7f7ecd0d2c7b8",
+        "praxis\\results\\final_eval\\lift_ph_bc_seed2_impulse_x_1.json": "1e23dd4e4fa763dbbbe1bc99dfb3ac0f1a3ae98416a635ec772e9f72b2fa4b89",
+        "praxis\\results\\final_eval\\lift_ph_bc_contraction_w1_seed2_impulse_x_1.json": "add12c3c538f657fbf179399571a5cba6bac674b94b91db730d80b5099895a17",
+        "praxis\\results\\final_eval\\lift_ph_bc_seed3_nominal.json": "397bdb8d5fbe5c05a0ce1271f4b4214da4b3ccee4da099365dfba36ac4c6c8aa",
+        "praxis\\results\\final_eval\\lift_ph_bc_contraction_w1_seed3_nominal.json": "1393e306dc81cc1aba18b2ad775a1412fa7c950b96f3e82926d2cdb4e34825ff",
+        "praxis\\results\\final_eval\\lift_ph_bc_seed3_offset_x_2cm.json": "69d958aa47aec4289c6d4abddb050e802e19addeb9705350d54f2c7fe8aa0430",
+        "praxis\\results\\final_eval\\lift_ph_bc_contraction_w1_seed3_offset_x_2cm.json": "10b9ea88c57df63b41d85fc4a0f7e4bfef568e8bbff6e0e328292b1e55aa9879",
+        "praxis\\results\\final_eval\\lift_ph_bc_seed3_impulse_x_1.json": "7d471a80efab5d4f807e560a082e22a9936a3cdcfe464e7e4e2dfe0b2e7fcb4c",
+        "praxis\\results\\final_eval\\lift_ph_bc_contraction_w1_seed3_impulse_x_1.json": "97ccd51f17f6626dac0e294f57c7abacced808464a8c0b3e23b2b988d444b01d"
+      },
+      "paired_initial_states_verified": false,
+      "episode_pairs_missing_initial_state_metadata": 180,
+      "training_seeds": [
+        1,
+        2,
+        3
+      ]
+    },
+    "full_100": {
+      "rows_verified": 15,
+      "aggregate": {
+        "nominal": {
+          "episodes": 60,
+          "bc_successes": 44,
+          "extension_successes": 56
+        },
+        "offset_x_2cm": {
+          "episodes": 60,
+          "bc_successes": 47,
+          "extension_successes": 55
+        },
+        "offset_x_minus_2cm": {
+          "episodes": 60,
+          "bc_successes": 37,
+          "extension_successes": 57
+        },
+        "impulse_x_1": {
+          "episodes": 60,
+          "bc_successes": 41,
+          "extension_successes": 59
+        },
+        "impulse_x_minus_1": {
+          "episodes": 60,
+          "bc_successes": 48,
+          "extension_successes": 55
+        }
+      },
+      "source_hashes": {
+        "praxis\\reports\\lift_ph_full_100ep_summary.json": "36d54a96b4d401b07a7eb55211d5ded1e98f2b7419194f128728bf44d3211197",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_e100_seed1_nominal.json": "0c56fc1dc17dcf464a511de688f87f04b19c3e22bae273d221a69d7f78a76d03",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_contraction_w1e100_seed1_nominal.json": "17354473e23df7ed88c7fccf9455440a8af6a3269ff123beeec723d9706cb27f",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_e100_seed1_offset_x_2cm.json": "937279c98b39d7448181cb81b6f82f3b69bf5891d81537c860fe97d1755bc5d4",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_contraction_w1e100_seed1_offset_x_2cm.json": "5ae10a8de3c1a2a0fbb036509f92b1987b261ad131225b14535fd0657cdb96e8",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_e100_seed1_offset_x_minus_2cm.json": "7aa72a4aaf2b7f5004b3782bae559ed377b7491e8397fc20a9a664634cf44280",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_contraction_w1e100_seed1_offset_x_minus_2cm.json": "c019aba91c75e9d71a20253534b09dde35e09b1cc9c41d187921ad1e221a1269",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_e100_seed1_impulse_x_1.json": "f50acad1b8eaf705b799b9ac7d653c0fa0ba64a5bbf1e3f1d55f4e8c299f97ca",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_contraction_w1e100_seed1_impulse_x_1.json": "8cfffde997b4d44873b0c00473652e4b6b21068777fa050143e9f8edfbc16e86",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_e100_seed1_impulse_x_minus_1.json": "3ac6ba8af720bd96d2c57078b2a0e8e4543e9b5c74c04455d2d562711c355e19",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_contraction_w1e100_seed1_impulse_x_minus_1.json": "0cba1fb7604100d8d7bd139f32221d03b065de918552818c946f7413ac808bbe",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_e100_seed2_nominal.json": "d21d65364768b9be8e6324f7f46e79b8fff4026e9560254b3d04de8772c4ecf3",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_contraction_w1e100_seed2_nominal.json": "887c12a535012668977e99ecc11ababc3d5e278a918f1d89cba4b397d95a2651",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_e100_seed2_offset_x_2cm.json": "378b96f09c4e2a5de998a5eaffc5eb02dd9785e2d2192aee2b802c19228abb62",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_contraction_w1e100_seed2_offset_x_2cm.json": "e634e4d5527e95125d261cd2c2d0bb84cf621b372304e60550db60da32c5b634",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_e100_seed2_offset_x_minus_2cm.json": "bde2e8eef5c0cc2837d1b6593b6952858dcf2943d7a56304cfe37fed17e9e525",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_contraction_w1e100_seed2_offset_x_minus_2cm.json": "cf2eced2eb51a9152e3b05910d02d25f3dda44e56d655b40ce5c21eea6438d3e",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_e100_seed2_impulse_x_1.json": "5d738ba43a15f05627114627359b8dbbe89274461529b771e53b0c559a05011f",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_contraction_w1e100_seed2_impulse_x_1.json": "a5550a631de2da23c2a2fd59e79569686a4eefc1fe4f76e420761e92c2844b74",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_e100_seed2_impulse_x_minus_1.json": "842583e8e6d54231fde823c08ffcdd9417867eef3b2f3a5ae1ddfe8a748c1cb7",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_contraction_w1e100_seed2_impulse_x_minus_1.json": "ec31fbd8e31d574a575f79992f8d86d8a86dff6cc6b9b3d42bc2f9fe62d3f938",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_e100_seed3_nominal.json": "9b9c62bcdda64e91d6b6e841b0f1252d5b56b1252896d33debe3b9c21466ad82",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_contraction_w1e100_seed3_nominal.json": "f00b48b2dbf3d8d13140ebaa30da3de3cf3d71c57889986efaa0ad95c58c8729",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_e100_seed3_offset_x_2cm.json": "adc117fca544fba8f2e72f57a63c2b0e6b6dc9f5eebcab8dabc6b9eb5ed925b2",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_contraction_w1e100_seed3_offset_x_2cm.json": "2e7d0ab3b0e2489ee679bb01525efb3a97410ea43f0172838f2f4ade5d4d3f52",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_e100_seed3_offset_x_minus_2cm.json": "e91981d8f0b8a04a7c3d81d21127fc07ef3910ec91ea317515d05f58dc89fda7",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_contraction_w1e100_seed3_offset_x_minus_2cm.json": "dcaff50c0174430e06ec02d4d0c4bddb4a0511a5b57acc7f1915bf6dd588bb60",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_e100_seed3_impulse_x_1.json": "8876b55ea7f8a51e44efee1530fac32691287f656821da1b7b59f3418301cfab",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_contraction_w1e100_seed3_impulse_x_1.json": "1dbd1baddd7a71c6a5b180762303bf1de948b4dccfaa671d951549ad8f3d372b",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_e100_seed3_impulse_x_minus_1.json": "6b8d8126e1c2d7d68b43837457b589096008bbb16b68713fa33122a80e3d11b6",
+        "praxis\\results\\final_eval_100\\lift_ph_bc_contraction_w1e100_seed3_impulse_x_minus_1.json": "fd80847f55dfdd432fb328fcd7d2e78ad29eca8675e4750aee857283e6498b93"
+      },
+      "paired_initial_states_verified": true,
+      "episode_pairs_missing_initial_state_metadata": 0,
+      "training_seeds": [
+        1,
+        2,
+        3
+      ]
+    },
+    "20pct_100": {
+      "rows_verified": 15,
+      "aggregate": {
+        "nominal": {
+          "episodes": 60,
+          "bc_successes": 49,
+          "extension_successes": 58
+        },
+        "offset_x_2cm": {
+          "episodes": 60,
+          "bc_successes": 43,
+          "extension_successes": 54
+        },
+        "offset_x_minus_2cm": {
+          "episodes": 60,
+          "bc_successes": 48,
+          "extension_successes": 59
+        },
+        "impulse_x_1": {
+          "episodes": 60,
+          "bc_successes": 46,
+          "extension_successes": 60
+        },
+        "impulse_x_minus_1": {
+          "episodes": 60,
+          "bc_successes": 47,
+          "extension_successes": 56
+        }
+      },
+      "source_hashes": {
+        "praxis\\reports\\lift_ph_20pct_100ep_summary.json": "925d92bd2d97b87fed577545227e16b07e84cddd2cb3f5088d0f8a5f5f0b0a68",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_d20e100_seed1_nominal.json": "9290ba8fea3eb352d19c76afba8c0b167e4fb3b9ed26261af2269a051677c6f3",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_contraction_w1d20e100_seed1_nominal.json": "414425835b11176ac128a4fc5337dd093f6eba59a5d2cbcb8aa7d02795613eaf",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_d20e100_seed1_offset_x_2cm.json": "1b4e03730b9e56b7cccb77c60981808f40870e112a5590fbb3ab7e8cbbb55be4",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_contraction_w1d20e100_seed1_offset_x_2cm.json": "c7b54e727089924285155dabb021a373a0b165d0cf4ddc26d42346ce45a9ac2c",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_d20e100_seed1_offset_x_minus_2cm.json": "e433c6ecf3e2673738f4bdd3b19270c37c271f60bd9dbe911a35046e2a79eb78",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_contraction_w1d20e100_seed1_offset_x_minus_2cm.json": "58c16a549e73b81d5a1457b3927d251070811cbc54c89ad529dd6710eda6214c",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_d20e100_seed1_impulse_x_1.json": "3413a1ab528f3249f53bf1db957ed859b3cb354174bdd8a84c55089d62b9666c",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_contraction_w1d20e100_seed1_impulse_x_1.json": "682affc931ed839c15fdf145179001c1b23c9430b05fa928da8063574104e8ee",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_d20e100_seed1_impulse_x_minus_1.json": "8a451367eb2db9724cbf87cc216b89fa148b57f15239c6c95c6495e2a1c85518",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_contraction_w1d20e100_seed1_impulse_x_minus_1.json": "ad14ec718003317cc114f44ac77fbdbffbe639d05458f9bfd84e18eaab3f1133",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_d20e100_seed2_nominal.json": "cac0d02e44c696f0d4bf178bd725fd02fdac9e5dc7e135444422767772609527",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_contraction_w1d20e100_seed2_nominal.json": "cb5dbe138e4b2cc1117830a3f1dc69fe608f59e3bbefdc04ec71945102249768",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_d20e100_seed2_offset_x_2cm.json": "3293d4e33335edf14d82a62e07af21e381683727f5ed371555c085dd2c31e788",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_contraction_w1d20e100_seed2_offset_x_2cm.json": "b56dd0cdbdabd5a353047ccddb65118a8ea680070251d293d26eca3f296819e5",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_d20e100_seed2_offset_x_minus_2cm.json": "4219074f007231302a1b37ff7a260a7ba7094bbcc99d3f7c4b095ca3feea8a8c",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_contraction_w1d20e100_seed2_offset_x_minus_2cm.json": "eb7341a563f2546d4a7e2e5f6157b6a6fec028081b50c032c28593369a41b686",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_d20e100_seed2_impulse_x_1.json": "2dfdb3e291d64b8b11e553eb753fa50b690f5139c5fe87020352ef0bda149e26",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_contraction_w1d20e100_seed2_impulse_x_1.json": "463c676329442a46b6a51c76af014fa8b64aea5c0e07ccd6aa995b4ee292253b",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_d20e100_seed2_impulse_x_minus_1.json": "bc3fcbaa3f8962c295701c751f052eee0ec109f6faa71a06067e0c2534159279",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_contraction_w1d20e100_seed2_impulse_x_minus_1.json": "94cf64489c5234aaad62352d8a16990c3ddc0c7253336fd12ce062941080477c",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_d20e100_seed3_nominal.json": "b80a99efa912868c4f403314f2918d9d94fe6a1f6f7708204950a10fe3d8c653",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_contraction_w1d20e100_seed3_nominal.json": "bf38fe83efc4b1d7a55116f4265ddf930a7ae7132afe4d8c78ea2c517c5da922",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_d20e100_seed3_offset_x_2cm.json": "eaee4d2e71e68e0aa840358185ccd29b63b12bc481be6b843db367d7a629ed19",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_contraction_w1d20e100_seed3_offset_x_2cm.json": "d8de02d6b0600049f4648fe96317c16b080f9d646160226cff7290e49522fab8",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_d20e100_seed3_offset_x_minus_2cm.json": "59e735cfbb89f0cdebd0ce5691d1c3d312095fd780fc797ef251b5a9b362da02",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_contraction_w1d20e100_seed3_offset_x_minus_2cm.json": "e469120763f0fecef085271e278b5b0c597fd6ad362da76c342d5c9f3754aa38",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_d20e100_seed3_impulse_x_1.json": "4f1933e11e8679b5ca264d59d51840cefe233e420a3ebc2e80b8330fdfb11640",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_contraction_w1d20e100_seed3_impulse_x_1.json": "ec2662c8649c0257256bfa9f86c01568200b9f7cdf7a488f37b76bfbbf4fcc51",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_d20e100_seed3_impulse_x_minus_1.json": "0d9b3c7908a5ffd4739b5faba34dac3553ad46389a7e630c11312c77a6bd52b1",
+        "praxis\\results\\final_eval_20pct\\lift_ph_bc_contraction_w1d20e100_seed3_impulse_x_minus_1.json": "199628ab03ad4d979af62ee66d83b0a68bb0428f75efa734e2d5029d5454ffaf"
+      },
+      "paired_initial_states_verified": true,
+      "episode_pairs_missing_initial_state_metadata": 0,
+      "training_seeds": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  "source_sha256": "90bca668709a5bce570deadc2f2ce8d17d0eaf4756d749893ca9fb7c235443e9"
+}

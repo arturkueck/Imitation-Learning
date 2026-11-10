@@ -1,0 +1,12 @@
+from pathlib import Path
+p=Path('experiments/self_imitation/stack_transition_quality_20261024/make_figures.py')
+s=p.read_text(encoding='utf-8')
+s=s.replace("'Vor jeder Aktion beobachten → Aktion ausführen → Verlauf speichern'", "'Vor jeder Aktion beobachten → Aktion ausführen\\n→ vollständigen Verlauf speichern'")
+s=s.replace('def tower(ax):','def tower(ax, source=True):')
+s=s.replace("    ax.add_patch(Rectangle((2.8, .45), .5, .5, edgecolor=ORANGE,\n                         facecolor='#f0d3aa', lw=1.5))", "    if source:\n        ax.add_patch(Rectangle((2.8, .45), .5, .5, edgecolor=ORANGE,\n                             facecolor='#f0d3aa', lw=1.5))")
+s=s.replace("tower(ax); ax.set_title", "tower(ax, source=(i != 2)); ax.set_title")
+s=s.replace("            ax.add_patch(Rectangle((2.7, .47), .7, .6, facecolor='white', edgecolor='none'))\n",'')
+s=s.replace("figsize=(12, 5.2)", "figsize=(12, 6.1)")
+s=s.replace("bottom=.25, wspace=.35", "bottom=.32, wspace=.35")
+s=s.replace("fig.text(.5,.105,", "fig.text(.5,.07,")
+p.write_text(s,encoding='utf-8')

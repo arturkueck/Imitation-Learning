@@ -196,7 +196,7 @@ Die Datei `Medien_und_Quellen.md` enthält zusätzlich ausgewählte vorhandene S
 
 - **[L1]** `FORSCHUNGSPLAN.md`, Stand 04.10.2026: Ziel, Vorarbeiten und priorisierte Fragestellungen.
 - **[L2]** `praxis/reports/lift_ph_full_100ep_summary.json`: historische 10.000-Update-Lift-Ergebnisse mit drei Trainingsseeds.
-- **[L3]** `experiments/lift_contraction_validity_20261004/supervised_6h_20261004_0904/SESSION_RESEARCH_REPORT.md`: Sensorpilot, Mechanismusprüfungen, gescheiterte Fehlerhülle und Status der untrainierten Lossreferenz.
-- **[L4]** `experiments/stack_replication_20261001/ERGEBNISSE.md` und `representative/manifest.json`: Stack-Ergebnisse und Herkunft der Replays.
+- **[L3]** `experiments/stack_diagnostics/lift_contraction_validity_20261004/supervised_6h_20261004_0904/SESSION_RESEARCH_REPORT.md`: Sensorpilot, Mechanismusprüfungen, gescheiterte Fehlerhülle und Status der untrainierten Lossreferenz.
+- **[L4]** `experiments/stack_diagnostics/stack_replication_20261001/ERGEBNISSE.md` und `representative/manifest.json`: Stack-Ergebnisse und Herkunft der Replays.
 
 Die lokalen Vorarbeiten ersetzen keinen neuen eingefrorenen Bestätigungstest. Diese Vorbereitung hat keine bestehenden Forschungsdateien geändert und keine Trainings gestartet.

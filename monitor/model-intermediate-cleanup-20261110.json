@@ -1,0 +1,703 @@
+{
+  "status": "deleted_with_user_authorization",
+  "at": "2026-11-10T09:54:02.462539+00:00",
+  "scanned_reference_files": 4743,
+  "reference_scan_limit_per_file": 262144,
+  "retained_best_checkpoints": {
+    "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth": "e0d9d88215c900fb77cd8c327de55d0b8ae6b2d82cf697fa683547c21adf6b7c",
+    "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth": "f8b2bb5b24a66f17683359fb37504c2c4571d44b3668bb962d733145b4fdba23",
+    "experiments/baselines/square/bc/runs/bc/20260930202008/models/model_epoch_42_best_validation_0.05243929997086525.pth": "18b8adfc028406c7a39a805de4df1a9a4a7f5de692489f11f654d8ad4477d0f6",
+    "experiments/baselines/square/bc_rnn/runs/bc_rnn/20260930202339/models/model_epoch_36_best_validation_0.054686336778104305.pth": "e8324de4e49fafa79455f9d041352568669422b4da0c4e22287fbe080da47d26",
+    "experiments/baselines/square/bc_transformer/runs/bc_transformer/20260930202754/models/model_epoch_44_best_validation_0.05290857311338186.pth": "64e61198e541b36c0dabd35613b971267ce05da587fb0d367d18a2b4e75104a8",
+    "experiments/baselines/square_overnight/bc_rnn/runs/bc_rnn/continued_from_epoch50/models/model_epoch_63_best_validation_0.0517890770919621.pth": "8fbac9cf4ea3e810a81b585c1ef33a154bc9f9cc8c528ed270daf91abe5f0f44",
+    "experiments/baselines/square_overnight/bc_transformer/runs/bc_transformer/continued_from_epoch50/models/model_epoch_182_best_validation_0.04744746256619692.pth": "cdc592c183721b6754a885f22f818a39d4bc8f537c490a2db00053ae1ffdc09a"
+  },
+  "files": [
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_104_best_validation_0.0404355438426137.pth",
+      "bytes": 140247941,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "de3390a5175f2a1df887ba1c88102edb4301ad4783811cfcb9d1d4ab6da49244"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_111_best_validation_0.039188725594431165.pth",
+      "bytes": 140248665,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "03e508dce1903e2d9103c63973484a04d0dfc1b363a0920ff9b2887a965ba671"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_113_best_validation_0.03852378698065877.pth",
+      "bytes": 140248303,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "74c138fdb513ffc09127d7db1b60e2e1180a255920c23fcecc3f3b25236c5c1d"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_114_best_validation_0.03846713285893202.pth",
+      "bytes": 140248303,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "caee1cd13926e0782db9c81ac0d88e843f5516a86f98330e4e2ce742de56fa8a"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_117_best_validation_0.03491980396211147.pth",
+      "bytes": 140248303,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "9ff0892a7b7d84ffa1cd9f2614d95b3df0795f02f2db6420c5a703f9932ccf0c"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_137_best_validation_0.03481715363450348.pth",
+      "bytes": 140248303,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "7f2fd9d57642a910f1b307685867910acd4e98b285542422f7c23b24e10833f5"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_139_best_validation_0.032867141021415594.pth",
+      "bytes": 140248665,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "2d12dfdc4c1fac240edf0a6f8325ab6cb3266baabf205d6b1b2b81c2daed51ab"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_13_best_validation_0.08368532601743936.pth",
+      "bytes": 140247941,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "581e33714037e73a7d6e5ee14a9667ac373c33bbc7483df71704b301120a4e86"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_166_best_validation_0.032517458451911806.pth",
+      "bytes": 140248665,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "7553ef479dd1a4c0f71663ae55167665f9ada63f229616eb31061175c9df7c87"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_172_best_validation_0.02889475766569376.pth",
+      "bytes": 140248303,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "b3626bbac98337f4358d86979397b9ddb01c5ed0d4af0328c7bcc7bed8c990da"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_185_best_validation_0.028085137996822596.pth",
+      "bytes": 140248665,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "aa6c868e18c71eed327230c3857256d4092452769d82db461202743e06ecaac5"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_198_best_validation_0.02701546563766897.pth",
+      "bytes": 140248303,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "7b798ea3ca911be9d2a488d487259beeb0d52838c6865919c0660d34065ab55a"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_19_best_validation_0.0811664154753089.pth",
+      "bytes": 140247579,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "06d3681d203958df7c97d0823c35eac86eee01018a162627b548da3efa0a3f7c"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_1_best_validation_0.19567031413316727.pth",
+      "bytes": 140247579,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "ca9107438854af06dc16384d4c25acb4323fbb88f8f7edf10ac88e22d942ce4c"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_218_best_validation_0.02427013320848346.pth",
+      "bytes": 140248303,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "48c1c9bda890b1ed1d4817607a43ec50905ff335d7a82b3f15872478afe51171"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_21_best_validation_0.07669644430279732.pth",
+      "bytes": 140247941,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "30d5bbc7cec3b93c104266155626448c818b082609fe3db043b55c02d4627fe0"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_27_best_validation_0.07113271076232194.pth",
+      "bytes": 140247941,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "0972ad1d6456090d641b7e479f70f4c9bef6f84391e9fb5aff2ff9136c7ac2be"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_2_best_validation_0.16660192981362343.pth",
+      "bytes": 140247579,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "7849a6c73ae76d2c3e67157fbf4e0ee4fb737f425aa38bb9f3892a4025030655"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_333_best_validation_0.022622125153429807.pth",
+      "bytes": 140248665,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "826a6c35c76835ff6c563dd0d9654c58d32f66a45a5f620bb481e855468b2643"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_34_best_validation_0.06767019852995873.pth",
+      "bytes": 140247941,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "58a85d684b8d8e9734e39dbb244e32473607eb66fd440339df02983b65abf390"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_41_best_validation_0.06441833525896072.pth",
+      "bytes": 140247941,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "df6a0d928af2eff36b0e720797c27429b16cdad8bb406ab2b3e38be11b0034f5"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_426_best_validation_0.021573617157991977.pth",
+      "bytes": 140248665,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "36e3bd16006c3ffc6c98b050d52b7e9e4aecc9e9e7b80c0b1062bcb8b9aae7c4"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_43_best_validation_0.06347414813935756.pth",
+      "bytes": 140247941,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "f3190d5e14a6a205a1b9c1152ed65b816eb293f4d5c2f8a6f94ccc6dc975541a"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_51_best_validation_0.06102010551840067.pth",
+      "bytes": 140247941,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "3d9a84a8ea238bea063bc065d27db50778fdecdfbf36898d9cf3641521665a84"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_56_best_validation_0.05845530014485121.pth",
+      "bytes": 140247941,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "f943466e532dac993357bc8c9cead028cd27f5fb36508e296e0e9d67ab618d30"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_5_best_validation_0.14077449291944505.pth",
+      "bytes": 140247579,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "9f5adba6e78405d4fbf450e02d69ffca62286f391aee37d31f72a75ac294ec58"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_65_best_validation_0.057058834657073024.pth",
+      "bytes": 140248303,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "30d27d95427e1eeeabcc9691796777580985557b28debe17445a6bc4b000667f"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_6_best_validation_0.09829170163720846.pth",
+      "bytes": 140247579,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "3b42f102fd2cd6f6c0363ccc8f51e7844afd97354132f6b6be56555ddc651d88"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_71_best_validation_0.05373612595722079.pth",
+      "bytes": 140247941,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "9cbd6082a0ff5ddd8b1f9c266c3266915d6e4d3d39011ddeb6d337ef45f311f3"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_74_best_validation_0.051671615336090326.pth",
+      "bytes": 140248303,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "76e4ff2537790e4fd69e848d5421712fc3e5bce5f8a9ad3d8206d7cc652d81bc"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_75_best_validation_0.04660180183127523.pth",
+      "bytes": 140247941,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "3a6f47dbea6d2fa51fe2fde5932b3977f5ee56e8542d7b1c9b8903736dcb67c4"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_84_best_validation_0.04598958445712924.pth",
+      "bytes": 140247941,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "7dd6e4130e9908e63f8cce072eb8b2ffc3d642d8049f618aa37a2057e3765728"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_87_best_validation_0.04597226530313492.pth",
+      "bytes": 140247941,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "7a8566713ca685ea2a34b4e382f31e774f132410b62b18fc3439364bde723e8c"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_90_best_validation_0.044645953737199304.pth",
+      "bytes": 140248303,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "15eff88f88deafefcebef66f8676f40d59f8b0273131cb242e413f33361e332b"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_93_best_validation_0.044457099447026846.pth",
+      "bytes": 140248303,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "3610361f3676fa9a6f8d7c7918410686e393329a0a69434081d484e343ce3eaa"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_94_best_validation_0.04084081593900919.pth",
+      "bytes": 140247941,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "1bc4907683cde3c11595567269498c94d20ee293980765687ad2a26b10105f22"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_9_best_validation_0.08612746875733138.pth",
+      "bytes": 140247579,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_rnn/runs/stack_four_bc_rnn/20260930231458/models/model_epoch_454_best_validation_0.020148512534797193.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "205e50a438e75529bf071f86ec699db0c066abb797d2a5a2957f951963c0ccd2"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_10_best_validation_0.09274186603724957.pth",
+      "bytes": 139499014,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "90e82bf95915a77f7bd12fb296ffc0ae2c32849bf0c070cc4e7aae865b9caa95"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_111_best_validation_0.0336906605400145.pth",
+      "bytes": 139499014,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "608490dc1c94b8661689c2b668a29fd34157bdb589d523e1faf60a0237729237"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_11_best_validation_0.0845209464430809.pth",
+      "bytes": 139498563,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "cacb9d525085b0ce0823d2d1f698b892cf9f66af65ec306b9925691331541600"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_125_best_validation_0.0294450543820858.pth",
+      "bytes": 139499014,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "7c997a9c50604bcfd47321862514bff311e1bf8bde73eab013e1aecfeb875ba5"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_13_best_validation_0.08009858913719654.pth",
+      "bytes": 139499014,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "f5f8556ead71cb5dba77e25120d05ca44345c7b16f74af377d430aaab3e2c553"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_14_best_validation_0.0780672637745738.pth",
+      "bytes": 139498563,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "bbf3671c98c7a42841a1e9fd3a4d383de61c25c975d39198671e3bb8075748a2"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_171_best_validation_0.02881553824990988.pth",
+      "bytes": 139499465,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "468b71bde072b1aad175466a683acdaed89ba2153be246d449b9d4e446360225"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_177_best_validation_0.026431009545922278.pth",
+      "bytes": 139499916,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "e2a1851b374a118941fc1b2d9c11043d541ba9513423e14ce8c359d15f8561e4"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_1_best_validation_0.18703870698809624.pth",
+      "bytes": 139498563,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "6c97acc861f173b639e32b929a014106bfed451d9846fbda68e16bdf74073186"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_23_best_validation_0.0683960286900401.pth",
+      "bytes": 139498563,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "ef8b3deef4886313708831501223e4b5572714709c4e82c4895ba03c5f11c8bb"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_246_best_validation_0.023385942075401546.pth",
+      "bytes": 139499916,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "dd0e94def2f9926a645ab9b176cf5e3953f23277f98f5d7d65bebce6389129fe"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_28_best_validation_0.06646406957879662.pth",
+      "bytes": 139499014,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "541cf80b74efd2a54ec53f68b103d686786de13f8c92d2dc7139c8dcb980daae"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_29_best_validation_0.06562551874667406.pth",
+      "bytes": 139499014,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "8c90284dd00a7ed8fed7780b80baf8f8184ee8b4d0d8a299388278567693469e"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_309_best_validation_0.023265479365363717.pth",
+      "bytes": 139499916,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "736215b8c82633fcd8eaf807d0b96395ee78e4b2e02ab2d1f9b2d13a198c691d"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_33_best_validation_0.06552057582885026.pth",
+      "bytes": 139499014,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "3ce37637b08a5f80f5f6d3e72b100ef5e7d266932bfc541b645168e0557e9fe3"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_35_best_validation_0.059914832934737206.pth",
+      "bytes": 139499465,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "9ddf8e0652d8044443d25d6f2bd592982580b8876330e23edbf08a3d4da9863b"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_382_best_validation_0.021818524959962816.pth",
+      "bytes": 139499916,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "91c21dc18fd953d03371963839bbcc976935d8583f113527e65add426a8bcc62"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_3_best_validation_0.11251154243946075.pth",
+      "bytes": 139498563,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "c4604fb4a1c477b5c70c2bc941513fbc82bdcbf5dca2b82329ab7f50468f909c"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_45_best_validation_0.056203124858438966.pth",
+      "bytes": 139499465,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "b81d37386b1466efcdabc3adabbd6cf8afe67f9b0752e5ad0617ec0815c076c9"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_47_best_validation_0.052056435588747264.pth",
+      "bytes": 139499465,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "7b4cffe35d8a966baa4b4132a1dbadf33679ee4be63218c0b189f73f06bebdc4"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_52_best_validation_0.050522812688723204.pth",
+      "bytes": 139499465,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "2c537166df2be5f84d6e449711e710fa5baf4a74ebd995f925ca50d470fc5cfa"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_56_best_validation_0.04804353816434741.pth",
+      "bytes": 139499014,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "63057efb259c9ad44b67a156567cf93327d8a7210a5d105e37c9c936a930762a"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_72_best_validation_0.04506927626207471.pth",
+      "bytes": 139499014,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "21f5cb7ec3399c4097948ebb33fbf8ae944227cdde485bea6028b7c152737ddb"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_76_best_validation_0.04412039779126644.pth",
+      "bytes": 139499014,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "dd645921454de6e7706265a68609c6624e4f70955cb84fe2afc44a5ddf59a29a"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_77_best_validation_0.040014426410198214.pth",
+      "bytes": 139499465,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "ef846550b5d26e7f30dad1739922568a34beac158e0fd700a8ac25f59ef1bca4"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_82_best_validation_0.03666260335594416.pth",
+      "bytes": 139499014,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "e65787788bacbbfbc019ced150252e1d7408fd71af14cf21dc1cfa117f1d24c0"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_96_best_validation_0.03429926745593548.pth",
+      "bytes": 139499014,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "cc3dd430f9b38f6a22e357244706008fa94ef193eb4e5841e715f4e10ab0b384"
+    },
+    {
+      "path": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_9_best_validation_0.09327583052217961.pth",
+      "bytes": 139498563,
+      "better_checkpoint_retained": "experiments/baselines/additional_tasks/stack_four/bc_transformer/runs/stack_four_bc_transformer/20261001005018/models/model_epoch_497_best_validation_0.021169270703103392.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "16948da8e0354510563e43c485d5890cf2cb75dc6cdd2f8d710cad46913c9c52"
+    },
+    {
+      "path": "experiments/baselines/square/bc/runs/bc/20260930202008/models/model_epoch_12_best_validation_0.07667552949860693.pth",
+      "bytes": 135612208,
+      "better_checkpoint_retained": "experiments/baselines/square/bc/runs/bc/20260930202008/models/model_epoch_42_best_validation_0.05243929997086525.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "3db3847668ccc3002e939ae4107fd04525ee810a8d5be9a72dcec81ef6f356d7"
+    },
+    {
+      "path": "experiments/baselines/square/bc/runs/bc/20260930202008/models/model_epoch_13_best_validation_0.06530281975865364.pth",
+      "bytes": 135612208,
+      "better_checkpoint_retained": "experiments/baselines/square/bc/runs/bc/20260930202008/models/model_epoch_42_best_validation_0.05243929997086525.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "8fc658e08fe61a2d614383780499e82f0f1d2c6305946681b58051098829a30b"
+    },
+    {
+      "path": "experiments/baselines/square/bc/runs/bc/20260930202008/models/model_epoch_1_best_validation_0.15212517678737641.pth",
+      "bytes": 135611859,
+      "better_checkpoint_retained": "experiments/baselines/square/bc/runs/bc/20260930202008/models/model_epoch_42_best_validation_0.05243929997086525.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "cdc0130df960acd9062aec7f684559d01de9bdb2b2c2a87b4cd5ff7f6c913230"
+    },
+    {
+      "path": "experiments/baselines/square/bc/runs/bc/20260930202008/models/model_epoch_20_best_validation_0.06408389331772923.pth",
+      "bytes": 135612208,
+      "better_checkpoint_retained": "experiments/baselines/square/bc/runs/bc/20260930202008/models/model_epoch_42_best_validation_0.05243929997086525.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "5331186e624ec0d79b12b56b91fde2f50d08ac0d7c8a124aa5298394a51c8d08"
+    },
+    {
+      "path": "experiments/baselines/square/bc/runs/bc/20260930202008/models/model_epoch_23_best_validation_0.057743252627551554.pth",
+      "bytes": 135612557,
+      "better_checkpoint_retained": "experiments/baselines/square/bc/runs/bc/20260930202008/models/model_epoch_42_best_validation_0.05243929997086525.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "0e89b4fe9145d12338abf7bb1224ecd4470ec34abb809d1b34f11e0cc042898e"
+    },
+    {
+      "path": "experiments/baselines/square/bc/runs/bc/20260930202008/models/model_epoch_25_best_validation_0.054932772926986215.pth",
+      "bytes": 135612557,
+      "better_checkpoint_retained": "experiments/baselines/square/bc/runs/bc/20260930202008/models/model_epoch_42_best_validation_0.05243929997086525.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "25113635903e7c1f244a2d1891da34ed19289fcddaceeecfc1fd6528e31e5332"
+    },
+    {
+      "path": "experiments/baselines/square/bc/runs/bc/20260930202008/models/model_epoch_2_best_validation_0.11016316562891007.pth",
+      "bytes": 135611859,
+      "better_checkpoint_retained": "experiments/baselines/square/bc/runs/bc/20260930202008/models/model_epoch_42_best_validation_0.05243929997086525.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "13938e364a7686a247d99abb6130094cd19f47dd64b165f2cf855f9d9488e8f9"
+    },
+    {
+      "path": "experiments/baselines/square/bc/runs/bc/20260930202008/models/model_epoch_4_best_validation_0.09150553680956364.pth",
+      "bytes": 135611859,
+      "better_checkpoint_retained": "experiments/baselines/square/bc/runs/bc/20260930202008/models/model_epoch_42_best_validation_0.05243929997086525.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "35a18c1e4ce06fea9f1dbe29efc956369f8e97f9e620e024cfbbd9188594a9ee"
+    },
+    {
+      "path": "experiments/baselines/square/bc/runs/bc/20260930202008/models/model_epoch_5_best_validation_0.0895175788551569.pth",
+      "bytes": 135611510,
+      "better_checkpoint_retained": "experiments/baselines/square/bc/runs/bc/20260930202008/models/model_epoch_42_best_validation_0.05243929997086525.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "211d94d978b9a114fc290b98897622e705c3df8e735a08cc9e271926fab1ff69"
+    },
+    {
+      "path": "experiments/baselines/square/bc/runs/bc/20260930202008/models/model_epoch_6_best_validation_0.084771335311234.pth",
+      "bytes": 135611161,
+      "better_checkpoint_retained": "experiments/baselines/square/bc/runs/bc/20260930202008/models/model_epoch_42_best_validation_0.05243929997086525.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "6d02b5744fa49654cb3ea2a84d2603b63604b47908e1c43d2330258cbf443ab1"
+    },
+    {
+      "path": "experiments/baselines/square/bc/runs/bc/20260930202008/models/model_epoch_7_best_validation_0.07766533382236958.pth",
+      "bytes": 135611859,
+      "better_checkpoint_retained": "experiments/baselines/square/bc/runs/bc/20260930202008/models/model_epoch_42_best_validation_0.05243929997086525.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "852b692240ba1a24a756ec9170330a5349999721cd4a1dbf95e269d00f2fb5ce"
+    },
+    {
+      "path": "experiments/baselines/square/bc_rnn/runs/bc_rnn/20260930202339/models/model_epoch_10_best_validation_0.06852098926901817.pth",
+      "bytes": 140247877,
+      "better_checkpoint_retained": "experiments/baselines/square/bc_rnn/runs/bc_rnn/20260930202339/models/model_epoch_36_best_validation_0.054686336778104305.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "2d0f68bd7ce02d32c1ef20eacff6644a40cd6751702ee04461874ab6f7c13de9"
+    },
+    {
+      "path": "experiments/baselines/square/bc_rnn/runs/bc_rnn/20260930202339/models/model_epoch_13_best_validation_0.06677444949746132.pth",
+      "bytes": 140247877,
+      "better_checkpoint_retained": "experiments/baselines/square/bc_rnn/runs/bc_rnn/20260930202339/models/model_epoch_36_best_validation_0.054686336778104305.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "54c20a204285fb6dea758a6f8e4d740416a68cceab57a2db5bf2e78fee33d781"
+    },
+    {
+      "path": "experiments/baselines/square/bc_rnn/runs/bc_rnn/20260930202339/models/model_epoch_17_best_validation_0.06218108264729381.pth",
+      "bytes": 140247877,
+      "better_checkpoint_retained": "experiments/baselines/square/bc_rnn/runs/bc_rnn/20260930202339/models/model_epoch_36_best_validation_0.054686336778104305.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "a342f062744dabca56cb0ac862e998d11a759104ba3b71dbebc75a06ff84e43d"
+    },
+    {
+      "path": "experiments/baselines/square/bc_rnn/runs/bc_rnn/20260930202339/models/model_epoch_1_best_validation_0.14502133652567864.pth",
+      "bytes": 140247515,
+      "better_checkpoint_retained": "experiments/baselines/square/bc_rnn/runs/bc_rnn/20260930202339/models/model_epoch_36_best_validation_0.054686336778104305.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "ecf09b16fb6ce760ec57dbf05f3b17ebc3c31208f64b10801d0da381628f07dd"
+    },
+    {
+      "path": "experiments/baselines/square/bc_rnn/runs/bc_rnn/20260930202339/models/model_epoch_20_best_validation_0.05588471656665206.pth",
+      "bytes": 140247877,
+      "better_checkpoint_retained": "experiments/baselines/square/bc_rnn/runs/bc_rnn/20260930202339/models/model_epoch_36_best_validation_0.054686336778104305.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "a91f825a65d3c2bfedc6cc3a28bd2cc25ad143b474d7ddb55ee7b79f5657d805"
+    },
+    {
+      "path": "experiments/baselines/square/bc_rnn/runs/bc_rnn/20260930202339/models/model_epoch_2_best_validation_0.14271282777190208.pth",
+      "bytes": 140247515,
+      "better_checkpoint_retained": "experiments/baselines/square/bc_rnn/runs/bc_rnn/20260930202339/models/model_epoch_36_best_validation_0.054686336778104305.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "42aa9cbe91772b41368b47119f077c06773a6fe67f32f39d4575e041310ca71a"
+    },
+    {
+      "path": "experiments/baselines/square/bc_rnn/runs/bc_rnn/20260930202339/models/model_epoch_4_best_validation_0.10463438183069229.pth",
+      "bytes": 140247515,
+      "better_checkpoint_retained": "experiments/baselines/square/bc_rnn/runs/bc_rnn/20260930202339/models/model_epoch_36_best_validation_0.054686336778104305.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "5163ec4ed20fc775a76e1953f9f5407dc9d45abbecddb522b81dd8b883ec9a2b"
+    },
+    {
+      "path": "experiments/baselines/square/bc_rnn/runs/bc_rnn/20260930202339/models/model_epoch_5_best_validation_0.0941775381565094.pth",
+      "bytes": 140247153,
+      "better_checkpoint_retained": "experiments/baselines/square/bc_rnn/runs/bc_rnn/20260930202339/models/model_epoch_36_best_validation_0.054686336778104305.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "af0a4e0340f85b6cef18b7b74f7070708d1904481986700df20a2d97af66d8a5"
+    },
+    {
+      "path": "experiments/baselines/square/bc_rnn/runs/bc_rnn/20260930202339/models/model_epoch_6_best_validation_0.08135242350399494.pth",
+      "bytes": 140247515,
+      "better_checkpoint_retained": "experiments/baselines/square/bc_rnn/runs/bc_rnn/20260930202339/models/model_epoch_36_best_validation_0.054686336778104305.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "577ade75a66fbf75e56a6572acbea1d6357e45907ea54b9204a26e7d293fcc8b"
+    },
+    {
+      "path": "experiments/baselines/square/bc_rnn/runs/bc_rnn/20260930202339/models/model_epoch_8_best_validation_0.07295276708900929.pth",
+      "bytes": 140247515,
+      "better_checkpoint_retained": "experiments/baselines/square/bc_rnn/runs/bc_rnn/20260930202339/models/model_epoch_36_best_validation_0.054686336778104305.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "26f38c378d82c645635a8887678ea14fd97f30ea0e33c00a92dbe78f4518f0e0"
+    },
+    {
+      "path": "experiments/baselines/square/bc_transformer/runs/bc_transformer/20260930202754/models/model_epoch_10_best_validation_0.05651773288846016.pth",
+      "bytes": 139498950,
+      "better_checkpoint_retained": "experiments/baselines/square/bc_transformer/runs/bc_transformer/20260930202754/models/model_epoch_44_best_validation_0.05290857311338186.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "7da9add28478d24f75017780b8cdc4be58a5bab81c234868f9ee015c7c55047e"
+    },
+    {
+      "path": "experiments/baselines/square/bc_transformer/runs/bc_transformer/20260930202754/models/model_epoch_1_best_validation_0.13098179996013642.pth",
+      "bytes": 139498499,
+      "better_checkpoint_retained": "experiments/baselines/square/bc_transformer/runs/bc_transformer/20260930202754/models/model_epoch_44_best_validation_0.05290857311338186.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "5bf1aecad1972a3021e0e88e1ca519fca18b7f7007f845113747b98169608c79"
+    },
+    {
+      "path": "experiments/baselines/square/bc_transformer/runs/bc_transformer/20260930202754/models/model_epoch_2_best_validation_0.09556980207562446.pth",
+      "bytes": 139498499,
+      "better_checkpoint_retained": "experiments/baselines/square/bc_transformer/runs/bc_transformer/20260930202754/models/model_epoch_44_best_validation_0.05290857311338186.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "3396819d0068c2c3acbb815a576671ac122c347087b7970f8e104beecfcad59f"
+    },
+    {
+      "path": "experiments/baselines/square/bc_transformer/runs/bc_transformer/20260930202754/models/model_epoch_30_best_validation_0.054416682478040455.pth",
+      "bytes": 139499401,
+      "better_checkpoint_retained": "experiments/baselines/square/bc_transformer/runs/bc_transformer/20260930202754/models/model_epoch_44_best_validation_0.05290857311338186.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "3da6a092ea8e2b3e2d1688839acb8368a3cd875180a0859a0e318db1d40c492e"
+    },
+    {
+      "path": "experiments/baselines/square/bc_transformer/runs/bc_transformer/20260930202754/models/model_epoch_32_best_validation_0.05320875011384487.pth",
+      "bytes": 139498950,
+      "better_checkpoint_retained": "experiments/baselines/square/bc_transformer/runs/bc_transformer/20260930202754/models/model_epoch_44_best_validation_0.05290857311338186.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "9b2b247f3a3365867feb939b1b058a4f6503ccc890109081ef10c80ae5e728d2"
+    },
+    {
+      "path": "experiments/baselines/square/bc_transformer/runs/bc_transformer/20260930202754/models/model_epoch_3_best_validation_0.08471953459084033.pth",
+      "bytes": 139498499,
+      "better_checkpoint_retained": "experiments/baselines/square/bc_transformer/runs/bc_transformer/20260930202754/models/model_epoch_44_best_validation_0.05290857311338186.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "d115fc799aade53664eb9634763a57dce955d57445b569f1198be7cf8fc34614"
+    },
+    {
+      "path": "experiments/baselines/square/bc_transformer/runs/bc_transformer/20260930202754/models/model_epoch_6_best_validation_0.0763069118373096.pth",
+      "bytes": 139498048,
+      "better_checkpoint_retained": "experiments/baselines/square/bc_transformer/runs/bc_transformer/20260930202754/models/model_epoch_44_best_validation_0.05290857311338186.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "79b264290a9aeed753fc2c55e8cb543e1effaa7d8c2ed32fdf33618cfb04abcd"
+    },
+    {
+      "path": "experiments/baselines/square/bc_transformer/runs/bc_transformer/20260930202754/models/model_epoch_7_best_validation_0.07293863287195564.pth",
+      "bytes": 139498499,
+      "better_checkpoint_retained": "experiments/baselines/square/bc_transformer/runs/bc_transformer/20260930202754/models/model_epoch_44_best_validation_0.05290857311338186.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "194c6512e3089680ca92fcfc7ed3583152d72a65d6eff069cbbd0d2303208eef"
+    },
+    {
+      "path": "experiments/baselines/square_overnight/bc_rnn/runs/bc_rnn/continued_from_epoch50/models/model_epoch_36_best_validation_0.054686336778104305.pth",
+      "bytes": 140248239,
+      "better_checkpoint_retained": "experiments/baselines/square_overnight/bc_rnn/runs/bc_rnn/continued_from_epoch50/models/model_epoch_63_best_validation_0.0517890770919621.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "e8324de4e49fafa79455f9d041352568669422b4da0c4e22287fbe080da47d26"
+    },
+    {
+      "path": "experiments/baselines/square_overnight/bc_transformer/runs/bc_transformer/continued_from_epoch50/models/model_epoch_44_best_validation_0.05290857311338186.pth",
+      "bytes": 139498950,
+      "better_checkpoint_retained": "experiments/baselines/square_overnight/bc_transformer/runs/bc_transformer/continued_from_epoch50/models/model_epoch_182_best_validation_0.04744746256619692.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "64e61198e541b36c0dabd35613b971267ce05da587fb0d367d18a2b4e75104a8"
+    },
+    {
+      "path": "experiments/baselines/square_overnight/bc_transformer/runs/bc_transformer/continued_from_epoch50/models/model_epoch_65_best_validation_0.05243619605898857.pth",
+      "bytes": 139498950,
+      "better_checkpoint_retained": "experiments/baselines/square_overnight/bc_transformer/runs/bc_transformer/continued_from_epoch50/models/model_epoch_182_best_validation_0.04744746256619692.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "160c7e67a32a87014e645d78b17d3ffd1a3fb9d8ec51568d8e0386b0e6a5108c"
+    },
+    {
+      "path": "experiments/baselines/square_overnight/bc_transformer/runs/bc_transformer/continued_from_epoch50/models/model_epoch_82_best_validation_0.04954536259174347.pth",
+      "bytes": 139498950,
+      "better_checkpoint_retained": "experiments/baselines/square_overnight/bc_transformer/runs/bc_transformer/continued_from_epoch50/models/model_epoch_182_best_validation_0.04744746256619692.pth",
+      "reason": "Superseded validation-best checkpoint; lower validation loss retained; no literal basename reference found in inspected files",
+      "sha256": "b8f15bffda6bcac31824ddda953507f38b01eb7095a17138074392087048aa1f"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "training_seeds": [
+    1,
+    2,
+    3
+  ],
+  "each_configuration_identical_except_seed_and_output_paths": true,
+  "fresh_distinct_initializations_seeds_2_3": true,
+  "dataset_unchanged": true,
+  "black_image_demos_unchanged": 62,
+  "gradient_updates_each": 30000,
+  "batch_size": 8,
+  "training_examples_each": 240000,
+  "fixed_start_hashes_verified": 240,
+  "training_replicates_per_class": 3,
+  "inference_sampling_seeds_held_fixed": true,
+  "offline_phase_labels_verified": 420,
+  "stable_transport_window_true_phase4_frames": 100,
+  "no_dynamics_features": true,
+  "no_phase_balancing": true,
+  "no_xy_heuristics": true,
+  "records": [
+    {
+      "model_class": "diffusion",
+      "training_seed": 1,
+      "optimizer_steps": 30000,
+      "start_hashes_verified": 40,
+      "stable_stacks_verified": 0,
+      "checkpoint": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_followup_20261001\\state_scheduler_fixed\\runs\\stack_two_state_scheduler_fixed\\20261001133241\\models\\model_epoch_300.pth",
+      "checkpoint_sha256": "a2c2cca1cd087409261402f3b95f7b6592961e6aac92c276c72657dd436343f4"
+    },
+    {
+      "model_class": "diffusion",
+      "training_seed": 2,
+      "optimizer_steps": 30000,
+      "start_hashes_verified": 40,
+      "stable_stacks_verified": 0,
+      "checkpoint": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_replication_20261001\\diffusion\\seed_2\\runs\\stack_diffusion_replication_seed_2\\20261001200719\\models\\model_epoch_300.pth",
+      "checkpoint_sha256": "00f0d2ea89449c5fdb5d59c49a84cea5bbb4af04c2329fbd0d9e6c8eea0377f9"
+    },
+    {
+      "model_class": "diffusion",
+      "training_seed": 3,
+      "optimizer_steps": 30000,
+      "start_hashes_verified": 40,
+      "stable_stacks_verified": 0,
+      "checkpoint": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_replication_20261001\\diffusion\\seed_3\\runs\\stack_diffusion_replication_seed_3\\20261001205819\\models\\model_epoch_300.pth",
+      "checkpoint_sha256": "4bbad0fa429b490ce7e607fe5dd1be04fcb8753aab75c5c235a3afe442a80d0b"
+    },
+    {
+      "model_class": "direct",
+      "training_seed": 1,
+      "optimizer_steps": 30000,
+      "start_hashes_verified": 40,
+      "stable_stacks_verified": 28,
+      "checkpoint": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_direct_20261001\\model_final.pth",
+      "checkpoint_sha256": "9b08ea5febc5a37fa92eb2595c29fa7b0cab6e5501dd218b81d2798a9faf7bec"
+    },
+    {
+      "model_class": "direct",
+      "training_seed": 2,
+      "optimizer_steps": 30000,
+      "start_hashes_verified": 40,
+      "stable_stacks_verified": 30,
+      "checkpoint": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_replication_20261001\\direct\\seed_2\\model_final.pth",
+      "checkpoint_sha256": "8824b1a4fd78d71fc8f53054aad0e572383b86f8b0afc06d0220b88d5e444897"
+    },
+    {
+      "model_class": "direct",
+      "training_seed": 3,
+      "optimizer_steps": 30000,
+      "start_hashes_verified": 40,
+      "stable_stacks_verified": 31,
+      "checkpoint": "C:\\Users\\artur\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\stack_replication_20261001\\direct\\seed_3\\model_final.pth",
+      "checkpoint_sha256": "d1ef2e7bceef2c1470440c12253eb579c6c41573829449cf3c3781247db6ec58"
+    }
+  ]
+}

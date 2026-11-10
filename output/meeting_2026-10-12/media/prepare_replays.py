@@ -8,7 +8,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[2]
-BASE=ROOT/'experiments/stack_replication_20261001'
+BASE=ROOT/'experiments/stack_diagnostics/stack_replication_20261001'
 SOURCE=BASE/'representative'
 records=json.loads((BASE/'direct/seed_3/rollouts/results.json').read_text(encoding='utf-8'))
 original_manifest=json.loads((SOURCE/'manifest.json').read_text(encoding='utf-8'))

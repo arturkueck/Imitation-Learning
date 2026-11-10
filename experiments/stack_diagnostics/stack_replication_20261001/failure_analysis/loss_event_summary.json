@@ -1,0 +1,68 @@
+{
+  "first_event_by_seed": [
+    {
+      "model": "direct",
+      "seed": 1,
+      "first_events": 7,
+      "opening_at_event": 7,
+      "sustained3_frames": 7,
+      "xy_before_median": 0.050222598634816554,
+      "xyz_before_median": 0.050260825883959956,
+      "target_distance_cm_median": 1.6089779139675309
+    },
+    {
+      "model": "direct",
+      "seed": 2,
+      "first_events": 4,
+      "opening_at_event": 4,
+      "sustained3_frames": 4,
+      "xy_before_median": 0.024901311311149685,
+      "xyz_before_median": 0.03178439924724067,
+      "target_distance_cm_median": 1.400735020009808
+    },
+    {
+      "model": "direct",
+      "seed": 3,
+      "first_events": 3,
+      "opening_at_event": 2,
+      "sustained3_frames": 3,
+      "xy_before_median": 0.05112073941045362,
+      "xyz_before_median": 0.05113717952553137,
+      "target_distance_cm_median": 1.9849900058053613
+    },
+    {
+      "model": "diffusion",
+      "seed": 1,
+      "first_events": 29,
+      "opening_at_event": 27,
+      "sustained3_frames": 23,
+      "xy_before_median": 0.019883694782504114,
+      "xyz_before_median": 0.04335137740027709,
+      "target_distance_cm_median": 12.901837342271048
+    },
+    {
+      "model": "diffusion",
+      "seed": 2,
+      "first_events": 26,
+      "opening_at_event": 19,
+      "sustained3_frames": 23,
+      "xy_before_median": 0.024382150098457955,
+      "xyz_before_median": 0.06602901429120941,
+      "target_distance_cm_median": 13.19630341239441
+    },
+    {
+      "model": "diffusion",
+      "seed": 3,
+      "first_events": 25,
+      "opening_at_event": 17,
+      "sustained3_frames": 25,
+      "xy_before_median": 0.02207231900411748,
+      "xyz_before_median": 0.04348206416907157,
+      "target_distance_cm_median": 12.197527046859166
+    }
+  ],
+  "diffusion_all_events": 206,
+  "diffusion_events_farther_than3cm": 205,
+  "diffusion_opening_events_farther_than3cm": 167,
+  "selection": "First non-task-valid native grasp loss per start; conditional event selection; descriptive medians and IQR, no confidence interval or causal estimate"
+}
