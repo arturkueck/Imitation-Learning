@@ -90,6 +90,7 @@ experiments/stack_diagnostics/lift_contraction_validity_20261004/supervised_6h_2
 
 # Local Sites checkout, setup staging and deployment packages
 /sites/research-workspace/
+/sites/research-curriculum-editor/
 /sites/research-server-starter/
 /sites/sites/
 /sites/*.tar.gz
@@ -213,3 +214,24 @@ monitor/vision-namespace/
 # Isolated Sites publication checkout and deploy archive; canonical source stays tracked.
 /sites/research-actor-critic-editor/
 /sites/research-actor-critic-20261104.tar.gz
+
+# Local Atlas editor worktrees and packaged releases
+/sites/research-*-editor/
+/output/*.tar.gz
+
+# Temporary audits, PDF render checks and compiler transcripts
+/tmp/
+/latex/projektarbeit_proposal/v2/build-check.txt
+
+# Optional examples and institute logos from the upstream TU template
+/tubs-latex-cd-lite-main/*.tex
+/tubs-latex-cd-lite-main/*.bib
+/tubs-latex-cd-lite-main/templates/
+/tubs-latex-cd-lite-main/logos/
+
+# Local run junctions. The layout manifest records their canonical destinations.
+/experiments/curriculum/axis_bc_20261110/analysis_loss/
+/experiments/curriculum/axis_bc_release_diagnosis_20261112/probe_001/
+
+# Completed and planned states in the versioned dashboard export
+!/experiments/curriculum/reporting/*/status.json
