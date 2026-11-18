@@ -1,0 +1,29 @@
+{
+  "label": "Vision V2 | Epoche 20 | Seed 1 | fixed | Val-Szene 1940",
+  "ground_truth": [],
+  "predictions": [],
+  "bounds": [
+    [
+      -0.23,
+      0.23
+    ],
+    [
+      -0.23,
+      0.23
+    ],
+    [
+      0.78,
+      1.18
+    ]
+  ],
+  "epoch": 20,
+  "seed": 1,
+  "variant": "fixed",
+  "checkpoint_sha256": "4ee5020d0d4e51db5f198c70d855ff129cb7042fff57f15b4edf61047d4866e2",
+  "selected_checkpoint": false,
+  "family": [
+    7200001,
+    1940
+  ],
+  "updates": 7500
+}

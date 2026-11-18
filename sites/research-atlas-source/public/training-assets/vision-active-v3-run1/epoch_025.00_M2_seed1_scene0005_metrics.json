@@ -1,0 +1,44 @@
+{
+  "ground_truth_count": 3,
+  "prediction_count": 3,
+  "matching_gate_m": 0.1,
+  "pairs": [
+    {
+      "gt_index": 0,
+      "pred_index": 2,
+      "position_error_mm": 0.9868427357031003,
+      "size_sorted_mae_mm": 1.4321468770503998,
+      "rotation_error_deg": 4.110210447366883,
+      "iou_3d": 0.8757148897076443,
+      "matched_corner_mean_mm": 3.732735341345796
+    },
+    {
+      "gt_index": 1,
+      "pred_index": 1,
+      "position_error_mm": 3.404412101124759,
+      "size_sorted_mae_mm": 5.735067029794057,
+      "rotation_error_deg": 3.060355690353118,
+      "iou_3d": 0.6501190628907495,
+      "matched_corner_mean_mm": 5.9548175890499
+    },
+    {
+      "gt_index": 2,
+      "pred_index": 0,
+      "position_error_mm": 5.397627460241202,
+      "size_sorted_mae_mm": 3.0381145576635995,
+      "rotation_error_deg": 2.225735647689553,
+      "iou_3d": 0.7193310232253103,
+      "matched_corner_mean_mm": 5.708655938769214
+    }
+  ],
+  "missing_gt_indices": [],
+  "extra_prediction_indices": [],
+  "precision_at_matching_gate": 1.0,
+  "recall_at_matching_gate": 1.0,
+  "recall_position_10mm": 1.0,
+  "scene_iou_score": 0.748388325274568,
+  "note": "Scene IoU score is matched per-object IoU sum / max counts, not union-of-scene-volume IoU. Missing/extra objects lower this score.",
+  "unobservable_gt_indices": [],
+  "total_physical_objects": 3,
+  "ground_truth_count_definition": "Observable ground truth objects for the available camera views"
+}

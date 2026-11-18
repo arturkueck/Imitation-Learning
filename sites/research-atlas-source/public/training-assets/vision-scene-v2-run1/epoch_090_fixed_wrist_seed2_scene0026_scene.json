@@ -1,0 +1,29 @@
+{
+  "label": "Vision V2 | Epoche 90 | Seed 2 | fixed_wrist | Val-Szene 26",
+  "ground_truth": [],
+  "predictions": [],
+  "bounds": [
+    [
+      -0.23,
+      0.23
+    ],
+    [
+      -0.23,
+      0.23
+    ],
+    [
+      0.78,
+      1.18
+    ]
+  ],
+  "epoch": 90,
+  "seed": 2,
+  "variant": "fixed_wrist",
+  "checkpoint_sha256": "a9e3f17596852123b2a6d92e0afa7048b00e689467791270c3fdd6afb2322f68",
+  "selected_checkpoint": false,
+  "family": [
+    7200001,
+    26
+  ],
+  "updates": 33750
+}

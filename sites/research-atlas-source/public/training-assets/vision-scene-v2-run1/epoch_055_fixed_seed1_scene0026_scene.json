@@ -1,0 +1,29 @@
+{
+  "label": "Vision V2 | Epoche 55 | Seed 1 | fixed | Val-Szene 26",
+  "ground_truth": [],
+  "predictions": [],
+  "bounds": [
+    [
+      -0.23,
+      0.23
+    ],
+    [
+      -0.23,
+      0.23
+    ],
+    [
+      0.78,
+      1.18
+    ]
+  ],
+  "epoch": 55,
+  "seed": 1,
+  "variant": "fixed",
+  "checkpoint_sha256": "6775daaf6b9854e6ae1ee617065d91dfbafcfa795b3b4abafcd67665b65cfc52",
+  "selected_checkpoint": false,
+  "family": [
+    7200001,
+    26
+  ],
+  "updates": 20625
+}

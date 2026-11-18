@@ -1,0 +1,38 @@
+{
+  "ground_truth_count": 2,
+  "prediction_count": 4,
+  "matching_gate_m": 0.1,
+  "pairs": [
+    {
+      "gt_index": 0,
+      "pred_index": 1,
+      "position_error_mm": 11.220128740779677,
+      "size_sorted_mae_mm": 4.6348534524440765,
+      "rotation_error_deg": 18.417270927293053,
+      "iou_3d": 0.5820931570852759,
+      "matched_corner_mean_mm": 17.546677402815558
+    },
+    {
+      "gt_index": 1,
+      "pred_index": 2,
+      "position_error_mm": 20.822148775368664,
+      "size_sorted_mae_mm": 7.364744941393535,
+      "rotation_error_deg": 8.361904892248797,
+      "iou_3d": 0.2548776840694914,
+      "matched_corner_mean_mm": 23.177534344978714
+    }
+  ],
+  "missing_gt_indices": [],
+  "extra_prediction_indices": [
+    0,
+    3
+  ],
+  "precision_at_matching_gate": 0.5,
+  "recall_at_matching_gate": 1.0,
+  "recall_position_10mm": 0.0,
+  "scene_iou_score": 0.20924271028869182,
+  "note": "Scene IoU score is matched per-object IoU sum / max counts, not union-of-scene-volume IoU. Missing/extra objects lower this score.",
+  "unobservable_gt_indices": [],
+  "total_physical_objects": 2,
+  "ground_truth_count_definition": "Observable ground truth objects for the available camera views"
+}

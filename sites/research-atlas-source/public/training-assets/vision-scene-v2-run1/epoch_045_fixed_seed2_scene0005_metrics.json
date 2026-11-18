@@ -1,0 +1,62 @@
+{
+  "ground_truth_count": 5,
+  "prediction_count": 5,
+  "matching_gate_m": 0.1,
+  "pairs": [
+    {
+      "gt_index": 0,
+      "pred_index": 1,
+      "position_error_mm": 94.1041498533771,
+      "size_sorted_mae_mm": 9.650624046723047,
+      "rotation_error_deg": 66.54383881803622,
+      "iou_3d": 0.0,
+      "matched_corner_mean_mm": 94.25455917505104
+    },
+    {
+      "gt_index": 1,
+      "pred_index": 3,
+      "position_error_mm": 42.22109257425586,
+      "size_sorted_mae_mm": 7.714256644248962,
+      "rotation_error_deg": 71.36428538782822,
+      "iou_3d": 0.06553230911885423,
+      "matched_corner_mean_mm": 43.8128121420456
+    },
+    {
+      "gt_index": 2,
+      "pred_index": 2,
+      "position_error_mm": 9.423816630897202,
+      "size_sorted_mae_mm": 5.458907534678777,
+      "rotation_error_deg": 36.464149476675296,
+      "iou_3d": 0.4788673677320691,
+      "matched_corner_mean_mm": 18.695895453902764
+    },
+    {
+      "gt_index": 3,
+      "pred_index": 0,
+      "position_error_mm": 14.713684742550734,
+      "size_sorted_mae_mm": 4.010190566380818,
+      "rotation_error_deg": 59.68238290897363,
+      "iou_3d": 0.3762432934725513,
+      "matched_corner_mean_mm": 18.23333332990673
+    },
+    {
+      "gt_index": 4,
+      "pred_index": 4,
+      "position_error_mm": 7.778968945078075,
+      "size_sorted_mae_mm": 1.1501237750053406,
+      "rotation_error_deg": 15.71555007446882,
+      "iou_3d": 0.6898001770592458,
+      "matched_corner_mean_mm": 13.373717437422666
+    }
+  ],
+  "missing_gt_indices": [],
+  "extra_prediction_indices": [],
+  "precision_at_matching_gate": 1.0,
+  "recall_at_matching_gate": 1.0,
+  "recall_position_10mm": 0.4,
+  "scene_iou_score": 0.3220886294765441,
+  "note": "Scene IoU score is matched per-object IoU sum / max counts, not union-of-scene-volume IoU. Missing/extra objects lower this score.",
+  "unobservable_gt_indices": [],
+  "total_physical_objects": 5,
+  "ground_truth_count_definition": "Observable ground truth objects for the available camera views"
+}

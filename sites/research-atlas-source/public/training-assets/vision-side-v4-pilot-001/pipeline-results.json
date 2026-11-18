@@ -1,0 +1,25 @@
+{
+  "training_complete": true,
+  "variants": {
+    "A": 0.22545311248746328,
+    "B": 0.17635861311554488
+  },
+  "side_errors": {
+    "A": 31.429620893770416,
+    "B": 13.349572455701937
+  },
+  "old_errors": {
+    "A": 12.221536181911103,
+    "B": 12.587857601346654
+  },
+  "side_gate_passed": true,
+  "heldout_tests_used": false,
+  "optimizer_updates": {
+    "A1": 420,
+    "B1": 420,
+    "A2": 420,
+    "B2": 420,
+    "A3": 420,
+    "B3": 420
+  }
+}

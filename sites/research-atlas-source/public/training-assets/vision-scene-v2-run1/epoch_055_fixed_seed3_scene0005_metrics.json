@@ -1,0 +1,62 @@
+{
+  "ground_truth_count": 5,
+  "prediction_count": 5,
+  "matching_gate_m": 0.1,
+  "pairs": [
+    {
+      "gt_index": 0,
+      "pred_index": 0,
+      "position_error_mm": 6.3665309413197795,
+      "size_sorted_mae_mm": 8.832499384880066,
+      "rotation_error_deg": 77.69698728336601,
+      "iou_3d": 0.49085979096111415,
+      "matched_corner_mean_mm": 12.070118702675385
+    },
+    {
+      "gt_index": 1,
+      "pred_index": 2,
+      "position_error_mm": 98.89972640107933,
+      "size_sorted_mae_mm": 8.12634825706482,
+      "rotation_error_deg": 48.167446462128986,
+      "iou_3d": 0.0,
+      "matched_corner_mean_mm": 99.75645496876179
+    },
+    {
+      "gt_index": 2,
+      "pred_index": 1,
+      "position_error_mm": 9.74395275367933,
+      "size_sorted_mae_mm": 1.6905491550763447,
+      "rotation_error_deg": 29.89621909947522,
+      "iou_3d": 0.47891299554236016,
+      "matched_corner_mean_mm": 15.042651455381082
+    },
+    {
+      "gt_index": 3,
+      "pred_index": 3,
+      "position_error_mm": 95.39727098178918,
+      "size_sorted_mae_mm": 3.971548130114873,
+      "rotation_error_deg": 35.22147906005364,
+      "iou_3d": 0.0,
+      "matched_corner_mean_mm": 95.47364718514123
+    },
+    {
+      "gt_index": 4,
+      "pred_index": 4,
+      "position_error_mm": 1.5504867661323767,
+      "size_sorted_mae_mm": 1.9256733357906342,
+      "rotation_error_deg": 16.710467371529926,
+      "iou_3d": 0.7790292313641958,
+      "matched_corner_mean_mm": 12.726524634755574
+    }
+  ],
+  "missing_gt_indices": [],
+  "extra_prediction_indices": [],
+  "precision_at_matching_gate": 1.0,
+  "recall_at_matching_gate": 1.0,
+  "recall_position_10mm": 0.6,
+  "scene_iou_score": 0.349760403573534,
+  "note": "Scene IoU score is matched per-object IoU sum / max counts, not union-of-scene-volume IoU. Missing/extra objects lower this score.",
+  "unobservable_gt_indices": [],
+  "total_physical_objects": 5,
+  "ground_truth_count_definition": "Observable ground truth objects for the available camera views"
+}

@@ -1,0 +1,62 @@
+{
+  "ground_truth_count": 5,
+  "prediction_count": 5,
+  "matching_gate_m": 0.1,
+  "pairs": [
+    {
+      "gt_index": 0,
+      "pred_index": 3,
+      "position_error_mm": 3.0968780018872506,
+      "size_sorted_mae_mm": 0.7000863552093506,
+      "rotation_error_deg": 4.34195500761574,
+      "iou_3d": 0.8284646853356398,
+      "matched_corner_mean_mm": 3.7434864022282186
+    },
+    {
+      "gt_index": 1,
+      "pred_index": 4,
+      "position_error_mm": 1.491393225133091,
+      "size_sorted_mae_mm": 2.421951542297999,
+      "rotation_error_deg": 7.283210313873471,
+      "iou_3d": 0.8164399860327073,
+      "matched_corner_mean_mm": 4.868034534486102
+    },
+    {
+      "gt_index": 2,
+      "pred_index": 2,
+      "position_error_mm": 2.9984935752632755,
+      "size_sorted_mae_mm": 2.3637935519218445,
+      "rotation_error_deg": 9.958949996043582,
+      "iou_3d": 0.7068998649379123,
+      "matched_corner_mean_mm": 10.53195674802009
+    },
+    {
+      "gt_index": 3,
+      "pred_index": 1,
+      "position_error_mm": 4.632704847523912,
+      "size_sorted_mae_mm": 1.4312031368414562,
+      "rotation_error_deg": 1.3649053986575945,
+      "iou_3d": 0.6538582164381308,
+      "matched_corner_mean_mm": 4.786976679343243
+    },
+    {
+      "gt_index": 4,
+      "pred_index": 0,
+      "position_error_mm": 3.992535132982972,
+      "size_sorted_mae_mm": 1.8723271787166595,
+      "rotation_error_deg": 3.106405575192377,
+      "iou_3d": 0.7121271273913332,
+      "matched_corner_mean_mm": 4.350168739381853
+    }
+  ],
+  "missing_gt_indices": [],
+  "extra_prediction_indices": [],
+  "precision_at_matching_gate": 1.0,
+  "recall_at_matching_gate": 1.0,
+  "recall_position_10mm": 1.0,
+  "scene_iou_score": 0.7435579760271447,
+  "note": "Scene IoU score is matched per-object IoU sum / max counts, not union-of-scene-volume IoU. Missing/extra objects lower this score.",
+  "unobservable_gt_indices": [],
+  "total_physical_objects": 5,
+  "ground_truth_count_definition": "Observable ground truth objects for the available camera views"
+}

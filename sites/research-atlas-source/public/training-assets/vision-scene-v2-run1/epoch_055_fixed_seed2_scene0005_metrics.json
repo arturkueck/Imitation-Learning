@@ -1,0 +1,62 @@
+{
+  "ground_truth_count": 5,
+  "prediction_count": 5,
+  "matching_gate_m": 0.1,
+  "pairs": [
+    {
+      "gt_index": 0,
+      "pred_index": 1,
+      "position_error_mm": 70.25449974061547,
+      "size_sorted_mae_mm": 10.560164848963419,
+      "rotation_error_deg": 57.98293523817983,
+      "iou_3d": 0.0,
+      "matched_corner_mean_mm": 71.11905739804207
+    },
+    {
+      "gt_index": 1,
+      "pred_index": 3,
+      "position_error_mm": 32.65528871096624,
+      "size_sorted_mae_mm": 6.313970933357875,
+      "rotation_error_deg": 62.12765864343151,
+      "iou_3d": 0.14261104679174422,
+      "matched_corner_mean_mm": 36.04940621956802
+    },
+    {
+      "gt_index": 2,
+      "pred_index": 2,
+      "position_error_mm": 4.440815258166783,
+      "size_sorted_mae_mm": 2.2694841027259827,
+      "rotation_error_deg": 23.900175646220966,
+      "iou_3d": 0.6601370583520931,
+      "matched_corner_mean_mm": 11.154174678413364
+    },
+    {
+      "gt_index": 3,
+      "pred_index": 0,
+      "position_error_mm": 6.550016649354787,
+      "size_sorted_mae_mm": 3.747127950191498,
+      "rotation_error_deg": 52.789877507479616,
+      "iou_3d": 0.5676183389551999,
+      "matched_corner_mean_mm": 18.011977837425167
+    },
+    {
+      "gt_index": 4,
+      "pred_index": 4,
+      "position_error_mm": 5.917403891054879,
+      "size_sorted_mae_mm": 1.3724764188130696,
+      "rotation_error_deg": 14.866223105357047,
+      "iou_3d": 0.7503321950599059,
+      "matched_corner_mean_mm": 12.041425838595433
+    }
+  ],
+  "missing_gt_indices": [],
+  "extra_prediction_indices": [],
+  "precision_at_matching_gate": 1.0,
+  "recall_at_matching_gate": 1.0,
+  "recall_position_10mm": 0.6,
+  "scene_iou_score": 0.4241397278317886,
+  "note": "Scene IoU score is matched per-object IoU sum / max counts, not union-of-scene-volume IoU. Missing/extra objects lower this score.",
+  "unobservable_gt_indices": [],
+  "total_physical_objects": 5,
+  "ground_truth_count_definition": "Observable ground truth objects for the available camera views"
+}

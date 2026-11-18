@@ -1,0 +1,29 @@
+{
+  "label": "Vision V2 | Best Epoche 90 | Seed 1 | fixed | Val-Szene 44",
+  "ground_truth": [],
+  "predictions": [],
+  "bounds": [
+    [
+      -0.23,
+      0.23
+    ],
+    [
+      -0.23,
+      0.23
+    ],
+    [
+      0.78,
+      1.18
+    ]
+  ],
+  "epoch": 90,
+  "seed": 1,
+  "variant": "fixed",
+  "checkpoint_sha256": "c5df2809272325a167102ae7733af189500f36506e03ca822e010e912e4ae520",
+  "selected_checkpoint": true,
+  "family": [
+    7200001,
+    44
+  ],
+  "updates": 34125
+}

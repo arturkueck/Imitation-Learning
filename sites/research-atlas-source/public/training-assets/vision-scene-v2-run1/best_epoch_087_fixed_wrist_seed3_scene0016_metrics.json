@@ -1,0 +1,53 @@
+{
+  "ground_truth_count": 4,
+  "prediction_count": 4,
+  "matching_gate_m": 0.1,
+  "pairs": [
+    {
+      "gt_index": 0,
+      "pred_index": 2,
+      "position_error_mm": 4.266377535123102,
+      "size_sorted_mae_mm": 1.1035986244678497,
+      "rotation_error_deg": 8.301402182049305,
+      "iou_3d": 0.7606786226089093,
+      "matched_corner_mean_mm": 6.3679012036082
+    },
+    {
+      "gt_index": 1,
+      "pred_index": 1,
+      "position_error_mm": 15.23216691411423,
+      "size_sorted_mae_mm": 11.437714099884033,
+      "rotation_error_deg": 9.145856851609276,
+      "iou_3d": 0.3993932574108579,
+      "matched_corner_mean_mm": 18.58426418927596
+    },
+    {
+      "gt_index": 2,
+      "pred_index": 0,
+      "position_error_mm": 7.243870970227275,
+      "size_sorted_mae_mm": 1.6747427483399708,
+      "rotation_error_deg": 5.384025036328767,
+      "iou_3d": 0.6523631590199153,
+      "matched_corner_mean_mm": 7.562724611613965
+    },
+    {
+      "gt_index": 3,
+      "pred_index": 3,
+      "position_error_mm": 5.920903027574314,
+      "size_sorted_mae_mm": 2.948188533385595,
+      "rotation_error_deg": 34.041655612359065,
+      "iou_3d": 0.531909586031389,
+      "matched_corner_mean_mm": 16.77408367234565
+    }
+  ],
+  "missing_gt_indices": [],
+  "extra_prediction_indices": [],
+  "precision_at_matching_gate": 1.0,
+  "recall_at_matching_gate": 1.0,
+  "recall_position_10mm": 0.75,
+  "scene_iou_score": 0.5860861562677678,
+  "note": "Scene IoU score is matched per-object IoU sum / max counts, not union-of-scene-volume IoU. Missing/extra objects lower this score.",
+  "unobservable_gt_indices": [],
+  "total_physical_objects": 4,
+  "ground_truth_count_definition": "Observable ground truth objects for the available camera views"
+}

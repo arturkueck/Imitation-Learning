@@ -1,0 +1,29 @@
+{
+  "label": "Vision V2 | Best Epoche 87 | Seed 3 | fixed_wrist | Val-Szene 26",
+  "ground_truth": [],
+  "predictions": [],
+  "bounds": [
+    [
+      -0.23,
+      0.23
+    ],
+    [
+      -0.23,
+      0.23
+    ],
+    [
+      0.78,
+      1.18
+    ]
+  ],
+  "epoch": 87,
+  "seed": 3,
+  "variant": "fixed_wrist",
+  "checkpoint_sha256": "8016d6ea77d937fa306b800d3fac011d243711566a8befe3b57d73e1d25022b5",
+  "selected_checkpoint": true,
+  "family": [
+    7200001,
+    26
+  ],
+  "updates": 34125
+}

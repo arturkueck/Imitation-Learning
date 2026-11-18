@@ -1,0 +1,62 @@
+{
+  "ground_truth_count": 5,
+  "prediction_count": 5,
+  "matching_gate_m": 0.1,
+  "pairs": [
+    {
+      "gt_index": 0,
+      "pred_index": 1,
+      "position_error_mm": 3.4679572941347403,
+      "size_sorted_mae_mm": 1.9616050024827323,
+      "rotation_error_deg": 16.33865349192095,
+      "iou_3d": 0.7554052946038043,
+      "matched_corner_mean_mm": 14.008116453649057
+    },
+    {
+      "gt_index": 1,
+      "pred_index": 3,
+      "position_error_mm": 6.462075795991293,
+      "size_sorted_mae_mm": 3.4379325807094574,
+      "rotation_error_deg": 19.810902289428206,
+      "iou_3d": 0.6332819350178945,
+      "matched_corner_mean_mm": 13.853729263470026
+    },
+    {
+      "gt_index": 2,
+      "pred_index": 2,
+      "position_error_mm": 5.027319356246616,
+      "size_sorted_mae_mm": 11.795322100321451,
+      "rotation_error_deg": 16.60318281001702,
+      "iou_3d": 0.3829877186047456,
+      "matched_corner_mean_mm": 13.03597831310718
+    },
+    {
+      "gt_index": 3,
+      "pred_index": 4,
+      "position_error_mm": 8.314848649820389,
+      "size_sorted_mae_mm": 3.1651134292284646,
+      "rotation_error_deg": 27.92391452512562,
+      "iou_3d": 0.5403135285472872,
+      "matched_corner_mean_mm": 14.439598346902965
+    },
+    {
+      "gt_index": 4,
+      "pred_index": 0,
+      "position_error_mm": 15.30398895841068,
+      "size_sorted_mae_mm": 11.854825541377068,
+      "rotation_error_deg": 12.785754523593786,
+      "iou_3d": 0.36606275457360427,
+      "matched_corner_mean_mm": 18.837157312043857
+    }
+  ],
+  "missing_gt_indices": [],
+  "extra_prediction_indices": [],
+  "precision_at_matching_gate": 1.0,
+  "recall_at_matching_gate": 1.0,
+  "recall_position_10mm": 0.8,
+  "scene_iou_score": 0.5356102462694672,
+  "note": "Scene IoU score is matched per-object IoU sum / max counts, not union-of-scene-volume IoU. Missing/extra objects lower this score.",
+  "unobservable_gt_indices": [],
+  "total_physical_objects": 5,
+  "ground_truth_count_definition": "Observable ground truth objects for the available camera views"
+}

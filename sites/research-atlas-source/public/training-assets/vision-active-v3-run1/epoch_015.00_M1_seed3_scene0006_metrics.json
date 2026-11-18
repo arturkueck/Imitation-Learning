@@ -1,0 +1,62 @@
+{
+  "ground_truth_count": 5,
+  "prediction_count": 5,
+  "matching_gate_m": 0.1,
+  "pairs": [
+    {
+      "gt_index": 0,
+      "pred_index": 2,
+      "position_error_mm": 2.160794652726304,
+      "size_sorted_mae_mm": 2.138411005338033,
+      "rotation_error_deg": 11.27333587002281,
+      "iou_3d": 0.7496189706849863,
+      "matched_corner_mean_mm": 7.094731561997572
+    },
+    {
+      "gt_index": 1,
+      "pred_index": 0,
+      "position_error_mm": 4.217507799387607,
+      "size_sorted_mae_mm": 0.3739545742670695,
+      "rotation_error_deg": 17.143381891975913,
+      "iou_3d": 0.7160089021072225,
+      "matched_corner_mean_mm": 10.008275622965398
+    },
+    {
+      "gt_index": 2,
+      "pred_index": 4,
+      "position_error_mm": 36.42935302473004,
+      "size_sorted_mae_mm": 20.91978241999944,
+      "rotation_error_deg": 4.4607415015656,
+      "iou_3d": 0.0,
+      "matched_corner_mean_mm": 47.754681114045574
+    },
+    {
+      "gt_index": 3,
+      "pred_index": 3,
+      "position_error_mm": 14.129077627651744,
+      "size_sorted_mae_mm": 12.383287772536278,
+      "rotation_error_deg": 10.04884864971855,
+      "iou_3d": 0.19865183272339068,
+      "matched_corner_mean_mm": 21.748231467322174
+    },
+    {
+      "gt_index": 4,
+      "pred_index": 1,
+      "position_error_mm": 8.361736772179562,
+      "size_sorted_mae_mm": 1.5981098016103108,
+      "rotation_error_deg": 9.23428279761418,
+      "iou_3d": 0.5013213802961968,
+      "matched_corner_mean_mm": 9.26048442093759
+    }
+  ],
+  "missing_gt_indices": [],
+  "extra_prediction_indices": [],
+  "precision_at_matching_gate": 1.0,
+  "recall_at_matching_gate": 1.0,
+  "recall_position_10mm": 0.6,
+  "scene_iou_score": 0.4331202171623592,
+  "note": "Scene IoU score is matched per-object IoU sum / max counts, not union-of-scene-volume IoU. Missing/extra objects lower this score.",
+  "unobservable_gt_indices": [],
+  "total_physical_objects": 5,
+  "ground_truth_count_definition": "Observable ground truth objects for the available camera views"
+}

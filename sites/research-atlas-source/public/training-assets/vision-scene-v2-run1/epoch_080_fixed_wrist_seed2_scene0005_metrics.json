@@ -1,0 +1,62 @@
+{
+  "ground_truth_count": 5,
+  "prediction_count": 5,
+  "matching_gate_m": 0.1,
+  "pairs": [
+    {
+      "gt_index": 0,
+      "pred_index": 2,
+      "position_error_mm": 7.531275904774629,
+      "size_sorted_mae_mm": 8.786925425132116,
+      "rotation_error_deg": 85.60732280466108,
+      "iou_3d": 0.5299745649019018,
+      "matched_corner_mean_mm": 10.530192434991115
+    },
+    {
+      "gt_index": 1,
+      "pred_index": 4,
+      "position_error_mm": 84.50672572702813,
+      "size_sorted_mae_mm": 9.853169322013855,
+      "rotation_error_deg": 64.78139369284179,
+      "iou_3d": 0.0,
+      "matched_corner_mean_mm": 85.21752407406714
+    },
+    {
+      "gt_index": 2,
+      "pred_index": 3,
+      "position_error_mm": 3.2886834708792168,
+      "size_sorted_mae_mm": 4.488966117302577,
+      "rotation_error_deg": 15.28034079154592,
+      "iou_3d": 0.649313787399435,
+      "matched_corner_mean_mm": 8.4074592218036
+    },
+    {
+      "gt_index": 3,
+      "pred_index": 1,
+      "position_error_mm": 8.199844220415855,
+      "size_sorted_mae_mm": 3.7417213122049966,
+      "rotation_error_deg": 31.82192916540783,
+      "iou_3d": 0.5575737465709013,
+      "matched_corner_mean_mm": 15.639529746907705
+    },
+    {
+      "gt_index": 4,
+      "pred_index": 0,
+      "position_error_mm": 6.4207093866662035,
+      "size_sorted_mae_mm": 4.889934013287227,
+      "rotation_error_deg": 9.277856065443714,
+      "iou_3d": 0.6865254692534611,
+      "matched_corner_mean_mm": 9.730527750827779
+    }
+  ],
+  "missing_gt_indices": [],
+  "extra_prediction_indices": [],
+  "precision_at_matching_gate": 1.0,
+  "recall_at_matching_gate": 1.0,
+  "recall_position_10mm": 0.8,
+  "scene_iou_score": 0.4846775136251399,
+  "note": "Scene IoU score is matched per-object IoU sum / max counts, not union-of-scene-volume IoU. Missing/extra objects lower this score.",
+  "unobservable_gt_indices": [],
+  "total_physical_objects": 5,
+  "ground_truth_count_definition": "Observable ground truth objects for the available camera views"
+}
