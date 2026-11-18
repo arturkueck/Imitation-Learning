@@ -82,7 +82,7 @@ def commit_report(files, summary):
         if relative not in allowed_docs:
             path.relative_to(FAMILY)
             if path in (PLAN, Path(__file__).resolve()) or path.suffix.lower() not in {
-                ".md", ".py", ".json", ".csv", ".toml", ".yaml", ".yml", ".ps1",
+                ".md", ".py", ".json", ".csv", ".toml", ".yaml", ".yml", ".ps1", ".sha256",
             }:
                 raise ValueError(f"Unerwartete Übergabedatei: {relative}")
         if not path.is_file() or path.stat().st_size > 5_000_000:
@@ -130,11 +130,13 @@ Git-Commits übernimmt die Steuerung: gib zum Abschluss als JSON die geprüften 
 als einzelne repo-relative Pfade in files und eine aussagekräftige deutsche Commitnachricht in summary an.
 Bei unverändertem Stand files leer lassen. Ändere weder die Steuerung noch den Nachtplan. Starte keine weiteren Agenten."""
     log(f"START {task} {transcript.name}")
+    environment = os.environ.copy()
+    environment["PATH"] = str(Path(args.codex).parent) + os.pathsep + environment.get("PATH", "")
     with transcript.open("wb") as stream:
         result = subprocess.run([args.codex, "-a", "never", "exec", "-s", "workspace-write",
                                  "--add-dir", str(RESULTS.resolve()), "-C", str(ROOT),
                                  "--output-schema", str(schema), "-o", str(answer), "-"],
-                                input=prompt.encode(), cwd=ROOT, stdout=stream, stderr=stream,
+                                input=prompt.encode(), cwd=ROOT, env=environment, stdout=stream, stderr=stream,
                                 timeout=max(1, (deadline - datetime.now()).total_seconds()))
     result.check_returncode()
     reply = json.loads(answer.read_text(encoding="utf-8-sig"))
