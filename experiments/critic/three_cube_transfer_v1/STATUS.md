@@ -7,7 +7,7 @@ Bei einem Sofortstopp nach [Nachtplan](NACHTPLAN.md) `Gesamtpause: ja` setzen un
 | ID | Status | Datum | Verweis / Fortsetzungspunkt |
 |---|---|---|---|
 | N1-1 | erledigt | 19.11.2026 | [Seedinventar](used_scene_seeds.json) · 2100000000–2100099999 für N1-2 reserviert, 0 Überschneidungen. [Prüfung](nights/NACHT_1_20261118.md#integrität) |
-| N1-2 | offen | – | – |
+| N1-2 | erledigt | 19.11.2026 | [Splitmanifest](splits.json) · 7 disjunkte Bereiche für 875 geplante Familien. Schwierige Panels werden in N1-5 zugeordnet. [Prüfung](nights/NACHT_1_20261118.md#integrität) |
 | N1-3 | offen | – | – |
 | N1-4 | offen | – | – |
 | N1-5 | offen | – | – |
