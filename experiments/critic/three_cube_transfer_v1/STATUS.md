@@ -6,7 +6,7 @@ Bei einem Sofortstopp nach [Nachtplan](NACHTPLAN.md) `Gesamtpause: ja` setzen un
 
 | ID | Status | Datum | Verweis / Fortsetzungspunkt |
 |---|---|---|---|
-| N1-1 | offen | – | – |
+| N1-1 | erledigt | 19.11.2026 | [Seedinventar](used_scene_seeds.json) · 2100000000–2100099999 für N1-2 reserviert, 0 Überschneidungen. [Prüfung](nights/NACHT_1_20261118.md#integrität) |
 | N1-2 | offen | – | – |
 | N1-3 | offen | – | – |
 | N1-4 | offen | – | – |

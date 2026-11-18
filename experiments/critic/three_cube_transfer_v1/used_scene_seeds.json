@@ -1,0 +1,479 @@
+{
+  "schema": "three_cube_transfer_v1.scene_seed_inventory.v1",
+  "task": "N1-1",
+  "date": "2026-11-19",
+  "source_revision": "38da740c82a18a8471f7d460bc451cd3d4cd4e66",
+  "scope": "Szenenkennungen aus Expertensammlung, Stack-Diagnostik, Selbstimitation, Critic sowie BC/Curriculum bis first_grasp_query_v1. Grundlage sind versionierte Erhebungs- und Auswertungspläne und die darin verwendeten Startformeln.",
+  "interpretation": "Alle Grenzen sind ganzzahlig und beidseitig inklusive. Die Sperrmenge enthält verwendete und vorsorglich vollständig reservierte Bereiche, darunter technische Starts, Kandidatenpools und bedingte Versuchsphasen. Jede Kennung zählt einmal, unabhängig von der Zahl der ausgeführten Episoden.",
+  "excluded_rng": "Initialisierung, Minibatch-/Frame-Sampling, Bootstrap, Aktionsrauschen und Inferenz auf wiederhergestellten Demozuständen haben eigene Zufallsströme. Die A-Samplepläne in abc_comparison_20261112/train.py (full_schedule) wählen Frameindizes aus dem Zweier-Datensatz.",
+  "reused": "Wiederholungen mit mehreren Parents und Armen zählen einmal. Die Release- und Restfehlerdiagnosen verwenden Teilmengen früherer Panels. Base-Kopien, Reporting-Exporte und Lauf-Snapshots derselben Pläne erzeugen keine weiteren Familien.",
+  "new_range": {
+    "first": 2100000000,
+    "last": 2100099999,
+    "count": 100000,
+    "overlap_count": 0,
+    "reason": "Der Block liegt zwischen den BC-/Curriculum-Bereichen und den höheren Critic-Machbarkeitsbereichen, vollständig innerhalb positiver int32-Werte. 100.000 Kennungen lassen Platz für getrennte Panels, technische Starts und spätere Datenerhebung. Die Splitvergabe folgt in N1-2."
+  },
+  "source_count": 57,
+  "unique_excluded_ids": 307522,
+  "excluded_ranges": [
+    [100, 392],
+    [6000, 6049],
+    [16000, 16019],
+    [26000, 26049],
+    [36000, 36009],
+    [46000, 46039],
+    [61000, 61019],
+    [61990, 61992],
+    [61999, 61999],
+    [63000, 63009],
+    [72000, 72099],
+    [84000, 84099],
+    [85000, 85099],
+    [120000, 120399],
+    [121000, 121399],
+    [122000, 122049],
+    [125000, 125099],
+    [126000, 126049],
+    [215000, 215119],
+    [220000, 220119],
+    [225000, 225119],
+    [275000, 275119],
+    [313000, 313049],
+    [314000, 314049],
+    [315000, 315049],
+    [323000, 323049],
+    [324000, 324049],
+    [325000, 325049],
+    [362000, 362099],
+    [363000, 363099],
+    [364000, 364099],
+    [365000, 365099],
+    [399001, 399001],
+    [498001, 498003],
+    [510000, 510199],
+    [511000, 511199],
+    [520000, 520019],
+    [521000, 521019],
+    [522000, 522009],
+    [523000, 523009],
+    [524000, 524009],
+    [525000, 525019],
+    [526000, 526019],
+    [530000, 530049],
+    [531000, 531049],
+    [532000, 532049],
+    [533000, 533099],
+    [534000, 534099],
+    [540000, 540049],
+    [541000, 541049],
+    [2026100000, 2026100239],
+    [2026110490, 2026110491],
+    [2026110500, 2026110549],
+    [2026110600, 2026110600],
+    [2026110700, 2026110719],
+    [2026110900, 2026110904],
+    [2026111000, 2026111119],
+    [2026111200, 2026111239],
+    [2026111400, 2026111419],
+    [2026111600, 2026111649],
+    [2026111800, 2026111819],
+    [2026112000, 2026112005],
+    [2026112050, 2026112051],
+    [2026112100, 2026112119],
+    [2026112200, 2026112219],
+    [2026112400, 2026112405],
+    [2026112500, 2026112519],
+    [2026112800, 2026112805],
+    [2026112900, 2026112919],
+    [2026113000, 2026113019],
+    [2026113990, 2026113990],
+    [2026114000, 2026114099],
+    [2026114900, 2026114901],
+    [2026115000, 2026115119],
+    [2026116000, 2026116199],
+    [2026116900, 2026116901],
+    [2026117000, 2026117099],
+    [2026118900, 2026118900],
+    [2026119000, 2026119099],
+    [2026119200, 2026119219],
+    [2026120900, 2026120900],
+    [2026121000, 2026121099],
+    [2026121200, 2026121239],
+    [2026150900, 2026150905],
+    [2026151000, 2026151039],
+    [2026152000, 2026152009],
+    [2026153000, 2026153049],
+    [2026170100, 2026170103],
+    [2026170200, 2026170202],
+    [2026170300, 2026170303],
+    [2026170400, 2026170402],
+    [2026170500, 2026170503],
+    [2026170600, 2026170602],
+    [2026171000, 2026171119],
+    [2026172000, 2026172029],
+    [2026173000, 2026173119],
+    [2026174000, 2026174029],
+    [2026175000, 2026175119],
+    [2026176000, 2026176029],
+    [2026179000, 2026179099],
+    [2026181000, 2026181119],
+    [2026182000, 2026182029],
+    [2026183000, 2026183119],
+    [2026184000, 2026184029],
+    [2026185000, 2026185119],
+    [2026186000, 2026186029],
+    [2026189000, 2026189149],
+    [2026193000, 2026193017],
+    [2026194000, 2026194000],
+    [2026195000, 2026195011],
+    [2026201000, 2026201015],
+    [2026202000, 2026202095],
+    [2026203000, 2026203159],
+    [2026203200, 2026203215],
+    [2026203300, 2026203395],
+    [2026204000, 2026204079],
+    [2026204400, 2026204407],
+    [2026204500, 2026204819],
+    [3160700000, 3161000000],
+    [3161000006, 3161000006],
+    [3161001000, 3161001000],
+    [3161001006, 3161001006],
+    [3161002000, 3161002000],
+    [3161002006, 3161002006]
+  ],
+  "sources": {
+    "experiments/baselines/additional_tasks/run_training.py": {
+      "evaluate.py, 50 Episoden ab Standardwert": [6000, 6049],
+      "robustness_suite.py, 20 Episoden ab Standardwert": [16000, 16019]
+    },
+    "experiments/baselines/additional_tasks/stack_four/collection_report.json": {
+      "attempts[].seed": [100, 392]
+    },
+    "experiments/baselines/additional_tasks/stack_two/collection_report.json": {
+      "attempts[].seed": [100, 302]
+    },
+    "experiments/baselines/diffusion_20261001/scripts/pipeline.py": {
+      "selection": [6000, 6014],
+      "final_test": [26000, 26049],
+      "robustness": [36000, 36009]
+    },
+    "experiments/baselines/workday_20261001/manifest.json": {
+      "selection": [6000, 6014],
+      "final_test": [26000, 26049],
+      "robustness": [36000, 36009]
+    },
+    "experiments/critic/critic_warmstart_20261104/action_range.py": {
+      "development": [2026112400, 2026112405],
+      "confirmation": [2026112500, 2026112519]
+    },
+    "experiments/critic/critic_warmstart_20261104/config.json": {
+      "collection.train": [2026111000, 2026111119],
+      "collection.valid": [2026111200, 2026111239],
+      "online": [2026111800, 2026111819],
+      "development": [2026111400, 2026111419],
+      "reserved_final": [2026111600, 2026111649],
+      "technical": [2026110900, 2026110904]
+    },
+    "experiments/critic/critic_warmstart_20261104/critic_action_audit.py": {
+      "scenes": [2026113000, 2026113001],
+      "technical": [2026113990, 2026113990]
+    },
+    "experiments/critic/critic_warmstart_20261104/new_test.py": {
+      "development": [2026112100, 2026112119],
+      "online": [2026112200, 2026112219],
+      "technical_development": [2026112050, 2026112050],
+      "technical_online": [2026112051, 2026112051]
+    },
+    "experiments/critic/critic_warmstart_20261104/quality_guarded_check.py": {
+      "train": [2026115000, 2026115119],
+      "valid": [2026116000, 2026116199]
+    },
+    "experiments/critic/critic_warmstart_20261104/relative_range.py": {
+      "development": [2026112800, 2026112805],
+      "confirmation": [2026112900, 2026112919]
+    },
+    "experiments/critic/critic_warmstart_20261104/stability.py": {
+      "development": [2026112000, 2026112005],
+      "next_development": [2026112100, 2026112119],
+      "next_online": [2026112200, 2026112219]
+    },
+    "experiments/critic/il_action_feasibility_20261107/protocol.json": {
+      "breadth": [3160700000, 3160799999],
+      "breadth.smoke.1": [3161000000, 3161000000],
+      "breadth.smoke.2": [3161000006, 3161000006],
+      "deep1": [3160800000, 3160899999],
+      "deep1.smoke.1": [3161001000, 3161001000],
+      "deep1.smoke.2": [3161001006, 3161001006],
+      "deep2": [3160900000, 3160999999],
+      "deep2.smoke.1": [3161002000, 3161002000],
+      "deep2.smoke.2": [3161002006, 3161002006]
+    },
+    "experiments/curriculum/abc_comparison_20261112/config.json": {
+      "development_seeds": [2026113000, 2026113019],
+      "confirmation_seeds": [2026121000, 2026121099],
+      "two_cube_seeds": [2026121200, 2026121239],
+      "technical_seed": [2026120900, 2026120900]
+    },
+    "experiments/curriculum/approach_bc_correction_v1/config.json": {
+      "train_seeds": [2026151000, 2026151039],
+      "validation_seeds": [2026152000, 2026152009],
+      "development_seeds": [2026113000, 2026113019],
+      "confirmation_seeds": [2026153000, 2026153049],
+      "smoke_seeds": [2026150900, 2026150905]
+    },
+    "experiments/curriculum/axis_bc_20261110/config.json": {
+      "development_seeds": [2026113000, 2026113019],
+      "final_seeds": [2026114000, 2026114099],
+      "technical_seed": [2026112900, 2026112900]
+    },
+    "experiments/curriculum/axis_bc_clock_validation_20261112/config.json": {
+      "confirmation_seeds": [2026119000, 2026119099],
+      "negative_control_seeds": [2026119200, 2026119219],
+      "technical_negative_seed": [2026118900, 2026118900],
+      "technical_regression_seed": [2026115004, 2026115004]
+    },
+    "experiments/curriculum/axis_bc_completion_10h_20261111/config.json": {
+      "confirmation_seeds": [2026117000, 2026117099],
+      "technical_seeds": [2026116900, 2026116901]
+    },
+    "experiments/curriculum/axis_bc_completion_20261111/config.json": {
+      "confirmation_seeds": [2026117000, 2026117099],
+      "technical_seeds": [2026116900, 2026116901]
+    },
+    "experiments/curriculum/axis_bc_extension_20261110/config.json": {
+      "confirmation_seeds": [2026115000, 2026115099],
+      "technical_seeds": [2026114900, 2026114901]
+    },
+    "experiments/curriculum/completion_placement_check_v1/config.json": {
+      "calibration_seeds": [2026193000, 2026193017],
+      "technical_seed": [2026194000, 2026194000]
+    },
+    "experiments/curriculum/first_grasp_clearance_v1/study.py": {
+      "NORMAL": [2026201000, 2026201015],
+      "SCREEN": [2026202000, 2026202095]
+    },
+    "experiments/curriculum/first_grasp_query_v1/config.json": {
+      "scene_seeds.train": [2026203000, 2026203159],
+      "scene_seeds.validation_normal": [2026203200, 2026203215],
+      "scene_seeds.validation_hard_pool": [2026203300, 2026203395],
+      "scene_seeds.test_normal": [2026204000, 2026204079],
+      "scene_seeds.test_hard_pool": [2026204500, 2026204819],
+      "scene_seeds.technical": [2026204400, 2026204407]
+    },
+    "experiments/curriculum/grasp_phase_ablation_v1/config.json": {
+      "seeds": [2026113000, 2026113019]
+    },
+    "experiments/curriculum/phase_skill_audit_v1/config.json": {
+      "development_seeds": [2026113000, 2026113019],
+      "isolated_seeds": [2026113000, 2026113004]
+    },
+    "experiments/curriculum/selective_completion_release_v1/config.json": {
+      "calibration_seeds": [2026195000, 2026195011]
+    },
+    "experiments/curriculum/targeted_correction_budget_v1/config.json": {
+      "blocks[0].train_seeds": [2026171000, 2026171119],
+      "blocks[0].validation_seeds": [2026172000, 2026172029],
+      "blocks[1].train_seeds": [2026173000, 2026173119],
+      "blocks[1].validation_seeds": [2026174000, 2026174029],
+      "blocks[2].train_seeds": [2026175000, 2026175119],
+      "blocks[2].validation_seeds": [2026176000, 2026176029],
+      "development_seeds": [2026113000, 2026113019],
+      "confirmation_seeds": [2026179000, 2026179099],
+      "smoke_train_seeds": [2026170100, 2026170103],
+      "smoke_validation_seeds": [2026170200, 2026170202]
+    },
+    "experiments/curriculum/targeted_correction_budget_v2/config.json": {
+      "blocks[0].train_seeds": [2026181000, 2026181119],
+      "blocks[0].validation_seeds": [2026182000, 2026182029],
+      "blocks[1].train_seeds": [2026183000, 2026183119],
+      "blocks[1].validation_seeds": [2026184000, 2026184029],
+      "blocks[2].train_seeds": [2026185000, 2026185119],
+      "blocks[2].validation_seeds": [2026186000, 2026186029],
+      "development_seeds": [2026113000, 2026113019],
+      "confirmation_seeds": [2026189000, 2026189149],
+      "smoke_blocks[0].train_seeds": [2026170100, 2026170103],
+      "smoke_blocks[0].validation_seeds": [2026170200, 2026170202],
+      "smoke_blocks[1].train_seeds": [2026170300, 2026170303],
+      "smoke_blocks[1].validation_seeds": [2026170400, 2026170402],
+      "smoke_blocks[2].train_seeds": [2026170500, 2026170503],
+      "smoke_blocks[2].validation_seeds": [2026170600, 2026170602]
+    },
+    "experiments/self_imitation/partial_self_imitation_20261104/pilot.py": {
+      "additional_collection": [2026100000, 2026100239],
+      "test": [2026110500, 2026110549],
+      "technical": [2026110490, 2026110491]
+    },
+    "experiments/self_imitation/retreat_gate_20261104/compare.py": {
+      "evaluation": [2026110700, 2026110719],
+      "technical": [2026110600, 2026110600]
+    },
+    "experiments/self_imitation/stack_composition_20261023/checks.py": {
+      "checks": [61990, 61992],
+      "reset": [61999, 61999]
+    },
+    "experiments/self_imitation/stack_composition_20261023/height_ablation/protocol.json": {
+      "seeds": [61000, 61004]
+    },
+    "experiments/self_imitation/stack_composition_20261023/replay_diagnosis/protocol.json": {
+      "seeds": [61000, 61004]
+    },
+    "experiments/self_imitation/stack_composition_20261023/run.py": {
+      "development": [61000, 61019],
+      "test3": [72000, 72099]
+    },
+    "experiments/self_imitation/stack_five_curriculum_20261023/protocol.json": {
+      "collection_curriculum.n3": [215000, 215119],
+      "development.n3": [313000, 313049],
+      "gate_confirmation.n3": [323000, 323049],
+      "collection_curriculum.n4": [220000, 220119],
+      "development.n4": [314000, 314049],
+      "gate_confirmation.n4": [324000, 324049],
+      "collection_curriculum.n5": [225000, 225119],
+      "development.n5": [315000, 315049],
+      "gate_confirmation.n5": [325000, 325049],
+      "collection_direct.n5": [275000, 275119],
+      "final_test.n2": [362000, 362099],
+      "final_test.n3": [363000, 363099],
+      "final_test.n4": [364000, 364099],
+      "final_test.n5": [365000, 365099],
+      "technical_preflight": [399001, 399001]
+    },
+    "experiments/self_imitation/stack_phased_8h_20261023/block1_plan.json": {
+      "train_block.py: 63000 + dev_episodes": [63000, 63009]
+    },
+    "experiments/self_imitation/stack_phased_8h_20261023/block2_plan.json": {
+      "train_block.py: 63000 + dev_episodes": [63000, 63009]
+    },
+    "experiments/self_imitation/stack_phased_8h_20261023/final_evaluate.py": {
+      "final": [84000, 84099]
+    },
+    "experiments/self_imitation/stack_phased_8h_20261023/preflight_plan.json": {
+      "train_block.py: 63000 + dev_episodes": [63000, 63001]
+    },
+    "experiments/self_imitation/stack_phased_8h_20261023/two_cube_test_seed1/protocol.json": {
+      "seeds": [85000, 85099]
+    },
+    "experiments/self_imitation/stack_self_imitation_20261023/pipeline.py": {
+      "smoke": [63004, 63005]
+    },
+    "experiments/self_imitation/stack_self_imitation_20261023/protocol.json": {
+      "collection.three_train": [120000, 120299],
+      "collection.three_valid": [120300, 120399],
+      "collection.two_train": [121000, 121299],
+      "collection.two_valid": [121300, 121399],
+      "dev": [122000, 122049],
+      "final3": [125000, 125099],
+      "final2": [126000, 126049]
+    },
+    "experiments/self_imitation/stack_transition_quality_20261024/READY_PLAN.json": {
+      "collection.n3": [510000, 510199],
+      "collection.n4": [511000, 511199],
+      "development.prepared_prefix2": [520000, 520019],
+      "development.prepared_prefix3": [521000, 521019],
+      "development.full_stack2": [522000, 522009],
+      "development.full_stack3": [523000, 523009],
+      "development.full_stack4": [524000, 524009],
+      "confirmation.prepared_prefix2": [525000, 525019],
+      "confirmation.prepared_prefix3": [526000, 526019],
+      "reserved_final.prepared_prefix2": [530000, 530049],
+      "reserved_final.prepared_prefix3": [531000, 531049],
+      "reserved_final.full_stack2": [532000, 532049],
+      "reserved_final.full_stack3": [533000, 533099],
+      "reserved_final.full_stack4": [534000, 534099],
+      "technical_only": [498001, 498002],
+      "source_prefix2": [540000, 540049],
+      "source_prefix3": [541000, 541049]
+    },
+    "experiments/self_imitation/stack_transition_quality_20261024/READY_PLAN_v2.json": {
+      "collection.n3": [510000, 510199],
+      "collection.n4": [511000, 511199],
+      "development.prepared_prefix2": [520000, 520019],
+      "development.prepared_prefix3": [521000, 521019],
+      "development.full_stack2": [522000, 522009],
+      "development.full_stack3": [523000, 523009],
+      "development.full_stack4": [524000, 524009],
+      "confirmation.prepared_prefix2": [525000, 525019],
+      "confirmation.prepared_prefix3": [526000, 526019],
+      "reserved_final.prepared_prefix2": [530000, 530049],
+      "reserved_final.prepared_prefix3": [531000, 531049],
+      "reserved_final.full_stack2": [532000, 532049],
+      "reserved_final.full_stack3": [533000, 533099],
+      "reserved_final.full_stack4": [534000, 534099],
+      "technical_only": [498001, 498002],
+      "source_prefix2": [540000, 540049],
+      "source_prefix3": [541000, 541049]
+    },
+    "experiments/self_imitation/stack_transition_quality_20261024/READY_RESUME_PLAN.json": {
+      "collection.n3": [510000, 510199],
+      "collection.n4": [511000, 511199],
+      "development.prepared_prefix2": [520000, 520019],
+      "development.prepared_prefix3": [521000, 521019],
+      "development.full_stack2": [522000, 522009],
+      "development.full_stack3": [523000, 523009],
+      "development.full_stack4": [524000, 524009],
+      "confirmation.prepared_prefix2": [525000, 525019],
+      "confirmation.prepared_prefix3": [526000, 526019],
+      "reserved_final.prepared_prefix2": [530000, 530049],
+      "reserved_final.prepared_prefix3": [531000, 531049],
+      "reserved_final.full_stack2": [532000, 532049],
+      "reserved_final.full_stack3": [533000, 533099],
+      "reserved_final.full_stack4": [534000, 534099],
+      "technical_only": [498001, 498002],
+      "source_prefix2": [540000, 540049],
+      "source_prefix3": [541000, 541049]
+    },
+    "experiments/self_imitation/stack_transition_quality_20261024/online_evaluation.py": {
+      "technical": [498003, 498003]
+    },
+    "experiments/self_imitation/stack_transition_quality_20261024/training_plan.json": {
+      "collection.n3": [510000, 510199],
+      "collection.n4": [511000, 511199],
+      "development.prepared_prefix2": [520000, 520019],
+      "development.prepared_prefix3": [521000, 521019],
+      "development.full_stack2": [522000, 522009],
+      "development.full_stack3": [523000, 523009],
+      "development.full_stack4": [524000, 524009],
+      "confirmation.prepared_prefix2": [525000, 525019],
+      "confirmation.prepared_prefix3": [526000, 526019],
+      "reserved_final.prepared_prefix2": [530000, 530049],
+      "reserved_final.prepared_prefix3": [531000, 531049],
+      "reserved_final.full_stack2": [532000, 532049],
+      "reserved_final.full_stack3": [533000, 533099],
+      "reserved_final.full_stack4": [534000, 534099],
+      "technical_only": [498001, 498002],
+      "source_prefix2": [540000, 540049],
+      "source_prefix3": [541000, 541049]
+    },
+    "experiments/stack_diagnostics/diffusion_sanity_lift_transport_20261002/protocol.json": {
+      "baseline_protocol.fixed_start_seeds": [46000, 46039]
+    },
+    "experiments/stack_diagnostics/diffusion_sanity_lift_transport_20261003/protocol.json": {
+      "baseline_protocol.fixed_start_seeds": [46000, 46039]
+    },
+    "experiments/stack_diagnostics/stack_balance_20261001/protocol.json": {
+      "rollouts.seeds": [46000, 46019]
+    },
+    "experiments/stack_diagnostics/stack_causal_diagnosis_20261003/protocol.json": {
+      "baseline_seeds": [46000, 46039]
+    },
+    "experiments/stack_diagnostics/stack_direct_20261001/config.json": {
+      "rollout_seeds": [46000, 46039]
+    },
+    "experiments/stack_diagnostics/stack_dynamics_20261001/protocol.json": {
+      "rollouts.seeds": [46000, 46019]
+    },
+    "experiments/stack_diagnostics/stack_normalization_20261001/protocol.json": {
+      "baseline_protocol.fixed_start_seeds": [46000, 46039]
+    },
+    "experiments/stack_diagnostics/stack_overnight_C_diffusion_20261004/protocol.json": {
+      "baseline_protocol.fixed_start_seeds": [46000, 46039]
+    },
+    "experiments/stack_diagnostics/stack_replication_20261001/failure_analysis/protocol.json": {
+      "fixed_starts": [46000, 46039]
+    },
+    "experiments/stack_diagnostics/stack_replication_20261001/protocol.json": {
+      "fixed_start_seeds": [46000, 46039]
+    }
+  }
+}
