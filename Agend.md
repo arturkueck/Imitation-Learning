@@ -108,8 +108,8 @@ wird sie nachvollziehbar nach `dev` gemergt und anschließend gemeinsam geprüft
 
 ## Einführung
 
-Da `dev` derzeit noch nicht vorhanden ist, wird er einmalig vom aktuellen,
-geprüften `main` erstellt und veröffentlicht:
+`dev` wurde einmalig vom geprüften `main` erstellt und veröffentlicht. Das
+zugrunde liegende Vorgehen war:
 
 ```powershell
 git switch main
@@ -120,3 +120,6 @@ git push -u origin dev
 
 Danach gilt für reguläre Arbeit ausschließlich der Fluss
 `Seitenbranch → dev → main`.
+
+Die Seitenbranches `frontend_display`, `rl_actor_critic` und
+`vision_object_recognition` wurden vom selben aktuellen `dev` abgezweigt.
