@@ -1,0 +1,156 @@
+{
+  "checked_utc": "2026-11-17T20:50:29.935416+00:00",
+  "training_or_simulation_started": false,
+  "scope": "Existing A/B/C end points and raw panels, local task contract and known critic warmstart family; not a global proof of algorithm absence.",
+  "completed_abc_run_verified": true,
+  "frozen_checkpoints_verified": {
+    "A_seed1": "dc61bf0079c8bad936262f8abf0abfdb8d3acf3b5dced15d0ae7719a35020f3f",
+    "B_seed1": "a26576fd3cca9853980879b3b52b6e2513b0d1ab1f2a50a7f2c280deb193be1b",
+    "C_seed1": "0ba3838e07b7a6b607417618c6d4267d01928d4b30f966bb93aba238dfc6a042",
+    "A_seed2": "01270e197325e764a894f0a540c79f1247bc2cbee4e8802f489ff1de96449aa9",
+    "B_seed2": "6d8094e8c983ea20be7a03aa7f8556ddd0df4c886e8b6a83a7b56b82fd85dee1",
+    "C_seed2": "07edef37ffc1c3a90a4dc8fed3b725783c6790c9526c0c1d795122867a9caccc",
+    "A_seed3": "7c69f4c545b92dcdccd2628a716cffcf01d85f54a871019ff74614d8a3247f02",
+    "B_seed3": "20d7c114514a13847f3b7c20510c9161ad8c24450fc5153a906d33619896aa72",
+    "C_seed3": "7ceb2fa4f72508feb5e718f45a77b5fdc26aa63a14d280b0bed4869397f9a3a5"
+  },
+  "panel_counts_verified": {
+    "A_seed1": {
+      "2": {
+        "n": 40,
+        "successes": 39
+      },
+      "3": {
+        "n": 100,
+        "successes": 40
+      }
+    },
+    "B_seed1": {
+      "2": {
+        "n": 40,
+        "successes": 37
+      },
+      "3": {
+        "n": 100,
+        "successes": 48
+      }
+    },
+    "C_seed1": {
+      "2": {
+        "n": 40,
+        "successes": 38
+      },
+      "3": {
+        "n": 100,
+        "successes": 52
+      }
+    },
+    "A_seed2": {
+      "2": {
+        "n": 40,
+        "successes": 35
+      },
+      "3": {
+        "n": 100,
+        "successes": 28
+      }
+    },
+    "B_seed2": {
+      "2": {
+        "n": 40,
+        "successes": 39
+      },
+      "3": {
+        "n": 100,
+        "successes": 56
+      }
+    },
+    "C_seed2": {
+      "2": {
+        "n": 40,
+        "successes": 37
+      },
+      "3": {
+        "n": 100,
+        "successes": 42
+      }
+    },
+    "A_seed3": {
+      "2": {
+        "n": 40,
+        "successes": 35
+      },
+      "3": {
+        "n": 100,
+        "successes": 26
+      }
+    },
+    "B_seed3": {
+      "2": {
+        "n": 40,
+        "successes": 38
+      },
+      "3": {
+        "n": 100,
+        "successes": 50
+      }
+    },
+    "C_seed3": {
+      "2": {
+        "n": 40,
+        "successes": 38
+      },
+      "3": {
+        "n": 100,
+        "successes": 46
+      }
+    }
+  },
+  "total_episode_records_verified": 1260,
+  "paired_initial_states_verified": true,
+  "distinct_physical_scenarios": {
+    "two_cube": 40,
+    "three_cube": 100
+  },
+  "bc_ordering_control_initialization_and_batch_multiset_audit": {
+    "1": {
+      "batch_multiset_equal": true,
+      "initialization_equal": true
+    },
+    "2": {
+      "batch_multiset_equal": true,
+      "initialization_equal": true
+    },
+    "3": {
+      "batch_multiset_equal": true,
+      "initialization_equal": true
+    }
+  },
+  "library_versions": {
+    "stable-baselines3": "not installed",
+    "gymnasium": "not installed",
+    "gym": "not installed",
+    "robosuite": "1.5.1",
+    "torch": "2.11.0+cu128"
+  },
+  "local_reward_contract": {
+    "control_freq": 20,
+    "metadata_reward_shaping": false,
+    "native_success_frames": 10,
+    "common_primary_success_frames": 50,
+    "native_reward": "binary _check_success; local override does not implement dense shaping",
+    "native_vs_common_finger_contact_check": "native forbids grasp; common evaluator additionally forbids gripper/finger contact"
+  },
+  "rl_from_scratch_baseline": "No qualified baseline verified in the inspected inventory; the examined critic actors start from BC.",
+  "input_sha256": {
+    "praxis\\results\\curriculum\\abc_comparison_20261112\\ready_001\\plan.json": "a9f5fb62c096f439ccc2f0d179b62f26e7a0c29472584d9d3fee3cbca0ec6746",
+    "praxis\\results\\curriculum\\abc_comparison_20261112\\ready_001\\result_summary.json": "735aa15c23d75713f954138ae5c228a8663a9a5de0b559c2592183392b481a94",
+    "praxis\\results\\curriculum\\abc_comparison_20261112\\ready_001\\reuse_audit.json": "fd02821ccdc6c4d865909c42660652006c6c730cb3430cb03862a36f581db795",
+    "praxis\\results\\curriculum\\abc_comparison_20261112\\ready_001\\confirmation\\frozen.json": "f5f67ac019e6af517d55991e763179e10e22b7ff850ce5b0627193fdb1f5cf16",
+    "praxis\\src\\task_extensions\\environments.py": "7abe764c76f9ef1374bcceff7e01ae5fad249f36544b626673cb9371e69063c7",
+    "experiments\\self_imitation\\stack_composition_20261023\\run.py": "0a052b0cfef73d9aff9008a4eb86acf5da1a8ac05f220e61d9e3dd8349e613c4",
+    "experiments\\curriculum\\abc_comparison_20261112\\train.py": "ab7095106a1d24b7aaba3a02d08c16e93d392d642f53915a4ed0355a488423b8",
+    "experiments\\critic\\critic_warmstart_20261104\\core.py": "6802d6e97085b0b2550e3802f26c0fd30a8d0b41064aa3dee81a78c459aa065a",
+    "experiments\\critic\\critic_warmstart_20261104\\README.md": "11cf13babb2fb8eb595d623c3f22219e970c148f6781404d077099e086bc93a1"
+  }
+}
