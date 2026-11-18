@@ -1,0 +1,32 @@
+{
+  "schema": "first-grasp-matched-query-v1",
+  "absolute_deadline": "2026-11-19T09:00:00+01:00",
+  "maximum_seconds": 36000,
+  "exit_reserve_seconds": 120,
+  "seeds": [3101, 3102, 3103, 3104, 3105, 3106, 3107, 3108, 3109, 3110],
+  "scene_seeds": {
+    "train": [2026203000, 2026203159],
+    "validation_normal": [2026203200, 2026203215],
+    "validation_hard_pool": [2026203300, 2026203395],
+    "test_normal": [2026204000, 2026204079],
+    "test_hard_pool": [2026204500, 2026204819],
+    "technical": [2026204400, 2026204407]
+  },
+  "validation_hard_n": 16,
+  "test_hard_n": 40,
+  "minimum_train_families": 100,
+  "minimum_priority_families": 4,
+  "minimum_label_count_by_class": 8,
+  "base_updates": 30000,
+  "correction_updates": 2500,
+  "batch_size": 64,
+  "threshold": 0.8,
+  "prefix_horizon": 240,
+  "horizon": 1000,
+  "stable_frames": 50,
+  "candidate_stride": 2,
+  "queries_per_family": 4,
+  "practical_gain_pp": 5,
+  "bootstrap_draws": 12000,
+  "bootstrap_seed": 31019
+}

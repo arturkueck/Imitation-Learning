@@ -1,0 +1,19 @@
+{
+  "schema": "bc-abc-comparison-v1",
+  "seeds": [1, 2, 3],
+  "updates": 30000,
+  "batch_size": 64,
+  "train_new": ["A"],
+  "reuse": {"B": "mixed_30k", "C": "curriculum_30k"},
+  "A_sampling": "uniform phase, then uniform frame within phase, from full training pool from update one",
+  "evaluation_updates": [1000, 5000, 12000, 20000, 30000],
+  "development_seeds": [2026113000, 2026113019],
+  "confirmation_seeds": [2026121000, 2026121099],
+  "two_cube_seeds": [2026121200, 2026121239],
+  "technical_seed": 2026120900,
+  "clock_correction": {"phase": 6, "placement_stage": 2, "maximum_input_steps": 17, "same_for_all_arms": true},
+  "selection": "fixed update 30000, all three seeds; freeze A/B/C before opening fresh confirmation",
+  "wall_clock_cap_seconds": 36000,
+  "shutdown_reserve_seconds": 120,
+  "automatic_restart": false
+}

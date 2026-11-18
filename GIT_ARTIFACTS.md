@@ -15,6 +15,15 @@ temporäre Schreibdateien und aktuelle Prozessidentitäten (`*_pid.json`,
 bleiben erhalten; `.gitignore` wirkt auf neue, noch nicht versionierte Dateien.
 Status- und Ergebnisdateien werden nicht pauschal ausgeschlossen.
 
+Für die neuen BC-/Curriculum-Studien liegen Laufdaten kanonisch unter
+`praxis/results/curriculum/`, feste Checkpoint-Bundles unter
+`praxis/results/models/bc_curriculum/`. Checkpoints enthalten vollständige
+Optimizerzustände; Samplepläne und RNG-Zustände werden für Fortsetzungen
+erhalten. Versioniert werden die kleinen Kataloge
+`experiments/curriculum/models.json`, `model_sampling_hashes.json`, Berichte,
+Protokolle und Prüfungen. Die tatsächlichen Gewichte und Datensätze bleiben
+lokal. Alte Laufpfade sind Junctions, keine zweiten Datenkopien.
+
 Zehn große `result.json`-Dateien der Session
 `experiments/stack_diagnostics/lift_contraction_validity_20261004/supervised_6h_20261004_0904/`
 enthalten detaillierte Simulator-Trajektorien. Diese konkreten Dateien sind

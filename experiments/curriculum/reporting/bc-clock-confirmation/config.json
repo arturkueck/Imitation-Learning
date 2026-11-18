@@ -1,0 +1,13 @@
+{
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "batch": 64,
+  "lr": 0.0001,
+  "weight_decay": 1e-06,
+  "loss": "MSE XYZ/Greifer + 0,1 Abschluss-BCE; angezeigte Kurven: Aktions-MSE",
+  "dataset": "180 train / 20 validation whole two-cube trajectories",
+  "optimizer_updates": 0
+}

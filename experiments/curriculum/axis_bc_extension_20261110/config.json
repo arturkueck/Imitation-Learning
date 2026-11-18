@@ -1,0 +1,16 @@
+{
+  "schema": "axis-bc-extension-v1",
+  "parent": "experiments/curriculum/axis_bc_20261110/ready_001",
+  "start_update": 30000,
+  "additional_updates": 30000,
+  "evaluation_updates": [40000, 50000, 60000],
+  "baseline_completion_diagnostics": true,
+  "sampling": "uniform phase then uniform training frame; same batch and order for both arms within each seed",
+  "sampler_seed_offset": 600000,
+  "confirmation_seeds": [2026115000, 2026115099],
+  "technical_seeds": [2026114900, 2026114901],
+  "wall_clock_cap_seconds": 28800,
+  "selection": "fixed update 60000; freeze original and extended models before fresh paired confirmation",
+  "changes": "only more updates and common full-data sampling; architecture, data, loss, optimizer and learning rate preserved",
+  "automatic_restart": false
+}

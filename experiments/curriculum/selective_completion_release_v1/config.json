@@ -1,0 +1,22 @@
+{
+  "schema": "selective-completion-release-factorial-v1",
+  "source_run": "praxis/results/curriculum/targeted_correction_budget_v2/night_20261117",
+  "source_policy": "targeted",
+  "previous_run": "praxis/results/curriculum/completion_placement_check_v1/run_001",
+  "calibration_seeds": [2026195000, 2026195011],
+  "arms": ["control", "grasp_timeout", "grasp_ready", "release_hold", "release_feedback", "guarded_bc", "guarded_hold", "guarded_feedback"],
+  "grasp_arms": ["control", "grasp_timeout", "grasp_ready"],
+  "release_arms": ["control", "release_hold", "release_feedback", "guarded_bc", "guarded_hold", "guarded_feedback"],
+  "target_placement": 2,
+  "grasp": {"late_after_steps": 100, "consecutive_ready_frames": 20, "goal_offset_m": [0.0, 0.0, 0.003], "goal_distance_max_m": 0.006},
+  "release": {"gain": 0.6, "action_scale_m": 0.05, "feedback_frames": 20, "gripper": -1.0, "rotation": [0.0, 0.0, 0.0]},
+  "placement_readiness": {"xy_max_m": 0.009, "height_m": 0.04, "height_tolerance_m": 0.008, "require_pair_contact": true, "source_linear_max_m_s": 0.03, "source_angular_max_rad_s": 0.3, "require_lower_prefix_valid": true, "consecutive_frames": 3, "minimum_phase_frames": 5},
+  "input_similarity": {"maximum_samples_per_phase_episode": 20, "eef_component_tolerance_m": 0.001, "quaternion_component_tolerance": 0.01, "gripper_joint_component_tolerance_m": 0.0005, "clock_tolerance_steps": 1, "minimum_xy_error_difference_m": 0.005},
+  "episode_horizon": 1000,
+  "success_frames": 50,
+  "maximum_seconds": 2700,
+  "exit_reserve_seconds": 30,
+  "optimizer_updates": 0,
+  "automatic_restart": false,
+  "scope": "Frozen-policy causal diagnosis; fresh opened calibration plus separately reported opened failure/success anchors. No training or blind efficacy claim."
+}

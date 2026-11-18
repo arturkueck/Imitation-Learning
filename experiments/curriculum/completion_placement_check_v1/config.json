@@ -1,0 +1,27 @@
+{
+  "schema": "frozen-completion-placement-check-v1",
+  "source_run": "praxis/results/curriculum/targeted_correction_budget_v2/night_20261117",
+  "source_policy": "targeted",
+  "calibration_seeds": [2026193000, 2026193017],
+  "technical_seed": 2026194000,
+  "arms": ["control", "grasp_completion", "place_action", "place_completion", "place_both", "place_guard"],
+  "known_case_arms": ["control", "place_action", "place_completion", "place_both", "place_guard"],
+  "placement_readiness": {
+    "xy_max_m": 0.009,
+    "height_m": 0.04,
+    "height_tolerance_m": 0.008,
+    "require_pair_contact": true,
+    "source_linear_max_m_s": 0.03,
+    "source_angular_max_rad_s": 0.3,
+    "require_lower_prefix_valid": true,
+    "consecutive_frames": 3,
+    "minimum_phase_frames": 5
+  },
+  "episode_horizon": 1000,
+  "success_frames": 50,
+  "maximum_seconds": 2700,
+  "exit_reserve_seconds": 30,
+  "optimizer_updates": 0,
+  "automatic_restart": false,
+  "scope": "Exploratory frozen-policy calibration, not independent training replication or a blind confirmation. All new families become opened calibration families."
+}

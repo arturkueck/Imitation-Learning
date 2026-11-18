@@ -1,0 +1,787 @@
+{
+  "schema": "bc-conclusion-v1",
+  "updated": "2026-11-13",
+  "training": {
+    "summary": {
+      "development": {
+        "mixed_s1_u30000": {
+          "baseline": {
+            "n": 20,
+            "successes": 9
+          },
+          "replay": {
+            "n": 20,
+            "successes": 10
+          },
+          "action": {
+            "n": 20,
+            "successes": 9
+          },
+          "completion": {
+            "n": 20,
+            "successes": 6
+          },
+          "combined": {
+            "n": 20,
+            "successes": 15
+          }
+        },
+        "mixed_s2_u30000": {
+          "baseline": {
+            "n": 20,
+            "successes": 9
+          },
+          "replay": {
+            "n": 20,
+            "successes": 10
+          },
+          "action": {
+            "n": 20,
+            "successes": 9
+          },
+          "completion": {
+            "n": 20,
+            "successes": 11
+          },
+          "combined": {
+            "n": 20,
+            "successes": 15
+          }
+        },
+        "mixed_s3_u30000": {
+          "baseline": {
+            "n": 20,
+            "successes": 8
+          },
+          "replay": {
+            "n": 20,
+            "successes": 10
+          },
+          "action": {
+            "n": 20,
+            "successes": 9
+          },
+          "completion": {
+            "n": 20,
+            "successes": 6
+          },
+          "combined": {
+            "n": 20,
+            "successes": 15
+          }
+        }
+      },
+      "confirmation": {
+        "mixed_s1_u30000": {
+          "baseline": {
+            "n": 50,
+            "successes": 27
+          },
+          "replay": {
+            "n": 50,
+            "successes": 32
+          },
+          "action": {
+            "n": 50,
+            "successes": 31
+          },
+          "completion": {
+            "n": 50,
+            "successes": 22
+          },
+          "combined": {
+            "n": 50,
+            "successes": 39
+          }
+        },
+        "mixed_s2_u30000": {
+          "baseline": {
+            "n": 50,
+            "successes": 32
+          },
+          "replay": {
+            "n": 50,
+            "successes": 32
+          },
+          "action": {
+            "n": 50,
+            "successes": 32
+          },
+          "completion": {
+            "n": 50,
+            "successes": 35
+          },
+          "combined": {
+            "n": 50,
+            "successes": 39
+          }
+        },
+        "mixed_s3_u30000": {
+          "baseline": {
+            "n": 50,
+            "successes": 26
+          },
+          "replay": {
+            "n": 50,
+            "successes": 28
+          },
+          "action": {
+            "n": 50,
+            "successes": 29
+          },
+          "completion": {
+            "n": 50,
+            "successes": 21
+          },
+          "combined": {
+            "n": 50,
+            "successes": 40
+          }
+        }
+      }
+    },
+    "aggregate": {
+      "development": {
+        "baseline": {
+          "n": 60,
+          "successes": 26
+        },
+        "replay": {
+          "n": 60,
+          "successes": 30
+        },
+        "action": {
+          "n": 60,
+          "successes": 27
+        },
+        "completion": {
+          "n": 60,
+          "successes": 23
+        },
+        "combined": {
+          "n": 60,
+          "successes": 45
+        }
+      },
+      "confirmation": {
+        "baseline": {
+          "n": 150,
+          "successes": 85
+        },
+        "replay": {
+          "n": 150,
+          "successes": 92
+        },
+        "action": {
+          "n": 150,
+          "successes": 92
+        },
+        "completion": {
+          "n": 150,
+          "successes": 78
+        },
+        "combined": {
+          "n": 150,
+          "successes": 118
+        }
+      }
+    },
+    "paired": {
+      "development": {
+        "baseline": {
+          "baseline": {
+            "gains": 0,
+            "losses": 0
+          },
+          "replay": {
+            "gains": 4,
+            "losses": 0
+          },
+          "action": {
+            "gains": 1,
+            "losses": 0
+          },
+          "completion": {
+            "gains": 4,
+            "losses": 7
+          },
+          "combined": {
+            "gains": 19,
+            "losses": 0
+          }
+        },
+        "replay": {
+          "baseline": {
+            "gains": 0,
+            "losses": 4
+          },
+          "replay": {
+            "gains": 0,
+            "losses": 0
+          },
+          "action": {
+            "gains": 0,
+            "losses": 3
+          },
+          "completion": {
+            "gains": 1,
+            "losses": 8
+          },
+          "combined": {
+            "gains": 15,
+            "losses": 0
+          }
+        }
+      },
+      "confirmation": {
+        "baseline": {
+          "baseline": {
+            "gains": 0,
+            "losses": 0
+          },
+          "replay": {
+            "gains": 7,
+            "losses": 0
+          },
+          "action": {
+            "gains": 7,
+            "losses": 0
+          },
+          "completion": {
+            "gains": 7,
+            "losses": 14
+          },
+          "combined": {
+            "gains": 34,
+            "losses": 1
+          }
+        },
+        "replay": {
+          "baseline": {
+            "gains": 0,
+            "losses": 7
+          },
+          "replay": {
+            "gains": 0,
+            "losses": 0
+          },
+          "action": {
+            "gains": 3,
+            "losses": 3
+          },
+          "completion": {
+            "gains": 4,
+            "losses": 18
+          },
+          "combined": {
+            "gains": 28,
+            "losses": 2
+          }
+        }
+      }
+    },
+    "updates_per_component": 5000,
+    "components": 12,
+    "policies": {
+      "baseline": "Ursprüngliches B",
+      "replay": "Replay-Fortsetzung",
+      "action": "Nur Aktionen",
+      "completion": "Nur Abschluss",
+      "combined": "Aktionen + Abschluss"
+    },
+    "confirmation_unique_scenes": 50,
+    "training_model_seeds": 3,
+    "execution_scope": "Only second placement, phase 0, excluding retreat; other outputs remain B",
+    "architecture": "Separate action and completion PhaseNet copies; no critic; no curriculum ordering experiment"
+  },
+  "dataset": {
+    "attempts": 150,
+    "accepted": 135,
+    "train_frames": 2069,
+    "validation_frames": 499,
+    "attempted_train_families": 40,
+    "attempted_validation_families": 10,
+    "train_families": 36,
+    "validation_families": 9,
+    "accepted_train": 108,
+    "accepted_validation": 27,
+    "split_unit": "whole initial scene family across all source controllers"
+  },
+  "ablation": {
+    "control": {
+      "n": 60,
+      "successes": 26,
+      "gains": 0,
+      "losses": 0,
+      "exposed": 0,
+      "reached_lift": 48,
+      "held_at_lift": 33
+    },
+    "approach": {
+      "n": 60,
+      "successes": 45,
+      "gains": 19,
+      "losses": 0,
+      "exposed": 48,
+      "reached_lift": 48,
+      "held_at_lift": 48
+    },
+    "descend": {
+      "n": 60,
+      "successes": 35,
+      "gains": 10,
+      "losses": 1,
+      "exposed": 48,
+      "reached_lift": 48,
+      "held_at_lift": 48
+    },
+    "close": {
+      "n": 60,
+      "successes": 26,
+      "gains": 0,
+      "losses": 0,
+      "exposed": 48,
+      "reached_lift": 48,
+      "held_at_lift": 45
+    },
+    "full_grasp": {
+      "n": 60,
+      "successes": 45,
+      "gains": 19,
+      "losses": 0,
+      "exposed": 48,
+      "reached_lift": 48,
+      "held_at_lift": 48
+    }
+  },
+  "grasp": {
+    "pairs": 60,
+    "optimizer_updates": 0,
+    "control_successes": 26,
+    "intervention_successes": 45,
+    "gains": 19,
+    "losses": 0,
+    "control_second_lifts": 48,
+    "control_grasps": 33,
+    "intervention_second_lifts": 48,
+    "intervention_grasps": 48,
+    "complete": true
+  },
+  "phase": {
+    "complete": true,
+    "models": {
+      "mixed_s1_u30000": {
+        "1": {
+          "3": {
+            "isolated_attempts": 5,
+            "valid_reference_attempts": 5,
+            "isolated_successes": 1,
+            "premature_completions": 4,
+            "full_visits": 18,
+            "full_eligible": 18,
+            "full_physically_ready_at_last_frame": 11,
+            "full_never_ready": 7
+          },
+          "4": {
+            "isolated_attempts": 5,
+            "valid_reference_attempts": 5,
+            "isolated_successes": 5,
+            "premature_completions": 0,
+            "full_visits": 18,
+            "full_eligible": 18,
+            "full_physically_ready_at_last_frame": 17,
+            "full_never_ready": 0
+          },
+          "5": {
+            "isolated_attempts": 5,
+            "valid_reference_attempts": 3,
+            "isolated_successes": 3,
+            "premature_completions": 0,
+            "full_visits": 17,
+            "full_eligible": 17,
+            "full_physically_ready_at_last_frame": 4,
+            "full_never_ready": 13
+          },
+          "6": {
+            "isolated_attempts": 5,
+            "valid_reference_attempts": 3,
+            "isolated_successes": 3,
+            "premature_completions": 0,
+            "full_visits": 17,
+            "full_eligible": 4,
+            "full_physically_ready_at_last_frame": 16,
+            "full_never_ready": 1
+          }
+        },
+        "2": {
+          "3": {
+            "isolated_attempts": 5,
+            "valid_reference_attempts": 5,
+            "isolated_successes": 1,
+            "premature_completions": 4,
+            "full_visits": 16,
+            "full_eligible": 11,
+            "full_physically_ready_at_last_frame": 1,
+            "full_never_ready": 15
+          },
+          "4": {
+            "isolated_attempts": 5,
+            "valid_reference_attempts": 5,
+            "isolated_successes": 5,
+            "premature_completions": 0,
+            "full_visits": 16,
+            "full_eligible": 11,
+            "full_physically_ready_at_last_frame": 10,
+            "full_never_ready": 5
+          },
+          "5": {
+            "isolated_attempts": 5,
+            "valid_reference_attempts": 3,
+            "isolated_successes": 2,
+            "premature_completions": 1,
+            "full_visits": 15,
+            "full_eligible": 10,
+            "full_physically_ready_at_last_frame": 5,
+            "full_never_ready": 10
+          },
+          "6": {
+            "isolated_attempts": 5,
+            "valid_reference_attempts": 3,
+            "isolated_successes": 3,
+            "premature_completions": 0,
+            "full_visits": 15,
+            "full_eligible": 5,
+            "full_physically_ready_at_last_frame": 9,
+            "full_never_ready": 6
+          }
+        }
+      },
+      "mixed_s2_u30000": {
+        "1": {
+          "3": {
+            "isolated_attempts": 5,
+            "valid_reference_attempts": 5,
+            "isolated_successes": 1,
+            "premature_completions": 4,
+            "full_visits": 19,
+            "full_eligible": 19,
+            "full_physically_ready_at_last_frame": 12,
+            "full_never_ready": 7
+          },
+          "4": {
+            "isolated_attempts": 5,
+            "valid_reference_attempts": 5,
+            "isolated_successes": 5,
+            "premature_completions": 0,
+            "full_visits": 19,
+            "full_eligible": 19,
+            "full_physically_ready_at_last_frame": 17,
+            "full_never_ready": 1
+          },
+          "5": {
+            "isolated_attempts": 5,
+            "valid_reference_attempts": 3,
+            "isolated_successes": 3,
+            "premature_completions": 0,
+            "full_visits": 18,
+            "full_eligible": 18,
+            "full_physically_ready_at_last_frame": 6,
+            "full_never_ready": 12
+          },
+          "6": {
+            "isolated_attempts": 5,
+            "valid_reference_attempts": 3,
+            "isolated_successes": 3,
+            "premature_completions": 0,
+            "full_visits": 18,
+            "full_eligible": 6,
+            "full_physically_ready_at_last_frame": 16,
+            "full_never_ready": 2
+          }
+        },
+        "2": {
+          "3": {
+            "isolated_attempts": 5,
+            "valid_reference_attempts": 5,
+            "isolated_successes": 1,
+            "premature_completions": 4,
+            "full_visits": 16,
+            "full_eligible": 11,
+            "full_physically_ready_at_last_frame": 1,
+            "full_never_ready": 15
+          },
+          "4": {
+            "isolated_attempts": 5,
+            "valid_reference_attempts": 5,
+            "isolated_successes": 5,
+            "premature_completions": 0,
+            "full_visits": 16,
+            "full_eligible": 11,
+            "full_physically_ready_at_last_frame": 10,
+            "full_never_ready": 5
+          },
+          "5": {
+            "isolated_attempts": 5,
+            "valid_reference_attempts": 3,
+            "isolated_successes": 2,
+            "premature_completions": 1,
+            "full_visits": 14,
+            "full_eligible": 10,
+            "full_physically_ready_at_last_frame": 6,
+            "full_never_ready": 8
+          },
+          "6": {
+            "isolated_attempts": 5,
+            "valid_reference_attempts": 3,
+            "isolated_successes": 3,
+            "premature_completions": 0,
+            "full_visits": 14,
+            "full_eligible": 6,
+            "full_physically_ready_at_last_frame": 9,
+            "full_never_ready": 5
+          }
+        }
+      },
+      "mixed_s3_u30000": {
+        "1": {
+          "3": {
+            "isolated_attempts": 5,
+            "valid_reference_attempts": 5,
+            "isolated_successes": 2,
+            "premature_completions": 3,
+            "full_visits": 19,
+            "full_eligible": 19,
+            "full_physically_ready_at_last_frame": 15,
+            "full_never_ready": 4
+          },
+          "4": {
+            "isolated_attempts": 5,
+            "valid_reference_attempts": 5,
+            "isolated_successes": 5,
+            "premature_completions": 0,
+            "full_visits": 19,
+            "full_eligible": 19,
+            "full_physically_ready_at_last_frame": 18,
+            "full_never_ready": 1
+          },
+          "5": {
+            "isolated_attempts": 5,
+            "valid_reference_attempts": 3,
+            "isolated_successes": 3,
+            "premature_completions": 0,
+            "full_visits": 18,
+            "full_eligible": 18,
+            "full_physically_ready_at_last_frame": 6,
+            "full_never_ready": 12
+          },
+          "6": {
+            "isolated_attempts": 5,
+            "valid_reference_attempts": 3,
+            "isolated_successes": 3,
+            "premature_completions": 0,
+            "full_visits": 18,
+            "full_eligible": 6,
+            "full_physically_ready_at_last_frame": 16,
+            "full_never_ready": 2
+          }
+        },
+        "2": {
+          "3": {
+            "isolated_attempts": 5,
+            "valid_reference_attempts": 5,
+            "isolated_successes": 0,
+            "premature_completions": 5,
+            "full_visits": 16,
+            "full_eligible": 11,
+            "full_physically_ready_at_last_frame": 2,
+            "full_never_ready": 14
+          },
+          "4": {
+            "isolated_attempts": 5,
+            "valid_reference_attempts": 5,
+            "isolated_successes": 5,
+            "premature_completions": 0,
+            "full_visits": 16,
+            "full_eligible": 11,
+            "full_physically_ready_at_last_frame": 11,
+            "full_never_ready": 5
+          },
+          "5": {
+            "isolated_attempts": 5,
+            "valid_reference_attempts": 3,
+            "isolated_successes": 2,
+            "premature_completions": 1,
+            "full_visits": 16,
+            "full_eligible": 11,
+            "full_physically_ready_at_last_frame": 6,
+            "full_never_ready": 10
+          },
+          "6": {
+            "isolated_attempts": 5,
+            "valid_reference_attempts": 3,
+            "isolated_successes": 3,
+            "premature_completions": 0,
+            "full_visits": 16,
+            "full_eligible": 6,
+            "full_physically_ready_at_last_frame": 8,
+            "full_never_ready": 8
+          }
+        }
+      }
+    },
+    "full_episode_successes": {
+      "mixed_s1_u30000": {
+        "n": 20,
+        "successes": 9
+      },
+      "mixed_s2_u30000": {
+        "n": 20,
+        "successes": 9
+      },
+      "mixed_s3_u30000": {
+        "n": 20,
+        "successes": 8
+      }
+    },
+    "teacher_reference": {
+      "n": 40,
+      "successes": 36
+    },
+    "optimizer_updates": 0,
+    "interpretation": "Conditional developmental phase diagnosis, not fresh endtest success. Expert-prefix successes do not imply robust chained execution; reference-invalid or ineligible starts are excluded from conditional success counts."
+  },
+  "abc": {
+    "technical_only": false,
+    "models": {
+      "A_seed1": {
+        "3": {
+          "n": 100,
+          "successes": 40
+        },
+        "2": {
+          "n": 40,
+          "successes": 39
+        }
+      },
+      "B_seed1": {
+        "3": {
+          "n": 100,
+          "successes": 48
+        },
+        "2": {
+          "n": 40,
+          "successes": 37
+        }
+      },
+      "C_seed1": {
+        "3": {
+          "n": 100,
+          "successes": 52
+        },
+        "2": {
+          "n": 40,
+          "successes": 38
+        }
+      },
+      "A_seed2": {
+        "3": {
+          "n": 100,
+          "successes": 28
+        },
+        "2": {
+          "n": 40,
+          "successes": 35
+        }
+      },
+      "B_seed2": {
+        "3": {
+          "n": 100,
+          "successes": 56
+        },
+        "2": {
+          "n": 40,
+          "successes": 39
+        }
+      },
+      "C_seed2": {
+        "3": {
+          "n": 100,
+          "successes": 42
+        },
+        "2": {
+          "n": 40,
+          "successes": 37
+        }
+      },
+      "A_seed3": {
+        "3": {
+          "n": 100,
+          "successes": 26
+        },
+        "2": {
+          "n": 40,
+          "successes": 35
+        }
+      },
+      "B_seed3": {
+        "3": {
+          "n": 100,
+          "successes": 50
+        },
+        "2": {
+          "n": 40,
+          "successes": 38
+        }
+      },
+      "C_seed3": {
+        "3": {
+          "n": 100,
+          "successes": 46
+        },
+        "2": {
+          "n": 40,
+          "successes": 38
+        }
+      }
+    },
+    "selection": "fixed 30k",
+    "clock_corrected": true,
+    "interpretation": "B vs C isolates batch ordering; A vs B tests exposure weighting; A vs C tests the whole curriculum. Report each seed, not pooled scenes as independent training replicas."
+  },
+  "provenance": {
+    "abc": {
+      "source_id": "abc_comparison_20261112/ready_001/result_summary.json",
+      "sha256": "735aa15c23d75713f954138ae5c228a8663a9a5de0b559c2592183392b481a94"
+    },
+    "phase": {
+      "source_id": "phase_skill_audit_v1/run_001/summary.json",
+      "sha256": "08b6e3e71eb00164f9b9f48a66081825eabef86f14e08738f651194a5e5c8fd7"
+    },
+    "grasp": {
+      "source_id": "second_grasp_probe_v1/night_001/summary.json",
+      "sha256": "543c62be468e1a9af7160c657ffaa0122bfdbbc48d18904bbcaeaef462a1420e"
+    },
+    "ablation": {
+      "source_id": "grasp_phase_ablation_v1/ready_001/summary.json",
+      "sha256": "6c8708cd00d070655ceda1b118d743d9d6b23679d3a96fe6b76529d1cb63659f"
+    },
+    "correction": {
+      "source_id": "approach_bc_correction_v1/ready_001/summary.json",
+      "sha256": "fea26a26184a21bccf9e024a617803c260f6b2a75de02a8eea8fcec0294b2a6a"
+    },
+    "paired": {
+      "source_id": "approach_bc_correction_v1/ready_001/paired_changes.json",
+      "sha256": "f88ca623b3cd17b45a5b6d83f48cf12d4254fcfb24049676bfb09847d7f49dd7"
+    },
+    "dataset": {
+      "source_id": "approach_bc_correction_v1/ready_001/dataset_manifest.json",
+      "sha256": "e4c9096d3966aadbc8f67ec400d9068b9e98dd0b2681cf603f050d152a1ead74"
+    }
+  },
+  "limits": [
+    "50 shared confirmation scenes across three model seeds, not 150 independent scenes",
+    "Fixed update endpoint; simulator privileged low-dimensional state; fixed task coordinator",
+    "Separate output components restricted to second approach; no single-network distillation tested",
+    "No curriculum-ordering advantage, arbitrary tower heights, hardware or general data-problem solution established"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schema": "second-approach-bc-correction-v1",
+  "models": ["mixed_s1_u30000", "mixed_s2_u30000", "mixed_s3_u30000"],
+  "train_seeds": [2026151000, 2026151039],
+  "validation_seeds": [2026152000, 2026152009],
+  "development_seeds": [2026113000, 2026113019],
+  "confirmation_seeds": [2026153000, 2026153049],
+  "smoke_seeds": [2026150900, 2026150901, 2026150902, 2026150903, 2026150904, 2026150905],
+  "updates": 5000,
+  "batch_size": 64,
+  "correction_fraction": 0.5,
+  "checkpoint_every": 1000,
+  "policies": ["baseline", "replay", "action", "completion", "combined"],
+  "maximum_seconds": 10800,
+  "exit_reserve_seconds": 30,
+  "episode_horizon": 1000,
+  "approach_horizon": 200,
+  "selection": "Fixed update 5000. No checkpoint selection or threshold tuning on development/confirmation scenes.",
+  "automatic_restart": false,
+  "pc_shutdown": false
+}

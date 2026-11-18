@@ -1,0 +1,651 @@
+{
+  "schema": "bc-model-registry-v1",
+  "models": {
+    "initial_s1_u0": {
+      "id": "initial_s1_u0",
+      "seed": 1,
+      "history": "initial",
+      "update": 0,
+      "checkpoint": "praxis\\results\\models\\bc_curriculum\\initial\\seed_1\\update_0\\checkpoint.pth",
+      "sha256": "8af11e5af473e52a662d9429f501873c632608d74c8270b087e2f823ccbdc9bf",
+      "source_checkpoint": "praxis\\results\\curriculum\\axis_bc_20261110\\ready_001\\mixed_seed1\\initial.pth",
+      "model_tensor_sha256": "afc51f878e858ea5f6d42cf1cb43631e243739db1552456697a8b891cd048a7d",
+      "config_sha256": "1305742ebbbf0d013d2ea65971b933cdff7bcac341e3b01c5fca40f040393ebb",
+      "optimizer_present": true,
+      "torch_rng_present": true,
+      "cuda_rng_present": true,
+      "frozen_completion": false,
+      "sampler_plan": null,
+      "input_contract": {
+        "features": 10,
+        "phases": 7,
+        "actions": [
+          "x",
+          "y",
+          "z",
+          "gripper"
+        ],
+        "rotation": "fixed zero",
+        "completion_threshold": 0.8,
+        "dataset_arrays_sha256": "92349ddfb9764883d8a676d647fb7554bc79b96f47893d9c30c89227aacecd59"
+      },
+      "continuation": "Restore model + AdamW. Saved plans reproduce prior sampling; new continuation needs an explicit new sampling budget. No automatic overwrite."
+    },
+    "mixed_s1_u30000": {
+      "id": "mixed_s1_u30000",
+      "seed": 1,
+      "history": "mixed",
+      "update": 30000,
+      "checkpoint": "praxis\\results\\models\\bc_curriculum\\mixed\\seed_1\\update_30000\\checkpoint.pth",
+      "sha256": "a26576fd3cca9853980879b3b52b6e2513b0d1ab1f2a50a7f2c280deb193be1b",
+      "source_checkpoint": "praxis\\results\\curriculum\\axis_bc_20261110\\ready_001\\mixed_seed1\\latest.pth",
+      "model_tensor_sha256": "b81a03782b2069d032300b56b661b67b5097a3af66334248da75e86be69042b4",
+      "config_sha256": "1305742ebbbf0d013d2ea65971b933cdff7bcac341e3b01c5fca40f040393ebb",
+      "optimizer_present": true,
+      "torch_rng_present": true,
+      "cuda_rng_present": true,
+      "frozen_completion": false,
+      "sampler_plan": "praxis\\results\\models\\bc_curriculum\\sampling\\axis_bc_20261110\\seed_1.npz",
+      "input_contract": {
+        "features": 10,
+        "phases": 7,
+        "actions": [
+          "x",
+          "y",
+          "z",
+          "gripper"
+        ],
+        "rotation": "fixed zero",
+        "completion_threshold": 0.8,
+        "dataset_arrays_sha256": "92349ddfb9764883d8a676d647fb7554bc79b96f47893d9c30c89227aacecd59"
+      },
+      "continuation": "Restore model + AdamW. Saved plans reproduce prior sampling; new continuation needs an explicit new sampling budget. No automatic overwrite."
+    },
+    "mixed_s1_u60000": {
+      "id": "mixed_s1_u60000",
+      "seed": 1,
+      "history": "mixed",
+      "update": 60000,
+      "checkpoint": "praxis\\results\\models\\bc_curriculum\\mixed\\seed_1\\update_60000\\checkpoint.pth",
+      "sha256": "c6c46775323fc7400782c1cd29b314dd917f1cd4527bd044d8aea4ae62b20b14",
+      "source_checkpoint": "praxis\\results\\curriculum\\axis_bc_extension_20261110\\ready_001\\mixed_seed1\\latest.pth",
+      "model_tensor_sha256": "6bbd6c67253c531657483a63ddd8075a735c12fe861bc4e3cfbd940f55932860",
+      "config_sha256": "1305742ebbbf0d013d2ea65971b933cdff7bcac341e3b01c5fca40f040393ebb",
+      "optimizer_present": true,
+      "torch_rng_present": true,
+      "cuda_rng_present": true,
+      "frozen_completion": false,
+      "sampler_plan": "praxis\\results\\models\\bc_curriculum\\sampling\\axis_bc_extension_20261110\\seed_1.npz",
+      "input_contract": {
+        "features": 10,
+        "phases": 7,
+        "actions": [
+          "x",
+          "y",
+          "z",
+          "gripper"
+        ],
+        "rotation": "fixed zero",
+        "completion_threshold": 0.8,
+        "dataset_arrays_sha256": "92349ddfb9764883d8a676d647fb7554bc79b96f47893d9c30c89227aacecd59"
+      },
+      "continuation": "Restore model + AdamW. Saved plans reproduce prior sampling; new continuation needs an explicit new sampling budget. No automatic overwrite."
+    },
+    "mixed_fixed_completion_s1_u60000": {
+      "id": "mixed_fixed_completion_s1_u60000",
+      "seed": 1,
+      "history": "mixed_fixed_completion",
+      "update": 60000,
+      "checkpoint": "praxis\\results\\models\\bc_curriculum\\mixed_fixed_completion\\seed_1\\update_60000\\checkpoint.pth",
+      "sha256": "8cb9a042d9e10b913b76ef879d99db041e17f721443e03572a85700a1e4a77ff",
+      "source_checkpoint": "praxis\\results\\curriculum\\axis_bc_completion_10h_20261111\\ready_001\\mixed_seed1\\latest.pth",
+      "model_tensor_sha256": "3fa1e1d7906d09b9f5b594ee7e8eaf6bf1897924a82c3caed12d39c079366e72",
+      "config_sha256": "1305742ebbbf0d013d2ea65971b933cdff7bcac341e3b01c5fca40f040393ebb",
+      "optimizer_present": true,
+      "torch_rng_present": true,
+      "cuda_rng_present": true,
+      "frozen_completion": true,
+      "sampler_plan": "praxis\\results\\models\\bc_curriculum\\sampling\\axis_bc_completion_10h_20261111\\seed_1.npz",
+      "input_contract": {
+        "features": 10,
+        "phases": 7,
+        "actions": [
+          "x",
+          "y",
+          "z",
+          "gripper"
+        ],
+        "rotation": "fixed zero",
+        "completion_threshold": 0.8,
+        "dataset_arrays_sha256": "92349ddfb9764883d8a676d647fb7554bc79b96f47893d9c30c89227aacecd59"
+      },
+      "continuation": "Restore model + AdamW. Saved plans reproduce prior sampling; new continuation needs an explicit new sampling budget. No automatic overwrite."
+    },
+    "curriculum_s1_u30000": {
+      "id": "curriculum_s1_u30000",
+      "seed": 1,
+      "history": "curriculum",
+      "update": 30000,
+      "checkpoint": "praxis\\results\\models\\bc_curriculum\\curriculum\\seed_1\\update_30000\\checkpoint.pth",
+      "sha256": "0ba3838e07b7a6b607417618c6d4267d01928d4b30f966bb93aba238dfc6a042",
+      "source_checkpoint": "praxis\\results\\curriculum\\axis_bc_20261110\\ready_001\\curriculum_seed1\\latest.pth",
+      "model_tensor_sha256": "bb81fc52e26764ebe9ee695b3d5102e4245375b538bd295e44f59b7a9ecb87a4",
+      "config_sha256": "1305742ebbbf0d013d2ea65971b933cdff7bcac341e3b01c5fca40f040393ebb",
+      "optimizer_present": true,
+      "torch_rng_present": true,
+      "cuda_rng_present": true,
+      "frozen_completion": false,
+      "sampler_plan": "praxis\\results\\models\\bc_curriculum\\sampling\\axis_bc_20261110\\seed_1.npz",
+      "input_contract": {
+        "features": 10,
+        "phases": 7,
+        "actions": [
+          "x",
+          "y",
+          "z",
+          "gripper"
+        ],
+        "rotation": "fixed zero",
+        "completion_threshold": 0.8,
+        "dataset_arrays_sha256": "92349ddfb9764883d8a676d647fb7554bc79b96f47893d9c30c89227aacecd59"
+      },
+      "continuation": "Restore model + AdamW. Saved plans reproduce prior sampling; new continuation needs an explicit new sampling budget. No automatic overwrite."
+    },
+    "curriculum_s1_u60000": {
+      "id": "curriculum_s1_u60000",
+      "seed": 1,
+      "history": "curriculum",
+      "update": 60000,
+      "checkpoint": "praxis\\results\\models\\bc_curriculum\\curriculum\\seed_1\\update_60000\\checkpoint.pth",
+      "sha256": "d01552936edf2117b697cab12db5f58fdd36c96da6296b64bdb935906a0bd888",
+      "source_checkpoint": "praxis\\results\\curriculum\\axis_bc_extension_20261110\\ready_001\\curriculum_seed1\\latest.pth",
+      "model_tensor_sha256": "622802becfb377e8b0b8ea4b4b68c8aa8cc5490bbb167acda4a818244c02243c",
+      "config_sha256": "1305742ebbbf0d013d2ea65971b933cdff7bcac341e3b01c5fca40f040393ebb",
+      "optimizer_present": true,
+      "torch_rng_present": true,
+      "cuda_rng_present": true,
+      "frozen_completion": false,
+      "sampler_plan": "praxis\\results\\models\\bc_curriculum\\sampling\\axis_bc_extension_20261110\\seed_1.npz",
+      "input_contract": {
+        "features": 10,
+        "phases": 7,
+        "actions": [
+          "x",
+          "y",
+          "z",
+          "gripper"
+        ],
+        "rotation": "fixed zero",
+        "completion_threshold": 0.8,
+        "dataset_arrays_sha256": "92349ddfb9764883d8a676d647fb7554bc79b96f47893d9c30c89227aacecd59"
+      },
+      "continuation": "Restore model + AdamW. Saved plans reproduce prior sampling; new continuation needs an explicit new sampling budget. No automatic overwrite."
+    },
+    "curriculum_fixed_completion_s1_u60000": {
+      "id": "curriculum_fixed_completion_s1_u60000",
+      "seed": 1,
+      "history": "curriculum_fixed_completion",
+      "update": 60000,
+      "checkpoint": "praxis\\results\\models\\bc_curriculum\\curriculum_fixed_completion\\seed_1\\update_60000\\checkpoint.pth",
+      "sha256": "5cfec739db16d4ac521b982b10209dc9aa9a5b9301b44561436957c8164678c9",
+      "source_checkpoint": "praxis\\results\\curriculum\\axis_bc_completion_10h_20261111\\ready_001\\curriculum_seed1\\latest.pth",
+      "model_tensor_sha256": "b69291ab333fd4f73376a0971c3a6496336acbd60212d8f8bcf71e37ae705a76",
+      "config_sha256": "1305742ebbbf0d013d2ea65971b933cdff7bcac341e3b01c5fca40f040393ebb",
+      "optimizer_present": true,
+      "torch_rng_present": true,
+      "cuda_rng_present": true,
+      "frozen_completion": true,
+      "sampler_plan": "praxis\\results\\models\\bc_curriculum\\sampling\\axis_bc_completion_10h_20261111\\seed_1.npz",
+      "input_contract": {
+        "features": 10,
+        "phases": 7,
+        "actions": [
+          "x",
+          "y",
+          "z",
+          "gripper"
+        ],
+        "rotation": "fixed zero",
+        "completion_threshold": 0.8,
+        "dataset_arrays_sha256": "92349ddfb9764883d8a676d647fb7554bc79b96f47893d9c30c89227aacecd59"
+      },
+      "continuation": "Restore model + AdamW. Saved plans reproduce prior sampling; new continuation needs an explicit new sampling budget. No automatic overwrite."
+    },
+    "initial_s2_u0": {
+      "id": "initial_s2_u0",
+      "seed": 2,
+      "history": "initial",
+      "update": 0,
+      "checkpoint": "praxis\\results\\models\\bc_curriculum\\initial\\seed_2\\update_0\\checkpoint.pth",
+      "sha256": "da3c04f12bf5f07ee0f021c72c264ef74ec0c3825c74e741477c4044768c9968",
+      "source_checkpoint": "praxis\\results\\curriculum\\axis_bc_20261110\\ready_001\\mixed_seed2\\initial.pth",
+      "model_tensor_sha256": "b1e4e722c57a382d1df68e081b6c72423630dce39da04179cbdf37de1ca8871b",
+      "config_sha256": "1305742ebbbf0d013d2ea65971b933cdff7bcac341e3b01c5fca40f040393ebb",
+      "optimizer_present": true,
+      "torch_rng_present": true,
+      "cuda_rng_present": true,
+      "frozen_completion": false,
+      "sampler_plan": null,
+      "input_contract": {
+        "features": 10,
+        "phases": 7,
+        "actions": [
+          "x",
+          "y",
+          "z",
+          "gripper"
+        ],
+        "rotation": "fixed zero",
+        "completion_threshold": 0.8,
+        "dataset_arrays_sha256": "92349ddfb9764883d8a676d647fb7554bc79b96f47893d9c30c89227aacecd59"
+      },
+      "continuation": "Restore model + AdamW. Saved plans reproduce prior sampling; new continuation needs an explicit new sampling budget. No automatic overwrite."
+    },
+    "mixed_s2_u30000": {
+      "id": "mixed_s2_u30000",
+      "seed": 2,
+      "history": "mixed",
+      "update": 30000,
+      "checkpoint": "praxis\\results\\models\\bc_curriculum\\mixed\\seed_2\\update_30000\\checkpoint.pth",
+      "sha256": "6d8094e8c983ea20be7a03aa7f8556ddd0df4c886e8b6a83a7b56b82fd85dee1",
+      "source_checkpoint": "praxis\\results\\curriculum\\axis_bc_20261110\\ready_001\\mixed_seed2\\latest.pth",
+      "model_tensor_sha256": "d780579886b62643edf2725db97e286d5f0cb6e13a06b2c451f2478cbca43c45",
+      "config_sha256": "1305742ebbbf0d013d2ea65971b933cdff7bcac341e3b01c5fca40f040393ebb",
+      "optimizer_present": true,
+      "torch_rng_present": true,
+      "cuda_rng_present": true,
+      "frozen_completion": false,
+      "sampler_plan": "praxis\\results\\models\\bc_curriculum\\sampling\\axis_bc_20261110\\seed_2.npz",
+      "input_contract": {
+        "features": 10,
+        "phases": 7,
+        "actions": [
+          "x",
+          "y",
+          "z",
+          "gripper"
+        ],
+        "rotation": "fixed zero",
+        "completion_threshold": 0.8,
+        "dataset_arrays_sha256": "92349ddfb9764883d8a676d647fb7554bc79b96f47893d9c30c89227aacecd59"
+      },
+      "continuation": "Restore model + AdamW. Saved plans reproduce prior sampling; new continuation needs an explicit new sampling budget. No automatic overwrite."
+    },
+    "mixed_s2_u60000": {
+      "id": "mixed_s2_u60000",
+      "seed": 2,
+      "history": "mixed",
+      "update": 60000,
+      "checkpoint": "praxis\\results\\models\\bc_curriculum\\mixed\\seed_2\\update_60000\\checkpoint.pth",
+      "sha256": "fa7c425b3df48212cb4dad824ab500c59196780fa5016eede73e47793027e9c4",
+      "source_checkpoint": "praxis\\results\\curriculum\\axis_bc_extension_20261110\\ready_001\\mixed_seed2\\latest.pth",
+      "model_tensor_sha256": "df7d0b57b19f5b25b4c49c320dc4f05d64bf69e5a8b4c9942be8a709f9fad4cc",
+      "config_sha256": "1305742ebbbf0d013d2ea65971b933cdff7bcac341e3b01c5fca40f040393ebb",
+      "optimizer_present": true,
+      "torch_rng_present": true,
+      "cuda_rng_present": true,
+      "frozen_completion": false,
+      "sampler_plan": "praxis\\results\\models\\bc_curriculum\\sampling\\axis_bc_extension_20261110\\seed_2.npz",
+      "input_contract": {
+        "features": 10,
+        "phases": 7,
+        "actions": [
+          "x",
+          "y",
+          "z",
+          "gripper"
+        ],
+        "rotation": "fixed zero",
+        "completion_threshold": 0.8,
+        "dataset_arrays_sha256": "92349ddfb9764883d8a676d647fb7554bc79b96f47893d9c30c89227aacecd59"
+      },
+      "continuation": "Restore model + AdamW. Saved plans reproduce prior sampling; new continuation needs an explicit new sampling budget. No automatic overwrite."
+    },
+    "mixed_fixed_completion_s2_u60000": {
+      "id": "mixed_fixed_completion_s2_u60000",
+      "seed": 2,
+      "history": "mixed_fixed_completion",
+      "update": 60000,
+      "checkpoint": "praxis\\results\\models\\bc_curriculum\\mixed_fixed_completion\\seed_2\\update_60000\\checkpoint.pth",
+      "sha256": "5fd5eee322c5aecb2ae40d85633e65f8d919c057045d28d46759889d4fa504fc",
+      "source_checkpoint": "praxis\\results\\curriculum\\axis_bc_completion_10h_20261111\\ready_001\\mixed_seed2\\latest.pth",
+      "model_tensor_sha256": "c96e2b97d1cfdcb36c59393e9c08e4d5695cb4dbf7b7b93c4626035b7f7f968b",
+      "config_sha256": "1305742ebbbf0d013d2ea65971b933cdff7bcac341e3b01c5fca40f040393ebb",
+      "optimizer_present": true,
+      "torch_rng_present": true,
+      "cuda_rng_present": true,
+      "frozen_completion": true,
+      "sampler_plan": "praxis\\results\\models\\bc_curriculum\\sampling\\axis_bc_completion_10h_20261111\\seed_2.npz",
+      "input_contract": {
+        "features": 10,
+        "phases": 7,
+        "actions": [
+          "x",
+          "y",
+          "z",
+          "gripper"
+        ],
+        "rotation": "fixed zero",
+        "completion_threshold": 0.8,
+        "dataset_arrays_sha256": "92349ddfb9764883d8a676d647fb7554bc79b96f47893d9c30c89227aacecd59"
+      },
+      "continuation": "Restore model + AdamW. Saved plans reproduce prior sampling; new continuation needs an explicit new sampling budget. No automatic overwrite."
+    },
+    "curriculum_s2_u30000": {
+      "id": "curriculum_s2_u30000",
+      "seed": 2,
+      "history": "curriculum",
+      "update": 30000,
+      "checkpoint": "praxis\\results\\models\\bc_curriculum\\curriculum\\seed_2\\update_30000\\checkpoint.pth",
+      "sha256": "07edef37ffc1c3a90a4dc8fed3b725783c6790c9526c0c1d795122867a9caccc",
+      "source_checkpoint": "praxis\\results\\curriculum\\axis_bc_20261110\\ready_001\\curriculum_seed2\\latest.pth",
+      "model_tensor_sha256": "6084dc7d234c58ae4238056b4479ca1295af0375493361ccf500f8dcd1684515",
+      "config_sha256": "1305742ebbbf0d013d2ea65971b933cdff7bcac341e3b01c5fca40f040393ebb",
+      "optimizer_present": true,
+      "torch_rng_present": true,
+      "cuda_rng_present": true,
+      "frozen_completion": false,
+      "sampler_plan": "praxis\\results\\models\\bc_curriculum\\sampling\\axis_bc_20261110\\seed_2.npz",
+      "input_contract": {
+        "features": 10,
+        "phases": 7,
+        "actions": [
+          "x",
+          "y",
+          "z",
+          "gripper"
+        ],
+        "rotation": "fixed zero",
+        "completion_threshold": 0.8,
+        "dataset_arrays_sha256": "92349ddfb9764883d8a676d647fb7554bc79b96f47893d9c30c89227aacecd59"
+      },
+      "continuation": "Restore model + AdamW. Saved plans reproduce prior sampling; new continuation needs an explicit new sampling budget. No automatic overwrite."
+    },
+    "curriculum_s2_u60000": {
+      "id": "curriculum_s2_u60000",
+      "seed": 2,
+      "history": "curriculum",
+      "update": 60000,
+      "checkpoint": "praxis\\results\\models\\bc_curriculum\\curriculum\\seed_2\\update_60000\\checkpoint.pth",
+      "sha256": "62cf80bc6277458c447bf2ecd4dbfec4a7626d20098e99c124aa910a37f31fb3",
+      "source_checkpoint": "praxis\\results\\curriculum\\axis_bc_extension_20261110\\ready_001\\curriculum_seed2\\latest.pth",
+      "model_tensor_sha256": "dcbc4ff4b695fcd7e3418ae63f2c6ffaeb2d6b20c9f932de7eb3d5e4401bc5cc",
+      "config_sha256": "1305742ebbbf0d013d2ea65971b933cdff7bcac341e3b01c5fca40f040393ebb",
+      "optimizer_present": true,
+      "torch_rng_present": true,
+      "cuda_rng_present": true,
+      "frozen_completion": false,
+      "sampler_plan": "praxis\\results\\models\\bc_curriculum\\sampling\\axis_bc_extension_20261110\\seed_2.npz",
+      "input_contract": {
+        "features": 10,
+        "phases": 7,
+        "actions": [
+          "x",
+          "y",
+          "z",
+          "gripper"
+        ],
+        "rotation": "fixed zero",
+        "completion_threshold": 0.8,
+        "dataset_arrays_sha256": "92349ddfb9764883d8a676d647fb7554bc79b96f47893d9c30c89227aacecd59"
+      },
+      "continuation": "Restore model + AdamW. Saved plans reproduce prior sampling; new continuation needs an explicit new sampling budget. No automatic overwrite."
+    },
+    "curriculum_fixed_completion_s2_u60000": {
+      "id": "curriculum_fixed_completion_s2_u60000",
+      "seed": 2,
+      "history": "curriculum_fixed_completion",
+      "update": 60000,
+      "checkpoint": "praxis\\results\\models\\bc_curriculum\\curriculum_fixed_completion\\seed_2\\update_60000\\checkpoint.pth",
+      "sha256": "bb140de50801a15a367b2a28550b2a61075505c37af4979142f6074776e3c025",
+      "source_checkpoint": "praxis\\results\\curriculum\\axis_bc_completion_10h_20261111\\ready_001\\curriculum_seed2\\latest.pth",
+      "model_tensor_sha256": "3bed70151e7f16fec77c1ed1f8728b7768ae14e1118ada1637195c67380e0e58",
+      "config_sha256": "1305742ebbbf0d013d2ea65971b933cdff7bcac341e3b01c5fca40f040393ebb",
+      "optimizer_present": true,
+      "torch_rng_present": true,
+      "cuda_rng_present": true,
+      "frozen_completion": true,
+      "sampler_plan": "praxis\\results\\models\\bc_curriculum\\sampling\\axis_bc_completion_10h_20261111\\seed_2.npz",
+      "input_contract": {
+        "features": 10,
+        "phases": 7,
+        "actions": [
+          "x",
+          "y",
+          "z",
+          "gripper"
+        ],
+        "rotation": "fixed zero",
+        "completion_threshold": 0.8,
+        "dataset_arrays_sha256": "92349ddfb9764883d8a676d647fb7554bc79b96f47893d9c30c89227aacecd59"
+      },
+      "continuation": "Restore model + AdamW. Saved plans reproduce prior sampling; new continuation needs an explicit new sampling budget. No automatic overwrite."
+    },
+    "initial_s3_u0": {
+      "id": "initial_s3_u0",
+      "seed": 3,
+      "history": "initial",
+      "update": 0,
+      "checkpoint": "praxis\\results\\models\\bc_curriculum\\initial\\seed_3\\update_0\\checkpoint.pth",
+      "sha256": "872cd2d04c2218db1807242f9dd1b3c998b13ba4fa69ca644986860dc1e59f8f",
+      "source_checkpoint": "praxis\\results\\curriculum\\axis_bc_20261110\\ready_001\\mixed_seed3\\initial.pth",
+      "model_tensor_sha256": "512035a477a9a35ce2bd19384c010cad197948b4fdfdec4cfb78b488f76ab0c5",
+      "config_sha256": "1305742ebbbf0d013d2ea65971b933cdff7bcac341e3b01c5fca40f040393ebb",
+      "optimizer_present": true,
+      "torch_rng_present": true,
+      "cuda_rng_present": true,
+      "frozen_completion": false,
+      "sampler_plan": null,
+      "input_contract": {
+        "features": 10,
+        "phases": 7,
+        "actions": [
+          "x",
+          "y",
+          "z",
+          "gripper"
+        ],
+        "rotation": "fixed zero",
+        "completion_threshold": 0.8,
+        "dataset_arrays_sha256": "92349ddfb9764883d8a676d647fb7554bc79b96f47893d9c30c89227aacecd59"
+      },
+      "continuation": "Restore model + AdamW. Saved plans reproduce prior sampling; new continuation needs an explicit new sampling budget. No automatic overwrite."
+    },
+    "mixed_s3_u30000": {
+      "id": "mixed_s3_u30000",
+      "seed": 3,
+      "history": "mixed",
+      "update": 30000,
+      "checkpoint": "praxis\\results\\models\\bc_curriculum\\mixed\\seed_3\\update_30000\\checkpoint.pth",
+      "sha256": "20d7c114514a13847f3b7c20510c9161ad8c24450fc5153a906d33619896aa72",
+      "source_checkpoint": "praxis\\results\\curriculum\\axis_bc_20261110\\ready_001\\mixed_seed3\\latest.pth",
+      "model_tensor_sha256": "de43c7089e2b361cd86ad27b8d682f97b789801742c2ca7c70f7769243f5d93c",
+      "config_sha256": "1305742ebbbf0d013d2ea65971b933cdff7bcac341e3b01c5fca40f040393ebb",
+      "optimizer_present": true,
+      "torch_rng_present": true,
+      "cuda_rng_present": true,
+      "frozen_completion": false,
+      "sampler_plan": "praxis\\results\\models\\bc_curriculum\\sampling\\axis_bc_20261110\\seed_3.npz",
+      "input_contract": {
+        "features": 10,
+        "phases": 7,
+        "actions": [
+          "x",
+          "y",
+          "z",
+          "gripper"
+        ],
+        "rotation": "fixed zero",
+        "completion_threshold": 0.8,
+        "dataset_arrays_sha256": "92349ddfb9764883d8a676d647fb7554bc79b96f47893d9c30c89227aacecd59"
+      },
+      "continuation": "Restore model + AdamW. Saved plans reproduce prior sampling; new continuation needs an explicit new sampling budget. No automatic overwrite."
+    },
+    "mixed_s3_u60000": {
+      "id": "mixed_s3_u60000",
+      "seed": 3,
+      "history": "mixed",
+      "update": 60000,
+      "checkpoint": "praxis\\results\\models\\bc_curriculum\\mixed\\seed_3\\update_60000\\checkpoint.pth",
+      "sha256": "5b4844bbc45b6da2941bd6d85c6461712c6d130b13ea3fd2bfba5fb8a757eba6",
+      "source_checkpoint": "praxis\\results\\curriculum\\axis_bc_extension_20261110\\ready_001\\mixed_seed3\\latest.pth",
+      "model_tensor_sha256": "6e0cefdc8af9f0041c4f6cd6516d21a7616cad372a86eb7ffa1d63b12d4c0bd7",
+      "config_sha256": "1305742ebbbf0d013d2ea65971b933cdff7bcac341e3b01c5fca40f040393ebb",
+      "optimizer_present": true,
+      "torch_rng_present": true,
+      "cuda_rng_present": true,
+      "frozen_completion": false,
+      "sampler_plan": "praxis\\results\\models\\bc_curriculum\\sampling\\axis_bc_extension_20261110\\seed_3.npz",
+      "input_contract": {
+        "features": 10,
+        "phases": 7,
+        "actions": [
+          "x",
+          "y",
+          "z",
+          "gripper"
+        ],
+        "rotation": "fixed zero",
+        "completion_threshold": 0.8,
+        "dataset_arrays_sha256": "92349ddfb9764883d8a676d647fb7554bc79b96f47893d9c30c89227aacecd59"
+      },
+      "continuation": "Restore model + AdamW. Saved plans reproduce prior sampling; new continuation needs an explicit new sampling budget. No automatic overwrite."
+    },
+    "mixed_fixed_completion_s3_u60000": {
+      "id": "mixed_fixed_completion_s3_u60000",
+      "seed": 3,
+      "history": "mixed_fixed_completion",
+      "update": 60000,
+      "checkpoint": "praxis\\results\\models\\bc_curriculum\\mixed_fixed_completion\\seed_3\\update_60000\\checkpoint.pth",
+      "sha256": "24404e96fe59d90193479afe13438e87ca1339bbe91552b047393b57dab17ea3",
+      "source_checkpoint": "praxis\\results\\curriculum\\axis_bc_completion_10h_20261111\\ready_001\\mixed_seed3\\latest.pth",
+      "model_tensor_sha256": "81bdbcbf12d3b6666f014c79069af385741a614cb0082f16064be4aa238ef2aa",
+      "config_sha256": "1305742ebbbf0d013d2ea65971b933cdff7bcac341e3b01c5fca40f040393ebb",
+      "optimizer_present": true,
+      "torch_rng_present": true,
+      "cuda_rng_present": true,
+      "frozen_completion": true,
+      "sampler_plan": "praxis\\results\\models\\bc_curriculum\\sampling\\axis_bc_completion_10h_20261111\\seed_3.npz",
+      "input_contract": {
+        "features": 10,
+        "phases": 7,
+        "actions": [
+          "x",
+          "y",
+          "z",
+          "gripper"
+        ],
+        "rotation": "fixed zero",
+        "completion_threshold": 0.8,
+        "dataset_arrays_sha256": "92349ddfb9764883d8a676d647fb7554bc79b96f47893d9c30c89227aacecd59"
+      },
+      "continuation": "Restore model + AdamW. Saved plans reproduce prior sampling; new continuation needs an explicit new sampling budget. No automatic overwrite."
+    },
+    "curriculum_s3_u30000": {
+      "id": "curriculum_s3_u30000",
+      "seed": 3,
+      "history": "curriculum",
+      "update": 30000,
+      "checkpoint": "praxis\\results\\models\\bc_curriculum\\curriculum\\seed_3\\update_30000\\checkpoint.pth",
+      "sha256": "7ceb2fa4f72508feb5e718f45a77b5fdc26aa63a14d280b0bed4869397f9a3a5",
+      "source_checkpoint": "praxis\\results\\curriculum\\axis_bc_20261110\\ready_001\\curriculum_seed3\\latest.pth",
+      "model_tensor_sha256": "ab7eacfcd8d9a99e64d0d6392823fae5c4c2e17d630431a54bd0445b5483e7f1",
+      "config_sha256": "1305742ebbbf0d013d2ea65971b933cdff7bcac341e3b01c5fca40f040393ebb",
+      "optimizer_present": true,
+      "torch_rng_present": true,
+      "cuda_rng_present": true,
+      "frozen_completion": false,
+      "sampler_plan": "praxis\\results\\models\\bc_curriculum\\sampling\\axis_bc_20261110\\seed_3.npz",
+      "input_contract": {
+        "features": 10,
+        "phases": 7,
+        "actions": [
+          "x",
+          "y",
+          "z",
+          "gripper"
+        ],
+        "rotation": "fixed zero",
+        "completion_threshold": 0.8,
+        "dataset_arrays_sha256": "92349ddfb9764883d8a676d647fb7554bc79b96f47893d9c30c89227aacecd59"
+      },
+      "continuation": "Restore model + AdamW. Saved plans reproduce prior sampling; new continuation needs an explicit new sampling budget. No automatic overwrite."
+    },
+    "curriculum_s3_u60000": {
+      "id": "curriculum_s3_u60000",
+      "seed": 3,
+      "history": "curriculum",
+      "update": 60000,
+      "checkpoint": "praxis\\results\\models\\bc_curriculum\\curriculum\\seed_3\\update_60000\\checkpoint.pth",
+      "sha256": "39abadd83a114807a4f7bddfa65475fcb1282b56083c83440f233aafabb2669f",
+      "source_checkpoint": "praxis\\results\\curriculum\\axis_bc_extension_20261110\\ready_001\\curriculum_seed3\\latest.pth",
+      "model_tensor_sha256": "c5b819d65ee5d9b1b494812187f0befb090092a1727c00ac757a209b689f826e",
+      "config_sha256": "1305742ebbbf0d013d2ea65971b933cdff7bcac341e3b01c5fca40f040393ebb",
+      "optimizer_present": true,
+      "torch_rng_present": true,
+      "cuda_rng_present": true,
+      "frozen_completion": false,
+      "sampler_plan": "praxis\\results\\models\\bc_curriculum\\sampling\\axis_bc_extension_20261110\\seed_3.npz",
+      "input_contract": {
+        "features": 10,
+        "phases": 7,
+        "actions": [
+          "x",
+          "y",
+          "z",
+          "gripper"
+        ],
+        "rotation": "fixed zero",
+        "completion_threshold": 0.8,
+        "dataset_arrays_sha256": "92349ddfb9764883d8a676d647fb7554bc79b96f47893d9c30c89227aacecd59"
+      },
+      "continuation": "Restore model + AdamW. Saved plans reproduce prior sampling; new continuation needs an explicit new sampling budget. No automatic overwrite."
+    },
+    "curriculum_fixed_completion_s3_u60000": {
+      "id": "curriculum_fixed_completion_s3_u60000",
+      "seed": 3,
+      "history": "curriculum_fixed_completion",
+      "update": 60000,
+      "checkpoint": "praxis\\results\\models\\bc_curriculum\\curriculum_fixed_completion\\seed_3\\update_60000\\checkpoint.pth",
+      "sha256": "b1ea6c763d2cb63e71c122a429a7372278ca836e7f1069dfc00917d039cfdf88",
+      "source_checkpoint": "praxis\\results\\curriculum\\axis_bc_completion_10h_20261111\\ready_001\\curriculum_seed3\\latest.pth",
+      "model_tensor_sha256": "1e7d6bcd9589cd8c54fe63cfd63668720a5b7d99f8a4c2627401f7a4226185f2",
+      "config_sha256": "1305742ebbbf0d013d2ea65971b933cdff7bcac341e3b01c5fca40f040393ebb",
+      "optimizer_present": true,
+      "torch_rng_present": true,
+      "cuda_rng_present": true,
+      "frozen_completion": true,
+      "sampler_plan": "praxis\\results\\models\\bc_curriculum\\sampling\\axis_bc_completion_10h_20261111\\seed_3.npz",
+      "input_contract": {
+        "features": 10,
+        "phases": 7,
+        "actions": [
+          "x",
+          "y",
+          "z",
+          "gripper"
+        ],
+        "rotation": "fixed zero",
+        "completion_threshold": 0.8,
+        "dataset_arrays_sha256": "92349ddfb9764883d8a676d647fb7554bc79b96f47893d9c30c89227aacecd59"
+      },
+      "continuation": "Restore model + AdamW. Saved plans reproduce prior sampling; new continuation needs an explicit new sampling budget. No automatic overwrite."
+    }
+  },
+  "initialization_audit": {
+    "1": {
+      "initial_model_sha256": "afc51f878e858ea5f6d42cf1cb43631e243739db1552456697a8b891cd048a7d",
+      "initialization_equal": true
+    },
+    "2": {
+      "initial_model_sha256": "b1e4e722c57a382d1df68e081b6c72423630dce39da04179cbdf37de1ca8871b",
+      "initialization_equal": true
+    },
+    "3": {
+      "initial_model_sha256": "512035a477a9a35ce2bd19384c010cad197948b4fdfdec4cfb78b488f76ab0c5",
+      "initialization_equal": true
+    }
+  },
+  "dataset": "existing two-cube demonstrations; privileged state features",
+  "optimizer": "AdamW"
+}

@@ -1,0 +1,17 @@
+{
+  "state": "READY",
+  "unit_tests_passed": 6,
+  "gpu_smoke_completed_pairs": 4,
+  "gpu_smoke_episodes": 8,
+  "paired_histories_verified": true,
+  "two_cube_negative_controls_bitwise_identical": true,
+  "frozen_model_hashes_verified": true,
+  "maximum_total_seconds": 36000,
+  "shutdown_reserve_inside_budget_seconds": 120,
+  "optimizer_updates": 0,
+  "production_started": false,
+  "fresh_confirmation_scenes_not_opened": true,
+  "prepared_primary_pairs": 600,
+  "prepared_negative_control_pairs": 120,
+  "powershell_starter_syntax": "OK"
+}

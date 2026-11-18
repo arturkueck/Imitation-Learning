@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-13",
+  "project_id": "appgprj_6ad93375cfa4819190fd6f1d9e225173",
+  "version_number": 28,
+  "commit_sha": "12a8c31233313a6a255c6044bc8e58fc1803d63f",
+  "deployment_id": "appgdep_6af6fad5c0988191802f994ecc356377",
+  "deployment_status": "succeeded",
+  "url": "https://imitation-learning-research-artur.dearkoala257.chatgpt.site/curriculum.html#bc-correction",
+  "private_audience_preserved": true,
+  "checks": [
+    "1050 recorded rollouts independently matched",
+    "per-seed counts and paired gains/losses matched",
+    "public links and unique HTML IDs checked",
+    "12 trained components and 60 loss points",
+    "36/9 accepted correction families",
+    "175 original scientific input hashes preserved",
+    "unrelated training records unchanged",
+    "browser QA: result page and task-success dashboard",
+    "production build passed",
+    "archive contains no .pth/.pt/.npz/.hdf5/.pkl"
+  ],
+  "browser_qa": "local preview; production deployment confirmed by native Sites result",
+  "archive": "F:/Desktop/Programmieren/IT/Imitation Learning/output/research_bc_conclusion_20261113.tar.gz",
+  "archive_storage": {
+    "archive_format": "tar",
+    "sediment_file_id": "file_000000007dc481f493db7c0b4fcabd63",
+    "content_hash": "sha256:1271f2f736a039fc70c931bb96df4fdd0a31fe72d583c163ad6f6130622ac74f",
+    "size_bytes": 112220160,
+    "file_count": 833
+  },
+  "screenshot": "output/bc_conclusion_20261113.png"
+}

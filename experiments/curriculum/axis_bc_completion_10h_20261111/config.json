@@ -1,0 +1,28 @@
+{
+  "schema": "bc-fixed-completion-v1",
+  "source": "experiments/curriculum/axis_bc_extension_20261110/ready_001",
+  "start_update": 30000,
+  "additional_updates": 30000,
+  "evaluation_updates": [
+    40000,
+    50000,
+    60000
+  ],
+  "sampler_seed_offset": 600000,
+  "confirmation_seeds": [
+    2026117000,
+    2026117099
+  ],
+  "technical_seeds": [
+    2026116900,
+    2026116901
+  ],
+  "replay_examples_per_outcome": 1,
+  "wall_clock_cap_seconds": 36000,
+  "frozen_function": "full copied 30k model supplies completion logits; live model supplies actions",
+  "control": "reuse existing ordinary 60k continuation with exactly the same batches and optimizer initialization",
+  "diagnosis": "all four combinations of 30k/60k actions and completion on existing development scenes; historical outcome-stratified trajectory replays",
+  "selection": "fixed 60k endpoint for all six parents; no selection or hyperparameter tuning from diagnostic results",
+  "automatic_restart": false,
+  "shutdown_reserve_seconds": 120
+}

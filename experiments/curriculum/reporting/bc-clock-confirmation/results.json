@@ -1,0 +1,122 @@
+{
+  "technical_only": false,
+  "complete": true,
+  "models": {
+    "mixed_seed1": {
+      "3": {
+        "n": 100,
+        "original_successes": 44,
+        "bounded_successes": 56,
+        "gains": 12,
+        "losses": 0,
+        "negative_identical": null
+      },
+      "2": {
+        "n": 20,
+        "original_successes": 18,
+        "bounded_successes": 18,
+        "gains": 0,
+        "losses": 0,
+        "negative_identical": true
+      }
+    },
+    "curriculum_seed1": {
+      "3": {
+        "n": 100,
+        "original_successes": 32,
+        "bounded_successes": 60,
+        "gains": 28,
+        "losses": 0,
+        "negative_identical": null
+      },
+      "2": {
+        "n": 20,
+        "original_successes": 18,
+        "bounded_successes": 18,
+        "gains": 0,
+        "losses": 0,
+        "negative_identical": true
+      }
+    },
+    "mixed_seed2": {
+      "3": {
+        "n": 100,
+        "original_successes": 40,
+        "bounded_successes": 42,
+        "gains": 2,
+        "losses": 0,
+        "negative_identical": null
+      },
+      "2": {
+        "n": 20,
+        "original_successes": 18,
+        "bounded_successes": 18,
+        "gains": 0,
+        "losses": 0,
+        "negative_identical": true
+      }
+    },
+    "curriculum_seed2": {
+      "3": {
+        "n": 100,
+        "original_successes": 51,
+        "bounded_successes": 58,
+        "gains": 7,
+        "losses": 0,
+        "negative_identical": null
+      },
+      "2": {
+        "n": 20,
+        "original_successes": 19,
+        "bounded_successes": 19,
+        "gains": 0,
+        "losses": 0,
+        "negative_identical": true
+      }
+    },
+    "mixed_seed3": {
+      "3": {
+        "n": 100,
+        "original_successes": 37,
+        "bounded_successes": 39,
+        "gains": 2,
+        "losses": 0,
+        "negative_identical": null
+      },
+      "2": {
+        "n": 20,
+        "original_successes": 17,
+        "bounded_successes": 17,
+        "gains": 0,
+        "losses": 0,
+        "negative_identical": true
+      }
+    },
+    "curriculum_seed3": {
+      "3": {
+        "n": 100,
+        "original_successes": 50,
+        "bounded_successes": 59,
+        "gains": 9,
+        "losses": 0,
+        "negative_identical": null
+      },
+      "2": {
+        "n": 20,
+        "original_successes": 18,
+        "bounded_successes": 18,
+        "gains": 0,
+        "losses": 0,
+        "negative_identical": true
+      }
+    }
+  },
+  "mean_gain_percentage_points_by_history": {
+    "mixed": 5.333333333333333,
+    "curriculum": 14.666666666666666
+  },
+  "candidate_for_review": true,
+  "automatic_promotion": false,
+  "optimizer_updates": 0,
+  "interpretation": "Per-seed paired scene results. Review thresholds are practical exploratory criteria, not statistical proof; no automatic changes to existing policies."
+}

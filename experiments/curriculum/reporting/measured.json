@@ -1,0 +1,636 @@
+{
+  "ordering30": {
+    "models": {
+      "mixed_seed1": {
+        "2": {
+          "successes": 93,
+          "n": 100,
+          "success_rate": 0.93
+        },
+        "3": {
+          "successes": 49,
+          "n": 100,
+          "success_rate": 0.49
+        }
+      },
+      "curriculum_seed1": {
+        "2": {
+          "successes": 93,
+          "n": 100,
+          "success_rate": 0.93
+        },
+        "3": {
+          "successes": 47,
+          "n": 100,
+          "success_rate": 0.47
+        }
+      },
+      "mixed_seed2": {
+        "2": {
+          "successes": 95,
+          "n": 100,
+          "success_rate": 0.95
+        },
+        "3": {
+          "successes": 54,
+          "n": 100,
+          "success_rate": 0.54
+        }
+      },
+      "curriculum_seed2": {
+        "2": {
+          "successes": 91,
+          "n": 100,
+          "success_rate": 0.91
+        },
+        "3": {
+          "successes": 40,
+          "n": 100,
+          "success_rate": 0.4
+        }
+      },
+      "mixed_seed3": {
+        "2": {
+          "successes": 94,
+          "n": 100,
+          "success_rate": 0.94
+        },
+        "3": {
+          "successes": 49,
+          "n": 100,
+          "success_rate": 0.49
+        }
+      },
+      "curriculum_seed3": {
+        "2": {
+          "successes": 92,
+          "n": 100,
+          "success_rate": 0.92
+        },
+        "3": {
+          "successes": 41,
+          "n": 100,
+          "success_rate": 0.41
+        }
+      }
+    },
+    "interpretation": "Report each training seed; full three-cube tower is primary. No superiority claim from pooled scenes alone."
+  },
+  "continuation60": {
+    "models": {
+      "mixed_seed1_parent": {
+        "2": {
+          "successes": 95,
+          "n": 100
+        },
+        "3": {
+          "successes": 51,
+          "n": 100
+        }
+      },
+      "mixed_seed1_extended": {
+        "2": {
+          "successes": 93,
+          "n": 100
+        },
+        "3": {
+          "successes": 49,
+          "n": 100
+        }
+      },
+      "curriculum_seed1_parent": {
+        "2": {
+          "successes": 92,
+          "n": 100
+        },
+        "3": {
+          "successes": 52,
+          "n": 100
+        }
+      },
+      "curriculum_seed1_extended": {
+        "2": {
+          "successes": 94,
+          "n": 100
+        },
+        "3": {
+          "successes": 41,
+          "n": 100
+        }
+      },
+      "mixed_seed2_parent": {
+        "2": {
+          "successes": 96,
+          "n": 100
+        },
+        "3": {
+          "successes": 56,
+          "n": 100
+        }
+      },
+      "mixed_seed2_extended": {
+        "2": {
+          "successes": 94,
+          "n": 100
+        },
+        "3": {
+          "successes": 50,
+          "n": 100
+        }
+      },
+      "curriculum_seed2_parent": {
+        "2": {
+          "successes": 93,
+          "n": 100
+        },
+        "3": {
+          "successes": 47,
+          "n": 100
+        }
+      },
+      "curriculum_seed2_extended": {
+        "2": {
+          "successes": 96,
+          "n": 100
+        },
+        "3": {
+          "successes": 62,
+          "n": 100
+        }
+      },
+      "mixed_seed3_parent": {
+        "2": {
+          "successes": 95,
+          "n": 100
+        },
+        "3": {
+          "successes": 52,
+          "n": 100
+        }
+      },
+      "mixed_seed3_extended": {
+        "2": {
+          "successes": 89,
+          "n": 100
+        },
+        "3": {
+          "successes": 48,
+          "n": 100
+        }
+      },
+      "curriculum_seed3_parent": {
+        "2": {
+          "successes": 90,
+          "n": 100
+        },
+        "3": {
+          "successes": 47,
+          "n": 100
+        }
+      },
+      "curriculum_seed3_extended": {
+        "2": {
+          "successes": 96,
+          "n": 100
+        },
+        "3": {
+          "successes": 60,
+          "n": 100
+        }
+      }
+    },
+    "paired_extension_changes": {
+      "mixed_seed1": {
+        "2": {
+          "gains": 2,
+          "losses": 4
+        },
+        "3": {
+          "gains": 10,
+          "losses": 12
+        }
+      },
+      "curriculum_seed1": {
+        "2": {
+          "gains": 4,
+          "losses": 2
+        },
+        "3": {
+          "gains": 13,
+          "losses": 24
+        }
+      },
+      "mixed_seed2": {
+        "2": {
+          "gains": 2,
+          "losses": 4
+        },
+        "3": {
+          "gains": 7,
+          "losses": 13
+        }
+      },
+      "curriculum_seed2": {
+        "2": {
+          "gains": 5,
+          "losses": 2
+        },
+        "3": {
+          "gains": 26,
+          "losses": 11
+        }
+      },
+      "mixed_seed3": {
+        "2": {
+          "gains": 1,
+          "losses": 7
+        },
+        "3": {
+          "gains": 9,
+          "losses": 13
+        }
+      },
+      "curriculum_seed3": {
+        "2": {
+          "gains": 6,
+          "losses": 0
+        },
+        "3": {
+          "gains": 20,
+          "losses": 7
+        }
+      }
+    },
+    "interpretation": "Descriptive paired results per training seed; no pooled-scene significance claim"
+  },
+  "fixedCompletion": {
+    "models": {
+      "mixed_seed1_control": {
+        "2": {
+          "successes": 96,
+          "n": 100
+        },
+        "3": {
+          "successes": 47,
+          "n": 100
+        }
+      },
+      "mixed_seed1_fixed": {
+        "2": {
+          "successes": 89,
+          "n": 100
+        },
+        "3": {
+          "successes": 40,
+          "n": 100
+        }
+      },
+      "curriculum_seed1_control": {
+        "2": {
+          "successes": 91,
+          "n": 100
+        },
+        "3": {
+          "successes": 43,
+          "n": 100
+        }
+      },
+      "curriculum_seed1_fixed": {
+        "2": {
+          "successes": 93,
+          "n": 100
+        },
+        "3": {
+          "successes": 31,
+          "n": 100
+        }
+      },
+      "mixed_seed2_control": {
+        "2": {
+          "successes": 93,
+          "n": 100
+        },
+        "3": {
+          "successes": 52,
+          "n": 100
+        }
+      },
+      "mixed_seed2_fixed": {
+        "2": {
+          "successes": 97,
+          "n": 100
+        },
+        "3": {
+          "successes": 49,
+          "n": 100
+        }
+      },
+      "curriculum_seed2_control": {
+        "2": {
+          "successes": 93,
+          "n": 100
+        },
+        "3": {
+          "successes": 56,
+          "n": 100
+        }
+      },
+      "curriculum_seed2_fixed": {
+        "2": {
+          "successes": 93,
+          "n": 100
+        },
+        "3": {
+          "successes": 53,
+          "n": 100
+        }
+      },
+      "mixed_seed3_control": {
+        "2": {
+          "successes": 86,
+          "n": 100
+        },
+        "3": {
+          "successes": 50,
+          "n": 100
+        }
+      },
+      "mixed_seed3_fixed": {
+        "2": {
+          "successes": 97,
+          "n": 100
+        },
+        "3": {
+          "successes": 54,
+          "n": 100
+        }
+      },
+      "curriculum_seed3_control": {
+        "2": {
+          "successes": 96,
+          "n": 100
+        },
+        "3": {
+          "successes": 60,
+          "n": 100
+        }
+      },
+      "curriculum_seed3_fixed": {
+        "2": {
+          "successes": 93,
+          "n": 100
+        },
+        "3": {
+          "successes": 48,
+          "n": 100
+        }
+      }
+    },
+    "paired_fixed_vs_control": {
+      "mixed_seed1": {
+        "2": {
+          "gains": 0,
+          "losses": 7
+        },
+        "3": {
+          "gains": 5,
+          "losses": 12
+        }
+      },
+      "curriculum_seed1": {
+        "2": {
+          "gains": 3,
+          "losses": 1
+        },
+        "3": {
+          "gains": 4,
+          "losses": 16
+        }
+      },
+      "mixed_seed2": {
+        "2": {
+          "gains": 5,
+          "losses": 1
+        },
+        "3": {
+          "gains": 8,
+          "losses": 11
+        }
+      },
+      "curriculum_seed2": {
+        "2": {
+          "gains": 3,
+          "losses": 3
+        },
+        "3": {
+          "gains": 9,
+          "losses": 12
+        }
+      },
+      "mixed_seed3": {
+        "2": {
+          "gains": 11,
+          "losses": 0
+        },
+        "3": {
+          "gains": 14,
+          "losses": 10
+        }
+      },
+      "curriculum_seed3": {
+        "2": {
+          "gains": 1,
+          "losses": 4
+        },
+        "3": {
+          "gains": 5,
+          "losses": 17
+        }
+      }
+    },
+    "interpretation": "Frozen completion training and inference intervention; does not isolate completion from shared-representation gradient effects. Report each training seed."
+  },
+  "clockConfirmation": {
+    "technical_only": false,
+    "complete": true,
+    "models": {
+      "mixed_seed1": {
+        "3": {
+          "n": 100,
+          "original_successes": 44,
+          "bounded_successes": 56,
+          "gains": 12,
+          "losses": 0,
+          "negative_identical": null
+        },
+        "2": {
+          "n": 20,
+          "original_successes": 18,
+          "bounded_successes": 18,
+          "gains": 0,
+          "losses": 0,
+          "negative_identical": true
+        }
+      },
+      "curriculum_seed1": {
+        "3": {
+          "n": 100,
+          "original_successes": 32,
+          "bounded_successes": 60,
+          "gains": 28,
+          "losses": 0,
+          "negative_identical": null
+        },
+        "2": {
+          "n": 20,
+          "original_successes": 18,
+          "bounded_successes": 18,
+          "gains": 0,
+          "losses": 0,
+          "negative_identical": true
+        }
+      },
+      "mixed_seed2": {
+        "3": {
+          "n": 100,
+          "original_successes": 40,
+          "bounded_successes": 42,
+          "gains": 2,
+          "losses": 0,
+          "negative_identical": null
+        },
+        "2": {
+          "n": 20,
+          "original_successes": 18,
+          "bounded_successes": 18,
+          "gains": 0,
+          "losses": 0,
+          "negative_identical": true
+        }
+      },
+      "curriculum_seed2": {
+        "3": {
+          "n": 100,
+          "original_successes": 51,
+          "bounded_successes": 58,
+          "gains": 7,
+          "losses": 0,
+          "negative_identical": null
+        },
+        "2": {
+          "n": 20,
+          "original_successes": 19,
+          "bounded_successes": 19,
+          "gains": 0,
+          "losses": 0,
+          "negative_identical": true
+        }
+      },
+      "mixed_seed3": {
+        "3": {
+          "n": 100,
+          "original_successes": 37,
+          "bounded_successes": 39,
+          "gains": 2,
+          "losses": 0,
+          "negative_identical": null
+        },
+        "2": {
+          "n": 20,
+          "original_successes": 17,
+          "bounded_successes": 17,
+          "gains": 0,
+          "losses": 0,
+          "negative_identical": true
+        }
+      },
+      "curriculum_seed3": {
+        "3": {
+          "n": 100,
+          "original_successes": 50,
+          "bounded_successes": 59,
+          "gains": 9,
+          "losses": 0,
+          "negative_identical": null
+        },
+        "2": {
+          "n": 20,
+          "original_successes": 18,
+          "bounded_successes": 18,
+          "gains": 0,
+          "losses": 0,
+          "negative_identical": true
+        }
+      }
+    },
+    "mean_gain_percentage_points_by_history": {
+      "mixed": 5.333333333333333,
+      "curriculum": 14.666666666666666
+    },
+    "candidate_for_review": true,
+    "automatic_promotion": false,
+    "optimizer_updates": 0,
+    "interpretation": "Per-seed paired scene results. Review thresholds are practical exploratory criteria, not statistical proof; no automatic changes to existing policies."
+  },
+  "provenance": {
+    "ordering30": {
+      "source_id": "axis_bc_20261110",
+      "sha256": "4b8958aac16295757a0e9ddc16ddb4bd06d103c73b0479e4a09d286420fa0989"
+    },
+    "continuation60": {
+      "source_id": "axis_bc_extension_20261110",
+      "sha256": "15869db1486f5d5725a71453f46867e3b1409c03e42dd3a1ed071d1c169a7868"
+    },
+    "fixedCompletion": {
+      "source_id": "axis_bc_completion_10h_20261111",
+      "sha256": "86b24022d6836eaddbf186d7537aea08010d31a991bb7509e1c07eef64ba5572"
+    },
+    "clockConfirmation": {
+      "source_id": "axis_bc_clock_validation_20261112",
+      "sha256": "88760178f64cce438e00a10b51bcaf1cec474b49fc79b549034efd9fafd08a2a"
+    }
+  },
+  "clockHeadline": {
+    "pairs": 600,
+    "gains": 60,
+    "losses": 0,
+    "models_improved": 6,
+    "optimizer_updates": 0,
+    "negative_pairs": 120,
+    "negative_identical": true
+  },
+  "abc": {
+    "status": "prepared",
+    "new_models": 3,
+    "reused_models": 6,
+    "updates": 30000,
+    "seeds": [
+      1,
+      2,
+      3
+    ],
+    "primary_scenes_per_model": 100,
+    "arms": [
+      {
+        "id": "A",
+        "label": "Standard-BC",
+        "sampling": "Vollständiger Datenpool ab Beginn; phasenausgewogen",
+        "state": "Neu zu trainieren"
+      },
+      {
+        "id": "B",
+        "label": "Kontroll-BC",
+        "sampling": "Exakt die Batches von C, durchmischte Reihenfolge",
+        "state": "30k-Gewichte vorhanden; neue Auswertung offen"
+      },
+      {
+        "id": "C",
+        "label": "Curriculum-BC",
+        "sampling": "X-lastig → XY → vollständiger Pool",
+        "state": "30k-Gewichte vorhanden; neue Auswertung offen"
+      }
+    ],
+    "limitations": "Training ausschließlich auf Zweier-Demonstrationen; Dreierturm mit vorgegebener Paarreihenfolge und privilegierten Zustandsmerkmalen."
+  },
+  "updated": "2026-11-12"
+}

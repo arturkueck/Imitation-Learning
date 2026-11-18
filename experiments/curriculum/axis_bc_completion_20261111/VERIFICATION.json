@@ -1,0 +1,20 @@
+{
+  "state": "READY",
+  "unit_tests_passed": 6,
+  "prepared_inputs_verified": true,
+  "historical_control_batch_plans_exact": true,
+  "control_training_reused": true,
+  "gpu_updates_per_technical_model": 3,
+  "technical_training_models": 2,
+  "action_parameters_changed": true,
+  "completion_reference_exactly_30k": true,
+  "completion_validation_metrics_exactly_constant": true,
+  "technical_crossover_combinations": 4,
+  "historical_replay_pairs_verified": 1,
+  "historical_replay_frames": 1376,
+  "powershell_starter_syntax": "OK",
+  "single_global_deadline_tested": true,
+  "production_started": false,
+  "ready_run": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\curriculum\\axis_bc_completion_20261111\\ready_001",
+  "maximum_seconds": 28800
+}

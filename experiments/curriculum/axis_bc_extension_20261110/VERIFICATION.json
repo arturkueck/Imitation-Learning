@@ -1,0 +1,19 @@
+{
+  "state": "READY",
+  "unit_tests_passed": 7,
+  "powershell_starter_syntax": "OK",
+  "source_hashes_verified": true,
+  "parent_checkpoints_unchanged": true,
+  "optimizer_restore_next_cpu_update_exact": true,
+  "gpu_smoke_updates_per_arm": 3,
+  "smoke_final_update": 30003,
+  "paired_batch_plan_identical": true,
+  "completion_diagnostics_checked": true,
+  "simulator_cases": 4,
+  "simulator_frames_per_case": 20,
+  "long_run_started": false,
+  "wall_clock_cap_including_confirmation_seconds": 28800,
+  "shared_deadline_and_partial_training_skip_tested": true,
+  "ready_run": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\curriculum\\axis_bc_extension_20261110\\ready_001",
+  "technical_run": "F:\\Desktop\\Programmieren\\IT\\Imitation Learning\\experiments\\curriculum\\axis_bc_extension_20261110\\smoke_001"
+}

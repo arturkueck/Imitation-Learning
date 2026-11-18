@@ -1,0 +1,23 @@
+{
+  "website": "https://imitation-learning-research-artur.dearkoala257.chatgpt.site/curriculum.html",
+  "deployment_status": "succeeded",
+  "deployment_id": "appgdep_6af5cbdb2cdc819181dccb77271cec1d",
+  "version_id": "appgprj_6ad93375cfa4819190fd6f1d9e225173~appgver_f0ae9b9463988191aebeb238dfebd698",
+  "source_commit": "cdc4fc93b5e4f419c01ca6a73b5689a516c5e90c",
+  "access": "existing owner-private access preserved",
+  "pipeline_status": "READY_NOT_STARTED",
+  "new_A_models": 3,
+  "reused_BC_models": 6,
+  "moved_directories": 11,
+  "original_files_hash_verified": 839,
+  "model_bundles": 21,
+  "sampling_references": 18,
+  "checkpoint_resume_test": "identical next CPU AdamW step",
+  "website_browser_checks": [
+    "result chart",
+    "two-cube toggle",
+    "A/B/C prepared dashboard"
+  ],
+  "build": "passed",
+  "proof_image": "output/bc_curriculum_website_20261112.png"
+}

@@ -1,0 +1,33 @@
+{
+  "status": "prepared",
+  "new_models": 3,
+  "reused_models": 6,
+  "updates": 30000,
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "primary_scenes_per_model": 100,
+  "arms": [
+    {
+      "id": "A",
+      "label": "Standard-BC",
+      "sampling": "Vollständiger Datenpool ab Beginn; phasenausgewogen",
+      "state": "Neu zu trainieren"
+    },
+    {
+      "id": "B",
+      "label": "Kontroll-BC",
+      "sampling": "Exakt die Batches von C, durchmischte Reihenfolge",
+      "state": "30k-Gewichte vorhanden; neue Auswertung offen"
+    },
+    {
+      "id": "C",
+      "label": "Curriculum-BC",
+      "sampling": "X-lastig → XY → vollständiger Pool",
+      "state": "30k-Gewichte vorhanden; neue Auswertung offen"
+    }
+  ],
+  "limitations": "Training ausschließlich auf Zweier-Demonstrationen; Dreierturm mit vorgegebener Paarreihenfolge und privilegierten Zustandsmerkmalen."
+}

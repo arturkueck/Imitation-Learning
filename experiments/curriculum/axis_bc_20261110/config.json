@@ -1,0 +1,27 @@
+{
+  "schema": "axis-bc-ordering-v1",
+  "seeds": [1, 2, 3],
+  "arms": ["mixed", "curriculum"],
+  "updates": 30000,
+  "batch_size": 64,
+  "stages": [
+    {"name": "X", "end_update": 5000, "focus_fraction": 0.75},
+    {"name": "XY", "end_update": 12000, "focus_fraction": 0.75},
+    {"name": "XYZ", "end_update": 30000, "focus_fraction": 1.0}
+  ],
+  "axis_threshold": 0.1,
+  "width": 128,
+  "lr": 0.0001,
+  "weight_decay": 0.000001,
+  "warmup_updates": 500,
+  "completion_coefficient": 0.1,
+  "gradient_clip": 10.0,
+  "completion_threshold": 0.8,
+  "evaluation_updates": [1000, 5000, 12000, 20000, 30000],
+  "development_seeds": [2026113000, 2026113019],
+  "final_seeds": [2026114000, 2026114099],
+  "technical_seed": 2026112900,
+  "wall_clock_cap_seconds": 28800,
+  "selection": "fixed final update; no checkpoint selection from development or final tests",
+  "scope": "Offline demonstration ordering pilot; no action masking, new demonstrations, critic, or online labels"
+}

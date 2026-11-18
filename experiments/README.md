@@ -1,19 +1,20 @@
 # Experimente nach Thema
 
-Die 41 Versuchsfamilien sind nach Forschungsfrage gegliedert. Die bisherigen Namen und Datumsangaben bleiben innerhalb der Themen erhalten.
+Die Versuchsfamilien sind nach Forschungsfrage gegliedert. Die bisherigen Namen und Datumsangaben bleiben innerhalb der Themen erhalten.
 
 | Thema | Inhalt |
 |---|---|
 | [Baselines und Aufgaben](baselines/README.md) | Grundlegende BC-/Diffusionsvergleiche, Square und zusätzliche Simulationsaufgaben. |
 | [Stack-Diagnosen](stack_diagnostics/README.md) | Analysen von Transport, Phasenwechseln, Dynamikannahmen, Normalisierung und Robustheit. |
 | [Selbstimitation und Curriculum](self_imitation/README.md) | Datensammlung aus eigenen Versuchen, Abschnittslernen, Curriculum und Übergangsqualität. |
+| [BC-Curriculum und Freigabephase](curriculum/README.md) | Neue A/B/C-Untersuchung, geprüfte Zeitkorrektur, Abschlussdiagnosen und versionierte fortsetzbare Modelle. |
 | [Critic und Aktionsbewertung](critic/README.md) | Critic-Vortraining, Validierung und Prüfung von Aktionen bzw. Segmenten. |
 | [Visuelle Wahrnehmung](vision/README.md) | RGB-Wahrnehmung, zusätzliche Ansichten, geometrische Verfeinerung und Qualitätsauswahl. |
 | [Kameraplanung](camera_planning/README.md) | Geometrische Planung und Prüfung von Handkameraansichten. |
 
 ## Basiscode je Thema
 
-Jeder Themenordner besitzt einen `base/`-Ordner mit echten Skriptkopien, einem dokumentierten Basisskript und einem Herkunftsmanifest. Diese Kopien dienen der weiteren Codearbeit; sie ersetzen keine eingefrorenen Versuchsversionen. Die Basismethoden und verbleibenden Daten-/Modulabhaengigkeiten sind in den jeweiligen `base/README.md` beschrieben.
+Die bisher eingerichteten `base/`-Ordner enthalten echte Skriptkopien, ein dokumentiertes Basisskript und ein Herkunftsmanifest. Diese Kopien dienen der weiteren Codearbeit; sie ersetzen keine eingefrorenen Versuchsversionen. Der neue BC-Curriculum-Bereich verwendet geprüfte gemeinsame Policy-Adapter und einen Modellkatalog; seine Abhängigkeiten stehen in `curriculum/README.md`.
 
 ## Einen Versuch nachvollziehen
 

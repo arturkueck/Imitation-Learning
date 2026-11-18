@@ -1,0 +1,15 @@
+{
+  "schema": "bc-second-grasp-phase-ablation-v1",
+  "models": ["mixed_s1_u30000", "mixed_s2_u30000", "mixed_s3_u30000"],
+  "seeds": [2026113000, 2026113019],
+  "arms": {"control": [], "approach": [0], "descend": [1], "close": [2], "full_grasp": [0, 1, 2]},
+  "episode_horizon": 1000,
+  "success_frames": 50,
+  "maximum_seconds": 2400,
+  "shutdown_reserve_seconds": 10,
+  "optimizer_updates": 0,
+  "automatic_restart": false,
+  "pc_shutdown": false,
+  "reference_pairs": "praxis/results/curriculum/second_grasp_probe_v1/night_001/pairs.json",
+  "scope": "Existing development scenes only; replace complete expert action AND completion rule in the selected second-placement phase. This is not a training experiment or a full factorial interaction analysis."
+}

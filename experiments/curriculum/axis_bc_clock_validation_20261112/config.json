@@ -1,0 +1,19 @@
+{
+  "schema": "bc-release-clock-validation-v1",
+  "source": "experiments/curriculum/axis_bc_completion_10h_20261111/ready_001",
+  "confirmation_seeds": [2026119000, 2026119099],
+  "negative_control_seeds": [2026119200, 2026119219],
+  "technical_negative_seed": 2026118900,
+  "technical_regression_seed": 2026115004,
+  "phase": 6,
+  "placement_stage": 2,
+  "cap_rule": "maximum elapsed-time input in phase-six TRAINING frames; never fitted to validation or confirmation",
+  "conditions": ["original", "bounded_clock"],
+  "optimizer_updates": 0,
+  "success_frames": 50,
+  "wall_clock_cap_seconds": 36000,
+  "shutdown_reserve_seconds": 120,
+  "review_thresholds": {"minimum_mean_gain_percentage_points_each_history": 5, "maximum_regression_percentage_points_per_model": 5},
+  "selection": "all six fixed ordinary 60k checkpoints; no best-model selection or automatic deployment",
+  "automatic_restart": false
+}
