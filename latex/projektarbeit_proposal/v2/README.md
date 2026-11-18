@@ -1,8 +1,9 @@
-# Self-Imitation-Vorschlag und Zeitplan
+# Imitation-Learning-Vorschlag und Zeitplan
 
-- [proposal.tex](proposal.tex): englischer Projektvorschlag; BC- und Critic-Terme sind farblich getrennt.
-- [schedule.tex](schedule.tex): separater Gantt-Zeitplan.
-- [Exportierte PDFs](../../../output/pdf): `Self_Imitation_Learning_Proposal_v2.pdf` und `Self_Imitation_Learning_Gantt_v2.pdf`.
+- [proposal.tex](proposal.tex): englisches Exposé zu begrenzten Demonstrationsdaten und Generalisierung beim simulierten Würfelstapeln. Die Literatur führt von Imitation Learning über Self-Imitation zur Frage, ob ein vortrainierter Critic Actor-Critic gegenüber BC und Actor-Critic mit neuem Critic verbessert.
+- [schedule.tex](schedule.tex): separater Gantt-Zeitplan mit den Meilensteinen für diesen Vergleich.
+- [LITERATUR.md](LITERATUR.md): Originalarbeiten und ihre Bedeutung für die Datenfrage.
+- [Exportierte PDFs](../../../output/pdf): `Imitation_Learning_Proposal_v2.pdf` und `Imitation_Learning_Gantt_v2.pdf`. Die älteren Exporte mit dem Präfix `Self_Imitation_Learning_` dokumentieren den früheren, engeren Entwurf.
 
 ## Bauen
 
