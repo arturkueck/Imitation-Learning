@@ -1,2 +1,4 @@
 # Preserve frozen experiment files byte-for-byte for SHA256 verification.
 experiments/** -text
+# The evidence manifest records checksums of the original file bytes.
+sites/research-atlas-source/public/actor-critic-evidence/** -text

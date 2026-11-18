@@ -1,0 +1,53 @@
+{
+  "schema": "critic-warmstart-public-status-v1",
+  "status": "technically_verified",
+  "scientific_training_started": false,
+  "efficacy_demonstrated": false,
+  "unit_tests_passed": 7,
+  "state_dim": 95,
+  "warmup_keeps_actor_fixed": true,
+  "train_valid_families_disjoint": true,
+  "paired_online_starts": true,
+  "normalization_training_only": true,
+  "bounded_workflow": {
+    "passed": true,
+    "seeds": 1,
+    "arms": 3,
+    "rounds": 1,
+    "online_episodes_per_arm": 1,
+    "critic_updates_per_arm": 4,
+    "development_episodes_per_arm": 2,
+    "checkpoint_restore_tested": true,
+    "total_critic_optimizer_updates": 40,
+    "total_actor_optimizer_updates": 15
+  },
+  "arms": {
+    "A": {
+      "critic_updates": 6,
+      "actor_updates": 3,
+      "bc_coefficient": 0.0,
+      "finite_losses": true,
+      "completion_reference_unchanged": true,
+      "real_rollout_completed": true
+    },
+    "B": {
+      "critic_updates": 6,
+      "actor_updates": 3,
+      "bc_coefficient": 0.0,
+      "finite_losses": true,
+      "completion_reference_unchanged": true,
+      "real_rollout_completed": true
+    },
+    "C": {
+      "critic_updates": 6,
+      "actor_updates": 3,
+      "bc_coefficient": 0.01,
+      "finite_losses": true,
+      "completion_reference_unchanged": true,
+      "real_rollout_completed": true
+    }
+  },
+  "source_preflight_sha256": "1899167135263ab38ccf233a66372058116a3d25201224294e71a40fcb921629",
+  "source_status_sha256": "1ff26b5bfdf75c5f1869ea12c8a41f5bd66a4457fc5b67643a140d41ab670639",
+  "note": "Technical optimizer updates are recorded; no scientific comparison or efficacy result."
+}
