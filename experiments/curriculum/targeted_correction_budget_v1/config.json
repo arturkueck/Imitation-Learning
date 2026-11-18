@@ -1,0 +1,32 @@
+{
+  "schema": "matched-correction-origin-v1",
+  "models": ["mixed_s1_u30000", "mixed_s2_u30000", "mixed_s3_u30000"],
+  "blocks": [
+    {"id": "data_1", "train_seeds": [2026171000, 2026171119], "validation_seeds": [2026172000, 2026172029]},
+    {"id": "data_2", "train_seeds": [2026173000, 2026173119], "validation_seeds": [2026174000, 2026174029]},
+    {"id": "data_3", "train_seeds": [2026175000, 2026175119], "validation_seeds": [2026176000, 2026176029]}
+  ],
+  "development_seeds": [2026113000, 2026113019],
+  "confirmation_seeds": [2026179000, 2026179099],
+  "smoke_train_seeds": [2026170100, 2026170103],
+  "smoke_validation_seeds": [2026170200, 2026170202],
+  "updates": 5000,
+  "batch_size": 64,
+  "checkpoint_every": 1000,
+  "maximum_labels_per_pair": 32,
+  "minimum_train_families": 60,
+  "minimum_validation_families": 15,
+  "episode_horizon": 1000,
+  "prefix_horizon": 1000,
+  "approach_horizon": 200,
+  "policies": ["baseline", "replay", "standard", "targeted"],
+  "sources": ["replay", "standard", "targeted"],
+  "absolute_deadline": "2026-11-18T09:00:00+01:00",
+  "exit_reserve_seconds": 120,
+  "maximum_seconds": 50400,
+  "stagnation_seconds": 1200,
+  "practical_gain_percentage_points": 5.0,
+  "automatic_restart": false,
+  "pc_shutdown": false,
+  "selection": "Fixed update 5000; all blocks frozen before confirmation; no test-based selection or tuning."
+}

@@ -1,0 +1,47 @@
+{
+  "schema": "matched-correction-origin-v2-loco",
+  "models": ["mixed_s1_u30000", "mixed_s2_u30000", "mixed_s3_u30000"],
+  "blocks": [
+    {"id": "data_1", "train_seeds": [2026181000, 2026181119], "validation_seeds": [2026182000, 2026182029], "heldout_model": "mixed_s1_u30000", "collector_models": ["mixed_s2_u30000", "mixed_s3_u30000"]},
+    {"id": "data_2", "train_seeds": [2026183000, 2026183119], "validation_seeds": [2026184000, 2026184029], "heldout_model": "mixed_s2_u30000", "collector_models": ["mixed_s1_u30000", "mixed_s3_u30000"]},
+    {"id": "data_3", "train_seeds": [2026185000, 2026185119], "validation_seeds": [2026186000, 2026186029], "heldout_model": "mixed_s3_u30000", "collector_models": ["mixed_s1_u30000", "mixed_s2_u30000"]}
+  ],
+  "development_seeds": [2026113000, 2026113019],
+  "confirmation_seeds": [2026189000, 2026189149],
+  "smoke_blocks": [
+    {"train_seeds": [2026170100, 2026170103], "validation_seeds": [2026170200, 2026170202]},
+    {"train_seeds": [2026170300, 2026170303], "validation_seeds": [2026170400, 2026170402]},
+    {"train_seeds": [2026170500, 2026170503], "validation_seeds": [2026170600, 2026170602]}
+  ],
+  "updates": 5000,
+  "batch_size": 64,
+  "checkpoint_every": 1000,
+  "maximum_labels_per_pair": 32,
+  "minimum_train_families": 60,
+  "minimum_validation_families": 15,
+  "episode_horizon": 1000,
+  "prefix_horizon": 1000,
+  "approach_horizon": 200,
+  "policies": ["baseline", "replay", "standard", "targeted"],
+  "sources": ["replay", "standard", "targeted"],
+  "absolute_deadline": "2026-11-18T09:00:00+01:00",
+  "exit_reserve_seconds": 120,
+  "maximum_seconds": 50400,
+  "stagnation_seconds": 1200,
+  "practical_gain_percentage_points": 5.0,
+  "analysis": {
+    "primary": "learner-prefix versus expert-prefix on the collector-heldout parent of each block",
+    "bootstrap_unit": "scene family; all three heldout contrasts retained together",
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 2026180917,
+    "confidence_level": 0.95,
+    "sampling": "uniform family then uniform selected frame",
+    "minimum_coverage_fraction_each_collector": 0.4,
+    "decision": "mean >= 5pp, paired scene-bootstrap lower bound > 0, all heldout block differences positive, means against replay and B nonnegative",
+    "secondary": "other six block/parent combinations; descriptive only",
+    "evaluation_priority": "complete primary heldout comparisons, then secondary; primary may be reported if secondary hits fixed deadline"
+  },
+  "automatic_restart": false,
+  "pc_shutdown": false,
+  "selection": "Fixed update 5000; all blocks frozen before confirmation; no test-based selection or tuning."
+}

@@ -1,0 +1,16 @@
+{
+  "schema": "frozen-residual-phase-diagnosis-v1",
+  "source_run": "praxis/results/curriculum/targeted_correction_budget_v2/night_20261117",
+  "source_policy": "targeted",
+  "selection": "For each nonempty heldout-parent/final-placement/final-phase failure stratum select the lowest scene seed; add the lowest successful seed of the same parent not used by any selected failure or previous success control.",
+  "phases": [1, 4, 6],
+  "arms_by_phase": {"1": ["control", "action", "completion", "both"], "4": ["control", "action", "completion", "both"], "6": ["control", "action"]},
+  "smoke_strata": [["mixed_s1_u30000", 1, 1], ["mixed_s2_u30000", 2, 4], ["mixed_s3_u30000", 2, 6]],
+  "episode_horizon": 1000,
+  "success_frames": 50,
+  "maximum_seconds": 1800,
+  "exit_reserve_seconds": 30,
+  "optimizer_updates": 0,
+  "automatic_restart": false,
+  "scope": "Exploratory diagnosis on already opened scenes and frozen composites; no training, no fresh-test performance estimate, no newly calibrated difficulty classes."
+}
