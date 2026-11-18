@@ -24,26 +24,27 @@
 \par\noindent\hfill\begin{minipage}[t]{.88\linewidth}
 \projectheader{Beyond the Demonstrated Task}
 {\LARGE\sffamily\bfseries Work plan and milestones\par}
-\medskip Three months from the project start. I and II denote the first and second halves of each month.
+\medskip Three months from the project start. I and II denote the first and second halves of each month. The lighter bar marks secondary work.
 \par\bigskip
 \noindent\resizebox{\linewidth}{!}{%
 \begin{tikzpicture}[x=1.5cm,y=.51cm,font=\small\sffamily]
 \foreach \x/\m in {1/1,3/2,5/3}{\node at (\x,1.85) {Month \m};}
 \foreach \x/\halfname in {0.5/I,1.5/II,2.5/I,3.5/II,4.5/I,5.5/II}{\node at (\x,1) {\halfname};}
-\foreach \x in {0,...,6}{\draw[black!22] (\x,.55)--(\x,-6.5);}
+\foreach \x in {0,...,6}{\draw[black!22] (\x,.55)--(\x,-7.5);}
 
 \node[anchor=east] at (-.15,0) {Protocol for the three-cube task}; \fill[tuBlue] (0.04,-0.23) rectangle (0.96,0.23);
 \node[anchor=east] at (-.15,-1) {Critic data and three-seed pilot}; \fill[tuBlue] (0.54,-1.23) rectangle (1.96,-0.77);
 \node[anchor=east] at (-.15,-2) {Fix constraint, effect size, seeds}; \fill[tuBlue] (1.54,-2.23) rectangle (2.46,-1.77);
 \node[anchor=east] at (-.15,-3) {Main comparison runs}; \fill[tuBlue] (2.04,-3.23) rectangle (3.96,-2.77);
 \node[anchor=east] at (-.15,-4) {Evaluate on held-out starts}; \fill[tuBlue] (4.04,-4.23) rectangle (4.96,-3.77);
-\node[anchor=east] at (-.15,-5) {Write, revise and submit}; \fill[tuBlue] (3.04,-5.23) rectangle (5.96,-4.77);
-\node[anchor=east,font=\small\bfseries] at (-.15,-6) {Milestones};
-\node at (0.5,-6) {M1};
-\node at (1.5,-6) {M2};
-\node at (3.5,-6) {M3};
-\node at (4.5,-6) {M4};
-\node at (5.5,-6) {M5};
+\node[anchor=east] at (-.15,-5) {Vision and real-robot transfer}; \fill[tuBlue!45] (3.04,-5.23) rectangle (4.96,-4.77);
+\node[anchor=east] at (-.15,-6) {Write, revise and submit}; \fill[tuBlue] (3.04,-6.23) rectangle (5.96,-5.77);
+\node[anchor=east,font=\small\bfseries] at (-.15,-7) {Milestones};
+\node at (0.5,-7) {M1};
+\node at (1.5,-7) {M2};
+\node at (3.5,-7) {M3};
+\node at (4.5,-7) {M4};
+\node at (5.5,-7) {M5};
 \end{tikzpicture}}\par\bigskip
 \milestone{M1}{Protocol fixed}{Month 1, midpoint}
 Define three-cube scene families, difficulty calibration, data splits, success criterion and budgets. Reproduce the BC baseline trained on two-cube demonstrations and verify paired evaluation from identical simulator starts.
@@ -52,7 +53,7 @@ Run the three-seed pilot of BC and both Actor--Critic variants. Fix the constrai
 \milestone{M3}{Models frozen}{End of month 2}
 Complete the main comparison, each run with its own BC policy. Validate the critic separately and select checkpoints on validation data before the test families are opened.
 \milestone{M4}{Evaluation complete}{Month 3, midpoint}
-Report paired three-cube success against BC and between the two critic variants, separately for normal and challenging starts and for two-cube starts, with results per training run and separate interaction and computation costs.
+Report paired three-cube success against BC and between the two critic variants, separately for normal and challenging starts and for two-cube starts, with results per training run and separate interaction and computation costs. Complete the secondary checks with camera-estimated cube positions and on the real robot.
 \milestone{M5}{Project submitted}{End of month 3}
 Deliver the report, experiment protocol and scripts needed to reproduce the comparisons.
 \end{minipage}\hfill\null\par}
