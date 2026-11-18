@@ -11,7 +11,7 @@
     {NexusSansPro-Regular.otf}
 \myInstitute{}{}
 \usepackage{hyperref}
-\hypersetup{hidelinks,pdftitle={Learning from Limited Demonstrations in Robotic Manipulation: Project Schedule},
+\hypersetup{hidelinks,pdftitle={Beyond the Demonstrated Task: Project Schedule},
     pdfauthor={Artur Kück},pdflang={en}}
 \newcommand{\blockheading}[1]{\par\medskip\noindent{\sffamily\large\bfseries #1}\par\nobreak\smallskip}
 \newcommand{\milestone}[3]{\par\medskip\noindent{\sffamily\bfseries #1\quad #2}\hfill{\small\itshape #3}\par\nobreak}
@@ -22,7 +22,7 @@
 \drawSigil{%
 \thispagestyle{empty}%
 \par\noindent\hfill\begin{minipage}[t]{.88\linewidth}
-\projectheader{Learning from Limited Demonstrations in Robotic Manipulation}
+\projectheader{Beyond the Demonstrated Task}
 {\LARGE\sffamily\bfseries Work plan and milestones\par}
 \medskip Three months from the project start. I and II denote the first and second halves of each month.
 \par\bigskip
@@ -32,10 +32,10 @@
 \foreach \x/\halfname in {0.5/I,1.5/II,2.5/I,3.5/II,4.5/I,5.5/II}{\node at (\x,1) {\halfname};}
 \foreach \x in {0,...,6}{\draw[black!22] (\x,.55)--(\x,-6.5);}
 
-\node[anchor=east] at (-.15,0) {Literature and protocol}; \fill[tuBlue] (0.04,-0.23) rectangle (0.96,0.23);
-\node[anchor=east] at (-.15,-1) {Baseline and pilot studies}; \fill[tuBlue] (0.04,-1.23) rectangle (1.96,-0.77);
-\node[anchor=east] at (-.15,-2) {Select method and controls}; \fill[tuBlue] (2.04,-2.23) rectangle (2.96,-1.77);
-\node[anchor=east] at (-.15,-3) {Train selected variants}; \fill[tuBlue] (2.04,-3.23) rectangle (3.96,-2.77);
+\node[anchor=east] at (-.15,0) {Protocol for the three-cube task}; \fill[tuBlue] (0.04,-0.23) rectangle (0.96,0.23);
+\node[anchor=east] at (-.15,-1) {Critic data and three-seed pilot}; \fill[tuBlue] (0.54,-1.23) rectangle (1.96,-0.77);
+\node[anchor=east] at (-.15,-2) {Fix constraint, effect size, seeds}; \fill[tuBlue] (1.54,-2.23) rectangle (2.46,-1.77);
+\node[anchor=east] at (-.15,-3) {Main comparison runs}; \fill[tuBlue] (2.04,-3.23) rectangle (3.96,-2.77);
 \node[anchor=east] at (-.15,-4) {Evaluate on held-out starts}; \fill[tuBlue] (4.04,-4.23) rectangle (4.96,-3.77);
 \node[anchor=east] at (-.15,-5) {Write, revise and submit}; \fill[tuBlue] (3.04,-5.23) rectangle (5.96,-4.77);
 \node[anchor=east,font=\small\bfseries] at (-.15,-6) {Milestones};
@@ -45,14 +45,14 @@
 \node at (4.5,-6) {M4};
 \node at (5.5,-6) {M5};
 \end{tikzpicture}}\par\bigskip
-\milestone{M1}{Baseline protocol fixed}{Month 1, midpoint}
-Specify data splits, the success criterion and training budget. Reproduce baseline behavior and verify paired evaluation from identical simulator starts.
-\milestone{M2}{Method and comparison fixed}{End of month 1}
-Use pilot evidence to fix the method, hypothesis and controls. The proposed comparison tests whether critic pretraining helps an Actor--Critic method initialized from BC.
+\milestone{M1}{Protocol fixed}{Month 1, midpoint}
+Define three-cube scene families, difficulty calibration, data splits, success criterion and budgets. Reproduce the BC baseline trained on two-cube demonstrations and verify paired evaluation from identical simulator starts.
+\milestone{M2}{Pilot complete}{End of month 1}
+Run the three-seed pilot of BC and both Actor--Critic variants. Fix the constraint on actor updates, the smallest relevant effect and the number of independent training runs for the main comparison.
 \milestone{M3}{Models frozen}{End of month 2}
-Complete the selected variants and matched controls across a justified number of independent training runs. Validate the critic separately and freeze checkpoints before opening the final test sets.
+Complete the main comparison, each run with its own BC policy. Validate the critic separately and select checkpoints on validation data before the test families are opened.
 \milestone{M4}{Evaluation complete}{Month 3, midpoint}
-Report paired task-success differences against the BC baseline and method-specific controls, with results by training seed and separate data and training costs.
+Report paired three-cube success against BC and between the two critic variants, separately for normal and challenging starts and for two-cube starts, with results per training run and separate interaction and computation costs.
 \milestone{M5}{Project submitted}{End of month 3}
 Deliver the report, experiment protocol and scripts needed to reproduce the comparisons.
 \end{minipage}\hfill\null\par}

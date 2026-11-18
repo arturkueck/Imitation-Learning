@@ -18,7 +18,7 @@ Forschungsprojekt zu Behavioural Cloning, Selbstimitation und visueller Wahrnehm
 
 ## Wichtige Einstiege
 
-- [Self-Imitation-Projektvorschlag](latex/projektarbeit_proposal/v2/README.md) mit separatem Gantt-Zeitplan.
+- [Projektvorschlag: von Zweier-Demonstrationen zum Dreierturm](latex/projektarbeit_proposal/v2/README.md) mit Critic-Vortraining und separatem Gantt-Zeitplan.
 - [Critic und Selbstimitation](experiments/critic/critic_warmstart_20261104/README.md).
 - [Aktions- und Abschnittsprüfung](experiments/critic/il_action_feasibility_20261107/README.md).
 - [Abgeschlossene BC-Session vom 04.10.2026](experiments/stack_diagnostics/lift_contraction_validity_20261004/supervised_6h_20261004_0904/README.md).

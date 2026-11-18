@@ -1,7 +1,7 @@
 # Imitation-Learning-Vorschlag und Zeitplan
 
-- [proposal.tex](proposal.tex): englisches Exposé zu begrenzten Demonstrationsdaten und Generalisierung beim simulierten Würfelstapeln. Die Literatur führt von Imitation Learning über Self-Imitation zur Frage, ob ein vortrainierter Critic Actor-Critic gegenüber BC und Actor-Critic mit neuem Critic verbessert.
-- [schedule.tex](schedule.tex): separater Gantt-Zeitplan mit den Meilensteinen für diesen Vergleich.
+- [proposal.tex](proposal.tex): englisches Exposé, drei Seiten. Eine nur aus Zweier-Demonstrationen gelernte BC-Policy soll eine nicht demonstrierte Aufgabe lösen, den Dreierturm. Einziges Lernsignal dafür sind Erfolg und Misserfolg eigener Versuche. Geprüft wird, ob ein darauf vortrainierter Critic („IL-informed critic“) Actor-Critic gegenüber BC und gegenüber Actor-Critic mit neuem Critic verbessert. Enthält Vorarbeiten aus diesem Repository, Hypothese, Abgrenzung (fester Sequencer, privilegierter Zustand, keine Dreier-Expertendaten im Training) und Ausblick.
+- [schedule.tex](schedule.tex): separater Gantt-Zeitplan. Der Drei-Seed-Pilot legt Aktor-Beschränkung, kleinsten relevanten Effekt und Seedzahl des Hauptvergleichs fest (vgl. [AGENTS.md](../../../AGENTS.md), Abschnitt 1).
 - [LITERATUR.md](LITERATUR.md): Originalarbeiten und ihre Bedeutung für die Datenfrage.
 - [Exportierte PDFs](../../../output/pdf): `Imitation_Learning_Proposal_v2.pdf` und `Imitation_Learning_Gantt_v2.pdf`. Die älteren Exporte mit dem Präfix `Self_Imitation_Learning_` dokumentieren den früheren, engeren Entwurf.
 
