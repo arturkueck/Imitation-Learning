@@ -26,6 +26,9 @@ und `sites/` und gelten zusätzlich für ihren Teilbaum.
 
 **Aktueller Forschungsstand:** `experiments/curriculum/README.md` (Abschnitt
 „Aktueller Stand“) und `experiments/curriculum/targeted_correction_budget_v2/NEXT_STEPS_20261118.md`.
+**Nachtläufe:** Aufgabenstapel für unbeaufsichtigte Nachtagenten zum Exposé
+(Zweier-BC → Dreierturm) in `experiments/critic/three_cube_transfer_v1/NACHTPLAN.md`,
+Fortschritt in `STATUS.md` desselben Ordners.
 `FORSCHUNGSPLAN.md`, `next_research_direction.md` und `RESEARCH_NOTIZEN_*.md`
 sind datierte Hintergrunddokumente, nicht der aktuelle Stand.
 
