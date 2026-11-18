@@ -1,0 +1,47 @@
+{
+  "control": {
+    "n": 60,
+    "successes": 26,
+    "gains": 0,
+    "losses": 0,
+    "exposed": 0,
+    "reached_lift": 48,
+    "held_at_lift": 33
+  },
+  "approach": {
+    "n": 60,
+    "successes": 45,
+    "gains": 19,
+    "losses": 0,
+    "exposed": 48,
+    "reached_lift": 48,
+    "held_at_lift": 48
+  },
+  "descend": {
+    "n": 60,
+    "successes": 35,
+    "gains": 10,
+    "losses": 1,
+    "exposed": 48,
+    "reached_lift": 48,
+    "held_at_lift": 48
+  },
+  "close": {
+    "n": 60,
+    "successes": 26,
+    "gains": 0,
+    "losses": 0,
+    "exposed": 48,
+    "reached_lift": 48,
+    "held_at_lift": 45
+  },
+  "full_grasp": {
+    "n": 60,
+    "successes": 45,
+    "gains": 19,
+    "losses": 0,
+    "exposed": 48,
+    "reached_lift": 48,
+    "held_at_lift": 48
+  }
+}

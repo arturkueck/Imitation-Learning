@@ -1,0 +1,187 @@
+{
+  "models": {
+    "mixed_seed1_control": {
+      "2": {
+        "successes": 96,
+        "n": 100
+      },
+      "3": {
+        "successes": 47,
+        "n": 100
+      }
+    },
+    "mixed_seed1_fixed": {
+      "2": {
+        "successes": 89,
+        "n": 100
+      },
+      "3": {
+        "successes": 40,
+        "n": 100
+      }
+    },
+    "curriculum_seed1_control": {
+      "2": {
+        "successes": 91,
+        "n": 100
+      },
+      "3": {
+        "successes": 43,
+        "n": 100
+      }
+    },
+    "curriculum_seed1_fixed": {
+      "2": {
+        "successes": 93,
+        "n": 100
+      },
+      "3": {
+        "successes": 31,
+        "n": 100
+      }
+    },
+    "mixed_seed2_control": {
+      "2": {
+        "successes": 93,
+        "n": 100
+      },
+      "3": {
+        "successes": 52,
+        "n": 100
+      }
+    },
+    "mixed_seed2_fixed": {
+      "2": {
+        "successes": 97,
+        "n": 100
+      },
+      "3": {
+        "successes": 49,
+        "n": 100
+      }
+    },
+    "curriculum_seed2_control": {
+      "2": {
+        "successes": 93,
+        "n": 100
+      },
+      "3": {
+        "successes": 56,
+        "n": 100
+      }
+    },
+    "curriculum_seed2_fixed": {
+      "2": {
+        "successes": 93,
+        "n": 100
+      },
+      "3": {
+        "successes": 53,
+        "n": 100
+      }
+    },
+    "mixed_seed3_control": {
+      "2": {
+        "successes": 86,
+        "n": 100
+      },
+      "3": {
+        "successes": 50,
+        "n": 100
+      }
+    },
+    "mixed_seed3_fixed": {
+      "2": {
+        "successes": 97,
+        "n": 100
+      },
+      "3": {
+        "successes": 54,
+        "n": 100
+      }
+    },
+    "curriculum_seed3_control": {
+      "2": {
+        "successes": 96,
+        "n": 100
+      },
+      "3": {
+        "successes": 60,
+        "n": 100
+      }
+    },
+    "curriculum_seed3_fixed": {
+      "2": {
+        "successes": 93,
+        "n": 100
+      },
+      "3": {
+        "successes": 48,
+        "n": 100
+      }
+    }
+  },
+  "paired_fixed_vs_control": {
+    "mixed_seed1": {
+      "2": {
+        "gains": 0,
+        "losses": 7
+      },
+      "3": {
+        "gains": 5,
+        "losses": 12
+      }
+    },
+    "curriculum_seed1": {
+      "2": {
+        "gains": 3,
+        "losses": 1
+      },
+      "3": {
+        "gains": 4,
+        "losses": 16
+      }
+    },
+    "mixed_seed2": {
+      "2": {
+        "gains": 5,
+        "losses": 1
+      },
+      "3": {
+        "gains": 8,
+        "losses": 11
+      }
+    },
+    "curriculum_seed2": {
+      "2": {
+        "gains": 3,
+        "losses": 3
+      },
+      "3": {
+        "gains": 9,
+        "losses": 12
+      }
+    },
+    "mixed_seed3": {
+      "2": {
+        "gains": 11,
+        "losses": 0
+      },
+      "3": {
+        "gains": 14,
+        "losses": 10
+      }
+    },
+    "curriculum_seed3": {
+      "2": {
+        "gains": 1,
+        "losses": 4
+      },
+      "3": {
+        "gains": 5,
+        "losses": 17
+      }
+    }
+  },
+  "interpretation": "Frozen completion training and inference intervention; does not isolate completion from shared-representation gradient effects. Report each training seed."
+}

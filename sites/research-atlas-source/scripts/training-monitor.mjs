@@ -56,7 +56,7 @@ export async function buildSnapshot(root,{transport='local'}={}){
    progress:{completed:finite(last?.rendered),total:finite(last?.render_total),split:last?.split||null,epoch:finite(last?.epoch)},
    deadline:config?.deadline_unix?new Date(config.deadline_unix*1000).toISOString():null,
    results:publicConfig(await read(entry.results||'results.json')),
-   checkpointInfo:entry.kind==='design'?'Noch keine trainierten Gewichte':entry.kind==='training'?'Best und Latest je Seed/Kameravariante; letzter vollständiger Validierungszyklus':'Archivierte Pilot-Checkpoints',
+   checkpointInfo:entry.checkpointInfo||(entry.kind==='design'?'Noch keine trainierten Gewichte':entry.kind==='training'?'Best und Latest je Seed/Kameravariante; letzter vollständiger Validierungszyklus':'Archivierte Pilot-Checkpoints'),
    error:raw?.stage==='error'?String(raw.error||raw.reason||'Fehler gemeldet'):null,readErrors:errors});
  }
  return {schemaVersion:1,generatedAt:new Date().toISOString(),transport,pollSeconds:15,categories:[

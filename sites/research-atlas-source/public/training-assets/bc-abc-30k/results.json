@@ -1,0 +1,103 @@
+{
+  "status": "completed",
+  "models": {
+    "A_seed1": {
+      "3": {
+        "n": 100,
+        "successes": 40
+      },
+      "2": {
+        "n": 40,
+        "successes": 39
+      }
+    },
+    "B_seed1": {
+      "3": {
+        "n": 100,
+        "successes": 48
+      },
+      "2": {
+        "n": 40,
+        "successes": 37
+      }
+    },
+    "C_seed1": {
+      "3": {
+        "n": 100,
+        "successes": 52
+      },
+      "2": {
+        "n": 40,
+        "successes": 38
+      }
+    },
+    "A_seed2": {
+      "3": {
+        "n": 100,
+        "successes": 28
+      },
+      "2": {
+        "n": 40,
+        "successes": 35
+      }
+    },
+    "B_seed2": {
+      "3": {
+        "n": 100,
+        "successes": 56
+      },
+      "2": {
+        "n": 40,
+        "successes": 39
+      }
+    },
+    "C_seed2": {
+      "3": {
+        "n": 100,
+        "successes": 42
+      },
+      "2": {
+        "n": 40,
+        "successes": 37
+      }
+    },
+    "A_seed3": {
+      "3": {
+        "n": 100,
+        "successes": 26
+      },
+      "2": {
+        "n": 40,
+        "successes": 35
+      }
+    },
+    "B_seed3": {
+      "3": {
+        "n": 100,
+        "successes": 50
+      },
+      "2": {
+        "n": 40,
+        "successes": 38
+      }
+    },
+    "C_seed3": {
+      "3": {
+        "n": 100,
+        "successes": 46
+      },
+      "2": {
+        "n": 40,
+        "successes": 38
+      }
+    }
+  },
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "updates": 30000,
+  "primary_scenes_per_model": 100,
+  "interpretation": "B>A in all seeds; C>B in one seed only; no consistent ordering advantage"
+}

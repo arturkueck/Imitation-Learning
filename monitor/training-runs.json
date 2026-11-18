@@ -6,12 +6,12 @@
       "category": "vision",
       "method": "supervised",
       "kind": "training",
-      "title": "Vision V4 \u00b7 A/B-Seitenansichten",
+      "title": "Vision V4 Â· A/B-Seitenansichten",
       "directory": "experiments/vision/visual_side_v4_20261102/pilot_001",
       "config": "public_config.json",
       "parameters": 904112,
       "geometryIndex": "geometry/index.json",
-      "description": "A/B mit je drei Seeds; tats\u00e4chlicher Laufstatus und Messwerte. Historische Trainingsdaten nur als festes Replay, alle Validierungs-/Testfamilien gesperrt.",
+      "description": "A/B mit je drei Seeds; tatsÃ¤chlicher Laufstatus und Messwerte. Historische Trainingsdaten nur als festes Replay, alle Validierungs-/Testfamilien gesperrt.",
       "architecture": [
         [
           "Parameter",
@@ -19,11 +19,11 @@
         ],
         [
           "Eingabe",
-          "2 feste + bis zu 3 Handbilder, RGB 160\u00d7160 und kalibrierte Strahlen"
+          "2 feste + bis zu 3 Handbilder, RGB 160Ã—160 und kalibrierte Strahlen"
         ],
         [
           "CNN",
-          "6 Conv-Lagen, Kan\u00e4le 32/64/128, ReLU"
+          "6 Conv-Lagen, KanÃ¤le 32/64/128, ReLU"
         ],
         [
           "Decoder",
@@ -49,7 +49,7 @@
           "name": "pipeline-config.json",
           "file": "public_config.json",
           "kind": "document",
-          "label": "V4-Protokoll (\u00f6ffentliche Zusammenfassung)"
+          "label": "V4-Protokoll (Ã¶ffentliche Zusammenfassung)"
         },
         {
           "name": "loss.png",
@@ -67,13 +67,13 @@
           "name": "pipeline-results.json",
           "file": "results.json",
           "kind": "document",
-          "label": "Tats\u00e4chliche V4-Ergebnisse"
+          "label": "TatsÃ¤chliche V4-Ergebnisse"
         },
         {
           "name": "pipeline-data-audit.json",
           "file": "dataset_freeze.json",
           "kind": "document",
-          "label": "Pr\u00fcfung gegen historische und neue Datensplits"
+          "label": "PrÃ¼fung gegen historische und neue Datensplits"
         }
       ]
     },
@@ -81,145 +81,145 @@
       "id": "vision-active-v3-run1",
       "category": "vision",
       "method": "supervised",
-      "title": "Vision V3 \u00b7 W\u00fcrfel/Quader und Kamerahistorie \u00b7 abgeschlossen",
+      "title": "Vision V3 Â· WÃ¼rfel/Quader und Kamerahistorie Â· abgeschlossen",
       "kind": "training",
       "directory": "experiments/vision/visual_active_v3_20261101/run_001",
       "config": "config.json",
       "parameters": 904112,
       "geometryIndex": "presentation/interactive_geometry_index.json",
-      "description": "Vision-Training abgeschlossen. Neue Kameraf\u00fchrung: 47 \u2192 147 g\u00fcltige Zusatzansichten auf denselben 200 Pilotszenen; Zielnachf\u00fchrung \u22643\u00b0, neue Basisblicke. Vergleich und GIFs unter 3D-Abgleich. Keine neue Modelltrainierung oder freigegebene aktive Produktionspolicy; Bewegung ausschlie\u00dflich mit Simulatorreferenz.",
+      "description": "Vision-Training abgeschlossen. Neue KamerafÃ¼hrung: 47 â†’ 147 gÃ¼ltige Zusatzansichten auf denselben 200 Pilotszenen; ZielnachfÃ¼hrung â‰¤3Â°, neue Basisblicke. Vergleich und GIFs unter 3D-Abgleich. Keine neue Modelltrainierung oder freigegebene aktive Produktionspolicy; Bewegung ausschlieÃŸlich mit Simulatorreferenz.",
       "artifacts": [
         {
           "name": "comparison-09_fuehrung_links.gif",
           "file": "presentation/comparison-09_fuehrung_links.gif",
           "kind": "comparison-gif",
-          "label": "Neue F\u00fchrung links \u2192 Blick rechts \u00b7 39.7 cm \u00b7 Zielabweichung 1.87\u00b0"
+          "label": "Neue FÃ¼hrung links â†’ Blick rechts Â· 39.7 cm Â· Zielabweichung 1.87Â°"
         },
         {
           "name": "comparison-09_fuehrung_links.scene.json",
           "file": "presentation/comparison-09_fuehrung_links.scene.json",
           "kind": "comparison-scene",
-          "label": "Neue F\u00fchrung links \u2192 Blick rechts \u00b7 39.7 cm \u00b7 Zielabweichung 1.87\u00b0"
+          "label": "Neue FÃ¼hrung links â†’ Blick rechts Â· 39.7 cm Â· Zielabweichung 1.87Â°"
         },
         {
           "name": "comparison-10_fuehrung_rechts.gif",
           "file": "presentation/comparison-10_fuehrung_rechts.gif",
           "kind": "comparison-gif",
-          "label": "Neue F\u00fchrung rechts \u2192 Blick links \u00b7 32.5 cm \u00b7 Zielabweichung 0.03\u00b0"
+          "label": "Neue FÃ¼hrung rechts â†’ Blick links Â· 32.5 cm Â· Zielabweichung 0.03Â°"
         },
         {
           "name": "comparison-10_fuehrung_rechts.scene.json",
           "file": "presentation/comparison-10_fuehrung_rechts.scene.json",
           "kind": "comparison-scene",
-          "label": "Neue F\u00fchrung rechts \u2192 Blick links \u00b7 32.5 cm \u00b7 Zielabweichung 0.03\u00b0"
+          "label": "Neue FÃ¼hrung rechts â†’ Blick links Â· 32.5 cm Â· Zielabweichung 0.03Â°"
         },
         {
           "name": "comparison-11_fuehrung_basis.gif",
           "file": "presentation/comparison-11_fuehrung_basis.gif",
           "kind": "comparison-gif",
-          "label": "Neue F\u00fchrung zur Basis \u2192 Blick nach au\u00dfen \u00b7 28.4 cm \u00b7 Zielabweichung 0.03\u00b0"
+          "label": "Neue FÃ¼hrung zur Basis â†’ Blick nach auÃŸen Â· 28.4 cm Â· Zielabweichung 0.03Â°"
         },
         {
           "name": "comparison-11_fuehrung_basis.scene.json",
           "file": "presentation/comparison-11_fuehrung_basis.scene.json",
           "kind": "comparison-scene",
-          "label": "Neue F\u00fchrung zur Basis \u2192 Blick nach au\u00dfen \u00b7 28.4 cm \u00b7 Zielabweichung 0.03\u00b0"
+          "label": "Neue FÃ¼hrung zur Basis â†’ Blick nach auÃŸen Â· 28.4 cm Â· Zielabweichung 0.03Â°"
         },
         {
           "name": "guidance-method.md",
           "file": "presentation/guidance-method.md",
           "kind": "document",
-          "label": "Neue Kameraf\u00fchrung \u00b7 Methode und Grenzen"
+          "label": "Neue KamerafÃ¼hrung Â· Methode und Grenzen"
         },
         {
           "name": "guidance-review.json",
           "file": "presentation/guidance-review.json",
           "kind": "document",
-          "label": "Neue Kameraf\u00fchrung \u00b7 200-Szenen-Pr\u00fcfung"
+          "label": "Neue KamerafÃ¼hrung Â· 200-Szenen-PrÃ¼fung"
         },
         {
           "name": "guidance-comparison.png",
           "file": "presentation/guidance-comparison.png",
           "kind": "plot",
-          "label": "Kameraf\u00fchrung \u00b7 47 \u2192 147 Ansichten"
+          "label": "KamerafÃ¼hrung Â· 47 â†’ 147 Ansichten"
         },
         {
           "name": "comparison-07_rechts_links.gif",
           "file": "presentation/comparison-07_rechts_links.gif",
           "kind": "comparison-gif",
-          "label": "Kamera rechts \u2192 Blick links \u00b7 15.9\u00b0 \u00fcber Zielh\u00f6he \u00b7 48.6 cm"
+          "label": "Kamera rechts â†’ Blick links Â· 15.9Â° Ã¼ber ZielhÃ¶he Â· 48.6 cm"
         },
         {
           "name": "comparison-07_rechts_links.scene.json",
           "file": "presentation/comparison-07_rechts_links.scene.json",
           "kind": "comparison-scene",
-          "label": "Kamera rechts \u2192 Blick links \u00b7 15.9\u00b0 \u00fcber Zielh\u00f6he \u00b7 48.6 cm \u00b7 interaktive Geometrie"
+          "label": "Kamera rechts â†’ Blick links Â· 15.9Â° Ã¼ber ZielhÃ¶he Â· 48.6 cm Â· interaktive Geometrie"
         },
         {
           "name": "comparison-07_rechts_links-report.json",
           "file": "presentation/comparison-07_rechts_links-report.json",
           "kind": "document",
-          "label": "Kamera rechts \u2192 Blick links \u00b7 15.9\u00b0 \u00fcber Zielh\u00f6he \u00b7 48.6 cm"
+          "label": "Kamera rechts â†’ Blick links Â· 15.9Â° Ã¼ber ZielhÃ¶he Â· 48.6 cm"
         },
         {
           "name": "comparison-08_links_rechts.gif",
           "file": "presentation/comparison-08_links_rechts.gif",
           "kind": "comparison-gif",
-          "label": "Kamera links \u2192 Blick rechts \u00b7 17.1\u00b0 \u00fcber Zielh\u00f6he \u00b7 32.8 cm"
+          "label": "Kamera links â†’ Blick rechts Â· 17.1Â° Ã¼ber ZielhÃ¶he Â· 32.8 cm"
         },
         {
           "name": "comparison-08_links_rechts.scene.json",
           "file": "presentation/comparison-08_links_rechts.scene.json",
           "kind": "comparison-scene",
-          "label": "Kamera links \u2192 Blick rechts \u00b7 17.1\u00b0 \u00fcber Zielh\u00f6he \u00b7 32.8 cm \u00b7 interaktive Geometrie"
+          "label": "Kamera links â†’ Blick rechts Â· 17.1Â° Ã¼ber ZielhÃ¶he Â· 32.8 cm Â· interaktive Geometrie"
         },
         {
           "name": "comparison-08_links_rechts-report.json",
           "file": "presentation/comparison-08_links_rechts-report.json",
           "kind": "document",
-          "label": "Kamera links \u2192 Blick rechts \u00b7 17.1\u00b0 \u00fcber Zielh\u00f6he \u00b7 32.8 cm"
+          "label": "Kamera links â†’ Blick rechts Â· 17.1Â° Ã¼ber ZielhÃ¶he Â· 32.8 cm"
         },
         {
           "name": "side_view_base_001-report.json",
           "file": "presentation/side_view_base_001-report.json",
           "kind": "document",
-          "label": "Basisansicht blockiert \u00b7 side_view_base_001"
+          "label": "Basisansicht blockiert Â· side_view_base_001"
         },
         {
           "name": "side_view_base_002-report.json",
           "file": "presentation/side_view_base_002-report.json",
           "kind": "document",
-          "label": "Basisansicht blockiert \u00b7 side_view_base_002"
+          "label": "Basisansicht blockiert Â· side_view_base_002"
         },
         {
           "name": "side-views-method.md",
           "file": "presentation/side-views-method.md",
           "kind": "document",
-          "label": "Gezielte Seitenblicke \u00b7 Methode, Ergebnisse und blockierte Basisansicht"
+          "label": "Gezielte Seitenblicke Â· Methode, Ergebnisse und blockierte Basisansicht"
         },
         {
           "name": "comparison-06_breiter_blick.gif",
           "file": "presentation/comparison-06_breiter_blick.gif",
           "kind": "comparison-gif",
-          "label": "Gro\u00dfer Blickwechsel \u00b741,6cm /62,6\u00b0 \u00b7 Satzfehler12,43\u219226,14 mm-\u00e4q."
+          "label": "GroÃŸer Blickwechsel Â·41,6cm /62,6Â° Â· Satzfehler12,43â†’26,14 mm-Ã¤q."
         },
         {
           "name": "comparison-06_breiter_blick.scene.json",
           "file": "presentation/comparison-06_breiter_blick.scene.json",
           "kind": "comparison-scene",
-          "label": "Gro\u00dfer Blickwechsel \u00b7 interaktive Geometrie"
+          "label": "GroÃŸer Blickwechsel Â· interaktive Geometrie"
         },
         {
           "name": "broad-view-report.json",
           "file": "presentation/broad-view-report.json",
           "kind": "document",
-          "label": "Gro\u00dfer Blickwechsel \u00b7 Kollision und blockierte visuelle Freigabe"
+          "label": "GroÃŸer Blickwechsel Â· Kollision und blockierte visuelle Freigabe"
         },
         {
           "name": "broad-view-method.md",
           "file": "presentation/broad-view-method.md",
           "kind": "document",
-          "label": "Gro\u00dfer Blickwechsel \u00b7 Methode und Grenzen"
+          "label": "GroÃŸer Blickwechsel Â· Methode und Grenzen"
         },
         {
           "name": "loss.png",
@@ -237,7 +237,7 @@
           "name": "results.json",
           "file": "results.json",
           "kind": "document",
-          "label": "Tats\u00e4chliche Wahrnehmungsergebnisse"
+          "label": "TatsÃ¤chliche Wahrnehmungsergebnisse"
         },
         {
           "name": "selection.json",
@@ -255,48 +255,48 @@
           "name": "comparison-01_bruecke.gif",
           "file": "presentation/comparison-01_bruecke.gif",
           "kind": "comparison-gif",
-          "label": "Br\u00fccke / Wand \u00b7 4 Objekte \u00b7 5.19 \u2192 4.48 mm-\u00e4q."
+          "label": "BrÃ¼cke / Wand Â· 4 Objekte Â· 5.19 â†’ 4.48 mm-Ã¤q."
         },
         {
           "name": "comparison-02_turm.gif",
           "file": "presentation/comparison-02_turm.gif",
           "kind": "comparison-gif",
-          "label": "Turm mit Erkennungsfehlern \u00b7 3 Objekte \u00b7 27.72 \u2192 27.07 mm-\u00e4q."
+          "label": "Turm mit Erkennungsfehlern Â· 3 Objekte Â· 27.72 â†’ 27.07 mm-Ã¤q."
         },
         {
           "name": "comparison-03_turm_verschlechterung.gif",
           "file": "presentation/comparison-03_turm_verschlechterung.gif",
           "kind": "comparison-gif",
-          "label": "Turm \u00b7 Verschlechterung \u00b7 3 Objekte \u00b7 5.60 \u2192 6.29 mm-\u00e4q."
+          "label": "Turm Â· Verschlechterung Â· 3 Objekte Â· 5.60 â†’ 6.29 mm-Ã¤q."
         },
         {
           "name": "comparison-04_kamera_holdout.gif",
           "file": "presentation/comparison-04_kamera_holdout.gif",
           "kind": "comparison-gif",
-          "label": "Zur\u00fcckgehaltene Kamerapose \u00b7 2 Objekte \u00b7 10.94 \u2192 8.08 mm-\u00e4q."
+          "label": "ZurÃ¼ckgehaltene Kamerapose Â· 2 Objekte Â· 10.94 â†’ 8.08 mm-Ã¤q."
         },
         {
           "name": "comparison-05_lange_duenne_quader.gif",
           "file": "presentation/comparison-05_lange_duenne_quader.gif",
           "kind": "comparison-gif",
-          "label": "Lange, d\u00fcnne Quader \u00b7 Verschlechterung \u00b7 4 Objekte \u00b7 42.83 \u2192 52.35 mm-\u00e4q."
+          "label": "Lange, dÃ¼nne Quader Â· Verschlechterung Â· 4 Objekte Â· 42.83 â†’ 52.35 mm-Ã¤q."
         },
         {
           "name": "followup-review.md",
           "file": "FOLLOWUP_REVIEW.md",
-          "label": "Abschlussbericht \u00b7 Grenzen und Schlusspr\u00fcfungen",
+          "label": "Abschlussbericht Â· Grenzen und SchlussprÃ¼fungen",
           "kind": "document"
         },
         {
           "name": "head-loss.png",
           "file": "followup_001/head_loss.png",
-          "label": "Aufnahmek\u00f6pfe: Training-/Validation-Loss",
+          "label": "AufnahmekÃ¶pfe: Training-/Validation-Loss",
           "kind": "plot"
         },
         {
           "name": "head-curves.json",
           "file": "followup_001/head_curves.json",
-          "label": "Aufnahmek\u00f6pfe: Messwerte",
+          "label": "AufnahmekÃ¶pfe: Messwerte",
           "kind": "document"
         },
         {
@@ -309,31 +309,31 @@
           "name": "comparison-01_bruecke.scene.json",
           "file": "presentation/comparison-01_bruecke.scene.json",
           "kind": "comparison-scene",
-          "label": "Interaktive Drei-Farben-Szene \u00b7 01_bruecke"
+          "label": "Interaktive Drei-Farben-Szene Â· 01_bruecke"
         },
         {
           "name": "comparison-02_turm.scene.json",
           "file": "presentation/comparison-02_turm.scene.json",
           "kind": "comparison-scene",
-          "label": "Interaktive Drei-Farben-Szene \u00b7 02_turm"
+          "label": "Interaktive Drei-Farben-Szene Â· 02_turm"
         },
         {
           "name": "comparison-03_turm_verschlechterung.scene.json",
           "file": "presentation/comparison-03_turm_verschlechterung.scene.json",
           "kind": "comparison-scene",
-          "label": "Interaktive Drei-Farben-Szene \u00b7 03_turm_verschlechterung"
+          "label": "Interaktive Drei-Farben-Szene Â· 03_turm_verschlechterung"
         },
         {
           "name": "comparison-04_kamera_holdout.scene.json",
           "file": "presentation/comparison-04_kamera_holdout.scene.json",
           "kind": "comparison-scene",
-          "label": "Interaktive Drei-Farben-Szene \u00b7 04_kamera_holdout"
+          "label": "Interaktive Drei-Farben-Szene Â· 04_kamera_holdout"
         },
         {
           "name": "comparison-05_lange_duenne_quader.scene.json",
           "file": "presentation/comparison-05_lange_duenne_quader.scene.json",
           "kind": "comparison-scene",
-          "label": "Interaktive Drei-Farben-Szene \u00b7 05_lange_duenne_quader"
+          "label": "Interaktive Drei-Farben-Szene Â· 05_lange_duenne_quader"
         }
       ],
       "architecture": [
@@ -363,7 +363,7 @@
         ],
         [
           "Anschlussphase",
-          "Anforderungsk\u00f6pfe erst nach eingefrorener Wahrnehmung; noch untrainiert"
+          "AnforderungskÃ¶pfe erst nach eingefrorener Wahrnehmung; noch untrainiert"
         ]
       ]
     },
@@ -371,42 +371,42 @@
       "id": "vision-active-v3-design",
       "category": "vision",
       "method": "supervised",
-      "title": "Vision V3 \u00b7 Wunschaufnahmen und Kameraposen \u00b7 Entwurf",
+      "title": "Vision V3 Â· Wunschaufnahmen und Kameraposen Â· Entwurf",
       "kind": "design",
       "directory": "experiments/vision/visual_active_v3_20261101",
       "config": "PROPOSED_CONFIG.json",
       "parameters": 904112,
-      "description": "Nicht gestartet. Pose-robuste Wahrnehmung, anschlie\u00dfende Aufnahmeentscheidung und gespeicherte Wunsch-/Plan-/Ist-Kameraposen. 17.539 zus\u00e4tzliche Parameter in untrainierten Anforderungsk\u00f6pfen.",
+      "description": "Nicht gestartet. Pose-robuste Wahrnehmung, anschlieÃŸende Aufnahmeentscheidung und gespeicherte Wunsch-/Plan-/Ist-Kameraposen. 17.539 zusÃ¤tzliche Parameter in untrainierten AnforderungskÃ¶pfen.",
       "artifacts": [
         {
           "name": "plan.md",
           "file": "PLAN.md",
           "kind": "document",
-          "label": "Trainingsentwurf \u00b7 Stand 02.11.2026"
+          "label": "Trainingsentwurf Â· Stand 02.11.2026"
         },
         {
           "name": "config.json",
           "file": "PROPOSED_CONFIG.json",
           "kind": "document",
-          "label": "Konfiguration \u00b7 Training deaktiviert"
+          "label": "Konfiguration Â· Training deaktiviert"
         },
         {
           "name": "model-info.json",
           "file": "model_info.json",
           "kind": "document",
-          "label": "Untrainierte Kopfarchitektur und Parameterpr\u00fcfung"
+          "label": "Untrainierte Kopfarchitektur und ParameterprÃ¼fung"
         },
         {
           "name": "capture-request-schema.json",
           "file": "capture-request.schema.json",
           "kind": "document",
-          "label": "Datenvertrag f\u00fcr angeforderte Kameraposen"
+          "label": "Datenvertrag fÃ¼r angeforderte Kameraposen"
         },
         {
           "name": "request-example.jsonl",
           "file": "example/capture_requests.jsonl",
           "kind": "document",
-          "label": "Synthetisches Auftragsbeispiel \u00b7 keine echte Aufnahme"
+          "label": "Synthetisches Auftragsbeispiel Â· keine echte Aufnahme"
         }
       ],
       "architecture": [
@@ -415,16 +415,16 @@
           "904.112 Parameter; bestehender CNN/Transformer; 5 Objektslots"
         ],
         [
-          "Historie \u00b7 geplant",
+          "Historie Â· geplant",
           "Bis zu 5 RGB-Bilder; Rollen-Embeddings und kalibrierte Strahlen"
         ],
         [
-          "Aufnahmebedarf \u00b7 untrainiert",
-          "23 \u2192 64 \u2192 32 \u2192 1; GELU; 3.649 Parameter"
+          "Aufnahmebedarf Â· untrainiert",
+          "23 â†’ 64 â†’ 32 â†’ 1; GELU; 3.649 Parameter"
         ],
         [
-          "Kandidatenbewertung \u00b7 untrainiert",
-          "42 \u2192 128 \u2192 64 \u2192 2; GELU; 13.890 Parameter"
+          "Kandidatenbewertung Â· untrainiert",
+          "42 â†’ 128 â†’ 64 â†’ 2; GELU; 13.890 Parameter"
         ],
         [
           "Protokollierung",
@@ -436,12 +436,12 @@
       "id": "vision-scene-v2-run1",
       "category": "vision",
       "method": "supervised",
-      "title": "Szenenwahrnehmung V2 \u00b7 Nachtlauf 1",
+      "title": "Szenenwahrnehmung V2 Â· Nachtlauf 1",
       "kind": "training",
       "directory": "experiments/vision/visual_scene_v2_20261101/run_001",
       "config": "config.json",
       "parameters": 904112,
-      "description": "Vision-Training mit 0\u20135 W\u00fcrfeln und Quadern, verstreuten und gestapelten Szenen, kalibrierten Kameras und Verdeckungslabels. Drei gepaarte Seeds, zwei Kameravarianten.",
+      "description": "Vision-Training mit 0â€“5 WÃ¼rfeln und Quadern, verstreuten und gestapelten Szenen, kalibrierten Kameras und Verdeckungslabels. Drei gepaarte Seeds, zwei Kameravarianten.",
       "artifacts": [
         {
           "name": "loss.png",
@@ -465,37 +465,37 @@
           "name": "dataset.json",
           "file": "data/generation_report.json",
           "kind": "document",
-          "label": "Datengenerierung und Ausschl\u00fcsse"
+          "label": "Datengenerierung und AusschlÃ¼sse"
         },
         {
           "name": "evaluation.json",
           "file": "test_repair_001/results.json",
-          "label": "Korrigierte Schlusspr\u00fcfung \u00b7 eingefrorene Modelle",
+          "label": "Korrigierte SchlussprÃ¼fung Â· eingefrorene Modelle",
           "kind": "document"
         },
         {
           "name": "evaluation-summary.json",
           "file": "test_repair_001/summary.json",
-          "label": "Zusammenfassung der Schlusspr\u00fcfung",
+          "label": "Zusammenfassung der SchlussprÃ¼fung",
           "kind": "document"
         }
       ],
       "architecture": [
         [
           "CNN",
-          "6 Conv-Schichten; Kan\u00e4le 32 \u2192 64 \u2192 128; ReLU"
+          "6 Conv-Schichten; KanÃ¤le 32 â†’ 64 â†’ 128; ReLU"
         ],
         [
-          "R\u00e4umliche Merkmale",
-          "1.200 Tokens \u00d7 128 Merkmale, kalibrierte Kamerastrahlen"
+          "RÃ¤umliche Merkmale",
+          "1.200 Tokens Ã— 128 Merkmale, kalibrierte Kamerastrahlen"
         ],
         [
           "Transformer",
-          "3 Decoderbl\u00f6cke; 4 Attentionk\u00f6pfe; GELU; Dropout 0,1"
+          "3 DecoderblÃ¶cke; 4 AttentionkÃ¶pfe; GELU; Dropout 0,1"
         ],
         [
           "Objektausgabe",
-          "5 Slots \u00d7 16 Rohwerte: Detektion, Position, Gr\u00f6\u00dfe, Rotation und Sichtbarkeit"
+          "5 Slots Ã— 16 Rohwerte: Detektion, Position, GrÃ¶ÃŸe, Rotation und Sichtbarkeit"
         ]
       ],
       "geometryIndex": "presentation/interactive_geometry_index.json",
@@ -505,17 +505,17 @@
       "id": "vision-scene-v2",
       "category": "vision",
       "method": "supervised",
-      "title": "Szenenwahrnehmung \u00b7 0\u20135 Objekte",
+      "title": "Szenenwahrnehmung Â· 0â€“5 Objekte",
       "kind": "design",
       "directory": "experiments/vision/visual_scene_v2_20261101",
       "config": "PROPOSED_CONFIG.json",
       "parameters": 904112,
-      "description": "Geplanter Mehr-Objekt-Versuch mit W\u00fcrfeln, Quadern, Stapeln und Verdeckungen. Noch kein Training gestartet.",
+      "description": "Geplanter Mehr-Objekt-Versuch mit WÃ¼rfeln, Quadern, Stapeln und Verdeckungen. Noch kein Training gestartet.",
       "artifacts": [
         {
           "name": "overlay-demo.png",
           "file": "overlay_demo/overlay.png",
-          "label": "3D-Vergleich \u00b7 Illustration",
+          "label": "3D-Vergleich Â· Illustration",
           "kind": "demo"
         },
         {
@@ -528,19 +528,19 @@
       "architecture": [
         [
           "CNN",
-          "6 Conv-Schichten; Kan\u00e4le 32 \u2192 64 \u2192 128; ReLU"
+          "6 Conv-Schichten; KanÃ¤le 32 â†’ 64 â†’ 128; ReLU"
         ],
         [
-          "R\u00e4umliche Merkmale",
-          "1.200 Tokens \u00d7 128 Merkmale, kalibrierte Kamerastrahlen"
+          "RÃ¤umliche Merkmale",
+          "1.200 Tokens Ã— 128 Merkmale, kalibrierte Kamerastrahlen"
         ],
         [
           "Transformer",
-          "3 Decoderbl\u00f6cke; 4 Attentionk\u00f6pfe; GELU; Dropout 0,1"
+          "3 DecoderblÃ¶cke; 4 AttentionkÃ¶pfe; GELU; Dropout 0,1"
         ],
         [
           "Objektausgabe",
-          "5 Slots \u00d7 16 Rohwerte: Detektion, Position, Gr\u00f6\u00dfe, Rotation und Sichtbarkeit"
+          "5 Slots Ã— 16 Rohwerte: Detektion, Position, GrÃ¶ÃŸe, Rotation und Sichtbarkeit"
         ]
       ]
     },
@@ -548,12 +548,12 @@
       "id": "vision-night-v1",
       "category": "vision",
       "method": "supervised",
-      "title": "W\u00fcrfel-Lokalisierung \u00b7 Nachtlauf V1",
+      "title": "WÃ¼rfel-Lokalisierung Â· Nachtlauf V1",
       "kind": "training",
       "directory": "experiments/vision/visual_overnight_20261101/run_003",
       "config": "config.json",
       "parameters": 212614,
-      "description": "Zwei farblich zugeordnete W\u00fcrfel, drei gepaarte Seeds und zwei Kameravarianten. Auf Nutzerwunsch abgebrochen; keine Abschlusstests.",
+      "description": "Zwei farblich zugeordnete WÃ¼rfel, drei gepaarte Seeds und zwei Kameravarianten. Auf Nutzerwunsch abgebrochen; keine Abschlusstests.",
       "artifacts": [
         {
           "name": "loss.png",
@@ -571,19 +571,19 @@
       "architecture": [
         [
           "Eingabe",
-          "3 Ansichten \u00d7 RGB \u00d7 128 \u00d7 128 Pixel"
+          "3 Ansichten Ã— RGB Ã— 128 Ã— 128 Pixel"
         ],
         [
           "CNN",
-          "3 Conv-Schichten; 3 \u2192 16 \u2192 32 \u2192 32 Kan\u00e4le; ReLU"
+          "3 Conv-Schichten; 3 â†’ 16 â†’ 32 â†’ 32 KanÃ¤le; ReLU"
         ],
         [
           "Pooling / Fusion",
-          "Average Pooling auf 4\u00d74; 1.536 kombinierte Merkmale"
+          "Average Pooling auf 4Ã—4; 1.536 kombinierte Merkmale"
         ],
         [
           "Kopf",
-          "Linear 1.536 \u2192 128 + ReLU \u2192 6 lineare XYZ-Ausgaben"
+          "Linear 1.536 â†’ 128 + ReLU â†’ 6 lineare XYZ-Ausgaben"
         ]
       ]
     },
@@ -591,12 +591,12 @@
       "id": "vision-pilot-v1",
       "category": "vision",
       "method": "supervised",
-      "title": "Kameravergleich \u00b7 erster Pilot",
+      "title": "Kameravergleich Â· erster Pilot",
       "kind": "completed",
       "directory": "experiments/vision/visual_cube_transfer_20261031",
       "config": "MODEL_METADATA.json",
       "parameters": 212614,
-      "description": "Abgeschlossener 64\u00d764-Pilot mit zwei Seeds. Die vollst\u00e4ndigen Loss-Kurven stammen aus einem separaten Diagnoselauf; Endtests aus run_002.",
+      "description": "Abgeschlossener 64Ã—64-Pilot mit zwei Seeds. Die vollstÃ¤ndigen Loss-Kurven stammen aus einem separaten Diagnoselauf; Endtests aus run_002.",
       "curves": "diagnostic_001/curves.json",
       "results": "run_002/results.json",
       "artifacts": [
@@ -616,16 +616,240 @@
       "architecture": [
         [
           "Eingabe",
-          "3 Ansichten \u00d7 RGB \u00d7 64 \u00d7 64 Pixel"
+          "3 Ansichten Ã— RGB Ã— 64 Ã— 64 Pixel"
         ],
         [
           "CNN",
-          "3 Conv-Schichten; 16 / 32 / 32 Kan\u00e4le; ReLU"
+          "3 Conv-Schichten; 16 / 32 / 32 KanÃ¤le; ReLU"
         ],
         [
           "Kopf",
-          "1.536 \u2192 128 + ReLU \u2192 6 lineare Koordinaten"
+          "1.536 â†’ 128 + ReLU â†’ 6 lineare Koordinaten"
         ]
+      ]
+    },
+    {
+      "id": "bc-curriculum-30k",
+      "category": "robot",
+      "method": "il",
+      "kind": "completed",
+      "title": "BC Â· B/C-Reihenfolge Â· 30k",
+      "directory": "experiments/curriculum/reporting/bc-curriculum-30k",
+      "config": "config.json",
+      "parameters": 129955,
+      "description": "Originaler B/C-Vergleich; AusfÃ¼hrung damals ohne spÃ¤tere Zeitkorrektur.",
+      "checkpointInfo": "Versionierte Modelle mit AdamW, RNG und Sampleplan im lokalen Modellkatalog",
+      "architecture": [
+        [
+          "Policy",
+          "PhaseNet Â· 7 PhasenkÃ¶pfe Â· Breite 128"
+        ],
+        [
+          "Eingabe",
+          "10 privilegierte Zustandsmerkmale"
+        ],
+        [
+          "Ausgabe",
+          "XYZ und Greifer; Abschluss-Logit"
+        ],
+        [
+          "Ziel",
+          "Stabiler Dreierturm; Paarreihenfolge vorgegeben"
+        ]
+      ],
+      "artifacts": [
+        {
+          "name": "results.json",
+          "file": "results.json",
+          "kind": "document",
+          "label": "Messwerte und Grenzen"
+        },
+        {
+          "name": "README.md",
+          "file": "README.md",
+          "kind": "document",
+          "label": "Einordnung"
+        }
+      ]
+    },
+    {
+      "id": "bc-curriculum-60k",
+      "category": "robot",
+      "method": "il",
+      "kind": "completed",
+      "title": "BC Â· Fortsetzung 30k â†’ 60k",
+      "directory": "experiments/curriculum/reporting/bc-curriculum-60k",
+      "config": "config.json",
+      "parameters": 129955,
+      "description": "Weitertraining mit gleichen neuen Batches; Ergebnis je Seed uneinheitlich.",
+      "checkpointInfo": "Versionierte Modelle mit AdamW, RNG und Sampleplan im lokalen Modellkatalog",
+      "architecture": [
+        [
+          "Policy",
+          "PhaseNet Â· 7 PhasenkÃ¶pfe Â· Breite 128"
+        ],
+        [
+          "Eingabe",
+          "10 privilegierte Zustandsmerkmale"
+        ],
+        [
+          "Ausgabe",
+          "XYZ und Greifer; Abschluss-Logit"
+        ],
+        [
+          "Ziel",
+          "Stabiler Dreierturm; Paarreihenfolge vorgegeben"
+        ]
+      ],
+      "artifacts": [
+        {
+          "name": "results.json",
+          "file": "results.json",
+          "kind": "document",
+          "label": "Messwerte und Grenzen"
+        },
+        {
+          "name": "README.md",
+          "file": "README.md",
+          "kind": "document",
+          "label": "Einordnung"
+        }
+      ]
+    },
+    {
+      "id": "bc-fixed-completion-60k",
+      "category": "robot",
+      "method": "il",
+      "kind": "completed",
+      "title": "BC Â· Feste Abschlussfunktion",
+      "directory": "experiments/curriculum/reporting/bc-fixed-completion-60k",
+      "config": "config.json",
+      "parameters": 259910,
+      "description": "Feste 30k-Abschlussfunktion gegen gewÃ¶hnliche Fortsetzung; kein stabiler Vorteil.",
+      "checkpointInfo": "Versionierte Modelle mit AdamW, RNG und Sampleplan im lokalen Modellkatalog",
+      "architecture": [
+        [
+          "Policy",
+          "PhaseNet Â· 7 PhasenkÃ¶pfe Â· Breite 128"
+        ],
+        [
+          "Parameterumfang",
+          "129.955 trainierbar + 129.955 feste Referenz in der eingefrorenen Bedingung"
+        ],
+        [
+          "Eingabe",
+          "10 privilegierte Zustandsmerkmale"
+        ],
+        [
+          "Ausgabe",
+          "XYZ und Greifer; Abschluss-Logit"
+        ],
+        [
+          "Ziel",
+          "Stabiler Dreierturm; Paarreihenfolge vorgegeben"
+        ]
+      ],
+      "artifacts": [
+        {
+          "name": "results.json",
+          "file": "results.json",
+          "kind": "document",
+          "label": "Messwerte und Grenzen"
+        },
+        {
+          "name": "README.md",
+          "file": "README.md",
+          "kind": "document",
+          "label": "Einordnung"
+        }
+      ]
+    },
+    {
+      "id": "bc-clock-confirmation",
+      "category": "robot",
+      "method": "il",
+      "kind": "completed",
+      "title": "BC Â· Zeitkorrektur bestÃ¤tigt",
+      "directory": "experiments/curriculum/reporting/bc-clock-confirmation",
+      "config": "config.json",
+      "parameters": 129955,
+      "description": "Auswertung unverÃ¤nderter 60k-Gewichte: 60 zusÃ¤tzliche gepaarte DreiertÃ¼rme, keine Verluste; null Trainingsupdates.",
+      "checkpointInfo": "Versionierte Modelle mit AdamW, RNG und Sampleplan im lokalen Modellkatalog",
+      "architecture": [
+        [
+          "Policy",
+          "PhaseNet Â· 7 PhasenkÃ¶pfe Â· Breite 128"
+        ],
+        [
+          "Eingabe",
+          "10 privilegierte Zustandsmerkmale"
+        ],
+        [
+          "Ausgabe",
+          "XYZ und Greifer; Abschluss-Logit"
+        ],
+        [
+          "Ziel",
+          "Stabiler Dreierturm; Paarreihenfolge vorgegeben"
+        ]
+      ],
+      "artifacts": [
+        {
+          "name": "results.json",
+          "file": "results.json",
+          "kind": "document",
+          "label": "Messwerte und Grenzen"
+        },
+        {
+          "name": "README.md",
+          "file": "README.md",
+          "kind": "document",
+          "label": "Einordnung"
+        }
+      ]
+    },
+    {
+      "id": "bc-abc-30k",
+      "category": "robot",
+      "method": "il",
+      "kind": "design",
+      "title": "BC Â· A/B/C-Vergleich vorbereitet",
+      "directory": "experiments/curriculum/reporting/bc-abc-30k",
+      "config": "config.json",
+      "parameters": 129955,
+      "description": "Nur A wird neu trainiert; B/C-30k-Gewichte vorhanden. Einheitliche Zeitbehandlung, frische Tests noch offen.",
+      "checkpointInfo": "Drei A-Modelle vorbereitet; sechs vollstÃ¤ndige B/C-30k-Checkpoints vorhanden",
+      "architecture": [
+        [
+          "Policy",
+          "PhaseNet Â· 7 PhasenkÃ¶pfe Â· Breite 128"
+        ],
+        [
+          "Eingabe",
+          "10 privilegierte Zustandsmerkmale"
+        ],
+        [
+          "Ausgabe",
+          "XYZ und Greifer; Abschluss-Logit"
+        ],
+        [
+          "Ziel",
+          "Stabiler Dreierturm; Paarreihenfolge vorgegeben"
+        ]
+      ],
+      "artifacts": [
+        {
+          "name": "results.json",
+          "file": "results.json",
+          "kind": "document",
+          "label": "Messwerte und Grenzen"
+        },
+        {
+          "name": "README.md",
+          "file": "README.md",
+          "kind": "document",
+          "label": "Einordnung"
+        }
       ]
     }
   ]

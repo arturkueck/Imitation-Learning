@@ -1,0 +1,293 @@
+{
+  "summary": {
+    "development": {
+      "mixed_s1_u30000": {
+        "baseline": {
+          "n": 20,
+          "successes": 9
+        },
+        "replay": {
+          "n": 20,
+          "successes": 10
+        },
+        "action": {
+          "n": 20,
+          "successes": 9
+        },
+        "completion": {
+          "n": 20,
+          "successes": 6
+        },
+        "combined": {
+          "n": 20,
+          "successes": 15
+        }
+      },
+      "mixed_s2_u30000": {
+        "baseline": {
+          "n": 20,
+          "successes": 9
+        },
+        "replay": {
+          "n": 20,
+          "successes": 10
+        },
+        "action": {
+          "n": 20,
+          "successes": 9
+        },
+        "completion": {
+          "n": 20,
+          "successes": 11
+        },
+        "combined": {
+          "n": 20,
+          "successes": 15
+        }
+      },
+      "mixed_s3_u30000": {
+        "baseline": {
+          "n": 20,
+          "successes": 8
+        },
+        "replay": {
+          "n": 20,
+          "successes": 10
+        },
+        "action": {
+          "n": 20,
+          "successes": 9
+        },
+        "completion": {
+          "n": 20,
+          "successes": 6
+        },
+        "combined": {
+          "n": 20,
+          "successes": 15
+        }
+      }
+    },
+    "confirmation": {
+      "mixed_s1_u30000": {
+        "baseline": {
+          "n": 50,
+          "successes": 27
+        },
+        "replay": {
+          "n": 50,
+          "successes": 32
+        },
+        "action": {
+          "n": 50,
+          "successes": 31
+        },
+        "completion": {
+          "n": 50,
+          "successes": 22
+        },
+        "combined": {
+          "n": 50,
+          "successes": 39
+        }
+      },
+      "mixed_s2_u30000": {
+        "baseline": {
+          "n": 50,
+          "successes": 32
+        },
+        "replay": {
+          "n": 50,
+          "successes": 32
+        },
+        "action": {
+          "n": 50,
+          "successes": 32
+        },
+        "completion": {
+          "n": 50,
+          "successes": 35
+        },
+        "combined": {
+          "n": 50,
+          "successes": 39
+        }
+      },
+      "mixed_s3_u30000": {
+        "baseline": {
+          "n": 50,
+          "successes": 26
+        },
+        "replay": {
+          "n": 50,
+          "successes": 28
+        },
+        "action": {
+          "n": 50,
+          "successes": 29
+        },
+        "completion": {
+          "n": 50,
+          "successes": 21
+        },
+        "combined": {
+          "n": 50,
+          "successes": 40
+        }
+      }
+    }
+  },
+  "aggregate": {
+    "development": {
+      "baseline": {
+        "n": 60,
+        "successes": 26
+      },
+      "replay": {
+        "n": 60,
+        "successes": 30
+      },
+      "action": {
+        "n": 60,
+        "successes": 27
+      },
+      "completion": {
+        "n": 60,
+        "successes": 23
+      },
+      "combined": {
+        "n": 60,
+        "successes": 45
+      }
+    },
+    "confirmation": {
+      "baseline": {
+        "n": 150,
+        "successes": 85
+      },
+      "replay": {
+        "n": 150,
+        "successes": 92
+      },
+      "action": {
+        "n": 150,
+        "successes": 92
+      },
+      "completion": {
+        "n": 150,
+        "successes": 78
+      },
+      "combined": {
+        "n": 150,
+        "successes": 118
+      }
+    }
+  },
+  "paired": {
+    "development": {
+      "baseline": {
+        "baseline": {
+          "gains": 0,
+          "losses": 0
+        },
+        "replay": {
+          "gains": 4,
+          "losses": 0
+        },
+        "action": {
+          "gains": 1,
+          "losses": 0
+        },
+        "completion": {
+          "gains": 4,
+          "losses": 7
+        },
+        "combined": {
+          "gains": 19,
+          "losses": 0
+        }
+      },
+      "replay": {
+        "baseline": {
+          "gains": 0,
+          "losses": 4
+        },
+        "replay": {
+          "gains": 0,
+          "losses": 0
+        },
+        "action": {
+          "gains": 0,
+          "losses": 3
+        },
+        "completion": {
+          "gains": 1,
+          "losses": 8
+        },
+        "combined": {
+          "gains": 15,
+          "losses": 0
+        }
+      }
+    },
+    "confirmation": {
+      "baseline": {
+        "baseline": {
+          "gains": 0,
+          "losses": 0
+        },
+        "replay": {
+          "gains": 7,
+          "losses": 0
+        },
+        "action": {
+          "gains": 7,
+          "losses": 0
+        },
+        "completion": {
+          "gains": 7,
+          "losses": 14
+        },
+        "combined": {
+          "gains": 34,
+          "losses": 1
+        }
+      },
+      "replay": {
+        "baseline": {
+          "gains": 0,
+          "losses": 7
+        },
+        "replay": {
+          "gains": 0,
+          "losses": 0
+        },
+        "action": {
+          "gains": 3,
+          "losses": 3
+        },
+        "completion": {
+          "gains": 4,
+          "losses": 18
+        },
+        "combined": {
+          "gains": 28,
+          "losses": 2
+        }
+      }
+    }
+  },
+  "updates_per_component": 5000,
+  "components": 12,
+  "policies": {
+    "baseline": "Ursprüngliches B",
+    "replay": "Replay-Fortsetzung",
+    "action": "Nur Aktionen",
+    "completion": "Nur Abschluss",
+    "combined": "Aktionen + Abschluss"
+  },
+  "confirmation_unique_scenes": 50,
+  "training_model_seeds": 3,
+  "execution_scope": "Only second placement, phase 0, excluding retreat; other outputs remain B",
+  "architecture": "Separate action and completion PhaseNet copies; no critic; no curriculum ordering experiment"
+}

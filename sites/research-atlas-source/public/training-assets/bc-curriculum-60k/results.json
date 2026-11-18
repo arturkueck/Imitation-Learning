@@ -1,0 +1,187 @@
+{
+  "models": {
+    "mixed_seed1_parent": {
+      "2": {
+        "successes": 95,
+        "n": 100
+      },
+      "3": {
+        "successes": 51,
+        "n": 100
+      }
+    },
+    "mixed_seed1_extended": {
+      "2": {
+        "successes": 93,
+        "n": 100
+      },
+      "3": {
+        "successes": 49,
+        "n": 100
+      }
+    },
+    "curriculum_seed1_parent": {
+      "2": {
+        "successes": 92,
+        "n": 100
+      },
+      "3": {
+        "successes": 52,
+        "n": 100
+      }
+    },
+    "curriculum_seed1_extended": {
+      "2": {
+        "successes": 94,
+        "n": 100
+      },
+      "3": {
+        "successes": 41,
+        "n": 100
+      }
+    },
+    "mixed_seed2_parent": {
+      "2": {
+        "successes": 96,
+        "n": 100
+      },
+      "3": {
+        "successes": 56,
+        "n": 100
+      }
+    },
+    "mixed_seed2_extended": {
+      "2": {
+        "successes": 94,
+        "n": 100
+      },
+      "3": {
+        "successes": 50,
+        "n": 100
+      }
+    },
+    "curriculum_seed2_parent": {
+      "2": {
+        "successes": 93,
+        "n": 100
+      },
+      "3": {
+        "successes": 47,
+        "n": 100
+      }
+    },
+    "curriculum_seed2_extended": {
+      "2": {
+        "successes": 96,
+        "n": 100
+      },
+      "3": {
+        "successes": 62,
+        "n": 100
+      }
+    },
+    "mixed_seed3_parent": {
+      "2": {
+        "successes": 95,
+        "n": 100
+      },
+      "3": {
+        "successes": 52,
+        "n": 100
+      }
+    },
+    "mixed_seed3_extended": {
+      "2": {
+        "successes": 89,
+        "n": 100
+      },
+      "3": {
+        "successes": 48,
+        "n": 100
+      }
+    },
+    "curriculum_seed3_parent": {
+      "2": {
+        "successes": 90,
+        "n": 100
+      },
+      "3": {
+        "successes": 47,
+        "n": 100
+      }
+    },
+    "curriculum_seed3_extended": {
+      "2": {
+        "successes": 96,
+        "n": 100
+      },
+      "3": {
+        "successes": 60,
+        "n": 100
+      }
+    }
+  },
+  "paired_extension_changes": {
+    "mixed_seed1": {
+      "2": {
+        "gains": 2,
+        "losses": 4
+      },
+      "3": {
+        "gains": 10,
+        "losses": 12
+      }
+    },
+    "curriculum_seed1": {
+      "2": {
+        "gains": 4,
+        "losses": 2
+      },
+      "3": {
+        "gains": 13,
+        "losses": 24
+      }
+    },
+    "mixed_seed2": {
+      "2": {
+        "gains": 2,
+        "losses": 4
+      },
+      "3": {
+        "gains": 7,
+        "losses": 13
+      }
+    },
+    "curriculum_seed2": {
+      "2": {
+        "gains": 5,
+        "losses": 2
+      },
+      "3": {
+        "gains": 26,
+        "losses": 11
+      }
+    },
+    "mixed_seed3": {
+      "2": {
+        "gains": 1,
+        "losses": 7
+      },
+      "3": {
+        "gains": 9,
+        "losses": 13
+      }
+    },
+    "curriculum_seed3": {
+      "2": {
+        "gains": 6,
+        "losses": 0
+      },
+      "3": {
+        "gains": 20,
+        "losses": 7
+      }
+    }
+  },
+  "interpretation": "Descriptive paired results per training seed; no pooled-scene significance claim"
+}
