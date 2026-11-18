@@ -33,9 +33,11 @@ Behavior Cloning (BC) teaches a robot a skill by imitating expert demonstrations
 Since no demonstrations exist for these situations, the robot has to learn from its own attempts. In simulation, attempts are cheap, and each one ends in success or failure. The project investigates whether this feedback can extend a BC policy beyond the task it was taught, and how many additional attempts that requires.
 
 \blockheading{State of the art}
-\textbf{More expert data.} DAgger~[1] lets the robot act on its own and asks the expert to label the situations the robot actually reaches, so that the training data also covers the robot's own mistakes. MimicGen~[2] automatically adapts a few demonstrations to many new object arrangements in simulation. Both are effective, but both need an expert for the target task, which is exactly what is missing here.
+\textbf{Why imitation alone falls short.} DAgger~[1] showed that a policy trained by imitation drifts into situations the demonstrations never covered, because small errors compound over time. It fixes this by letting the robot act on its own and asking the expert to label the situations the robot actually reaches. This requires an expert for the target task, which is exactly what is missing here.
 
-\textbf{Combining skills into longer tasks.} Neural Task Programming~[3] breaks a task description down into reusable sub-skills and solves longer block-stacking tasks than those seen in training. GTI~[4] stitches together parts of different demonstrations to reach combinations of start and goal that were never demonstrated as a whole. Adversarial Skill Chaining~[5] shows that chained skills fail when one skill leaves the robot in a situation from which the next cannot start; it trains each skill to end where the next one can take over and solves furniture-assembly tasks this way. Reusing skills in a longer task therefore depends on how well each skill copes with the situations its predecessor leaves behind.
+\textbf{Combining learned skills.} DeCo~[2] splits demonstrated tasks into reusable basic skills and recombines them to solve new, longer manipulation tasks without additional demonstrations. This shows that composed skills can reach tasks that were never demonstrated as a whole, but the skills are not improved when they fail in the new situations.
+
+\textbf{Improving imitation with the robot's own attempts.} In Actor--Critic reinforcement learning, a critic learns to estimate how likely an action in a given situation is to lead to success, and the actor, the policy itself, is adjusted towards actions the critic rates highly. AWAC~[3] starts from existing data, continues with the robot's own attempts, and keeps the actor close to the behavior in the data while it improves. ResFiT~[4] keeps a BC policy fixed and learns small corrections on top of it from the robot's own attempts, using only success or failure as feedback. Kernbach et al.~[5] first train the policy by BC and then train the critic on the outcomes of that policy's own attempts before reinforcement learning starts; across 15 simulated tasks this reduced the number of attempts needed, with gains that vary between tasks. We call such a critic, trained on the attempts of an imitation-learned policy, an \emph{IL-informed critic}. It is open whether it helps in a task of several consecutive steps where feedback only arrives at the very end, when the tower stands or falls, and whether it improves success on a task the demonstrations never covered rather than only saving attempts.
 \end{minipage}\hfill\null\par}
 %% ---------------------------------------------------------------- Page 2
 \drawSigil{%
@@ -43,8 +45,6 @@ Since no demonstrations exist for these situations, the robot has to learn from 
 \par\noindent\hfill\begin{minipage}[t]{.88\linewidth}
 \projectheader{\shorttitle}
 \setlength{\parskip}{3pt}
-\textbf{Learning from success and failure.} In Actor--Critic reinforcement learning, a critic learns to estimate how likely an action in a given situation is to lead to success, and the actor, the policy itself, is adjusted towards actions the critic rates highly. AWAC~[6] starts from existing data, continues with the robot's own attempts, and keeps the actor close to the behavior in the data while it improves. Kernbach et al.~[7] first train the policy by BC and then train the critic on the outcomes of that policy's own attempts before reinforcement learning starts; in many, but not all, of their simulated tasks this reduced the number of attempts needed. We call such a critic, trained on the attempts of an imitation-learned policy, an \emph{IL-informed critic}. It is open whether it helps in a task of several consecutive steps where feedback only arrives at the very end, when the tower stands or falls, and whether it improves success on a task the demonstrations never covered rather than only saving attempts.
-
 \blockheading{Preliminary work}
 Earlier experiments in this project show that the transfer works, but unreliably. A BC policy trained only on two-cube demonstrations, with a separate small network for each stage of a placement such as approaching, grasping, carrying and releasing, builds stable three-cube towers in roughly a third to half of new scenes. Changing the order in which the demonstrations are presented during training brought no consistent improvement. Most failures occur when the robot grasps the cube for the second placement. Letting the programmed expert take over just the approach to this grasp clearly improves success; this test only served to locate the problem, and the project itself uses no expert help in three-cube situations. A first technical trial of critic pretraining revealed the main risk: without a limit, the policy quickly moved away from the behavior it had learned by imitation, and the robot stopped completing the task.
 
@@ -57,6 +57,11 @@ Earlier experiments in this project show that the transfer works, but unreliably
 \item \textbf{Actor--Critic, IL-informed critic}: the same training, with a critic first trained on the outcomes of the BC policy's attempts.
 \end{itemize}
 \textbf{Hypothesis:} with the same number of attempts allowed for further training, the IL-informed critic leads to a higher three-cube success rate than the new critic, and both outperform BC.
+
+\blockheading{Scope}
+The main study takes place in simulation, with a single robot arm stacking cubes. Instead of camera images, the policy receives the positions of the cubes and the gripper directly from the simulator. It controls where the gripper moves and whether it is open or closed, without rotating it. Demonstrations come from a programmed expert for two-cube stacking. No three-cube demonstrations exist, and no expert help is used in three-cube situations. A fixed rule determines which cube is placed next, so the project studies how learned skills are reused in new situations, not how a robot plans the order of a task. Going from two to three cubes resembles curriculum learning, where training moves from easier to harder tasks, but the project only asks whether the harder task can be learned from the easier one's demonstrations; it does not optimize the order of tasks or training examples. Nor does it propose a new Actor--Critic algorithm; it examines the effect of pretraining the critic within an established method.
+
+Camera-based cube positions and the real-robot test (work plan, step~5) are in scope but secondary. Learning the policy directly from camera images, and comparing against reinforcement learning without any demonstrations, are outside the scope.
 \end{minipage}\hfill\null\par}
 %% ---------------------------------------------------------------- Page 3
 \drawSigil{%
@@ -80,23 +85,15 @@ Earlier experiments in this project show that the transfer works, but unreliably
 \par\noindent\hfill\begin{minipage}[t]{.88\linewidth}
 \projectheader{\shorttitle}
 \setlength{\parskip}{3pt}
-\blockheading{Scope}
-The main study takes place in simulation, with a single robot arm stacking cubes. Instead of camera images, the policy receives the positions of the cubes and the gripper directly from the simulator. It controls where the gripper moves and whether it is open or closed, without rotating it. Demonstrations come from a programmed expert for two-cube stacking. No three-cube demonstrations exist, and no expert help is used in three-cube situations. A fixed rule determines which cube is placed next, so the project studies how learned skills are reused in new situations, not how a robot plans the order of a task. Going from two to three cubes resembles curriculum learning~[8], where training moves from easier to harder tasks, but the project only asks whether the harder task can be learned from the easier one's demonstrations; it does not optimize the order of tasks or training examples. Nor does it propose a new Actor--Critic algorithm; it examines the effect of pretraining the critic within an established method.
-
-Camera-based cube positions and the real-robot test (work plan, step~5) are in scope but secondary. Learning the policy directly from camera images, and comparing against reinforcement learning without any demonstrations, are outside the scope.
-
 \blockheading{Outlook}
 If skills learned from two-cube demonstrations can be extended to three-cube towers through the robot's own attempts, the same principle could apply far more broadly: demonstrate a small set of basic skills once, and let the robot adapt and combine them for longer and more varied tasks. Taller towers are the natural next test, approached step by step from three to four and five cubes, and multi-step assembly tasks a longer-term goal. Two obstacles must be addressed on the way. First, errors accumulate over long sequences: the whole task succeeds only if every step succeeds, so even a small failure rate per step adds up. For illustration, a skill that succeeds in 95 out of 100 attempts would complete a 20-step task only about one time in three. Longer tasks therefore need much more reliable skills than short ones. Second, in this project the order of the steps is given by a fixed rule, and the main study uses exact object positions from the simulator. The vision and real-robot steps are a first test without exact positions; real assembly would also require learning the order of the steps.
 
 \blockheading{References}{\footnotesize\setlength{\parskip}{0pt}
 \refentry{1}{https://proceedings.mlr.press/v15/ross11a.html}{Ross, Gordon, and Bagnell (2011). A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning. AISTATS.}
-\refentry{2}{https://proceedings.mlr.press/v229/mandlekar23a.html}{Mandlekar et al. (2023). MimicGen: A Data Generation System for Scalable Robot Learning using Human Demonstrations. CoRL.}
-\refentry{3}{https://arxiv.org/abs/1710.01813}{Xu et al. (2018). Neural Task Programming: Learning to Generalize Across Hierarchical Tasks. ICRA.}
-\refentry{4}{https://www.roboticsproceedings.org/rss16/p061.html}{Mandlekar, Xu et al. (2020). Learning to Generalize Across Long-Horizon Tasks from Human Demonstrations. RSS.}
-\refentry{5}{https://arxiv.org/abs/2111.07999}{Lee, Lim, Anandkumar, and Zhu (2021). Adversarial Skill Chaining for Long-Horizon Robot Manipulation via Terminal State Regularization. CoRL.}
-\refentry{6}{https://arxiv.org/abs/2006.09359}{Nair et al. (2020). AWAC: Accelerating Online Reinforcement Learning with Offline Datasets. arXiv:2006.09359.}
-\refentry{7}{https://arxiv.org/abs/2602.23804}{Kernbach et al. (2026). Actor-Critic Pretraining for Proximal Policy Optimization. arXiv preprint.}
-\refentry{8}{https://icml.cc/2009/papers/119.pdf}{Bengio et al. (2009). Curriculum Learning. ICML.}
+\refentry{2}{https://arxiv.org/abs/2505.00527}{Chen et al. (2025). DeCo: Task Decomposition and Skill Composition for Zero-Shot Generalization in Long-Horizon 3D Manipulation. arXiv:2505.00527.}
+\refentry{3}{https://arxiv.org/abs/2006.09359}{Nair et al. (2020). AWAC: Accelerating Online Reinforcement Learning with Offline Datasets. arXiv:2006.09359.}
+\refentry{4}{https://arxiv.org/abs/2509.19301}{Ankile et al. (2025). Residual Off-Policy RL for Finetuning Behavior Cloning Policies. ICLR 2026.}
+\refentry{5}{https://arxiv.org/abs/2602.23804}{Kernbach et al. (2026). Actor-Critic Pretraining for Proximal Policy Optimization. arXiv:2602.23804.}
 }
 \end{minipage}\hfill\null\par}
 \end{document}
