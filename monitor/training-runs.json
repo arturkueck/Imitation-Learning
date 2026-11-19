@@ -2,6 +2,26 @@
   "schemaVersion": 1,
   "runs": [
     {
+      "id": "three-cube-transfer-v1-critic-data",
+      "category": "robot",
+      "method": "il",
+      "kind": "evaluation",
+      "title": "Dreierturm · N2-1 Critic-Daten",
+      "directory": "praxis/results/critic/three_cube_transfer_v1/critic_data_n2_1",
+      "config": "config.json",
+      "results": "summary.json",
+      "description": "300 Critic-Datenfamilien mit je drei eingefrorenen A-Parents. 900 geplante Simulationsepisoden mit Übergängen nach Datenvertrag, 0 Optimizerupdates.",
+      "checkpointInfo": "Drei feste A-Endpunkte des A/B/C-Vergleichs nach je 30.000 Updates.",
+      "artifacts": [
+        {
+          "name": "three-cube-critic-data-summary.json",
+          "file": "summary.json",
+          "kind": "document",
+          "label": "Erfolgs-/Fehlerzahlen, Phasenabdeckung und Datensatz-SHA-256"
+        }
+      ]
+    },
+    {
       "id": "three-cube-transfer-v1-calibration",
       "category": "robot",
       "method": "il",

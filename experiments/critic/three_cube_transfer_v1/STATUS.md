@@ -12,7 +12,7 @@ Bei einem Sofortstopp nach [Nachtplan](NACHTPLAN.md) `Gesamtpause: ja` setzen un
 | N1-4 | erledigt | 19.11.2026 | 300/300 Episoden auf 100 gemeinsamen Kalibrierungsfamilien, davon 103 erfolgreich. 951,9 Episoden/h über die Worker-Laufzeit. [Rohdaten- und Abschlussprüfung](nights/NACHT_1_20261118.md#integrität) |
 | N1-5 | erledigt | 19.11.2026 | [Kalibrierung](CALIBRATION.md) · [Eingefrorene Grenzen](difficulty_v1.json) · [SHA-256](difficulty_v1.sha256) · [375/375 zugeordnete Familien](difficulty_panels_v1.json), 0 Rollouts |
 | N1-6 | erledigt | 19.11.2026 | [Pilotprotokoll](PROTOCOL.md), am 19.11.2026 für Claude freigegeben. [Versionierte Zusatzsplits](splits_v2.json). |
-| N2-1 | offen | 19.11.2026 | [Freigabe für Claude](PROTOCOL.md#11-ablauf-und-freigaben) · Technische Vorprüfung abgeschlossen, 0/900 Datenerhebungsepisoden. |
+| N2-1 | läuft | 19.11.2026 | [Datenvertrag](CRITIC_DATA.md) · Supervisor PID 37892 (Erstellung Unix 1795083962.170149), Worker PID 11900, Start 11:26, Deadline 14:45. Integrationsprüfung bestanden, 18/18 Tests. Fortsetzungspunkt: erste fehlende `episodes/NNNN.json`, Monitor `critic_data.py monitor`. [Übergabe](nights/NACHT_1_20261118.md#übergabe) |
 | N2-2 | offen | – | – |
 | N2-3 | offen | – | – |
 | N2-4 | offen | – | – |
