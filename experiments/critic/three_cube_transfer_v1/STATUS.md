@@ -1,8 +1,10 @@
 # Fortschritt der Nachtläufe zum Dreierturm
 
-Gesamtpause: nein
+Gesamtpause: ja
 
 Bei einem Sofortstopp nach [Nachtplan](NACHTPLAN.md) `Gesamtpause: ja` setzen und Grund sowie erforderliche Nutzerentscheidung dokumentieren. Nur der Nutzer hebt diese Pause auf. Eine fehlende Trainingsfreigabe wird im Nachtplan erteilt.
+
+**Grund der Pause (19.11.2026, 13:20 Uhr):** Im technischen Smoke N2-3 hat schon die Stufe δ_max = 0,05 nicht bestanden. Alle sechs Läufe verfehlen die Q-Bereichsprüfung [−0,05; 1,05]. Nach [PROTOCOL.md §7](PROTOCOL.md#7-bindung-an-bc-und-constraint-kandidaten) wird dann kein Pilot vorbereitet, und der Nutzer entscheidet. Jede Fortsetzung zu N2-4 und N3-1 würde eine Protokollentscheidung verlangen. **Erforderliche Nutzerentscheidung:** wie nach dem Scheitern von Stufe 0,05 weiterverfahren wird. [Ergebnis und technische Einordnung](AC_SMOKE.md#ergebnis-abschluss-19112026)
 
 | ID | Status | Datum | Verweis / Fortsetzungspunkt |
 |---|---|---|---|
@@ -14,7 +16,7 @@ Bei einem Sofortstopp nach [Nachtplan](NACHTPLAN.md) `Gesamtpause: ja` setzen un
 | N1-6 | erledigt | 19.11.2026 | [Pilotprotokoll](PROTOCOL.md), am 19.11.2026 für Claude freigegeben. [Versionierte Zusatzsplits](splits_v2.json). |
 | N2-1 | erledigt | 19.11.2026 | [Datensatz, Manifest und Hash](CRITIC_DATA.md#ergebnis-abschluss-19112026) · 900/900 Episoden auf 300 `critic_data`-Familien, 325 Erfolge und 575 Fehlschläge (Parent 1/2/3: 125/92/108 von je 300), 0 Optimizerupdates. Monitor `COMPLETE` mit Abgleich gegen `summary.json`. [Prüfung](nights/NACHT_1_20261118.md#integrität) |
 | N2-2 | erledigt | 19.11.2026 | [CRITIC_VALIDATION.md: Kriterien nach §6 erfüllt](CRITIC_VALIDATION.md#ergebnis-abschluss-19112026) · Alle drei Critics bestehen auf `validation_normal` (gewichtete AUC 0,853 / 0,886 / 0,817, MSE-Differenz zur Phasen-Baseline mit Intervall < 0, ECE 0,040 / 0,033 / 0,039). 450/450 A-Rollouts, A-Erfolge regulär 41/100, 29/100, 29/100 und schwierig 23/50, 19/50, 16/50. 60.000 Critic-Updates, 0 Updates in den Rollouts. Monitor `COMPLETE` mit Neuberechnung gegen `summary.json`. Testfamilien geschlossen. [Prüfung](nights/NACHT_1_20261118.md#integrität) |
-| N2-3 | läuft | 19.11.2026 | [Smoke-Umsetzung und Festlegungen](AC_SMOKE.md) · Start 13:12 unter Supervisor PID 11684 (Erstellungszeit Unix 1795090328.5802815), Worker PID 26712 (1795090328.8061771), Cutoff 14:30, harte Deadline 14:45. Fortsetzungspunkt: vollständige Läufe unter `ac_smoke_n2_3/runs/`, Teilstände werden verworfen und deterministisch neu ausgeführt. Monitor `ac_smoke.py monitor`. Technischer Smoke ohne Wirksamkeitsaussage, Testfamilien geschlossen. [Prüfung](nights/NACHT_1_20261118.md#integrität) |
+| N2-3 | erledigt | 19.11.2026 | [Smoke-Bericht: Stufe 0,05 nicht bestanden, keine Stufe gewählt](AC_SMOKE.md#ergebnis-abschluss-19112026) · Alle sechs Läufe verfehlen den Q-Bereich [−0,05; 1,05]. Endlichkeit, 0 Grenzverletzungen, ESS ≈ 256 und 2 verlorene Parent-Erfolge (Grenze 3) sind erfüllt, beide Lesarten stimmen überein. Drift- und Erfolgsverlauf je Runde stehen im Bericht. 3.000 Critic- und 1.500 Actorupdates. Monitor `COMPLETE` mit Neuberechnung gegen `summary.json`. Nach §7 kein Pilot, der Nutzer entscheidet (Gesamtpause). Ohne Wirksamkeitsaussage, Testfamilien geschlossen. [Prüfung](nights/NACHT_1_20261118.md#integrität) |
 | N2-4 | offen | – | – |
 | N3-1 | offen | – | – |
 | N3-2 | offen | – | – |

@@ -1,6 +1,6 @@
 # N2-3 · Technischer Actor-Critic-Smoke
 
-**Status: läuft** (gestartet 19.11.2026, 13:12 Uhr Europe/Berlin) · technischer Smoke **ohne Wirksamkeitsaussage** · [Code](ac_smoke.py) · [Tests](test_ac_smoke.py) · [Protokoll §7](PROTOCOL.md#7-bindung-an-bc-und-constraint-kandidaten)
+**Status: abgeschlossen, Stufe 0,05 nicht bestanden. Keine Stufe gewählt, Nutzerentscheidung nach §7 nötig** (Lauf 19.11.2026, 13:12–13:18 Uhr Europe/Berlin) · technischer Smoke **ohne Wirksamkeitsaussage** · [Ergebnis](#ergebnis-abschluss-19112026) · [Code](ac_smoke.py) · [Auswertung, nur lesend](ac_smoke_report.py) · [Tests](test_ac_smoke.py) · [Protokoll §7](PROTOCOL.md#7-bindung-an-bc-und-constraint-kandidaten)
 
 Der Smoke prüft nach PROTOCOL.md §7 die AWAC-artige Bindung an den eingefrorenen A-Parent in den Stufen δ_max = 0,05 → 0,10 → 0,20 (λ = 0,1). Er grenzt die Stufe nur über technische Stabilität ein. Erfolge von AC-neu und AC-IL werden nicht miteinander verglichen. Die Testfamilien bleiben geschlossen.
 
@@ -34,10 +34,69 @@ Diese Punkte legt das Protokoll nicht im Einzelnen fest. Sie wurden vor dem Star
 
 Der Lauf startete um 13:12 Uhr unter Supervisor PID 11684 (Erstellungszeit Unix 1795090328.5802815) und Worker PID 26712 (1795090328.8061771). Der Cutoff liegt bei 14:30 Uhr, die harte Deadline bei 14:45 Uhr. Um 13:14 Uhr meldete der Monitor `OK`: Parent-Baseline 3/3 abgeschlossen, Stufe 0,05 mit sechs aktiven Läufen bei je 125/500 Critic-Updates, keine Fehlerzeilen.
 
-## Ergebnis
+Um 13:20 Uhr meldete der Monitor `COMPLETE` ohne Fehlerzeilen. Supervisor (PID 11684) und Worker (PID 26712) stimmen in PID und Erstellungszeit mit dem Start überein, sind beendet und stehen auf `COMPLETE`, der Worker-Exitcode war 0. Der Worker endete um 13:17:44 Uhr nach 335 s, weit vor Cutoff und Deadline. Es gab keine Pause, keinen verworfenen Teilstand und keine Wiederholung. Beim Abschluss prüfte der Monitor einmalig die SHA-256-Werte aller sechs Checkpoints, berechnete die Stufenbewertung aus den Laufergebnissen neu und glich die Ergebnishashes mit `summary.json` ab. Alles stimmte überein (`result_verified`). Nach dem Lauf bestanden erneut 9/9 Tests, Exitcode 0.
 
-Folgt nach Abschluss des Laufs. Laufdaten: `praxis/results/critic/three_cube_transfer_v1/ac_smoke_n2_3/`. Monitor:
+## Ergebnis (Abschluss 19.11.2026)
+
+**Die Stufe δ_max = 0,05 ist nicht bestanden. Damit endet die Prüfung nach §7, und die Stufen 0,10 und 0,20 wurden nicht ausgeführt.** Es gibt keine bestandene Stufe und kein gewähltes δ_max (`chosen_delta_max: null`, `pilot_prerequisite: false`). Nach §7 wird kein Pilot vorbereitet, der Nutzer entscheidet. Die beiden Lesarten der Verlustregel stimmen überein, eine Nutzerentscheidung ist dafür nicht nötig.
+
+**Grund:** Alle sechs Läufe verfehlen die entscheidende Prüfung des Q-Bereichs [−0,05; 1,05]. Alle anderen Bedingungen sind in allen Läufen erfüllt: Alle Werte sind endlich, 0 Grenzverletzungen, ESS im Mittel 255,8–256,0 von 256 (Grenze 25,6), 2 verlorene Parent-Erfolge (Grenze 3).
+
+| Lauf | Q nach Runden [min; max] | Q in Updates inkl. Init | ESS | Entwicklung k/20 (Parent) | verloren | neu | Online k/20 | Drift XYZ Mittel / Max nach Runde 2 |
+|---|---|---|---|---|---|---|---|---|
+| AC-IL P1 | [−0,153; 1,006] | [−0,464; 1,100] | 255,9 | 5 (5) | – | – | 8 | 0,0037 / 0,0276 |
+| AC-IL P2 | [−0,163; 1,013] | [−0,284; 1,323] | 255,8 | 3 (4) | 2100003658 | – | 8 | 0,0041 / 0,0373 |
+| AC-IL P3 | [−0,173; 1,016] | [−0,223; 1,059] | 255,9 | 6 (6) | – | – | 7 | 0,0032 / 0,0396 |
+| AC-neu P1 | [−0,082; 0,173] | [−0,127; 0,161] | 256,0 | 5 (5) | – | – | 8 | 0,0033 / 0,0352 |
+| AC-neu P2 | [−0,058; 0,055] | [−0,094; 0,122] | 256,0 | 3 (4) | 2100003658 | – | 9 | 0,0043 / 0,0408 |
+| AC-neu P3 | [−0,203; 0,068] | [−0,102; 0,131] | 256,0 | 6 (6) | – | – | 7 | 0,0033 / 0,0297 |
+
+Die Parent-Baseline auf `constraint_development` ergab 5/20, 4/20 und 6/20. Verlorene Parent-Erfolge nach Lesart B: Parent 1 0, Parent 2 2 (dieselbe Familie in beiden Varianten), Parent 3 0, zusammen 2. Lesart B besteht, Lesart A besteht für beide Varianten. Neue Erfolge gab es keine. Erfolge von AC-neu und AC-IL werden nach §7 nicht verglichen.
+
+**Verlauf je Runde** (Runde 0 vor dem ersten Update, Q-Spannen als [min; max]):
+
+| Lauf | Runde | Online-Erfolge | Critic-Loss (Mittel) | Replay-Q | Probe-Q Parentaktion | Drift XYZ Mittel / Max (unbegrenzt) | w_max |
+|---|---|---|---|---|---|---|---|
+| AC-IL P1 | 0 | – | – | – | [−0,084; 0,873] | 0 / 0 | – |
+| | 1 | 5/10 | 0,00124 | [−0,125; 1,006] | [−0,125; 0,823] | 0,0035 / 0,0302 (0,0392) | 1,27 |
+| | 2 | 3/10 | 0,00067 | [−0,153; 1,005] | [−0,106; 0,837] | 0,0037 / 0,0276 (0,0330) | 1,30 |
+| AC-IL P2 | 0 | – | – | – | [−0,123; 0,954] | 0 / 0 | – |
+| | 1 | 5/10 | 0,00119 | [−0,095; 1,013] | [−0,162; 0,886] | 0,0037 / 0,0403 (0,0896) | 1,54 |
+| | 2 | 3/10 | 0,00054 | [−0,080; 1,013] | [−0,139; 0,860] | 0,0041 / 0,0373 (0,0636) | 1,55 |
+| AC-IL P3 | 0 | – | – | – | [−0,091; 0,902] | 0 / 0 | – |
+| | 1 | 5/10 | 0,00094 | [−0,049; 1,016] | [−0,173; 0,876] | 0,0038 / 0,0307 (0,0389) | 1,34 |
+| | 2 | 2/10 | 0,00048 | [−0,071; 1,007] | [−0,145; 0,899] | 0,0032 / 0,0396 (0,0544) | 1,29 |
+| AC-neu P1 | 0 | – | – | – | [−0,200; 0,122] | 0 / 0 | – |
+| | 1 | 5/10 | 0,00202 | [−0,031; 0,085] | [−0,082; 0,173] | 0,0031 / 0,0287 (0,0360) | 1,01 |
+| | 2 | 3/10 | 0,00174 | [−0,032; 0,080] | [−0,026; 0,107] | 0,0033 / 0,0352 (0,0438) | 1,01 |
+| AC-neu P2 | 0 | – | – | – | [−0,214; 0,097] | 0 / 0 | – |
+| | 1 | 5/10 | 0,00191 | [−0,018; 0,038] | [−0,058; 0,051] | 0,0043 / 0,0361 (0,0693) | 1,01 |
+| | 2 | 4/10 | 0,00145 | [−0,014; 0,053] | [−0,034; 0,055] | 0,0043 / 0,0408 (0,0597) | 1,01 |
+| AC-neu P3 | 0 | – | – | – | [−0,235; 0,068] | 0 / 0 | – |
+| | 1 | 5/10 | 0,00169 | [−0,028; 0,039] | [−0,203; 0,068] | 0,0032 / 0,0257 (0,0293) | 1,01 |
+| | 2 | 2/10 | 0,00132 | [−0,020; 0,040] | [−0,150; 0,035] | 0,0033 / 0,0297 (0,0363) | 1,01 |
+
+Die Probe-Q-Werte an der begrenzten Actoraktion weichen höchstens um 0,001 von denen an der Parentaktion ab. Die Onlineerfolge entstehen mit Explorationsrauschen auf `smoke_interaction` und sind kein Leistungsmaß.
+
+**Technische Beobachtungen zur Einordnung** (sie entscheiden nicht und ändern die Bewertung nicht):
+
+- Werte unter −0,05 lagen schon **vor dem ersten Update** vor. Das betrifft die eingefrorenen N2-2-Critics (Probe-Minimum −0,084, −0,123 und −0,091) ebenso wie die zufällige Initialisierung von AC-neu (−0,200, −0,214 und −0,235). Runde 0 geht nach der eingefrorenen Regel nicht in die Bewertung ein. Die Verletzung entsteht also nicht erst durch Divergenz in den Updates. Die Critic-Losses sind klein und sinken, das Maximum nach den Runden liegt bei höchstens 1,016.
+- Nur auf dem Replay betrachtet bleiben die drei AC-neu-Läufe im Bereich ([−0,032; 0,085], [−0,018; 0,053] und [−0,028; 0,040]). Die AC-IL-Läufe liegen auch dort darunter (−0,153, −0,095 und −0,071). Die eingefrorene, entscheidende Prüfung umfasst Replay und Probeframes.
+- Die AWAC-Gewichte sind praktisch gleichförmig: w_max 1,01–1,55, 0 % gekappt, ESS ≈ 256. Bei λ = 0,1 sind die gemessenen Vorteile zu klein, um die Regression nennenswert zu gewichten. Das Actorupdate wirkt hier also nahezu wie eine ungewichtete Regression auf die eigenen ausgeführten Aktionen.
+- Die begrenzte Drift bleibt mit höchstens 0,041 unter δ_max = 0,05. Die unbegrenzte Actorausgabe weicht um bis zu 0,090 ab.
+
+**Kosten:** 6 Läufe mit zusammen 3.000 Critic- und 1.500 Actorupdates, 120 Online-, 120 Entwicklungs- und 60 Baseline-Episoden. Die Updates dauerten im Mittel 4,3 s je Lauf (500 Critic- und 250 Actorupdates, 2 Torch-Threads, sechs Läufe parallel), die Rollouts 101–110 s je Lauf. Worker-Laufzeit 335 s.
+
+**Für die Nutzerentscheidung offen:** Nach §7 entscheidet der Nutzer, wie es nach dem Scheitern von Stufe 0,05 weitergeht. Jede Fortsetzung zum Pilot würde eine Protokollentscheidung verlangen, etwa zur Definition oder Grenze der Q-Bereichsprüfung, zur Ausgangsskala der Critics oder zu λ. Der Agent hat dazu nichts geändert und nichts wiederholt. N2-4 und N3-1 bleiben bis dahin gesperrt.
+
+### Nachweise
+
+- Laufdaten: `praxis/results/critic/three_cube_transfer_v1/ac_smoke_n2_3/` (`summary.json`, `stages/stage_0.05.json`, `runs/d0.05_<variante>_p<p>/result.json` mit `checkpoint.pt`, `baseline/parent_<p>/result.json`)
+- `config_sha256` d96d09ea2ce4b68782d113c8324a70ad4a466dbfcf08ada345903b692f65a5a4
+- SHA-256 der Laufergebnisse: il_p1 `43c95cb4…bde4372d`, il_p2 `99c82c64…ce01911f`, il_p3 `85b51968…24033ae2`, neu_p1 `dc797401…cd67b80e`, neu_p2 `2996fbbc…86967a81`, neu_p3 `ea2b19a4…64ab0c47`, vollständig in `summary.json`
+- Ausgabe der Tabellen, nur lesend: `ac_smoke_report.py` (alle Rohwerte mit `--full`)
 
 ```powershell
 & praxis/.venv/Scripts/python.exe experiments/critic/three_cube_transfer_v1/ac_smoke.py monitor
+& praxis/.venv/Scripts/python.exe experiments/critic/three_cube_transfer_v1/ac_smoke_report.py
 ```
