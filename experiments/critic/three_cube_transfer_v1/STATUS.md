@@ -10,7 +10,7 @@ Bei einem Sofortstopp nach [Nachtplan](NACHTPLAN.md) `Gesamtpause: ja` setzen un
 | N1-2 | erledigt | 19.11.2026 | [Splitmanifest](splits.json) · 7 disjunkte Bereiche für 875 geplante Familien. Schwierige Panels werden in N1-5 zugeordnet. [Prüfung](nights/NACHT_1_20261118.md#integrität) |
 | N1-3 | erledigt | 19.11.2026 | [Merkmale difficulty_v1](difficulty.py) · Transport, Turmabstand, Freiraum und Tischlage aus dem Anfangszustand in Metern. [9 bestandene Testfälle](test_difficulty.py) · [Prüfung](nights/NACHT_1_20261118.md#integrität) |
 | N1-4 | erledigt | 19.11.2026 | 300/300 Episoden auf 100 gemeinsamen Kalibrierungsfamilien, davon 103 erfolgreich. 951,9 Episoden/h über die Worker-Laufzeit. [Rohdaten- und Abschlussprüfung](nights/NACHT_1_20261118.md#integrität) |
-| N1-5 | offen | – | – |
+| N1-5 | erledigt | 19.11.2026 | [Kalibrierung](CALIBRATION.md) · [Eingefrorene Grenzen](difficulty_v1.json) · [SHA-256](difficulty_v1.sha256) · [375/375 zugeordnete Familien](difficulty_panels_v1.json), 0 Rollouts |
 | N1-6 | offen | – | – |
 | N2-1 | offen | – | – |
 | N2-2 | offen | – | – |
