@@ -42,3 +42,24 @@ Je Episode hält `episodes/NNNN.json` Szene, Parent, Startzustands- und Trajekto
 ```
 
 Ein Halt erfolgt über die Datei `STOP` im Laufordner. Der Worker setzt dann `PAUSED` an einer Episodengrenze. Die nächste Episode ist der Index der ersten fehlenden `NNNN.json`. Jede Episode setzt ihre Seeds selbst, sodass Fortsetzungen exakt reproduzieren. `config.json` bindet die Quellen per SHA-256. Eine Fortsetzung mit geänderten Quellen bricht ab.
+
+## Ergebnis (Abschluss 19.11.2026)
+
+Der Lauf startete um 11:26 Uhr unter Supervisor PID 37892 (Worker PID 11900) und endete am 19.11.2026 gegen 12:21 Uhr ohne Unterbrechung vor der Deadline 14:45 Uhr. Supervisor und Worker stehen auf `COMPLETE` und sind beendet. Der Monitor meldete `COMPLETE` ohne Fehlerzeilen im Log. Dabei glich er alle 900 Rohepisoden einmalig mit `summary.json` ab, also Episodenhashes, Datenvertrag, Paarung, Zählungen und `dataset_sha256`.
+
+| Parent | Episoden | Erfolge | Fehlschläge | davon Horizont | Rückzugs-Timeout | Simulatorinstabilität | Frames |
+|---|---|---|---|---|---|---|---|
+| 1 | 300 | 125 | 175 | 175 | 0 | 0 | 217.235 |
+| 2 | 300 | 92 | 208 | 208 | 0 | 0 | 238.959 |
+| 3 | 300 | 108 | 192 | 192 | 0 | 0 | 228.515 |
+| gesamt | 900 | 325 | 575 | 575 | 0 | 0 | 684.709 |
+
+Alle Ausgänge wurden behalten. Es gab 300 Familien, 0 Optimizerupdates und 985,4 Episoden pro Stunde über die Worker-Laufzeit.
+
+**Manifest und Hashes** (Laufordner `praxis/results/critic/three_cube_transfer_v1/critic_data_n2_1/`):
+
+- Datensatz: `episodes/0000.npz` bis `episodes/0899.npz` mit je einer Metadatei `NNNN.json`
+- `dataset_sha256` (Hashvertrag in `summary.json`): `9f0aeaaff68734ffa2bd2a14bc91bd32c3c92db5fc255af1029a580daff9a2ba`
+- `rows_sha256` (verkettete Episoden-JSONs): `6f5bc620a0cbb2a8a1e0cda9e4aa56d1548aa29a85344e4228b709cfa603e0cf`
+- `config.json` mit Quellbindung und A-Endpunkten: SHA-256 `9478ceef377eba3dc39d4dbc568c3188118239d678aa0afb45026c39ccfa7486`
+- `summary.json` enthält zusätzlich die Phasenabdeckung `reached_points` je Parent. N2-2 bildet daraus die Phasenpunkte nach §6.
