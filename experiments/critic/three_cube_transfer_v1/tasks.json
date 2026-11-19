@@ -1,0 +1,284 @@
+{
+ "schema": "three_cube_transfer_v1.tasks.v1",
+ "note": "Gehört der Steuerung. Agenten ändern diese Datei nicht. Reihenfolge = Priorität. providers: erlaubte Anbieter in Vorzugsreihenfolge. gate: Kennung des Freigabehäkchens im NACHTPLAN. not_before: frühester Start (Europe/Berlin). light: kurze Aufgabe, darf bei knappem Kontingent noch laufen.",
+ "tasks": [
+  {
+   "id": "N1-1",
+   "deps": [],
+   "providers": [
+    "codex",
+    "claude"
+   ]
+  },
+  {
+   "id": "N1-2",
+   "deps": [
+    "N1-1"
+   ],
+   "providers": [
+    "codex",
+    "claude"
+   ]
+  },
+  {
+   "id": "N1-3",
+   "deps": [],
+   "providers": [
+    "codex",
+    "claude"
+   ]
+  },
+  {
+   "id": "N1-4",
+   "deps": [
+    "N1-2",
+    "N1-3"
+   ],
+   "providers": [
+    "codex",
+    "claude"
+   ]
+  },
+  {
+   "id": "N1-5",
+   "deps": [
+    "N1-4"
+   ],
+   "providers": [
+    "codex",
+    "claude"
+   ]
+  },
+  {
+   "id": "N1-6",
+   "deps": [
+    "N1-2",
+    "N1-3",
+    "N1-4",
+    "N1-5"
+   ],
+   "providers": [
+    "claude",
+    "codex"
+   ]
+  },
+  {
+   "id": "N2-1",
+   "deps": [
+    "N1-6"
+   ],
+   "gate": "N2-1",
+   "providers": [
+    "claude",
+    "codex"
+   ]
+  },
+  {
+   "id": "N2-2",
+   "deps": [
+    "N2-1"
+   ],
+   "gate": "N2-2",
+   "providers": [
+    "claude",
+    "codex"
+   ]
+  },
+  {
+   "id": "N2-3",
+   "deps": [
+    "N2-2"
+   ],
+   "gate": "N2-3",
+   "providers": [
+    "claude",
+    "codex"
+   ]
+  },
+  {
+   "id": "N2-1b",
+   "deps": [
+    "N2-3"
+   ],
+   "gate": "N2-1b",
+   "providers": [
+    "claude",
+    "codex"
+   ],
+   "kind": "run"
+  },
+  {
+   "id": "D1a",
+   "deps": [
+    "N2-3"
+   ],
+   "providers": [
+    "codex",
+    "claude"
+   ],
+   "kind": "analysis",
+   "light": true
+  },
+  {
+   "id": "B-1",
+   "deps": [
+    "N2-3"
+   ],
+   "providers": [
+    "claude",
+    "codex"
+   ],
+   "kind": "analysis"
+  },
+  {
+   "id": "B-2",
+   "deps": [
+    "N2-3"
+   ],
+   "providers": [
+    "claude",
+    "codex"
+   ],
+   "kind": "analysis"
+  },
+  {
+   "id": "B-3",
+   "deps": [
+    "N2-3"
+   ],
+   "providers": [
+    "claude",
+    "codex"
+   ],
+   "kind": "analysis",
+   "light": true
+  },
+  {
+   "id": "N2-2b",
+   "deps": [
+    "N2-1b"
+   ],
+   "gate": "N2-2b",
+   "providers": [
+    "claude",
+    "codex"
+   ],
+   "kind": "run"
+  },
+  {
+   "id": "D1b",
+   "deps": [
+    "N2-2b"
+   ],
+   "providers": [
+    "codex",
+    "claude"
+   ],
+   "kind": "analysis",
+   "light": true
+  },
+  {
+   "id": "N2-3v2",
+   "deps": [
+    "D1b"
+   ],
+   "gate": "N2-3",
+   "providers": [
+    "claude",
+    "codex"
+   ],
+   "kind": "run"
+  },
+  {
+   "id": "B-4",
+   "deps": [
+    "N2-3v2"
+   ],
+   "providers": [
+    "claude",
+    "codex"
+   ],
+   "kind": "docs"
+  },
+  {
+   "id": "N2-4",
+   "deps": [
+    "N2-3v2"
+   ],
+   "providers": [
+    "codex",
+    "claude"
+   ],
+   "not_before": "2026-11-20T22:00"
+  },
+  {
+   "id": "N3-1",
+   "deps": [
+    "N2-4"
+   ],
+   "gate": "N3-1",
+   "providers": [
+    "claude",
+    "codex"
+   ],
+   "kind": "run",
+   "not_before": "2026-11-20T22:00"
+  },
+  {
+   "id": "N3-2",
+   "deps": [
+    "N3-1"
+   ],
+   "providers": [
+    "codex",
+    "claude"
+   ],
+   "kind": "run"
+  },
+  {
+   "id": "N4-1",
+   "deps": [
+    "N3-2"
+   ],
+   "providers": [
+    "claude",
+    "codex"
+   ],
+   "kind": "docs"
+  },
+  {
+   "id": "N4-2",
+   "deps": [
+    "N4-1"
+   ],
+   "providers": [
+    "claude",
+    "codex"
+   ],
+   "kind": "docs"
+  },
+  {
+   "id": "N4-3",
+   "deps": [
+    "N4-2"
+   ],
+   "providers": [
+    "claude",
+    "codex"
+   ],
+   "kind": "docs"
+  },
+  {
+   "id": "N4-4",
+   "deps": [
+    "N4-3"
+   ],
+   "gate": "N4-4",
+   "providers": [
+    "claude",
+    "codex"
+   ],
+   "kind": "run"
+  }
+ ]
+}

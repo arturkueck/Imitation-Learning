@@ -1,0 +1,23 @@
+{
+  "schema": "three_cube_transfer_v1.orchestration.v1",
+  "note": "Kontingentregeln der Steuerung, siehe AGENTEN_ORCHESTRIERUNG.md. Agenten ändern diese Datei nicht.",
+  "providers": {
+    "claude": {
+      "max_agent_runs_per_night": 12,
+      "max_cost_usd_per_night": null,
+      "max_output_tokens_per_night": 1500000,
+      "default_cooldown_minutes": 60,
+      "agent_timeout_minutes": 120
+    },
+    "codex": {
+      "max_agent_runs_per_night": 12,
+      "max_output_tokens_per_night": 1500000,
+      "default_cooldown_minutes": 60,
+      "agent_timeout_minutes": 120,
+      "defer_heavy_above_used_percent": 80,
+      "stop_above_used_percent": 95
+    }
+  },
+  "reserve_runs_for_handover": 1,
+  "max_consecutive_failures_per_task": 2
+}

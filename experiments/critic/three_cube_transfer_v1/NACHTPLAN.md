@@ -45,8 +45,11 @@ Nutzer sie hier abgehakt hat:
 - [x] N2-2/N2-3: Critic-Vortraining und technischer Actor-Critic-Smoke
 - [x] N3-1: wissenschaftlicher Drei-Seed-Pilot
 - [x] N4-4: Training neuer unabhängiger Zweier-BC-Parents für den Hauptvergleich
+- [x] N2-1b/N2-2b: Critic-Daten mit Explorationsrauschen und Vortraining des Critics IL-v2 nach [PROTOCOL_V2.md](PROTOCOL_V2.md#e-neu-critic-il-v2-mit-aktionsvariation-n2-1b-n2-2b)
 
 Am 19.11.2026 hat der Nutzer das Pilotprotokoll und die oben markierten Arbeiten für **Claude Code** freigegeben. Claude übernimmt die Listenpunkte ab N2-1 nach ihren bestehenden Abhängigkeiten und Abbruchregeln. N4-4 setzt zusätzlich ein freigegebenes Hauptprotokoll mit begründeter Seedzahl voraus. Die Tagesfortsetzung endet am 19.11.2026 um 15:00 Uhr Europe/Berlin.
+
+Am 19.11.2026 um 22:12 Uhr hat der Nutzer nach dem gescheiterten Smoke N2-3 **Plan B** gewählt: zuerst den Critic verbessern, Pilot frühestens in Nacht 3. Damit sind [PROTOCOL_V2.md](PROTOCOL_V2.md) freigegeben, die Gesamtpause aufgehoben und N2-1b/N2-2b freigegeben. **N2-4 und N3-1 starten nicht vor Nacht 3 (20./21.11.2026)**, auch wenn Nacht 2 früher fertig wird.
 
 ## Feste Rahmenbedingungen
 
@@ -91,6 +94,22 @@ Am 19.11.2026 hat der Nutzer das Pilotprotokoll und die oben markierten Arbeiten
 Die Zuordnung zu Nächten ist ein Richtwert. Geht eine Nacht schneller,
 die nächsten freigegebenen Aufgaben beginnen. Wird sie nicht fertig,
 übernimmt die nächste Nacht die offenen Aufgaben.
+
+## Aufgabenstapel Nacht 2 (19./20.11.2026, protocol_v2, Plan B)
+
+| ID | Aufgabe | Abhängig von | Fertig, wenn |
+|---|---|---|---|
+| D1a | Aktionssensitivität des N2-2-Critics und der Zufallsinitialisierung messen, nur Vorwärtsdurchläufe (v2 §A) | – | Tabelle im Bericht `ACTION_SENSITIVITY.md`, berichtend |
+| N2-1b | Critic-Daten mit Explorationsrauschen: A-Parents auf `critic_data_noisy` (300 Familien ab 2100003690), σ = 0,05 in Grenze δ_max = 0,20 (v2 §E) | – | `splits_v3.json`, Datensatz, Manifest, Hash, Erfolgs-/Fehlerzahlen, `CRITIC_DATA_NOISY.md` |
+| N2-2b | Critic IL-v2 je Parent auf N2-1 + N2-1b vortrainieren, nach §6 auf gespeicherten N2-2-Validierungsrollouts prüfen | N2-1b | `CRITIC_VALIDATION_V2.md`: bestanden oder nicht |
+| D1b | Aktionssensitivität von IL-v2, entscheidend (v2 §A) | N2-2b | Entscheidung in `ACTION_SENSITIVITY.md` |
+| N2-3v2 | Smoke v2 mit IL-v2, standardisierten Vorteilen τ = 1 und Divergenzprüfung, Stufen 0,05 → 0,10 → 0,20 (v2 §B–§D) | D1b bestanden | `AC_SMOKE_V2.md` mit gewählter Stufe oder Gesamtpause |
+| B-1 | Pilotauswertung vorab einfrieren: Analyseskript nach v1 §10 mit Tests auf synthetischen Daten, SHA im Protokoll | – | `pilot_analysis.py`, Tests grün, Hash dokumentiert, **ohne Pilotdaten** |
+| B-2 | Fehlerphasen der A-Parents aus N1-4- und N2-1-Daten: Endphase, Stufe und Abstand der nötigen Korrektur zur Bindung δ_max | – | `FAILURE_PHASES.md` mit vollständigen Nennern, nur bereits erhobene Daten |
+| B-3 | Werkzeug für N4-2: Seedzahl aus kleinstem relevantem Effekt, Streuung und Budget, mit Tests auf Beispielwerten | – | `seed_count.py` mit Tests, keine Pilotdaten |
+| B-4 | Abbildungen und Dokumentation: Critic-Vergleich N2-2 gegen IL-v2, Smoke v1 gegen v2 (Loss, Stabilität und Erfolg getrennt), `experiments/critic/README.md`, Dashboard, Nachtbericht | jeweilige Ergebnisse | Abbildungen mit Generator, Nachtbericht `nights/NACHT_2_20261119.md` |
+
+Reihenfolge: N2-1b als erster langer Lauf, D1a, B-1, B-2 und B-3 währenddessen. Danach N2-2b, D1b und N2-3v2. B-4 zum Schluss. Für Nacht 3 vorgemerkt: N2-4, N3-1 mit IL-v2, N3-2.
 
 ## Hinweise zu den einzelnen Nächten
 
