@@ -11,6 +11,8 @@ Critic-Vortraining, Validierung und Prüfung von Aktionen bzw. Segmenten.
 
 - D1a ist abgeschlossen. Auf 1.344 festen Driftframes je Bindungsstufe war der Median der Streuung der Aktionsvorteile beim N2-2-Critic 4,83- bis 5,13-mal so hoch wie bei der Zufallsinitialisierung und betrug absolut höchstens 0,000677. D1b bewertet anschließend den neuen Critic IL-v2. [Aktionssensitivität](three_cube_transfer_v1/ACTION_SENSITIVITY.md)
 
+- B-1 ist abgeschlossen. Die Pilotauswertung nach Protokoll §10 ist vor jeglichen Pilotdaten als Skript eingefroren und per SHA-256 dokumentiert. Das Skript wurde mit 27 Tests auf synthetischen Daten geprüft und weist Testfamilien ab. [Eingefrorene Pilotauswertung](three_cube_transfer_v1/PILOT_ANALYSIS.md)
+
 Die Morgenübergabe am 19.11.2026 um 14:45 Uhr bestätigte den Abschluss des letzten Laufs und die Gesamtpause bis zur Nutzerentscheidung nach Protokoll §7. [Übergabe](three_cube_transfer_v1/nights/NACHT_1_20261118.md#übergabe)
 
 Datierte Ordner sind getrennte Versuchsfamilien. Die jeweiligen READMEs verweisen auf Protokolle, Ergebnisse und bekannte Grenzen.
