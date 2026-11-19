@@ -2,6 +2,26 @@
   "schemaVersion": 1,
   "runs": [
     {
+      "id": "three-cube-transfer-v1-calibration",
+      "category": "robot",
+      "method": "il",
+      "kind": "evaluation",
+      "title": "Dreierturm · N1-4 Kalibrierung",
+      "directory": "praxis/results/critic/three_cube_transfer_v1/calibration_n1_4",
+      "config": "config.json",
+      "results": "summary.json",
+      "description": "100 Kalibrierungsfamilien mit je drei eingefrorenen A-Parents. 300 geplante Simulationsepisoden, 0 Optimizerupdates.",
+      "checkpointInfo": "Drei feste A-Endpunkte des A/B/C-Vergleichs nach je 30.000 Updates.",
+      "artifacts": [
+        {
+          "name": "three-cube-calibration-summary.json",
+          "file": "summary.json",
+          "kind": "document",
+          "label": "Erfolgszahlen und Episoden pro Stunde"
+        }
+      ]
+    },
+    {
       "id": "vision-side-v4-pilot-001",
       "category": "vision",
       "method": "supervised",
