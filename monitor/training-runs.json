@@ -2,6 +2,26 @@
   "schemaVersion": 1,
   "runs": [
     {
+      "id": "three-cube-transfer-v1-ac-smoke",
+      "category": "robot",
+      "method": "rl",
+      "kind": "training",
+      "title": "Dreierturm · N2-3 technischer Actor-Critic-Smoke",
+      "directory": "praxis/results/critic/three_cube_transfer_v1/ac_smoke_n2_3",
+      "config": "config.json",
+      "results": "summary.json",
+      "description": "Technischer Smoke nach PROTOCOL.md §7, ohne Wirksamkeitsaussage. Bindungsstufen δ_max 0,05 → 0,10 → 0,20, je Stufe AC-neu und AC-IL mit allen drei A-Parents: 2 × 10 Episoden auf smoke_interaction, 500 Critic- und 250 Actorupdates je Lauf, danach Prüfung auf constraint_development gegen den unveränderten Parent. Testfamilien geschlossen.",
+      "checkpointInfo": "Je Lauf Endzustand (Actor, Critic, Zielnetze, Optimizer, RNG) in runs/<lauf>/checkpoint.pt mit SHA-256 in result.json.",
+      "artifacts": [
+        {
+          "name": "three-cube-ac-smoke-summary.json",
+          "file": "summary.json",
+          "kind": "document",
+          "label": "Stufenbewertung, Drift- und Erfolgsverlauf, Update- und Rolloutzeiten"
+        }
+      ]
+    },
+    {
       "id": "three-cube-transfer-v1-critic-validation",
       "category": "robot",
       "method": "il",
