@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Watch · Beyond the Demonstrated Task</title>
+<meta name="description" content="Replays of real three-cube attempts and simulator recordings from the imitation-learning project.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="watch" data-base="../">
+<header class="topbar" id="topbar"></header>
+<main id="top">
+<section class="step" id="watch">
+  <div class="wrap">
+    <div class="step-head reveal">
+      <div class="step-no">▶</div>
+      <div>
+        <div class="kicker">Watch it happen</div>
+        <h2>Real three-cube attempts, replayed</h2>
+        <p>These are recorded test episodes of a BC policy trained only on two-cube demonstrations (phase-based controller, reserved test scenes, 23 Oct 2026; this model built 62 of 100 towers). Every frame is reconstructed from the simulator log: cube and gripper positions at 20 steps per second.</p>
+      </div>
+    </div>
+    <div class="card reveal" id="replay">
+      <div class="rp-eps"></div>
+      <div class="rp-stage-wrap">
+        <canvas aria-label="Replay of a recorded three-cube stacking episode"></canvas>
+        <div class="rp-hud">
+          <div class="rp-stage"></div>
+          <div class="rp-phase"></div>
+          <div class="rp-held"></div>
+        </div>
+        <div class="rp-outcome" hidden></div>
+      </div>
+      <div class="rp-controls">
+        <button class="btn primary rp-play">▶ Play</button>
+        <input type="range" class="rp-scrub" min="0" value="0" aria-label="Scrub through the episode">
+        <div class="rp-speed fgroup"><button class="fbtn" data-s="1" aria-pressed="false">1×</button><button class="fbtn" data-s="2" aria-pressed="true">2×</button><button class="fbtn" data-s="4" aria-pressed="false">4×</button></div>
+      </div>
+      <canvas class="rp-strip" aria-label="Phase timeline, top row placement 1, bottom row placement 2. Click to jump."></canvas>
+      <div class="rp-meta"><span class="rp-step mono"></span><div class="rp-legend legend"></div></div>
+      <p class="rp-note"></p>
+      <p class="limit">Reconstruction from logged positions: cubes are drawn axis-aligned because orientations were not logged, and the arm is reduced to the gripper. The success rate was measured under the metric in use at the time; a fingertip-contact check added later was not part of it (see journal, 24 Oct). Idle tails of failed episodes are trimmed.</p>
+    </div>
+
+    <h3 class="reveal sub-h">Side by side: same start, different policy</h3>
+    <p class="reveal sub-p">Recordings from the two-cube diagnostics in early October. Four camera views of the same robosuite scene, replayed from saved simulator states. Both videos in a pair start from the identical initial state.</p>
+    <div id="pairs" class="pairs reveal"></div>
+
+    <h3 class="reveal sub-h">More recordings</h3>
+    <p class="reveal sub-p">The first weeks: baselines that failed, a single success and failure, and the Lift-task idea that came before stacking. Videos play while visible; click a video to pause it.</p>
+    <div id="robot-gallery" class="vgallery reveal"></div>
+  </div>
+</section>
+</main>
+<nav class="pagenav" id="pagenav" aria-label="Previous and next page"></nav>
+<footer>
+  <div class="wrap">
+    <span>Artur Kück · Imitation Learning project · TU Braunschweig · <a href="../files/proposal.pdf">Proposal (PDF)</a> · <a href="https://github.com/arturkueck/Imitation-Learning">Repository</a></span>
+    <span id="generated"></span>
+  </div>
+</footer>
+<div class="tooltip" id="tooltip" role="status"></div>
+<div class="lightbox" id="lightbox"><img alt=""></div>
+<script src="../assets/nav.js"></script>
+<script src="../data/site-data.js"></script>
+<script src="../assets/charts.js"></script>
+<script src="../assets/app.js"></script>
+<script src="../data/replays.js"></script>
+<script src="../assets/replay.js"></script>
+<script src="../assets/media.js"></script>
+<script src="../assets/gallery.js"></script>
+</body>
+</html>

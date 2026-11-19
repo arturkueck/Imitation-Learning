@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vision · Beyond the Demonstrated Task</title>
+<meta name="description" content="Camera-based 3D box estimation, uncertainty and active views for the cube-stacking project.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="vision" data-base="../">
+<header class="topbar" id="topbar"></header>
+<main id="top">
+<section class="step" id="vision">
+  <div class="wrap">
+    <div class="step-head reveal">
+      <div class="step-no">V</div>
+      <div>
+        <div class="kicker">Perception track · work package 5</div>
+        <h2>From camera images to cube positions</h2>
+        <p>The main study gives the policy exact cube positions from the simulator. To leave the simulator, those positions have to come from cameras. In parallel to the policy work, I built a perception pipeline that estimates 3D boxes for up to five cuboids from two fixed cameras and a hand camera, checks how uncertain it is, and moves the arm for better views.</p>
+      </div>
+    </div>
+    <blockquote class="proposal-quote reveal">Replace the exact cube positions from the simulator with positions that the project's camera-based perception estimates from images, to see how much success depends on exact positions.<cite>Proposal · Work plan, step 5 (secondary)</cite></blockquote>
+
+    <div class="vpipe reveal" id="vpipe">
+      <div class="vstep done"><span>1</span><b>3D box model (V2)</b><small>904k parameters · 6 models · 91 epochs</small></div>
+      <div class="vstep done"><span>2</span><b>Seed disagreement</b><small>uncertainty without retraining</small></div>
+      <div class="vstep done"><span>3</span><b>Reference masks</b><small>6,000 empty-scene images</small></div>
+      <div class="vstep partial"><span>4</span><b>Geometric refinement</b><small>edges over multiple views</small></div>
+      <div class="vstep partial"><span>5</span><b>Active hand camera</b><small>collision-checked whole arm</small></div>
+      <div class="vstep todo"><span>6</span><b>Feed the policy</b><small>work package 5, not yet run</small></div>
+    </div>
+
+    <div class="cols wide-left reveal" style="margin-top:24px">
+      <div class="card">
+        <h3>How accurate is the model?</h3>
+        <div class="sub">Corrected final test, mean of 3 seeds. Share of objects that are detected <em>and</em> placed within 10 mm. Hover for position error.</div>
+        <div id="vision-chart" class="chart"></div>
+        <div class="means"><b>Read</b><span>On scenes like the training data, the hand camera helps: 91.9% vs 88.5% within 10 mm. On unseen cuboid shapes, accuracy collapses to 26–35%. Wider coverage of shapes, light and occlusion has priority over simply training longer.</span></div>
+        <p class="limit">The original test images were black because of a rendering fault; the scenes were re-rendered and evaluated with the frozen checkpoints. The changed-shape panel varies shape and arrangement together.</p>
+      </div>
+      <div>
+        <div class="kpi-stack">
+          <div class="kpi"><div class="label">Uncertainty signal</div><div class="value">0.40–0.45</div><div class="note">Spearman correlation between seed disagreement and position error. Holding back the most uncertain groups removes 39–53% of wrong predictions.</div></div>
+          <div class="kpi"><div class="label">Edge refinement (VIS-001)</div><div class="value">2.09 → 1.59</div><div class="note">mm-equivalent scene error in one family; 5.08 → 4.01 in another, one unchanged, one without a side route.</div></div>
+          <div class="kpi alert"><div class="label">Active camera pilot</div><div class="value">7 / 0</div><div class="note">7 uncertain cases triggered a new hand-camera view, 0 updates accepted: the extra images made raw estimates worse (14.9 → 37.8 mm). No collisions in 1,119 motion samples.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="reveal sub-h">Watch the perception pipeline</h3>
+    <div id="vision-gallery" class="vgallery reveal"></div>
+
+    <div class="figs figs-3 reveal">
+      <figure><img src="../img/vision-training-loss.jpg" alt="Training and validation loss of the vision models"><figcaption>V2 training and validation loss, three seeds per camera setup.</figcaption></figure>
+      <figure><img src="../img/vision-reference-examples.jpg" alt="Foreground masks from empty reference images"><figcaption>Foreground from empty reference images. Green: correct pixels, red: extra, blue: missing.</figcaption></figure>
+      <figure><img src="../img/vision-refinement-examples.jpg" alt="Box refinement examples"><figcaption>Geometric refinement of predicted boxes. Better corners and sizes, but no clear position gain (4.58 → 4.72 mm).</figcaption></figure>
+    </div>
+    <div class="means reveal"><b>For the proposal</b><span>The perception pipeline works under simulation conditions similar to its training data, but it is not yet good enough for unseen shapes, and extra views do not help yet. That is why the main comparison uses exact positions, and camera-based positions remain a secondary transfer check.</span></div>
+  </div>
+</section>
+</main>
+<nav class="pagenav" id="pagenav" aria-label="Previous and next page"></nav>
+<footer>
+  <div class="wrap">
+    <span>Artur Kück · Imitation Learning project · TU Braunschweig · <a href="../files/proposal.pdf">Proposal (PDF)</a> · <a href="https://github.com/arturkueck/Imitation-Learning">Repository</a></span>
+    <span id="generated"></span>
+  </div>
+</footer>
+<div class="tooltip" id="tooltip" role="status"></div>
+<div class="lightbox" id="lightbox"><img alt=""></div>
+<script src="../assets/nav.js"></script>
+<script src="../data/site-data.js"></script>
+<script src="../assets/charts.js"></script>
+<script src="../assets/app.js"></script>
+<script src="../assets/media.js"></script>
+<script src="../assets/gallery.js"></script>
+</body>
+</html>

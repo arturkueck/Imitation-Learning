@@ -4,34 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Beyond the Demonstrated Task · Imitation Learning Project</title>
-<meta name="description" content="Can a robot that has only seen two-cube demonstrations learn to build three-cube towers from its own attempts? Project proposal, evidence and live status.">
+<meta name="description" content="Can a robot that has only seen two-cube demonstrations learn to build three-cube towers from its own attempts? Project proposal, evidence and current status.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
-
-<header class="topbar">
-  <div class="wrap">
-    <a class="brand" href="#top" aria-label="Back to top">
-      <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><g id="logo-cubes"></g></svg>
-      <span>Beyond the Demonstrated Task<small>Imitation Learning · project site</small></span>
-    </a>
-    <nav class="steps-nav" aria-label="Guided tour">
-      <a href="#question"><b>1</b><span>Question</span></a>
-      <a href="#why"><b>2</b><span>Why it's hard</span></a>
-      <a href="#approach"><b>3</b><span>Approach</span></a>
-      <a href="#evidence"><b>4</b><span>Evidence</span></a>
-      <a href="#now"><b>5</b><span>Status</span></a>
-      <a href="#plan"><b>6</b><span>Plan</span></a>
-      <a href="#journal"><b>J</b><span>Journal</span></a>
-      <a href="#references"><b>R</b><span>Papers</span></a>
-    </nav>
-  </div>
-  <div class="progress" id="progress"></div>
-</header>
-
+<body data-page="home" data-base="">
+<header class="topbar" id="topbar"></header>
 <main id="top">
-<!-- ================= HERO ================= -->
 <section class="hero">
   <div class="wrap">
     <div class="grid">
@@ -42,6 +21,7 @@
         <div class="hero-cta">
           <a class="btn primary" href="#question">Start the guided tour →</a>
           <a class="btn ghost" href="#now">Jump to current status</a>
+          <a class="btn ghost" href="files/proposal.pdf">Read the proposal (PDF)</a>
         </div>
       </div>
       <figure class="hero-figure reveal">
@@ -61,7 +41,6 @@
   </div>
 </section>
 
-<!-- ================= 1 QUESTION ================= -->
 <section class="step" id="question">
   <div class="wrap">
     <div class="step-head reveal">
@@ -93,7 +72,6 @@
   </div>
 </section>
 
-<!-- ================= 2 WHY ================= -->
 <section class="step" id="why">
   <div class="wrap">
     <div class="step-head reveal">
@@ -119,12 +97,11 @@
       <h3>Where the transfer breaks</h3>
       <div class="sub">Each placement is executed by separate small networks, one per stage, chained by a fixed sequencer. In three-cube towers, failures concentrate at the <strong>second grasp</strong>.</div>
       <div class="stages" id="stages"></div>
-      <p class="limit">Stage names simplified. Phase audit: of 48 second-lift starts reached in full rollouts, 15 had no grasp &mdash; and all 15 failed (BC-004).</p>
+      <p class="limit">Seven stage networks per placement (names simplified); a fixed retreat rule clears the tower between placements. Phase audit: of 48 second-lift starts reached in full rollouts, 15 had no grasp &mdash; and all 15 failed (BC-004).</p>
     </div>
   </div>
 </section>
 
-<!-- ================= 3 APPROACH ================= -->
 <section class="step" id="approach">
   <div class="wrap">
     <div class="step-head reveal">
@@ -148,29 +125,10 @@
   </div>
 </section>
 
-<!-- ================= 4 EVIDENCE ================= -->
-<section class="step" id="evidence">
-  <div class="wrap">
-    <div class="step-head reveal">
-      <div class="step-no">04</div>
-      <div>
-        <div class="kicker">Preliminary work</div>
-        <h2>What earlier experiments already show</h2>
-        <p>Five experiments, read in order, explain why the proposal looks the way it does. Each ends with what it means for the research question.</p>
-      </div>
-    </div>
-    <div class="chain reveal">
-      <ul class="chain-list" role="tablist" aria-label="Evidence chain" id="chain-list"></ul>
-      <div id="chain-panels"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 5 NOW ================= -->
 <section class="step" id="now">
   <div class="wrap">
     <div class="step-head reveal">
-      <div class="step-no">05</div>
+      <div class="step-no">04</div>
       <div>
         <div class="kicker">Current status · 19 Nov 2026</div>
         <h2>The critic works on paper. The actor step is blocked.</h2>
@@ -201,71 +159,38 @@
   </div>
 </section>
 
-<!-- ================= 6 PLAN ================= -->
-<section class="step" id="plan">
+<section class="step" id="explore">
   <div class="wrap">
     <div class="step-head reveal">
-      <div class="step-no">06</div>
+      <div class="step-no">→</div>
       <div>
-        <div class="kicker">Work plan</div>
-        <h2>Three months, five milestones</h2>
-        <p>The schedule from the proposal, annotated with where each work package stands. I and II are the first and second halves of a month; the lighter bar is secondary work.</p>
+        <div class="kicker">Explore the project</div>
+        <h2>Everything behind the proposal</h2>
+        <p>Each page goes deeper into one part of the work. Use the navigation bar or follow the "Next" link at the bottom of every page.</p>
       </div>
     </div>
-    <div class="reveal" id="gantt"></div>
-    <div class="milestones reveal" id="milestones"></div>
-  </div>
-</section>
-
-<!-- ================= JOURNAL ================= -->
-<section class="step" id="journal">
-  <div class="wrap">
-    <div class="step-head reveal">
-      <div class="step-no">J</div>
-      <div>
-        <div class="kicker">Hypothesis journal</div>
-        <h2>Every decision, in order</h2>
-        <p>Generated from <span class="mono">experiments/HYPOTHESENJOURNAL.md</span>. Each hypothesis keeps its ID from plan to measurement to decision. Click the colored strip or an entry to dig in.</p>
-      </div>
+    <div class="explore reveal">
+      <a class="ex" href="watch/"><img src="media/pair-direct-46000.jpg" alt=""><div><b>Watch</b><span>Replays of real three-cube attempts, side-by-side policy comparisons and recordings from the first weeks.</span></div></a>
+      <a class="ex" href="experiments/"><img src="img/critic-validation-and-bc-success.png" alt=""><div><b>Experiments</b><span>A timeline of 59 experiment families and the five results that shaped the proposal.</span></div></a>
+      <a class="ex" href="vision/"><img src="media/vision-tower-extra-views.jpg" alt=""><div><b>Vision</b><span>The perception track: 3D boxes from camera images, uncertainty, refinement and an active hand camera.</span></div></a>
+      <a class="ex" href="plan/"><div class="ex-icon">▦</div><div><b>Plan</b><span>Three-month schedule with milestones and the status of every work package.</span></div></a>
+      <a class="ex" href="journal/"><div class="ex-icon">≡</div><div><b>Journal</b><span>Every hypothesis, test and decision, searchable and filterable.</span></div></a>
+      <a class="ex" href="literature/"><div class="ex-icon">❝</div><div><b>Literature</b><span>The five papers the proposal builds on and the gap each leaves open.</span></div></a>
     </div>
-    <p class="lang-note">Entries are shown in the original language of the lab journal (German); status labels are translated.</p>
-    <div class="filters">
-      <input type="search" id="jsearch" placeholder="Search questions, results, IDs…" aria-label="Search journal">
-      <div class="fgroup" id="ffamily" aria-label="Filter by topic"></div>
-    </div>
-    <div class="filters"><div class="fgroup" id="fstatus" aria-label="Filter by outcome"></div></div>
-    <div class="strip" id="jstrip" aria-label="Timeline of outcomes"></div>
-    <div class="jsummary" id="jsummary"></div>
-    <div class="jlist" id="jlist"></div>
-  </div>
-</section>
-
-<!-- ================= REFERENCES ================= -->
-<section class="step" id="references" style="border-bottom:0">
-  <div class="wrap">
-    <div class="step-head reveal">
-      <div class="step-no">R</div>
-      <div>
-        <div class="kicker">State of the art</div>
-        <h2>Where the project sits in the literature</h2>
-        <p>The five references of the proposal, and which gap each leaves open.</p>
-      </div>
-    </div>
-    <div class="refs" id="refs"></div>
+    <p class="shortlinks reveal">Short links: <a href="proposal/">/proposal</a> · <a href="schedule/">/schedule</a> · <a href="status/">/status</a> · <a href="repo/">/repo</a></p>
   </div>
 </section>
 </main>
-
+<nav class="pagenav" id="pagenav" aria-label="Previous and next page"></nav>
 <footer>
   <div class="wrap">
-    <span>Artur Kück · Imitation Learning project · TU Braunschweig</span>
+    <span>Artur Kück · Imitation Learning project · TU Braunschweig · <a href="files/proposal.pdf">Proposal (PDF)</a> · <a href="https://github.com/arturkueck/Imitation-Learning">Repository</a></span>
     <span id="generated"></span>
   </div>
 </footer>
-
 <div class="tooltip" id="tooltip" role="status"></div>
 <div class="lightbox" id="lightbox"><img alt=""></div>
-
+<script src="assets/nav.js"></script>
 <script src="data/site-data.js"></script>
 <script src="assets/charts.js"></script>
 <script src="assets/app.js"></script>

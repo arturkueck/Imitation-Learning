@@ -29,10 +29,11 @@
   }
 
   // logo
-  (function () { const g = $('#logo-cubes'); cube(g, 15, 29, 8, 'blue'); cube(g, 15, 21, 8, 'orange'); cube(g, 15, 13, 8, 'ink', { ghost: false }); })();
+  (function () { const g = $('#logo-cubes'); if (!g) return; cube(g, 15, 29, 8, 'blue'); cube(g, 15, 21, 8, 'orange'); cube(g, 15, 13, 8, 'ink', { ghost: false }); })();
 
   // hero
   (function () {
+    if (!$('#hero-svg')) return;
     const s = $('#hero-svg'); const a = 44, G = 236;
     const style = el('style', {}, s);
     style.textContent = '@keyframes bob{0%,100%{transform:translateY(-6px)}50%{transform:translateY(4px)}}.cube-anim{animation:bob 3.2s ease-in-out infinite}';
@@ -59,6 +60,7 @@
 
   // differences figure
   (function () {
+    if (!$('#diff-svg')) return;
     const s = $('#diff-svg'); const a = 24, G = 150;
     const cols = [
       { x: 105, title: 'Carried higher', sub: 'lift above a 2-cube tower' },
@@ -87,6 +89,7 @@
 
   /* ---------------- compound calculator ---------------- */
   (function () {
+    if (!$('#p')) return;
     const p = $('#p'), n = $('#n');
     const upd = () => {
       const pv = +p.value / 100, nv = +n.value, v = Math.pow(pv, nv) * 100;
@@ -101,7 +104,8 @@
 
   /* ---------------- stages ---------------- */
   (function () {
-    const st = [['Approach', 'move above cube'], ['Descend', 'lower to grasp'], ['Close', 'close gripper'], ['Lift', 'raise cube'], ['Travel', 'carry to tower'], ['Open', 'release'], ['Retreat', 'clear the tower']];
+    if (!$('#stages')) return;
+    const st = [['Approach', 'move above cube'], ['Descend', 'lower to grasp'], ['Close', 'close gripper'], ['Lift', 'raise cube'], ['Travel', 'carry to tower'], ['Lower', 'set onto tower'], ['Release', 'open gripper']];
     $('#stages').innerHTML = '<div style="flex-basis:100%;font:600 12px var(--mono);color:var(--muted);letter-spacing:.08em">SECOND PLACEMENT (CUBE 3 → ON TOWER)</div>' +
       st.map((s, i) => `<div class="stage${i < 3 ? ' hot' : ''}"${i === 1 || i === 2 ? ' style="--x:0"' : ''}><b>${s[0]}</b><small>${s[1]}</small></div>`).join('');
     // show label only once
@@ -111,6 +115,7 @@
 
   /* ---------------- flow diagram ---------------- */
   (function () {
+    if (!$('#flow-svg')) return;
     const s = $('#flow-svg');
     const defs = el('defs', {}, s); const m = el('marker', { id: 'arr3', viewBox: '0 0 10 10', refX: 9, refY: 5, markerWidth: 7, markerHeight: 7, orient: 'auto' }, defs);
     el('path', { d: 'M0,0 L10,5 L0,10 z', fill: 'var(--ink-2)' }, m);
@@ -200,6 +205,7 @@
     }
   ];
   (function () {
+    if (!$('#chain-list')) return;
     const list = $('#chain-list'), panels = $('#chain-panels');
     chain.forEach((c, i) => {
       const li = document.createElement('li');
@@ -209,7 +215,7 @@
       p.innerHTML = `<div style="display:flex;gap:10px;align-items:center;margin-bottom:10px"><span class="chip ${c.status}">${({ supported: 'Supported', refuted: 'Not supported', diagnosis: 'Diagnosis' })[c.status]}</span><span class="mono" style="font-size:12.5px;color:var(--muted)">${c.id}</span></div>
         <h3>${c.headline}</h3><p style="color:var(--ink-2)">${c.body}</p><div class="chart" id="chain-chart-${i}"></div>
         <div class="means"><b>For the proposal</b><span>${c.means}</span></div><p class="limit">${c.limit}</p>
-        <div class="chain-nav">${i ? `<button class="btn ghost" data-go="${i - 1}">← ${chain[i - 1].title}</button>` : '<span></span>'}${i < chain.length - 1 ? `<button class="btn primary" data-go="${i + 1}">${chain[i + 1].title} →</button>` : '<a class="btn primary" href="#now">Current status →</a>'}</div>`;
+        <div class="chain-nav">${i ? `<button class="btn ghost" data-go="${i - 1}">← ${chain[i - 1].title}</button>` : '<span></span>'}${i < chain.length - 1 ? `<button class="btn primary" data-go="${i + 1}">${chain[i + 1].title} →</button>` : `<a class="btn primary" href="${document.body.dataset.base || ''}#now">Current status →</a>`}</div>`;
       panels.appendChild(p);
     });
     const drawn = new Set();
@@ -224,12 +230,13 @@
       if (i < 0) return; const d = e.key === 'ArrowDown' || e.key === 'ArrowRight' ? 1 : e.key === 'ArrowUp' || e.key === 'ArrowLeft' ? -1 : 0;
       if (d) { e.preventDefault(); const j = (i + d + btns.length) % btns.length; btns[j].focus(); select(j); }
     });
-    panels.addEventListener('click', e => { const b = e.target.closest('[data-go]'); if (b) { select(+b.dataset.go); $('#evidence').scrollIntoView({ behavior: 'smooth' }); } });
+    panels.addEventListener('click', e => { const b = e.target.closest('[data-go]'); if (b) { select(+b.dataset.go); $('#chain-list').scrollIntoView({ behavior: 'smooth', block: 'start' }); } });
     select(0);
   })();
 
   /* ---------------- status track ---------------- */
   (function () {
+    if (!$('#track')) return;
     const J = (id, first) => { const m = D.journal.filter(j => j.id === id); return (first ? m[0] : m[m.length - 1]) || {}; };
     const items = [
       { id: 'AC-002', cls: 'done', icon: '✓', title: 'Difficulty calibration', chip: ['diagnosis', 'Diagnosis'], text: 'Long horizontal carry distances define the challenging panel: on 100 calibration families the longest third was weakest for every parent (103/300 overall). Thresholds frozen.' },
@@ -249,6 +256,7 @@
 
   /* ---------------- gantt ---------------- */
   (function () {
+    if (!$('#gantt')) return;
     const rows = [
       ['Define test conditions', 0.04, 0.96, false, ['inprog', 'In progress']],
       ['Critic data and pilot runs', 0.54, 1.96, false, ['paused', 'Paused']],
@@ -295,6 +303,7 @@
 
   /* ---------------- journal ---------------- */
   (function () {
+    if (!$('#jbody')) return;
     const J = D.journal;
     const STATUS_COLOR = { supported: '#0f7b3f', passed: '#5fb383', partial: '#c98500', running: '#e0b44d', paused: '#e0b44d', refuted: '#b42318', stopped: '#e3807a', diagnosis: '#2a5fa8', unclear: '#2a5fa8', planned: '#c9c2b2', documented: '#c9c2b2', other: '#c9c2b2' };
     const STATUS_NAME = { supported: 'Supported', partial: 'Partly supported', refuted: 'Not supported', diagnosis: 'Diagnosis', passed: 'Gate passed', stopped: 'Stopped', paused: 'Paused', running: 'Started', planned: 'Planned', documented: 'Documented', unclear: 'Inconclusive', other: 'Other' };
@@ -305,26 +314,36 @@
     $('#fstatus').innerHTML = stats.map(s => `<button class="fbtn" data-s="${s}" aria-pressed="${s === 'all'}">${s === 'all' ? 'Any outcome' : `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${STATUS_COLOR[s]};margin-right:6px"></span>` + STATUS_NAME[s]}</button>`).join('');
     const esc = s => s.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
     const md = s => esc(s).replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    const PREVIEW = 6; let expanded = false;
     const render = () => {
       const ql = q.toLowerCase();
       const list = J.map((j, i) => ({ j, i })).filter(({ j }) => (fam === 'All' || j.family === fam) && (st === 'all' || j.status === st) &&
         (!ql || [j.id, j.topic, j.question, j.test, j.result, j.decision].join(' ').toLowerCase().includes(ql)));
-      $('#jsummary').textContent = `${list.length} of ${J.length} entries · newest first`;
       list.reverse();
+      const shown = expanded ? list : list.slice(0, PREVIEW);
+      $('#jsummary').textContent = `Showing ${shown.length} of ${list.length}${list.length < J.length ? ' matching' : ''} entries · newest first`;
+      const more = $('#jmore'); more.hidden = list.length <= PREVIEW;
+      more.textContent = expanded ? 'Show only the latest ' + PREVIEW : `Show all ${list.length} entries`;
       $('#jstrip').innerHTML = J.map((j, i) => `<span data-i="${i}" style="background:${STATUS_COLOR[j.status]};opacity:${list.some(l => l.i === i) ? 1 : .18}" title="${j.date} · ${j.id} · ${STATUS_NAME[j.status]}"></span>`).join('');
-      $('#jlist').innerHTML = list.map(({ j, i }) => `<details class="entry" id="j-${i}"><summary><span class="d">${j.date}</span><span class="id">${j.id}</span><span class="q">${md(j.question)}<small>${md(j.topic)} · ${j.family}</small></span><span class="chip ${j.status}">${j.statusLabel}</span></summary>
-        <div class="body"><div><h5>Test / criterion</h5>${md(j.test)}</div><div><h5>Result</h5>${md(j.result)}</div><div><h5>Decision / next step</h5>${md(j.decision)}</div>
-        <div class="ev"><h5>Evidence</h5>${j.evidence.length ? j.evidence.map(e => e.url ? `<a href="${e.url}" target="_blank" rel="noopener">${esc(e.label)}</a> <code>${esc(e.path)}</code>` : `<code>${esc(e.path)}</code>`).join(' ') : '—'} <span style="margin-left:6px">${esc(j.when)}</span></div></div></details>`).join('');
+      const short = s => { const p = esc(s).replace(/\*\*([^*]+)\*\*/g, '$1'); return p.length > 150 ? p.slice(0, 147).replace(/\s+\S*$/, '') + ' …' : p; };
+      $('#jbody').innerHTML = shown.map(({ j, i }) => `<tr class="jrow" id="j-${i}" tabindex="0" aria-expanded="false"><td class="d">${j.date.slice(5).replace('-', '.')}<small>${j.date.slice(0, 4)}</small></td><td class="id">${j.id}<small>${j.family}</small></td><td class="q">${md(j.question)}</td><td class="r">${short(j.result)}</td><td><span class="chip ${j.status}">${j.statusLabel}</span></td><td class="chev">›</td></tr>
+        <tr class="jdetail" hidden><td colspan="6"><div class="body"><div><h5>Topic</h5>${md(j.topic)}</div><div><h5>Test / criterion</h5>${md(j.test)}</div><div><h5>Full result</h5>${md(j.result)}</div><div><h5>Decision / next step</h5>${md(j.decision)}</div>
+        <div class="ev"><h5>Evidence · ${esc(j.when)}</h5>${j.evidence.length ? j.evidence.map(e => e.url ? `<a href="${e.url}" target="_blank" rel="noopener">${esc(e.label)} ↗</a>` : `<code>${esc(e.path)}</code>`).join(' · ') : '—'}</div></div></td></tr>`).join('');
     };
+    const toggle = tr => { const d = tr.nextElementSibling; d.hidden = !d.hidden; tr.setAttribute('aria-expanded', !d.hidden); };
+    $('#jbody').addEventListener('click', e => { const tr = e.target.closest('tr.jrow'); if (tr && !e.target.closest('a')) toggle(tr); });
+    $('#jbody').addEventListener('keydown', e => { const tr = e.target.closest('tr.jrow'); if (tr && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); toggle(tr); } });
+    $('#jmore').addEventListener('click', () => { expanded = !expanded; render(); if (!expanded) $('#journal').scrollIntoView({ behavior: 'smooth' }); });
     $('#ffamily').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; fam = b.dataset.f; $('#ffamily').querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); render(); });
     $('#fstatus').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; st = b.dataset.s; $('#fstatus').querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); render(); });
     $('#jsearch').addEventListener('input', e => { q = e.target.value; render(); });
-    $('#jstrip').addEventListener('click', e => { const sp = e.target.closest('span'); if (!sp) return; const d = document.getElementById('j-' + sp.dataset.i); if (d) { d.open = true; d.scrollIntoView({ behavior: 'smooth', block: 'center' }); } });
+    $('#jstrip').addEventListener('click', e => { const sp = e.target.closest('span'); if (!sp) return; let tr = document.getElementById('j-' + sp.dataset.i); if (!tr) { expanded = true; render(); tr = document.getElementById('j-' + sp.dataset.i); } if (tr) { if (tr.nextElementSibling.hidden) toggle(tr); tr.scrollIntoView({ behavior: 'smooth', block: 'center' }); } });
     render();
   })();
 
   /* ---------------- references ---------------- */
   (function () {
+    if (!$('#refs')) return;
     const refs = [
       ['DAgger', 'Ross, Gordon & Bagnell · AISTATS 2011', 'https://proceedings.mlr.press/v15/ross11a.html', 'Imitation drifts into states the demos never covered; fixed by letting an expert label the states the robot actually reaches.', 'Gap: needs an expert for the target task'],
       ['DeCo', 'Chen et al. · arXiv 2025', 'https://arxiv.org/abs/2505.00527', 'Splits demonstrated tasks into reusable skills and recombines them for longer, never-demonstrated tasks.', 'Gap: skills are not improved when they fail'],
@@ -337,14 +356,7 @@
 
   /* ---------------- nav, progress, reveal, lightbox ---------------- */
   (function () {
-    const links = [...document.querySelectorAll('.steps-nav a')];
-    const secs = links.map(a => document.querySelector(a.getAttribute('href')));
-    const onScroll = () => {
-      const y = window.scrollY + 120; let cur = -1;
-      secs.forEach((s, i) => { if (s.offsetTop <= y) cur = i; });
-      links.forEach((a, i) => { a.classList.toggle('active', i === cur); a.classList.toggle('done', i < cur); });
-      const h = document.documentElement; $('#progress').style.width = (100 * h.scrollTop / (h.scrollHeight - h.clientHeight)) + '%';
-    };
+    const onScroll = () => { const h = document.documentElement, pr = $('#progress'); if (pr) pr.style.width = (100 * h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight)) + '%'; };
     window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
     const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .08 });
     document.querySelectorAll('.reveal').forEach(e => io.observe(e));
@@ -352,6 +364,6 @@
     document.querySelectorAll('.figs img').forEach(img => img.addEventListener('click', () => { lb.querySelector('img').src = img.src; lb.querySelector('img').alt = img.alt; lb.classList.add('open'); }));
     lb.addEventListener('click', () => lb.classList.remove('open'));
     document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
-    $('#generated').textContent = `Data generated ${D.generated || '–'} from the project repository`;
+    if ($('#generated')) $('#generated').textContent = `Data generated ${D.generated || '–'} from the project repository`;
   })();
 })();

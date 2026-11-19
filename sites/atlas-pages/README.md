@@ -1,16 +1,26 @@
 # atlas-pages · public project site
 
 Static, dependency-free site (HTML/CSS/JS, no build step) for the proposal
-*Beyond the Demonstrated Task*. It walks a reader through the project as a guided tour:
+*Beyond the Demonstrated Task*. Live at https://arturkueck.github.io/Imitation-Learning/
 
-1. **Question** – what the project asks, scope
-2. **Why it's hard** – interactive compounding-error calculator, where the transfer breaks
-3. **Approach** – BC vs. Actor–Critic (new critic) vs. Actor–Critic (IL-informed critic), hypothesis
-4. **Evidence** – five preliminary experiments (BC-002, BC-003, BC-004, BC-005, AC-001) with charts
-5. **Status** – critic pipeline (AC-002 … AC-006), open decision
-6. **Plan** – Gantt and milestones from `schedule.tex`, with per-package status
-7. **Journal** – searchable/filterable view of `experiments/HYPOTHESENJOURNAL.md`
-8. **Literature** – the five proposal references
+| Page | Folder | Content |
+|---|---|---|
+| Overview | `index.html` | Question, why it is hard, approach and hypothesis, current status, links to all pages |
+| Watch | `watch/` | Replays of real three-cube episodes, side-by-side videos, early recordings |
+| Experiments | `experiments/` | Timeline of experiment families, five preliminary results with charts |
+| Vision | `vision/` | Perception track (work package 5): accuracy, uncertainty, refinement, active camera, videos |
+| Plan | `plan/` | Gantt chart and milestones with status |
+| Journal | `journal/` | Hypothesis journal as a filterable table |
+| Literature | `literature/` | The five proposal references |
+
+Short links (tiny pages that forward immediately): `proposal/` → `files/proposal.pdf`,
+`schedule/` → `files/schedule.pdf`, `status/` → status section, `repo/` → GitHub repository.
+`404.html` is GitHub's "not found" page; it uses absolute `/Imitation-Learning/` paths.
+
+The header and previous/next links come from `assets/nav.js` (edit the `PAGES` list there to add a page).
+Every page sets `<body data-page="…" data-base="../">` so shared scripts find `media/`, `img/` and `data/`.
+The PDFs in `files/` are copies of `output/pdf/Imitation_Learning_{Proposal,Gantt}_v2.pdf`; replace them
+when the proposal changes.
 
 `sites/research-atlas-source/` stays the internal research atlas (paper library, training
 monitor). This folder is the outward-facing, proposal-centred view and contains only
@@ -20,6 +30,22 @@ condensed numbers, two plots and no model weights or raw data.
 
 Double-click `index.html` - it works from `file://` because the data is loaded as a script
 (`data/site-data.js`), not via `fetch`.
+
+## Videos and replays
+
+- `data/replays.js`: four real three-cube test episodes (scene 84002, 84004, 84047, 84001) from
+  `experiments/self_imitation/stack_phased_8h_20261023/final_test/seed1_test3_traces/`, replayed
+  on a canvas by `assets/replay.js`. Regenerate with `python sites/atlas-pages/tools/build_replays.py`;
+  edit the `EPISODES` list there to show other scenes.
+- `media/`: copies of existing recordings, captioned in `assets/media.js`. Sources:
+  `experiments/stack_diagnostics/stack_direct_20261001` and `stack_placement_20261001` (side-by-side pairs),
+  `output/meeting_2026-10-12/media` (stack success/failure, Lift animation),
+  `experiments/baselines/{workday,diffusion}_20261001/videos` (BASE-001/002),
+  `sites/research-atlas-source/public/{vision-evidence,training-assets/vision-active-v3-run1}` (vision GIFs,
+  re-encoded to MP4) and `output/vision_videoauswahl_20261108` (VIS-001).
+- `img/vision-*.jpg`: figures from `sites/research-atlas-source/public/vision-evidence`.
+- The project timeline in section 4 is a hand-maintained list in `assets/gallery.js` (one entry per dated
+  experiment folder); add new folders there.
 
 ## Update the data
 

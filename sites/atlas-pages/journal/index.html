@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Journal · Beyond the Demonstrated Task</title>
+<meta name="description" content="Hypothesis journal: every test and decision.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="journal" data-base="../">
+<header class="topbar" id="topbar"></header>
+<main id="top">
+<section class="step" id="journal">
+  <div class="wrap">
+    <div class="step-head reveal">
+      <div class="step-no">J</div>
+      <div>
+        <div class="kicker">Hypothesis journal</div>
+        <h2>Every decision, in order</h2>
+        <p>Generated from <span class="mono">experiments/HYPOTHESENJOURNAL.md</span>. Each hypothesis keeps its ID from plan to measurement to decision. Click the colored strip or an entry to dig in.</p>
+      </div>
+    </div>
+    <p class="lang-note">Entries are shown in the original language of the lab journal (German); status labels are translated.</p>
+    <div class="filters">
+      <input type="search" id="jsearch" placeholder="Search questions, results, IDs…" aria-label="Search journal">
+      <div class="fgroup" id="ffamily" aria-label="Filter by topic"></div>
+    </div>
+    <div class="filters"><div class="fgroup" id="fstatus" aria-label="Filter by outcome"></div></div>
+    <div class="strip" id="jstrip" aria-label="Timeline of outcomes"></div>
+    <div class="jtable-wrap"><table class="jtable"><thead><tr><th>Date</th><th>ID</th><th>Question</th><th>Result</th><th>Outcome</th><th></th></tr></thead><tbody id="jbody"></tbody></table></div>
+    <div class="jfoot"><span class="jsummary" id="jsummary"></span><button class="btn ghost" id="jmore"></button></div>
+  </div>
+</section>
+</main>
+<nav class="pagenav" id="pagenav" aria-label="Previous and next page"></nav>
+<footer>
+  <div class="wrap">
+    <span>Artur Kück · Imitation Learning project · TU Braunschweig · <a href="../files/proposal.pdf">Proposal (PDF)</a> · <a href="https://github.com/arturkueck/Imitation-Learning">Repository</a></span>
+    <span id="generated"></span>
+  </div>
+</footer>
+<div class="tooltip" id="tooltip" role="status"></div>
+<div class="lightbox" id="lightbox"><img alt=""></div>
+<script src="../assets/nav.js"></script>
+<script src="../data/site-data.js"></script>
+<script src="../assets/charts.js"></script>
+<script src="../assets/app.js"></script>
+</body>
+</html>
