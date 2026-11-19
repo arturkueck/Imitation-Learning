@@ -1,6 +1,7 @@
 """Windows-Nachtsteuerung. Fortschritt und Freigaben werden bei jedem Start neu gelesen."""
 import argparse
 import json
+import msvcrt
 import os
 from datetime import date, datetime, time, timedelta
 from pathlib import Path
@@ -74,12 +75,16 @@ def log(message):
 def commit_report(files, summary):
     if not files:
         return
-    allowed_docs = {Path("experiments/critic/README.md"), Path("monitor/training-runs.json")}
+    shared_files = {
+        Path("experiments/critic/README.md"),
+        Path("experiments/curriculum/registry.py"),
+        Path("monitor/training-runs.json"),
+    }
     checked = []
     for name in files:
         path = (ROOT / name).resolve()
         relative = path.relative_to(ROOT)
-        if relative not in allowed_docs:
+        if relative not in shared_files:
             path.relative_to(FAMILY)
             if path in (PLAN, Path(__file__).resolve()) or path.suffix.lower() not in {
                 ".md", ".py", ".json", ".csv", ".toml", ".yaml", ".yml", ".ps1", ".sha256",
@@ -89,27 +94,48 @@ def commit_report(files, summary):
             raise ValueError(f"Keine kleine Übergabedatei: {relative}")
         checked.append(str(relative))
     git("add", "--", *checked)
-    staged = subprocess.run(["git", "-C", ROOT, "diff", "--cached", "--quiet", "--", *checked])
-    if staged.returncode == 1:
+    if git("diff", "--cached", "--name-only", "--", *checked):
         git("commit", "--only", "-m", summary.splitlines()[0], "--", *checked)
-    else:
-        staged.check_returncode()
 
 
-def worker(args, task, report, deadline):
+def run_claude(executable, prompt, schema, stream, timeout):
+    command = [
+        executable, "--print", "--safe-mode", "--strict-mcp-config",
+        "--no-session-persistence", "--permission-mode", "acceptEdits",
+        "--tools", "Read,Glob,Grep,Edit,Write", "--output-format", "json",
+        "--json-schema", schema,
+    ]
+    result = subprocess.run(command, input=prompt.encode(), cwd=ROOT, stdout=subprocess.PIPE,
+                            stderr=stream, timeout=timeout)
+    stream.write(result.stdout)
+    result.check_returncode()
+    response = json.loads(result.stdout)
+    if response.get("is_error") or not isinstance(response.get("structured_output"), dict):
+        raise ValueError("Claude hat keine erfolgreiche strukturierte Übergabe geliefert")
+    return response["structured_output"]
+
+
+def worker(args, task, report, deadline, cutoff):
     now = datetime.now()
     stamp = now.strftime("%Y%m%d_%H%M%S_%f")
     answer = STATE / (stamp + ".json")
     transcript = STATE / (stamp + ".log")
     schema = STATE / "handoff-schema.json"
-    schema.write_text(json.dumps({"type": "object", "additionalProperties": False, "properties": {
+    schema_json = json.dumps({"type": "object", "additionalProperties": False, "properties": {
         "files": {"type": "array", "items": {"type": "string"}},
-        "summary": {"type": "string"}}, "required": ["files", "summary"]}), encoding="utf-8")
+        "summary": {"type": "string"}}, "required": ["files", "summary"]})
+    schema.write_text(schema_json, encoding="utf-8")
+    daytime = (
+        "Dies ist der vom Nutzer freigegebene Tagesbetrieb. Die hier genannten Zeiten ersetzen "
+        "für diesen Durchgang die Uhrzeiten des Nachtplans. Forschungsregeln und Freigaben gelten."
+        if args.day_until else ""
+    )
     prompt = f"""Du bist der zuständige Nachtagent für {task}. Arbeitszweig {BRANCH}.
 Lies AGENTS.md, Agend.md, experiments/AGENTS.md und in {REL.as_posix()} NACHTPLAN.md und STATUS.md.
 Dein Auftrag ist genau {task}. Bei einer Aufgaben-ID die Aufgabe wirklich bearbeiten und verifizieren.
 Bei MORGENUEBERGABE nur offene Prozesse mit ihrem Monitor prüfen, exakt fortsetzbar anhalten und die Nacht abschließen.
-Jetzt {now:%d.%m.%Y %H:%M} Europe/Berlin, keine neuen Läufe ab 07:30, Übergabe bis {deadline:%d.%m.%Y %H:%M}.
+Jetzt {now:%d.%m.%Y %H:%M} Europe/Berlin, keine neuen Läufe ab {cutoff:%H:%M}, Übergabe bis {deadline:%d.%m.%Y %H:%M}.
+{daytime}
 Prüfe die Uhr vor jedem Laufstart. Lange Läufe nur unter eigenem Supervisor mit wirksamer Deadline,
 inkrementellem Monitor und Eintrag im Dashboard. Beende deinen Agenten nach dem Start mit dokumentierter
 Prozessidentität und Monitorbefehl; der Zeitplan übernimmt die nächste Prüfung. Keine zweite Instanz.
@@ -129,32 +155,60 @@ Bei MORGENUEBERGABE verbleibende Freigaben und den nächsten Schritt nennen. Kei
 Git-Commits übernimmt die Steuerung: gib zum Abschluss als JSON die geprüften kleinen Dateien dieses Schritts
 als einzelne repo-relative Pfade in files und eine aussagekräftige deutsche Commitnachricht in summary an.
 Bei unverändertem Stand files leer lassen. Ändere weder die Steuerung noch den Nachtplan. Starte keine weiteren Agenten."""
-    log(f"START {task} {transcript.name}")
+    claude_failure = STATE / f"claude_n1_6_failed_{now:%Y%m%d}.txt"
+    use_claude = bool(args.claude and args.day_until and task == "N1-6"
+                      and not claude_failure.exists())
+    provider = "Claude" if use_claude else "Codex"
+    if use_claude:
+        prompt += "\nSchreibe ausschließlich Protokoll und Übergabedokumente. Starte weder Simulationen noch Training."
+    log(f"START {task} {transcript.name} ({provider})")
     environment = os.environ.copy()
     environment["PATH"] = str(Path(args.codex).parent) + os.pathsep + environment.get("PATH", "")
+    timeout = max(1, (deadline - datetime.now()).total_seconds())
     with transcript.open("wb") as stream:
-        result = subprocess.run([args.codex, "-a", "never", "exec", "-s", "workspace-write",
-                                 "--add-dir", str(RESULTS.resolve()), "-C", str(ROOT),
-                                 "--output-schema", str(schema), "-o", str(answer), "-"],
-                                input=prompt.encode(), cwd=ROOT, env=environment, stdout=stream, stderr=stream,
-                                timeout=max(1, (deadline - datetime.now()).total_seconds()))
-    result.check_returncode()
-    reply = json.loads(answer.read_text(encoding="utf-8-sig"))
+        if use_claude:
+            try:
+                reply = run_claude(args.claude, prompt, schema_json, stream, timeout)
+            except (subprocess.SubprocessError, ValueError, OSError):
+                claude_failure.touch()
+                log("Claude-Übergabe fehlgeschlagen. N1-6 beim nächsten Termin an Codex geben.")
+                raise
+            answer.write_text(json.dumps(reply, ensure_ascii=False), encoding="utf-8")
+        else:
+            result = subprocess.run([args.codex, "-a", "never", "exec", "-s", "workspace-write",
+                                     "--add-dir", str(RESULTS.resolve()), "-C", str(ROOT),
+                                     "--output-schema", str(schema), "-o", str(answer), "-"],
+                                    input=prompt.encode(), cwd=ROOT, env=environment, stdout=stream, stderr=stream,
+                                    timeout=timeout)
+            result.check_returncode()
+            reply = json.loads(answer.read_text(encoding="utf-8-sig"))
     commit_report(reply["files"], f"{task} {reply['summary']}")
     log(f"ENDE {task} {reply['summary']}")
+
+
+def active_window(now, args):
+    if not args.day_until:
+        return window(now, args.first_night)
+    if now.date() != args.day_until.date() or now >= args.day_until:
+        return None
+    night = now.date() - timedelta(days=1)
+    return (night - args.first_night).days + 1, night, args.day_until
 
 
 def dispatch(args):
     if git("branch", "--show-current") != BRANCH:
         raise ValueError("Falscher Arbeitszweig")
     seen = set()
-    pending = STATE / "offene_uebergabe.txt"
-    while (slot := window(datetime.now(), args.first_night)):
+    suffix = f"_tag_{args.day_until:%Y%m%d}" if args.day_until else ""
+    pending = STATE / f"offene_uebergabe{suffix}.txt"
+    while (slot := active_window(datetime.now(), args)):
         index, night, deadline = slot
         report = FAMILY / "nights" / f"NACHT_{index}_{night:%Y%m%d}.md"
         rows, approvals, paused = read_queue()
-        morning = datetime.now() >= deadline - timedelta(minutes=90)
-        marker = STATE / f"uebergeben_{night}.txt"
+        cutoff = deadline - timedelta(minutes=30 if args.day_until else 90)
+        handoff_at = deadline - timedelta(minutes=15) if args.day_until else cutoff
+        morning = datetime.now() >= handoff_at
+        marker = STATE / f"uebergeben_{night}{suffix}.txt"
         if morning and marker.exists():
             return
         if morning:
@@ -162,15 +216,18 @@ def dispatch(args):
         elif paused:
             log("PAUSE laut STATUS.md")
             return
-        elif pending.is_file() and pending.read_text(encoding="ascii") in DEPS:
-            task = pending.read_text(encoding="ascii")
         else:
-            task = select(rows, approvals, seen)
+            previous = pending.read_text(encoding="ascii") if pending.is_file() else ""
+            if previous in DEPS and (previous not in GATED or previous in approvals
+                                     or rows[previous] in ("läuft", "erledigt")):
+                task = previous
+            else:
+                task = select(rows, approvals, seen)
         if task is None:
             log("Keine weitere freigegebene Aufgabe")
             return
         pending.write_text(task, encoding="ascii")
-        worker(args, task, report, deadline)
+        worker(args, task, report, deadline, cutoff)
         if morning:
             if not report.is_file() or git("status", "--porcelain", "--", report):
                 raise ValueError("Nachtübergabe fehlt im Commit")
@@ -191,10 +248,22 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--first-night", type=date.fromisoformat, required=True)
     parser.add_argument("--codex", required=True)
+    parser.add_argument("--claude")
+    parser.add_argument("--day-until", type=datetime.fromisoformat,
+                        help="Einmaliges Tagesfenster mit lokaler Berliner Uhrzeit")
     args = parser.parse_args()
+    if args.day_until and args.day_until.tzinfo:
+        parser.error("--day-until erwartet lokale Uhrzeit ohne Offset")
     STATE.mkdir(exist_ok=True, parents=True)
-    try:
-        dispatch(args)
-    except Exception:
-        log(traceback.format_exc())
-        raise
+    with (STATE / "dispatcher.lock").open("a+b") as lock:
+        lock.seek(0)
+        try:
+            msvcrt.locking(lock.fileno(), msvcrt.LK_NBLCK, 1)
+        except OSError:
+            log("Andere Steuerungsinstanz ist aktiv")
+        else:
+            try:
+                dispatch(args)
+            except Exception:
+                log(traceback.format_exc())
+                raise

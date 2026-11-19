@@ -9,3 +9,9 @@ Die Windows-Aufgabe `Codex - Dreierturm Nachtagenten` arbeitet im separaten Work
 - **Betrieb** – Der Windows-Benutzer muss angemeldet sein. Die Aufgabenplanung darf den PC aufwecken, sofern die Energieeinstellungen es zulassen. Verpasste Aufrufe prüfen das aktuelle Zeitfenster. Überlappende Instanzen werden übersprungen.
 
 Installation aus diesem Worktree mit `./experiments/critic/three_cube_transfer_v1/install_night_agent.ps1 -FirstNight 2026-11-18`. Eine vorhandene Aufgabe wird nicht überschrieben. Manueller Kontrollaufruf über `Start-ScheduledTask -TaskName 'Codex - Dreierturm Nachtagenten'`, Zeitplan deaktivieren über `Disable-ScheduledTask -TaskName 'Codex - Dreierturm Nachtagenten'`. Das Deaktivieren verhindert zukünftige Aufrufe. Einen aktiven Versuch über seinen Supervisor ordnungsgemäß übergeben.
+
+## Tagesfortsetzung am 19.11.2026
+
+Die zusätzliche Windows-Aufgabe `Codex - Dreierturm Tagesagenten 2026-11-19` prüft die Liste bis 15:00 Uhr (Berlin) spätestens im Abstand von zehn Minuten und startet nach einer geprüften Übergabe sofort die nächste zulässige Aufgabe. Nacht- und Tagessteuerung verwenden dieselbe Sperre und getrennte Übergabemarken. Der Tageslauf dokumentiert im bestehenden Nachtbericht. Ab 14:30 Uhr starten keine neuen Simulationen. Ab 14:45 Uhr dient die Zeit der Übergabe. Optimizerupdates bleiben an die Freigaben im Nachtplan gebunden.
+
+Codex übernimmt Simulationen und technische Aufgaben. Claude Code erhält den Dokumentationsschritt N1-6 mit Dateitools und strukturierter Rückgabe. Scheitert die Claude-Übergabe, prüft Codex den vorhandenen Arbeitsstand beim nächsten Termin. Die Steuerung commit­tet geprüfte Übergabedateien lokal.
