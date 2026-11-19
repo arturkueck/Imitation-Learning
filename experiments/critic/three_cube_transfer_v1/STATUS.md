@@ -8,7 +8,7 @@ Bei einem Sofortstopp nach [Nachtplan](NACHTPLAN.md) `Gesamtpause: ja` setzen un
 |---|---|---|---|
 | N1-1 | erledigt | 19.11.2026 | [Seedinventar](used_scene_seeds.json) · 2100000000–2100099999 für N1-2 reserviert, 0 Überschneidungen. [Prüfung](nights/NACHT_1_20261118.md#integrität) |
 | N1-2 | erledigt | 19.11.2026 | [Splitmanifest](splits.json) · 7 disjunkte Bereiche für 875 geplante Familien. Schwierige Panels werden in N1-5 zugeordnet. [Prüfung](nights/NACHT_1_20261118.md#integrität) |
-| N1-3 | offen | – | – |
+| N1-3 | erledigt | 19.11.2026 | [Merkmale difficulty_v1](difficulty.py) · Transport, Turmabstand, Freiraum und Tischlage aus dem Anfangszustand in Metern. [9 bestandene Testfälle](test_difficulty.py) · [Prüfung](nights/NACHT_1_20261118.md#integrität) |
 | N1-4 | offen | – | – |
 | N1-5 | offen | – | – |
 | N1-6 | offen | – | – |
