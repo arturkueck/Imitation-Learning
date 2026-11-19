@@ -2,6 +2,26 @@
   "schemaVersion": 1,
   "runs": [
     {
+      "id": "three-cube-transfer-v1-critic-data-noisy",
+      "category": "robot",
+      "method": "il",
+      "kind": "evaluation",
+      "title": "Dreierturm · N2-1b Critic-Daten mit Explorationsrauschen",
+      "directory": "praxis/results/critic/three_cube_transfer_v1/critic_data_noisy_n2_1b",
+      "config": "config.json",
+      "results": "summary.json",
+      "description": "PROTOCOL_V2.md §E: 300 Familien critic_data_noisy mit je drei eingefrorenen A-Parents, Gaußrauschen σ = 0,05 auf XYZ, begrenzt auf δ_max = 0,20, Greifer ohne Rauschen. 900 geplante Simulationsepisoden mit Übergängen nach Datenvertrag, 0 Optimizerupdates. Testfamilien geschlossen.",
+      "checkpointInfo": "Drei feste A-Endpunkte des A/B/C-Vergleichs nach je 30.000 Updates.",
+      "artifacts": [
+        {
+          "name": "three-cube-critic-data-noisy-summary.json",
+          "file": "summary.json",
+          "kind": "document",
+          "label": "Erfolgs-/Fehlerzahlen, Rauschstatistik, Phasenabdeckung und Datensatz-SHA-256"
+        }
+      ]
+    },
+    {
       "id": "three-cube-transfer-v1-ac-smoke",
       "category": "robot",
       "method": "rl",
