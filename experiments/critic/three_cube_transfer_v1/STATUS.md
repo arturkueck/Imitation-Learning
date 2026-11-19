@@ -13,7 +13,7 @@ Bei einem Sofortstopp nach [Nachtplan](NACHTPLAN.md) `Gesamtpause: ja` setzen un
 | N1-5 | erledigt | 19.11.2026 | [Kalibrierung](CALIBRATION.md) · [Eingefrorene Grenzen](difficulty_v1.json) · [SHA-256](difficulty_v1.sha256) · [375/375 zugeordnete Familien](difficulty_panels_v1.json), 0 Rollouts |
 | N1-6 | erledigt | 19.11.2026 | [Pilotprotokoll](PROTOCOL.md), am 19.11.2026 für Claude freigegeben. [Versionierte Zusatzsplits](splits_v2.json). |
 | N2-1 | erledigt | 19.11.2026 | [Datensatz, Manifest und Hash](CRITIC_DATA.md#ergebnis-abschluss-19112026) · 900/900 Episoden auf 300 `critic_data`-Familien, 325 Erfolge und 575 Fehlschläge (Parent 1/2/3: 125/92/108 von je 300), 0 Optimizerupdates. Monitor `COMPLETE` mit Abgleich gegen `summary.json`. [Prüfung](nights/NACHT_1_20261118.md#integrität) |
-| N2-2 | offen | – | – |
+| N2-2 | läuft | 19.11.2026 | [Umsetzung und Fortsetzungspunkt](CRITIC_VALIDATION.md#lauf-und-bedienung-aus-dem-repository-stamm) · Start 12:29 Uhr unter Supervisor PID 36840 (Worker PID 30672), Deadline 14:45 Uhr. Je Parent 20.000 Critic-Updates, danach 450 A-Rollouts auf `validation_normal` (100) und `validation_hard` (50) und Prüfung nach §6. Monitor: `critic_validation.py monitor`. Testfamilien geschlossen, Ergebnis folgt. |
 | N2-3 | offen | – | – |
 | N2-4 | offen | – | – |
 | N3-1 | offen | – | – |

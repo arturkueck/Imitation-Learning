@@ -2,6 +2,26 @@
   "schemaVersion": 1,
   "runs": [
     {
+      "id": "three-cube-transfer-v1-critic-validation",
+      "category": "robot",
+      "method": "il",
+      "kind": "training",
+      "title": "Dreierturm · N2-2 Critic-Vortraining und -Validierung",
+      "directory": "praxis/results/critic/three_cube_transfer_v1/critic_validation_n2_2",
+      "config": "config.json",
+      "results": "summary.json",
+      "description": "Je A-Parent ein Critic, 20.000 Vortrainingsupdates auf den eigenen 300 Critic-Datenepisoden. Danach 450 A-Rollouts auf validation_normal (100) und validation_hard (50) und Prüfung nach PROTOCOL.md §6. Testfamilien geschlossen.",
+      "checkpointInfo": "Drei eingefrorene Critics (critics/parent_p.pt, SHA-256 in parent_p.json); A-Parents unverändert nach 30.000 Updates.",
+      "artifacts": [
+        {
+          "name": "three-cube-critic-validation-summary.json",
+          "file": "summary.json",
+          "kind": "document",
+          "label": "Critic-Kennzahlen je Parent und Panel, BC-Erfolge und Hashes"
+        }
+      ]
+    },
+    {
       "id": "three-cube-transfer-v1-critic-data",
       "category": "robot",
       "method": "il",
