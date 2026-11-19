@@ -11,8 +11,8 @@ Bei einem Sofortstopp nach [Nachtplan](NACHTPLAN.md) `Gesamtpause: ja` setzen un
 | N1-3 | erledigt | 19.11.2026 | [Merkmale difficulty_v1](difficulty.py) · Transport, Turmabstand, Freiraum und Tischlage aus dem Anfangszustand in Metern. [9 bestandene Testfälle](test_difficulty.py) · [Prüfung](nights/NACHT_1_20261118.md#integrität) |
 | N1-4 | erledigt | 19.11.2026 | 300/300 Episoden auf 100 gemeinsamen Kalibrierungsfamilien, davon 103 erfolgreich. 951,9 Episoden/h über die Worker-Laufzeit. [Rohdaten- und Abschlussprüfung](nights/NACHT_1_20261118.md#integrität) |
 | N1-5 | erledigt | 19.11.2026 | [Kalibrierung](CALIBRATION.md) · [Eingefrorene Grenzen](difficulty_v1.json) · [SHA-256](difficulty_v1.sha256) · [375/375 zugeordnete Familien](difficulty_panels_v1.json), 0 Rollouts |
-| N1-6 | erledigt | 19.11.2026 | [Protokollentwurf](PROTOCOL.md), Status `ZUR FREIGABE`, mit Armen, Budgets aus 951,9 Episoden/h, Critic-Akzeptanz, Bindungsstufen, Checkpoint-, Analyse- und Ausschlussregeln. Offene Nutzerentscheidungen in [§12](PROTOCOL.md#12-offene-nutzerentscheidungen). 0 Rollouts. [Prüfung](nights/NACHT_1_20261118.md#integrität) |
-| N2-1 | blockiert | 19.11.2026 | [Protokollfreigabe ausstehend](PROTOCOL.md#11-ablauf-und-freigaben) · 0/900 Episoden erhoben. [Prüfung und Übergabe](nights/NACHT_1_20261118.md#übergabe) |
+| N1-6 | erledigt | 19.11.2026 | [Pilotprotokoll](PROTOCOL.md), am 19.11.2026 für Claude freigegeben. [Versionierte Zusatzsplits](splits_v2.json). |
+| N2-1 | offen | 19.11.2026 | [Freigabe für Claude](PROTOCOL.md#11-ablauf-und-freigaben) · Technische Vorprüfung abgeschlossen, 0/900 Datenerhebungsepisoden. |
 | N2-2 | offen | – | – |
 | N2-3 | offen | – | – |
 | N2-4 | offen | – | – |

@@ -42,9 +42,11 @@ Simulation mit eingefrorenen Modellen, Analyse und Dokumentation sind
 ohne Weiteres erlaubt. Aufgaben mit Optimizerupdates starten nur, wenn der
 Nutzer sie hier abgehakt hat:
 
-- [ ] N2-2/N2-3: Critic-Vortraining und technischer Actor-Critic-Smoke
-- [ ] N3-1: wissenschaftlicher Drei-Seed-Pilot
-- [ ] N4-4: Training neuer unabhängiger Zweier-BC-Parents für den Hauptvergleich
+- [x] N2-2/N2-3: Critic-Vortraining und technischer Actor-Critic-Smoke
+- [x] N3-1: wissenschaftlicher Drei-Seed-Pilot
+- [x] N4-4: Training neuer unabhängiger Zweier-BC-Parents für den Hauptvergleich
+
+Am 19.11.2026 hat der Nutzer das Pilotprotokoll und die oben markierten Arbeiten für **Claude Code** freigegeben. Claude übernimmt die Listenpunkte ab N2-1 nach ihren bestehenden Abhängigkeiten und Abbruchregeln. N4-4 setzt zusätzlich ein freigegebenes Hauptprotokoll mit begründeter Seedzahl voraus. Die Tagesfortsetzung endet am 19.11.2026 um 15:00 Uhr Europe/Berlin.
 
 ## Feste Rahmenbedingungen
 

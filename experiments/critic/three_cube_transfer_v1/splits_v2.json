@@ -1,0 +1,125 @@
+{
+  "schema": "three_cube_transfer_v1.splits.v2",
+  "task": "N1-2",
+  "date": "2026-11-19",
+  "seed_inventory": "used_scene_seeds.json",
+  "unit": "Eine Familie ist eine ursprüngliche Anfangsszene. Der ganzzahlige Szenenseed bezeichnet sie innerhalb des festzuhaltenden Szenengenerators. Beide Intervallgrenzen sind inklusive.",
+  "family_contract": "Alle Episoden, Frames, Übergänge, Varianten und Parent- oder Armausführungen einer Familie gehören zum selben Split. Bei gepaarten Ausführungen denselben Anfangszustand verwenden und seine Identität protokollieren. Szenenseeds sind von Trainings- und Aktions-RNG-Seeds getrennt.",
+  "count_contract": "target_families zählt geplante verschiedene Familien. Die Intervalle reservieren Kandidaten. Je ausgewählter Familie gehen sämtliche vorgesehenen Ausführungen einschließlich Fehlschlägen in den jeweiligen Nenner ein. Der gemessene Durchsatz aus N1-4 geht in die Budgetplanung in N1-6 ein. Änderungen an den hier geplanten Fallzahlen sind vor Nutzung zu begründen und zu versionieren.",
+  "selection": {
+    "all": "Alle Kennungen im Intervall in aufsteigender Reihenfolge verwenden. Normale Panels bilden die reguläre Startverteilung einschließlich natürlich auftretender schwieriger Fälle ab.",
+    "hard_first": "In N1-5 nach Einfrieren der ausschließlich auf Kalibrierungsfamilien bestimmten difficulty_v1-Grenzen die Kandidaten in aufsteigender Seedreihenfolge anhand der Anfangsgeometrie klassifizieren. Die ersten target_families mit Klasse schwer auswählen. Kandidaten stammen aus derselben Startverteilung wie das normale Panel. Bei Unterdeckung Istzahl und Fehlmenge dokumentieren und die Panelbildung zur Entscheidung offenlassen."
+  },
+  "access": "N1-2 vergibt ausschließlich Kennungen. N1-5 darf die Anfangsgeometrie zur geplanten Zuordnung verwenden. Testergebnisse, Testrollouts und Nutzung von Testfamilien für Auswahlentscheidungen über Methode, Grenzwerte, Budget oder Checkpoints bleiben bis zur einmaligen Testöffnung gemäß Nachtplan gesperrt.",
+  "splits": [
+    {
+      "id": "calibration",
+      "task_cubes": 3,
+      "first": 2100000000,
+      "last": 2100000099,
+      "target_families": 100,
+      "selection": "all",
+      "purpose": "Geometrie gegen Aufgabenerfolg der drei eingefrorenen A-Parents prüfen und Durchsatz messen.",
+      "rationale": "100 reguläre Familien ergeben bei einer Episode je Parent und Familie 300 geplante Rollouts. Die Paarung erlaubt den Vergleich der Parents auf identischen Starts und liefert 100 verschiedene Anfangsgeometrien für die Kalibrierung."
+    },
+    {
+      "id": "critic_data",
+      "task_cubes": 3,
+      "first": 2100000100,
+      "last": 2100000399,
+      "target_families": 300,
+      "selection": "all",
+      "purpose": "Eigenversuche der drei unveränderten A-Parents für das Critic-Vortraining erheben. Erfolge, Fehlschläge und nicht erreichte Phasen erhalten.",
+      "rationale": "300 Familien bieten dreimal so viele verschiedene Geometrien wie die Kalibrierung und ergeben gepaart 900 geplante Episoden. Die Zahl positiver Ausgänge und die Abdeckung später Phasen sind vorab unbekannt."
+    },
+    {
+      "id": "validation_normal",
+      "task_cubes": 3,
+      "first": 2100000400,
+      "last": 2100000499,
+      "target_families": 100,
+      "selection": "all",
+      "purpose": "Critic-Vorhersagen und später die Policies nach der vorab festgelegten Validierungsregel auf regulären Starts prüfen.",
+      "rationale": "Bei 100 Familien verändert ein einzelner Erfolg die Quote je Parent um einen Prozentpunkt. Das Panel ist für wiederholte gepaarte Validierung vorgesehen."
+    },
+    {
+      "id": "validation_hard",
+      "task_cubes": 3,
+      "first": 2100000500,
+      "last": 2100001499,
+      "target_families": 50,
+      "selection": "hard_first",
+      "purpose": "Transfer auf gezielt schwierigen Starts innerhalb der bisherigen Startverteilung getrennt validieren.",
+      "rationale": "50 Familien ergeben zwei Prozentpunkte je Erfolg und Parent. 1.000 reservierte Kandidaten reichen aus, wenn mindestens 50 die später eingefrorene Schwelle erreichen. Nur die ausgewählten Familien zählen zum Panel."
+    },
+    {
+      "id": "test_normal",
+      "task_cubes": 3,
+      "first": 2100001500,
+      "last": 2100001649,
+      "target_families": 150,
+      "selection": "all",
+      "purpose": "Einmaliger abschließender Vergleich auf regulären unbekannten Starts nach Einfrieren von Methode, Checkpointregel und Analyse.",
+      "rationale": "150 gepaarte Familien statt der 100 in der regulären Validierung erhöhen die Präzision über Szenen. Bei einer Episode je Familie und Parent entspricht ein Erfolg rund 0,67 Prozentpunkten."
+    },
+    {
+      "id": "test_hard",
+      "task_cubes": 3,
+      "first": 2100001650,
+      "last": 2100003149,
+      "target_families": 75,
+      "selection": "hard_first",
+      "purpose": "Beim abschließenden Vergleich Erfolg auf gezielt schwierigen unbekannten Starts separat messen.",
+      "rationale": "75 gepaarte Familien ergeben rund 1,33 Prozentpunkte je Erfolg und Parent. 1.500 Kandidaten halten denselben Spielraum für die geometrische Vorauswahl wie bei der schwierigen Validierung frei."
+    },
+    {
+      "id": "two_cube_validation",
+      "task_cubes": 2,
+      "first": 2100003150,
+      "last": 2100003249,
+      "target_families": 100,
+      "selection": "all",
+      "purpose": "Erhalt der ursprünglichen Zweierfertigkeit gegenüber dem zugehörigen A-Parent als separates Validierungspanel prüfen.",
+      "rationale": "100 gemeinsame Zweierstarts ergeben dieselbe Auflösung je Parent wie bei der normalen Dreiervalidierung. Der Nenner wird für die Zweieraufgabe separat geführt."
+    },
+    {
+      "id": "online_interaction",
+      "task_cubes": 3,
+      "first": 2100003250,
+      "last": 2100003649,
+      "target_families": 400,
+      "selection": "all",
+      "purpose": "Gepaarte Pilot-Interaktionen.",
+      "rationale": "Vier Runden mit je 100 Familien pro AC-Lauf, gemäß Pilotprotokoll §3 und §5."
+    },
+    {
+      "id": "constraint_development",
+      "task_cubes": 3,
+      "first": 2100003650,
+      "last": 2100003669,
+      "target_families": 20,
+      "selection": "all",
+      "purpose": "Technische Stabilität der Actor-Bindung.",
+      "rationale": "Separates Entwicklungspanel für N2-3, gemäß Pilotprotokoll §3 und §5."
+    },
+    {
+      "id": "smoke_interaction",
+      "task_cubes": 3,
+      "first": 2100003670,
+      "last": 2100003689,
+      "target_families": 20,
+      "selection": "all",
+      "purpose": "Onlineversuche für den technischen Smoke N2-3.",
+      "rationale": "Eigene Familien für den Smoke, gemäß Pilotprotokoll §3 und §5."
+    }
+  ],
+  "unassigned": {
+    "first": 2100003690,
+    "last": 2100099999,
+    "purpose": "Unvergebener Rest der N1-1-Reservierung. Ungewählte Kandidaten bleiben ihren ursprünglichen Splits vorbehalten."
+  },
+  "source_version": {
+    "file": "splits.json",
+    "sha256": "63785babcf6aad47dd990af29f12ab0b99f8ebcdb10370e606a678c3746fef61"
+  }
+}

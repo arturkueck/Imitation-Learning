@@ -26,7 +26,8 @@ DEPS = {
     "N4-1": ("N3-2",), "N4-2": ("N4-1",), "N4-3": ("N4-2",),
     "N4-4": ("N4-3",),
 }
-GATED = {"N2-2", "N2-3", "N3-1", "N4-4"}
+GATED = {"N2-1", "N2-2", "N2-3", "N3-1", "N4-4"}
+CLAUDE_TASKS = {task for task in DEPS if not task.startswith("N1-")}
 
 
 def git(*args):
@@ -43,6 +44,13 @@ def read_queue():
     approvals = set()
     for group in re.findall(r"(?m)^- \[[xX]\] (N\d-\d(?:/N\d-\d)*):", plan):
         approvals.update(group.split("/"))
+    protocol = FAMILY / "PROTOCOL.md"
+    if protocol.is_file() and "**Status: FREIGEGEBEN**" in protocol.read_text(encoding="utf-8-sig"):
+        approvals.add("N2-1")
+    main_protocol = FAMILY / "MAIN_PROTOCOL.md"
+    if not (main_protocol.is_file()
+            and "**Status: FREIGEGEBEN**" in main_protocol.read_text(encoding="utf-8-sig")):
+        approvals.discard("N4-4")
     return dict(rows), approvals, pause == ["ja"]
 
 
@@ -98,13 +106,21 @@ def commit_report(files, summary):
         git("commit", "--only", "-m", summary.splitlines()[0], "--", *checked)
 
 
-def run_claude(executable, prompt, schema, stream, timeout):
+def run_claude(executable, prompt, schema, stream, timeout, execution):
     command = [
         executable, "--print", "--safe-mode", "--strict-mcp-config",
         "--no-session-persistence", "--permission-mode", "acceptEdits",
-        "--tools", "Read,Glob,Grep,Edit,Write", "--output-format", "json",
+        "--tools", "Read,Glob,Grep,Edit,Write,Bash" if execution else "Read,Glob,Grep,Edit,Write",
+        "--output-format", "json",
         "--json-schema", schema,
     ]
+    if execution:
+        command.extend([
+            "--allowedTools",
+            "Bash(./praxis/.venv/Scripts/python.exe -m pytest *)",
+            f"Bash(./praxis/.venv/Scripts/python.exe {REL.as_posix()}/*.py*)",
+            "Bash(date*)", "Bash(git status*)", "Bash(git diff*)",
+        ])
     result = subprocess.run(command, input=prompt.encode(), cwd=ROOT, stdout=subprocess.PIPE,
                             stderr=stream, timeout=timeout)
     stream.write(result.stdout)
@@ -156,11 +172,33 @@ Git-Commits übernimmt die Steuerung: gib zum Abschluss als JSON die geprüften 
 als einzelne repo-relative Pfade in files und eine aussagekräftige deutsche Commitnachricht in summary an.
 Bei unverändertem Stand files leer lassen. Ändere weder die Steuerung noch den Nachtplan. Starte keine weiteren Agenten."""
     claude_failure = STATE / f"claude_n1_6_failed_{now:%Y%m%d}.txt"
-    use_claude = bool(args.claude and args.day_until and task == "N1-6"
-                      and not claude_failure.exists())
+    claude_execution = task in CLAUDE_TASKS
+    use_claude = claude_execution or bool(args.claude and args.day_until and task == "N1-6"
+                                         and not claude_failure.exists())
+    if claude_execution and not Path(args.claude).is_file():
+        raise FileNotFoundError("Die freigegebenen Aufgaben benötigen Claude Code.")
     provider = "Claude" if use_claude else "Codex"
-    if use_claude:
+    if use_claude and not claude_execution:
         prompt += "\nSchreibe ausschließlich Protokoll und Übergabedokumente. Starte weder Simulationen noch Training."
+    if claude_execution:
+        prompt += (
+            "\nDer Nutzer hat dieses Pilotprotokoll und die markierten Schritte für Claude freigegeben. "
+            "Nutze Bash mit ./praxis/.venv/Scripts/python.exe für die Familienskripte und pytest. "
+            "Lange Versuche als beaufsichtigten Hintergrundprozess starten und mit geprüftem Monitor übergeben. "
+            "Halte den gegebenen Cutoff und die Deadline im Supervisor durchsetzbar fest. "
+            "Bei einer laufenden Aufgabe zuerst den dokumentierten Monitor ausführen. "
+            "Bei fehlendem Nachweis einer nötigen Freigabe, Abbruchbedingung oder einer Protokolländerung "
+            "nach Nachtplan stoppen. Git-Commits übernimmt der Dispatcher."
+        )
+    if task == "N2-1":
+        prompt += (
+            "\nAuftrag: Implementiere und verifiziere N2-1, dann starte die freigegebenen 900 Rollouts "
+            "unter Supervisor, sobald die technischen Prüfungen bestanden sind. Nutze den Claude-Vorabbericht "
+            "20261119_111234_199645_N2-1_claude_preflight.md im lokalen Dispatcher-Ordner als technische Grundlage. "
+            "Die Freigaben und Behandlung von Fehlern stehen in PROTOCOL.md §11–12. "
+            "Ein einzelner Vergleich auf der bestehenden Kalibrierungsfamilie ist als technischer Test freigegeben. "
+            "Für N2-1 sind genau 0 Optimizerupdates vorgesehen. Verwende ausschließlich critic_data zum Sammeln."
+        )
     log(f"START {task} {transcript.name} ({provider})")
     environment = os.environ.copy()
     environment["PATH"] = str(Path(args.codex).parent) + os.pathsep + environment.get("PATH", "")
@@ -168,10 +206,11 @@ Bei unverändertem Stand files leer lassen. Ändere weder die Steuerung noch den
     with transcript.open("wb") as stream:
         if use_claude:
             try:
-                reply = run_claude(args.claude, prompt, schema_json, stream, timeout)
+                reply = run_claude(args.claude, prompt, schema_json, stream, timeout, claude_execution)
             except (subprocess.SubprocessError, ValueError, OSError):
-                claude_failure.touch()
-                log("Claude-Übergabe fehlgeschlagen. N1-6 beim nächsten Termin an Codex geben.")
+                if not claude_execution:
+                    claude_failure.touch()
+                    log("Claude-Übergabe fehlgeschlagen. N1-6 beim nächsten Termin an Codex geben.")
                 raise
             answer.write_text(json.dumps(reply, ensure_ascii=False), encoding="utf-8")
         else:
@@ -248,7 +287,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--first-night", type=date.fromisoformat, required=True)
     parser.add_argument("--codex", required=True)
-    parser.add_argument("--claude")
+    parser.add_argument("--claude", default=str(Path.home() / ".local/bin/claude.exe"))
     parser.add_argument("--day-until", type=datetime.fromisoformat,
                         help="Einmaliges Tagesfenster mit lokaler Berliner Uhrzeit")
     args = parser.parse_args()

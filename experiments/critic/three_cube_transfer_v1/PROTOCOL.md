@@ -1,8 +1,8 @@
 # Versuchsprotokoll: Zweier-BC → Dreierturm mit IL-informiertem Critic
 
-**Status: ZUR FREIGABE** · Entwurf N1-6 vom 19.11.2026 · Version `protocol_v1-entwurf`
+**Status: FREIGEGEBEN** · Nutzerfreigabe für Claude Code vom 19.11.2026 · Version protocol_v1
 
-Dieses Dokument ist ein Entwurf. Es gibt nichts frei und startet keine Läufe. Optimizerupdates benötigen weiterhin die Häkchen im [Nachtplan](NACHTPLAN.md#freigaben). Bis zur Freigabe durch den Nutzer kann jede Festlegung geändert werden. Nach der Freigabe sind Änderungen nur noch als neue, begründete Version möglich. Es gelten [AGENTS.md](../../../AGENTS.md), [Agend.md](../../../Agend.md) und [experiments/AGENTS.md](../../AGENTS.md).
+Die Festlegungen dieses Pilotprotokolls sind eingefroren. Änderungen benötigen eine neue, begründete Version. Für Optimizerupdates gelten zusätzlich die Freigaben im [Nachtplan](NACHTPLAN.md#freigaben). Es gelten [AGENTS.md](../../../AGENTS.md), [Agend.md](../../../Agend.md) und [experiments/AGENTS.md](../../AGENTS.md).
 
 Grundlage: Exposé [proposal.tex](../../../latex/projektarbeit_proposal/v2/proposal.tex), [Splitmanifest](splits.json), [Kalibrierung](CALIBRATION.md), eingefrorene Regel [difficulty_v1.json](difficulty_v1.json) (SHA-256 `e38af330…3945`, [Hashdatei](difficulty_v1.sha256)), [Panelzuordnung](difficulty_panels_v1.json) und der in N1-4 gemessene Durchsatz.
 
@@ -23,7 +23,7 @@ Alle Arme starten je Trainingsseed bei demselben eingefrorenen Standard-BC-Model
 | **AC-IL** | Kopie des A-Parents | gleicher Initialisierungsseed `c_p`, danach Vortraining auf den Critic-Daten **desselben** Parents (N2-2) | wie AC-neu |
 
 - **Isolierte Größe:** Zwischen AC-IL und AC-neu unterscheidet sich nur das Critic-Vortraining. Actor, Bindung, Replayregel, Explorationsrauschen, Updatezahlen und Interaktionsszenen sind gleich. Beide Arme verwenden je Parent denselben RNG-Strom für Exploration und Minibatches, soweit der Ablauf identisch ist.
-- **Replay (Vorschlag):** Beide AC-Arme spielen ausschließlich ihre eigene Onlineerfahrung ab. Die Critic-Daten wirken in AC-IL nur über die Initialisierung. Damit bleiben Rückmeldung und Zahl der Versuche im Onlineteil gleich. Die 300 Vortrainingsepisoden je Parent werden als Zusatzkosten von AC-IL ausgewiesen (Exposé, Schritt 3). Als Alternative könnten beide Arme die Critic-Daten im Replay erhalten. Dann prüft der Vergleich nur die Initialisierung bei gleichem Datenzugang. Die Wahl ist eine Nutzerentscheidung (§12).
+- **Replay:** Beide AC-Arme spielen ausschließlich ihre eigene Onlineerfahrung ab. Die Critic-Daten wirken in AC-IL nur über die Initialisierung. Damit bleiben Rückmeldung und Zahl der Versuche im Onlineteil gleich. Die 300 Vortrainingsepisoden je Parent werden als Zusatzkosten von AC-IL ausgewiesen (Exposé, Schritt 3).
 - **Trainierte Teile:** XYZ und Greiferaktion des Bewegungskopfs. Rotation bleibt null. Phasen- und Abschlussentscheidungen trifft weiterhin eine eingefrorene Kopie des Parents mit unverändertem Schwellwert und unveränderter Uhrkorrektur. Sequencer, Rückzugscontroller und Platzierungsreihenfolge bleiben unverändert.
 - **Zuordnung des Critics:** Ein Critic je Parent, vortrainiert nur auf den 300 Episoden dieses Parents. Die drei Parents bleiben dadurch getrennte Lernverläufe. Die drei Critic-Datensätze verwenden dieselben 300 Familien und sind deshalb keine unabhängigen Szenenstichproben.
 
@@ -36,7 +36,7 @@ Alle Arme starten je Trainingsseed bei demselben eingefrorenen Standard-BC-Model
 | Exploration und Minibatches | `r_p = 7200 + p` | in AC-neu und AC-IL desselben Parents gleich |
 | Szenenseeds | [splits.json](splits.json), neue Bereiche unten | Seednummern sind Kennungen, keine Schwierigkeitsskala |
 
-Die Splits aus N1-2 und die Panels aus N1-5 werden unverändert übernommen: Kalibrierung 100, Critic-Daten 300, Validierung regulär 100 und schwierig 50, Test regulär 150 und schwierig 75, Zweierpanel 100. Für die Onlinephase werden drei neue Bereiche aus dem unvergebenen Rest `2100003250–2100099999` vorgeschlagen. Nach der Freigabe sind sie versioniert in `splits.json` nachzutragen.
+Die Splits aus N1-2 und die Panels aus N1-5 werden unverändert übernommen: Kalibrierung 100, Critic-Daten 300, Validierung regulär 100 und schwierig 50, Test regulär 150 und schwierig 75, Zweierpanel 100. Für die Onlinephase werden drei neue Bereiche aus dem unvergebenen Rest `2100003250–2100099999` vergeben und in [splits_v2.json](splits_v2.json) versioniert.
 
 | Neuer Split | Bereich (inklusive) | Familien | Zweck |
 |---|---|---:|---|
@@ -61,7 +61,7 @@ N1-4 ergab 951,9 Episoden pro Stunde, also etwa 3,78 s je Dreierepisode. Gemesse
 | Schritt | Episoden | Rolloutzeit (geschätzt) | Updates |
 |---|---:|---:|---|
 | N2-1 Critic-Daten: 300 Familien × 3 Parents | 900 | ≈ 0,95 h | 0 |
-| N2-2 A-Rollouts auf der Validierung (regulär 300, schwierig 150) | 450 | ≈ 0,47 h | 20.000 Critic-Updates je Parent (Vorschlag) |
+| N2-2 A-Rollouts auf der Validierung (regulär 300, schwierig 150) | 450 | ≈ 0,47 h | 20.000 Critic-Updates je Parent |
 | N2-3 Smoke: Parent-Baseline 60, je Stufe 6 × (20 online + 20 Entwicklung) | 60 + ≤ 3 × 240 | ≤ ≈ 0,82 h | je Lauf 500 Critic- / 250 Actorupdates |
 | N3-1 Online: 2 AC-Arme × 3 Parents × 400 | 2.400 | ≈ 2,52 h | je Lauf 10.000 Critic- / 5.000 Actorupdates |
 | N3-1 Zwischenprüfung Runden 1–3: 6 Modelle × 3 × 100 regulär | 1.800 | ≈ 1,89 h | 0 |
@@ -134,13 +134,13 @@ Ausgewertet wird nur die Validierung. Regulär, schwierig und Zweier werden getr
 - **Paarung:** Je Parent werden die diskordanten Familienpaare angegeben. Das 95-%-Intervall aus dem Familienbootstrap mit Seed 7300 wird ausdrücklich als reine Szenenunsicherheit bezeichnet. Es deckt nicht die Streuung durch neues Training ab. Die drei Parents teilen die Validierungs-, Online- und Critic-Datenfamilien.
 - **Effizienz:** Die Erfolgsschwelle je Parent ist Parentquote + 10 Prozentpunkte auf `validation_normal`. Gemessen werden Onlineepisoden und Frames bis zur ersten Prüfrunde über dieser Schwelle, mit einer Auflösung von 100 Episoden. Wird die Schwelle nicht erreicht, wird „> 400“ berichtet. Für AC-IL werden die Werte einmal ohne und einmal mit den 300 Vortrainingsepisoden berichtet.
 - **Kosten:** Onlineepisoden, Frames, Critic- und Actorupdates, Vortrainingsepisoden und -updates, Auswertungsepisoden und Laufzeit, jeweils getrennt.
-- **Kleinster relevanter Effekt (vorläufig):** 10 Prozentpunkte im primären Kontrast. N4-2 legt daraus, aus der Pilotstreuung und aus dem Budget die Seedzahl (> 3) des Hauptvergleichs fest. Drei Seeds erlauben keinen Bestätigungsschluss. Es werden keine Signifikanzaussagen als Wirksamkeitsnachweis berichtet.
+- **Kleinster relevanter Effekt:** 10 Prozentpunkte im primären Kontrast. N4-2 legt daraus, aus der Pilotstreuung und aus dem Budget die Seedzahl (> 3) des Hauptvergleichs fest. Drei Seeds erlauben keinen Bestätigungsschluss. Es werden keine Signifikanzaussagen als Wirksamkeitsnachweis berichtet.
 
 ## 11. Ablauf und Freigaben
 
 | Schritt | Freigabe nötig | Inhalt |
 |---|---|---|
-| N2-1 | Freigabe dieses Protokolls | A-Rollouts auf den Critic-Datenfamilien (Simulation mit eingefrorenen Modellen) |
+| N2-1 | Am 19.11.2026 für Claude erteilt | A-Rollouts auf den Critic-Datenfamilien (Simulation mit eingefrorenen Modellen) |
 | N2-2 | Häkchen N2-2/N2-3 | Critic-Vortraining und Prüfung nach §6 |
 | N2-3 | Häkchen N2-2/N2-3 | technischer Smoke und Bindungsstufen nach §7 |
 | N2-4 | – | `night.py prepare`, Quellen per SHA eingefroren, Fortsetzung getestet |
@@ -149,12 +149,11 @@ Ausgewertet wird nur die Validierung. Regulär, schwierig und Zweier werden getr
 
 Lange Läufe laufen unter einem Supervisor mit wirksamer Deadline, einem inkrementellen Monitor und einem Eintrag in `monitor/training-runs.json`.
 
-## 12. Offene Nutzerentscheidungen
+## 12. Freigabe und technische Umsetzung
 
-1. Freigabe dieses Entwurfs oder Änderungswünsche.
-2. Replayregel der AC-Arme: nur Onlinedaten (Vorschlag) oder zusätzlich die Critic-Daten in beiden Armen (§2).
-3. Vorgeschlagene Kennzahlen: Updatezahlen (20.000 Vortraining, 25 Critic-Updates je Onlineepisode), λ = 0,1, die Stufen für `δ_max`, die Akzeptanzschwellen in §6, die Kollapsschwelle von 50 % und die Effizienzschwelle von +10 Prozentpunkten.
-4. Versionierte Ergänzung von `splits.json` um die drei neuen Bereiche in §3.
+Die Nutzerfreigabe gilt für die vorgeschlagenen Festlegungen und die Ausführung durch Claude. Beide AC-Arme nutzen nur ihre eigene Onlineerfahrung im Replay. Die drei Zusatzbereiche liegen in der versionierten Splitdatei. Die vorab genannten Budgets, Akzeptanz- und Abbruchregeln gelten.
+
+Für N2-1 ist die im technischen Vorabbericht beschriebene einzelne Integrationsprüfung auf einer bereits verwendeten Kalibrierungsfamilie zulässig. Sie gehört nicht zu den 900 Datenerhebungsepisoden. Die Critic-Eingabe folgt §4 mit dokumentierter Spaltenzuordnung. Eindeutig als Simulatorinstabilität identifizierte Episoden enden als Fehlschlag. Bei nicht eindeutig zuordenbaren Ausnahmen hält der Lauf an. Fortsetzung und Fehlerbehebung folgen AGENTS.md §5.
 
 ## 13. Aussagegrenzen
 
