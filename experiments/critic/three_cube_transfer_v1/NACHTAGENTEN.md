@@ -15,3 +15,7 @@ Installation aus diesem Worktree mit `./experiments/critic/three_cube_transfer_v
 Die zusätzliche Windows-Aufgabe `Codex - Dreierturm Tagesagenten 2026-11-19` prüft die Liste bis 15:00 Uhr (Berlin) spätestens im Abstand von zehn Minuten und startet nach einer geprüften Übergabe sofort die nächste zulässige Aufgabe. Nacht- und Tagessteuerung verwenden dieselbe Sperre und getrennte Übergabemarken. Der Tageslauf dokumentiert im bestehenden Nachtbericht. Ab 14:30 Uhr starten keine neuen Simulationen. Ab 14:45 Uhr dient die Zeit der Übergabe. Optimizerupdates bleiben an die Freigaben im Nachtplan gebunden.
 
 Codex übernimmt Simulationen und technische Aufgaben. Claude Code erhält den Dokumentationsschritt N1-6 mit Dateitools und strukturierter Rückgabe. Scheitert die Claude-Übergabe, prüft Codex den vorhandenen Arbeitsstand beim nächsten Termin. Die Steuerung commit­tet geprüfte Übergabedateien lokal.
+
+## Wissenschaftliche Abbildungen
+
+Claude Code erstellt die Abbildungen dieses Vorhabens, auch bei späteren Einzelaufträgen. Der Dispatcher übergibt nach geprüften Ergebnissen N2-2, N2-3 und N4-1 automatisch an Claude. Lebende Läufe erhalten zuerst ihre Monitorkontrolle. Die Übergabe enthält die Abbildungen, den reproduzierbaren Matplotlib-Generator und die Datenquellen unter den jeweiligen `figures/`-Unterordnern. Loss, technische Stabilität und Erfolg auf unabhängigen Szenen werden getrennt dargestellt. Der vorhandene Zeitrahmen und die Laufregeln gelten. Bei einem fehlgeschlagenen Abbildungsauftrag übernimmt Claude die nächste Prüfung.

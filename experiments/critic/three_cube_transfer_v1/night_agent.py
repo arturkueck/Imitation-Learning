@@ -28,6 +28,21 @@ DEPS = {
 }
 GATED = {"N2-1", "N2-2", "N2-3", "N3-1", "N4-4"}
 CLAUDE_TASKS = {task for task in DEPS if not task.startswith("N1-")}
+FIGURES = FAMILY / "figures"
+FIGURE_MILESTONES = {
+    "N2-2": ("CRITIC_VALIDATION.md", "Vortrainingsloss je Parent, Critic-Validierung "
+             "gegen die Phasen-Baseline und BC-Aufgabenerfolg mit Nennern"),
+    "N2-3": ("AC_SMOKE.md", "Actor-Drift über die beiden Runden je Variante und Parent, "
+             "technische Stabilitätskriterien und Erhalt der Parent-Erfolge"),
+    "N4-1": ("PILOT_REPORT.md", "Aufgabenerfolg je Seed und Arm über die Onlineinteraktionen, "
+             "gepaarte Endergebnisse und getrennte Trainingslosses, soweit aufgezeichnet"),
+}
+HANDOFF_SCHEMA = json.dumps({
+    "type": "object", "additionalProperties": False,
+    "properties": {"files": {"type": "array", "items": {"type": "string"}},
+                   "summary": {"type": "string"}},
+    "required": ["files", "summary"],
+})
 
 
 def git(*args):
@@ -94,9 +109,10 @@ def commit_report(files, summary):
         relative = path.relative_to(ROOT)
         if relative not in shared_files:
             path.relative_to(FAMILY)
-            if path in (PLAN, Path(__file__).resolve()) or path.suffix.lower() not in {
-                ".md", ".py", ".json", ".csv", ".toml", ".yaml", ".yml", ".ps1", ".sha256",
-            }:
+            allowed_types = {".md", ".py", ".json", ".csv", ".toml", ".yaml", ".yml", ".ps1", ".sha256"}
+            if path.is_relative_to(FIGURES):
+                allowed_types.add(".png")
+            if path in (PLAN, Path(__file__).resolve()) or path.suffix.lower() not in allowed_types:
                 raise ValueError(f"Unerwartete Übergabedatei: {relative}")
         if not path.is_file() or path.stat().st_size > 5_000_000:
             raise ValueError(f"Keine kleine Übergabedatei: {relative}")
@@ -137,10 +153,7 @@ def worker(args, task, report, deadline, cutoff):
     answer = STATE / (stamp + ".json")
     transcript = STATE / (stamp + ".log")
     schema = STATE / "handoff-schema.json"
-    schema_json = json.dumps({"type": "object", "additionalProperties": False, "properties": {
-        "files": {"type": "array", "items": {"type": "string"}},
-        "summary": {"type": "string"}}, "required": ["files", "summary"]})
-    schema.write_text(schema_json, encoding="utf-8")
+    schema.write_text(HANDOFF_SCHEMA, encoding="utf-8")
     daytime = (
         "Dies ist der vom Nutzer freigegebene Tagesbetrieb. Die hier genannten Zeiten ersetzen "
         "für diesen Durchgang die Uhrzeiten des Nachtplans. Forschungsregeln und Freigaben gelten."
@@ -206,7 +219,7 @@ Bei unverändertem Stand files leer lassen. Ändere weder die Steuerung noch den
     with transcript.open("wb") as stream:
         if use_claude:
             try:
-                reply = run_claude(args.claude, prompt, schema_json, stream, timeout, claude_execution)
+                reply = run_claude(args.claude, prompt, HANDOFF_SCHEMA, stream, timeout, claude_execution)
             except (subprocess.SubprocessError, ValueError, OSError):
                 if not claude_execution:
                     claude_failure.touch()
@@ -225,6 +238,55 @@ Bei unverändertem Stand files leer lassen. Ändere weder die Steuerung noch den
     log(f"ENDE {task} {reply['summary']}")
 
 
+def select_figure(rows, checked):
+    for task in FIGURE_MILESTONES:
+        if rows[task] != "erledigt" or task in checked:
+            continue
+        folder = FIGURES / task.lower()
+        if not ((folder / "README.md").is_file() and (folder / "plot.py").is_file()
+                and any(folder.glob("*.png")) and not git("status", "--porcelain", "--", folder)):
+            return task
+    return None
+
+
+def figure_worker(args, task, deadline):
+    document, subject = FIGURE_MILESTONES[task]
+    folder = FIGURES / task.lower()
+    relative = folder.relative_to(ROOT).as_posix()
+    stamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+    transcript = STATE / f"{stamp}_{task}_figures.log"
+    prompt = f"""Du bist Claude und übernimmst die wissenschaftlichen Abbildungen für {task}.
+Lies AGENTS.md, experiments/AGENTS.md und {REL.as_posix()}/{document}. Verwende ausschließlich
+dessen verifizierte Ergebniszusammenfassungen und kleine aggregierte Metrikdateien. Keine Rohtrajektorien,
+Gewichte, Testfamilien, Simulation, Optimizerupdates oder Änderungen an Versuchscode und Statusdateien.
+Erstelle unter {relative}/ klare Abbildungen als PNG und einen reproduzierbaren Generator plot.py
+mit der Projekt-venv und Matplotlib (Agg). Thema: {subject}.
+Nutze als Quellen genau die verifizierten Werte und führe den Generator aus:
+./praxis/.venv/Scripts/python.exe {relative}/plot.py
+Prüfe die PNGs visuell. Beschrifte Achsen, Einheiten, Gruppen, Nenner und gegebenenfalls Intervalle.
+Halte Loss, technische Stabilität und Aufgabenerfolg auseinander. Runde erst bei der Anzeige.
+Dokumentiere Quellen, Aufruf, Abbildungen und Aussagegrenzen in {relative}/README.md.
+Schreibe ausschließlich in diesem Abbildungsordner. Gib dessen neuen oder aktualisierten Dateien
+als repo-relative Pfade in files und eine aussagekräftige Zeile in summary aus. Kein Git-Commit."""
+    log(f"START FIGURES {task} {transcript.name} (Claude)")
+    remaining = (deadline - datetime.now()).total_seconds()
+    if remaining <= 0:
+        return
+    with transcript.open("wb") as stream:
+        reply = run_claude(args.claude, prompt, HANDOFF_SCHEMA, stream, min(remaining, 600), True)
+    files = [(ROOT / name).resolve() for name in reply["files"]]
+    required = {folder / "README.md", folder / "plot.py"}
+    images = [path for path in files if path.suffix.lower() == ".png"]
+    if not (all(path.is_relative_to(folder) for path in files) and required.issubset(files) and images):
+        raise ValueError(f"Unvollständige oder unzulässige Abbildungsübergabe für {task}")
+    for png in images:
+        with png.open("rb") as stream:
+            if stream.read(8) != bytes.fromhex("89504e470d0a1a0a"):
+                raise ValueError(f"Ungültige PNG-Datei: {png.name}")
+    commit_report(reply["files"], f"{task} Abbildungen: {reply['summary']}")
+    log(f"ENDE FIGURES {task} {relative} (Claude)")
+
+
 def active_window(now, args):
     if not args.day_until:
         return window(now, args.first_night)
@@ -238,6 +300,7 @@ def dispatch(args):
     if git("branch", "--show-current") != BRANCH:
         raise ValueError("Falscher Arbeitszweig")
     seen = set()
+    figures_checked = set()
     suffix = f"_tag_{args.day_until:%Y%m%d}" if args.day_until else ""
     pending = STATE / f"offene_uebergabe{suffix}.txt"
     while (slot := active_window(datetime.now(), args)):
@@ -262,6 +325,17 @@ def dispatch(args):
                 task = previous
             else:
                 task = select(rows, approvals, seen)
+                # A live run gets its monitor check before a figure job.
+                if task is None or rows[task] != "läuft":
+                    figure = select_figure(rows, figures_checked)
+                    if figure:
+                        figures_checked.add(figure)
+                        try:
+                            figure_worker(args, figure, handoff_at)
+                        except Exception:
+                            log(f"Abbildungsübergabe für {figure} fehlgeschlagen (Claude)\n" +
+                                traceback.format_exc())
+                        continue
         if task is None:
             log("Keine weitere freigegebene Aufgabe")
             return
