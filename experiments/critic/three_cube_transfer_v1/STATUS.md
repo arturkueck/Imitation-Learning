@@ -23,7 +23,7 @@ Bei einem Sofortstopp nach [Nachtplan](NACHTPLAN.md) `Gesamtpause: ja` setzen un
 | D1b | offen | – | nach N2-2b, entscheidet über Smoke v2 |
 | N2-3v2 | offen | – | nach D1b, [v2 §B–§D](PROTOCOL_V2.md) |
 | B-1 | erledigt | 19.11.2026 | [Pilotauswertung eingefroren](PILOT_ANALYSIS.md) · [pilot_analysis.py](pilot_analysis.py) nach v1 §10, SHA-256 `ad7d6274…18a2` ([Hashdatei](pilot_analysis.sha256)). [27/27 Tests](test_pilot_analysis.py) auf synthetischen Daten grün, Testfamilien werden vor jeder Rechnung abgewiesen. Ohne Pilotdaten, 0 Rollouts, 0 Optimizerupdates. |
-| B-2 | offen | – | Fehlerphasen der A-Parents |
+| B-2 | erledigt | 19.11.2026 | [Fehlerphasen der A-Parents](FAILURE_PHASES.md) · nur N1-4 (300) und N2-1 (900), Hashes vorab geprüft. Fehlschläge nach erreichter Stufe 2: 146/197 (N1-4) und 424/575 (N2-1), alle am Horizont. Häufigste N2-1-Endpunkte: Stufe 2 Lösen 231, Stufe 2 Greifen 142, Stufe 1 Lösen 93. Außerhalb der Bindung in der Ablagegruppe 157/139 von 418 bei δ_max 0,05/0,20. [failure_phases.py](failure_phases.py), [9/9 Tests](test_failure_phases.py), 0 Rollouts, 0 Optimizerupdates, Testfamilien geschlossen. |
 | B-3 | offen | – | Seedzahl-Werkzeug für N4-2 |
 | B-4 | offen | – | Abbildungen, Dokumentation, Nachtbericht |
 | N2-4 | offen | 19.11.2026 | Nicht vor Nacht 3 (20./21.11.2026), nach bestandenem N2-3v2 mit IL-v2. Vorher: Gesamtpause nach N2-3, aufgehoben am 19.11.2026 22:12 (Plan B). |

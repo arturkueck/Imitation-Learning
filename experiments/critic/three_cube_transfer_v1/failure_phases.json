@@ -1,0 +1,902 @@
+{
+  "task": "B-2",
+  "schema": "failure_phases.v1",
+  "optimizer_updates": 0,
+  "rollouts": 0,
+  "sources": {
+    "n1_4": {
+      "path": "praxis/results/critic/three_cube_transfer_v1/calibration_n1_4",
+      "raw_sha256": "c8888112bac1b9ce403bd4070aeaca38c878ab61bc5f9ebef9a7a1838bdcf573",
+      "episodes": 300
+    },
+    "n2_1": {
+      "path": "praxis/results/critic/three_cube_transfer_v1/critic_data_n2_1",
+      "dataset_sha256": "9f0aeaaff68734ffa2bd2a14bc91bd32c3c92db5fc255af1029a580daff9a2ba",
+      "episodes": 900
+    }
+  },
+  "script_sha256": "003154a8030bf0796e77c2c05f375bf4694dc84a289c97532e2db97123d85e33",
+  "constants": {
+    "action_scale_m": 0.05,
+    "deltas": [
+      0.05,
+      0.1,
+      0.2
+    ],
+    "xy_tol_m": 0.009,
+    "z_tol_m": 0.008,
+    "lift_z_m": 0.05,
+    "rest_width": 0.01
+  },
+  "n1_4": {
+    "outcomes": {
+      "1": {
+        "episodes": 100,
+        "successes": 40,
+        "failures": 60,
+        "fail_stage1": 14,
+        "fail_stage2": 46,
+        "fail_tower_seen": 0,
+        "terminations": {
+          "horizon": 60,
+          "success": 40
+        }
+      },
+      "2": {
+        "episodes": 100,
+        "successes": 30,
+        "failures": 70,
+        "fail_stage1": 18,
+        "fail_stage2": 52,
+        "fail_tower_seen": 0,
+        "terminations": {
+          "horizon": 70,
+          "success": 30
+        }
+      },
+      "3": {
+        "episodes": 100,
+        "successes": 33,
+        "failures": 67,
+        "fail_stage1": 19,
+        "fail_stage2": 48,
+        "fail_tower_seen": 0,
+        "terminations": {
+          "horizon": 67,
+          "success": 33
+        }
+      },
+      "gesamt": {
+        "episodes": 300,
+        "successes": 103,
+        "failures": 197,
+        "fail_stage1": 51,
+        "fail_stage2": 146,
+        "fail_tower_seen": 0,
+        "terminations": {
+          "horizon": 197,
+          "success": 103
+        }
+      }
+    },
+    "families": {
+      "families": 100,
+      "failing_parents": {
+        "0": 27,
+        "1": 8,
+        "2": 6,
+        "3": 59
+      }
+    }
+  },
+  "n2_1": {
+    "outcomes": {
+      "1": {
+        "episodes": 300,
+        "successes": 125,
+        "failures": 175,
+        "fail_stage1": 40,
+        "fail_stage2": 135,
+        "fail_tower_seen": 2,
+        "terminations": {
+          "horizon": 175,
+          "success": 125
+        }
+      },
+      "2": {
+        "episodes": 300,
+        "successes": 92,
+        "failures": 208,
+        "fail_stage1": 48,
+        "fail_stage2": 160,
+        "fail_tower_seen": 2,
+        "terminations": {
+          "horizon": 208,
+          "success": 92
+        }
+      },
+      "3": {
+        "episodes": 300,
+        "successes": 108,
+        "failures": 192,
+        "fail_stage1": 63,
+        "fail_stage2": 129,
+        "fail_tower_seen": 3,
+        "terminations": {
+          "horizon": 192,
+          "success": 108
+        }
+      },
+      "gesamt": {
+        "episodes": 900,
+        "successes": 325,
+        "failures": 575,
+        "fail_stage1": 151,
+        "fail_stage2": 424,
+        "fail_tower_seen": 7,
+        "terminations": {
+          "horizon": 575,
+          "success": 325
+        }
+      }
+    },
+    "families": {
+      "families": 300,
+      "failing_parents": {
+        "0": 78,
+        "1": 33,
+        "2": 25,
+        "3": 164
+      }
+    },
+    "endpoints": [
+      {
+        "stage": 1,
+        "phase": 1,
+        "retreat": false,
+        "name": "Absenken zum Greifen",
+        "counts": {
+          "1": 0,
+          "2": 10,
+          "3": 5
+        },
+        "total": 15,
+        "segment_frames": {
+          "n": 15,
+          "q25": 980.0,
+          "median": 981.0,
+          "q75": 982.0,
+          "min": 976.0,
+          "max": 986.0
+        },
+        "rest_share": {
+          "n": 15,
+          "q25": 0.6332111888227445,
+          "median": 0.7841140529531568,
+          "q75": 0.898219839097654,
+          "min": 0.4806122448979592,
+          "max": 0.9439347604485219
+        },
+        "correction_mm": {
+          "n": 15,
+          "q25": 3.2360520417163587,
+          "median": 3.459032266109264,
+          "q75": 5.395189700775099,
+          "min": 2.8140807699701513,
+          "max": 7.484015209276438
+        },
+        "carried_lifted": 0,
+        "carried_on_table": 15,
+        "carried_on_base": 0,
+        "base_intact": 15,
+        "stage2_entries": 0,
+        "base_intact_at_stage2_entry": 0,
+        "categories": {
+          "0.05": {
+            "keine nötig": 0,
+            "innerhalb": 15,
+            "außerhalb": 0
+          },
+          "0.1": {
+            "keine nötig": 0,
+            "innerhalb": 15,
+            "außerhalb": 0
+          },
+          "0.2": {
+            "keine nötig": 0,
+            "innerhalb": 15,
+            "außerhalb": 0
+          }
+        }
+      },
+      {
+        "stage": 1,
+        "phase": 4,
+        "retreat": false,
+        "name": "Transport",
+        "counts": {
+          "1": 4,
+          "2": 8,
+          "3": 30
+        },
+        "total": 42,
+        "segment_frames": {
+          "n": 42,
+          "q25": 901.25,
+          "median": 910.0,
+          "q75": 913.0,
+          "min": 883.0,
+          "max": 921.0
+        },
+        "rest_share": {
+          "n": 42,
+          "q25": 0.8966026574389404,
+          "median": 0.9271437596231682,
+          "q75": 0.9399055992221053,
+          "min": 0.8522222222222222,
+          "max": 0.9572836801752465
+        },
+        "correction_mm": {
+          "n": 42,
+          "q25": 0.0,
+          "median": 1.1294660589040881,
+          "q75": 4.124455301303022,
+          "min": 0.0,
+          "max": 15.93047554275829
+        },
+        "carried_lifted": 42,
+        "carried_on_table": 0,
+        "carried_on_base": 0,
+        "base_intact": 42,
+        "stage2_entries": 0,
+        "base_intact_at_stage2_entry": 0,
+        "categories": {
+          "0.05": {
+            "keine nötig": 20,
+            "innerhalb": 22,
+            "außerhalb": 0
+          },
+          "0.1": {
+            "keine nötig": 20,
+            "innerhalb": 22,
+            "außerhalb": 0
+          },
+          "0.2": {
+            "keine nötig": 20,
+            "innerhalb": 22,
+            "außerhalb": 0
+          }
+        }
+      },
+      {
+        "stage": 1,
+        "phase": 5,
+        "retreat": false,
+        "name": "Ablegen",
+        "counts": {
+          "1": 0,
+          "2": 1,
+          "3": 0
+        },
+        "total": 1,
+        "segment_frames": {
+          "n": 1,
+          "q25": 909.0,
+          "median": 909.0,
+          "q75": 909.0,
+          "min": 909.0,
+          "max": 909.0
+        },
+        "rest_share": {
+          "n": 1,
+          "q25": 0.0088008800880088,
+          "median": 0.0088008800880088,
+          "q75": 0.0088008800880088,
+          "min": 0.0088008800880088,
+          "max": 0.0088008800880088
+        },
+        "correction_mm": {
+          "n": 1,
+          "q25": 59.427215617331754,
+          "median": 59.427215617331754,
+          "q75": 59.427215617331754,
+          "min": 59.427215617331754,
+          "max": 59.427215617331754
+        },
+        "carried_lifted": 0,
+        "carried_on_table": 1,
+        "carried_on_base": 0,
+        "base_intact": 1,
+        "stage2_entries": 0,
+        "base_intact_at_stage2_entry": 0,
+        "categories": {
+          "0.05": {
+            "keine nötig": 0,
+            "innerhalb": 1,
+            "außerhalb": 0
+          },
+          "0.1": {
+            "keine nötig": 0,
+            "innerhalb": 1,
+            "außerhalb": 0
+          },
+          "0.2": {
+            "keine nötig": 0,
+            "innerhalb": 1,
+            "außerhalb": 0
+          }
+        }
+      },
+      {
+        "stage": 1,
+        "phase": 6,
+        "retreat": false,
+        "name": "Lösen",
+        "counts": {
+          "1": 36,
+          "2": 29,
+          "3": 28
+        },
+        "total": 93,
+        "segment_frames": {
+          "n": 93,
+          "q25": 857.0,
+          "median": 868.0,
+          "q75": 873.0,
+          "min": 744.0,
+          "max": 888.0
+        },
+        "rest_share": {
+          "n": 93,
+          "q25": 0.0979498861047836,
+          "median": 0.12471395881006865,
+          "q75": 0.5587188612099644,
+          "min": 0.0,
+          "max": 0.9685314685314685
+        },
+        "correction_mm": {
+          "n": 93,
+          "q25": 32.50445829575185,
+          "median": 35.262763371139826,
+          "q75": 40.184591691149414,
+          "min": 7.040401008083867,
+          "max": 74.47769067022743
+        },
+        "carried_lifted": 2,
+        "carried_on_table": 88,
+        "carried_on_base": 0,
+        "base_intact": 93,
+        "stage2_entries": 0,
+        "base_intact_at_stage2_entry": 0,
+        "categories": {
+          "0.05": {
+            "keine nötig": 0,
+            "innerhalb": 93,
+            "außerhalb": 0
+          },
+          "0.1": {
+            "keine nötig": 0,
+            "innerhalb": 93,
+            "außerhalb": 0
+          },
+          "0.2": {
+            "keine nötig": 0,
+            "innerhalb": 93,
+            "außerhalb": 0
+          }
+        }
+      },
+      {
+        "stage": 2,
+        "phase": 1,
+        "retreat": false,
+        "name": "Absenken zum Greifen",
+        "counts": {
+          "1": 29,
+          "2": 50,
+          "3": 63
+        },
+        "total": 142,
+        "segment_frames": {
+          "n": 142,
+          "q25": 838.0,
+          "median": 841.0,
+          "q75": 844.0,
+          "min": 818.0,
+          "max": 851.0
+        },
+        "rest_share": {
+          "n": 142,
+          "q25": 0.5290360710745062,
+          "median": 0.7323395641086311,
+          "q75": 0.8634478672985781,
+          "min": 0.0,
+          "max": 0.9561611374407583
+        },
+        "correction_mm": {
+          "n": 142,
+          "q25": 12.880291477963693,
+          "median": 20.409878594601636,
+          "q75": 25.70263121683819,
+          "min": 2.769552338552341,
+          "max": 78.49117314795564
+        },
+        "carried_lifted": 0,
+        "carried_on_table": 142,
+        "carried_on_base": 0,
+        "base_intact": 51,
+        "stage2_entries": 142,
+        "base_intact_at_stage2_entry": 142,
+        "categories": {
+          "0.05": {
+            "keine nötig": 0,
+            "innerhalb": 142,
+            "außerhalb": 0
+          },
+          "0.1": {
+            "keine nötig": 0,
+            "innerhalb": 142,
+            "außerhalb": 0
+          },
+          "0.2": {
+            "keine nötig": 0,
+            "innerhalb": 142,
+            "außerhalb": 0
+          }
+        }
+      },
+      {
+        "stage": 2,
+        "phase": 4,
+        "retreat": false,
+        "name": "Transport",
+        "counts": {
+          "1": 17,
+          "2": 9,
+          "3": 21
+        },
+        "total": 47,
+        "segment_frames": {
+          "n": 47,
+          "q25": 748.0,
+          "median": 757.0,
+          "q75": 785.5,
+          "min": 735.0,
+          "max": 800.0
+        },
+        "rest_share": {
+          "n": 47,
+          "q25": 0.8758667426361408,
+          "median": 0.8994845360824743,
+          "q75": 0.9272831256396363,
+          "min": 0.7848443843031123,
+          "max": 0.9553219448094612
+        },
+        "correction_mm": {
+          "n": 47,
+          "q25": 0.0,
+          "median": 11.142238624302115,
+          "q75": 155.82698314824327,
+          "min": 0.0,
+          "max": 306.54816452711054
+        },
+        "carried_lifted": 26,
+        "carried_on_table": 21,
+        "carried_on_base": 0,
+        "base_intact": 39,
+        "stage2_entries": 47,
+        "base_intact_at_stage2_entry": 47,
+        "categories": {
+          "0.05": {
+            "keine nötig": 13,
+            "innerhalb": 16,
+            "außerhalb": 18
+          },
+          "0.1": {
+            "keine nötig": 13,
+            "innerhalb": 20,
+            "außerhalb": 14
+          },
+          "0.2": {
+            "keine nötig": 13,
+            "innerhalb": 34,
+            "außerhalb": 0
+          }
+        }
+      },
+      {
+        "stage": 2,
+        "phase": 5,
+        "retreat": false,
+        "name": "Ablegen",
+        "counts": {
+          "1": 0,
+          "2": 4,
+          "3": 0
+        },
+        "total": 4,
+        "segment_frames": {
+          "n": 4,
+          "q25": 722.0,
+          "median": 722.5,
+          "q75": 733.0,
+          "min": 722.0,
+          "max": 763.0
+        },
+        "rest_share": {
+          "n": 4,
+          "q25": 0.001038781163434903,
+          "median": 0.0034587725045305993,
+          "q75": 0.15978502634827582,
+          "min": 0.0,
+          "max": 0.6225425950196593
+        },
+        "correction_mm": {
+          "n": 4,
+          "q25": 54.82377005390059,
+          "median": 55.43350766733093,
+          "q75": 108.24643694570763,
+          "min": 53.49130588127424,
+          "max": 266.18847611317307
+        },
+        "carried_lifted": 0,
+        "carried_on_table": 4,
+        "carried_on_base": 0,
+        "base_intact": 1,
+        "stage2_entries": 4,
+        "base_intact_at_stage2_entry": 4,
+        "categories": {
+          "0.05": {
+            "keine nötig": 0,
+            "innerhalb": 3,
+            "außerhalb": 1
+          },
+          "0.1": {
+            "keine nötig": 0,
+            "innerhalb": 3,
+            "außerhalb": 1
+          },
+          "0.2": {
+            "keine nötig": 0,
+            "innerhalb": 3,
+            "außerhalb": 1
+          }
+        }
+      },
+      {
+        "stage": 2,
+        "phase": 6,
+        "retreat": false,
+        "name": "Lösen",
+        "counts": {
+          "1": 89,
+          "2": 97,
+          "3": 45
+        },
+        "total": 231,
+        "segment_frames": {
+          "n": 231,
+          "q25": 726.5,
+          "median": 740.0,
+          "q75": 750.0,
+          "min": 682.0,
+          "max": 790.0
+        },
+        "rest_share": {
+          "n": 231,
+          "q25": 0.9811827956989247,
+          "median": 0.9841059602649007,
+          "q75": 0.9906726818858103,
+          "min": 0.8962264150943396,
+          "max": 1.0
+        },
+        "correction_mm": {
+          "n": 231,
+          "q25": 3.2123999474794793,
+          "median": 72.36344099861793,
+          "q75": 191.0739104464178,
+          "min": 0.0,
+          "max": 320.29733555326794
+        },
+        "carried_lifted": 93,
+        "carried_on_table": 138,
+        "carried_on_base": 29,
+        "base_intact": 153,
+        "stage2_entries": 231,
+        "base_intact_at_stage2_entry": 231,
+        "categories": {
+          "0.05": {
+            "keine nötig": 29,
+            "innerhalb": 64,
+            "außerhalb": 138
+          },
+          "0.1": {
+            "keine nötig": 29,
+            "innerhalb": 64,
+            "außerhalb": 138
+          },
+          "0.2": {
+            "keine nötig": 29,
+            "innerhalb": 64,
+            "außerhalb": 138
+          }
+        }
+      }
+    ],
+    "binding": {
+      "Greifen (0–3)": {
+        "failures": 157,
+        "counts": {
+          "1": 29,
+          "2": 60,
+          "3": 68
+        },
+        "correction_mm": {
+          "n": 157,
+          "q25": 6.1722844576707345,
+          "median": 19.693891240627273,
+          "q75": 24.963391293054425,
+          "min": 2.769552338552341,
+          "max": 78.49117314795564
+        },
+        "median_width_mm_020": {
+          "n": 157,
+          "q25": 0.055118644377216704,
+          "median": 0.13423619093373418,
+          "q75": 0.3000127035193145,
+          "min": 0.00916076751309447,
+          "max": 3.2595960423350334
+        },
+        "rest_share": {
+          "n": 157,
+          "q25": 0.5651658767772512,
+          "median": 0.7366548042704626,
+          "q75": 0.8644470868014269,
+          "min": 0.0,
+          "max": 0.9561611374407583
+        },
+        "categories": {
+          "0.05": {
+            "1": {
+              "keine nötig": 0,
+              "innerhalb": 29,
+              "außerhalb": 0
+            },
+            "2": {
+              "keine nötig": 0,
+              "innerhalb": 60,
+              "außerhalb": 0
+            },
+            "3": {
+              "keine nötig": 0,
+              "innerhalb": 68,
+              "außerhalb": 0
+            },
+            "gesamt": {
+              "keine nötig": 0,
+              "innerhalb": 157,
+              "außerhalb": 0
+            }
+          },
+          "0.1": {
+            "1": {
+              "keine nötig": 0,
+              "innerhalb": 29,
+              "außerhalb": 0
+            },
+            "2": {
+              "keine nötig": 0,
+              "innerhalb": 60,
+              "außerhalb": 0
+            },
+            "3": {
+              "keine nötig": 0,
+              "innerhalb": 68,
+              "außerhalb": 0
+            },
+            "gesamt": {
+              "keine nötig": 0,
+              "innerhalb": 157,
+              "außerhalb": 0
+            }
+          },
+          "0.2": {
+            "1": {
+              "keine nötig": 0,
+              "innerhalb": 29,
+              "außerhalb": 0
+            },
+            "2": {
+              "keine nötig": 0,
+              "innerhalb": 60,
+              "außerhalb": 0
+            },
+            "3": {
+              "keine nötig": 0,
+              "innerhalb": 68,
+              "außerhalb": 0
+            },
+            "gesamt": {
+              "keine nötig": 0,
+              "innerhalb": 157,
+              "außerhalb": 0
+            }
+          }
+        },
+        "ratio": {
+          "0.05": {
+            "n": 157,
+            "q25": 0.028359502461813905,
+            "median": 0.04123513876608873,
+            "q75": 0.07261675858580874,
+            "min": 0.003599931965748019,
+            "max": 0.21067727089984722
+          },
+          "0.1": {
+            "n": 157,
+            "q25": 0.02321536695024611,
+            "median": 0.03274031759899199,
+            "q75": 0.05779802985486483,
+            "min": 0.0029962047211010766,
+            "max": 0.15032430809198097
+          },
+          "0.2": {
+            "n": 157,
+            "q25": 0.01779389851388973,
+            "median": 0.03064279910725558,
+            "q75": 0.04999268765399434,
+            "min": 0.002838343807796238,
+            "max": 0.12499418928051911
+          }
+        },
+        "ratio_infinite": {
+          "0.05": 0,
+          "0.1": 0,
+          "0.2": 0
+        }
+      },
+      "Ablage (4–6)": {
+        "failures": 418,
+        "counts": {
+          "1": 146,
+          "2": 148,
+          "3": 124
+        },
+        "correction_mm": {
+          "n": 418,
+          "q25": 3.2654515248363403,
+          "median": 35.39404765571397,
+          "q75": 143.26793956436666,
+          "min": 0.0,
+          "max": 320.29733555326794
+        },
+        "median_width_mm_020": {
+          "n": 418,
+          "q25": 0.014185589679982513,
+          "median": 0.019898558093700558,
+          "q75": 0.061869029013905674,
+          "min": 0.0016133766621351244,
+          "max": 8.398078382015228
+        },
+        "rest_share": {
+          "n": 418,
+          "q25": 0.8716836734693878,
+          "median": 0.9781121341417771,
+          "q75": 0.9847133757961783,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "categories": {
+          "0.05": {
+            "1": {
+              "keine nötig": 4,
+              "innerhalb": 70,
+              "außerhalb": 72
+            },
+            "2": {
+              "keine nötig": 20,
+              "innerhalb": 68,
+              "außerhalb": 60
+            },
+            "3": {
+              "keine nötig": 38,
+              "innerhalb": 61,
+              "außerhalb": 25
+            },
+            "gesamt": {
+              "keine nötig": 62,
+              "innerhalb": 199,
+              "außerhalb": 157
+            }
+          },
+          "0.1": {
+            "1": {
+              "keine nötig": 4,
+              "innerhalb": 72,
+              "außerhalb": 70
+            },
+            "2": {
+              "keine nötig": 20,
+              "innerhalb": 69,
+              "außerhalb": 59
+            },
+            "3": {
+              "keine nötig": 38,
+              "innerhalb": 62,
+              "außerhalb": 24
+            },
+            "gesamt": {
+              "keine nötig": 62,
+              "innerhalb": 203,
+              "außerhalb": 153
+            }
+          },
+          "0.2": {
+            "1": {
+              "keine nötig": 4,
+              "innerhalb": 77,
+              "außerhalb": 65
+            },
+            "2": {
+              "keine nötig": 20,
+              "innerhalb": 72,
+              "außerhalb": 56
+            },
+            "3": {
+              "keine nötig": 38,
+              "innerhalb": 68,
+              "außerhalb": 18
+            },
+            "gesamt": {
+              "keine nötig": 62,
+              "innerhalb": 217,
+              "außerhalb": 139
+            }
+          }
+        },
+        "ratio": {
+          "0.05": {
+            "n": 356,
+            "q25": 0.046442593820052135,
+            "median": 0.21159474000444622,
+            "q75": 5.09187568976507,
+            "min": 0.00028478766757680844,
+            "max": 28.341550388246745
+          },
+          "0.1": {
+            "n": 356,
+            "q25": 0.042198517927356335,
+            "median": 0.2031960771451356,
+            "q75": 5.053694483330918,
+            "min": 0.00020094911717568855,
+            "max": 28.341550388246745
+          },
+          "0.2": {
+            "n": 356,
+            "q25": 0.03835191642891128,
+            "median": 0.2031960771451356,
+            "q75": 5.053694483330918,
+            "min": 0.00013433395727925675,
+            "max": 28.341550388246745
+          }
+        },
+        "ratio_infinite": {
+          "0.05": 0,
+          "0.1": 0,
+          "0.2": 0
+        }
+      },
+      "Rückzug": {
+        "failures": 0,
+        "counts": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "correction_mm": null,
+        "median_width_mm_020": null,
+        "rest_share": null
+      }
+    }
+  }
+}

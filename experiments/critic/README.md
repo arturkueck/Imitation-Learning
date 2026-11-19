@@ -13,6 +13,8 @@ Critic-Vortraining, Validierung und Prüfung von Aktionen bzw. Segmenten.
 
 - B-1 ist abgeschlossen. Die Pilotauswertung nach Protokoll §10 ist vor jeglichen Pilotdaten als Skript eingefroren und per SHA-256 dokumentiert. Das Skript wurde mit 27 Tests auf synthetischen Daten geprüft und weist Testfamilien ab. [Eingefrorene Pilotauswertung](three_cube_transfer_v1/PILOT_ANALYSIS.md)
 
+- B-2 ist abgeschlossen. Ausgewertet wurden nur bereits erhobene Daten der A-Parents. Die meisten Fehlschläge entstehen nach erreichter zweiter Platzierung, in N1-4 146 von 197 und in N2-1 424 von 575. Die Parents verharren dann bis zum Horizont in einer Phase, am häufigsten beim Lösen des dritten Würfels (231 von 575). Dort ruht der Parent fast vollständig. Die relative Bindung lässt deshalb bei 138 von 231 Fällen die nötige horizontale Korrektur auf keiner Stufe δ_max zu. Das ist eine berichtende Analyse in idealisierter Kinematik ohne Wirksamkeitsaussage. [Fehlerphasen](three_cube_transfer_v1/FAILURE_PHASES.md)
+
 Die Morgenübergabe am 19.11.2026 um 14:45 Uhr bestätigte den Abschluss des letzten Laufs und die Gesamtpause bis zur Nutzerentscheidung nach Protokoll §7. [Übergabe](three_cube_transfer_v1/nights/NACHT_1_20261118.md#übergabe)
 
 Datierte Ordner sind getrennte Versuchsfamilien. Die jeweiligen READMEs verweisen auf Protokolle, Ergebnisse und bekannte Grenzen.
