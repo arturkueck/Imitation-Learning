@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Beyond the Demonstrated Task · Imitation Learning Project</title>
+<meta name="description" content="Can a robot that has only seen two-cube demonstrations learn to build three-cube towers from its own attempts? Project proposal, evidence and live status.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Back to top">
+      <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><g id="logo-cubes"></g></svg>
+      <span>Beyond the Demonstrated Task<small>Imitation Learning · project site</small></span>
+    </a>
+    <nav class="steps-nav" aria-label="Guided tour">
+      <a href="#question"><b>1</b><span>Question</span></a>
+      <a href="#why"><b>2</b><span>Why it's hard</span></a>
+      <a href="#approach"><b>3</b><span>Approach</span></a>
+      <a href="#evidence"><b>4</b><span>Evidence</span></a>
+      <a href="#now"><b>5</b><span>Status</span></a>
+      <a href="#plan"><b>6</b><span>Plan</span></a>
+      <a href="#journal"><b>J</b><span>Journal</span></a>
+      <a href="#references"><b>R</b><span>Papers</span></a>
+    </nav>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<main id="top">
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap">
+    <div class="grid">
+      <div class="reveal">
+        <div class="eyebrow">Project proposal · Artur Kück · TU Braunschweig</div>
+        <h1>Beyond the Demonstrated Task</h1>
+        <p class="lede">A robot has only ever been shown how to stack <strong>one cube on another</strong>. Can it learn to build a <strong>tower of three</strong> &mdash; a task no expert ever demonstrated &mdash; from the success and failure of its own attempts?</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#question">Start the guided tour →</a>
+          <a class="btn ghost" href="#now">Jump to current status</a>
+        </div>
+      </div>
+      <figure class="hero-figure reveal">
+        <svg id="hero-svg" viewBox="0 0 560 300" role="img" aria-labelledby="hero-title">
+          <title id="hero-title">Left: the demonstrated two-cube stack. Right: the asked-for three-cube tower, whose top cube was never demonstrated.</title>
+        </svg>
+        <figcaption>The demonstrations end at two cubes. The third placement happens higher, on a moving target, next to an existing tower &mdash; situations the demonstrations never contained.</figcaption>
+      </figure>
+    </div>
+
+    <div class="status-strip" id="kpis">
+      <div class="kpi reveal"><div class="label">Demonstrations</div><div class="value">2 <small>cubes</small></div><div class="note">Scripted expert, two-cube stacking only. No three-cube demos, no expert help in three-cube scenes.</div></div>
+      <div class="kpi reveal"><div class="label">BC on three cubes</div><div class="value" data-kpi="bc">325<small>/900</small></div><div class="note">Stable towers by the frozen BC policies (3 parents × 300 scenes) &mdash; the starting point.</div></div>
+      <div class="kpi reveal"><div class="label">Critic validation</div><div class="value">0.82–0.89 <small>AUC</small></div><div class="note">IL-informed critics predict success on held-out scenes better than a phase-only baseline.</div></div>
+      <div class="kpi alert reveal"><div class="label">Current phase</div><div class="value" style="font-size:22px;padding:5px 0">Pilot paused</div><div class="note">Actor–critic smoke test stopped at a technical gate (Q-value range) on 19 Nov 2026. <a href="#now">Details →</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 1 QUESTION ================= -->
+<section class="step" id="question">
+  <div class="wrap">
+    <div class="step-head reveal">
+      <div class="step-no">01</div>
+      <div>
+        <div class="kicker">The question</div>
+        <h2>Can learned skills reach a task nobody demonstrated?</h2>
+        <p>Behavior Cloning (BC) copies an expert: a policy predicts the expert's action from the current situation. It can only reproduce what the demonstrations contain. Demonstrations are expensive, and a robot is rarely shown every task it will face later.</p>
+      </div>
+    </div>
+    <div class="cols wide-left">
+      <div class="reveal">
+        <blockquote class="proposal-quote">Using only two-cube demonstrations, does an IL-informed critic improve three-cube stacking in new scenes?<cite>Proposal · Research question</cite></blockquote>
+        <div class="card">
+          <h3>What changes from two to three cubes</h3>
+          <div class="sub">The second placement happens in states the demonstrations never showed.</div>
+          <div id="diff-svg-wrap"><svg id="diff-svg" viewBox="0 0 620 210" role="img" aria-label="Three differences between the demonstrated and the new placement"></svg></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="card" style="height:100%">
+          <h3>Why not just add an expert?</h3>
+          <p style="color:var(--ink-2)">DAgger-style correction needs an expert for the target task. The project deliberately rules that out. The only new signal is whether the robot's own attempt <em>succeeded</em> &mdash; the tower stands &mdash; or <em>failed</em>.</p>
+          <p style="color:var(--ink-2)">In simulation those attempts are cheap. The project asks whether that feedback extends a BC policy beyond the task it was taught, and how many attempts that costs.</p>
+          <div class="means"><b>Scope</b><span>Simulated single arm · privileged cube &amp; gripper positions · position + gripper control, no rotation · fixed rule decides which cube goes next.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 2 WHY ================= -->
+<section class="step" id="why">
+  <div class="wrap">
+    <div class="step-head reveal">
+      <div class="step-no">02</div>
+      <div>
+        <div class="kicker">Why it is hard</div>
+        <h2>Small errors compound over long tasks</h2>
+        <p>A task succeeds only if every step succeeds. A skill that looks reliable in isolation can still fail most long tasks. Try it: this is the arithmetic behind the proposal's outlook.</p>
+      </div>
+    </div>
+    <div class="card reveal">
+      <div class="calc">
+        <div>
+          <div class="slider"><label for="p">Per-step success <output id="p-out">95%</output></label><input id="p" type="range" min="80" max="99.9" step="0.1" value="95"></div>
+          <div class="slider"><label for="n">Steps in the task <output id="n-out">20</output></label><input id="n" type="range" min="1" max="40" step="1" value="20"></div>
+          <div class="big-out" id="calc-out">36%</div>
+          <p id="calc-text">of tasks complete.</p>
+        </div>
+        <div class="chart" id="compound-chart"></div>
+      </div>
+    </div>
+    <div class="card reveal" style="margin-top:24px">
+      <h3>Where the transfer breaks</h3>
+      <div class="sub">Each placement is executed by separate small networks, one per stage, chained by a fixed sequencer. In three-cube towers, failures concentrate at the <strong>second grasp</strong>.</div>
+      <div class="stages" id="stages"></div>
+      <p class="limit">Stage names simplified. Phase audit: of 48 second-lift starts reached in full rollouts, 15 had no grasp &mdash; and all 15 failed (BC-004).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3 APPROACH ================= -->
+<section class="step" id="approach">
+  <div class="wrap">
+    <div class="step-head reveal">
+      <div class="step-no">03</div>
+      <div>
+        <div class="kicker">The approach</div>
+        <h2>One BC policy, three ways to continue</h2>
+        <p>In actor–critic learning, a <strong>critic</strong> estimates how likely an action leads to success, and the <strong>actor</strong> (the policy) is nudged toward actions the critic rates highly. The question is whether a critic that has first <em>watched the BC policy's own attempts</em> gives the actor a better start.</p>
+      </div>
+    </div>
+    <div class="card reveal">
+      <div class="scroll-x"><svg id="flow-svg" viewBox="0 0 1000 300" role="img" aria-label="Study design: two-cube demonstrations train a BC policy, which is continued in three ways and tested on the same three-cube scenes"></svg>
+      <div class="variants">
+        <div class="variant"><div class="sw" style="background:var(--base)"></div><h4>BC</h4><p>The policy as learned from two-cube demonstrations, without further training. Reference point.</p></div>
+        <div class="variant"><div class="sw" style="background:var(--s2)"></div><h4>Actor–Critic · new critic</h4><p>Further training on the robot's own three-cube attempts, with a critic that starts untrained.</p></div>
+        <div class="variant highlight"><div class="sw" style="background:var(--s1)"></div><h4>Actor–Critic · IL-informed critic</h4><p>Same training, but the critic is first trained on the outcomes of the BC policy's attempts.</p></div>
+      </div>
+      <div class="hypothesis"><b>Hypothesis</b>With the same number of attempts for further training, the IL-informed critic reaches a higher three-cube success rate than the new critic, and both outperform BC.</div>
+      <div class="means"><b>Guard rail</b><span>Like AWAC, the actor is kept close to its imitation-learned behavior so it cannot exploit critic errors. Both actor–critic arms share feedback, inputs, limit and attempt budget; critic-pretraining attempts are counted separately.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 4 EVIDENCE ================= -->
+<section class="step" id="evidence">
+  <div class="wrap">
+    <div class="step-head reveal">
+      <div class="step-no">04</div>
+      <div>
+        <div class="kicker">Preliminary work</div>
+        <h2>What earlier experiments already show</h2>
+        <p>Five experiments, read in order, explain why the proposal looks the way it does. Each ends with what it means for the research question.</p>
+      </div>
+    </div>
+    <div class="chain reveal">
+      <ul class="chain-list" role="tablist" aria-label="Evidence chain" id="chain-list"></ul>
+      <div id="chain-panels"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 5 NOW ================= -->
+<section class="step" id="now">
+  <div class="wrap">
+    <div class="step-head reveal">
+      <div class="step-no">05</div>
+      <div>
+        <div class="kicker">Current status · 19 Nov 2026</div>
+        <h2>The critic works on paper. The actor step is blocked.</h2>
+        <p>The pipeline for the main comparison (night plan <span class="mono">three_cube_transfer_v1</span>) has passed data collection and critic validation. The first constrained actor–critic smoke test stopped at a technical gate.</p>
+      </div>
+    </div>
+    <div class="cols wide-left">
+      <div class="reveal">
+        <ol class="track" id="track"></ol>
+      </div>
+      <div class="reveal">
+        <div class="card">
+          <h3>Critic data at a glance</h3>
+          <div class="sub">N2-1 · three frozen BC parents, 300 shared scene families each</div>
+          <div class="chart" id="critic-data-chart"></div>
+          <div class="means"><b>Read</b><span>Both outcomes occur often enough to learn from: the critic sees which states of the BC policy end in a standing tower and which do not.</span></div>
+        </div>
+        <div class="decision-box">
+          <h4>⚠ Open decision</h4>
+          <p style="margin:0;font-size:14.5px">With δ<sub>max</sub> = 0.05, all 6 runs left the allowed Q range [−0.05, 1.05]; every other gate passed. Out-of-range values appeared <em>before the first actor update</em>, so the issue sits in the critic's output range rather than in policy drift. The larger limits (0.10, 0.20) were not run. The pilot waits for a decision on how to proceed.</p>
+        </div>
+      </div>
+    </div>
+    <div class="figs reveal">
+      <figure><img src="img/critic-validation-and-bc-success.png" alt="Critic minus phase-baseline return MSE per parent with 95% intervals, and BC tower success on regular and difficult panels"><figcaption>N2-2 held-out validation. Left: negative = critic beats the phase-only baseline; Parent 3's difficult-panel interval crosses zero. Right: BC tower success per panel.</figcaption></figure>
+      <figure><img src="img/critic-pretraining-loss.png" alt="Critic pretraining loss curves"><figcaption>Critic pretraining loss for the three parents.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 6 PLAN ================= -->
+<section class="step" id="plan">
+  <div class="wrap">
+    <div class="step-head reveal">
+      <div class="step-no">06</div>
+      <div>
+        <div class="kicker">Work plan</div>
+        <h2>Three months, five milestones</h2>
+        <p>The schedule from the proposal, annotated with where each work package stands. I and II are the first and second halves of a month; the lighter bar is secondary work.</p>
+      </div>
+    </div>
+    <div class="reveal" id="gantt"></div>
+    <div class="milestones reveal" id="milestones"></div>
+  </div>
+</section>
+
+<!-- ================= JOURNAL ================= -->
+<section class="step" id="journal">
+  <div class="wrap">
+    <div class="step-head reveal">
+      <div class="step-no">J</div>
+      <div>
+        <div class="kicker">Hypothesis journal</div>
+        <h2>Every decision, in order</h2>
+        <p>Generated from <span class="mono">experiments/HYPOTHESENJOURNAL.md</span>. Each hypothesis keeps its ID from plan to measurement to decision. Click the colored strip or an entry to dig in.</p>
+      </div>
+    </div>
+    <p class="lang-note">Entries are shown in the original language of the lab journal (German); status labels are translated.</p>
+    <div class="filters">
+      <input type="search" id="jsearch" placeholder="Search questions, results, IDs…" aria-label="Search journal">
+      <div class="fgroup" id="ffamily" aria-label="Filter by topic"></div>
+    </div>
+    <div class="filters"><div class="fgroup" id="fstatus" aria-label="Filter by outcome"></div></div>
+    <div class="strip" id="jstrip" aria-label="Timeline of outcomes"></div>
+    <div class="jsummary" id="jsummary"></div>
+    <div class="jlist" id="jlist"></div>
+  </div>
+</section>
+
+<!-- ================= REFERENCES ================= -->
+<section class="step" id="references" style="border-bottom:0">
+  <div class="wrap">
+    <div class="step-head reveal">
+      <div class="step-no">R</div>
+      <div>
+        <div class="kicker">State of the art</div>
+        <h2>Where the project sits in the literature</h2>
+        <p>The five references of the proposal, and which gap each leaves open.</p>
+      </div>
+    </div>
+    <div class="refs" id="refs"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Artur Kück · Imitation Learning project · TU Braunschweig</span>
+    <span id="generated"></span>
+  </div>
+</footer>
+
+<div class="tooltip" id="tooltip" role="status"></div>
+<div class="lightbox" id="lightbox"><img alt=""></div>
+
+<script src="data/site-data.js"></script>
+<script src="assets/charts.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
