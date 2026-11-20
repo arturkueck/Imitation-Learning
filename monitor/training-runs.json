@@ -2,6 +2,26 @@
   "schemaVersion": 1,
   "runs": [
     {
+      "id": "three-cube-transfer-v1-self-imitation-pool",
+      "category": "robot",
+      "method": "il",
+      "kind": "evaluation",
+      "title": "Dreierturm · S-1 Datenpool für Selbstimitation",
+      "directory": "praxis/results/critic/three_cube_transfer_v1/self_imitation_pool_s1",
+      "config": "config.json",
+      "results": "summary.json",
+      "description": "1.200 geplante Episoden der drei A-Parents auf 400 gemeinsamen Familien mit XYZ-Explorationsrauschen, IL-v2-Wert je ausgeführter Aktion und Phasengrenzen. 0 Optimizerupdates.",
+      "checkpointInfo": "Fortsetzung an der ersten offenen Episode mit dem zuletzt gesicherten PCG64-Zustand je Parent.",
+      "artifacts": [
+        {
+          "name": "three-cube-self-imitation-pool-summary.json",
+          "file": "summary.json",
+          "kind": "document",
+          "label": "Erfolgs- und Fehlerzahlen je Parent sowie Datensatz-SHA-256"
+        }
+      ]
+    },
+    {
       "id": "three-cube-transfer-v1-critic-validation-v2",
       "category": "robot",
       "method": "il",

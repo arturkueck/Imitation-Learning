@@ -1,8 +1,10 @@
 # Fortschritt der Nachtläufe zum Dreierturm
 
-Gesamtpause: ja
+Gesamtpause: nein
 
 Bei einem Sofortstopp nach [Nachtplan](NACHTPLAN.md) `Gesamtpause: ja` setzen und Grund sowie erforderliche Nutzerentscheidung dokumentieren. Nur der Nutzer hebt diese Pause auf. Eine fehlende Trainingsfreigabe wird im Nachtplan erteilt.
+
+**Pause aufgehoben (20.11.2026, 11:14 Uhr):** D1b hat die Schwelle aus v2 §A verfehlt (Gesamtpause am 20.11.2026). Der Nutzer hat den Wechsel zu Critic-gefilterter Selbstimitation gewählt und [PROTOCOL_V3.md](PROTOCOL_V3.md) einschließlich S-3/S-4 freigegeben. Der Actor-Critic-Pfad (N2-3v2, N2-4, N3-1 bis N4-4) ist durch v3 ersetzt und blockiert.
 
 **Pause aufgehoben (19.11.2026, 22:12 Uhr):** Der Nutzer hat nach dem gescheiterten Smoke N2-3 Plan B gewählt und [PROTOCOL_V2.md](PROTOCOL_V2.md) freigegeben. Zuerst wird ein Critic mit Aktionsvariation (IL-v2) erhoben, vortrainiert und geprüft, danach Smoke v2. N2-4 und N3-1 starten nicht vor Nacht 3. Ursprünglicher Grund der Pause (13:20 Uhr): Stufe δ_max = 0,05 hat die Q-Bereichsprüfung verfehlt, [AC_SMOKE.md](AC_SMOKE.md#ergebnis-abschluss-19112026).
 
@@ -21,15 +23,22 @@ Bei einem Sofortstopp nach [Nachtplan](NACHTPLAN.md) `Gesamtpause: ja` setzen un
 | N2-1b | erledigt | 20.11.2026 | [Abschlussprüfung](CRITIC_DATA_NOISY.md#ergebnis-und-abschlussprüfung-am-20112026) · [Splitmanifest](splits_v3.json) · [Abschlussmanifest und SHA-256](CRITIC_DATA_NOISY_MANIFEST.json) · Monitor `COMPLETE`, 900/900 Episoden auf 300 gemeinsamen Familien, 382 Erfolge und 518 Fehlschläge am Horizont. 0 Grenzverletzungen, 0 Optimizerupdates, 19/19 Tests. Datensatz für N2-2b geprüft. |
 | N2-2b | erledigt | 20.11.2026 | [Ergebnis und Abschlussprüfung](CRITIC_VALIDATION_V2.md#ergebnis-und-abschlussprüfung-am-20112026) · [Laufcode](critic_validation_v2.py) · Monitor `COMPLETE`, 60.000/60.000 Critic-Updates. **§6 bestanden** bei allen drei Parents, regulär AUC 0,885/0,916/0,882 und MSE-Differenz −0,0285/−0,0284/−0,0175 (P3 obere Grenze −0,0005). ECE ≤ 0,028. Neuberechnung `VERIFY OK`, 13/13 Tests, 0 Rollouts. D1b ist frei. |
 | D1b | erledigt | 20.11.2026 | [Entscheidung nach v2 §A](ACTION_SENSITIVITY.md#d1b--entscheidung-für-il-v2) · Nicht bestanden. Median der Frame-Std. maximal 0,000589 bei geforderten 0,01. Faktor zur Zufallsreferenz 3,86–4,46. 126/126 Gruppen nachgerechnet, 0 Rollouts und 0 Optimizerupdates. Gesamtpause, Nutzer entscheidet. |
-| N2-3v2 | blockiert | 20.11.2026 | D1b hat die Pflichtschwelle nach v2 §A verfehlt. Freigabe liegt vor, Gesamtpause aktiv, kein Start und kein Fortsetzungspunkt. [Morgenübergabe](nights/NACHT_2_20261119.md#übergabe) |
+| N2-3v2 | blockiert | 20.11.2026 | Ersetzt durch [PROTOCOL_V3.md](PROTOCOL_V3.md) (Nutzerentscheidung 20.11.2026). Nicht gelöscht, kein Fortsetzungspunkt. |
 | B-1 | erledigt | 19.11.2026 | [Pilotauswertung eingefroren](PILOT_ANALYSIS.md) · [pilot_analysis.py](pilot_analysis.py) nach v1 §10, SHA-256 `ad7d6274…18a2` ([Hashdatei](pilot_analysis.sha256)). [27/27 Tests](test_pilot_analysis.py) auf synthetischen Daten grün, Testfamilien werden vor jeder Rechnung abgewiesen. Ohne Pilotdaten, 0 Rollouts, 0 Optimizerupdates. |
 | B-2 | erledigt | 19.11.2026 | [Fehlerphasen der A-Parents](FAILURE_PHASES.md) · nur N1-4 (300) und N2-1 (900), Hashes vorab geprüft. Fehlschläge nach erreichter Stufe 2: 146/197 (N1-4) und 424/575 (N2-1), alle am Horizont. Häufigste N2-1-Endpunkte: Stufe 2 Lösen 231, Stufe 2 Greifen 142, Stufe 1 Lösen 93. Außerhalb der Bindung in der Ablagegruppe 157/139 von 418 bei δ_max 0,05/0,20. [failure_phases.py](failure_phases.py), [9/9 Tests](test_failure_phases.py), 0 Rollouts, 0 Optimizerupdates, Testfamilien geschlossen. |
 | B-3 | erledigt | 19.11.2026 | [Seedzahl-Werkzeug für N4-2](SEED_COUNT.md) · [seed_count.py](seed_count.py), SHA-256 `91d82152…5a3a`: gepaarter t-Test über Seeds mit exakter Teststärke, δ = 0,10, obere 80-%-Grenze der Pilot-SD mit Szenenuntergrenze, Mindestzahl 4, Budgetprüfung ohne stille Reduktion. [61/61 Tests](test_seed_count.py) auf Beispielwerten grün (Tabellen, G*Power-Referenz, Monte-Carlo). Keine Pilotdaten, 0 Rollouts, 0 Optimizerupdates, Testfamilien geschlossen. |
-| B-4 | offen | – | Abbildungen, Dokumentation, Nachtbericht |
-| N2-4 | offen | 19.11.2026 | Nicht vor Nacht 3 (20./21.11.2026), nach bestandenem N2-3v2 mit IL-v2. Vorher: Gesamtpause nach N2-3, aufgehoben am 19.11.2026 22:12 (Plan B). |
-| N3-1 | offen | – | – |
-| N3-2 | offen | – | – |
-| N4-1 | offen | – | – |
-| N4-2 | offen | – | – |
-| N4-3 | offen | – | – |
-| N4-4 | offen | – | – |
+| B-4 | offen | – | Abbildungen Critic N2-2 gegen IL-v2 und Dokumentation (Smoke-v2-Vergleich entfällt) |
+| S-0 | offen | – | v3 §5: Auswertung vorab einfrieren |
+| S-1 | läuft | 20.11.2026 | [Startprüfung, Monitor und Fortsetzung](SELF_IMITATION_POOL.md#monitor-und-fortsetzung) · Start 11:29 Uhr, Supervisor 23508, Worker 24348, Deadline 14:00 Uhr. Erster gesicherter Fortsetzungspunkt nach Episode 0000. |
+| S-2 | offen | – | v3 §4: Critic-Auswahl und Gate |
+| S-3 | offen | – | v3 §5: technischer Smoke, Freigabe S-3/S-4 |
+| S-4 | offen | – | v3 §5: Pilot-Nachtraining 2 Arme × 3 Parents |
+| S-5 | offen | – | v3 §5: Validierung und Zweierpanel |
+| S-6 | offen | – | v3 §7: Pilotbericht, Abbildungen, Videos |
+| N2-4 | blockiert | 20.11.2026 | Ersetzt durch [PROTOCOL_V3.md](PROTOCOL_V3.md) (Nutzerentscheidung 20.11.2026). Nicht gelöscht, kein Fortsetzungspunkt. |
+| N3-1 | blockiert | 20.11.2026 | Ersetzt durch [PROTOCOL_V3.md](PROTOCOL_V3.md) (Nutzerentscheidung 20.11.2026). Nicht gelöscht, kein Fortsetzungspunkt. |
+| N3-2 | blockiert | 20.11.2026 | Ersetzt durch [PROTOCOL_V3.md](PROTOCOL_V3.md) (Nutzerentscheidung 20.11.2026). Nicht gelöscht, kein Fortsetzungspunkt. |
+| N4-1 | blockiert | 20.11.2026 | Ersetzt durch [PROTOCOL_V3.md](PROTOCOL_V3.md) (Nutzerentscheidung 20.11.2026). Nicht gelöscht, kein Fortsetzungspunkt. |
+| N4-2 | blockiert | 20.11.2026 | Ersetzt durch [PROTOCOL_V3.md](PROTOCOL_V3.md) (Nutzerentscheidung 20.11.2026). Nicht gelöscht, kein Fortsetzungspunkt. |
+| N4-3 | blockiert | 20.11.2026 | Ersetzt durch [PROTOCOL_V3.md](PROTOCOL_V3.md) (Nutzerentscheidung 20.11.2026). Nicht gelöscht, kein Fortsetzungspunkt. |
+| N4-4 | blockiert | 20.11.2026 | Ersetzt durch [PROTOCOL_V3.md](PROTOCOL_V3.md) (Nutzerentscheidung 20.11.2026). Nicht gelöscht, kein Fortsetzungspunkt. |

@@ -23,6 +23,8 @@ Critic-Vortraining, Validierung und Prüfung von Aktionen bzw. Segmenten.
 
 Die Morgenübergabe am 20.11.2026 um 07:30 Uhr bestätigte den Abschluss der Nachtläufe N2-1b und N2-2b sowie die Gesamtpause nach D1b bis zur Nutzerentscheidung gemäß Protokoll v2 §A. [Übergabe](three_cube_transfer_v1/nights/NACHT_2_20261119.md#übergabe)
 
+- Der Nutzer hat am 20.11.2026 [Protokoll v3](three_cube_transfer_v1/PROTOCOL_V3.md) zur Critic-gefilterten Selbstimitation freigegeben. S-1 läuft mit 1.200 geplanten Episoden auf 400 gemeinsamen Familien, eingefrorenen A-Parents und IL-v2-Werten je Frame. [Startprüfung und Monitor](three_cube_transfer_v1/SELF_IMITATION_POOL.md)
+
 Datierte Ordner sind getrennte Versuchsfamilien. Die jeweiligen READMEs verweisen auf Protokolle, Ergebnisse und bekannte Grenzen.
 
 [Alle Themen](../README.md).
