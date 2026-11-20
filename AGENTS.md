@@ -7,7 +7,7 @@ besserer Robustheit oder höherer Lerneffizienz.
 
 ## 0. Orientierung für Agenten
 
-Rein navigatorisch; ändert keine der Regeln in Abschnitt 1–5. Weitere
+Rein navigatorisch; ändert keine der Regeln in Abschnitt 1–6. Weitere
 `AGENTS.md` liegen in `experiments/`, `experiments/curriculum/`, `praxis/`
 und `sites/` und gelten zusätzlich für ihren Teilbaum.
 
@@ -17,6 +17,7 @@ und `sites/` und gelten zusätzlich für ihren Teilbaum.
 |---|---|
 | `experiments/<thema>/<familie>/` | Versuchscode, Protokolle, Berichte; datierte Familien sind eingefroren |
 | `experiments/<thema>/base/` | editierbare Basiskopien für neue Arbeit |
+| `experiments/HYPOTHESENJOURNAL.md` | chronologische Arbeitsschritte, Hypothesen und Befunde |
 | `praxis/src/` | gemeinsame Bibliothek (`robomimic_ext`, `task_extensions`, `active_view`) |
 | `praxis/tests/` | Regressionstests der Bibliothek |
 | `praxis/results/` | große lokale Laufdaten, Checkpoints, Junctions |
@@ -234,3 +235,27 @@ Ausführliche Berichte nur bei komplexen Problemen oder auf ausdrücklichen Wuns
 Gesunde Routinekontrollen unmittelbar nach erfolgreicher Prüfung beenden.
 
 **Grundprinzip: So wenig Analyse wie möglich, so viel wie nötig.**
+
+## 6. Verbindliches Hypothesenjournal
+
+- Jeder Agent dokumentiert vor Abschluss oder Übergabe seiner Arbeit die
+  ausgeführten Änderungen und Prüfungen, die Ergebnisse und die offenen
+  Schritte im gemeinsamen Markdown-Journal `experiments/HYPOTHESENJOURNAL.md`.
+  Die Datei bei der ersten Eintragung anlegen, falls sie fehlt. Für gesunde
+  Routinekontrollen genügt der vorhandene Monitoringstatus gemäß Abschnitt 5.
+  Auffälligkeiten mit Diagnose, Entscheidung oder Maßnahme gehören ins Journal.
+- Vor neuer Forschungs- oder Diagnosearbeit die einschlägigen Einträge zum
+  Thema prüfen. Vor einem Versuch die prüfbare Hypothese, den Vergleich und
+  das Entscheidungskriterium erfassen. Jede Hypothese erhält eine stabile ID,
+  die bei Folgetests und Übergaben wiederverwendet wird. Bei reiner technischer
+  Arbeit ohne Hypothese genügt eine kurze Beschreibung der Tätigkeit.
+- Einträge chronologisch ergänzen. Starts, Richtungswechsel, Zwischenergebnisse
+  und Abschlüsse als neue Einträge mit Datum und Uhrzeit erfassen. Frühere
+  Entscheidungen und Befunde erhalten und Korrekturen mit Verweis auf den
+  ursprünglichen Eintrag nachtragen. Auch negative, uneindeutige und
+  abgebrochene Versuche einschließlich ihrer Gründe festhalten.
+- Pro Eintrag knapp festhalten, was tatsächlich getan wurde, welche
+  Beobachtung vorliegt, welchen Status der Versuch hat und welcher Schritt
+  als Nächstes ansteht. Aussagekräftige Befunde nach Möglichkeit mit Metrik,
+  Nenner und Vergleichswert angeben. Auf Protokoll, Lauf-ID, Commit oder
+  Ergebnisbericht verweisen, damit die Details gezielt auffindbar bleiben.
