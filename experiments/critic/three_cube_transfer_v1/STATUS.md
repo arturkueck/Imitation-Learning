@@ -1,6 +1,6 @@
 # Fortschritt der Nachtläufe zum Dreierturm
 
-Gesamtpause: nein
+Gesamtpause: ja
 
 Bei einem Sofortstopp nach [Nachtplan](NACHTPLAN.md) `Gesamtpause: ja` setzen und Grund sowie erforderliche Nutzerentscheidung dokumentieren. Nur der Nutzer hebt diese Pause auf. Eine fehlende Trainingsfreigabe wird im Nachtplan erteilt.
 
@@ -20,7 +20,7 @@ Bei einem Sofortstopp nach [Nachtplan](NACHTPLAN.md) `Gesamtpause: ja` setzen un
 | D1a | erledigt | 19.11.2026 | [Aktionssensitivität](ACTION_SENSITIVITY.md) · 126/126 Gruppen geprüft, 0 Optimizerupdates. Median der Streuung je Frame beim N2-2-Critic 0,000498–0,000677, je Stufe 4,83–5,13-mal so hoch wie bei der Zufallsinitialisierung. Berichtender Ausgangsbefund für D1b. |
 | N2-1b | erledigt | 20.11.2026 | [Abschlussprüfung](CRITIC_DATA_NOISY.md#ergebnis-und-abschlussprüfung-am-20112026) · [Splitmanifest](splits_v3.json) · [Abschlussmanifest und SHA-256](CRITIC_DATA_NOISY_MANIFEST.json) · Monitor `COMPLETE`, 900/900 Episoden auf 300 gemeinsamen Familien, 382 Erfolge und 518 Fehlschläge am Horizont. 0 Grenzverletzungen, 0 Optimizerupdates, 19/19 Tests. Datensatz für N2-2b geprüft. |
 | N2-2b | erledigt | 20.11.2026 | [Ergebnis und Abschlussprüfung](CRITIC_VALIDATION_V2.md#ergebnis-und-abschlussprüfung-am-20112026) · [Laufcode](critic_validation_v2.py) · Monitor `COMPLETE`, 60.000/60.000 Critic-Updates. **§6 bestanden** bei allen drei Parents, regulär AUC 0,885/0,916/0,882 und MSE-Differenz −0,0285/−0,0284/−0,0175 (P3 obere Grenze −0,0005). ECE ≤ 0,028. Neuberechnung `VERIFY OK`, 13/13 Tests, 0 Rollouts. D1b ist frei. |
-| D1b | offen | – | nach N2-2b, entscheidet über Smoke v2 |
+| D1b | erledigt | 20.11.2026 | [Entscheidung nach v2 §A](ACTION_SENSITIVITY.md#d1b--entscheidung-für-il-v2) · Nicht bestanden. Median der Frame-Std. maximal 0,000589 bei geforderten 0,01. Faktor zur Zufallsreferenz 3,86–4,46. 126/126 Gruppen nachgerechnet, 0 Rollouts und 0 Optimizerupdates. Gesamtpause, Nutzer entscheidet. |
 | N2-3v2 | offen | – | nach D1b, [v2 §B–§D](PROTOCOL_V2.md) |
 | B-1 | erledigt | 19.11.2026 | [Pilotauswertung eingefroren](PILOT_ANALYSIS.md) · [pilot_analysis.py](pilot_analysis.py) nach v1 §10, SHA-256 `ad7d6274…18a2` ([Hashdatei](pilot_analysis.sha256)). [27/27 Tests](test_pilot_analysis.py) auf synthetischen Daten grün, Testfamilien werden vor jeder Rechnung abgewiesen. Ohne Pilotdaten, 0 Rollouts, 0 Optimizerupdates. |
 | B-2 | erledigt | 19.11.2026 | [Fehlerphasen der A-Parents](FAILURE_PHASES.md) · nur N1-4 (300) und N2-1 (900), Hashes vorab geprüft. Fehlschläge nach erreichter Stufe 2: 146/197 (N1-4) und 424/575 (N2-1), alle am Horizont. Häufigste N2-1-Endpunkte: Stufe 2 Lösen 231, Stufe 2 Greifen 142, Stufe 1 Lösen 93. Außerhalb der Bindung in der Ablagegruppe 157/139 von 418 bei δ_max 0,05/0,20. [failure_phases.py](failure_phases.py), [9/9 Tests](test_failure_phases.py), 0 Rollouts, 0 Optimizerupdates, Testfamilien geschlossen. |
