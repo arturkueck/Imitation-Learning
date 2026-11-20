@@ -30,7 +30,7 @@
       "directory": "praxis/results/critic/three_cube_transfer_v1/critic_validation_n2_2b",
       "config": "config.json",
       "results": "summary.json",
-      "description": "Je A-Parent 20.000 Critic-Updates auf 300 Episoden mit Parentaktionen und 300 Episoden mit Explorationsrauschen. Prüfung nach §6 auf 450 gespeicherten N2-2-Validierungsrollouts. Testfamilien geschlossen.",
+      "description": "Abgeschlossen am 20.11.2026, §6 bei allen drei Parents bestanden. Je A-Parent 20.000 Critic-Updates auf 300 Episoden mit Parentaktionen und 300 Episoden mit Explorationsrauschen. Prüfung nach §6 auf 450 gespeicherten N2-2-Validierungsrollouts: reguläre AUC 0,885 / 0,916 / 0,882, ECE ≤ 0,028, MSE unter der Phasen-Baseline. Die Aktionssensitivität (D1b) verfehlt die Schwelle 0,01, daher Wechsel zu Protokoll v3. Vergleich mit N2-2 in figures/b-4. Testfamilien geschlossen.",
       "checkpointInfo": "Exakte Fortsetzung mit Critic, AdamW, RNG, Sampler und Updatezähler in critics/parent_p.resume.pt. Eingefrorene Endgewichte mit SHA-256 in parent_p.json.",
       "artifacts": [
         {
