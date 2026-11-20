@@ -1,0 +1,293 @@
+{
+  "planned_episodes": 900,
+  "completed_episodes": 900,
+  "families": 300,
+  "successes": 382,
+  "failures": 518,
+  "by_parent": {
+    "1": {
+      "episodes": 300,
+      "successes": 143,
+      "failures": 157,
+      "terminations": {
+        "success": 143,
+        "retreat_timeout": 0,
+        "horizon": 157,
+        "simulator_instability": 0
+      },
+      "frames": 205872,
+      "exploration": {
+        "max_deviation_xyz": 0.15535461902618408,
+        "mean_deviation_xyz": 0.00997065729858716,
+        "bound_violations": 0
+      }
+    },
+    "2": {
+      "episodes": 300,
+      "successes": 117,
+      "failures": 183,
+      "terminations": {
+        "success": 117,
+        "retreat_timeout": 0,
+        "horizon": 183,
+        "simulator_instability": 0
+      },
+      "frames": 222688,
+      "exploration": {
+        "max_deviation_xyz": 0.16378438472747803,
+        "mean_deviation_xyz": 0.010044737762959641,
+        "bound_violations": 0
+      }
+    },
+    "3": {
+      "episodes": 300,
+      "successes": 122,
+      "failures": 178,
+      "terminations": {
+        "success": 122,
+        "retreat_timeout": 0,
+        "horizon": 178,
+        "simulator_instability": 0
+      },
+      "frames": 219594,
+      "exploration": {
+        "max_deviation_xyz": 0.1565878987312317,
+        "mean_deviation_xyz": 0.00960226885998615,
+        "bound_violations": 0
+      }
+    }
+  },
+  "frames": 648154,
+  "reached_points": {
+    "stage1_phase0": {
+      "1": {
+        "episodes": 300,
+        "successes": 143
+      },
+      "2": {
+        "episodes": 300,
+        "successes": 117
+      },
+      "3": {
+        "episodes": 300,
+        "successes": 122
+      }
+    },
+    "stage1_phase0_retreat": {
+      "1": {
+        "episodes": 273,
+        "successes": 143
+      },
+      "2": {
+        "episodes": 269,
+        "successes": 117
+      },
+      "3": {
+        "episodes": 256,
+        "successes": 122
+      }
+    },
+    "stage1_phase1": {
+      "1": {
+        "episodes": 300,
+        "successes": 143
+      },
+      "2": {
+        "episodes": 300,
+        "successes": 117
+      },
+      "3": {
+        "episodes": 300,
+        "successes": 122
+      }
+    },
+    "stage1_phase2": {
+      "1": {
+        "episodes": 299,
+        "successes": 143
+      },
+      "2": {
+        "episodes": 294,
+        "successes": 117
+      },
+      "3": {
+        "episodes": 295,
+        "successes": 122
+      }
+    },
+    "stage1_phase3": {
+      "1": {
+        "episodes": 299,
+        "successes": 143
+      },
+      "2": {
+        "episodes": 294,
+        "successes": 117
+      },
+      "3": {
+        "episodes": 295,
+        "successes": 122
+      }
+    },
+    "stage1_phase4": {
+      "1": {
+        "episodes": 299,
+        "successes": 143
+      },
+      "2": {
+        "episodes": 294,
+        "successes": 117
+      },
+      "3": {
+        "episodes": 295,
+        "successes": 122
+      }
+    },
+    "stage1_phase5": {
+      "1": {
+        "episodes": 294,
+        "successes": 143
+      },
+      "2": {
+        "episodes": 289,
+        "successes": 117
+      },
+      "3": {
+        "episodes": 278,
+        "successes": 122
+      }
+    },
+    "stage1_phase6": {
+      "1": {
+        "episodes": 294,
+        "successes": 143
+      },
+      "2": {
+        "episodes": 287,
+        "successes": 117
+      },
+      "3": {
+        "episodes": 278,
+        "successes": 122
+      }
+    },
+    "stage2_phase0": {
+      "1": {
+        "episodes": 273,
+        "successes": 143
+      },
+      "2": {
+        "episodes": 269,
+        "successes": 117
+      },
+      "3": {
+        "episodes": 256,
+        "successes": 122
+      }
+    },
+    "stage2_phase1": {
+      "1": {
+        "episodes": 273,
+        "successes": 143
+      },
+      "2": {
+        "episodes": 269,
+        "successes": 117
+      },
+      "3": {
+        "episodes": 256,
+        "successes": 122
+      }
+    },
+    "stage2_phase2": {
+      "1": {
+        "episodes": 246,
+        "successes": 143
+      },
+      "2": {
+        "episodes": 220,
+        "successes": 117
+      },
+      "3": {
+        "episodes": 206,
+        "successes": 122
+      }
+    },
+    "stage2_phase3": {
+      "1": {
+        "episodes": 246,
+        "successes": 143
+      },
+      "2": {
+        "episodes": 220,
+        "successes": 117
+      },
+      "3": {
+        "episodes": 206,
+        "successes": 122
+      }
+    },
+    "stage2_phase4": {
+      "1": {
+        "episodes": 246,
+        "successes": 143
+      },
+      "2": {
+        "episodes": 220,
+        "successes": 117
+      },
+      "3": {
+        "episodes": 206,
+        "successes": 122
+      }
+    },
+    "stage2_phase5": {
+      "1": {
+        "episodes": 230,
+        "successes": 143
+      },
+      "2": {
+        "episodes": 210,
+        "successes": 117
+      },
+      "3": {
+        "episodes": 178,
+        "successes": 122
+      }
+    },
+    "stage2_phase6": {
+      "1": {
+        "episodes": 230,
+        "successes": 143
+      },
+      "2": {
+        "episodes": 207,
+        "successes": 117
+      },
+      "3": {
+        "episodes": 178,
+        "successes": 122
+      }
+    }
+  },
+  "episode_wall_seconds": 3351.0044963001565,
+  "worker_wall_seconds": 3368.679397800006,
+  "worker_episodes_per_hour": 961.8012334791957,
+  "dataset_sha256": "448a117be92e38781d54acea2ca029b5a302a455c2256099ae8c0e965e450068",
+  "rows_sha256": "93a36dd0caf1b5f9dba2b444f92ee81bc3aff408375b55bcfa02353366445c41",
+  "config_sha256": "ef611cfbddc2786b8c473ec5fcf0c4eaddb00d5618e5961b535a369d2881fdca",
+  "optimizer_updates": 0,
+  "hash_contract": "dataset_sha256 = SHA-256 der zeilenweise verketteten arrays_sha256 in Episodenreihenfolge",
+  "task": "N2-1b",
+  "split": "critic_data_noisy",
+  "exploration": {
+    "std_xyz": 0.05,
+    "std_gripper": 0.0,
+    "delta_max": 0.2,
+    "gripper_bound": 0.02,
+    "seed_base": 7600,
+    "rng": "numpy default_rng([7600 + p, Szenenseed]) je Episode: Wurzel 7600 + p nach PROTOCOL_V2.md \u00a7E, je Episode eigener Strom, damit jede Fortsetzung exakt reproduziert",
+    "projection": "a = clip(a_p + b\u00b7tanh((a_p + \u03b5 \u2212 a_p)/b), \u22121, 1), b_xyz = min(\u03b4_max, 0,5\u00b7|a_p,xyz|), b_Greifer = 0,02, \u03b5_Greifer = 0 (ac_smoke.make_bound, PROTOCOL.md \u00a77)"
+  },
+  "bound_violations": 0
+}

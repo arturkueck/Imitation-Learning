@@ -49,4 +49,20 @@ Ein Halt erfolgt über die Datei `STOP` im Laufordner. Der Worker setzt dann `PA
 
 Gestartet am 19.11.2026 um 22:41 Uhr als losgelöster Supervisor. Maßgebliche Prozessidentitäten laut `supervisor_status.json` und `status.json`: Supervisor `{"pid": 34664, "created_unix": 1795124497.3361793}`, Worker `{"pid": 37584, "created_unix": 1795124497.5885663}`. Der von `start` gemeldete Startprozess (PID 17652) ist der Startaufruf der venv. Erste Monitorprüfung um 22:42 Uhr: `OK`, 5/900 Episoden, 0 Grenzverletzungen, keine Fehlerzeilen. Startfenster bis 20.11.2026 07:30 Uhr, harte Deadline 09:00 Uhr (Worker 08:59). Erwartete Dauer nach §E etwa 1,0–1,3 h. Dashboardeintrag `three-cube-transfer-v1-critic-data-noisy` in `monitor/training-runs.json`.
 
-Ergebnis, Manifest und Hashes folgen nach Abschluss und Monitorabgleich. Bis dahin liegen keine Erfolgs- oder Fehlerzahlen vor.
+## Ergebnis und Abschlussprüfung am 20.11.2026
+
+Der Lauf endete am 19.11. um 23:37 Uhr mit Worker-Exitcode 0. Der Monitor meldete am 20.11. um 01:00 Uhr `COMPLETE` für Supervisor und Worker. Beide Prozessidentitäten waren beendet.
+
+| Parent | Episoden | Erfolge | Fehlschläge am Horizont | Frames | Größte XYZ-Aktionsabweichung |
+|---|---:|---:|---:|---:|---:|
+| 1 | 300 | 143 | 157 | 205.872 | 0,15535 |
+| 2 | 300 | 117 | 183 | 222.688 | 0,16378 |
+| 3 | 300 | 122 | 178 | 219.594 | 0,15659 |
+| Gesamt | 900 | 382 | 518 | 648.154 | 0,16378 |
+
+Die drei Parents teilen dieselben 300 Anfangsfamilien. Es gab 0 Rückzugstimeouts, 0 Simulatorinstabilitäten, 0 Grenzverletzungen und 0 Optimizerupdates. Die Zahlen beschreiben die verrauschte Verhaltenspolicy auf den Critic-Datenfamilien. Validierungs- und Testfamilien blieben geschlossen.
+
+- [Abschlussmanifest](CRITIC_DATA_NOISY_MANIFEST.json), bytegleiche Kopie von `summary.json`. Konfiguration, Episodenmetadaten und Übergänge liegen im oben genannten Laufordner (`config.json`, `episodes/NNNN.json`, `episodes/NNNN.npz`).
+- Datensatz-SHA-256 `448a117be92e38781d54acea2ca029b5a302a455c2256099ae8c0e965e450068` über die verketteten Array-Hashes in Episodenreihenfolge. SHA-256 der Episodenmetadaten `93a36dd0caf1b5f9dba2b444f92ee81bc3aff408375b55bcfa02353366445c41`. Konfigurations-SHA-256 `ef611cfbddc2786b8c473ec5fcf0c4eaddb00d5618e5961b535a369d2881fdca`.
+- Abschlussprüfung erneut ausgeführt. Alle 900 Episoden stimmen in Hash, Daten- und Rauschvertrag, Paarung und Zählungen mit dem Manifest überein. Alle 19 Quellhashes aus `config.json` stimmen, darunter [splits_v3.json](splits_v3.json) mit SHA-256 `054f32dfbad6e648d5ee0d1c5d4ac77280844225796c7b9a13d1eba1142144de`. 19/19 Vertragstests bestanden.
+- N2-2b übernimmt den Datensatz je Parent gemeinsam mit den jeweiligen 300 Episoden aus N2-1 gemäß [Protokoll v2 §E](PROTOCOL_V2.md#e-neu-critic-il-v2-mit-aktionsvariation-n2-1b-n2-2b).

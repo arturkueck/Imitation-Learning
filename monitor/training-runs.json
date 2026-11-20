@@ -10,7 +10,7 @@
       "directory": "praxis/results/critic/three_cube_transfer_v1/critic_data_noisy_n2_1b",
       "config": "config.json",
       "results": "summary.json",
-      "description": "PROTOCOL_V2.md §E: 300 Familien critic_data_noisy mit je drei eingefrorenen A-Parents, Gaußrauschen σ = 0,05 auf XYZ, begrenzt auf δ_max = 0,20, Greifer ohne Rauschen. 900 geplante Simulationsepisoden mit Übergängen nach Datenvertrag, 0 Optimizerupdates. Testfamilien geschlossen.",
+      "description": "Abgeschlossen nach PROTOCOL_V2.md §E. 900/900 geprüfte Simulationsepisoden auf 300 gemeinsamen Familien mit drei eingefrorenen A-Parents. 382 Erfolge und 518 Fehlschläge am Horizont. Gaußrauschen σ = 0,05 auf XYZ, begrenzt auf δ_max = 0,20, Greifer ohne Rauschen. 0 Grenzverletzungen und 0 Optimizerupdates. Testfamilien geschlossen.",
       "checkpointInfo": "Drei feste A-Endpunkte des A/B/C-Vergleichs nach je 30.000 Updates.",
       "artifacts": [
         {
