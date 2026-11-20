@@ -24,6 +24,7 @@ Critic-Vortraining, Validierung und Prüfung von Aktionen bzw. Segmenten.
 Die Morgenübergabe am 20.11.2026 um 07:30 Uhr bestätigte den Abschluss der Nachtläufe N2-1b und N2-2b sowie die Gesamtpause nach D1b bis zur Nutzerentscheidung gemäß Protokoll v2 §A. [Übergabe](three_cube_transfer_v1/nights/NACHT_2_20261119.md#übergabe)
 
 - Der Nutzer hat am 20.11.2026 [Protokoll v3](three_cube_transfer_v1/PROTOCOL_V3.md) zur Critic-gefilterten Selbstimitation freigegeben. S-1 läuft mit 1.200 geplanten Episoden auf 400 gemeinsamen Familien, eingefrorenen A-Parents und IL-v2-Werten je Frame. [Startprüfung und Monitor](three_cube_transfer_v1/SELF_IMITATION_POOL.md)
+- S-0 ist erledigt: Die Pilotauswertung für BC, SI-E und SI-K nach v3 §7 ist ohne Pilotdaten eingefroren, mit SHA-256 `4ee3385b…5855` und 47/47 Tests auf synthetischen Daten. [SI_PILOT_ANALYSIS.md](three_cube_transfer_v1/SI_PILOT_ANALYSIS.md)
 
 - B-4 ist abgeschlossen. Vier Abbildungen stellen die Critics N2-2 und IL-v2 aus bereits verifizierten Werten nebeneinander. IL-v2 sagt den Erfolg aus Zuständen etwas besser voraus, mit höherer AUC und kleinerer ECE bei allen drei Parents. Die Intervalle überlappen aber meist. Auf Aktionen reagiert IL-v2 nicht stärker als N2-2. Beide bleiben weit unter der Schwelle aus D1b. Das stützt den Wechsel zu Protokoll v3, das den Critic nur zur Auswahl ganzer Abschnitte nutzt. Ein Vergleich der Smoke-Läufe entfällt, weil Smoke v2 nie lief. [Abbildungen Critic-Vergleich](three_cube_transfer_v1/figures/b-4/README.md)
 
