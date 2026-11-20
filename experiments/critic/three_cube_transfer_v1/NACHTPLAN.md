@@ -46,6 +46,7 @@ Nutzer sie hier abgehakt hat:
 - [x] N3-1: wissenschaftlicher Drei-Seed-Pilot
 - [x] N4-4: Training neuer unabhängiger Zweier-BC-Parents für den Hauptvergleich
 - [x] N2-1b/N2-2b: Critic-Daten mit Explorationsrauschen und Vortraining des Critics IL-v2 nach [PROTOCOL_V2.md](PROTOCOL_V2.md#e-neu-critic-il-v2-mit-aktionsvariation-n2-1b-n2-2b)
+- [x] S-3/S-4: technischer Smoke und Pilot-Nachtraining der Selbstimitation nach [PROTOCOL_V3.md](PROTOCOL_V3.md)
 
 Am 19.11.2026 hat der Nutzer das Pilotprotokoll und die oben markierten Arbeiten für **Claude Code** freigegeben. Claude übernimmt die Listenpunkte ab N2-1 nach ihren bestehenden Abhängigkeiten und Abbruchregeln. N4-4 setzt zusätzlich ein freigegebenes Hauptprotokoll mit begründeter Seedzahl voraus. Die Tagesfortsetzung endet am 19.11.2026 um 15:00 Uhr Europe/Berlin.
 
@@ -110,6 +111,22 @@ die nächsten freigegebenen Aufgaben beginnen. Wird sie nicht fertig,
 | B-4 | Abbildungen und Dokumentation: Critic-Vergleich N2-2 gegen IL-v2, Smoke v1 gegen v2 (Loss, Stabilität und Erfolg getrennt), `experiments/critic/README.md`, Dashboard, Nachtbericht | jeweilige Ergebnisse | Abbildungen mit Generator, Nachtbericht `nights/NACHT_2_20261119.md` |
 
 Reihenfolge: N2-1b als erster langer Lauf, D1a, B-1, B-2 und B-3 währenddessen. Danach N2-2b, D1b und N2-3v2. B-4 zum Schluss. Für Nacht 3 vorgemerkt: N2-4, N3-1 mit IL-v2, N3-2.
+
+## Aufgabenstapel v3 (ab 20.11.2026, Critic-gefilterte Selbstimitation)
+
+Am 20.11.2026 um 11:14 Uhr hat der Nutzer nach dem gescheiterten D1b [PROTOCOL_V3.md](PROTOCOL_V3.md) freigegeben, einschließlich S-3/S-4. Der Actor-Critic-Pfad (N2-3v2, N2-4, N3-1 bis N4-4) ist ersetzt und in `STATUS.md` blockiert.
+
+| ID | Aufgabe | Abhängig von | Fertig, wenn |
+|---|---|---|---|
+| S-0 | Pilotauswertung für BC, SI-E und SI-K vorab einfrieren (aus B-1) | B-1 | Skript, Tests, SHA, ohne Daten |
+| S-1 | Datenpool: A-Parents mit Rauschen auf `online_interaction`, 1.200 Episoden, mit IL-v2-Werten je Frame | N2-2b | Manifest, Hash, Erfolgszahlen |
+| S-2 | Critic-Auswahl nach v3 §4 und Gate (≥ 10 % mehr Selbstframes, ≥ 10 Familien je Parent) | S-1 | `SELECTION.md`, Gate bestanden oder Gesamtpause |
+| S-3 | Technischer Smoke, 200 Updates je Arm für Parent 1 (Freigabe) | S-0, S-2 | Smoke-Bericht ohne Wirksamkeitsaussage |
+| S-4 | Pilot-Nachtraining, 2 Arme × 3 Parents × 5.000 Updates (Freigabe) | S-3 | sechs Checkpoints mit SHA |
+| S-5 | Validierung regulär und schwierig, Zweierpanel für alle neun Modelle | S-4 | Rohpaare im Vertrag aus S-0 |
+| S-6 | Pilotbericht, Abbildungen, Videos | S-5 | `SI_PILOT_REPORT.md` |
+| S-D | Diagnose der Stufe-2-Fehlschläge (Greifen und Lösen des dritten Würfels) aus dem S-1-Pool: Ablaufkategorien, Kontakt, Greiferzustand, Lage zum Turm, IL-v2-Verlauf. Nur vorhandene Daten, 0 Rollouts, 0 Updates. Läuft parallel zu S-3 bis S-5 | S-1 | `STAGE2_DIAGNOSIS.md` mit vollständigen Nennern, Hinweise für eine gezielte nächste Methode |
+| S-7 | Hauptvergleich planen: `seed_count.py` mit Pilotstreuung und Budget, Entwurf `MAIN_PROTOCOL_SI.md` mit neuen unabhängigen BC-Parents (> 3 Seeds), Test einmalig | S-6 | Entwurf mit Status `ZUR FREIGABE`, kein Training |
 
 ## Hinweise zu den einzelnen Nächten
 

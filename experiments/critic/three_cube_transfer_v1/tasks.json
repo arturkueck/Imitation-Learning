@@ -190,9 +190,20 @@
    "kind": "run"
   },
   {
+   "id": "S-1",
+   "deps": [
+    "N2-2b"
+   ],
+   "providers": [
+    "codex",
+    "claude"
+   ],
+   "kind": "run"
+  },
+  {
    "id": "B-4",
    "deps": [
-    "N2-3v2"
+    "N2-2b"
    ],
    "providers": [
     "claude",
@@ -279,6 +290,98 @@
     "codex"
    ],
    "kind": "run"
+  },
+  {
+   "id": "S-0",
+   "deps": [
+    "B-1"
+   ],
+   "providers": [
+    "claude",
+    "codex"
+   ],
+   "kind": "analysis"
+  },
+  {
+   "id": "S-2",
+   "deps": [
+    "S-1"
+   ],
+   "providers": [
+    "codex",
+    "claude"
+   ],
+   "kind": "analysis",
+   "light": true
+  },
+  {
+   "id": "S-3",
+   "deps": [
+    "S-2",
+    "S-0"
+   ],
+   "gate": "S-3",
+   "providers": [
+    "claude",
+    "codex"
+   ],
+   "kind": "run"
+  },
+  {
+   "id": "S-4",
+   "deps": [
+    "S-3"
+   ],
+   "gate": "S-4",
+   "providers": [
+    "claude",
+    "codex"
+   ],
+   "kind": "run"
+  },
+  {
+   "id": "S-5",
+   "deps": [
+    "S-4"
+   ],
+   "providers": [
+    "codex",
+    "claude"
+   ],
+   "kind": "run"
+  },
+  {
+   "id": "S-6",
+   "deps": [
+    "S-5"
+   ],
+   "providers": [
+    "claude",
+    "codex"
+   ],
+   "kind": "docs"
+  },
+  {
+   "id": "S-D",
+   "deps": [
+    "S-1"
+   ],
+   "providers": [
+    "claude",
+    "codex"
+   ],
+   "kind": "analysis"
+  },
+  {
+   "id": "S-7",
+   "deps": [
+    "S-6"
+   ],
+   "providers": [
+    "claude",
+    "codex"
+   ],
+   "kind": "docs"
   }
  ]
 }

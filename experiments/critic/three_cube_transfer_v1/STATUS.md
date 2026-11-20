@@ -35,6 +35,8 @@ Bei einem Sofortstopp nach [Nachtplan](NACHTPLAN.md) `Gesamtpause: ja` setzen un
 | S-4 | offen | – | v3 §5: Pilot-Nachtraining 2 Arme × 3 Parents |
 | S-5 | offen | – | v3 §5: Validierung und Zweierpanel |
 | S-6 | offen | – | v3 §7: Pilotbericht, Abbildungen, Videos |
+| S-D | offen | – | Diagnose der Stufe-2-Fehlschläge aus dem S-1-Pool, ohne Rollouts und Training |
+| S-7 | offen | – | Hauptvergleich planen: Seedzahl mit seed_count.py, `MAIN_PROTOCOL_SI.md` zur Freigabe |
 | N2-4 | blockiert | 20.11.2026 | Ersetzt durch [PROTOCOL_V3.md](PROTOCOL_V3.md) (Nutzerentscheidung 20.11.2026). Nicht gelöscht, kein Fortsetzungspunkt. |
 | N3-1 | blockiert | 20.11.2026 | Ersetzt durch [PROTOCOL_V3.md](PROTOCOL_V3.md) (Nutzerentscheidung 20.11.2026). Nicht gelöscht, kein Fortsetzungspunkt. |
 | N3-2 | blockiert | 20.11.2026 | Ersetzt durch [PROTOCOL_V3.md](PROTOCOL_V3.md) (Nutzerentscheidung 20.11.2026). Nicht gelöscht, kein Fortsetzungspunkt. |
