@@ -90,7 +90,46 @@ Abbrechen oder Neustarten eines Laufs. Supervisor und Deadline wirken ohne Agent
 | 07:30, 08:30 | Morgenübergabe mit beliebigem verfügbarem Anbieter. Der Nachtbericht nennt unter „Integrität“ den Kontingentstand je Anbieter, zurückgestellte Aufgaben und Limitpausen. |
 | 09:00 | harte Deadline der Supervisoren |
 
-## 7. Künftige Nächte einrichten
+## 7. Simulationsvideos bei größeren Fortschritten
+
+Wunsch des Nutzers vom 19.11.2026: In halbregelmäßigen Abständen Videos der Simulationen
+aufnehmen, damit Fortschritte sichtbar bleiben. **Nicht täglich oder stündlich**, sondern
+etwa **ein- bis zweimal pro Woche**, jeweils nach einem größeren Fortschritt.
+
+**Auslöser (eines genügt):**
+
+- ein abgeschlossener Meilenstein mit neuem Verhalten, etwa ein neuer validierter Critic,
+  ein bestandener Smoke, ein abgeschlossener Pilot oder Hauptvergleich,
+- eine deutlich höhere Erfolgsquote auf der Validierung als im letzten Video,
+- ein neues Fehlerbild, das im Bericht erklärt werden muss.
+
+**Abstand:** Seit dem letzten Video sind mindestens 3 Tage vergangen, höchstens zwei Aufnahmen
+je Kalenderwoche. Maßgeblich ist das Videoverzeichnis `experiments/critic/three_cube_transfer_v1/videos/VIDEOS.md` mit Datum,
+Anlass, Modellen, Szenen und Ablageort je Aufnahme. Fehlt es, beim ersten Video anlegen.
+
+**Wer und wann:** Der Agent, der eine Aufgabe mit Ergebnisbericht abschließt (etwa `B-4`,
+`N3-2`, `N4-1`) oder die Morgenübergabe vorbereitet, prüft Auslöser und Abstand. Trifft beides
+zu, nimmt er die Videos im selben Durchgang auf, wenn vor 07:30 Uhr (im Tagesbetrieb vor dem
+Cutoff) genug Zeit bleibt. Sonst trägt er im Nachtbericht unter „Übergabe“ den Punkt „Videos
+fällig“ mit Anlass ein, und der nächste passende Durchgang übernimmt. Bevorzugt Codex, Claude
+als Rückfall. Videoaufnahmen sind keine eigene Aufgaben-ID und verdrängen keine Läufe.
+
+**Inhalt und Regeln:**
+
+- Nur eingefrorene Modelle, keine Optimizerupdates. Nur bereits geöffnete Familien
+  (Kalibrierung, Validierung, Entwicklung oder Smoke), **nie Testfamilien**.
+- Je Anlass wenige kurze Clips: der neue Stand und zum Vergleich der Ausgangsstand (BC-Parent)
+  auf **denselben** Szenen, je ein Erfolg und ein typischer Fehlschlag. Szenen nach fester
+  Regel wählen (etwa die ersten passenden Seeds), nicht nach dem schönsten Ergebnis.
+- Jedes Video beschriften: Modell, Arm, Parent, Szenenseed, Ausgang und Frame. Videos sind
+  Anschauung, kein Leistungsnachweis.
+- Rohvideos unter `praxis/results/videos/<JJJJMMTT>_<anlass>/`, nicht im Git. Eine kleine
+  Auswahl (GIF oder MP4, je Datei höchstens etwa 5 MB) liegt mit `VIDEOS.md` im selben
+  `videos/`-Ordner und wird über die Steuerung committet.
+- Rechenzeit klein halten, etwa höchstens 30 Minuten je Aufnahme. Laufende Versuche haben
+  immer Vorrang.
+
+## 8. Künftige Nächte einrichten
 
 Die bestehende Windows-Aufgabe deckt die Nächte ab 18.11.2026 bis zur Übergabe am 22.11.2026
 um 09:00 ab. Für weitere Nächte die Aufgabe deaktivieren und neu registrieren, etwa:
@@ -104,7 +143,7 @@ Unregister-ScheduledTask -TaskName 'Codex - Dreierturm Nachtagenten' -Confirm:$f
 Kontingentgrenzen ändert der Nutzer in `orchestration.json`. Sie werden bei jedem Start neu
 gelesen, ein Neustart ist nicht nötig.
 
-## 8. Grenzen
+## 9. Grenzen
 
 Den Restbestand eines Claude-Abonnements kann die Steuerung nicht abfragen. Sie reagiert auf
 Limitmeldungen und hält sich an die eigenen Obergrenzen. Die Codex-Angaben hängen davon ab,

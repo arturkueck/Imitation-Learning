@@ -306,6 +306,8 @@ def commit_report(files, summary):
             allowed_types = {".md", ".py", ".json", ".csv", ".toml", ".yaml", ".yml", ".ps1", ".sha256"}
             if path.is_relative_to(FIGURES):
                 allowed_types.add(".png")
+            if path.is_relative_to(FAMILY / "videos"):
+                allowed_types.update({".gif", ".mp4"})
             if (path in (PLAN, Path(__file__).resolve(), TASKS_FILE, ORCHESTRATION_FILE)
                     or path.suffix.lower() not in allowed_types):
                 raise ValueError(f"Unerwartete Übergabedatei: {relative}")
@@ -400,7 +402,7 @@ Bei MORGENUEBERGABE verbleibende Freigaben, den nächsten Schritt und den Kontin
 Git-Commits übernimmt die Steuerung: gib zum Abschluss als JSON die geprüften kleinen Dateien dieses Schritts
 als einzelne repo-relative Pfade in files und eine aussagekräftige deutsche Commitnachricht in summary an.
 Bei unverändertem Stand files leer lassen. Ändere weder die Steuerung noch den Nachtplan. Starte keine weiteren Agenten.
-Lies vorher AGENTEN_ORCHESTRIERUNG.md. Neue Aufgaben-IDs (etwa D1a, N2-1b, B-1) stehen im Aufgabenstapel des
+Lies vorher AGENTEN_ORCHESTRIERUNG.md, auch §7 zu Simulationsvideos bei größeren Fortschritten. Neue Aufgaben-IDs (etwa D1a, N2-1b, B-1) stehen im Aufgabenstapel des
 NACHTPLAN und in PROTOCOL_V2.md. Arbeite kontingentschonend: nur nötige Dateien lesen, keine großen Logs oder
 Rohdaten in den Kontext laden, Rechenzeit in Simulationen statt in Agentenschleifen verbringen. Du bist {provider}.
 Stand des Kontingents dieser Nacht: {ledger.summary()}."""
