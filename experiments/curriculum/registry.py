@@ -134,6 +134,38 @@ def restore(model_id, device='cpu', restore_rng=False):
     return model, optimizer, ck
 
 
+def frozen_abc_a():
+    """Locate the three immutable standard-BC endpoints from the ABC run."""
+    run = ROOT/'praxis/results/curriculum/abc_comparison_20261112/ready_001'
+    status = read(run/'status.json')
+    if status['state'] != 'COMPLETE' or status['technical_only']:
+        raise ValueError('Expected completed ABC run')
+    manifest = read(run/'confirmation/frozen.json')
+    return {
+        seed: dict(path=(run/'confirmation'/f'A_seed{seed}.pth').relative_to(ROOT).as_posix(),
+                   sha256=manifest[f'A_seed{seed}']['sha256'])
+        for seed in (1, 2, 3)
+    }
+
+
+def restore_abc_a_for_inference(seed, entry):
+    """Verify the fixed ABC endpoint and restore only the inference model."""
+    base, torch = libraries()
+    path = ROOT/entry['path']
+    if base.sha(path) != entry['sha256']:
+        raise ValueError(f'ABC A checkpoint hash mismatch: {seed}')
+    ck = torch.load(path, map_location='cpu', weights_only=False)
+    if (ck['arm'], ck['seed'], ck['update'], ck['technical_only']) != ('A', seed, 30000, False):
+        raise ValueError(f'Unexpected ABC checkpoint: {seed}')
+    cap = ck['abc_plan']['clock_correction']
+    if cap != dict(phase=6, placement_stage=2, maximum_input_steps=17, same_for_all_arms=True):
+        raise ValueError('Unexpected ABC clock correction')
+    cfg = ck['config']
+    model = base.backend().native.historical.PhaseNet(cfg['width'])
+    model.load_state_dict(ck['model'])
+    return model.requires_grad_(False).eval(), cfg['completion_threshold'], cap['maximum_input_steps']
+
+
 if __name__ == '__main__':
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('command', choices=('build','inspect'))

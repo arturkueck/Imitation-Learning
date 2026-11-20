@@ -2,6 +2,146 @@
   "schemaVersion": 1,
   "runs": [
     {
+      "id": "three-cube-transfer-v1-self-imitation-pool",
+      "category": "robot",
+      "method": "il",
+      "kind": "evaluation",
+      "title": "Dreierturm · S-1 Datenpool für Selbstimitation",
+      "directory": "praxis/results/critic/three_cube_transfer_v1/self_imitation_pool_s1",
+      "config": "config.json",
+      "results": "summary.json",
+      "description": "Abgeschlossen am 20.11.2026, Monitor COMPLETE und verify fehlerfrei. 1.200/1.200 Episoden der drei A-Parents auf 400 gemeinsamen Familien mit XYZ-Explorationsrauschen, IL-v2-Wert je ausgeführter Aktion und Phasengrenzen. 456 Erfolge (175/133/148 je Parent), 744 Fehlschläge am Horizont, 899.046 Frames, 0 Grenzverletzungen. 0 Optimizerupdates. Eingabe für S-2.",
+      "checkpointInfo": "Fortsetzung an der ersten offenen Episode mit dem zuletzt gesicherten PCG64-Zustand je Parent.",
+      "artifacts": [
+        {
+          "name": "three-cube-self-imitation-pool-summary.json",
+          "file": "summary.json",
+          "kind": "document",
+          "label": "Erfolgs- und Fehlerzahlen je Parent sowie Datensatz-SHA-256"
+        }
+      ]
+    },
+    {
+      "id": "three-cube-transfer-v1-critic-validation-v2",
+      "category": "robot",
+      "method": "il",
+      "kind": "training",
+      "title": "Dreierturm · N2-2b Critic IL-v2",
+      "directory": "praxis/results/critic/three_cube_transfer_v1/critic_validation_n2_2b",
+      "config": "config.json",
+      "results": "summary.json",
+      "description": "Abgeschlossen am 20.11.2026, §6 bei allen drei Parents bestanden. Je A-Parent 20.000 Critic-Updates auf 300 Episoden mit Parentaktionen und 300 Episoden mit Explorationsrauschen. Prüfung nach §6 auf 450 gespeicherten N2-2-Validierungsrollouts: reguläre AUC 0,885 / 0,916 / 0,882, ECE ≤ 0,028, MSE unter der Phasen-Baseline. Die Aktionssensitivität (D1b) verfehlt die Schwelle 0,01, daher Wechsel zu Protokoll v3. Vergleich mit N2-2 in figures/b-4. Testfamilien geschlossen.",
+      "checkpointInfo": "Exakte Fortsetzung mit Critic, AdamW, RNG, Sampler und Updatezähler in critics/parent_p.resume.pt. Eingefrorene Endgewichte mit SHA-256 in parent_p.json.",
+      "artifacts": [
+        {
+          "name": "three-cube-critic-validation-v2-summary.json",
+          "file": "summary.json",
+          "kind": "document",
+          "label": "Validierungsentscheidung und Kennzahlen je Parent und Panel"
+        }
+      ]
+    },
+    {
+      "id": "three-cube-transfer-v1-critic-data-noisy",
+      "category": "robot",
+      "method": "il",
+      "kind": "evaluation",
+      "title": "Dreierturm · N2-1b Critic-Daten mit Explorationsrauschen",
+      "directory": "praxis/results/critic/three_cube_transfer_v1/critic_data_noisy_n2_1b",
+      "config": "config.json",
+      "results": "summary.json",
+      "description": "Abgeschlossen nach PROTOCOL_V2.md §E. 900/900 geprüfte Simulationsepisoden auf 300 gemeinsamen Familien mit drei eingefrorenen A-Parents. 382 Erfolge und 518 Fehlschläge am Horizont. Gaußrauschen σ = 0,05 auf XYZ, begrenzt auf δ_max = 0,20, Greifer ohne Rauschen. 0 Grenzverletzungen und 0 Optimizerupdates. Testfamilien geschlossen.",
+      "checkpointInfo": "Drei feste A-Endpunkte des A/B/C-Vergleichs nach je 30.000 Updates.",
+      "artifacts": [
+        {
+          "name": "three-cube-critic-data-noisy-summary.json",
+          "file": "summary.json",
+          "kind": "document",
+          "label": "Erfolgs-/Fehlerzahlen, Rauschstatistik, Phasenabdeckung und Datensatz-SHA-256"
+        }
+      ]
+    },
+    {
+      "id": "three-cube-transfer-v1-ac-smoke",
+      "category": "robot",
+      "method": "rl",
+      "kind": "training",
+      "title": "Dreierturm · N2-3 technischer Actor-Critic-Smoke",
+      "directory": "praxis/results/critic/three_cube_transfer_v1/ac_smoke_n2_3",
+      "config": "config.json",
+      "results": "summary.json",
+      "description": "Technischer Smoke nach PROTOCOL.md §7, ohne Wirksamkeitsaussage. Bindungsstufen δ_max 0,05 → 0,10 → 0,20, je Stufe AC-neu und AC-IL mit allen drei A-Parents: 2 × 10 Episoden auf smoke_interaction, 500 Critic- und 250 Actorupdates je Lauf, danach Prüfung auf constraint_development gegen den unveränderten Parent. Testfamilien geschlossen.",
+      "checkpointInfo": "Je Lauf Endzustand (Actor, Critic, Zielnetze, Optimizer, RNG) in runs/<lauf>/checkpoint.pt mit SHA-256 in result.json.",
+      "artifacts": [
+        {
+          "name": "three-cube-ac-smoke-summary.json",
+          "file": "summary.json",
+          "kind": "document",
+          "label": "Stufenbewertung, Drift- und Erfolgsverlauf, Update- und Rolloutzeiten"
+        }
+      ]
+    },
+    {
+      "id": "three-cube-transfer-v1-critic-validation",
+      "category": "robot",
+      "method": "il",
+      "kind": "training",
+      "title": "Dreierturm · N2-2 Critic-Vortraining und -Validierung",
+      "directory": "praxis/results/critic/three_cube_transfer_v1/critic_validation_n2_2",
+      "config": "config.json",
+      "results": "summary.json",
+      "description": "Je A-Parent ein Critic, 20.000 Vortrainingsupdates auf den eigenen 300 Critic-Datenepisoden. Danach 450 A-Rollouts auf validation_normal (100) und validation_hard (50) und Prüfung nach PROTOCOL.md §6. Testfamilien geschlossen.",
+      "checkpointInfo": "Drei eingefrorene Critics (critics/parent_p.pt, SHA-256 in parent_p.json); A-Parents unverändert nach 30.000 Updates.",
+      "artifacts": [
+        {
+          "name": "three-cube-critic-validation-summary.json",
+          "file": "summary.json",
+          "kind": "document",
+          "label": "Critic-Kennzahlen je Parent und Panel, BC-Erfolge und Hashes"
+        }
+      ]
+    },
+    {
+      "id": "three-cube-transfer-v1-critic-data",
+      "category": "robot",
+      "method": "il",
+      "kind": "evaluation",
+      "title": "Dreierturm · N2-1 Critic-Daten",
+      "directory": "praxis/results/critic/three_cube_transfer_v1/critic_data_n2_1",
+      "config": "config.json",
+      "results": "summary.json",
+      "description": "300 Critic-Datenfamilien mit je drei eingefrorenen A-Parents. 900 geplante Simulationsepisoden mit Übergängen nach Datenvertrag, 0 Optimizerupdates.",
+      "checkpointInfo": "Drei feste A-Endpunkte des A/B/C-Vergleichs nach je 30.000 Updates.",
+      "artifacts": [
+        {
+          "name": "three-cube-critic-data-summary.json",
+          "file": "summary.json",
+          "kind": "document",
+          "label": "Erfolgs-/Fehlerzahlen, Phasenabdeckung und Datensatz-SHA-256"
+        }
+      ]
+    },
+    {
+      "id": "three-cube-transfer-v1-calibration",
+      "category": "robot",
+      "method": "il",
+      "kind": "evaluation",
+      "title": "Dreierturm · N1-4 Kalibrierung",
+      "directory": "praxis/results/critic/three_cube_transfer_v1/calibration_n1_4",
+      "config": "config.json",
+      "results": "summary.json",
+      "description": "100 Kalibrierungsfamilien mit je drei eingefrorenen A-Parents. 300 geplante Simulationsepisoden, 0 Optimizerupdates.",
+      "checkpointInfo": "Drei feste A-Endpunkte des A/B/C-Vergleichs nach je 30.000 Updates.",
+      "artifacts": [
+        {
+          "name": "three-cube-calibration-summary.json",
+          "file": "summary.json",
+          "kind": "document",
+          "label": "Erfolgszahlen und Episoden pro Stunde"
+        }
+      ]
+    },
+    {
       "id": "vision-side-v4-pilot-001",
       "category": "vision",
       "method": "supervised",

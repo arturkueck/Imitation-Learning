@@ -1,0 +1,66 @@
+{
+  "version": "difficulty_v1",
+  "metric": "transport_total_xy_m",
+  "unit": "m",
+  "calibration": {
+    "families": 100,
+    "episodes": 300,
+    "raw_sha256": "c8888112bac1b9ce403bd4070aeaca38c878ab61bc5f9ebef9a7a1838bdcf573",
+    "config_sha256": "1760d117011de4c7fad177847974ddd2c5a007d7375f2799af69636eca5aa7bf",
+    "method": "Sortieren und nach Rang ceil(n/3) bzw. ceil(2n/3) teilen; Mittelwerte der jeweils angrenzenden Messwerte als Grenzen.",
+    "adjacent_values_m": [
+      [
+        0.25097381585060935,
+        0.25936795014425384
+      ],
+      [
+        0.3236088586268152,
+        0.3287844060575098
+      ]
+    ],
+    "class_counts": {
+      "leicht": {
+        "families": 34,
+        "episodes": 102,
+        "successes": 34,
+        "successes_by_parent": {
+          "1": 13,
+          "2": 9,
+          "3": 12
+        }
+      },
+      "mittel": {
+        "families": 33,
+        "episodes": 99,
+        "successes": 41,
+        "successes_by_parent": {
+          "1": 15,
+          "2": 13,
+          "3": 13
+        }
+      },
+      "schwer": {
+        "families": 33,
+        "episodes": 99,
+        "successes": 28,
+        "successes_by_parent": {
+          "1": 12,
+          "2": 8,
+          "3": 8
+        }
+      }
+    }
+  },
+  "source_sha256": {
+    "splits.json": "63785babcf6aad47dd990af29f12ab0b99f8ebcdb10370e606a678c3746fef61",
+    "difficulty.py": "a7075a7ca7c9563dec881c28c174a5340b1cea8f92d5927469f08e64ae7b825e",
+    "freeze_difficulty.py": "62d48bac714818a945a34970fb209abf5ecb04127ff2388ac54ffa7c564cb251"
+  },
+  "lower_m": 0.2551708829974316,
+  "upper_m": 0.3261966323421625,
+  "class_intervals": {
+    "leicht": "x < lower_m",
+    "mittel": "lower_m <= x < upper_m",
+    "schwer": "upper_m <= x"
+  }
+}
