@@ -21,7 +21,7 @@ Critic-Vortraining, Validierung und Prüfung von Aktionen bzw. Segmenten.
 
 - B-3 ist abgeschlossen. Ein Werkzeug für N4-2 bestimmt die Seedzahl des Hauptvergleichs aus dem kleinsten relevanten Effekt von 10 Prozentpunkten, der Streuung und dem Budget. Wegen der wenigen Pilotseeds plant es mit der oberen Grenze der Pilotstreuung, mindestens aber mit der Szenenstreuung. Es empfiehlt nie weniger als vier Seeds. Reicht das Budget nicht, reduziert es die Zahl nicht still, sondern verlangt eine Nutzerentscheidung. Geprüft mit 61 Tests auf Beispielwerten, ohne Pilotdaten. [Seedzahl-Werkzeug](three_cube_transfer_v1/SEED_COUNT.md)
 
-Die Morgenübergabe am 19.11.2026 um 14:45 Uhr bestätigte den Abschluss des letzten Laufs und die Gesamtpause bis zur Nutzerentscheidung nach Protokoll §7. [Übergabe](three_cube_transfer_v1/nights/NACHT_1_20261118.md#übergabe)
+Die Morgenübergabe am 20.11.2026 um 07:30 Uhr bestätigte den Abschluss der Nachtläufe N2-1b und N2-2b sowie die Gesamtpause nach D1b bis zur Nutzerentscheidung gemäß Protokoll v2 §A. [Übergabe](three_cube_transfer_v1/nights/NACHT_2_20261119.md#übergabe)
 
 Datierte Ordner sind getrennte Versuchsfamilien. Die jeweiligen READMEs verweisen auf Protokolle, Ergebnisse und bekannte Grenzen.
 
