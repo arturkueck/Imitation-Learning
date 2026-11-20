@@ -11,6 +11,8 @@ Critic-Vortraining, Validierung und Prüfung von Aktionen bzw. Segmenten.
 
 - D1a ist abgeschlossen. Auf 1.344 festen Driftframes je Bindungsstufe war der Median der Streuung der Aktionsvorteile beim N2-2-Critic 4,83- bis 5,13-mal so hoch wie bei der Zufallsinitialisierung und betrug absolut höchstens 0,000677. D1b bewertet anschließend den neuen Critic IL-v2. [Aktionssensitivität](three_cube_transfer_v1/ACTION_SENSITIVITY.md)
 
+- N2-2b läuft seit dem 20.11.2026 um 01:08 Uhr. Je Critic werden 600 Episoden desselben Parents zum Vortraining verwendet. Die Entscheidung nach §6 folgt auf 450 gespeicherten N2-2-Validierungsrollouts. [Laufstatus und Monitor](three_cube_transfer_v1/CRITIC_VALIDATION_V2.md)
+
 - B-1 ist abgeschlossen. Die Pilotauswertung nach Protokoll §10 ist vor jeglichen Pilotdaten als Skript eingefroren und per SHA-256 dokumentiert. Das Skript wurde mit 27 Tests auf synthetischen Daten geprüft und weist Testfamilien ab. [Eingefrorene Pilotauswertung](three_cube_transfer_v1/PILOT_ANALYSIS.md)
 
 - B-2 ist abgeschlossen. Ausgewertet wurden nur bereits erhobene Daten der A-Parents. Die meisten Fehlschläge entstehen nach erreichter zweiter Platzierung, in N1-4 146 von 197 und in N2-1 424 von 575. Die Parents verharren dann bis zum Horizont in einer Phase, am häufigsten beim Lösen des dritten Würfels (231 von 575). Dort ruht der Parent fast vollständig. Die relative Bindung lässt deshalb bei 138 von 231 Fällen die nötige horizontale Korrektur auf keiner Stufe δ_max zu. Das ist eine berichtende Analyse in idealisierter Kinematik ohne Wirksamkeitsaussage. [Fehlerphasen](three_cube_transfer_v1/FAILURE_PHASES.md)

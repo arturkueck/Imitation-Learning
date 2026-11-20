@@ -2,6 +2,26 @@
   "schemaVersion": 1,
   "runs": [
     {
+      "id": "three-cube-transfer-v1-critic-validation-v2",
+      "category": "robot",
+      "method": "il",
+      "kind": "training",
+      "title": "Dreierturm · N2-2b Critic IL-v2",
+      "directory": "praxis/results/critic/three_cube_transfer_v1/critic_validation_n2_2b",
+      "config": "config.json",
+      "results": "summary.json",
+      "description": "Je A-Parent 20.000 Critic-Updates auf 300 Episoden mit Parentaktionen und 300 Episoden mit Explorationsrauschen. Prüfung nach §6 auf 450 gespeicherten N2-2-Validierungsrollouts. Testfamilien geschlossen.",
+      "checkpointInfo": "Exakte Fortsetzung mit Critic, AdamW, RNG, Sampler und Updatezähler in critics/parent_p.resume.pt. Eingefrorene Endgewichte mit SHA-256 in parent_p.json.",
+      "artifacts": [
+        {
+          "name": "three-cube-critic-validation-v2-summary.json",
+          "file": "summary.json",
+          "kind": "document",
+          "label": "Validierungsentscheidung und Kennzahlen je Parent und Panel"
+        }
+      ]
+    },
+    {
       "id": "three-cube-transfer-v1-critic-data-noisy",
       "category": "robot",
       "method": "il",
