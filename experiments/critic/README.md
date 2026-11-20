@@ -28,6 +28,8 @@ Die Morgenübergabe am 20.11.2026 um 07:30 Uhr bestätigte den Abschluss der Nac
 
 - B-4 ist abgeschlossen. Vier Abbildungen stellen die Critics N2-2 und IL-v2 aus bereits verifizierten Werten nebeneinander. IL-v2 sagt den Erfolg aus Zuständen etwas besser voraus, mit höherer AUC und kleinerer ECE bei allen drei Parents. Die Intervalle überlappen aber meist. Auf Aktionen reagiert IL-v2 nicht stärker als N2-2. Beide bleiben weit unter der Schwelle aus D1b. Das stützt den Wechsel zu Protokoll v3, das den Critic nur zur Auswahl ganzer Abschnitte nutzt. Ein Vergleich der Smoke-Läufe entfällt, weil Smoke v2 nie lief. [Abbildungen Critic-Vergleich](three_cube_transfer_v1/figures/b-4/README.md)
 
+Die Tagesübergabe am 20.11.2026 hat den Abschluss aller registrierten Dreierturm-Läufe bestätigt. S-2 bleibt der nächste offene Schritt. [Nachtbericht](three_cube_transfer_v1/nights/NACHT_2_20261119.md#übergabe)
+
 Datierte Ordner sind getrennte Versuchsfamilien. Die jeweiligen READMEs verweisen auf Protokolle, Ergebnisse und bekannte Grenzen.
 
 [Alle Themen](../README.md).
