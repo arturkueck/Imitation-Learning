@@ -24,3 +24,20 @@ Aus dem Repository-Stamm:
 ```
 
 Für einen geordneten Halt erzwingt die Datei `STOP` im Laufordner eine Unterbrechung am nächsten Prüfschritt. Die letzte veröffentlichte Episodenzeile je Parent legt den Zufallszustand fest. Eine unterbrochene Episode wird ab ihrem Anfang mit demselben Szenenseed und Zufallszustand ausgeführt. Nach `PAUSED` und bestätigtem Prozessende kann der Supervisor im nächsten autorisierten Zeitfenster mit `start resume --cutoff <Zeit> --deadline <Zeit>` fortsetzen, sobald die STOP-Datei entfernt ist. Der Worker prüft Quell- und Eingabeprovenienz sowie die bisherige Episodenfolge und deren Zufallsströme vor der Fortsetzung.
+
+## Ergebnis und Abschlussprüfung am 20.11.2026
+
+Der Lauf endete vor dem Cutoff ohne Unterbrechung. Um 12:42 Uhr meldete der Monitor `COMPLETE`. Supervisor 23508 und Worker 24348 waren beendet, der Worker mit Exitcode 0. Es gab 0 Fehlerzeilen, 0 Unterbrechungen und 0 Optimizerupdates.
+
+| Parent | Episoden | Erfolge | Fehlschläge (Horizont) | Simulatorinstabilität | Frames |
+|---|---|---|---|---|---|
+| 1 | 400 | 175 | 225 | 0 | 284.478 |
+| 2 | 400 | 133 | 267 | 0 | 312.060 |
+| 3 | 400 | 148 | 252 | 0 | 302.508 |
+| gesamt | 1.200 | 456 | 744 | 0 | 899.046 |
+
+Alle 1.200 Episoden liegen auf denselben 400 Familien aus `online_interaction`. Alle 899.046 Frames tragen einen IL-v2-Wert, es gab 0 Grenzverletzungen. Die Workerlaufzeit betrug 4.233 s, das sind 1.021 Episoden/h. Die Zahlen beschreiben den Datenpool. Sie sind keine Wirksamkeitsaussage, weil die Parents unverändert sind und das Explorationsrauschen wirkt.
+
+**Manifest und Hashes.** `summary.json` hat SHA-256 `1a5a19dbc0beed4ff5dd31259be8e6c27b46acecd78cfb3c237bc9abf8780c77`. Datensatz `dataset_sha256` = `c83c8eb3634b1996d335ed72435665059a7b5f7b064978843e7caeec032c6aab` (verkettete `arrays_sha256` in Episodenreihenfolge), Zeilen `6fa84120…c1d4`, Konfiguration `059da7ee…d40c` wie beim Start.
+
+**Prüfung.** Der Monitor rechnete beim ersten `COMPLETE` mit `verify()` gegen die Rohdaten nach. Danach lief `self_imitation_pool.py verify` erneut fehlerfrei. Es prüft alle 1.200 NPZ-Hashes, Datenvertrag, Phasenabschnitte und Zufallsströme je Parent, außerdem Quellhashes, 400 Familien und die vollständige Neuberechnung von `summary.json`. Die 25 Vertragstests (`test_self_imitation_pool.py`, `test_critic_data_noisy.py`, `test_critic_data.py`) bestanden erneut. Testfamilien blieben geschlossen. Der Pool ist die Eingabe für S-2.
